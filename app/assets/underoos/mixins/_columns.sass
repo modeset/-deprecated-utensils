@@ -15,6 +15,8 @@
 // Warnings:
 // - **Warning!** The column mixins all utilize `box-sizing: border-box` which is not supported in ie7
 
+$add-mixin-helpers: true !default
+
 @mixin base-column
   +box-sizing(border-box)
   display: block
@@ -29,4 +31,12 @@
   +box-sizing(border-box)
   +clearfixer
   display: block
+
+@if $add-mixin-helpers == true
+  .base-column
+    +base-column
+  .base-column-right
+    +base-column-right
+  .base-row
+    +base-row
 

@@ -13,10 +13,25 @@
 //      width: 24px
 //      height: 24px
 
+$add-mixin-helpers: true !default
+$legacy-support-for-ie: true !default
+
 @mixin ir
   background-color: transparent
   border: 0
   color: transparent
   font: 0/0 a
   text-shadow: none
+  overflow: hidden
+  @if $legacy-support-for-ie
+    *text-indent: -9999px
+  &:before
+    content: ""
+    display: block
+    width: 0
+    height: 100%
+
+@if $add-mixin-helpers == true
+  .ir
+    +ir
 

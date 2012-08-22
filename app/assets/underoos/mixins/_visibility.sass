@@ -16,6 +16,9 @@
 // Warnings:
 // - **Warning!** When using `visuallyhidden` and `visuallyshown` with `box-shadow`, you'll need to add `clip:initial` to get the shadows to reappear
 
+$add-mixin-helpers: true !default
+$legacy-support-for-ie: true !default
+
 @mixin hidden
   display: none !important
   visibility: hidden
@@ -53,4 +56,17 @@
 
 @mixin invisible
   visibility: hidden
+
+// Add helper classes
+@if $add-mixin-helpers == true
+  .hidden
+    +hidden
+  .shown
+    +shown
+  .visuallyhidden
+    +visuallyhidden
+  .visuallyshown
+    +visuallyshown
+  .invisible
+    +invisible
 
