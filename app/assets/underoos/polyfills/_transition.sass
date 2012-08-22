@@ -1,0 +1,19 @@
+
+//~
+// Adds vendor prefixes for transitions (supports up to 9 transition parameters)
+//
+// Arguments:
+// - `$transition-n` The transition values to apply.
+//
+// Examples:
+//    .element
+//      +transition(height $speed $ease-in-out-quart, color $speed)
+
+@mixin transition($transition-1:all 0.25s, $transition-2:false, $transition-3:false, $transition-4:false, $transition-5:false, $transition-6:false, $transition-7:false, $transition-8:false, $transition-9:false)
+  $full: combine($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9)
+  -webkit-transition: $full
+  -moz-transition: $full
+  -ms-transition: $full
+  -o-transition: $full
+  transition: $full
+

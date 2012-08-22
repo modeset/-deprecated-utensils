@@ -1,0 +1,16 @@
+
+//~
+// Mixins for creating responsive behavior around structures and layouts.
+//
+// Mixin                 | Parameters    | Usage
+// --------------------- | ------------- | ---------------------
+// `+resize_containers`  | `$base_value` | Resize any containers based on the media query
+
+@mixin resize_containers($base_value)
+  .container
+    max-width: $base_value * 1px
+    &.fluid, &.fixed
+      max-width: none
+    &.fixed
+      width: $base_value * 1px
+

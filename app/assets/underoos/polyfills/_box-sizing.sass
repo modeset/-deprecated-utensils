@@ -1,0 +1,17 @@
+
+//~
+// Changes the box model used for calculating an elements width and height
+//
+// Arguments:
+// - `$type:border-box` Options: `content-box | border-box | inherit`
+//
+// Examples:
+//    .column
+//      +box-sizing(border-box)
+
+@mixin box-sizing ($type:border-box)
+  $box: unquote($type)
+  -webkit-box-sizing: $box
+  -moz-box-sizing: $box
+  box-sizing: $box
+

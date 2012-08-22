@@ -1,0 +1,89 @@
+
+// Top level elements
+html
+  font-size: 100%
+  overflow-y: scroll
+  -webkit-tap-highlight-color: rgba(0,0,0,0)
+  -webkit-font-smoothing: antialiased
+  -webkit-text-size-adjust: 100%
+  -ms-text-size-adjust: 100%
+
+html, button, input, select, textarea
+  color: $body_color
+  font-family: $sans_norm
+
+body
+  +font-size($base_font_size)
+  background: $body_bg
+  line-height: $base_line_height
+
+@mixin text-selection
+  background: $select_bg
+  color: $select_color
+  text-shadow: none
+
+\::-moz-selection
+  +text-selection
+
+\::selection
+  +text-selection
+
+// Links
+a, a:visited
+  color: $link_normal
+  text-decoration: none
+
+a:focus
+  outline: thin dotted
+
+a:hover, a:active
+  outline: 0
+  text-decoration: none
+
+a:hover
+  color: $link_hover
+
+a:active, a.active, .active > a
+  color: $link_hover
+
+a:link
+  -webkit-tap-highlight-color: $tap_highlight
+
+// Base navigation
+.nav
+  +clearfixer
+  list-style: none
+
+.nav > li
+  margin-left: 0
+
+.nav > li > a
+  display: block
+
+.nav.inline > li
+  float: left
+
+.nav.inline > li > a
+  padding-left: 0.5em
+  padding-right: 0.5em
+
+// Active states for navs get a default cursor
+.nav > .active > a,
+.nav > .active > a:hover
+  cursor: default
+.nav > .dropdown.active > a:hover
+  cursor: pointer
+
+// Headers within a Nav
+// .nav .nav-header
+  // display: block
+  // color: $component_normal
+  // font-size: 0.75em
+  // font-weight: bold
+  // text-transform: uppercase
+  // text-shadow: $text_drop_lite
+  // padding: 0.4em 1em
+
+// .nav li + .nav-header
+  // margin-top: 1em
+

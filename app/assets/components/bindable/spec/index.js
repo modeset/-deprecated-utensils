@@ -1,0 +1,1 @@
+//= require ./bindable_spec

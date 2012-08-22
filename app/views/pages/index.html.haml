@@ -1,0 +1,33 @@
+
+:css
+  .box {
+    width: 50px;
+    height: 50px;
+    background-color: blue;
+    margin-bottom: 10px;
+    border: 1px solid transparent;
+  }
+  .box.active {
+    background-color: green;
+  }
+  .box.in {
+    background-color: red;
+  }
+  .box.bordered {
+    border-color: black;
+  }
+  .nav > li > a {
+    color: magenta;
+  }
+  .nav > .active > a {
+    color: green;
+  }
+
+
+%h1 Hello
+
+%a(data-bindable="tooltip" title="The Tooltip" href="#") Top
+
+.box(data-bindable="toggler" data-event="hover")
+.box(data-bindable="toggler" data-toggle="in bordered")
+

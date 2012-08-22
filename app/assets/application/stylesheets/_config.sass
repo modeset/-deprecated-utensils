@@ -1,0 +1,128 @@
+
+// Configuration
+$add-mixin-helpers: true
+
+$legacy-support-for-ie: true
+$legacy-support-for-ie8: $legacy-support-for-ie
+$support-for-original-webkit-gradients: true
+$experimental-support-for-mozilla: true
+$experimental-support-for-opera: true
+$experimental-support-for-microsoft: true
+
+// Base Sizing
+$context_px: 16
+$base_font_size: 14
+$base_width: 1000
+$base_line_height: 1.2
+$base_vertical: $base_font_size * $base_line_height
+
+// Fonts
+$sans_norm: "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif
+$serif_norm: "Georgia", "Times", "Times New Roman", serif
+$code_norm: "Bitstream Vera Sans Mono", "Menslo LG M", "Menlo", "Monaco", monospace
+
+// greyscale
+$black: #000
+$grey1: #111
+$grey2: #222
+$grey3: #333
+$grey4: #444
+$grey5: #555
+$grey6: #666
+$grey7: #777
+$grey8: #888
+$grey9: #999
+$greyA: #aaa
+$greyB: #bbb
+$greyC: #ccc
+$greyD: #ddd
+$greyE: #eee
+$white: #fff
+$off_white: #fafafa
+$off_grey: #eaeaea
+
+// mc roy g biv
+$magenta: #ff00ff
+$cyan: #00ffff
+$red: #b22222
+$orange: #f26522
+$yellow: #ffc40d
+$green: #46a546
+$blue: #268bd2
+$indigo: #4b0082
+$violet: #ee82ee
+
+// status
+$standard: #f5f5f5
+$info: $grey9
+$important: $blue
+$success: $green
+$warning: $yellow
+$error: $red
+$danger: $red
+
+// ci
+$primary: $blue
+
+// misc colors
+$disabled_color: $greyB
+$disabled_bg: $greyE
+$disabled_border: $greyD
+$focus_color: #52a8ec
+$focus_border: rgba($focus_color, 0.8)
+
+// component
+$component_normal: $grey6
+$component_active: $white
+$component_bg: transparent
+$component_bg_hover: $greyE
+$component_bg_active: $primary
+$component_border: $greyC
+$component_border_alt: darken($component_border, 10%)
+
+// Shadows
+$text_inset_dark: 0 -1px 0 rgba($black, 0.25)
+$text_inset_lite: 0 -1px 0 rgba($white, 0.75)
+$text_drop_dark: 0 1px 0 rgba($black, 0.25)
+$text_drop_lite: 0 1px 0 rgba($white, 0.75)
+
+$inset_dark: inset 0 1px 4px rgba($black, 0.3)
+$inset_lite: inset 0 1px 4px rgba($white, 0.7)
+$drop_dark: 0 1px 4px rgba($black, 0.3)
+$drop_lite: 0 1px 4px rgba($white, 0.7)
+
+$focus_inset: inset 0 1px 3px rgba($black, 0.1)
+$focus_glow: 0 0 8px rgba($focus_color, 0.6)
+$error_glow: 0 0 8px rgba($red, 0.6)
+
+// Misc
+$radii: 0.4em
+$speed: 0.25s
+
+// z-indexing
+$zindex_dropdown: 1000
+$zindex_tips: 1010
+$zindex_navbar: 1020
+$zindex_modal_backdrop: 1030
+$zindex_modal: 1040
+$zindex_flash_message: 1050
+
+// base.sass
+$body_bg: $white
+$body_color: $grey3
+$select_bg: $primary
+$select_color: $white
+$tap_highlight: $primary
+$link_normal: $primary
+$link_hover: darken($link_normal, 20%)
+
+// typography.sass
+$header_color: $grey3
+$hr_color: $grey6
+
+// forms.sass
+$placeholder: $greyC
+$horiz_offset: 100px
+$input_inset_shadow: inset 0 1px 1px rgba($black, 0.1)
+
+

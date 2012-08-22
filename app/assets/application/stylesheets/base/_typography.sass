@@ -1,0 +1,135 @@
+
+// Heading Styles
+h1, h2, h3, h4, h5, h6
+  color: $header_color
+  line-height: 1
+  margin-bottom: 0.1em
+
+h1
+  +font-size(36)
+
+h2
+  +font-size(30)
+
+h3
+  +font-size(24)
+
+h4
+  +font-size(20)
+
+h5
+  +font-size(18)
+
+h6
+  +font-size(18)
+  font-style: italic
+
+// Paragraph Styles
+p
+  font-style: normal
+p a:hover
+  text-decoration: underline
+
+small
+  font-size: 85%
+
+b, strong
+  font-weight: bold
+
+sub, sup
+  font-size: 75%
+  line-height: 0
+  position: relative
+  vertical-align: baseline
+
+sup
+  top: -0.5em
+
+sub
+  bottom: -0.25em
+
+address
+  font-style: normal
+
+abbr, dfn
+  border-bottom: 1px dotted
+  cursor: help
+  font-size: 90%
+  font-style: normal
+  text-transform: uppercase
+
+// Blockquotes
+blockquote
+  font-family: $serif_norm
+  margin: 1em
+  padding: 0 10%
+
+blockquote p
+  +font-size(16)
+  font-style: italic
+
+blockquote small
+  display: block
+  margin-top: 0.75em
+  &:before
+    content: '\2014 \00A0'
+
+blockquote cite
+  border-bottom: 1px dotted
+  cursor: help
+  font-style: normal
+
+q:before, q:after,
+blockquote:before,
+blockquote:after
+  content: ""
+
+
+// Misc
+hr
+  display: block
+  height: 1px
+  border: 0
+  border-top: 1px solid $hr_color
+  margin: 1em 0
+  &.dotted
+    border-top-style: dotted
+  &.dashed
+    border-top-style: dashed
+
+mark
+  background: $yellow
+  padding: 0 0.3em
+
+// Code
+pre, code, kbd, samp
+  font-family: $code_norm
+
+code, kbd, samp
+  background: $off_white
+  border: 1px solid lighten($component_border, 10%)
+  font-size: 85%
+  padding: 0 0.3em
+
+code
+  color: $red
+
+pre
+  background: $off_white
+  border: 1px solid $component_border
+  margin: 1em 0
+  padding: 0.75em
+  font-size: 85%
+  text-shadow: 0 1px 0 $white
+  white-space: pre
+  white-space: pre-wrap
+  word-wrap: break-word
+  overflow: hidden
+
+pre code
+  color: $body_color
+  background: transparent
+  border: 0
+  font-size: 100%
+  padding: 0
+

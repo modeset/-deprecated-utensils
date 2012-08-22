@@ -1,0 +1,52 @@
+
+//~ Sticky footer
+// Mixins for sticking and unsticking a footer to the bottom of a page.
+//
+// Mixin              | Parameters       | Usage
+// ------------------ | ---------------- | ---------------------
+// `+sticky_footer`   | `$footer-height` | Creates a sticky footer based off a fixed height on the footer element
+// `+unsticky_footer` | _none_           | Reverses the effect of the sticky_footer mixin, useful in media queries
+//
+// Requires the markup to contain a `.main`, `.content` and `.footer` elements.
+//
+// Examples:
+//    <body role="document">
+//      <section class="main">
+//        <section class="content">
+//          <section class="container" role="main">
+//          </section>
+//        </section>
+//      </section>
+//      <footer class="footer">
+//      </footer>
+//    </body>
+
+// Sticky Footer
+@mixin sticky_footer($footer-height)
+  html, body
+    height: 100%
+  .main
+    min-height: 100%
+    overflow-x: hidden
+    width: 100%
+  .content
+    padding-bottom: $footer-height
+  .footer
+    clear: both
+    position: relative
+    margin-top: $footer-height * -1
+    height: $footer-height
+    overflow: visible
+
+// Unstick the footer
+@mixin unsticky_footer()
+  html, body
+    height: auto
+  .main
+    min-height: none
+  .content
+    padding-bottom: 0
+  .footer
+    margin-top: 1em
+    height: auto
+

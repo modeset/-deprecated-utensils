@@ -1,0 +1,30 @@
+
+//~
+// Transitions are helper classes added and removed via JavaScript.
+//
+// Class                  | Usage
+// ---------------------- | -----------------------------------------------------------
+// `.fade`                | Transitions an element to an `opacity` of `0`
+// `.fade.in`             | Transitions an element to an `opacity` of `1`
+// `.collapse`            | Transitions an element to a `height` of `0`
+// `.collapse.in`         | Transitions an element to a `height` of `auto`
+// `.hardware-accelerate` | Adds hardware acceleration to an element
+
+.fade
+  +transition(opacity $speed)
+  +opacity(0)
+  &.in
+    +opacity(1)
+
+.collapse
+  +transition(height $speed $ease-in-out-quart)
+  position: relative
+  overflow: hidden
+  height: 0
+  &.in
+    height: auto
+
+.hardware-accelerate
+  -webkit-transform: translate3d(0,0,0)
+  -webkit-backface-visibility: hidden
+

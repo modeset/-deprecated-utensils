@@ -1,0 +1,15 @@
+
+//~
+// Provides cross browser opacity, values are between `0-1`.
+//
+// Arguments:
+// - `$alpha:1`
+//
+// Examples:
+//    .tooltip
+//      +opacity(0.5)
+
+@mixin opacity($alpha:1)
+  filter: unquote("progid:DXImageTransform.Microsoft.Alpha(Opacity=#{round($alpha * 100)})")
+  opacity: $alpha
+

@@ -1,0 +1,21 @@
+
+//~ Inline block
+// Mirrors the functionality found in [Compass](http://compass-style.org/reference/compass/css3/inline_block/)
+// and normalizes `inline-block` for [Bourbon](http://thoughtbot.com/bourbon/) by setting `vertical-align: middle`.
+//
+// The mixin also fixes support for ie7 if `$legacy-support-for-ie` is set to true.
+//
+// Examples:
+//    .breadcrumb > li
+//      +inline-block
+//      color: blue
+
+@mixin inline-block
+  display: inline-block
+  vertical-align: middle
+
+  @if $legacy-support-for-ie
+    zoom: 1
+    *display: inline
+    *vertical-align: auto
+

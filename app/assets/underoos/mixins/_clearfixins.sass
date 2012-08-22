@@ -1,0 +1,38 @@
+
+//~
+// Clearfixins force a containers height to adjust when it contains floated children elements.
+//
+// There are two mixins available for fixing floats
+//
+// - `+clearfixer` The [micro clearfix](http://nicolasgallagher.com/micro-clearfix-hack/) utilizing pseudo elements to clear floats
+// - `+clearfix` Uses `overflow: hidden` to clear floats
+//
+// Generally, the micro clearfix (`+clearfixer`) is prefered and mixed into the parent container of floated items.
+//
+// Notes:
+// - **Pro Tip!** There are helper classes for `.clearfixer` and `.clearfix` which can be inserted
+//   into the DOM or used with `@extend`, it's prefered to mixin this into an element
+
+$add-mixin-helpers: true !default
+$legacy-support-for-ie: true !default
+
+@mixin clearfixer
+  @if $legacy-support-for-ie
+    *zoom: 1
+  &:before, &:after
+    content: ""
+    display: table
+  &:after
+    clear: both
+
+@mixin clearfix
+  overflow: hidden
+  @if $legacy-support-for-ie
+    *zoom: 1
+
+@if $add-mixin-helpers == true
+  .clearfixer
+    +clearfixer
+  .clearfix
+    +clearfix
+

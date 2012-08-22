@@ -1,0 +1,56 @@
+
+//~
+// Controls various visibility settings applied to elements.
+//
+// Mixin            | Params  | Usage
+// ---------------- | ------- | ----------------------------------------------
+// `+hidden`        | _none_  | Totally hidden from screen readers and browsers
+// `+shown`         | _none_  | Reverse the effects of `hidden`
+// `+visuallyhidden`| _none_  | Only visually hidden, still available to screen readers
+// `+visuallyshown` | _none_  | Reverse the settings applied by `.visuallyhidden`
+// `+invisible`     | _none_  | Hide visually and from screenreaders, but maintain layout
+//
+// Notes:
+// - **Pro Tip!** All of these mixins are available as helper classes for use with `@extend`
+//
+// Warnings:
+// - **Warning!** When using `visuallyhidden` and `visuallyshown` with `box-shadow`, you'll need to add `clip:initial` to get the shadows to reappear
+
+@mixin hidden
+  display: none !important
+  visibility: hidden
+
+@mixin shown
+  display: block
+  visibility: visible
+
+@mixin visuallyhidden
+  border: 0
+  clip: rect(0 0 0 0)
+  position: absolute
+  overflow: hidden
+  margin: -1px
+  padding: 0
+  width: 1px
+  height: 1px
+  &.focusable:active,
+  &.focusable:focus
+    clip: auto
+    position: static
+    overflow: visible
+    margin: 0
+    width: auto
+    height: auto
+
+@mixin visuallyshown
+  clip: auto
+  clip: rect(auto auto auto auto)
+  position: static
+  overflow: visible
+  margin: 0
+  width: auto
+  height: auto
+
+@mixin invisible
+  visibility: hidden
+
