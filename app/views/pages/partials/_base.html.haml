@@ -1,0 +1,254 @@
+
+:markdown
+  ## Normalize
+
+  Normalize and reset base elements to allow browsers to render all controls
+  more consistently and in line with modern standards.
+
+  Normalization and resets based on
+
+  - [normalize.css](http://necolas.github.com/normalize.css/)
+  - [HTML5 Boilerplate](http://html5boilerplate.com/)
+
+
+  ## Scaffold
+  Setup main scaffolding elements for `html`, `body`, selections, generic links and navigation.
+  Scaffolding includes font sizes, families, colors, backgrounds and line heights.
+
+
+  ### Base navs
+  The base nav is the building block for navigation structures and components
+  (tabs, pills, breadcrumbs, pagination and navigation lists). The `.nav` class
+  can be used for simple navigation as well. The buttons below will change the
+  class on the `ul` element to showcase the different navigation systems
+  based off the same markup structure.
+
+  Warnings:
+  - **Heads Up!** All navigation components depend on the `.nav` class being attached to the container element
+
+  Notes:
+  - **Pro Tip!** For convenience, add the `inline` class to the `.nav` element to display the base nav inline
+
+  Usage:
+
+  <nav>
+    <ul class="nav inline" id="underoos_nav_demo">
+      <li>
+        <a data-classes="nav" href="#">Base Nav</a>
+      </li>
+      <li class="active">
+        <a data-classes="nav inline" href="#">Base Nav Inline</a>
+      </li>
+      <li>
+        <a data-classes="nav tabs" href="#">Tabs</a>
+      </li>
+      <li>
+        <a data-classes="nav pills" href="#">Pills</a>
+      </li>
+      <li>
+        <a data-classes="nav breadcrumb" href="#">Breadcrumbs</a>
+      </li>
+      <li>
+        <a data-classes="nav pagination" href="#">Pagination</a>
+      </li>
+      <li>
+        <a data-classes="nav tabs stacked" href="#">Stacked Tabs</a>
+      </li>
+      <li>
+        <a data-classes="nav pills stacked" href="#">Stacked Pills</a>
+      </li>
+    </ul>
+  </nav>
+
+  ## Transitions
+  Transitions are helper classes added and removed via JavaScript.
+
+  Class                  | Usage
+  ---------------------- | -----------------------------------------------------------
+  `.fade`                | Transitions an element to an `opacity` of `0`
+  `.fade.in`             | Transitions an element to an `opacity` of `1`
+  `.collapse`            | Transitions an element to a `height` of `0`
+  `.collapse.in`         | Transitions an element to a `height` of `auto`
+  `.hardware-accelerate` | Adds hardware acceleration to an element
+
+  ## Typography
+  Heading, paragraph, lists, and inline typographic elements.
+
+
+  ### Headings and body copy
+
+  Usage:
+
+  <h1>Google hearts h1 headings, but only use one per page.</h1>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <br/>
+  <h2>Got sections? Try using h2 headings.</h2>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <br/>
+  <h3>Good things come in threes, like tacos and h3 headings.</h3>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <br/>
+  <h4>There's nothing clever to say about h4 headings.</h4>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <br/>
+  <h5>Every time you use an h5 heading, Google kills a puppy. A tiny little puppy.</h5>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <br/>
+  <h6>An h6 heading? Google just killed a litter of kittens.</h6>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+
+  ### Inline paragraph elements
+
+  Element     | Usage
+  ----------- | ----------------------------------------------
+  `<a>`       | The anchor element defines a [hyperlink](http://www.modeset.com/)!
+  `<em>`      | The em element is used to _emphasize_ text
+  `<strong>`  | The strong element also <strong>emphasizes</strong> text, typically in <strong>bold</strong>
+  `<small>`   | The small element renders text well, <small>smaller</small>
+  `<sup>`     | The superscript element is used to display text higher<sup>&reg;</sup> and smaller<sup>&trade;</sup>
+  `<sub>`     | The sub element is used to display text <sub>lower</sub> and <sub>smaller</sub>
+  `<address>` | For contact information related to the author of the document
+  `<time>`    | Use for a <time>24-hour</time> clock or a precise date in the [Gregorian calendar](http://en.wikipedia.org/wiki/Gregorian_calendar)
+  `<abbr>`    | <abbr title="For Placement Only">FPO</abbr>. Describes an abbreviated phrase with the title attribute
+  `<dfn>`     | <dfn title="This is a definition">DFN</dfn>. Describes the definition of a word or term with the title attribute
+  `<ins>`     | The ins element defines text that has been <ins>inserted into a document</ins>
+  `<del>`     | The del tag defines text that has been <del>deleted from a document</del>
+  `<mark>`    | The mark element is used for indicating text as <mark>marked or highlighted for reference</mark> purposes
+  `<code>`    | The <code>code</code> tag is used to show inline code
+  `<kbd>`     | The <kbd>kbd</kbd> tag defines keyboard text
+  `<samp>`    | The <samp>samp</samp> tag defines sample computer code
+  `<pre>`     | The <code>pre</code> tag is used for blocks of code
+
+  Usage:
+
+  <section style="width:45%; float:left; margin-right: 5%;">
+    <h4>Inline elements examples</h4>
+    <br />
+    <p>Yeah, well, <em>listen</em>. You <kbd>ought</kbd> to <strong>ditch</strong> the <strong><em>two</em></strong>
+    <a href="http://modeset.com/">geeks</a> you're in the <dfn title="motorized vehicle">car</dfn> with now and get
+    <sub>in with</sub> us. But <samp>that's</samp> <code>alright</code>, <mark>we'll worry about</mark> that <time>later</time>.
+    I will <small>see you</small> there. All right<sup>™</sup>? <del>Man</del>, <ins>I love</ins> those
+    <abbr title="Hotties">redheads</abbr>.</p>
+  </section>
+  <section style="width:45%; float:left;">
+    <h4>Address examples</h4>
+    <br />
+    <address>
+      <strong>Mr. Address Tag</strong>
+      <br>
+      1600 Pennsylvania Ave NW
+      <br>
+      Washington D.C. DC 20500
+      <br>
+      <br>
+      <strong>Email:</strong>
+      <br>
+      <a href="#">president@whitehouse.gov</a>
+    </address>
+  </section>
+
+  ### Blockquotes
+
+  Notes:
+  - **Pro Tip!** Utilize `&#8220;` and `&#8221;` for opening and closing quotes within a `<blockquote>` element
+
+  Usage:
+
+  <blockquote>
+    <p>&#8220;Let me tell you what Melba Toast is packin' right here, all right. We got 4:11 Positrac outback, 750 double pumper, Edelbrock intake, bored over 30, 11 to 1 pop-up pistons, turbo-jet 390 horsepower. We're talkin' some f***in' muscle.&#8221;</p>
+    <small>David Wooderson, <cite title="link to source">Dazed &amp; Confused</cite></small>
+  </blockquote>
+
+  ### Rules
+  Horizontal rules can utilize the class `.dashed` and `.dotted` for a different separator.
+
+  Usage:
+
+  <hr>
+  <hr class="dashed">
+  <hr class="dotted">
+
+
+  ### Lists
+
+  Usage:
+
+  <section style="width:20%; float:left; margin-right: 5%;">
+    <p><strong>Unordered list:</strong></p>
+    <ul>
+      <li>Unordered list</li>
+      <li>Unordered list</li>
+      <li>
+        <ul>
+          <li>Nested unordered list</li>
+          <li>Nested unordered list</li>
+          <li>Nested unordered list</li>
+        </ul>
+      </li>
+      <li>Unordered list</li>
+      <li>
+        <ol>
+          <li>Nested ordered list</li>
+          <li>Nested ordered list</li>
+          <li>Nested ordered list</li>
+        </ol>
+      </li>
+    </ul>
+  </section>
+  <section style="width:20%; float:left; margin-right: 5%;">
+    <p><strong>Ordered list:</strong></p>
+    <ol>
+      <li>Ordered list</li>
+      <li>Ordered list</li>
+      <li>
+        <ol>
+          <li>Nested ordered list</li>
+          <li>Nested ordered list</li>
+          <li>Nested ordered list</li>
+        </ol>
+      </li>
+      <li>Ordered list</li>
+      <li>
+        <ul>
+          <li>Nested unordered list</li>
+          <li>Nested unordered list</li>
+          <li>Nested unordered list</li>
+        </ul>
+      </li>
+    </ol>
+  </section>
+  <section style="width:20%; float:left; margin-right: 5%;">
+    <p><strong>Unstyled list:</strong></p>
+    <ul class="unstyled">
+      <li>Unordered list</li>
+      <li>Unordered list</li>
+      <li>
+        <ul>
+          <li>Nested unordered list</li>
+          <li>Nested unordered list</li>
+          <li>Nested unordered list</li>
+        </ul>
+      </li>
+      <li>Unordered list</li>
+      <li>
+        <ol>
+          <li>Nested ordered list</li>
+          <li>Nested ordered list</li>
+          <li>Nested ordered list</li>
+        </ol>
+      </li>
+    </ul>
+  </section>
+  <section style="width:20%; float:left;">
+    <p><strong>Definition list:</strong></p>
+    <dl>
+      <dt>Definition Term</dt>
+      <dd>Definition Description Lorem ipsum dolor sit amet.</dd>
+      <dt>Definition Term</dt>
+      <dd>Definition Description Lorem ipsum dolor sit amet.</dd>
+      <dt>Definition Term</dt>
+      <dd>Definition Description Lorem ipsum dolor sit amet.</dd>
+    </dl>
+  </section>
+

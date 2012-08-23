@@ -1,6 +1,7 @@
 
 :css
   .box {
+    display: block;
     width: 50px;
     height: 50px;
     background-color: blue;
@@ -16,18 +17,27 @@
   .box.bordered {
     border-color: black;
   }
-  .nav > li > a {
-    color: magenta;
-  }
-  .nav > .active > a {
+  .hello.active {
     color: green;
   }
 
 
-%h1 Hello
+%hr
+%h1.hello Testing
 
-%a(data-bindable="tooltip" title="The Tooltip" href="#") Top
+%a(data-bindable="tooltip" title="The Tooltip" href="#this") Top
 
-.box(data-bindable="toggler" data-event="hover")
-.box(data-bindable="toggler" data-toggle="in bordered")
+%a.box(data-bindable="toggler" data-lookup="siblings" data-event="hover" data-target=".hello" href="#")
+  .hello
+%a.box(data-bindable="toggler" data-toggle="in bordered" href="#")
+
+%hr
+%br
+%br
+%br
+%br
+%br
+%br
+
+= render :partial => 'pages/partials/base'
 
