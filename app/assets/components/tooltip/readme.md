@@ -15,7 +15,7 @@ Tooltips handle positions for
 They require information set on a links data attributes.
 
 Attribute          | Values                        | Usage
------------------- | ---------------------------   | ---------------------------
+------------------ | ----------------------------- | ---------------------------
 `rel`              | `popover`                     | The js identifier for the type of component
 `data-placement`   | `top`,`bottom`,`left`,`right` | The direction to show based on the target
 `title`            | _text_                        | The copy for the tooltip

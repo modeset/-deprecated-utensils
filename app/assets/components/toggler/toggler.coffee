@@ -2,7 +2,7 @@
 #= require namespace
 #= require bindable
 
-# - Add class on load or delay through a timer
+# TODO:
 # - Figure out why the toggle tests aren't working (behavior works though)
 
 class roos.Toggler
@@ -11,10 +11,11 @@ class roos.Toggler
     @data = if data then data else @el.data()
     @options()
     @addListeners()
+    @activate(@data.activate) if @data.activate
 
   options: ->
     @toggle_classes = @data.toggle || 'active'
-    @event_type = @data.event || 'click'
+    @trigger = @data.trigger || 'click'
     @lookup = @data.lookup || 'find'
     @target = @getTarget()
     @dual_toggle = @target != @el && !@data.solo
@@ -40,7 +41,7 @@ class roos.Toggler
     return @el
 
   addListeners: ->
-    @el.on(@event_type, @toggle)
+    @el.on(@trigger, @toggle)
 
   toggle: (e) =>
     e?.preventDefault() unless @data.bubble
@@ -59,7 +60,7 @@ class roos.Toggler
     @is_active = false
 
   dispose: ->
-    @el.off(@event_type, @toggle)
+    @el.off(@trigger, @toggle)
 
 
 Bindable.register('toggler', roos.Toggler)

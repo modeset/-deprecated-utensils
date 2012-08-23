@@ -12,7 +12,7 @@ class roos.Tooltip extends roos.Toggler
 
   options: ->
     super()
-    @event_type = 'hover'
+    @trigger = 'hover'
     @content = @el.attr('title')
 
   toggle: (e) =>

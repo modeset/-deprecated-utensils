@@ -7,12 +7,13 @@ describe 'Toggler', ->
           <section class="shell">
              <div id="parent" data-target="#defaulter" data-solo="true">
                <a id="defaulter">More</a>
-               <a id="overrider" href="#parent" data-toggle="in bordered" data-lookup="closest" data-event="hover">More</a>
+               <a id="overrider" href="#parent" data-toggle="in bordered" data-lookup="closest" data-trigger="hover">More</a>
                <a id="this_hash" href="#this">More</a>
                <a id="just_hash" href="#">More</a>
                <a id="stnd_link" href="/some-url">More</a>
                <a id="by_target" href="#" data-target="#parent" data-lookup="closest">More</a>
              </div>
+             <div id="empty"></div>
            </section>
            """
     @html = $(html)
@@ -42,12 +43,12 @@ describe 'Toggler', ->
   describe '#options', ->
     it 'sets default options', ->
       expect(@defaulter.toggle_classes).toEqual('active')
-      expect(@defaulter.event_type).toEqual('click')
+      expect(@defaulter.trigger).toEqual('click')
       expect(@defaulter.lookup).toEqual('find')
 
     it 'overrides default options', ->
       expect(@overrider.toggle_classes).toEqual('in bordered')
-      expect(@overrider.event_type).toEqual('hover')
+      expect(@overrider.trigger).toEqual('hover')
       expect(@overrider.lookup).toEqual('closest')
 
     it 'sets the ability for dual toggles by default', ->
@@ -59,6 +60,13 @@ describe 'Toggler', ->
     it 'does not set dual toggle when passed as an attribute', ->
       expect(@parent.dual_toggle).toEqual(false)
 
+    it 'sets default values from a javascript class', ->
+      el = @html.find('#empty')
+      toggler = new roos.Toggler(el, {toggle: 'show', trigger: 'hover', lookup: 'closest'})
+      expect(toggler.toggle_classes).toEqual('show')
+      expect(toggler.trigger).toEqual('hover')
+      expect(toggler.lookup).toEqual('closest')
+      expect(toggler.target).toEqual(el)
 
   describe '#getTarget', ->
     it 'finds itself as an element when there is no href or data-target present', ->
@@ -97,7 +105,6 @@ describe 'Toggler', ->
       # spyEvent = spyOn(roos.Toggler.prototype, 'toggle').andCallThrough()
       @$defaults.click()
       expect(spyEvent).toHaveBeenCalled()
-
 
     it 'toggles the default classes from a call', ->
       expect(@$defaults).not.toHaveClass('active')
