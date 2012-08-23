@@ -21,6 +21,10 @@
     color: green;
   }
 
+  .tester .active a {
+    color: #ff00ff;
+  }
+
 
 %hr
 %h1.hello Testing
@@ -30,6 +34,30 @@
 %a.box(data-bindable="toggler" data-lookup="siblings" data-trigger="hover" data-target=".hello" href="#")
   .hello
 %a.box(data-bindable="toggler" data-toggle="in bordered" href="#")
+
+%br
+%br
+
+%nav.tester
+  %ul.nav(data-bindable="toggler-group")
+    %li
+      %a(href="#") Radio 1
+    %li
+      %a(href="#") Radio 2
+    %li
+      %a(href="#") Radio 3
+
+%br
+%br
+
+%nav.tester
+  %ul.nav(data-bindable="toggler-group" data-behavior="checkbox")
+    %li
+      %a(href="#") Checkbox 1
+    %li
+      %a(href="#") Checkbox 2
+    %li
+      %a(href="#") Checkbox 3
 
 %hr
 %br

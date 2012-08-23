@@ -1,29 +1,37 @@
 
 #= require namespace
 #= require bindable
+#= require toggler
 
-class roos.TogglerGroup
-  constructor: (el) ->
-    @el = $(el)
-    @options()
-    @addListeners()
+class roos.TogglerGroup extends roos.Toggler
+  constructor: (@el, data) ->
+    super(@el, data)
 
   options: ->
-    @event_type = @el.data('event') || 'click'
-    @toggle_classes = @el.data('toggle') || 'active'
-    @toggle_behavior = @el.data('behavior') || 'radio'
-    @activator_element = @el.data('children') || 'li'
+    @data.target = 'li' unless @data.target
+    super()
+    @behavior = @data.behavior || 'radio'
 
-    @kids = @el.find(@activator_element)
-
-  addListeners: ->
-    @kids.on(@event_type, @triggered)
-
-  triggered: (e) =>
-    activator = $(e.target).closest(@activator_element)
-    if @toggle_behavior == 'radio'
-      @kids.removeClass(@toggle_classes)
+  toggle: (e) =>
+    e?.preventDefault() unless @data.bubble
+    activator = $(e.target).closest(@data.target)
+    @target.removeClass(@toggle_classes) if @behavior == 'radio'
     activator.toggleClass(@toggle_classes)
+
+  activate: (item=0) ->
+    if typeof item == "number"
+      activator = $(@target[item])
+    else
+      activator = $(item).closest(@data.target)
+    @target.removeClass(@toggle_classes) if @behavior == 'radio'
+    activator.addClass(@toggle_classes)
+
+  deactivate: (item=0) ->
+    if typeof item == "number"
+      deactivator = $(@target[item])
+    else
+      deactivator = $(item).closest(@data.target)
+    deactivator.removeClass(@toggle_classes)
 
 Bindable.register('toggler-group', roos.TogglerGroup)
 
