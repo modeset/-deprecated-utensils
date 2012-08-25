@@ -1,7 +1,10 @@
 
+// TODO:
+// Simplify and clean
+
 .tooltip
   +font-size(12)
-  // +opacity(0)
+  +opacity(0)
   font-weight: bold
   padding: 5px
   display: block
@@ -11,30 +14,30 @@
   z-index: 1000
   &.in
     +opacity(0.9)
-  &.top
+  &.north
     margin-top: -2px
-  &.bottom
+  &.south
     margin-top: 2px
-  &.left
+  &.west
     margin-left: -2px
-  &.right
+  &.east
     margin-left: 2px
-  &.top .tooltip-arrow
+  &.north .tooltip-arrow
     // +arrow_south(invert($body_bg))
     +arrow_south(black)
     bottom: 0
     left: 50%
-  &.bottom .tooltip-arrow
+  &.south .tooltip-arrow
     // +arrow_north(invert($body_bg))
     +arrow_north(black)
     top: 0
     left: 50%
-  &.left .tooltip-arrow
+  &.west .tooltip-arrow
     // +arrow_east(invert($body_bg))
     +arrow_east(black)
     top: 50%
     right: 0
-  &.right .tooltip-arrow
+  &.east .tooltip-arrow
     // +arrow_west(invert($body_bg))
     +arrow_west(black)
     top: 50%
@@ -49,6 +52,5 @@
   color: white
   text-align: center
   line-height: 1.4
-  padding: 0.25em 0.7em
-  max-width: 200px
+  padding: 0.5em
 
