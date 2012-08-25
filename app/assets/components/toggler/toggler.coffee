@@ -2,16 +2,12 @@
 #= require namespace
 #= require bindable
 
-# TODO:
-# - Figure out why the toggle tests aren't working (behavior works though)
-
 class roos.Toggler
   constructor: (@el, data) ->
     @is_active = false
     @data = if data then data else @el.data()
     @options()
-    @addListeners()
-    @activate(@data.activate) if @data.activate
+    @initialize()
 
   options: ->
     @toggle_classes = @data.toggle || 'active'
@@ -19,6 +15,10 @@ class roos.Toggler
     @lookup = @data.lookup || 'find'
     @target = @getTarget()
     @dual_toggle = @target != @el && !@data.solo
+
+  initialize: ->
+    @addListeners()
+    @activate(@data.activate) if @data.activate
 
   getTarget: ->
     # see if there is a specific target and it's valid
@@ -41,9 +41,9 @@ class roos.Toggler
     return @el
 
   addListeners: ->
-    @el.on(@trigger, @toggle)
+    @el.on(@trigger, => @toggle.apply(@, arguments))
 
-  toggle: (e) =>
+  toggle: (e) ->
     e?.preventDefault() unless @data.bubble
     @target.toggleClass(@toggle_classes)
     @el.toggleClass(@toggle_classes) if @dual_toggle
@@ -60,7 +60,7 @@ class roos.Toggler
     @is_active = false
 
   dispose: ->
-    @el.off(@trigger, @toggle)
+    @el.off(@trigger)
 
 
 Bindable.register('toggler', roos.Toggler)

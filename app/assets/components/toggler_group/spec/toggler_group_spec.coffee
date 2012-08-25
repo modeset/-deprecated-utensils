@@ -42,12 +42,21 @@ describe 'Toggler Group', ->
       expect(@radio_group.data.target).toEqual('.radio-li')
       expect(@check_group.data.target).toEqual('li')
 
+  describe '#initialize', ->
+    it 'activates an element on initialization', ->
+      toggler = new roos.TogglerGroup(@check$, {activate: 1, behavior: 'checkbox'})
+      expect($(@check_kids[1])).toHaveClass('active')
+
     it 'sets the toggle behavior correctly', ->
       expect(@radio_group.behavior).toEqual('radio')
       expect(@check_group.behavior).toEqual('checkbox')
 
-
   describe '#toggle', ->
+    it 'toggles the correct classes from a trigger', ->
+      spyEvent = spyOn(@radio_group, 'toggle').andCallThrough()
+      $(@radio_kids[1]).find('a').click()
+      expect(spyEvent).toHaveBeenCalled()
+
     it 'toggles a radio group element', ->
       $(@radio_kids[1]).find('a').click()
       expect($(@radio_kids[1])).toHaveClass('active')

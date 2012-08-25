@@ -12,7 +12,7 @@ class roos.TogglerGroup extends roos.Toggler
     super()
     @behavior = @data.behavior || 'radio'
 
-  toggle: (e) =>
+  toggle: (e) ->
     e?.preventDefault() unless @data.bubble
     activator = $(e.target).closest(@data.target)
     @target.removeClass(@toggle_classes) if @behavior == 'radio'

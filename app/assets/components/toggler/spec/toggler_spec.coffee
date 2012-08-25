@@ -68,6 +68,12 @@ describe 'Toggler', ->
       expect(toggler.lookup).toEqual('closest')
       expect(toggler.target).toEqual(el)
 
+  describe '#initialize', ->
+    it 'activates an element on initialization', ->
+      el = @html.find('#empty')
+      toggler = new roos.Toggler(el, {activate: 'true'})
+      expect(el).toHaveClass('active')
+
   describe '#getTarget', ->
     it 'finds itself as an element when there is no href or data-target present', ->
       expect(@defaulter.target).toEqual(@$defaults)
@@ -99,10 +105,8 @@ describe 'Toggler', ->
       expect(@overrider.target.html()).toEqual(@$parent.html())
 
   describe '#toggle', ->
-    # TODO: Not sure why this isn't working
-    xit 'toggles the correct classes from a trigger', ->
+    it 'toggles the correct classes from a trigger', ->
       spyEvent = spyOn(@defaulter, 'toggle').andCallThrough()
-      # spyEvent = spyOn(roos.Toggler.prototype, 'toggle').andCallThrough()
       @$defaults.click()
       expect(spyEvent).toHaveBeenCalled()
 
@@ -168,13 +172,8 @@ describe 'Toggler', ->
       expect(@defaulter.is_active).toEqual(false)
 
   describe '#dispose', ->
-    # TODO: Not sure why this isn't working
-    xit 'cleans up its own mess', ->
+    it 'cleans up its own mess', ->
       spyEvent = spyOn(@defaulter, 'toggle')
-      @$defaults.click()
-      expect(spyEvent).toHaveBeenCalled()
-
-      spyEvent.reset()
       @defaulter.dispose()
       @$defaults.click()
       expect(spyEvent).not.toHaveBeenCalled()
