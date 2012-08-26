@@ -60,6 +60,7 @@ class roos.Toggler
     @is_active = false
 
   dispose: ->
+    @deactivate()
     @el.off(@trigger)
 
 
