@@ -842,81 +842,11 @@ check_group.deactivate($(checks[1]).find(&#39;a&#39;))
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
-<h2>Tooltip</h2>
+<h1>Tooltip</h1>
 
-<p>Tool tip component inspired by <a href="https://github.com/jaz303/tipsy">tipsy</a>. </p>
+<p>Tool tip component inspired by <a href="https://github.com/jaz303/tipsy">tipsy</a> and <a href="http://twitter.github.com/bootstrap/javascript.html#tooltips">twitter bootstrap</a>. </p>
 
-<p>Color styling is automatically generated based on the inverted colors of the body&#39;s
-<code>background-color</code> and font <code>color</code>.</p>
-
-<p>Tooltip is a subclass of Toggler.</p>
-
-<h3>Options</h3>
-
-<table><thead>
-<tr>
-<th>Attribute</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>toggle</code></td>
-<td><code>in</code></td>
-<td>Overrides Toggler&#39;s default of <code>active</code></td>
-</tr>
-<tr>
-<td><code>trigger</code></td>
-<td><code>hover</code></td>
-<td>Overrides Toggler&#39;s default of <code>click</code></td>
-</tr>
-<tr>
-<td><code>selector</code></td>
-<td><code>body</code></td>
-<td>The element in which to append the tool tip markup</td>
-</tr>
-<tr>
-<td><code>title</code></td>
-<td><code>&quot;&quot;</code></td>
-<td>The content (html or text) to insert for the tooltip, use the actual <code>title</code> attribute</td>
-</tr>
-<tr>
-<td><code>placement</code></td>
-<td><code>north</code></td>
-<td>Where to position the tooltip in relation to the element: <code>north</code>, <code>south</code>, <code>east</code>, <code>west</code></td>
-</tr>
-<tr>
-<td><code>effect</code></td>
-<td><code>fade</code></td>
-<td>The base animation class to add to the tooltip markup</td>
-</tr>
-<tr>
-<td><code>delay</code></td>
-<td><code>0</code></td>
-<td>The amount of time in milliseconds to delay on show and hide, see notes below</td>
-</tr>
-</tbody></table>
-
-<p><em>See Toggler for other options</em>  </p>
-
-<p>When using the delay attribute, you can optionally pass a basic object
-with two <code>number</code> values. The values must be separated by a <code>,</code>. The
-first number is the delay for showing the tip, the second is the delay
-time for hiding the tip. The following all end up computing a delay
-object of <code>{show:1000, hide:2000}</code></p>
-
-<pre><code class="html">data-delay=&quot;1000, 2000&quot;
-data-delay=&quot;show:1000, hide:2000&quot;
-data-delay=&quot;{show:1000, hide:2000}&quot;
-data-delay=&quot;hide:1000, show:2000&quot;
-</code></pre>
-
-<p>Notes:<br>
-- <strong>Heads Up!</strong> Tooltip will override it&#39;s placement automatically if it
-  determines the requested placement will render the tip outside the
-  viewable area.</p>
-
-<h3>Usage</h3>
+<h2>Usage</h2>
 
 <pre><code class="haml">%a(data-bindable=&quot;tooltip&quot; data-placement=&quot;north&quot; title=&quot;The Northern Tooltip&quot; href=&quot;#&quot; data-delay=&quot;500&quot;) North
 |
@@ -940,9 +870,124 @@ data-delay=&quot;hide:1000, show:2000&quot;
 <a data-bindable='tooltip' data-placement='south' href='#' title="&lt;img src='http://placehold.it/350x150'/&gt;">Image</a>
 </div>
 
-<h3>API</h3>
+<h2>Options</h2>
 
-<h4>#new</h4>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>toggle</code></td>
+<td><code>in</code></td>
+<td>Overrides <code>Toggler&#39;s</code> default of <code>active</code></td>
+</tr>
+<tr>
+<td><code>trigger</code></td>
+<td><code>hover</code></td>
+<td>Overrides <code>Toggler&#39;s</code> default of <code>click</code>, unless it&#39;s a touch enabled device</td>
+</tr>
+<tr>
+<td><code>target</code></td>
+<td><code>body</code></td>
+<td>The element in which to append the tool tip markup (note this does not get the toggle classes)</td>
+</tr>
+<tr>
+<td><code>lookup</code></td>
+<td><code>closest</code></td>
+<td>Overrides <code>Toggler&#39;s</code> default behavior of <code>find</code></td>
+</tr>
+<tr>
+<td><code>title</code></td>
+<td><code>&quot;&quot;</code></td>
+<td>The content (html or text) to insert for the tip, use the actual <code>title</code> attribute</td>
+</tr>
+<tr>
+<td><code>placement</code></td>
+<td><code>north</code></td>
+<td>Where to position the tip in relation to the element: <code>north</code>, <code>south</code>, <code>east</code>, <code>west</code></td>
+</tr>
+<tr>
+<td><code>effect</code></td>
+<td><code>fade</code></td>
+<td>The base animation class to add to the tip markup</td>
+</tr>
+<tr>
+<td><code>delay</code></td>
+<td><code>0</code></td>
+<td>The amount of time in milliseconds to delay on show and hide, see notes below</td>
+</tr>
+</tbody></table>
+
+<p><em>See Toggler for other options</em>  </p>
+
+<p>When using the delay attribute, you can optionally pass a basic object
+with two <code>number</code> values. The values must be separated by a <code>,</code>. The
+first number is the delay for showing the tip, the second is the delay
+time for hiding the tip. The following all end up computing a delay
+object of <code>{show:1000, hide:2000}</code></p>
+
+<pre><code class="html">data-delay=&quot;1000, 2000&quot;
+data-delay=&quot;show:1000, hide:2000&quot;
+data-delay=&quot;{show:1000, hide:2000}&quot;
+data-delay=&quot;hide:1000, show:2000&quot;
+</code></pre>
+
+<p>Notes:<br>
+- <strong>Heads Up!</strong> <code>Tooltip</code> will override it&#39;s placement automatically if it
+  determines the requested position will render the tip outside the
+  viewable area.</p>
+
+<h2>API</h2>
+
+<h3>#new</h3>
+
+<p>Create a new <code>Tooltip</code> instance programmatically. Normally this is
+handled through <code>Bindable</code>. </p>
+
+<pre><code class="coffee">#= require tooltip
+
+@el = $(&#39;#tip&#39;)
+@tip = new roos.Tooltip(@el, {delay:&#39;show:1000, hide:2000&#39;})
+</code></pre>
+
+<h3>#toggle</h3>
+
+<p>This is normally handled through events, but you can always <code>trigger</code> the
+element&#39;s toggle event</p>
+
+<pre><code class="coffee">@el.trigger(&#39;hover&#39;)
+</code></pre>
+
+<h3>#activate</h3>
+
+<p>Show the tool tip immediately</p>
+
+<pre><code class="coffee">@tip.activate()
+</code></pre>
+
+<h3>#deactivate</h3>
+
+<p>Removes the tool tip</p>
+
+<pre><code class="coffee">@tip.deactivate()
+</code></pre>
+
+<h3>#remove</h3>
+
+<p>Removes the tool tip immediately</p>
+
+<pre><code class="coffee">@tip.remove()
+</code></pre>
+
+<h3>#dispose</h3>
+
+<p>Remove the tool tip behavior</p>
+
+<pre><code class="coffee">@tip.dispose()
+</code></pre>
 
 <h3>Requires</h3>
 
@@ -952,6 +997,62 @@ data-delay=&quot;hide:1000, show:2000&quot;
 <li>support</li>
 <li>toggler</li>
 </ul>
+
+<p><code>Tooltip</code> is a subclass of <code>Toggler</code>.</p>
+
+<h2>Style Settings</h2>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>$tip-bgc</code></td>
+<td><code>$black</code></td>
+<td>Sets the <code>background-color</code> of the tip and arrow</td>
+</tr>
+<tr>
+<td><code>$tip-color</code></td>
+<td><code>$white</code></td>
+<td>Sets the <code>color</code> of the font within the tip</td>
+</tr>
+<tr>
+<td><code>$tip-radii</code></td>
+<td><code>$radii</code></td>
+<td>Sets the <code>border-radius</code> value of the tool tip</td>
+</tr>
+<tr>
+<td><code>$tip-offset</code></td>
+<td><code>2px</code></td>
+<td>The amount to offset each tip from their target</td>
+</tr>
+<tr>
+<td><code>$tip-opacity-in</code></td>
+<td><code>0.9</code></td>
+<td>The opacity value to apply when the tip is shown</td>
+</tr>
+<tr>
+<td><code>$zindex-tips</code></td>
+<td><code>1010</code></td>
+<td>The <code>z-index</code> value tips sit on</td>
+</tr>
+</tbody></table>
+
+<p><em>To override the default settings, set the variable and it&#39;s value
+within your <code>config.sass</code> file or before <code>tooltip.sass</code> is loaded.</em></p>
+
+<h2>Injected Markup</h2>
+
+<p>The markup injected when a tip is shown:</p>
+
+<pre><code class="html">&lt;div class=&quot;tooltip north fade&quot;&gt;
+ &lt;div class=&quot;tooltip-arrow&quot;&gt;&lt;/div&gt;
+ &lt;div class=&quot;tooltip-inner&quot;&gt;The Northern Tooltip&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
 
 <p></section></p>
 

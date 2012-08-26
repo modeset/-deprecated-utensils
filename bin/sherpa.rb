@@ -5,6 +5,7 @@ require 'haml'
 
 # - Make markup cleaner
 # - Make it super sexy looking
+# - Write the usage from the markup files into each of the readmes
 # - Add pygments
 
 module Sherpa

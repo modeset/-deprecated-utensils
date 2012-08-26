@@ -6,3 +6,7 @@ require File.expand_path('../lib/roos/application', __FILE__)
 
 Roos::Application.load_tasks
 
+desc 'Probe the contents from running sherpa without any saved output'
+task :docs do
+  system "ruby ./bin/sherpa.rb"
+end

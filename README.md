@@ -25,11 +25,13 @@ Component library
 - button-btn-mixin
 
 ## Tasks
-- Make tooltip
+- Cleanup existing components
+- Figure out how to use the markup file for test fixtures
+- Test for support properties
 - Make popover
 - Add tables
 - Cleanup the style guide
-- Cleanup the base styles (see above)
+- Cleanup the base styles (see above), convert all vars to dashes
 - Add view templates
 - Make the remaining components
 
