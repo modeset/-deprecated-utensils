@@ -7,8 +7,6 @@ Component library
 
 ## Todo
 
------
-
 ### These items are copied in:
 - ~~base/normalize~~
 - ~~base/scaffold~~
@@ -25,4 +23,13 @@ Component library
 
 ### This moves to a mixin
 - button-btn-mixin
+
+## Tasks
+- Make tooltip
+- Make popover
+- Add tables
+- Cleanup the style guide
+- Cleanup the base styles (see above)
+- Add view templates
+- Make the remaining components
 
