@@ -9,7 +9,8 @@ describe 'Tooltip', ->
              <a id="south" data-delay="100,200" data-placement="south" href="#" title="The Southern Tip">South</a>
              <a id="east" data-placement="east" href="#" title="The Eastern Tip">East</a>
              <a id="west" data-trigger="click" data-placement="west" href="#" title="The Western Tip">West</a>
-             <a id="image" data-toggle="active" href="#" data-trigger="click" data-selector="#shell" data-effect="move" title="<img src='http://placehold.it/350x150'/>">Image</a>
+             <a id="image" data-toggle="active" href="#" data-trigger="click" data-target="#shell" data-effect="move" title="<img src='http://placehold.it/350x150'/>">Image</a>
+             <a id="empty" title="The Empty Tip">Empty</a>
            </section>
            """
     @html = $(html)
@@ -20,6 +21,7 @@ describe 'Tooltip', ->
     @east_el = @html.find('#east')
     @west_el = @html.find('#west')
     @image_el = @html.find('#image')
+    @empty_el = @html.find('#empty')
 
     @north_tip = new roos.Tooltip(@north_el)
     @south_tip = new roos.Tooltip(@south_el)
@@ -30,6 +32,7 @@ describe 'Tooltip', ->
   afterEach ->
     $('.tooltip').remove()
 
+
   describe 'binding', ->
     it 'is registered in bindable', ->
       expect(Bindable.getClass('tooltip')).toEqual(roos.Tooltip)
@@ -39,16 +42,16 @@ describe 'Tooltip', ->
     it 'sets up basic default options', ->
       expect(@north_tip.toggle_classes).toEqual('in')
       expect(@south_tip.trigger).toEqual('hover')
-      expect(@north_tip.selector).toEqual($('body'))
+      expect(@north_tip.target[0]).toEqual($('body')[0])
       expect(@south_tip.effect).toEqual('fade')
       expect(@north_tip.placement).toEqual('north')
       expect(@south_tip.placement).toEqual('south')
+      expect(@north_tip.lookup).toEqual('closest')
 
-    # TODO: Make the selector use a similar lookup to finding targets
     it 'overrides the default options', ->
       expect(@image_tip.toggle_classes).toEqual('active')
       expect(@image_tip.trigger).toEqual('click')
-      expect(@image_tip.selector).toEqual($('#shell'))
+      expect(@image_tip.target[0]).toEqual($('#shell')[0])
       expect(@image_tip.effect).toEqual('move')
 
     it 'sets content from the title attribute', ->
@@ -56,6 +59,11 @@ describe 'Tooltip', ->
 
     it 'sets content from the data-title attribute', ->
       expect(@north_tip.content).toEqual('The Northern Tip')
+
+    it 'sets the toggle type to trigger if the html element has the class "touch"', ->
+      $('html').addClass('touch')
+      tip = new roos.Tooltip(@empty_el)
+      expect(tip.trigger).toEqual('click')
 
 
   describe '#initialize', ->
@@ -180,12 +188,12 @@ describe 'Tooltip', ->
       expect($('.tooltip').first()).toHaveClass('north')
 
     it 'repositions the item on stage when east is offscreen', ->
-      @east_el.css(position:'absolute', top:'500', right:'0')
+      @east_el.css(position:'absolute', top:'0', right:'0')
       @east_tip.activate()
       expect($('.tooltip').first()).toHaveClass('west')
 
     it 'repositions the item on stage when west is offscreen', ->
-      @west_el.css(position:'absolute', top:'500', left:'0')
+      @west_el.css(position:'absolute', top:'0', left:'0')
       @west_tip.activate()
       expect($('.tooltip').first()).toHaveClass('east')
 

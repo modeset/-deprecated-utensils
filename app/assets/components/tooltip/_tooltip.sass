@@ -1,55 +1,51 @@
 
-// TODO:
-// Simplify and clean
+$tip-bgc: $black !default
+$tip-color: $white !default
+$tip-radii: $radii !default
+$tip-offset: 2px !default
+$tip-opacity-in: 0.9 !default
+$zindex-tips: 1010 !default
 
 .tooltip
-  +font-size(12)
+  +font-size($base-font-size - 2)
   +opacity(0)
   font-weight: bold
   padding: 5px
   display: block
   position: absolute
   visibility: visible
-  // z-index: $zindex_tips
-  z-index: 1000
+  z-index: $zindex-tips
   &.in
-    +opacity(0.9)
+    +opacity($tip-opacity-in)
   &.north
-    margin-top: -2px
+    margin-top: -$tip-offset
   &.south
-    margin-top: 2px
+    margin-top: $tip-offset
   &.west
-    margin-left: -2px
+    margin-left: -$tip-offset
   &.east
-    margin-left: 2px
+    margin-left: $tip-offset
   &.north .tooltip-arrow
-    // +arrow_south(invert($body_bg))
-    +arrow_south(black)
+    +arrow_south($tip-bgc)
     bottom: 0
     left: 50%
   &.south .tooltip-arrow
-    // +arrow_north(invert($body_bg))
-    +arrow_north(black)
+    +arrow_north($tip-bgc)
     top: 0
     left: 50%
   &.west .tooltip-arrow
-    // +arrow_east(invert($body_bg))
-    +arrow_east(black)
+    +arrow_east($tip-bgc)
     top: 50%
     right: 0
   &.east .tooltip-arrow
-    // +arrow_west(invert($body_bg))
-    +arrow_west(black)
+    +arrow_west($tip-bgc)
     top: 50%
     left: 0
 
 .tooltip-inner
-  // background-color: invert($body_bg)
-  background-color: black
-  // border-radius: $radii
-  border-radius: 0.25em
-  // color: $body_bg
-  color: white
+  background-color: $tip-bgc
+  border-radius: $tip-radii
+  color: $tip-color
   text-align: center
   line-height: 1.4
   padding: 0.5em

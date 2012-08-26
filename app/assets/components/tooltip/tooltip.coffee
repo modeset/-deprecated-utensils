@@ -4,22 +4,19 @@
 #= require support
 #= require toggler
 
-# - Tests!!!
-# - How does this work with touch devices?
-
 class roos.Tooltip extends roos.Toggler
   constructor: (@el, data) ->
     super(@el, data)
 
   options: ->
     @data.toggle = 'in' unless @data.toggle
-    @data.trigger = 'hover' unless @data.trigger
-    @data.selector = 'body' unless @data.selector
+    @data.trigger = 'hover' unless @data.trigger || $('html').hasClass('touch')
+    @data.lookup = "closest" unless @data.lookup
+    @data.target = 'body' unless @data.target
     super()
     @content = @el.attr('title') || @data.title || ''
     @placement = @data.placement || 'north'
     @effect = @data.effect || 'fade'
-    @selector = $(@data.selector)
     @delay = @getDelay()
 
   initialize: ->
@@ -29,8 +26,10 @@ class roos.Tooltip extends roos.Toggler
     @el.attr('title', '')
 
   toggle: (e) ->
-    super(e)
+    e?.preventDefault() unless @data.bubble
     clearTimeout(@timeout) if @timeout
+    @el.toggleClass(@toggle_classes) if @dual_toggle
+    @is_active = !@is_active
 
     if @is_active
       if @delay.show != 0
@@ -46,7 +45,7 @@ class roos.Tooltip extends roos.Toggler
   activate: ->
     @remove()
     @tip = $(@render())
-    @tip.appendTo(@selector)
+    @tip.appendTo(@target)
     pos = @inBounds(@getPlacement(@placement))
     @tip.css({top: pos.top, left: pos.left})
     @tip.addClass(@toggle_classes)
