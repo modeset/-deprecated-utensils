@@ -1,0 +1,966 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <title>Docs</title>
+    <meta name="imagetoolbar" content="no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="apple-touch-fullscreen" content="YES" />
+    <meta name="apple-mobile-web-app-capable" content="YES" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+    <link rel="stylesheet" href="/assets/application.css" type="text/css">
+    <link rel="stylesheet" href="/docs/sherpa.css" type="text/css">
+  </head>
+
+  <body>
+
+    <section class="sherpa-wrapper sherpa-container sherpa-clearfix">
+      <p><section class="sherpa-section sherpa-clearfix"></p>
+
+<h2>Normalize</h2>
+
+<p>Normalize and reset base elements to allow browsers to render all controls
+more consistently and in line with modern standards.</p>
+
+<p>Normalization and resets based on</p>
+
+<ul>
+<li><a href="http://necolas.github.com/normalize.css/">normalize.css</a></li>
+<li><a href="http://html5boilerplate.com/">HTML5 Boilerplate</a></li>
+</ul>
+
+<h2>Scaffold</h2>
+
+<p>Setup main scaffolding elements for <code>html</code>, <code>body</code>, selections, generic links and navigation.
+Scaffolding includes font sizes, families, colors, backgrounds and line heights.</p>
+
+<h3>Base navs</h3>
+
+<p>The base nav is the building block for navigation structures and components
+(tabs, pills, breadcrumbs, pagination and navigation lists). The <code>.nav</code> class
+can be used for simple navigation as well. The buttons below will change the
+class on the <code>ul</code> element to showcase the different navigation systems
+based off the same markup structure.</p>
+
+<p>Warnings:
+- <strong>Heads Up!</strong> All navigation components depend on the <code>.nav</code> class being attached to the container element</p>
+
+<p>Notes:
+- <strong>Pro Tip!</strong> For convenience, add the <code>inline</code> class to the <code>.nav</code> element to display the base nav inline</p>
+
+<h3>Usage</h3>
+
+<pre><code class="haml">%nav
+  %ul.nav.inline#underoos_nav_demo
+    %li
+      %a(data-classes=&quot;nav&quot; href=&quot;#&quot;) Base Nav
+    %li.active
+      %a(data-classes=&quot;nav inline&quot; href=&quot;#&quot;) Base Nav Inline
+    %li
+      %a(data-classes=&quot;nav tabs&quot; href=&quot;#&quot;) Tabs
+    %li
+      %a(data-classes=&quot;nav pills&quot; href=&quot;#&quot;) Pills
+    %li
+      %a(data-classes=&quot;nav breadcrumb&quot; href=&quot;#&quot;) Breadcrumbs
+    %li
+      %a(data-classes=&quot;nav pagination&quot; href=&quot;#&quot;) Pagination
+    %li
+      %a(data-classes=&quot;nav tabs stacked&quot; href=&quot;#&quot;) Stacked Tabs
+    %li
+      %a(data-classes=&quot;nav pills stacked&quot; href=&quot;#&quot;) Stacked Pills
+</code></pre>
+
+<div class="sherpa-showcase sherpa-clearfix"><nav>
+  <ul class='nav inline' id='underoos_nav_demo'>
+    <li>
+      <a data-classes='nav' href='#'>Base Nav</a>
+    </li>
+    <li class='active'>
+      <a data-classes='nav inline' href='#'>Base Nav Inline</a>
+    </li>
+    <li>
+      <a data-classes='nav tabs' href='#'>Tabs</a>
+    </li>
+    <li>
+      <a data-classes='nav pills' href='#'>Pills</a>
+    </li>
+    <li>
+      <a data-classes='nav breadcrumb' href='#'>Breadcrumbs</a>
+    </li>
+    <li>
+      <a data-classes='nav pagination' href='#'>Pagination</a>
+    </li>
+    <li>
+      <a data-classes='nav tabs stacked' href='#'>Stacked Tabs</a>
+    </li>
+    <li>
+      <a data-classes='nav pills stacked' href='#'>Stacked Pills</a>
+    </li>
+  </ul>
+</nav>
+</div>
+
+<h2>Transitions</h2>
+
+<p>Transitions are helper classes added and removed via JavaScript.</p>
+
+<table><thead>
+<tr>
+<th>Class</th>
+<th>Usage</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>.fade</code></td>
+<td>Transitions an element to an <code>opacity</code> of <code>0</code></td>
+</tr>
+<tr>
+<td><code>.fade.in</code></td>
+<td>Transitions an element to an <code>opacity</code> of <code>1</code></td>
+</tr>
+<tr>
+<td><code>.collapse</code></td>
+<td>Transitions an element to a <code>height</code> of <code>0</code></td>
+</tr>
+<tr>
+<td><code>.collapse.in</code></td>
+<td>Transitions an element to a <code>height</code> of <code>auto</code></td>
+</tr>
+<tr>
+<td><code>.hardware-accelerate</code></td>
+<td>Adds hardware acceleration to an element</td>
+</tr>
+</tbody></table>
+
+<h2>Typography</h2>
+
+<p>Heading, paragraph, lists, and inline typographic elements.</p>
+
+<h3>Headings and body copy</h3>
+
+<h3>Usage</h3>
+
+<pre><code class="haml">%h1 Google hearts h1 headings, but only use one per page.
+%p ~lorem
+%br
+%h2 Got sections? Try using h2 headings.
+%p ~lorem
+%br
+%h3 Good things come in threes, like tacos and h3 headings.
+%p ~lorem
+%br
+%h4 There&#39;s nothing clever to say about h4 headings.
+%p ~lorem
+%br
+%h5 Every time you use an h5 heading, Google kills a puppy. A tiny little puppy.
+%p ~lorem
+%br
+%h6 An h6 heading? Google just killed a litter of kittens.
+%p ~lorem
+</code></pre>
+
+<div class="sherpa-showcase sherpa-clearfix"><h1>Google hearts h1 headings, but only use one per page.</h1>
+<p>~lorem</p>
+<br />
+<h2>Got sections? Try using h2 headings.</h2>
+<p>~lorem</p>
+<br />
+<h3>Good things come in threes, like tacos and h3 headings.</h3>
+<p>~lorem</p>
+<br />
+<h4>There's nothing clever to say about h4 headings.</h4>
+<p>~lorem</p>
+<br />
+<h5>Every time you use an h5 heading, Google kills a puppy. A tiny little puppy.</h5>
+<p>~lorem</p>
+<br />
+<h6>An h6 heading? Google just killed a litter of kittens.</h6>
+<p>~lorem</p>
+</div>
+
+<h3>Inline paragraph elements</h3>
+
+<table><thead>
+<tr>
+<th>Element</th>
+<th>Usage</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>&lt;a&gt;</code></td>
+<td>The anchor element defines a <a href="http://www.modeset.com/">hyperlink</a>!</td>
+</tr>
+<tr>
+<td><code>&lt;em&gt;</code></td>
+<td>The em element is used to <em>emphasize</em> text</td>
+</tr>
+<tr>
+<td><code>&lt;strong&gt;</code></td>
+<td>The strong element also <strong>emphasizes</strong> text, typically in <strong>bold</strong></td>
+</tr>
+<tr>
+<td><code>&lt;small&gt;</code></td>
+<td>The small element renders text well, <small>smaller</small></td>
+</tr>
+<tr>
+<td><code>&lt;sup&gt;</code></td>
+<td>The superscript element is used to display text higher<sup>&reg;</sup> and smaller<sup>&trade;</sup></td>
+</tr>
+<tr>
+<td><code>&lt;sub&gt;</code></td>
+<td>The sub element is used to display text <sub>lower</sub> and <sub>smaller</sub></td>
+</tr>
+<tr>
+<td><code>&lt;address&gt;</code></td>
+<td>For contact information related to the author of the document</td>
+</tr>
+<tr>
+<td><code>&lt;time&gt;</code></td>
+<td>Use for a <time>24-hour</time> clock or a precise date in the <a href="http://en.wikipedia.org/wiki/Gregorian_calendar">Gregorian calendar</a></td>
+</tr>
+<tr>
+<td><code>&lt;abbr&gt;</code></td>
+<td><abbr title="For Placement Only">FPO</abbr>. Describes an abbreviated phrase with the title attribute</td>
+</tr>
+<tr>
+<td><code>&lt;dfn&gt;</code></td>
+<td><dfn title="This is a definition">DFN</dfn>. Describes the definition of a word or term with the title attribute</td>
+</tr>
+<tr>
+<td><code>&lt;ins&gt;</code></td>
+<td>The ins element defines text that has been <ins>inserted into a document</ins></td>
+</tr>
+<tr>
+<td><code>&lt;del&gt;</code></td>
+<td>The del tag defines text that has been <del>deleted from a document</del></td>
+</tr>
+<tr>
+<td><code>&lt;mark&gt;</code></td>
+<td>The mark element is used for indicating text as <mark>marked or highlighted for reference</mark> purposes</td>
+</tr>
+<tr>
+<td><code>&lt;code&gt;</code></td>
+<td>The <code>code</code> tag is used to show inline code</td>
+</tr>
+<tr>
+<td><code>&lt;kbd&gt;</code></td>
+<td>The <kbd>kbd</kbd> tag defines keyboard text</td>
+</tr>
+<tr>
+<td><code>&lt;samp&gt;</code></td>
+<td>The <samp>samp</samp> tag defines sample computer code</td>
+</tr>
+<tr>
+<td><code>&lt;pre&gt;</code></td>
+<td>The <code>pre</code> tag is used for blocks of code</td>
+</tr>
+</tbody></table>
+
+<h3>Usage</h3>
+
+<pre><code class="haml">%section(style=&quot;width:45%; float:left; margin-right: 5%;&quot;)
+  %h4 Inline elements examples
+  %br
+  %p
+    Yeah, well, &lt;em&gt;listen&lt;/em&gt;. You &lt;kbd&gt;ought&lt;/kbd&gt; to &lt;strong&gt;ditch&lt;/strong&gt; the &lt;strong&gt;&lt;em&gt;two&lt;/em&gt;&lt;/strong&gt;
+    &lt;a href=&quot;http://modeset.com/&quot;&gt;geeks&lt;/a&gt; you&#39;re in the &lt;dfn title=&quot;motorized vehicle&quot;&gt;car&lt;/dfn&gt; with now and get
+    &lt;sub&gt;in with&lt;/sub&gt; us. But &lt;samp&gt;that&#39;s&lt;/samp&gt; &lt;code&gt;alright&lt;/code&gt;, &lt;mark&gt;we&#39;ll worry about&lt;/mark&gt; that &lt;time&gt;later&lt;/time&gt;.
+    I will &lt;small&gt;see you&lt;/small&gt; there. All right&lt;sup&gt;™&lt;/sup&gt;? &lt;del&gt;Man&lt;/del&gt;, &lt;ins&gt;I love&lt;/ins&gt; those
+    &lt;abbr title=&quot;Hotties&quot;&gt;redheads&lt;/abbr&gt;.
+
+%section(style=&quot;width:45%; float:left;&quot;)
+  %h4 Address examples
+  %br
+  %address
+    &lt;strong&gt;Mr. Address Tag&lt;/strong&gt;
+    &lt;br /&gt;
+    1600 Pennsylvania Ave NW
+    &lt;br /&gt;
+    Washington D.C. DC 20500
+    &lt;br /&gt;
+    &lt;br /&gt;
+    &lt;strong&gt;Email:&lt;/strong&gt;
+    &lt;br /&gt;
+    &lt;a href=&quot;#&quot;&gt;president@whitehouse.gov&lt;/a&gt;
+</code></pre>
+
+<div class="sherpa-showcase sherpa-clearfix"><section style='width:45%; float:left; margin-right: 5%;'>
+  <h4>Inline elements examples</h4>
+  <br />
+  <p>
+    Yeah, well, <em>listen</em>. You <kbd>ought</kbd> to <strong>ditch</strong> the <strong><em>two</em></strong>
+    <a href="http://modeset.com/">geeks</a> you're in the <dfn title="motorized vehicle">car</dfn> with now and get
+    <sub>in with</sub> us. But <samp>that's</samp> <code>alright</code>, <mark>we'll worry about</mark> that <time>later</time>.
+    I will <small>see you</small> there. All right<sup>™</sup>? <del>Man</del>, <ins>I love</ins> those
+    <abbr title="Hotties">redheads</abbr>.
+  </p>
+</section>
+<section style='width:45%; float:left;'>
+  <h4>Address examples</h4>
+  <br />
+  <address>
+    <strong>Mr. Address Tag</strong>
+    <br />
+    1600 Pennsylvania Ave NW
+    <br />
+    Washington D.C. DC 20500
+    <br />
+    <br />
+    <strong>Email:</strong>
+    <br />
+    <a href="#">president@whitehouse.gov</a>
+  </address>
+</section>
+</div>
+
+<h3>Blockquotes</h3>
+
+<p>Notes:
+- <strong>Pro Tip!</strong> Utilize <code>&amp;#8220;</code> and <code>&amp;#8221;</code> for opening and closing quotes within a <code>&lt;blockquote&gt;</code> element</p>
+
+<h3>Usage</h3>
+
+<pre><code class="haml">%blockquote
+  %p
+  &amp;#8220;Let me tell you what Melba Toast is packin&#39; right here, all right. We got 4:11 Positrac outback, 750 double pumper, Edelbrock intake, bored over 30, 11 to 1 pop-up pistons, turbo-jet 390 horsepower. We&#39;re talkin&#39; some f***in&#39; muscle.&amp;#8221;
+  &lt;small&gt;David Wooderson, &lt;cite title=&quot;link to source&quot;&gt;Dazed &amp;amp; Confused&lt;/cite&gt;&lt;/small&gt;
+</code></pre>
+
+<div class="sherpa-showcase sherpa-clearfix"><blockquote>
+  <p></p>
+  &#8220;Let me tell you what Melba Toast is packin' right here, all right. We got 4:11 Positrac outback, 750 double pumper, Edelbrock intake, bored over 30, 11 to 1 pop-up pistons, turbo-jet 390 horsepower. We're talkin' some f***in' muscle.&#8221;
+  <small>David Wooderson, <cite title="link to source">Dazed &amp; Confused</cite></small>
+</blockquote>
+</div>
+
+<h3>Rules</h3>
+
+<p>Horizontal rules can utilize the class <code>.dashed</code> and <code>.dotted</code> for a different separator.</p>
+
+<h3>Usage</h3>
+
+<pre><code class="haml">%hr
+%hr.dashed
+%hr.dotted
+</code></pre>
+
+<div class="sherpa-showcase sherpa-clearfix"><hr />
+<hr class='dashed' />
+<hr class='dotted' />
+</div>
+
+<h3>Lists</h3>
+
+<h3>Usage</h3>
+
+<pre><code class="haml">%section(style=&quot;width:20%; float:left; margin-right: 5%;&quot;)
+  %p
+    %strong Unordered list:
+  %ul
+    %li Unordered list
+    %li Unordered list
+    %li
+      %ul
+        %li Nested unordered list
+        %li Nested unordered list
+        %li Nested unordered list
+    %li Unordered list
+    %li
+      %ol
+        %li Nested ordered list
+        %li Nested ordered list
+        %li Nested ordered list
+
+%section(style=&quot;width:20%; float:left; margin-right: 5%;&quot;)
+  %p
+    %strong Ordered list:
+  %ol
+    %li Ordered list
+    %li Ordered list
+    %li
+      %ol
+        %li Nested ordered list
+        %li Nested ordered list
+        %li Nested ordered list
+    %li Ordered list
+    %li
+      %ul
+        %li Nested unordered list
+        %li Nested unordered list
+        %li Nested unordered list
+
+%section(style=&quot;width:20%; float:left; margin-right: 5%;&quot;)
+  %p
+    %strong Unstyled list:
+  %ul.unstyled
+    %li Unordered list
+    %li Unordered list
+    %li
+      %ul
+        %li Nested unordered list
+        %li Nested unordered list
+        %li Nested unordered list
+    %li Unordered list
+    %li
+      %ol
+        %li Nested ordered list
+        %li Nested ordered list
+        %li Nested ordered list
+
+%section(style=&quot;width:20%; float:left;&quot;)
+  %p
+    %strong Definition list:
+  %dl
+    %dt Definition Term
+    %dd Definition Description Lorem ipsum dolor sit amet.
+    %dt Definition Term
+    %dd Definition Description Lorem ipsum dolor sit amet.
+    %dt Definition Term
+    %dd Definition Description Lorem ipsum dolor sit amet.
+</code></pre>
+
+<div class="sherpa-showcase sherpa-clearfix"><section style='width:20%; float:left; margin-right: 5%;'>
+  <p>
+    <strong>Unordered list:</strong>
+  </p>
+  <ul>
+    <li>Unordered list</li>
+    <li>Unordered list</li>
+    <li>
+      <ul>
+        <li>Nested unordered list</li>
+        <li>Nested unordered list</li>
+        <li>Nested unordered list</li>
+      </ul>
+    </li>
+    <li>Unordered list</li>
+    <li>
+      <ol>
+        <li>Nested ordered list</li>
+        <li>Nested ordered list</li>
+        <li>Nested ordered list</li>
+      </ol>
+    </li>
+  </ul>
+</section>
+<section style='width:20%; float:left; margin-right: 5%;'>
+  <p>
+    <strong>Ordered list:</strong>
+  </p>
+  <ol>
+    <li>Ordered list</li>
+    <li>Ordered list</li>
+    <li>
+      <ol>
+        <li>Nested ordered list</li>
+        <li>Nested ordered list</li>
+        <li>Nested ordered list</li>
+      </ol>
+    </li>
+    <li>Ordered list</li>
+    <li>
+      <ul>
+        <li>Nested unordered list</li>
+        <li>Nested unordered list</li>
+        <li>Nested unordered list</li>
+      </ul>
+    </li>
+  </ol>
+</section>
+<section style='width:20%; float:left; margin-right: 5%;'>
+  <p>
+    <strong>Unstyled list:</strong>
+  </p>
+  <ul class='unstyled'>
+    <li>Unordered list</li>
+    <li>Unordered list</li>
+    <li>
+      <ul>
+        <li>Nested unordered list</li>
+        <li>Nested unordered list</li>
+        <li>Nested unordered list</li>
+      </ul>
+    </li>
+    <li>Unordered list</li>
+    <li>
+      <ol>
+        <li>Nested ordered list</li>
+        <li>Nested ordered list</li>
+        <li>Nested ordered list</li>
+      </ol>
+    </li>
+  </ul>
+</section>
+<section style='width:20%; float:left;'>
+  <p>
+    <strong>Definition list:</strong>
+  </p>
+  <dl>
+    <dt>Definition Term</dt>
+    <dd>Definition Description Lorem ipsum dolor sit amet.</dd>
+    <dt>Definition Term</dt>
+    <dd>Definition Description Lorem ipsum dolor sit amet.</dd>
+    <dt>Definition Term</dt>
+    <dd>Definition Description Lorem ipsum dolor sit amet.</dd>
+  </dl>
+</section>
+</div>
+
+<p></section><section class="sherpa-section sherpa-clearfix"></p>
+
+<h2>Bindable</h2>
+
+<p>Light weight dependency injection for client side components. Looks for
+all DOM elements with a <code>data-bindable</code> attribute, stores references
+within a registry and instantiates their respective classes.</p>
+
+<p>Classes registering with <code>Bindable</code> are passed the existing element
+converted to a <code>$</code> object.</p>
+
+<p><code>Bindable</code> is stored as a global object on <code>window</code>.</p>
+
+<h3>Usage</h3>
+
+<p>As a class making use of the <code>Bindable</code> registry:</p>
+
+<pre><code class="coffee">#= require bindable
+class roos.MockClass
+  constructor: (@el) -&gt;
+  # make some magic
+
+# register with Bindable
+Bindable.register(&#39;mocker&#39;, roos.MockClass)
+</code></pre>
+
+<p>As markup instantiating a class that is registered with <code>Bindable</code>:</p>
+
+<pre><code class="haml">%a.one(data-bindable=&quot;mocker&quot; href=&quot;#&quot;) Binded to MockClass
+</code></pre>
+
+<p><code>Bindable</code> is created after the page has loaded (typically in a
+bootstrap file)</p>
+
+<pre><code class="coffee">#= require bindable
+$ -&gt;
+  new Bindable().bindAll()
+</code></pre>
+
+<h3>API</h3>
+
+<p>TODO: Need to describe the public API a little clearer</p>
+
+<p></section><section class="sherpa-section sherpa-clearfix"></p>
+
+<h2>Toggler</h2>
+
+<p>Base class for adding, removing and toggling classes on a given element.</p>
+
+<h3>Options</h3>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>toggle</code></td>
+<td><code>active</code></td>
+<td>The class(es) to toggle when triggered</td>
+</tr>
+<tr>
+<td><code>trigger</code></td>
+<td><code>click</code></td>
+<td>The event to trigger toggle behavior</td>
+</tr>
+<tr>
+<td><code>target</code></td>
+<td><code>bindable element</code></td>
+<td>The target element to toggle classes on (the <code>href</code> attribute can also be used)</td>
+</tr>
+<tr>
+<td><code>lookup</code></td>
+<td><code>find</code></td>
+<td>The <code>$</code> method to find a target or href target ~ [<code>closest</code>, <code>siblings</code>, <code>parents</code>...]</td>
+</tr>
+<tr>
+<td><code>solo</code></td>
+<td><code>true</code></td>
+<td>When the target is not the bindable element, classes are toggled to both the target and bindable element. Setting to false will result in classes only being applied to the target</td>
+</tr>
+<tr>
+<td><code>activate</code></td>
+<td><code>false</code></td>
+<td>If present, this will auto activate the element</td>
+</tr>
+<tr>
+<td><code>bubble</code></td>
+<td><code>false</code></td>
+<td>Controls whether an action <code>preventsDefault</code>, setting to <code>true</code> will allow normal events to fire</td>
+</tr>
+</tbody></table>
+
+<p><em>All options are optional</em></p>
+
+<p>Toggler finds the target based on the following rules:</p>
+
+<ol>
+<li>If there is a <code>target</code> attribute and it can be found in the DOM, use it</li>
+<li>Otherwise if there is NOT an <code>href</code> attribute use the bindable element</li>
+<li>Or if the <code>href</code> is <code>#this</code> or <code>#</code> use the bindable element</li>
+<li>Or if the <code>href</code> is a normal link (i.e. <code>/some-page</code>) use the bindable element</li>
+<li>Otherwise lookup the element within the <code>href</code>, if found, use it, otherwise use the bindable element</li>
+</ol>
+
+<h3>Usage</h3>
+
+<pre><code class="haml">%h2#heading Mansfield
+
+%section.shell
+  %a.one(data-bindable=&quot;toggler&quot; href=&quot;#&quot;) Basic
+  %a.two(data-bindable=&quot;toggler&quot; href=&quot;#this&quot; data-trigger=&quot;hover&quot; data-toggle=&quot;in cool&quot;) Hovering
+  %a.three(data-bindable=&quot;toggler&quot; data-target=&quot;#span&quot; data-solo=&quot;true&quot;) Target the &lt;span id=&quot;span&quot;&gt;Span&lt;/span&gt; 
+  %a.four(data-bindable=&quot;toggler&quot; href=&quot;#heading&quot; data-lookup=&quot;closest&quot;) Target heading up the tree
+  %a.five(data-bindable=&quot;toggler&quot; href=&quot;#heading&quot; data-lookup=&quot;closest&quot; data-bubble=&quot;true&quot;) Change url
+  %a.six(data-bindable=&quot;toggler&quot; href=&quot;#&quot; data-activate=&quot;true&quot;) Start in the active state
+</code></pre>
+
+<div class="sherpa-showcase sherpa-clearfix"><h2 id='heading'>Mansfield</h2>
+<section class='shell'>
+  <a class='one' data-bindable='toggler' href='#'>Basic</a>
+  <a class='two' data-bindable='toggler' data-toggle='in cool' data-trigger='hover' href='#this'>Hovering</a>
+  <a class='three' data-bindable='toggler' data-solo='true' data-target='#span'>Target the <span id="span">Span</span></a>
+  <a class='four' data-bindable='toggler' data-lookup='closest' href='#heading'>Target heading up the tree</a>
+  <a class='five' data-bindable='toggler' data-bubble='true' data-lookup='closest' href='#heading'>Change url</a>
+  <a class='six' data-activate='true' data-bindable='toggler' href='#'>Start in the active state</a>
+</section>
+</div>
+
+<ol>
+<li>Toggles the class <code>active</code> on <code>click</code></li>
+<li>Toggles the classes <code>in cool</code> on <code>hover</code>, the <code>href</code> is merely referencing the element as it&#39;s target</li>
+<li>Toggles the class <code>active</code> on <code>click</code> for only the child <code>&lt;span&gt;</code> and not the <code>&lt;link&gt;</code> element</li>
+<li>Toggles the class <code>active</code> on <code>click</code> for both the <code>link</code> and the <code>&lt;h2&gt;</code>, using the <code>$.closest</code> method to find the target</li>
+<li>Same as number four except on <code>click</code> the url will change to the <code>href</code> hash</li>
+<li>Toggles the class <code>active</code> on <code>click</code>, but is initialized with the <code>active</code> class on the element</li>
+</ol>
+
+<h3>API</h3>
+
+<h4>#new</h4>
+
+<p>Create a new instance of Toggler programatically. Normally this is
+handled through Bindable. </p>
+
+<pre><code class="coffee">#= require toggler
+
+el = $(&#39;.shell&#39;)
+toggler = new roos.Toggler(el, {toggle: &#39;show&#39;, trigger: &#39;hover&#39;})
+</code></pre>
+
+<h4>#toggle</h4>
+
+<p>This is normally handled through events, but you can always trigger the
+element&#39;s toggle event</p>
+
+<pre><code class="coffee">el.trigger(&#39;hover&#39;)
+</code></pre>
+
+<h4>#activate</h4>
+
+<p>Add the toggle classes to the element</p>
+
+<pre><code class="coffee">toggler.activate()
+</code></pre>
+
+<h4>#deactivate</h4>
+
+<p>Remove the toggle classes from the element</p>
+
+<pre><code class="coffee">toggler.deactivate()
+</code></pre>
+
+<h4>#dispose</h4>
+
+<p>Remove the toggler behavior</p>
+
+<pre><code class="coffee">toggler.dispose()
+</code></pre>
+
+<p></section><section class="sherpa-section sherpa-clearfix"></p>
+
+<h2>Toggler Group</h2>
+
+<p>An extension of Toggler for adding, removing and toggling groups of related elements. These are predominantly used in navigation type systems. A toggler group can function either like radio buttons or check boxes.</p>
+
+<h3>Options</h3>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>target</code></td>
+<td><code>li</code></td>
+<td>The identifier for looking up child elements to operate on.</td>
+</tr>
+<tr>
+<td><code>behavior</code></td>
+<td><code>radio</code></td>
+<td>Set to <code>radio</code> for radio style toggling or <code>checkbox</code> for check box style toggling</td>
+</tr>
+<tr>
+<td><code>activate</code></td>
+<td><code>element</code> or <code>index</code></td>
+<td>If present, this will auto activate the element or index item on initialization</td>
+</tr>
+</tbody></table>
+
+<p><em>See Toggler for other options</em><br>
+<em>All options are optional</em></p>
+
+<h3>Usage</h3>
+
+<pre><code class="haml">%section.shell
+  %nav
+    %ul#radios.nav(data-bindable=&quot;toggler-group&quot; data-target=&quot;.radio-li&quot;)
+      %li.radio-li
+        %a(href=&quot;#&quot;) Radio 1
+      %li.radio-li
+        %a(href=&quot;#&quot;) Radio 2
+      %li.radio-li
+        %a(href=&quot;#&quot;) Radio 3
+
+  %nav
+    %ul#checks.nav(data-bindable=&quot;toggler-group&quot; data-behavior=&quot;checkbox&quot;)
+      %li
+        %a(href=&quot;#&quot;) Checkbox 1
+      %li
+        %a(href=&quot;#&quot;) Checkbox 2
+      %li
+        %a(href=&quot;#&quot;) Checkbox 3
+</code></pre>
+
+<div class="sherpa-showcase sherpa-clearfix"><section class='shell'>
+  <nav>
+    <ul class='nav' data-bindable='toggler-group' data-target='.radio-li' id='radios'>
+      <li class='radio-li'>
+        <a href='#'>Radio 1</a>
+      </li>
+      <li class='radio-li'>
+        <a href='#'>Radio 2</a>
+      </li>
+      <li class='radio-li'>
+        <a href='#'>Radio 3</a>
+      </li>
+    </ul>
+  </nav>
+  <nav>
+    <ul class='nav' data-behavior='checkbox' data-bindable='toggler-group' id='checks'>
+      <li>
+        <a href='#'>Checkbox 1</a>
+      </li>
+      <li>
+        <a href='#'>Checkbox 2</a>
+      </li>
+      <li>
+        <a href='#'>Checkbox 3</a>
+      </li>
+    </ul>
+  </nav>
+</section>
+</div>
+
+<h3>API</h3>
+
+<h4>#new</h4>
+
+<p>Create a new instance of TogglerGroup programatically. Normally this is
+handled through Bindable. Most setup occurs within Toggler. </p>
+
+<pre><code class="coffee">#= require toggler_group
+
+radios = $(&#39;#radios&#39;)
+checks = $(&#39;#checks&#39;)
+
+radio_group = new roos.TogglerGroup(radios, {behavior: &#39;radio&#39;})
+check_group = new roos.TogglerGroup(checks, {behavior: &#39;checkbox&#39;})
+</code></pre>
+
+<h4>#toggle</h4>
+
+<p>This is normally handled through events, but you can always trigger the
+element&#39;s toggle event. Toggling changes the state on the current triggered
+element, if the group has <code>radio</code> behavior, it will deactivate all other
+elements within the group.</p>
+
+<pre><code class="coffee">$(radios[1]).trigger(&#39;click&#39;)
+$(checks[1]).trigger(&#39;click&#39;)
+</code></pre>
+
+<p><em>Note: this does not call the super&#39;s toggle method</em></p>
+
+<h4>#activate</h4>
+
+<p>Activate can take either an index or element as it&#39;s parameter.
+Activating will add the toggle classes to the element. If behavior is
+set to <code>radio</code>, activate will remove the toggle classes from other
+elements within the group.</p>
+
+<pre><code class="coffee"># activate by index
+radio_group.activate(1)
+check_group.activate(1)
+
+# activate by element
+radio_group.activate($(radios[1]))
+check_group.activate($(checks[1]).find(&#39;a&#39;))
+</code></pre>
+
+<p><em>Note: this does not call the super&#39;s activate method</em></p>
+
+<h4>#deactivate</h4>
+
+<p>Deactivate can take either an index or element as it&#39;s parameter.
+Deactivating will remove the toggle classes from the element.</p>
+
+<pre><code class="coffee"># deactivate by index
+radio_group.deactivate(1)
+check_group.deactivate(1)
+
+# deactivate by element
+radio_group.deactivate($(radios[1]))
+check_group.deactivate($(checks[1]).find(&#39;a&#39;))
+</code></pre>
+
+<p><em>Note: this does not call the super&#39;s deactivate method</em></p>
+
+<p></section><section class="sherpa-section sherpa-clearfix"></p>
+
+<h2>Tooltip</h2>
+
+<p>Tool tip component inspired by <a href="https://github.com/jaz303/tipsy">tipsy</a>. </p>
+
+<p>Color styling is automatically generated based on the inverted colors of the body&#39;s
+<code>background-color</code> and font <code>color</code>.</p>
+
+<p>Tooltip is a subclass of Toggler.</p>
+
+<h3>Options</h3>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>toggle</code></td>
+<td><code>in</code></td>
+<td>Overrides Toggler&#39;s default of <code>active</code></td>
+</tr>
+<tr>
+<td><code>trigger</code></td>
+<td><code>hover</code></td>
+<td>Overrides Toggler&#39;s default of <code>click</code></td>
+</tr>
+<tr>
+<td><code>selector</code></td>
+<td><code>body</code></td>
+<td>The element in which to append the tool tip markup</td>
+</tr>
+<tr>
+<td><code>title</code></td>
+<td><code>&quot;&quot;</code></td>
+<td>The content (html or text) to insert for the tooltip, use the actual <code>title</code> attribute</td>
+</tr>
+<tr>
+<td><code>placement</code></td>
+<td><code>north</code></td>
+<td>Where to position the tooltip in relation to the element: <code>north</code>, <code>south</code>, <code>east</code>, <code>west</code></td>
+</tr>
+<tr>
+<td><code>effect</code></td>
+<td><code>fade</code></td>
+<td>The base animation class to add to the tooltip markup</td>
+</tr>
+<tr>
+<td><code>delay</code></td>
+<td><code>0</code></td>
+<td>The amount of time in milliseconds to delay on show and hide, see notes below</td>
+</tr>
+</tbody></table>
+
+<p><em>See Toggler for other options</em>  </p>
+
+<p>When using the delay attribute, you can optionally pass a basic object
+with two <code>number</code> values. The values must be separated by a <code>,</code>. The
+first number is the delay for showing the tip, the second is the delay
+time for hiding the tip. The following all end up computing a delay
+object of <code>{show:1000, hide:2000}</code></p>
+
+<pre><code class="html">data-delay=&quot;1000, 2000&quot;
+data-delay=&quot;show:1000, hide:2000&quot;
+data-delay=&quot;{show:1000, hide:2000}&quot;
+data-delay=&quot;hide:1000, show:2000&quot;
+</code></pre>
+
+<p>Notes:<br>
+- <strong>Heads Up!</strong> Tooltip will override it&#39;s placement automatically if it
+  determines the requested placement will render the tip outside the
+  viewable area.</p>
+
+<h3>Usage</h3>
+
+<pre><code class="haml">%a(data-bindable=&quot;tooltip&quot; data-placement=&quot;north&quot; title=&quot;The Northern Tooltip&quot; href=&quot;#&quot; data-delay=&quot;500&quot;) North
+|
+%a(data-bindable=&quot;tooltip&quot; data-placement=&quot;south&quot; title=&quot;The Southern Tooltip&quot; href=&quot;#&quot; data-delay=&quot;1000,2000&quot;) South
+|
+%a(data-bindable=&quot;tooltip&quot; data-placement=&quot;east&quot; title=&quot;The Eastern Tooltip&quot; href=&quot;#&quot;) East
+|
+%a(data-bindable=&quot;tooltip&quot; data-placement=&quot;west&quot; title=&quot;The Western Tooltip&quot; href=&quot;#&quot;) West
+|
+%a(data-bindable=&quot;tooltip&quot; data-placement=&quot;south&quot; title=&quot;&lt;img src=&#39;http://placehold.it/350x150&#39;/&gt;&quot; href=&quot;#&quot;) Image
+</code></pre>
+
+<div class="sherpa-showcase sherpa-clearfix"><a data-bindable='tooltip' data-delay='500' data-placement='north' href='#' title='The Northern Tooltip'>North</a>
+|
+<a data-bindable='tooltip' data-delay='1000,2000' data-placement='south' href='#' title='The Southern Tooltip'>South</a>
+|
+<a data-bindable='tooltip' data-placement='east' href='#' title='The Eastern Tooltip'>East</a>
+|
+<a data-bindable='tooltip' data-placement='west' href='#' title='The Western Tooltip'>West</a>
+|
+<a data-bindable='tooltip' data-placement='south' href='#' title="&lt;img src='http://placehold.it/350x150'/&gt;">Image</a>
+</div>
+
+<h3>API</h3>
+
+<h4>#new</h4>
+
+<h3>Requires</h3>
+
+<ul>
+<li>namespace</li>
+<li>bindable</li>
+<li>support</li>
+<li>toggler</li>
+</ul>
+
+<p></section></p>
+
+    </section>
+
+    <footer class="sherpa-footer sherpa-container sherpa-clearfix">
+      <p>&raquo; <a href="#">Github Repository</a></p>
+    </footer>
+    <script src="/assets/application.js"></script>
+  </body>
+</html>
+

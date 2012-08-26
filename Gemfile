@@ -16,6 +16,7 @@ end
 gem 'jquery-rails'
 gem 'thin'
 gem 'redcarpet'
+gem 'mustache'
 
 
 group :development, :test do
