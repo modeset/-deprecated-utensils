@@ -4,14 +4,12 @@
 #= require support
 #= require toggler
 
-# - Test for document bounds?
 # - Tests!!!
 # - How does this work with touch devices?
 
 class roos.Tooltip extends roos.Toggler
   constructor: (@el, data) ->
     super(@el, data)
-    @timeout = null
 
   options: ->
     @data.toggle = 'in' unless @data.toggle
@@ -26,11 +24,14 @@ class roos.Tooltip extends roos.Toggler
 
   initialize: ->
     @tip = null
+    @timeout = null
     super()
     @el.attr('title', '')
 
   toggle: (e) ->
     super(e)
+    clearTimeout(@timeout) if @timeout
+
     if @is_active
       if @delay.show != 0
         @timeout = setTimeout(( => @activate()), @delay.show)
@@ -46,7 +47,7 @@ class roos.Tooltip extends roos.Toggler
     @remove()
     @tip = $(@render())
     @tip.appendTo(@selector)
-    pos = @getPlacement()
+    pos = @inBounds(@getPlacement(@placement))
     @tip.css({top: pos.top, left: pos.left})
     @tip.addClass(@toggle_classes)
 
@@ -56,8 +57,6 @@ class roos.Tooltip extends roos.Toggler
       @tip.removeClass(@toggle_classes)
     else
       @remove()
-
-  reposition: ->
 
   remove: ->
     if @tip
@@ -73,7 +72,7 @@ class roos.Tooltip extends roos.Toggler
            """
     return html
 
-  getPlacement: ->
+  getPlacement: (placement) ->
     to = @tip.offset()
     tw = @tip.outerWidth()
     th = @tip.outerHeight()
@@ -81,27 +80,50 @@ class roos.Tooltip extends roos.Toggler
     ew = @el.outerWidth()
     eh = @el.outerHeight()
 
-    if @placement == 'north'
+    if placement == 'north'
       return {
         top: Math.round(eo.top - th)
         left: Math.round(eo.left + ew * 0.5 - tw * 0.5)
       }
-    else if @placement == 'south'
+    else if placement == 'south'
       return {
         top: Math.round(eo.top + eh)
         left: Math.round(eo.left + ew * 0.5 - tw * 0.5)
       }
-    else if @placement == 'east'
+    else if placement == 'east'
       return {
         top: Math.round(eo.top + eh * 0.5 - th * 0.5)
         left: Math.round(eo.left + ew)
       }
-    else if @placement == 'west'
+    else if placement == 'west'
       return {
         top: Math.round(eo.top + eh * 0.5 - th * 0.5)
         left: Math.round(eo.left - tw)
       }
     return {top:0, left:0}
+
+  inBounds: (pos) ->
+    win = $(window)
+    top = win.scrollTop()
+    left = win.scrollLeft()
+    w = win.width()
+    h = win.height()
+    tw = @tip.outerWidth()
+    th = @tip.outerHeight()
+
+    if (pos.top < top)
+      @tip.removeClass(@placement).addClass('south')
+      return @getPlacement('south')
+    if (pos.top + th > top + h)
+      @tip.removeClass(@placement).addClass('north')
+      return @getPlacement('north')
+    if (pos.left + tw > left + w)
+      @tip.removeClass(@placement).addClass('west')
+      return @getPlacement('west')
+    if (pos.left < left)
+      @tip.removeClass(@placement).addClass('east')
+      return @getPlacement('east')
+    return pos
 
   getDelay: ->
     if !@data.delay
