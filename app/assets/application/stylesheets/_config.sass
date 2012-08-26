@@ -1,7 +1,6 @@
 
-// Configuration
+// Library configuration
 $add-mixin-helpers: true
-
 $legacy-support-for-ie: true
 $legacy-support-for-ie8: $legacy-support-for-ie
 $support-for-original-webkit-gradients: true
@@ -9,31 +8,27 @@ $experimental-support-for-mozilla: true
 $experimental-support-for-opera: true
 $experimental-support-for-microsoft: true
 
+
+// Required settings
+// -----------------------------------------------------------------------------
+
 // Base Sizing
-$context_px: 16
-$base_font_size: 14
-$base_width: 1000
-$base_line_height: 1.2
-$base_vertical: $base_font_size * $base_line_height
+$context-px: 16
+$base-font-size: 14
+$base-width: 1000
+$base-line-height: 1.2
+$base-vertical: $base-font-size * $base-line-height
 
 // Fonts
-$sans_norm: "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif
-$serif_norm: "Georgia", "Times", "Times New Roman", serif
-$code_norm: "Bitstream Vera Sans Mono", "Menslo LG M", "Menlo", "Monaco", monospace
+$sans-norm: "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif
+$serif-norm: "Georgia", "Times", "Times New Roman", serif
+$code-norm: "Bitstream Vera Sans Mono", "Menslo LG M", "Menlo", "Monaco", monospace
 
 // greyscale
 $black: #000
-$grey3: #333
-$grey6: #666
-$grey9: #999
-$greyA: #aaa
-$greyB: #bbb
-$greyC: #ccc
-$greyD: #ddd
-$greyE: #eee
 $white: #fff
-$off_white: #fafafa
-$off_grey: #eaeaea
+$off-white: #fafafa
+$off-grey: #eaeaea
 
 // mc roy g biv
 $magenta: #ff00ff
@@ -46,77 +41,85 @@ $blue: #268bd2
 $indigo: #4b0082
 $violet: #ee82ee
 
-// status
-$standard: #f5f5f5
-$info: $grey9
-$important: $blue
-$success: $green
-$warning: $yellow
-$error: $red
-$danger: $red
-
 // ci
 $primary: $blue
-
-// misc colors
-$disabled_color: $greyB
-$disabled_bg: $greyE
-$disabled_border: $greyD
-$focus_color: #52a8ec
-$focus_border: rgba($focus_color, 0.8)
-
-// component
-$component_normal: $grey6
-$component_active: $white
-$component_bg: transparent
-$component_bg_hover: $greyE
-$component_bg_active: $primary
-$component_border: $greyC
-$component_border_alt: darken($component_border, 10%)
-
-// Shadows
-$text_inset_dark: 0 -1px 0 rgba($black, 0.25)
-$text_inset_lite: 0 -1px 0 rgba($white, 0.75)
-$text_drop_dark: 0 1px 0 rgba($black, 0.25)
-$text_drop_lite: 0 1px 0 rgba($white, 0.75)
-
-$inset_dark: inset 0 1px 4px rgba($black, 0.3)
-$inset_lite: inset 0 1px 4px rgba($white, 0.7)
-$drop_dark: 0 1px 4px rgba($black, 0.3)
-$drop_lite: 0 1px 4px rgba($white, 0.7)
-
-$focus_inset: inset 0 1px 3px rgba($black, 0.1)
-$focus_glow: 0 0 8px rgba($focus_color, 0.6)
-$error_glow: 0 0 8px rgba($red, 0.6)
 
 // Misc
 $radii: 0.4em
 $speed: 0.25s
 
+// scaffold.sass
+$body-bg: $white
+$body-color: #333
+$select-bg: $primary
+$select-color: $white
+$tap-highlight: $primary
+$link-normal: $primary
+$link-hover: darken($link-normal, 20%)
+
+
+// Top level component settings (only required for certain components)
+// -----------------------------------------------------------------------------
+
+// status
+// $standard: #f5f5f5
+// $info: #999
+// $important: $blue
+// $success: $green
+// $warning: $yellow
+// $error: $red
+// $danger: $red
+
 // z-indexing
-$zindex_dropdown: 1000
-$zindex_tips: 1010
-$zindex_navbar: 1020
-$zindex_modal_backdrop: 1030
-$zindex_modal: 1040
-$zindex_flash_message: 1050
+// $zindex-dropdown: 1000
+$zindex-tips: 1010
+// $zindex-navbar: 1020
+// $zindex-modal-backdrop: 1030
+// $zindex-modal: 1040
+// $zindex-flash-message: 1050
 
-// base.sass
-$body_bg: $white
-$body_color: $grey3
-$select_bg: $primary
-$select_color: $white
-$tap_highlight: $primary
-$link_normal: $primary
-$link_hover: darken($link_normal, 20%)
 
-// typography.sass
-$header_color: $grey3
-$hr_color: $grey6
+// Component overrides
+// -----------------------------------------------------------------------------
+
+
+// Old crap
+// -----------------------------------------------------------------------------
+
+// misc colors
+// $disabled_color: $greyB
+// $disabled_bg: $greyE
+// $disabled_border: $greyD
+// $focus_color: #52a8ec
+// $focus_border: rgba($focus_color, 0.8)
+
+// component
+// $component_normal: $grey6
+// $component_active: $white
+// $component_bg: transparent
+// $component_bg_hover: $greyE
+// $component_bg_active: $primary
+// $component_border: $greyC
+// $component_border_alt: darken($component_border, 10%)
+
+// Shadows
+// $text_inset_dark: 0 -1px 0 rgba($black, 0.25)
+// $text_inset_lite: 0 -1px 0 rgba($white, 0.75)
+// $text_drop_dark: 0 1px 0 rgba($black, 0.25)
+// $text_drop_lite: 0 1px 0 rgba($white, 0.75)
+
+// $inset_dark: inset 0 1px 4px rgba($black, 0.3)
+// $inset_lite: inset 0 1px 4px rgba($white, 0.7)
+// $drop_dark: 0 1px 4px rgba($black, 0.3)
+// $drop_lite: 0 1px 4px rgba($white, 0.7)
+
+// $focus_inset: inset 0 1px 3px rgba($black, 0.1)
+// $focus_glow: 0 0 8px rgba($focus_color, 0.6)
+// $error_glow: 0 0 8px rgba($red, 0.6)
 
 // forms.sass
-$placeholder: $greyC
-$horiz_offset: 100px
-$input_inset_shadow: inset 0 1px 1px rgba($black, 0.1)
+// $placeholder: $greyC
+// $horiz_offset: 100px
+// $input_inset_shadow: inset 0 1px 1px rgba($black, 0.1)
 
 

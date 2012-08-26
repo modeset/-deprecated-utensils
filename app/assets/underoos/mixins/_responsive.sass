@@ -6,11 +6,11 @@
 // --------------------- | ------------- | ---------------------
 // `+resize_containers`  | `$base_value` | Resize any containers based on the media query
 
-@mixin resize_containers($base_value)
+@mixin resize_containers($size)
   .container
-    max-width: $base_value * 1px
+    max-width: $size* 1px
     &.fluid, &.fixed
       max-width: none
     &.fixed
-      width: $base_value * 1px
+      width: $size * 1px
 

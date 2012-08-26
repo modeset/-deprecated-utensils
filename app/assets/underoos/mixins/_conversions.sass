@@ -17,21 +17,21 @@
 // Warnings:
 // - **Warning!** Define `$context_px`, `$base_font_size`, `$base_width` and `$base_vertical` prior to the functions being loaded.
 
-@function to_em($target_px, $context:$base_font_size)
-  @return ($target_px / $context) * 1em
+@function to_em($target-px, $context:$base-font-size)
+  @return ($target-px / $context) * 1em
 
-@function to_rem($target_px, $context:$context_px)
-  @return ($target_px / $context) * 1rem
+@function to_rem($target-px, $context:$context-px)
+  @return ($target-px / $context) * 1rem
 
-@function to_percent($target_px, $context:$base_width)
-  @return percentage($target_px / $context)
+@function to_percent($target-px, $context:$base-width)
+  @return percentage($target-px / $context)
 
-@function vertical_pixel($target_px)
-  @return ($base_vertical / $target_px) * 1px
+@function vertical_pixel($target-px)
+  @return ($base-vertical / $target-px) * 1px
 
-@function vertical_em($target_px)
-  @return to_em(($base_vertical / $target_px), $base_font_size)
+@function vertical_em($target-px)
+  @return to_em(($base-vertical / $target-px), $base-font-size)
 
-@function vertical_percent($target_px)
-  @return to_percent(($base_vertical / $target_px), $base_font_size)
+@function vertical_percent($target-px)
+  @return to_percent(($base-vertical / $target-px), $base-font-size)
 

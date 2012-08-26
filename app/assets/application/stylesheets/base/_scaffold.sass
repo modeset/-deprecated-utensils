@@ -7,23 +7,23 @@ html
   -ms-text-size-adjust: 100%
 
 html, button, input, select, textarea
-  color: $body_color
-  font-family: $sans_norm
+  color: $body-color
+  font-family: $sans-norm
 
 body
-  +font-size($base_font_size)
-  background: $body_bg
-  line-height: $base_line_height
+  +font-size($base-font-size)
+  background: $body-bg
+  line-height: $base-line-height
 
 \::-moz-selection
-  +text-selection($select_bg, $select_color)
+  +text-selection($select-bg, $select-color)
 
 \::selection
-  +text-selection($select_bg, $select_color)
+  +text-selection($select-bg, $select-color)
 
 // Links
 a, a:visited
-  color: $link_normal
+  color: $link-normal
   text-decoration: none
 
 a:focus
@@ -34,13 +34,13 @@ a:hover, a:active
   text-decoration: none
 
 a:hover
-  color: $link_hover
+  color: $link-hover
 
 a:active, a.active, .active > a
-  color: $link_hover
+  color: $link-hover
 
 a:link
-  -webkit-tap-highlight-color: $tap_highlight
+  -webkit-tap-highlight-color: $tap-highlight
 
 // Base navigation
 .nav
