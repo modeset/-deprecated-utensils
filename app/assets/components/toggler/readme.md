@@ -26,7 +26,7 @@ Toggler finds the target based on the following rules:
 - Or if the `href` is a normal link (i.e. `/some-page`) use the bindable element
 - Otherwise lookup the element within the `href`, if found, use it, otherwise use the bindable element
 
-### Examples
+### Usage
 
 ```haml
 %h2#heading Mansfield

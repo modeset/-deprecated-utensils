@@ -28,37 +28,27 @@ Warnings:
 Notes:
 - **Pro Tip!** For convenience, add the `inline` class to the `.nav` element to display the base nav inline
 
-Usage:
+### Usage
 
-```
-<nav>
-  <ul class="nav inline" id="underoos_nav_demo">
-    <li>
-      <a data-classes="nav" href="#">Base Nav</a>
-    </li>
-    <li class="active">
-      <a data-classes="nav inline" href="#">Base Nav Inline</a>
-    </li>
-    <li>
-      <a data-classes="nav tabs" href="#">Tabs</a>
-    </li>
-    <li>
-      <a data-classes="nav pills" href="#">Pills</a>
-    </li>
-    <li>
-      <a data-classes="nav breadcrumb" href="#">Breadcrumbs</a>
-    </li>
-    <li>
-      <a data-classes="nav pagination" href="#">Pagination</a>
-    </li>
-    <li>
-      <a data-classes="nav tabs stacked" href="#">Stacked Tabs</a>
-    </li>
-    <li>
-      <a data-classes="nav pills stacked" href="#">Stacked Pills</a>
-    </li>
-  </ul>
-</nav>
+```haml
+%nav
+  %ul.nav.inline#underoos_nav_demo
+    %li
+      %a(data-classes="nav" href="#") Base Nav
+    %li.active
+      %a(data-classes="nav inline" href="#") Base Nav Inline
+    %li
+      %a(data-classes="nav tabs" href="#") Tabs
+    %li
+      %a(data-classes="nav pills" href="#") Pills
+    %li
+      %a(data-classes="nav breadcrumb" href="#") Breadcrumbs
+    %li
+      %a(data-classes="nav pagination" href="#") Pagination
+    %li
+      %a(data-classes="nav tabs stacked" href="#") Stacked Tabs
+    %li
+      %a(data-classes="nav pills stacked" href="#") Stacked Pills
 ```
 
 ## Transitions
@@ -78,26 +68,26 @@ Heading, paragraph, lists, and inline typographic elements.
 
 ### Headings and body copy
 
-Usage:
+### Usage
 
-```
-<h1>Google hearts h1 headings, but only use one per page.</h1>
-<p>~lorem</p>
-<br/>
-<h2>Got sections? Try using h2 headings.</h2>
-<p>~lorem</p>
-<br/>
-<h3>Good things come in threes, like tacos and h3 headings.</h3>
-<p>~lorem</p>
-<br/>
-<h4>There's nothing clever to say about h4 headings.</h4>
-<p>~lorem</p>
-<br/>
-<h5>Every time you use an h5 heading, Google kills a puppy. A tiny little puppy.</h5>
-<p>~lorem</p>
-<br/>
-<h6>An h6 heading? Google just killed a litter of kittens.</h6>
-<p>~lorem</p>
+```haml
+%h1 Google hearts h1 headings, but only use one per page.
+%p ~lorem
+%br
+%h2 Got sections? Try using h2 headings.
+%p ~lorem
+%br
+%h3 Good things come in threes, like tacos and h3 headings.
+%p ~lorem
+%br
+%h4 There's nothing clever to say about h4 headings.
+%p ~lorem
+%br
+%h5 Every time you use an h5 heading, Google kills a puppy. A tiny little puppy.
+%p ~lorem
+%br
+%h6 An h6 heading? Google just killed a litter of kittens.
+%p ~lorem
 ```
 
 
@@ -123,34 +113,33 @@ Element     | Usage
 `<samp>`    | The <samp>samp</samp> tag defines sample computer code
 `<pre>`     | The <code>pre</code> tag is used for blocks of code
 
-Usage:
+### Usage
 
-```
-<section style="width:45%; float:left; margin-right: 5%;">
-  <h4>Inline elements examples</h4>
-  <br />
-  <p>Yeah, well, <em>listen</em>. You <kbd>ought</kbd> to <strong>ditch</strong> the <strong><em>two</em></strong>
-  <a href="http://modeset.com/">geeks</a> you're in the <dfn title="motorized vehicle">car</dfn> with now and get
-  <sub>in with</sub> us. But <samp>that's</samp> <code>alright</code>, <mark>we'll worry about</mark> that <time>later</time>.
-  I will <small>see you</small> there. All right<sup>™</sup>? <del>Man</del>, <ins>I love</ins> those
-  <abbr title="Hotties">redheads</abbr>.</p>
-</section>
-<section style="width:45%; float:left;">
-  <h4>Address examples</h4>
-  <br />
-  <address>
+```haml
+%section(style="width:45%; float:left; margin-right: 5%;")
+  %h4 Inline elements examples
+  %br
+  %p
+    Yeah, well, <em>listen</em>. You <kbd>ought</kbd> to <strong>ditch</strong> the <strong><em>two</em></strong>
+    <a href="http://modeset.com/">geeks</a> you're in the <dfn title="motorized vehicle">car</dfn> with now and get
+    <sub>in with</sub> us. But <samp>that's</samp> <code>alright</code>, <mark>we'll worry about</mark> that <time>later</time>.
+    I will <small>see you</small> there. All right<sup>™</sup>? <del>Man</del>, <ins>I love</ins> those
+    <abbr title="Hotties">redheads</abbr>.
+
+%section(style="width:45%; float:left;")
+  %h4 Address examples
+  %br
+  %address
     <strong>Mr. Address Tag</strong>
-    <br>
+    <br />
     1600 Pennsylvania Ave NW
-    <br>
+    <br />
     Washington D.C. DC 20500
-    <br>
-    <br>
+    <br />
+    <br />
     <strong>Email:</strong>
-    <br>
+    <br />
     <a href="#">president@whitehouse.gov</a>
-  </address>
-</section>
 ```
 
 ### Blockquotes
@@ -158,108 +147,95 @@ Usage:
 Notes:
 - **Pro Tip!** Utilize `&#8220;` and `&#8221;` for opening and closing quotes within a `<blockquote>` element
 
-Usage:
+### Usage
 
-```
-<blockquote>
-  <p>&#8220;Let me tell you what Melba Toast is packin' right here, all right. We got 4:11 Positrac outback, 750 double pumper, Edelbrock intake, bored over 30, 11 to 1 pop-up pistons, turbo-jet 390 horsepower. We're talkin' some f***in' muscle.&#8221;</p>
+```haml
+%blockquote
+  %p
+  &#8220;Let me tell you what Melba Toast is packin' right here, all right. We got 4:11 Positrac outback, 750 double pumper, Edelbrock intake, bored over 30, 11 to 1 pop-up pistons, turbo-jet 390 horsepower. We're talkin' some f***in' muscle.&#8221;
   <small>David Wooderson, <cite title="link to source">Dazed &amp; Confused</cite></small>
-</blockquote>
 ```
 
 ### Rules
 Horizontal rules can utilize the class `.dashed` and `.dotted` for a different separator.
 
-Usage:
+### Usage
 
-```
-<hr>
-<hr class="dashed">
-<hr class="dotted">
+```haml
+%hr
+%hr.dashed
+%hr.dotted
 ```
 
 
 ### Lists
 
-Usage:
+### Usage
 
-```
-<section style="width:20%; float:left; margin-right: 5%;">
-  <p><strong>Unordered list:</strong></p>
-  <ul>
-    <li>Unordered list</li>
-    <li>Unordered list</li>
-    <li>
-      <ul>
-        <li>Nested unordered list</li>
-        <li>Nested unordered list</li>
-        <li>Nested unordered list</li>
-      </ul>
-    </li>
-    <li>Unordered list</li>
-    <li>
-      <ol>
-        <li>Nested ordered list</li>
-        <li>Nested ordered list</li>
-        <li>Nested ordered list</li>
-      </ol>
-    </li>
-  </ul>
-</section>
-<section style="width:20%; float:left; margin-right: 5%;">
-  <p><strong>Ordered list:</strong></p>
-  <ol>
-    <li>Ordered list</li>
-    <li>Ordered list</li>
-    <li>
-      <ol>
-        <li>Nested ordered list</li>
-        <li>Nested ordered list</li>
-        <li>Nested ordered list</li>
-      </ol>
-    </li>
-    <li>Ordered list</li>
-    <li>
-      <ul>
-        <li>Nested unordered list</li>
-        <li>Nested unordered list</li>
-        <li>Nested unordered list</li>
-      </ul>
-    </li>
-  </ol>
-</section>
-<section style="width:20%; float:left; margin-right: 5%;">
-  <p><strong>Unstyled list:</strong></p>
-  <ul class="unstyled">
-    <li>Unordered list</li>
-    <li>Unordered list</li>
-    <li>
-      <ul>
-        <li>Nested unordered list</li>
-        <li>Nested unordered list</li>
-        <li>Nested unordered list</li>
-      </ul>
-    </li>
-    <li>Unordered list</li>
-    <li>
-      <ol>
-        <li>Nested ordered list</li>
-        <li>Nested ordered list</li>
-        <li>Nested ordered list</li>
-      </ol>
-    </li>
-  </ul>
-</section>
-<section style="width:20%; float:left;">
-  <p><strong>Definition list:</strong></p>
-  <dl>
-    <dt>Definition Term</dt>
-    <dd>Definition Description Lorem ipsum dolor sit amet.</dd>
-    <dt>Definition Term</dt>
-    <dd>Definition Description Lorem ipsum dolor sit amet.</dd>
-    <dt>Definition Term</dt>
-    <dd>Definition Description Lorem ipsum dolor sit amet.</dd>
-  </dl>
-</section>
+```haml
+%section(style="width:20%; float:left; margin-right: 5%;")
+  %p
+    %strong Unordered list:
+  %ul
+    %li Unordered list
+    %li Unordered list
+    %li
+      %ul
+        %li Nested unordered list
+        %li Nested unordered list
+        %li Nested unordered list
+    %li Unordered list
+    %li
+      %ol
+        %li Nested ordered list
+        %li Nested ordered list
+        %li Nested ordered list
+
+%section(style="width:20%; float:left; margin-right: 5%;")
+  %p
+    %strong Ordered list:
+  %ol
+    %li Ordered list
+    %li Ordered list
+    %li
+      %ol
+        %li Nested ordered list
+        %li Nested ordered list
+        %li Nested ordered list
+    %li Ordered list
+    %li
+      %ul
+        %li Nested unordered list
+        %li Nested unordered list
+        %li Nested unordered list
+
+%section(style="width:20%; float:left; margin-right: 5%;")
+  %p
+    %strong Unstyled list:
+  %ul.unstyled
+    %li Unordered list
+    %li Unordered list
+    %li
+      %ul
+        %li Nested unordered list
+        %li Nested unordered list
+        %li Nested unordered list
+    %li Unordered list
+    %li
+      %ol
+        %li Nested ordered list
+        %li Nested ordered list
+        %li Nested ordered list
+
+%section(style="width:20%; float:left;")
+  %p
+    %strong Definition list:
+  %dl
+    %dt Definition Term
+    %dd Definition Description Lorem ipsum dolor sit amet.
+    %dt Definition Term
+    %dd Definition Description Lorem ipsum dolor sit amet.
+    %dt Definition Term
+    %dd Definition Description Lorem ipsum dolor sit amet.
 ```
 

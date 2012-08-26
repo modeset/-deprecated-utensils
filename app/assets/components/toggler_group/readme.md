@@ -16,7 +16,7 @@ _See Toggler for other options_
 _All options are optional_
 
 
-### Examples
+### Usage
 
 ```haml
 %section.shell

@@ -28,8 +28,6 @@ module Roos
     config.assets.digest        = false
     config.assets.compress      = false
 
-    # config.assets.precompile += %w(cordova-core.js cordova-plugins.js)
-
     # Configure assets for production
     unless Rails.env.production?
       config.assets.debug     = true
@@ -59,5 +57,5 @@ class PagesController < ActionController::Base
   def show
     render :action => params['page']
   end
-
 end
+
