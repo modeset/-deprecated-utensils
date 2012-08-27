@@ -25,9 +25,7 @@ Component library
 - button-btn-mixin
 
 ## Tasks
-- Cleanup existing components
 - Figure out how to use the markup file for test fixtures
-- Test for support properties
 - Make popover
 - Add tables
 - Cleanup the style guide

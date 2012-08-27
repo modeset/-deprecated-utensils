@@ -553,6 +553,49 @@ $ -&gt;
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
+<h1>Detect</h1>
+
+<p>Utility class of static variables describing various browser support for
+properties, normalizing event names, and other useful detection.</p>
+
+<h2>API</h2>
+
+<h3>#transition</h3>
+
+<p>Get the transition event name for the current browser for use in css transitions</p>
+
+<pre><code class="coffee">@tranny_event = roos.Detect.transition.end
+</code></pre>
+
+<h3>#hasTransition</h3>
+
+<p>Boolean value based on the browsers support for transitions</p>
+
+<pre><code class="coffee">$(el).on(roos.Detect.transition.end, @onDone) if roos.Detect.hasTransition
+</code></pre>
+
+<h3>Requires</h3>
+
+<ul>
+<li>roos</li>
+</ul>
+
+<p></section><section class="sherpa-section sherpa-clearfix"></p>
+
+<h1>Roos</h1>
+
+<p>The top level namespace object for the <code>roos</code> library created on window.</p>
+
+<h2>Usage</h2>
+
+<pre><code class="coffee">#= require roos
+
+class roos.ClassName
+  # class definition..
+</code></pre>
+
+<p></section><section class="sherpa-section sherpa-clearfix"></p>
+
 <h1>Toggler</h1>
 
 <p>Base class for adding, removing and toggling classes on a given element.</p>
@@ -687,6 +730,12 @@ element&#39;s toggle event</p>
 
 <pre><code class="coffee">@toggler.dispose()
 </code></pre>
+
+<h3>Requires</h3>
+
+<ul>
+<li>roos</li>
+</ul>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
@@ -840,7 +889,7 @@ Deactivating will remove the toggle classes from the element.</p>
 <h3>Requires</h3>
 
 <ul>
-<li>namespace</li>
+<li>roos</li>
 <li>bindable</li>
 <li>toggler</li>
 </ul>
@@ -1008,9 +1057,9 @@ element&#39;s toggle event</p>
 <h3>Requires</h3>
 
 <ul>
-<li>namespace</li>
+<li>roos</li>
 <li>bindable</li>
-<li>support</li>
+<li>detect</li>
 <li>toggler</li>
 </ul>
 
