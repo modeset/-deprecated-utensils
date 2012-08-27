@@ -6,7 +6,13 @@ require File.expand_path('../lib/roos/application', __FILE__)
 
 Roos::Application.load_tasks
 
-desc 'Probe the contents from running sherpa without any saved output'
-task :docs do
-  system "ruby ./bin/sherpa.rb"
+desc "Generate the documentation"
+task :sherpa do
+  system "ruby ./lib/generators/sherpa/sherpa.rb"
 end
+
+desc "Copy haml files over to the fixtures directory"
+task :fixtures do
+  system "ruby ./lib/generators/roos/fixtures_generator.rb"
+end
+

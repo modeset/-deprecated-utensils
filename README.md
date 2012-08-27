@@ -25,11 +25,13 @@ Component library
 - button-btn-mixin
 
 ## Tasks
-- Figure out how to use the markup file for test fixtures
+- Move all spec markup to markup directory and utilize fixtures
 - Make popover
 - Add tables
-- Cleanup the style guide
-- Cleanup the base styles (see above), convert all vars to dashes
-- Add view templates
+- Cleanup the style guide and generator
+- Cleanup the base styles (see above)
+- Turn into real generators
+- Add view layout templates
+- Create a component generator
 - Make the remaining components
 
