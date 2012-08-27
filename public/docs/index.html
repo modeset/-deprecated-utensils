@@ -510,7 +510,7 @@ based off the same markup structure.</p>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
-<h2>Bindable</h2>
+<h1>Bindable</h1>
 
 <p>Light weight dependency injection for client side components. Looks for
 all DOM elements with a <code>data-bindable</code> attribute, stores references
@@ -521,7 +521,7 @@ converted to a <code>$</code> object.</p>
 
 <p><code>Bindable</code> is stored as a global object on <code>window</code>.</p>
 
-<h3>Usage</h3>
+<h2>Usage</h2>
 
 <p>As a class making use of the <code>Bindable</code> registry:</p>
 
@@ -547,17 +547,50 @@ $ -&gt;
   new Bindable().bindAll()
 </code></pre>
 
-<h3>API</h3>
+<h2>API</h2>
 
-<p>TODO: Need to describe the public API a little clearer</p>
+<p><strong>TODO: Need to describe the public API a little clearer</strong></p>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
-<h2>Toggler</h2>
+<h1>Toggler</h1>
 
 <p>Base class for adding, removing and toggling classes on a given element.</p>
 
-<h3>Options</h3>
+<h2>Usage</h2>
+
+<pre><code class="haml">%h2#heading Mansfield
+
+%section.shell
+  %a.one(data-bindable=&quot;toggler&quot; href=&quot;#&quot;) Basic
+  %a.two(data-bindable=&quot;toggler&quot; href=&quot;#this&quot; data-trigger=&quot;hover&quot; data-toggle=&quot;in cool&quot;) Hovering
+  %a.three(data-bindable=&quot;toggler&quot; data-target=&quot;#span&quot; data-solo=&quot;true&quot;) Target the &lt;span id=&quot;span&quot;&gt;Span&lt;/span&gt; 
+  %a.four(data-bindable=&quot;toggler&quot; href=&quot;#heading&quot; data-lookup=&quot;closest&quot;) Target heading up the tree
+  %a.five(data-bindable=&quot;toggler&quot; href=&quot;#heading&quot; data-lookup=&quot;closest&quot; data-bubble=&quot;true&quot;) Change url
+  %a.six(data-bindable=&quot;toggler&quot; href=&quot;#&quot; data-activate=&quot;true&quot;) Start in the active state
+</code></pre>
+
+<div class="sherpa-showcase sherpa-clearfix"><h2 id='heading'>Mansfield</h2>
+<section class='shell'>
+  <a class='one' data-bindable='toggler' href='#'>Basic</a>
+  <a class='two' data-bindable='toggler' data-toggle='in cool' data-trigger='hover' href='#this'>Hovering</a>
+  <a class='three' data-bindable='toggler' data-solo='true' data-target='#span'>Target the <span id="span">Span</span></a>
+  <a class='four' data-bindable='toggler' data-lookup='closest' href='#heading'>Target heading up the tree</a>
+  <a class='five' data-bindable='toggler' data-bubble='true' data-lookup='closest' href='#heading'>Change url</a>
+  <a class='six' data-activate='true' data-bindable='toggler' href='#'>Start in the active state</a>
+</section>
+</div>
+
+<ol>
+<li>Toggles the class <code>active</code> on <code>click</code></li>
+<li>Toggles the classes <code>in cool</code> on <code>hover</code>, the <code>href</code> is merely referencing the element as it&#39;s target</li>
+<li>Toggles the class <code>active</code> on <code>click</code> for only the child <code>&lt;span&gt;</code> and not the <code>&lt;link&gt;</code> element</li>
+<li>Toggles the class <code>active</code> on <code>click</code> for both the <code>link</code> and the <code>&lt;h2&gt;</code>, using the <code>$.closest</code> method to find the target</li>
+<li>Same as number four except on <code>click</code> the url will change to the <code>href</code> hash</li>
+<li>Toggles the class <code>active</code> on <code>click</code>, but is initialized with the <code>active</code> class on the element</li>
+</ol>
+
+<h2>Options</h2>
 
 <table><thead>
 <tr>
@@ -603,8 +636,6 @@ $ -&gt;
 </tr>
 </tbody></table>
 
-<p><em>All options are optional</em></p>
-
 <p>Toggler finds the target based on the following rules:</p>
 
 <ol>
@@ -615,117 +646,55 @@ $ -&gt;
 <li>Otherwise lookup the element within the <code>href</code>, if found, use it, otherwise use the bindable element</li>
 </ol>
 
-<h3>Usage</h3>
+<h2>API</h2>
 
-<pre><code class="haml">%h2#heading Mansfield
-
-%section.shell
-  %a.one(data-bindable=&quot;toggler&quot; href=&quot;#&quot;) Basic
-  %a.two(data-bindable=&quot;toggler&quot; href=&quot;#this&quot; data-trigger=&quot;hover&quot; data-toggle=&quot;in cool&quot;) Hovering
-  %a.three(data-bindable=&quot;toggler&quot; data-target=&quot;#span&quot; data-solo=&quot;true&quot;) Target the &lt;span id=&quot;span&quot;&gt;Span&lt;/span&gt; 
-  %a.four(data-bindable=&quot;toggler&quot; href=&quot;#heading&quot; data-lookup=&quot;closest&quot;) Target heading up the tree
-  %a.five(data-bindable=&quot;toggler&quot; href=&quot;#heading&quot; data-lookup=&quot;closest&quot; data-bubble=&quot;true&quot;) Change url
-  %a.six(data-bindable=&quot;toggler&quot; href=&quot;#&quot; data-activate=&quot;true&quot;) Start in the active state
-</code></pre>
-
-<div class="sherpa-showcase sherpa-clearfix"><h2 id='heading'>Mansfield</h2>
-<section class='shell'>
-  <a class='one' data-bindable='toggler' href='#'>Basic</a>
-  <a class='two' data-bindable='toggler' data-toggle='in cool' data-trigger='hover' href='#this'>Hovering</a>
-  <a class='three' data-bindable='toggler' data-solo='true' data-target='#span'>Target the <span id="span">Span</span></a>
-  <a class='four' data-bindable='toggler' data-lookup='closest' href='#heading'>Target heading up the tree</a>
-  <a class='five' data-bindable='toggler' data-bubble='true' data-lookup='closest' href='#heading'>Change url</a>
-  <a class='six' data-activate='true' data-bindable='toggler' href='#'>Start in the active state</a>
-</section>
-</div>
-
-<ol>
-<li>Toggles the class <code>active</code> on <code>click</code></li>
-<li>Toggles the classes <code>in cool</code> on <code>hover</code>, the <code>href</code> is merely referencing the element as it&#39;s target</li>
-<li>Toggles the class <code>active</code> on <code>click</code> for only the child <code>&lt;span&gt;</code> and not the <code>&lt;link&gt;</code> element</li>
-<li>Toggles the class <code>active</code> on <code>click</code> for both the <code>link</code> and the <code>&lt;h2&gt;</code>, using the <code>$.closest</code> method to find the target</li>
-<li>Same as number four except on <code>click</code> the url will change to the <code>href</code> hash</li>
-<li>Toggles the class <code>active</code> on <code>click</code>, but is initialized with the <code>active</code> class on the element</li>
-</ol>
-
-<h3>API</h3>
-
-<h4>#new</h4>
+<h3>#new</h3>
 
 <p>Create a new instance of Toggler programatically. Normally this is
 handled through Bindable. </p>
 
 <pre><code class="coffee">#= require toggler
 
-el = $(&#39;.shell&#39;)
-toggler = new roos.Toggler(el, {toggle: &#39;show&#39;, trigger: &#39;hover&#39;})
+@el = $(&#39;#toggler&#39;)
+@toggler = new roos.Toggler(@el, {toggle: &#39;show&#39;, trigger: &#39;hover&#39;})
 </code></pre>
 
-<h4>#toggle</h4>
+<h3>#toggle</h3>
 
 <p>This is normally handled through events, but you can always trigger the
 element&#39;s toggle event</p>
 
-<pre><code class="coffee">el.trigger(&#39;hover&#39;)
+<pre><code class="coffee">@el.trigger(&#39;hover&#39;)
 </code></pre>
 
-<h4>#activate</h4>
+<h3>#activate</h3>
 
 <p>Add the toggle classes to the element</p>
 
-<pre><code class="coffee">toggler.activate()
+<pre><code class="coffee">@toggler.activate()
 </code></pre>
 
-<h4>#deactivate</h4>
+<h3>#deactivate</h3>
 
 <p>Remove the toggle classes from the element</p>
 
-<pre><code class="coffee">toggler.deactivate()
+<pre><code class="coffee">@toggler.deactivate()
 </code></pre>
 
-<h4>#dispose</h4>
+<h3>#dispose</h3>
 
 <p>Remove the toggler behavior</p>
 
-<pre><code class="coffee">toggler.dispose()
+<pre><code class="coffee">@toggler.dispose()
 </code></pre>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
-<h2>Toggler Group</h2>
+<h1>Toggler Group</h1>
 
-<p>An extension of Toggler for adding, removing and toggling groups of related elements. These are predominantly used in navigation type systems. A toggler group can function either like radio buttons or check boxes.</p>
+<p>An extension of <code>Toggler</code> for adding, removing and toggling groups of related elements. These are predominantly used in navigation type systems. A toggler group can function either like radio buttons or check boxes.</p>
 
-<h3>Options</h3>
-
-<table><thead>
-<tr>
-<th>Attribute</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>target</code></td>
-<td><code>li</code></td>
-<td>The identifier for looking up child elements to operate on.</td>
-</tr>
-<tr>
-<td><code>behavior</code></td>
-<td><code>radio</code></td>
-<td>Set to <code>radio</code> for radio style toggling or <code>checkbox</code> for check box style toggling</td>
-</tr>
-<tr>
-<td><code>activate</code></td>
-<td><code>element</code> or <code>index</code></td>
-<td>If present, this will auto activate the element or index item on initialization</td>
-</tr>
-</tbody></table>
-
-<p><em>See Toggler for other options</em><br>
-<em>All options are optional</em></p>
-
-<h3>Usage</h3>
+<h2>Usage</h2>
 
 <pre><code class="haml">%section.shell
   %nav
@@ -777,36 +746,64 @@ element&#39;s toggle event</p>
 </section>
 </div>
 
-<h3>API</h3>
+<h2>Options</h2>
 
-<h4>#new</h4>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>target</code></td>
+<td><code>li</code></td>
+<td>The identifier for looking up child elements to operate on.</td>
+</tr>
+<tr>
+<td><code>behavior</code></td>
+<td><code>radio</code></td>
+<td>Set to <code>radio</code> for radio style toggling or <code>checkbox</code> for check box style toggling</td>
+</tr>
+<tr>
+<td><code>activate</code></td>
+<td><code>element</code> or <code>index</code></td>
+<td>If present, this will auto activate the element or index item on initialization</td>
+</tr>
+</tbody></table>
 
-<p>Create a new instance of TogglerGroup programatically. Normally this is
-handled through Bindable. Most setup occurs within Toggler. </p>
+<p><em>See <code>Toggler</code> for other options</em>  </p>
+
+<h2>API</h2>
+
+<h3>#new</h3>
+
+<p>Create a new instance of <code>TogglerGroup</code> programatically. Normally this is
+handled through <code>Bindable</code>. Most setup occurs within <code>Toggler</code>. </p>
 
 <pre><code class="coffee">#= require toggler_group
 
-radios = $(&#39;#radios&#39;)
-checks = $(&#39;#checks&#39;)
+@radios = $(&#39;#radios&#39;)
+@checks = $(&#39;#checks&#39;)
 
-radio_group = new roos.TogglerGroup(radios, {behavior: &#39;radio&#39;})
-check_group = new roos.TogglerGroup(checks, {behavior: &#39;checkbox&#39;})
+@radio_group = new roos.TogglerGroup(radios, {behavior: &#39;radio&#39;})
+@check_group = new roos.TogglerGroup(checks, {behavior: &#39;checkbox&#39;})
 </code></pre>
 
-<h4>#toggle</h4>
+<h3>#toggle</h3>
 
 <p>This is normally handled through events, but you can always trigger the
 element&#39;s toggle event. Toggling changes the state on the current triggered
 element, if the group has <code>radio</code> behavior, it will deactivate all other
 elements within the group.</p>
 
-<pre><code class="coffee">$(radios[1]).trigger(&#39;click&#39;)
-$(checks[1]).trigger(&#39;click&#39;)
+<pre><code class="coffee">$(@radios[1]).trigger(&#39;click&#39;)
+$(@checks[1]).trigger(&#39;click&#39;)
 </code></pre>
 
-<p><em>Note: this does not call the super&#39;s toggle method</em></p>
+<p><em>Note: this does not call the super&#39;s <code>toggle</code> method</em></p>
 
-<h4>#activate</h4>
+<h3>#activate</h3>
 
 <p>Activate can take either an index or element as it&#39;s parameter.
 Activating will add the toggle classes to the element. If behavior is
@@ -814,37 +811,50 @@ set to <code>radio</code>, activate will remove the toggle classes from other
 elements within the group.</p>
 
 <pre><code class="coffee"># activate by index
-radio_group.activate(1)
-check_group.activate(1)
+@radio_group.activate(1)
+@check_group.activate(1)
 
 # activate by element
-radio_group.activate($(radios[1]))
-check_group.activate($(checks[1]).find(&#39;a&#39;))
+@radio_group.activate($(@radios[1]))
+@check_group.activate($(@checks[1]).find(&#39;a&#39;))
 </code></pre>
 
-<p><em>Note: this does not call the super&#39;s activate method</em></p>
+<p><em>Note: this does not call the super&#39;s <code>activate</code> method</em></p>
 
-<h4>#deactivate</h4>
+<h3>#deactivate</h3>
 
 <p>Deactivate can take either an index or element as it&#39;s parameter.
 Deactivating will remove the toggle classes from the element.</p>
 
 <pre><code class="coffee"># deactivate by index
-radio_group.deactivate(1)
-check_group.deactivate(1)
+@radio_group.deactivate(1)
+@check_group.deactivate(1)
 
 # deactivate by element
-radio_group.deactivate($(radios[1]))
-check_group.deactivate($(checks[1]).find(&#39;a&#39;))
+@radio_group.deactivate($(@radios[1]))
+@check_group.deactivate($(@checks[1]).find(&#39;a&#39;))
 </code></pre>
 
-<p><em>Note: this does not call the super&#39;s deactivate method</em></p>
+<p><em>Note: this does not call the super&#39;s <code>deactivate</code> method</em></p>
+
+<h3>Requires</h3>
+
+<ul>
+<li>namespace</li>
+<li>bindable</li>
+<li>toggler</li>
+</ul>
+
+<p><code>TogglerGroup</code> is a subclass of <code>Toggler</code>.</p>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
 <h1>Tooltip</h1>
 
-<p>Tool tip component inspired by <a href="https://github.com/jaz303/tipsy">tipsy</a> and <a href="http://twitter.github.com/bootstrap/javascript.html#tooltips">twitter bootstrap</a>. </p>
+<p>Tool tip component for showing quick bits of information to a user. Tips
+are generally used on <code>hover</code> states, but can be tied to any event
+trigger. <code>Tooltip</code> is inspired by
+<a href="https://github.com/jaz303/tipsy">tipsy</a> and <a href="https://github.com/component/tip">component/tip</a></p>
 
 <h2>Usage</h2>
 
@@ -921,7 +931,7 @@ check_group.deactivate($(checks[1]).find(&#39;a&#39;))
 </tr>
 </tbody></table>
 
-<p><em>See Toggler for other options</em>  </p>
+<p><em>See <code>Toggler</code> for other options</em>  </p>
 
 <p>When using the delay attribute, you can optionally pass a basic object
 with two <code>number</code> values. The values must be separated by a <code>,</code>. The
@@ -935,10 +945,16 @@ data-delay=&quot;{show:1000, hide:2000}&quot;
 data-delay=&quot;hide:1000, show:2000&quot;
 </code></pre>
 
-<p>Notes:<br>
-- <strong>Heads Up!</strong> <code>Tooltip</code> will override it&#39;s placement automatically if it
-  determines the requested position will render the tip outside the
-  viewable area.</p>
+<p>Notes:  </p>
+
+<ul>
+<li><strong>Heads Up!</strong> <code>Tooltip</code> will override it&#39;s placement automatically if it
+determines the requested position will render the tip outside the
+viewable area.</li>
+<li><strong>Touch it!</strong> On touch devices when using <a href="http://www.modernizr.com/">modernizr</a>, tips will change
+their trigger behavior to <code>click</code> events. If the item is a link that
+resolves, make sure to add <code>data-bubble=&quot;true&quot;</code> to the element</li>
+</ul>
 
 <h2>API</h2>
 

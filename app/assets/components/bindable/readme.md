@@ -1,6 +1,5 @@
 
-## Bindable
-
+# Bindable
 Light weight dependency injection for client side components. Looks for
 all DOM elements with a `data-bindable` attribute, stores references
 within a registry and instantiates their respective classes.
@@ -11,8 +10,7 @@ converted to a `$` object.
 `Bindable` is stored as a global object on `window`.
 
 
-### Usage
-
+## Usage
 As a class making use of the `Bindable` registry:
 
 ```coffee
@@ -40,9 +38,7 @@ $ ->
   new Bindable().bindAll()
 ```
 
-### API
 
-TODO: Need to describe the public API a little clearer
-
-
+## API
+**TODO: Need to describe the public API a little clearer**
 

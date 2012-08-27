@@ -30,15 +30,18 @@ describe 'Toggler', ->
     @$override = @html.find('#overrider')
     @$parent = @html.find('#parent')
 
+
   describe 'binding', ->
     it 'is registered in bindable', ->
       expect(Bindable.getClass('toggler')).toEqual(roos.Toggler)
+
 
   describe '#constructor', ->
     it 'defaults to inactive', ->
       expect(@defaulter.is_active).toEqual(false)
     it 'sets up a data object', ->
       expect(@defaulter.data).toBeDefined()
+
 
   describe '#options', ->
     it 'sets default options', ->
@@ -68,11 +71,13 @@ describe 'Toggler', ->
       expect(toggler.lookup).toEqual('closest')
       expect(toggler.target).toEqual(el)
 
+
   describe '#initialize', ->
     it 'activates an element on initialization', ->
       el = @html.find('#empty')
       toggler = new roos.Toggler(el, {activate: 'true'})
       expect(el).toHaveClass('active')
+
 
   describe '#getTarget', ->
     it 'finds itself as an element when there is no href or data-target present', ->
@@ -103,6 +108,7 @@ describe 'Toggler', ->
     it 'uses $.closest when provided as a lookup fn', ->
       expect(@overrider.lookup).toEqual('closest')
       expect(@overrider.target.html()).toEqual(@$parent.html())
+
 
   describe '#toggle', ->
     it 'toggles the correct classes from a trigger', ->
@@ -149,6 +155,7 @@ describe 'Toggler', ->
       expect(@$defaults).not.toHaveClass('active')
       expect(@$parent).not.toHaveClass('active')
 
+
   describe '#activate', ->
     it 'adds classes to the element', ->
       expect(@$defaults).not.toHaveClass('active')
@@ -157,6 +164,7 @@ describe 'Toggler', ->
       @defaulter.activate()
       expect(@$defaults).toHaveClass('active')
       expect(@defaulter.is_active).toEqual(true)
+
 
   describe '#deactivate', ->
     it 'removes classes from the element', ->
@@ -170,6 +178,7 @@ describe 'Toggler', ->
       @defaulter.deactivate()
       expect(@$defaults).not.toHaveClass('active')
       expect(@defaulter.is_active).toEqual(false)
+
 
   describe '#dispose', ->
     it 'cleans up its own mess', ->

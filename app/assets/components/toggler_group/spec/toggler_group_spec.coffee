@@ -33,14 +33,17 @@ describe 'Toggler Group', ->
     @radio_group = new roos.TogglerGroup(@radio$)
     @check_group = new roos.TogglerGroup(@check$)
 
+
   describe 'binding', ->
     it 'is registered in bindable', ->
       expect(Bindable.getClass('toggler-group')).toEqual(roos.TogglerGroup)
+
 
   describe '#options', ->
     it 'sets the data.target attribute', ->
       expect(@radio_group.data.target).toEqual('.radio-li')
       expect(@check_group.data.target).toEqual('li')
+
 
   describe '#initialize', ->
     it 'activates an element on initialization', ->
@@ -50,6 +53,7 @@ describe 'Toggler Group', ->
     it 'sets the toggle behavior correctly', ->
       expect(@radio_group.behavior).toEqual('radio')
       expect(@check_group.behavior).toEqual('checkbox')
+
 
   describe '#toggle', ->
     it 'toggles the correct classes from a trigger', ->
@@ -72,6 +76,7 @@ describe 'Toggler Group', ->
       $(@check_kids[2]).find('a').click()
       expect($(@check_kids[2])).toHaveClass('active')
       expect($(@check_kids[1])).toHaveClass('active')
+
 
   describe '#activate', ->
     it 'activates a radio group element from an index', ->
@@ -110,6 +115,7 @@ describe 'Toggler Group', ->
       @check_group.activate(list)
       expect($(@check_kids[2])).toHaveClass('active')
 
+
   describe '#deactivate', ->
     it 'deactivates a radio group element from an index', ->
       @radio_group.activate(1)
@@ -122,8 +128,6 @@ describe 'Toggler Group', ->
       expect($(@check_kids[1])).toHaveClass('active')
       @check_group.deactivate(1)
       expect($(@check_kids[1])).not.toHaveClass('active')
-
-
 
     it 'deactivates a radio group element from a link element', ->
       link = $(@radio_kids[1]).find('a')

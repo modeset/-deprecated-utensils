@@ -8,6 +8,7 @@ describe 'Bindable', ->
   beforeEach ->
     @dom = setFixtures(sandbox({'data-bindable': 'mock_class_key'}))
 
+
   describe '.register', ->
     beforeEach ->
       Bindable.register('mock_class_key', MockClass)

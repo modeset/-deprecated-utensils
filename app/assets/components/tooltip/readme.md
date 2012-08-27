@@ -1,6 +1,5 @@
 
 # Tooltip
-
 Tool tip component for showing quick bits of information to a user. Tips
 are generally used on `hover` states, but can be tied to any event
 trigger. `Tooltip` is inspired by
@@ -35,7 +34,7 @@ Attribute   | Default    | Description
 `effect`    | `fade`     | The base animation class to add to the tip markup
 `delay`     | `0`        | The amount of time in milliseconds to delay on show and hide, see notes below
 
-_See Toggler for other options_  
+_See `Toggler` for other options_  
 
 When using the delay attribute, you can optionally pass a basic object
 with two `number` values. The values must be separated by a `,`. The
@@ -131,7 +130,6 @@ within your `config.sass` file or before `tooltip.sass` is loaded._
 
 
 ## Injected Markup
-
 The markup injected when a tip is shown:
 
 ```html

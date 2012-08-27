@@ -63,6 +63,5 @@ class roos.Toggler
     @deactivate()
     @el.off(@trigger)
 
-
 Bindable.register('toggler', roos.Toggler)
 
