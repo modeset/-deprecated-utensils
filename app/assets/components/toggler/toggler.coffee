@@ -1,5 +1,5 @@
 
-#= require namespace
+#= require roos
 #= require bindable
 
 class roos.Toggler

@@ -1,5 +1,5 @@
 
-#= require namespace
+#= require roos
 #= require bindable
 #= require toggler
 

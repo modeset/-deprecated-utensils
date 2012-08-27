@@ -101,7 +101,7 @@ Deactivating will remove the toggle classes from the element.
 _Note: this does not call the super's `deactivate` method_
 
 ### Requires
-- namespace
+- roos
 - bindable
 - toggler
 

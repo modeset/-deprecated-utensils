@@ -107,7 +107,7 @@ Remove the tool tip behavior
 ```
 
 ### Requires
-- namespace
+- roos
 - bindable
 - detect
 - toggler
