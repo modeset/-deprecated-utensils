@@ -1,9 +1,12 @@
 
-# usage: $(el).on(roos.Support.transition.end, @onDone) if roos.Support.hasTransition
+# usage: $(el).on(roos.Detect.transition.end, @onDone) if roos.Detect.hasTransition
 
+#= require roos
+class roos.Detect
 
-#= require namespace
-class roos.Support
+  # Describes browser detection for transition end events
+  # roos.Detect.transition.end
+  # roos.Detect.hasTransition
   @transition = (=>
     transitionEnd = (->
       el = document.createElement("tranny")

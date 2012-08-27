@@ -1,7 +1,7 @@
 
 #= require namespace
 #= require bindable
-#= require support
+#= require detect
 #= require toggler
 
 class roos.Tooltip extends roos.Toggler
@@ -51,8 +51,8 @@ class roos.Tooltip extends roos.Toggler
     @tip.addClass(@toggle_classes)
 
   deactivate: ->
-    if @tip && roos.Support.hasTransition
-      @tip.one(roos.Support.transition.end, => @remove())
+    if @tip && roos.Detect.hasTransition
+      @tip.one(roos.Detect.transition.end, => @remove())
       @tip.removeClass(@toggle_classes)
     else
       @remove()

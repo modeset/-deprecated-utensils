@@ -109,7 +109,7 @@ Remove the tool tip behavior
 ### Requires
 - namespace
 - bindable
-- support
+- detect
 - toggler
 
 `Tooltip` is a subclass of `Toggler`.
