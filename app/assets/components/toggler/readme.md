@@ -6,15 +6,14 @@ Base class for adding, removing and toggling classes on a given element.
 ## Usage
 
 ```haml
-%h2#heading Mansfield
+%h5.mansfield Mansfield
+%a.one(data-bindable="toggler" href="#") Basic
+%a.two(data-bindable="toggler" href="#this" data-trigger="hover" data-toggle="fade") Hover
+%a.three(data-bindable="toggler" href="#span" data-solo="true" data-toggle="fade") Hide <span id="span">Span</span> only
+%a.four(data-bindable="toggler" href=".mansfield" data-lookup="siblings" data-toggle="fade") Hide Mansfield and link
+%a.five(data-bindable="toggler" href="#toggler" data-target=".mansfield" data-lookup="siblings" data-toggle="fade" data-bubble="true") Change url
+%a.six(data-bindable="toggler" href="#" data-activate="true") Start in active state
 
-%section.shell
-  %a.one(data-bindable="toggler" href="#") Basic
-  %a.two(data-bindable="toggler" href="#this" data-trigger="hover" data-toggle="in cool") Hovering
-  %a.three(data-bindable="toggler" data-target="#span" data-solo="true") Target the <span id="span">Span</span> 
-  %a.four(data-bindable="toggler" href="#heading" data-lookup="closest") Target heading up the tree
-  %a.five(data-bindable="toggler" href="#heading" data-lookup="closest" data-bubble="true") Change url
-  %a.six(data-bindable="toggler" href="#" data-activate="true") Start in the active state
 ```
 
 1. Toggles the class `active` on `click`

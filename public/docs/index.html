@@ -602,26 +602,23 @@ class roos.ClassName
 
 <h2>Usage</h2>
 
-<pre><code class="haml">%h2#heading Mansfield
+<pre><code class="haml">%h5.mansfield Mansfield
+%a.one(data-bindable=&quot;toggler&quot; href=&quot;#&quot;) Basic
+%a.two(data-bindable=&quot;toggler&quot; href=&quot;#this&quot; data-trigger=&quot;hover&quot; data-toggle=&quot;fade&quot;) Hover
+%a.three(data-bindable=&quot;toggler&quot; href=&quot;#span&quot; data-solo=&quot;true&quot; data-toggle=&quot;fade&quot;) Hide &lt;span id=&quot;span&quot;&gt;Span&lt;/span&gt; only
+%a.four(data-bindable=&quot;toggler&quot; href=&quot;.mansfield&quot; data-lookup=&quot;siblings&quot; data-toggle=&quot;fade&quot;) Hide Mansfield and link
+%a.five(data-bindable=&quot;toggler&quot; href=&quot;#toggler&quot; data-target=&quot;.mansfield&quot; data-lookup=&quot;siblings&quot; data-toggle=&quot;fade&quot; data-bubble=&quot;true&quot;) Change url
+%a.six(data-bindable=&quot;toggler&quot; href=&quot;#&quot; data-activate=&quot;true&quot;) Start in active state
 
-%section.shell
-  %a.one(data-bindable=&quot;toggler&quot; href=&quot;#&quot;) Basic
-  %a.two(data-bindable=&quot;toggler&quot; href=&quot;#this&quot; data-trigger=&quot;hover&quot; data-toggle=&quot;in cool&quot;) Hovering
-  %a.three(data-bindable=&quot;toggler&quot; data-target=&quot;#span&quot; data-solo=&quot;true&quot;) Target the &lt;span id=&quot;span&quot;&gt;Span&lt;/span&gt; 
-  %a.four(data-bindable=&quot;toggler&quot; href=&quot;#heading&quot; data-lookup=&quot;closest&quot;) Target heading up the tree
-  %a.five(data-bindable=&quot;toggler&quot; href=&quot;#heading&quot; data-lookup=&quot;closest&quot; data-bubble=&quot;true&quot;) Change url
-  %a.six(data-bindable=&quot;toggler&quot; href=&quot;#&quot; data-activate=&quot;true&quot;) Start in the active state
 </code></pre>
 
-<div class="sherpa-showcase sherpa-clearfix"><h2 id='heading'>Mansfield</h2>
-<section class='shell'>
-  <a class='one' data-bindable='toggler' href='#'>Basic</a>
-  <a class='two' data-bindable='toggler' data-toggle='in cool' data-trigger='hover' href='#this'>Hovering</a>
-  <a class='three' data-bindable='toggler' data-solo='true' data-target='#span'>Target the <span id="span">Span</span></a>
-  <a class='four' data-bindable='toggler' data-lookup='closest' href='#heading'>Target heading up the tree</a>
-  <a class='five' data-bindable='toggler' data-bubble='true' data-lookup='closest' href='#heading'>Change url</a>
-  <a class='six' data-activate='true' data-bindable='toggler' href='#'>Start in the active state</a>
-</section>
+<div class="sherpa-showcase sherpa-clearfix"><h5 class='mansfield'>Mansfield</h5>
+<a class='one' data-bindable='toggler' href='#'>Basic</a>
+<a class='two' data-bindable='toggler' data-toggle='fade' data-trigger='hover' href='#this'>Hover</a>
+<a class='three' data-bindable='toggler' data-solo='true' data-toggle='fade' href='#span'>Hide <span id="span">Span</span> only</a>
+<a class='four' data-bindable='toggler' data-lookup='siblings' data-toggle='fade' href='.mansfield'>Hide Mansfield and link</a>
+<a class='five' data-bindable='toggler' data-bubble='true' data-lookup='siblings' data-target='.mansfield' data-toggle='fade' href='#toggler'>Change url</a>
+<a class='six' data-activate='true' data-bindable='toggler' href='#'>Start in active state</a>
 </div>
 
 <ol>

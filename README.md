@@ -25,11 +25,11 @@ Client side component library
 - button-btn-mixin
 
 ## Tasks
-- Move all spec markup to markup directory and utilize fixtures
 - Make popover
 - Add tables
 - Cleanup the style guide and generator
 - Cleanup the base styles (see above)
+- Move toggler, toggler group over to markup for fixtures and dox
 - Turn into real generators
 - Add view layout templates
 - Create a component generator
