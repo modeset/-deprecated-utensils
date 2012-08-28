@@ -22,7 +22,7 @@ module Sherpa
                                           :superscript => true,
                                           :space_after_headers => true
                                          )
-      @stache_layout = File.read(File.join("./lib/generators/sherpa/", "layout.mustache"))
+      @stache_layout = File.read(File.join("./sherpa/", "layout.mustache"))
 
       manifest = Dir["./app/assets/**/*.md"]
       lines = cat_manifest(manifest)
