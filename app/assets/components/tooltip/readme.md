@@ -9,15 +9,15 @@ trigger. `Tooltip` is inspired by
 ## Usage
 
 ```haml
-%a(data-bindable="tooltip" data-placement="north" title="The Northern Tooltip" href="#" data-delay="500") North
+%a#north(data-bindable="tooltip" data-delay="100" data-target=".sherpa-wrapper" title="The Northern Tip" href="#") Northern Tip
 |
-%a(data-bindable="tooltip" data-placement="south" title="The Southern Tooltip" href="#" data-delay="1000,2000") South
+%a#south(data-bindable="tooltip" data-placement="south" data-delay="1000,2000" title="The Southern Tip" href="#") Southern Tip
 |
-%a(data-bindable="tooltip" data-placement="east" title="The Eastern Tooltip" href="#") East
+%a#east(data-bindable="tooltip" data-placement="east" title="The Eastern Tip" href="#") Eastern Tip
 |
-%a(data-bindable="tooltip" data-placement="west" title="The Western Tooltip" href="#") West
+%a#west(data-bindable="tooltip" data-placement="west" title="The Western Tip" href="#") Western Tip
 |
-%a(data-bindable="tooltip" data-placement="south" title="<img src='http://placehold.it/350x150'/>" href="#") Image
+%a#image(data-bindable="tooltip" data-placement="south" data-trigger="click" title="<img src='http://placehold.it/350x150'/>" href="#") Image Tip (click)
 ```
 
 
@@ -107,10 +107,10 @@ Remove the tool tip behavior
 ```
 
 ### Requires
-- roos
-- bindable
-- detect
-- toggler
+- `roos`
+- `bindable`
+- `detect`
+- `toggler`
 
 `Tooltip` is a subclass of `Toggler`.
 

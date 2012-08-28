@@ -3,7 +3,7 @@
 
 # Roos
 
-Component library
+Client side component library
 
 ## Todo
 

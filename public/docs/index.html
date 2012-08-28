@@ -907,26 +907,26 @@ trigger. <code>Tooltip</code> is inspired by
 
 <h2>Usage</h2>
 
-<pre><code class="haml">%a(data-bindable=&quot;tooltip&quot; data-placement=&quot;north&quot; title=&quot;The Northern Tooltip&quot; href=&quot;#&quot; data-delay=&quot;500&quot;) North
+<pre><code class="haml">%a#north(data-bindable=&quot;tooltip&quot; data-delay=&quot;100&quot; data-target=&quot;.sherpa-wrapper&quot; title=&quot;The Northern Tip&quot; href=&quot;#&quot;) Northern Tip
 |
-%a(data-bindable=&quot;tooltip&quot; data-placement=&quot;south&quot; title=&quot;The Southern Tooltip&quot; href=&quot;#&quot; data-delay=&quot;1000,2000&quot;) South
+%a#south(data-bindable=&quot;tooltip&quot; data-placement=&quot;south&quot; data-delay=&quot;1000,2000&quot; title=&quot;The Southern Tip&quot; href=&quot;#&quot;) Southern Tip
 |
-%a(data-bindable=&quot;tooltip&quot; data-placement=&quot;east&quot; title=&quot;The Eastern Tooltip&quot; href=&quot;#&quot;) East
+%a#east(data-bindable=&quot;tooltip&quot; data-placement=&quot;east&quot; title=&quot;The Eastern Tip&quot; href=&quot;#&quot;) Eastern Tip
 |
-%a(data-bindable=&quot;tooltip&quot; data-placement=&quot;west&quot; title=&quot;The Western Tooltip&quot; href=&quot;#&quot;) West
+%a#west(data-bindable=&quot;tooltip&quot; data-placement=&quot;west&quot; title=&quot;The Western Tip&quot; href=&quot;#&quot;) Western Tip
 |
-%a(data-bindable=&quot;tooltip&quot; data-placement=&quot;south&quot; title=&quot;&lt;img src=&#39;http://placehold.it/350x150&#39;/&gt;&quot; href=&quot;#&quot;) Image
+%a#image(data-bindable=&quot;tooltip&quot; data-placement=&quot;south&quot; data-trigger=&quot;click&quot; title=&quot;&lt;img src=&#39;http://placehold.it/350x150&#39;/&gt;&quot; href=&quot;#&quot;) Image Tip (click)
 </code></pre>
 
-<div class="sherpa-showcase sherpa-clearfix"><a data-bindable='tooltip' data-delay='500' data-placement='north' href='#' title='The Northern Tooltip'>North</a>
+<div class="sherpa-showcase sherpa-clearfix"><a data-bindable='tooltip' data-delay='100' data-target='.sherpa-wrapper' href='#' id='north' title='The Northern Tip'>Northern Tip</a>
 |
-<a data-bindable='tooltip' data-delay='1000,2000' data-placement='south' href='#' title='The Southern Tooltip'>South</a>
+<a data-bindable='tooltip' data-delay='1000,2000' data-placement='south' href='#' id='south' title='The Southern Tip'>Southern Tip</a>
 |
-<a data-bindable='tooltip' data-placement='east' href='#' title='The Eastern Tooltip'>East</a>
+<a data-bindable='tooltip' data-placement='east' href='#' id='east' title='The Eastern Tip'>Eastern Tip</a>
 |
-<a data-bindable='tooltip' data-placement='west' href='#' title='The Western Tooltip'>West</a>
+<a data-bindable='tooltip' data-placement='west' href='#' id='west' title='The Western Tip'>Western Tip</a>
 |
-<a data-bindable='tooltip' data-placement='south' href='#' title="&lt;img src='http://placehold.it/350x150'/&gt;">Image</a>
+<a data-bindable='tooltip' data-placement='south' data-trigger='click' href='#' id='image' title="&lt;img src='http://placehold.it/350x150'/&gt;">Image Tip (click)</a>
 </div>
 
 <h2>Options</h2>
@@ -1057,10 +1057,10 @@ element&#39;s toggle event</p>
 <h3>Requires</h3>
 
 <ul>
-<li>roos</li>
-<li>bindable</li>
-<li>detect</li>
-<li>toggler</li>
+<li><code>roos</code></li>
+<li><code>bindable</code></li>
+<li><code>detect</code></li>
+<li><code>toggler</code></li>
 </ul>
 
 <p><code>Tooltip</code> is a subclass of <code>Toggler</code>.</p>

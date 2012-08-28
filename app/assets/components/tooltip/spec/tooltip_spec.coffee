@@ -3,31 +3,29 @@
 describe 'Tooltip', ->
 
   beforeEach ->
-    html = """
-           <section id="shell">
-             <a id="north" data-trigger="click" data-delay="100" data-title="The Northern Tip" href="#">North</a>
-             <a id="south" data-delay="100,200" data-placement="south" href="#" title="The Southern Tip">South</a>
-             <a id="east" data-placement="east" href="#" title="The Eastern Tip">East</a>
-             <a id="west" data-trigger="click" data-placement="west" href="#" title="The Western Tip">West</a>
-             <a id="image" data-toggle="active" href="#" data-trigger="click" data-target="#shell" data-effect="move" title="<img src='http://placehold.it/350x150'/>">Image</a>
-             <a id="empty" title="The Empty Tip">Empty</a>
-           </section>
-           """
-    @html = $(html)
-    setFixtures(@html)
-    @shell_el = @html.find('#shell')
+    # Add extra data which we might not want to be shown in documentation from the fixture
+    extra = """
+              <a id="overrides" data-toggle="active" data-trigger="click" data-effect="move" data-target="#jasmine-fixtures" data-title="The Overrides Tip">Overrides</a>
+            """
+
+    loadFixtures('tooltip')
+    @html = $('#jasmine-fixtures')
+    @html.append(extra)
+
+    # @shell_el = @html.find('#shell')
     @north_el = @html.find('#north')
     @south_el = @html.find('#south')
     @east_el = @html.find('#east')
     @west_el = @html.find('#west')
     @image_el = @html.find('#image')
-    @empty_el = @html.find('#empty')
+    @override_el = @html.find('#overrides')
 
     @north_tip = new roos.Tooltip(@north_el)
     @south_tip = new roos.Tooltip(@south_el)
     @east_tip = new roos.Tooltip(@east_el)
     @west_tip = new roos.Tooltip(@west_el)
     @image_tip = new roos.Tooltip(@image_el)
+    @override_tip = new roos.Tooltip(@override_el)
 
   afterEach ->
     $('.tooltip').remove()
@@ -42,28 +40,26 @@ describe 'Tooltip', ->
     it 'sets up basic default options', ->
       expect(@north_tip.toggle_classes).toEqual('in')
       expect(@south_tip.trigger).toEqual('hover')
-      expect(@north_tip.target[0]).toEqual($('body')[0])
+      expect(@south_tip.target).toBe($('body'))
       expect(@south_tip.effect).toEqual('fade')
       expect(@north_tip.placement).toEqual('north')
       expect(@south_tip.placement).toEqual('south')
       expect(@north_tip.lookup).toEqual('closest')
 
     it 'overrides the default options', ->
-      expect(@image_tip.toggle_classes).toEqual('active')
-      expect(@image_tip.trigger).toEqual('click')
-      expect(@image_tip.target[0]).toEqual($('#shell')[0])
-      expect(@image_tip.effect).toEqual('move')
+      expect(@override_tip.toggle_classes).toEqual('active')
+      expect(@override_tip.trigger).toEqual('click')
+      expect(@override_tip.target).toBe(@html)
+      expect(@override_tip.effect).toEqual('move')
 
     it 'sets content from the title attribute', ->
       expect(@south_tip.content).toEqual('The Southern Tip')
 
     it 'sets content from the data-title attribute', ->
-      expect(@north_tip.content).toEqual('The Northern Tip')
+      expect(@override_tip.content).toEqual('The Overrides Tip')
 
     it 'sets the toggle type to trigger if the html element has the class "touch"', ->
-      $('html').addClass('touch')
-      tip = new roos.Tooltip(@empty_el)
-      expect(tip.trigger).toEqual('click')
+      expect(@override_tip.trigger).toEqual('click')
 
 
   describe '#initialize', ->
@@ -78,13 +74,13 @@ describe 'Tooltip', ->
 
   describe '#toggle', ->
     it 'shows a tooltip on from an elements action', ->
-      @west_el.trigger('click')
+      @image_el.trigger('click')
       tip = $('.tooltip').first()
       expect(tip).toHaveClass('fade')
 
     it 'shows a tooltip on an elements action after a delay', ->
       runs ->
-        @north_el.trigger('click')
+        @north_el.trigger('mouseover')
       waits 150
       runs ->
         tip = $('.tooltip').first()
@@ -92,14 +88,14 @@ describe 'Tooltip', ->
 
     it 'hides a tooltip on an elements action after a delay', ->
       runs ->
-        @north_el.trigger('click')
+        @north_el.trigger('mouseover')
       waits 150
       runs ->
         tip = $('.tooltip').first()
         expect(tip).toHaveClass('fade')
       waits 150
       runs ->
-        @north_el.trigger('click')
+        @north_el.trigger('mouseout')
       waits 150
       runs ->
         tip = $('.tooltip').first()
@@ -176,6 +172,9 @@ describe 'Tooltip', ->
       expect(pos.left).toBeLessThan(elp)
 
 
+  # These tests sometimes fail when there are other errors,
+  # we are testing for position here, so in failing tests
+  # postions are sometimes awkward
   describe '#inBounds', ->
     it 'repositions the item on stage when north is offscreen', ->
       @north_el.css(position:'absolute', top:'0', left:'500')
@@ -208,12 +207,12 @@ describe 'Tooltip', ->
       expect(@north_tip.delay.hide).toEqual(100)
 
     it 'sets up delay.show and delay.hide with the their own values from an object data attribute', ->
-      expect(@south_tip.delay.show).toEqual(100)
-      expect(@south_tip.delay.hide).toEqual(200)
+      expect(@south_tip.delay.show).toEqual(1000)
+      expect(@south_tip.delay.hide).toEqual(2000)
 
     it 'tests various settings for show and hide attributes', ->
-      show_hide = new roos.Tooltip(@shell_el, {delay: 'show:1000, hide:2000'})
-      hide_show = new roos.Tooltip(@shell_el, {delay: 'hide:4000, hide:5000'})
+      show_hide = new roos.Tooltip(@html, {delay: 'show:1000, hide:2000'})
+      hide_show = new roos.Tooltip(@html, {delay: 'hide:4000, hide:5000'})
       expect(show_hide.delay.show).toEqual(1000)
       expect(show_hide.delay.hide).toEqual(2000)
       expect(hide_show.delay.show).toEqual(4000)
