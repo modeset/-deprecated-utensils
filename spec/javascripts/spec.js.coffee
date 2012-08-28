@@ -5,7 +5,7 @@
 #= require detect/spec
 #= require toggler/spec
 #= require toggler_group/spec
-#= require tooltip/spec
+#= require tip/spec
 
 #= require_tree ./
 

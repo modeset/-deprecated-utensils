@@ -2,7 +2,7 @@
 //= require jquery
 //= require hamlcoffee
 
-//= require tooltip
+//= require tip
 //= require toggler_group
 
 //= require bootstrap

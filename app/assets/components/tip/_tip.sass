@@ -6,7 +6,7 @@ $tip-offset: 2px !default
 $tip-opacity-in: 0.9 !default
 $zindex-tips: 1010 !default
 
-.tooltip
+.tip
   +font-size($base-font-size - 2)
   +opacity(0)
   font-weight: bold
@@ -25,24 +25,24 @@ $zindex-tips: 1010 !default
     margin-left: -$tip-offset
   &.east
     margin-left: $tip-offset
-  &.north .tooltip-arrow
+  &.north .tip-arrow
     +arrow_south($tip-bgc)
     bottom: 0
     left: 50%
-  &.south .tooltip-arrow
+  &.south .tip-arrow
     +arrow_north($tip-bgc)
     top: 0
     left: 50%
-  &.west .tooltip-arrow
+  &.west .tip-arrow
     +arrow_east($tip-bgc)
     top: 50%
     right: 0
-  &.east .tooltip-arrow
+  &.east .tip-arrow
     +arrow_west($tip-bgc)
     top: 50%
     left: 0
 
-.tooltip-inner
+.tip-inner
   background-color: $tip-bgc
   border-radius: $tip-radii
   color: $tip-color

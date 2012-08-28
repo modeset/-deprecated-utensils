@@ -1,6 +1,6 @@
 
-#= require tooltip
-describe 'Tooltip', ->
+#= require tip
+describe 'Tip', ->
 
   beforeEach ->
     # Add extra data which we might not want to be shown in documentation from the fixture
@@ -8,7 +8,7 @@ describe 'Tooltip', ->
               <a id="overrides" data-toggle="active" data-trigger="click" data-effect="move" data-target="#jasmine-fixtures" data-title="The Overrides Tip">Overrides</a>
             """
 
-    loadFixtures('tooltip')
+    loadFixtures('tip')
     @html = $('#jasmine-fixtures')
     @html.append(extra)
 
@@ -20,20 +20,20 @@ describe 'Tooltip', ->
     @image_el = @html.find('#image')
     @override_el = @html.find('#overrides')
 
-    @north_tip = new roos.Tooltip(@north_el)
-    @south_tip = new roos.Tooltip(@south_el)
-    @east_tip = new roos.Tooltip(@east_el)
-    @west_tip = new roos.Tooltip(@west_el)
-    @image_tip = new roos.Tooltip(@image_el)
-    @override_tip = new roos.Tooltip(@override_el)
+    @north_tip = new roos.Tip(@north_el)
+    @south_tip = new roos.Tip(@south_el)
+    @east_tip = new roos.Tip(@east_el)
+    @west_tip = new roos.Tip(@west_el)
+    @image_tip = new roos.Tip(@image_el)
+    @override_tip = new roos.Tip(@override_el)
 
   afterEach ->
-    $('.tooltip').remove()
+    $('.tip').remove()
 
 
   describe 'binding', ->
     it 'is registered in bindable', ->
-      expect(Bindable.getClass('tooltip')).toEqual(roos.Tooltip)
+      expect(Bindable.getClass('tip')).toEqual(roos.Tip)
 
 
   describe '#options', ->
@@ -73,76 +73,76 @@ describe 'Tooltip', ->
 
 
   describe '#toggle', ->
-    it 'shows a tooltip on from an elements action', ->
+    it 'shows a tip on from an elements action', ->
       @image_el.trigger('click')
-      tip = $('.tooltip').first()
+      tip = $('.tip').first()
       expect(tip).toHaveClass('fade')
 
-    it 'shows a tooltip on an elements action after a delay', ->
+    it 'shows a tip on an elements action after a delay', ->
       runs ->
         @north_el.trigger('mouseover')
       waits 150
       runs ->
-        tip = $('.tooltip').first()
+        tip = $('.tip').first()
         expect(tip).toHaveClass('fade')
 
-    it 'hides a tooltip on an elements action after a delay', ->
+    it 'hides a tip on an elements action after a delay', ->
       runs ->
         @north_el.trigger('mouseover')
       waits 150
       runs ->
-        tip = $('.tooltip').first()
+        tip = $('.tip').first()
         expect(tip).toHaveClass('fade')
       waits 150
       runs ->
         @north_el.trigger('mouseout')
       waits 150
       runs ->
-        tip = $('.tooltip').first()
+        tip = $('.tip').first()
         expect(tip).not.toHaveClass('in')
 
 
   describe '#activate', ->
-    it 'activates a tooltip', ->
+    it 'activates a tip', ->
       @west_tip.activate()
-      tip = $('.tooltip').first()
+      tip = $('.tip').first()
       expect(tip).toHaveClass('fade')
 
-    it 'activates a tooltip immediately even though it has a delay', ->
+    it 'activates a tip immediately even though it has a delay', ->
       @north_tip.activate()
-      tip = $('.tooltip').first()
+      tip = $('.tip').first()
       expect(tip).toHaveClass('fade')
 
 
   describe '#deactivate', ->
-    it 'deactivates a tooltip', ->
+    it 'deactivates a tip', ->
       @west_tip.activate()
       @west_tip.deactivate()
-      tip = $('.tooltip').first()
+      tip = $('.tip').first()
       expect(tip).not.toHaveClass('in')
 
-    it 'deactivates a tooltip immediately even though it has a delay', ->
+    it 'deactivates a tip immediately even though it has a delay', ->
       @north_tip.activate()
       @north_tip.deactivate()
-      tip = $('.tooltip').first()
+      tip = $('.tip').first()
       expect(tip).not.toHaveClass('in')
 
 
   describe '#remove', ->
-    it 'removes a tooltip', ->
+    it 'removes a tip', ->
       @west_tip.activate()
       @west_tip.remove()
-      tip = $('.tooltip').first()
+      tip = $('.tip').first()
       expect(tip.length).toEqual(0)
       expect(@west_tip.tip).toBeNull()
 
 
   describe '#render', ->
-    it 'returns a string for rendering the default markup of a tool tip', ->
+    it 'returns a string for rendering the default markup of a tip', ->
       west_render = @west_tip.render()
-      expect(west_render).toContain('class="tooltip west fade"')
-      expect(west_render).toContain('tooltip-arrow')
-      expect(west_render).toContain('tooltip-inner')
+      expect(west_render).toContain('class="tip west fade"')
+      expect(west_render).toContain('tip-arrow')
+      expect(west_render).toContain('tip-inner')
       expect(west_render).toContain('The Western Tip')
 
 
@@ -179,22 +179,22 @@ describe 'Tooltip', ->
     it 'repositions the item on stage when north is offscreen', ->
       @north_el.css(position:'absolute', top:'0', left:'500')
       @north_tip.activate()
-      expect($('.tooltip').first()).toHaveClass('south')
+      expect($('.tip').first()).toHaveClass('south')
 
     it 'repositions the item on stage when south is offscreen', ->
       @south_el.css(position:'absolute', bottom:'0', left:'500')
       @south_tip.activate()
-      expect($('.tooltip').first()).toHaveClass('north')
+      expect($('.tip').first()).toHaveClass('north')
 
     it 'repositions the item on stage when east is offscreen', ->
       @east_el.css(position:'absolute', top:'0', right:'0')
       @east_tip.activate()
-      expect($('.tooltip').first()).toHaveClass('west')
+      expect($('.tip').first()).toHaveClass('west')
 
     it 'repositions the item on stage when west is offscreen', ->
       @west_el.css(position:'absolute', top:'0', left:'0')
       @west_tip.activate()
-      expect($('.tooltip').first()).toHaveClass('east')
+      expect($('.tip').first()).toHaveClass('east')
 
 
   describe '#getDelay', ->
@@ -211,8 +211,8 @@ describe 'Tooltip', ->
       expect(@south_tip.delay.hide).toEqual(2000)
 
     it 'tests various settings for show and hide attributes', ->
-      show_hide = new roos.Tooltip(@html, {delay: 'show:1000, hide:2000'})
-      hide_show = new roos.Tooltip(@html, {delay: 'hide:4000, hide:5000'})
+      show_hide = new roos.Tip(@html, {delay: 'show:1000, hide:2000'})
+      hide_show = new roos.Tip(@html, {delay: 'hide:4000, hide:5000'})
       expect(show_hide.delay.show).toEqual(1000)
       expect(show_hide.delay.hide).toEqual(2000)
       expect(hide_show.delay.show).toEqual(4000)

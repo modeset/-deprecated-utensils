@@ -4,7 +4,7 @@
 #= require detect
 #= require toggler
 
-class roos.Tooltip extends roos.Toggler
+class roos.Tip extends roos.Toggler
   constructor: (@el, data) ->
     super(@el, data)
 
@@ -64,9 +64,9 @@ class roos.Tooltip extends roos.Toggler
 
   render: ->
     html = """
-           <div class="tooltip #{@placement} #{@effect}">
-             <div class="tooltip-arrow"></div>
-             <div class="tooltip-inner">#{@content}</div>
+           <div class="tip #{@placement} #{@effect}">
+             <div class="tip-arrow"></div>
+             <div class="tip-inner">#{@content}</div>
            </div>
            """
     return html
@@ -136,5 +136,5 @@ class roos.Tooltip extends roos.Toggler
         hide: parseInt(params[1].match(/\d+/g), 10)
       }
 
-Bindable.register('tooltip', roos.Tooltip)
+Bindable.register('tip', roos.Tip)
 
