@@ -16,14 +16,28 @@
 
   <body>
 
+    <aside class="sherpa-sidebar">
+      <nav>
+        <a class="sherpa-brand" href="/">Roos!</a>
+        <ul class="sherpa-dox-nav sherpa-nav-list">
+          <li class="sherpa-nav-header">Documentation</li>
+        </ul>
+      {{#aside}}
+        <ul class="sherpa-anchor-nav sherpa-nav-list">
+          {{{aside}}}
+        </ul>
+      {{/aside}}
+      </nav>
+    </aside>
+
     <section class="sherpa-wrapper sherpa-container sherpa-clearfix">
       {{{layout}}}
     </section>
 
     <footer class="sherpa-footer sherpa-container sherpa-clearfix">
-      <p>&raquo; <a href="#">Github Repository</a></p>
     </footer>
     <script src="/assets/application.js"></script>
+    <script src="/docs/sherpa.js"></script>
   </body>
 </html>
 
