@@ -40,5 +40,7 @@ $ ->
 
 
 ## API
-**TODO: Need to describe the public API a little clearer**
+
+###### Alert
+- **TODO**! Need to describe the public API
 

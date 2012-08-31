@@ -19,5 +19,5 @@ $(el).on(roos.Detect.transition.end, @onDone) if roos.Detect.hasTransition
 ```
 
 ### Requires
-- roos
+- `roos`
 

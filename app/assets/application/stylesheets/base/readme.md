@@ -1,6 +1,5 @@
 
-## Normalize
-
+# Normalize
 Normalize and reset base elements to allow browsers to render all controls
 more consistently and in line with modern standards.
 
@@ -10,12 +9,12 @@ Normalization and resets based on
 - [HTML5 Boilerplate](http://html5boilerplate.com/)
 
 
-## Scaffold
+# Scaffold
 Setup main scaffolding elements for `html`, `body`, selections, generic links and navigation.
 Scaffolding includes font sizes, families, colors, backgrounds and line heights.
 
 
-### Base navs
+## Base navs
 The base nav is the building block for navigation structures and components
 (tabs, pills, breadcrumbs, pagination and navigation lists). The `.nav` class
 can be used for simple navigation as well. The buttons below will change the
@@ -28,7 +27,7 @@ Warnings:
 Notes:
 - **Pro Tip!** For convenience, add the `inline` class to the `.nav` element to display the base nav inline
 
-### Usage
+## Usage
 
 ```haml
 %nav
@@ -51,7 +50,7 @@ Notes:
       %a(data-classes="nav pills stacked" href="#") Stacked Pills
 ```
 
-## Transitions
+# Transitions
 Transitions are helper classes added and removed via JavaScript.
 
 Class                  | Usage
@@ -62,13 +61,13 @@ Class                  | Usage
 `.collapse.in`         | Transitions an element to a `height` of `auto`
 `.hardware-accelerate` | Adds hardware acceleration to an element
 
-## Typography
+# Typography
 Heading, paragraph, lists, and inline typographic elements.
 
 
-### Headings and body copy
+## Headings and body copy
 
-### Usage
+## Usage
 
 ```haml
 %h1 Google hearts h1 headings, but only use one per page.
@@ -91,7 +90,7 @@ Heading, paragraph, lists, and inline typographic elements.
 ```
 
 
-### Inline paragraph elements
+## Inline paragraph elements
 
 Element     | Usage
 ----------- | ----------------------------------------------
@@ -113,7 +112,7 @@ Element     | Usage
 `<samp>`    | The <samp>samp</samp> tag defines sample computer code
 `<pre>`     | The <code>pre</code> tag is used for blocks of code
 
-### Usage
+## Usage
 
 ```haml
 %section(style="width:45%; float:left; margin-right: 5%;")
@@ -142,12 +141,12 @@ Element     | Usage
     <a href="#">president@whitehouse.gov</a>
 ```
 
-### Blockquotes
+## Blockquotes
 
 Notes:
 - **Pro Tip!** Utilize `&#8220;` and `&#8221;` for opening and closing quotes within a `<blockquote>` element
 
-### Usage
+## Usage
 
 ```haml
 %blockquote
@@ -156,10 +155,10 @@ Notes:
   <small>David Wooderson, <cite title="link to source">Dazed &amp; Confused</cite></small>
 ```
 
-### Rules
+## Rules
 Horizontal rules can utilize the class `.dashed` and `.dotted` for a different separator.
 
-### Usage
+## Usage
 
 ```haml
 %hr
@@ -168,9 +167,9 @@ Horizontal rules can utilize the class `.dashed` and `.dotted` for a different s
 ```
 
 
-### Lists
+## Lists
 
-### Usage
+## Usage
 
 ```haml
 %section(style="width:20%; float:left; margin-right: 5%;")

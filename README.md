@@ -25,13 +25,15 @@ Client side component library
 - button-btn-mixin
 
 ## Tasks
-- Make popover
-- Add tables
-- Cleanup the style guide and generator
+- Get the generator for fixtures working
+- Refactor `Usage` to `Usage Examples` for inline examples
+- Cleanup the bindable docs
 - Cleanup the base styles (see above)
+- Look at making the sass files use abstract elements
 - Move toggler, toggler group over to markup for fixtures and dox
-- Turn into real generators
+- Make popover
 - Add view layout templates
+- Turn into engine with generators
 - Create a component generator
 - Make the remaining components
 

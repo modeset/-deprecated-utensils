@@ -20,7 +20,6 @@ trigger. `Tip` is inspired by
 %a#image(data-bindable="tip" data-placement="south" data-trigger="click" title="<img src='http://placehold.it/350x150'/>" href="#") Image Tip (click)
 ```
 
-
 ## Options
 
 Attribute   | Default    | Description
@@ -49,7 +48,7 @@ data-delay="{show:1000, hide:2000}"
 data-delay="hide:1000, show:2000"
 ```
 
-Notes:  
+###### Notes  
 
 - **Heads Up!** `Tip` will override it's placement automatically if it
   determines the requested position will render the tip outside the
