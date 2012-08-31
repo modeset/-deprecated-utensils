@@ -25,9 +25,6 @@ Client side component library
 - button-btn-mixin
 
 ## Tasks
-- Get the generator for fixtures working
-- Refactor `Usage` to `Usage Examples` for inline examples
-- Cleanup the bindable docs
 - Cleanup the base styles (see above)
 - Look at making the sass files use abstract elements
 - Move toggler, toggler group over to markup for fixtures and dox
