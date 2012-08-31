@@ -3,7 +3,7 @@
 Base class for adding, removing and toggling classes on a given element.
 
 
-## Usage
+## Usage Examples
 
 ```haml
 %h5.mansfield Mansfield
@@ -13,7 +13,6 @@ Base class for adding, removing and toggling classes on a given element.
 %a.four(data-bindable="toggler" href=".mansfield" data-lookup="siblings" data-toggle="fade") Hide Mansfield and link
 %a.five(data-bindable="toggler" href="#toggler" data-target=".mansfield" data-lookup="siblings" data-toggle="fade" data-bubble="true") Change url
 %a.six(data-bindable="toggler" href="#" data-activate="true") Start in active state
-
 ```
 
 1. Toggles the class `active` on `click`

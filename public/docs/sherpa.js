@@ -7,17 +7,19 @@ var Sherpa = function(el) {
 
 // Get the party started..
 Sherpa.prototype.initialize = function() {
+  this.usage_sections = []
   this.api_sections = []
   this.options_sections = []
   this.style_sections = []
+  this.todo_sections = []
   this.misc_sections = []
   this.settings_shown = false
   this.domLookup()
   this.addSectionIds()
   this.addSubsectionClasses()
-  this.usages = this.addUsageToggler()
+  this.usage_examples = this.addUsageExampleToggler()
   this.addListeners()
-  this.usages.trigger('click')
+  this.usage_examples.trigger('click')
   this.popNotes()
 };
 
@@ -27,43 +29,49 @@ Sherpa.prototype.domLookup = function() {
   this.subsections = this.el.find('.sherpa-section > h2')
   this.section_nav = this.el.find('.sherpa-anchor-nav li')
   this.showcases = this.el.find('.sherpa-showcase')
-  this.usages = this.el.find('.sherpa-showcase + pre')
+  this.usage_examples = this.el.find('.sherpa-showcase + pre')
 };
 
 // Listen for various events on navigations, sections and keys..
 Sherpa.prototype.addListeners = function() {
   this.section_nav.on('click', {self: this}, this.activateSectionNav)
-  this.usages.on('click', {self: this}, this.toggleUsage)
+  this.usage_examples.on('click', {self: this}, this.toggleUsageExample)
   this.subsections.on('click', {self: this}, this.toggleSubsection)
   $(window).keypress({self: this}, this.captureKeyStroke)
 };
 
 // Typically handles toggling items associated with the settings menu..
-Sherpa.prototype.captureKeyStroke = function(e) {
-  var self = e.data.self
+Sherpa.prototype.captureKeyStroke = function(evt) {
+  var self = evt.data.self
   var a = 65
   var o = 79
   var s = 83
   var m = 77
   var w = 87
   var u = 85
+  var e = 69
+  var t = 84
 
-  if (e.which === 63 && e.shiftKey) {
+  if (evt.which === 63 && evt.shiftKey) {
     self.toggleSettings()
-  } else if (e.which === w && e.shiftKey) {
+  } else if (evt.which === w && evt.shiftKey) {
     self.subsections.trigger('click')
-  } else if (e.which === u && e.shiftKey) {
-    self.usages.trigger('click')
-  } else if (e.which === a && e.shiftKey) {
+  } else if (evt.which === e && evt.shiftKey) {
+    self.usage_examples.trigger('click')
+  } else if (evt.which === u && evt.shiftKey) {
+    self.toggleSubsectionByGrouping(self.usage_sections)
+  } else if (evt.which === a && evt.shiftKey) {
     self.toggleSubsectionByGrouping(self.api_sections)
-  } else if (e.which === o && e.shiftKey) {
+  } else if (evt.which === o && evt.shiftKey) {
     self.toggleSubsectionByGrouping(self.options_sections)
-  } else if (e.which === s && e.shiftKey) {
+  } else if (evt.which === s && evt.shiftKey) {
     self.toggleSubsectionByGrouping(self.style_sections)
-  } else if (e.which === m && e.shiftKey) {
+  } else if (evt.which === t && evt.shiftKey) {
+    self.toggleSubsectionByGrouping(self.todo_sections)
+  } else if (evt.which === m && evt.shiftKey) {
     self.toggleSubsectionByGrouping(self.misc_sections)
   // } else {
-  //   console.log(e.which)
+  //   console.log(evt.which)
   }
 };
 
@@ -75,10 +83,12 @@ Sherpa.prototype.toggleSettings = function() {
     table += '</thead><tbody>'
     table += '<tr><td>Toggle Settings window</td><td><code>&lt;SHIFT&gt; + ?</code></td></tr>'
     table += '<tr><td>Toggle All Section documentation</td><td><code>&lt;SHIFT&gt; + w</code></td></tr>'
+    table += '<tr><td>Toggle All Usage Example blocks</td><td><code>&lt;SHIFT&gt; + e</code></td></tr>'
     table += '<tr><td>Toggle All Usage blocks</td><td><code>&lt;SHIFT&gt; + u</code></td></tr>'
     table += '<tr><td>Toggle API documentation</td><td><code>&lt;SHIFT&gt; + a</code></td></tr>'
     table += '<tr><td>Toggle Options documentation</td><td><code>&lt;SHIFT&gt; + o</code></td></tr>'
     table += '<tr><td>Toggle Style documentation</td><td><code>&lt;SHIFT&gt; + s</code></td></tr>'
+    table += '<tr><td>Toggle Todo documentation</td><td><code>&lt;SHIFT&gt; + t</code></td></tr>'
     table += '<tr><td>Toggle Misc. documentation</td><td><code>&lt;SHIFT&gt; + m</code></td></tr>'
     table += '</tbody></table>'
     this.el.prepend('<div class="sherpa-settings">' + table + '</div>')
@@ -119,12 +129,16 @@ Sherpa.prototype.addSubsectionClasses = function() {
 
 // Associate common sub sections together for toggling via settings..
 Sherpa.prototype.addSubsectionToGrouping = function(title, el) {
-  if (title.match(/^api|^behavior/)) {
+  if (title.match(/^usage/)) {
+    this.usage_sections.push(el)
+  } else if (title.match(/^api|^behavior/)) {
     this.api_sections.push(el)
   } else if (title.match(/^option/)) {
     this.options_sections.push(el)
   } else if (title.match(/^style|^css|^sass/)) {
     this.style_sections.push(el)
+  } else if (title.match(/^todo/)) {
+    this.todo_sections.push(el)
   } else {
     this.misc_sections.push(el)
   }
@@ -145,25 +159,25 @@ Sherpa.prototype.toggleSubsectionByGrouping = function(grouping) {
   }
 };
 
-// Usage Toggling..
-Sherpa.prototype.addUsageToggler = function() {
-  var contents = '<h4 class="sherpa-togglable sherpa-togglable-usage" title="Toggle Usage">View Usage</h4>'
+// Usage Example Toggling..
+Sherpa.prototype.addUsageExampleToggler = function() {
+  var contents = '<h4 class="sherpa-togglable sherpa-togglable-usage-example" title="Toggle Usage">View Usage</h4>'
   this.showcases.each(function(index, el) {
     $(el).after(contents)
   })
-  return this.el.find('.sherpa-togglable-usage')
+  return this.el.find('.sherpa-togglable-usage-example')
 };
 
 // Toggle a usage example
-Sherpa.prototype.toggleUsage = function(e) {
+Sherpa.prototype.toggleUsageExample = function(e) {
   var el = $(e.target)
   var self = e.data.self
   var pre = el.next('pre')
-  var state = pre.hasClass('sherpa-hidden') ? self.usageShow(el, pre) : self.usageHide(el, pre)
+  var state = pre.hasClass('sherpa-hidden') ? self.usageExampleShow(el, pre) : self.usageExampleHide(el, pre)
 };
 
-// Switch the text when a usage is shown..
-Sherpa.prototype.usageShow = function(el, pre) {
+// Switch the text when a usage example is shown..
+Sherpa.prototype.usageExampleShow = function(el, pre) {
   var text = el.html()
   el.html(text.replace(/^View/, 'Hide'))
   el.removeClass('sherpa-closed')
@@ -171,8 +185,8 @@ Sherpa.prototype.usageShow = function(el, pre) {
   return 'shown'
 };
 
-// Switch the text when a usage is hidden..
-Sherpa.prototype.usageHide = function(el, pre) {
+// Switch the text when a usage example is hidden..
+Sherpa.prototype.usageExampleHide = function(el, pre) {
   var text = el.html()
   el.html(text.replace(/^Hide/, 'View'))
   el.addClass('sherpa-closed')

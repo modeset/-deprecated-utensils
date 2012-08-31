@@ -6,8 +6,9 @@ trigger. `Tip` is inspired by
 [tipsy](https://github.com/jaz303/tipsy) and [component/tip](https://github.com/component/tip)
 
 
-## Usage
+## Usage Examples
 
+<!--~ markup/tip.html.haml -->
 ```haml
 %a#north(data-bindable="tip" data-delay="100" data-target=".sherpa-wrapper" title="The Northern Tip" href="#") Northern Tip
 |
@@ -19,6 +20,9 @@ trigger. `Tip` is inspired by
 |
 %a#image(data-bindable="tip" data-placement="south" data-trigger="click" title="<img src='http://placehold.it/350x150'/>" href="#") Image Tip (click)
 ```
+<!-- end -->
+
+
 
 ## Options
 

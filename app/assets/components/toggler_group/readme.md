@@ -3,7 +3,7 @@
 An extension of `Toggler` for adding, removing and toggling groups of related elements. These are predominantly used in navigation type systems. A toggler group can function either like radio buttons or check boxes.
 
 
-## Usage
+## Usage Examples
 
 ```haml
 %section.shell

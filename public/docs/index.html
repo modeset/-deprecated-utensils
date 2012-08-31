@@ -48,6 +48,8 @@ converted to a <code>$</code> object.</p>
 
 <p><code>Bindable</code> is stored as a global object on <code>window</code>.</p>
 
+<h2>Usage</h2>
+
 <p>As a class making use of the <code>Bindable</code> registry:</p>
 
 <pre><code class="coffee">#= require bindable
@@ -115,6 +117,8 @@ properties, normalizing event names, and other useful detection.</p>
 
 <p>The top level namespace object for the <code>roos</code> library created on window.</p>
 
+<h2>Usage</h2>
+
 <pre><code class="coffee">#= require roos
 
 class roos.ClassName
@@ -129,6 +133,8 @@ class roos.ClassName
 are generally used on <code>hover</code> states, but can be tied to any event
 trigger. <code>Tip</code> is inspired by
 <a href="https://github.com/jaz303/tipsy">tipsy</a> and <a href="https://github.com/component/tip">component/tip</a></p>
+
+<!--~ markup/tip.html.haml -->
 
 <div class="sherpa-showcase sherpa-clearfix"><a data-bindable='tip' data-delay='100' data-target='.sherpa-wrapper' href='#' id='north' title='The Northern Tip'>Northern Tip</a>
 |
@@ -151,6 +157,8 @@ trigger. <code>Tip</code> is inspired by
 |
 %a#image(data-bindable=&quot;tip&quot; data-placement=&quot;south&quot; data-trigger=&quot;click&quot; title=&quot;&lt;img src=&#39;http://placehold.it/350x150&#39;/&gt;&quot; href=&quot;#&quot;) Image Tip (click)
 </code></pre>
+
+<!-- end -->
 
 <h2>Options</h2>
 
@@ -364,7 +372,6 @@ within your <code>config.sass</code> file or before <code>tip.sass</code> is loa
 %a.four(data-bindable=&quot;toggler&quot; href=&quot;.mansfield&quot; data-lookup=&quot;siblings&quot; data-toggle=&quot;fade&quot;) Hide Mansfield and link
 %a.five(data-bindable=&quot;toggler&quot; href=&quot;#toggler&quot; data-target=&quot;.mansfield&quot; data-lookup=&quot;siblings&quot; data-toggle=&quot;fade&quot; data-bubble=&quot;true&quot;) Change url
 %a.six(data-bindable=&quot;toggler&quot; href=&quot;#&quot; data-activate=&quot;true&quot;) Start in active state
-
 </code></pre>
 
 <ol>

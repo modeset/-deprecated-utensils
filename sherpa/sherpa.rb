@@ -21,7 +21,6 @@ module Sherpa
 
       # manifest = Dir["./app/assets/**/*.md"]
       manifest = Dir["./app/assets/components/**/*.md"]
-      # manifest = Dir["./sherpa/**/*.md"]
       aside = get_navigation(manifest)
       lines = cat_manifest(manifest)
       marked = carpet_bag(lines)
@@ -58,7 +57,7 @@ module Sherpa
             pre_block = !pre_block
           end
 
-          if !!(line =~ /^#*\sUsage/)
+          if !!(line =~ /^#*\sUsage\sExa/)
             in_usage = true
           elsif !!(line =~ /^#/)
             in_usage = false
@@ -67,7 +66,7 @@ module Sherpa
             lines += line
           end
 
-          # Do some special rendering on Usage blocks
+          # Do some special rendering on Usage Example blocks
           if in_usage
             # exit the code block
             if !!(line =~ /^`{3}\s/) && in_code_block

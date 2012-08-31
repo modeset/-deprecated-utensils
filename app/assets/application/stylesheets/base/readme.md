@@ -27,7 +27,7 @@ Warnings:
 Notes:
 - **Pro Tip!** For convenience, add the `inline` class to the `.nav` element to display the base nav inline
 
-## Usage
+## Usage Example
 
 ```haml
 %nav
@@ -67,7 +67,7 @@ Heading, paragraph, lists, and inline typographic elements.
 
 ## Headings and body copy
 
-## Usage
+## Usage Example
 
 ```haml
 %h1 Google hearts h1 headings, but only use one per page.
@@ -112,7 +112,7 @@ Element     | Usage
 `<samp>`    | The <samp>samp</samp> tag defines sample computer code
 `<pre>`     | The <code>pre</code> tag is used for blocks of code
 
-## Usage
+## Usage Example
 
 ```haml
 %section(style="width:45%; float:left; margin-right: 5%;")
@@ -146,7 +146,7 @@ Element     | Usage
 Notes:
 - **Pro Tip!** Utilize `&#8220;` and `&#8221;` for opening and closing quotes within a `<blockquote>` element
 
-## Usage
+## Usage Example
 
 ```haml
 %blockquote
@@ -158,7 +158,7 @@ Notes:
 ## Rules
 Horizontal rules can utilize the class `.dashed` and `.dotted` for a different separator.
 
-## Usage
+## Usage Example
 
 ```haml
 %hr
@@ -169,7 +169,7 @@ Horizontal rules can utilize the class `.dashed` and `.dotted` for a different s
 
 ## Lists
 
-## Usage
+## Usage Example
 
 ```haml
 %section(style="width:20%; float:left; margin-right: 5%;")
