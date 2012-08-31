@@ -48,7 +48,6 @@ class roos.Toggler
     @target.toggleClass(@toggle_classes)
     @el.toggleClass(@toggle_classes) if @dual_toggle
     @is_active = !@is_active
-    console.log @target
 
   activate: ->
     @target.addClass(@toggle_classes)
