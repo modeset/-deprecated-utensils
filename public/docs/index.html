@@ -24,11 +24,17 @@
         </ul>
         <ul class="sherpa-anchor-nav sherpa-nav-list">
           <li><a href='#bindable'>Bindable</a></li>
+<li><a href='#container'>Container</a></li>
 <li><a href='#detect'>Detect</a></li>
+<li><a href='#normalize'>Normalize</a></li>
+<li><a href='#print'>Print</a></li>
 <li><a href='#roos'>Roos</a></li>
+<li><a href='#scaffold'>Scaffold</a></li>
 <li><a href='#tip'>Tip</a></li>
 <li><a href='#toggler'>Toggler</a></li>
 <li><a href='#toggler_group'>Toggler group</a></li>
+<li><a href='#transition'>Transition</a></li>
+<li><a href='#typography'>Typography</a></li>
 
         </ul>
       </nav>
@@ -84,6 +90,44 @@ $ -&gt;
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
+<h1>Container</h1>
+
+<p>The container class is used to contain elements of content within a page
+or section. The container class injects the <a href="http://nicolasgallagher.com/micro-clearfix-hack/">micro clearfix</a>
+to clear any floats from interior elements.</p>
+
+<p>There are a few modifiers which can be applied to the default container
+to affect how it displays contained elements.</p>
+
+<table><thead>
+<tr>
+<th>Class</th>
+<th>Usage</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>.container</code></td>
+<td>The default container is a fluid width container with a <code>max-width</code> set to the <code>$base-width</code> variable.</td>
+</tr>
+<tr>
+<td><code>.container.outer</code></td>
+<td>Adding the <code>.outer</code> class to a <code>container</code> adds left and right padding, which creates a little breathing room in fluid layouts from the browser&#39;s edges.</td>
+</tr>
+<tr>
+<td><code>.container.fluid</code></td>
+<td>Adding the <code>.fluid</code> class to a <code>container</code> will remove the <code>max-width</code> setting and allow the container to fill the browser window.</td>
+</tr>
+<tr>
+<td><code>.container.fixed</code></td>
+<td>Adding the <code>.fixed</code> class to a <code>container</code> will render it using fixed width pixels with no responsive behavior.</td>
+</tr>
+</tbody></table>
+
+<pre><code class="sass">@import roos/components/container/containers
+</code></pre>
+
+<p></section><section class="sherpa-section sherpa-clearfix"></p>
+
 <h1>Detect</h1>
 
 <p>Utility class of static variables describing various browser support for
@@ -113,6 +157,40 @@ properties, normalizing event names, and other useful detection.</p>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
+<h1>Normalize</h1>
+
+<p>Normalize and reset base element styles to allow browsers to render all controls
+more consistently and in line with modern standards.</p>
+
+<p>Normalization and resets based on</p>
+
+<ul>
+<li><a href="http://necolas.github.com/normalize.css/">normalize.css</a></li>
+<li><a href="http://html5boilerplate.com/">HTML5 Boilerplate</a></li>
+</ul>
+
+<h2>Usage</h2>
+
+<p>This should appear right after library and mixin loads, but before any
+specific styles are imported. This module operates on top level elements
+and inserts them directly into your style sheet.</p>
+
+<pre><code class="sass">@import roos/components/normalize
+</code></pre>
+
+<p></section><section class="sherpa-section sherpa-clearfix"></p>
+
+<h1>Print</h1>
+
+<p>A very basic print style sheet based off settings outlined by <a href="http://html5boilerplate.com/">HTML5
+Boilerplate</a>. Styles are associated with
+the <code>@media print</code> query.</p>
+
+<pre><code class="sass">@import roos/components/print/print
+</code></pre>
+
+<p></section><section class="sherpa-section sherpa-clearfix"></p>
+
 <h1>Roos</h1>
 
 <p>The top level namespace object for the <code>roos</code> library created on window.</p>
@@ -124,6 +202,87 @@ properties, normalizing event names, and other useful detection.</p>
 class roos.ClassName
   # class definition..
 </code></pre>
+
+<p></section><section class="sherpa-section sherpa-clearfix"></p>
+
+<h1>Scaffold</h1>
+
+<p>Setup main scaffolding elements for <code>html</code>, <code>body</code>, selections, generic links and navigation.
+Scaffolding includes font sizes, families, colors, backgrounds and line heights.</p>
+
+<h2>Base navs</h2>
+
+<p>The base nav is the building block for navigation structures and components
+(tabs, pills, breadcrumbs, pagination and navigation lists). The <code>.nav</code> class
+can be used for simple navigation as well. The buttons below will change the
+class on the <code>ul</code> element to showcase the different navigation systems
+based off the same markup structure.</p>
+
+<!--~ markup/scaffold-nav.html.haml -->
+
+<div class="sherpa-showcase sherpa-clearfix"><nav>
+  <ul class='nav inline' id='underoos_nav_demo'>
+    <li>
+      <a data-classes='nav' href='#'>Base Nav</a>
+    </li>
+    <li class='active'>
+      <a data-classes='nav inline' href='#'>Base Nav Inline</a>
+    </li>
+    <li>
+      <a data-classes='nav tabs' href='#'>Tabs</a>
+    </li>
+    <li>
+      <a data-classes='nav pills' href='#'>Pills</a>
+    </li>
+    <li>
+      <a data-classes='nav breadcrumb' href='#'>Breadcrumbs</a>
+    </li>
+    <li>
+      <a data-classes='nav pagination' href='#'>Pagination</a>
+    </li>
+    <li>
+      <a data-classes='nav tabs stacked' href='#'>Stacked Tabs</a>
+    </li>
+    <li>
+      <a data-classes='nav pills stacked' href='#'>Stacked Pills</a>
+    </li>
+  </ul>
+</nav>
+</div>
+
+<pre><code class="haml">%nav
+  %ul.nav.inline#underoos_nav_demo
+    %li
+      %a(data-classes=&quot;nav&quot; href=&quot;#&quot;) Base Nav
+    %li.active
+      %a(data-classes=&quot;nav inline&quot; href=&quot;#&quot;) Base Nav Inline
+    %li
+      %a(data-classes=&quot;nav tabs&quot; href=&quot;#&quot;) Tabs
+    %li
+      %a(data-classes=&quot;nav pills&quot; href=&quot;#&quot;) Pills
+    %li
+      %a(data-classes=&quot;nav breadcrumb&quot; href=&quot;#&quot;) Breadcrumbs
+    %li
+      %a(data-classes=&quot;nav pagination&quot; href=&quot;#&quot;) Pagination
+    %li
+      %a(data-classes=&quot;nav tabs stacked&quot; href=&quot;#&quot;) Stacked Tabs
+    %li
+      %a(data-classes=&quot;nav pills stacked&quot; href=&quot;#&quot;) Stacked Pills
+</code></pre>
+
+<!-- end -->
+
+<h6>Warnings</h6>
+
+<ul>
+<li><strong>Heads Up!</strong> All navigation components depend on the <code>.nav</code> class being attached to the container element</li>
+</ul>
+
+<h6>Notes</h6>
+
+<ul>
+<li><strong>Pro Tip!</strong> For convenience, add the <code>inline</code> class to the <code>.nav</code> element to display the base nav inline</li>
+</ul>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
@@ -643,6 +802,410 @@ Deactivating will remove the toggle classes from the element.</p>
 </ul>
 
 <p><code>TogglerGroup</code> is a subclass of <code>Toggler</code>.</p>
+
+<p></section><section class="sherpa-section sherpa-clearfix"></p>
+
+<h1>Transition</h1>
+
+<p>Transitions are helper classes added and removed via JavaScript.</p>
+
+<table><thead>
+<tr>
+<th>Class</th>
+<th>Usage</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>.fade</code></td>
+<td>Transitions an element to an <code>opacity</code> of <code>0</code></td>
+</tr>
+<tr>
+<td><code>.fade.in</code></td>
+<td>Transitions an element to an <code>opacity</code> of <code>1</code></td>
+</tr>
+<tr>
+<td><code>.collapse</code></td>
+<td>Transitions an element to a <code>height</code> of <code>0</code></td>
+</tr>
+<tr>
+<td><code>.collapse.in</code></td>
+<td>Transitions an element to a <code>height</code> of <code>auto</code></td>
+</tr>
+<tr>
+<td><code>.hardware-accelerate</code></td>
+<td>Adds hardware acceleration to an element</td>
+</tr>
+</tbody></table>
+
+<p></section><section class="sherpa-section sherpa-clearfix"></p>
+
+<h1>Typography</h1>
+
+<p>Heading, paragraph, lists, and inline typographic elements.</p>
+
+<h2>Headings and body copy</h2>
+
+<div class="sherpa-showcase sherpa-clearfix"><h1>Google hearts h1 headings, but only use one per page.</h1>
+<p>~lorem</p>
+<br />
+<h2>Got sections? Try using h2 headings.</h2>
+<p>~lorem</p>
+<br />
+<h3>Good things come in threes, like tacos and h3 headings.</h3>
+<p>~lorem</p>
+<br />
+<h4>There's nothing clever to say about h4 headings.</h4>
+<p>~lorem</p>
+<br />
+<h5>Every time you use an h5 heading, Google kills a puppy. A tiny little puppy.</h5>
+<p>~lorem</p>
+<br />
+<h6>An h6 heading? Google just killed a litter of kittens.</h6>
+<p>~lorem</p>
+</div>
+
+<pre><code class="haml">%h1 Google hearts h1 headings, but only use one per page.
+%p ~lorem
+%br
+%h2 Got sections? Try using h2 headings.
+%p ~lorem
+%br
+%h3 Good things come in threes, like tacos and h3 headings.
+%p ~lorem
+%br
+%h4 There&#39;s nothing clever to say about h4 headings.
+%p ~lorem
+%br
+%h5 Every time you use an h5 heading, Google kills a puppy. A tiny little puppy.
+%p ~lorem
+%br
+%h6 An h6 heading? Google just killed a litter of kittens.
+%p ~lorem
+</code></pre>
+
+<h2>Inline paragraph elements</h2>
+
+<table><thead>
+<tr>
+<th>Element</th>
+<th>Usage</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>&lt;a&gt;</code></td>
+<td>The anchor element defines a <a href="http://www.modeset.com/">hyperlink</a>!</td>
+</tr>
+<tr>
+<td><code>&lt;em&gt;</code></td>
+<td>The em element is used to <em>emphasize</em> text</td>
+</tr>
+<tr>
+<td><code>&lt;strong&gt;</code></td>
+<td>The strong element also <strong>emphasizes</strong> text, typically in <strong>bold</strong></td>
+</tr>
+<tr>
+<td><code>&lt;small&gt;</code></td>
+<td>The small element renders text well, <small>smaller</small></td>
+</tr>
+<tr>
+<td><code>&lt;sup&gt;</code></td>
+<td>The superscript element is used to display text higher<sup>&reg;</sup> and smaller<sup>&trade;</sup></td>
+</tr>
+<tr>
+<td><code>&lt;sub&gt;</code></td>
+<td>The sub element is used to display text <sub>lower</sub> and <sub>smaller</sub></td>
+</tr>
+<tr>
+<td><code>&lt;address&gt;</code></td>
+<td>For contact information related to the author of the document</td>
+</tr>
+<tr>
+<td><code>&lt;time&gt;</code></td>
+<td>Use for a <time>24-hour</time> clock or a precise date in the <a href="http://en.wikipedia.org/wiki/Gregorian_calendar">Gregorian calendar</a></td>
+</tr>
+<tr>
+<td><code>&lt;abbr&gt;</code></td>
+<td><abbr title="For Placement Only">FPO</abbr>. Describes an abbreviated phrase with the title attribute</td>
+</tr>
+<tr>
+<td><code>&lt;dfn&gt;</code></td>
+<td><dfn title="This is a definition">DFN</dfn>. Describes the definition of a word or term with the title attribute</td>
+</tr>
+<tr>
+<td><code>&lt;ins&gt;</code></td>
+<td>The ins element defines text that has been <ins>inserted into a document</ins></td>
+</tr>
+<tr>
+<td><code>&lt;del&gt;</code></td>
+<td>The del tag defines text that has been <del>deleted from a document</del></td>
+</tr>
+<tr>
+<td><code>&lt;mark&gt;</code></td>
+<td>The mark element is used for indicating text as <mark>marked or highlighted for reference</mark> purposes</td>
+</tr>
+<tr>
+<td><code>&lt;code&gt;</code></td>
+<td>The <code>code</code> tag is used to show inline code</td>
+</tr>
+<tr>
+<td><code>&lt;kbd&gt;</code></td>
+<td>The <kbd>kbd</kbd> tag defines keyboard text</td>
+</tr>
+<tr>
+<td><code>&lt;samp&gt;</code></td>
+<td>The <samp>samp</samp> tag defines sample computer code</td>
+</tr>
+<tr>
+<td><code>&lt;pre&gt;</code></td>
+<td>The <code>pre</code> tag is used for blocks of code</td>
+</tr>
+</tbody></table>
+
+<div class="sherpa-showcase sherpa-clearfix"><section style='width:45%; float:left; margin-right: 5%;'>
+  <h4>Inline elements examples</h4>
+  <br />
+  <p>
+    Yeah, well, <em>listen</em>. You <kbd>ought</kbd> to <strong>ditch</strong> the <strong><em>two</em></strong>
+    <a href="http://modeset.com/">geeks</a> you're in the <dfn title="motorized vehicle">car</dfn> with now and get
+    <sub>in with</sub> us. But <samp>that's</samp> <code>alright</code>, <mark>we'll worry about</mark> that <time>later</time>.
+    I will <small>see you</small> there. All right<sup>™</sup>? <del>Man</del>, <ins>I love</ins> those
+    <abbr title="Hotties">redheads</abbr>.
+  </p>
+</section>
+<section style='width:45%; float:left;'>
+  <h4>Address examples</h4>
+  <br />
+  <address>
+    <strong>Mr. Address Tag</strong>
+    <br />
+    1600 Pennsylvania Ave NW
+    <br />
+    Washington D.C. DC 20500
+    <br />
+    <br />
+    <strong>Email:</strong>
+    <br />
+    <a href="#">president@whitehouse.gov</a>
+  </address>
+</section>
+</div>
+
+<pre><code class="haml">%section(style=&quot;width:45%; float:left; margin-right: 5%;&quot;)
+  %h4 Inline elements examples
+  %br
+  %p
+    Yeah, well, &lt;em&gt;listen&lt;/em&gt;. You &lt;kbd&gt;ought&lt;/kbd&gt; to &lt;strong&gt;ditch&lt;/strong&gt; the &lt;strong&gt;&lt;em&gt;two&lt;/em&gt;&lt;/strong&gt;
+    &lt;a href=&quot;http://modeset.com/&quot;&gt;geeks&lt;/a&gt; you&#39;re in the &lt;dfn title=&quot;motorized vehicle&quot;&gt;car&lt;/dfn&gt; with now and get
+    &lt;sub&gt;in with&lt;/sub&gt; us. But &lt;samp&gt;that&#39;s&lt;/samp&gt; &lt;code&gt;alright&lt;/code&gt;, &lt;mark&gt;we&#39;ll worry about&lt;/mark&gt; that &lt;time&gt;later&lt;/time&gt;.
+    I will &lt;small&gt;see you&lt;/small&gt; there. All right&lt;sup&gt;™&lt;/sup&gt;? &lt;del&gt;Man&lt;/del&gt;, &lt;ins&gt;I love&lt;/ins&gt; those
+    &lt;abbr title=&quot;Hotties&quot;&gt;redheads&lt;/abbr&gt;.
+
+%section(style=&quot;width:45%; float:left;&quot;)
+  %h4 Address examples
+  %br
+  %address
+    &lt;strong&gt;Mr. Address Tag&lt;/strong&gt;
+    &lt;br /&gt;
+    1600 Pennsylvania Ave NW
+    &lt;br /&gt;
+    Washington D.C. DC 20500
+    &lt;br /&gt;
+    &lt;br /&gt;
+    &lt;strong&gt;Email:&lt;/strong&gt;
+    &lt;br /&gt;
+    &lt;a href=&quot;#&quot;&gt;president@whitehouse.gov&lt;/a&gt;
+</code></pre>
+
+<h2>Blockquotes</h2>
+
+<div class="sherpa-showcase sherpa-clearfix"><blockquote>
+  <p>
+    &#8220;Let me tell you what Melba Toast is packin' right here, all right. We got 4:11 Positrac outback, 750 double pumper, Edelbrock intake, bored over 30, 11 to 1 pop-up pistons, turbo-jet 390 horsepower. We're talkin' some f***in' muscle.&#8221;
+    <small>David Wooderson, <cite title="link to source">Dazed &amp; Confused</cite></small>
+  </p>
+</blockquote>
+</div>
+
+<pre><code class="haml">%blockquote
+  %p
+    &amp;#8220;Let me tell you what Melba Toast is packin&#39; right here, all right. We got 4:11 Positrac outback, 750 double pumper, Edelbrock intake, bored over 30, 11 to 1 pop-up pistons, turbo-jet 390 horsepower. We&#39;re talkin&#39; some f***in&#39; muscle.&amp;#8221;
+    &lt;small&gt;David Wooderson, &lt;cite title=&quot;link to source&quot;&gt;Dazed &amp;amp; Confused&lt;/cite&gt;&lt;/small&gt;
+</code></pre>
+
+<h6>Notes</h6>
+
+<ul>
+<li><strong>Pro Tip!</strong> Utilize <code>&amp;#8220;</code> and <code>&amp;#8221;</code> for opening and closing quotes within a <code>&lt;blockquote&gt;</code> element</li>
+</ul>
+
+<h2>Rules</h2>
+
+<p>Horizontal rules can utilize the class <code>.dashed</code> and <code>.dotted</code> for a different separator.</p>
+
+<div class="sherpa-showcase sherpa-clearfix"><hr />
+<hr class='dashed' />
+<hr class='dotted' />
+</div>
+
+<pre><code class="haml">%hr
+%hr.dashed
+%hr.dotted
+</code></pre>
+
+<h2>Lists</h2>
+
+<div class="sherpa-showcase sherpa-clearfix"><section style='width:20%; float:left; margin-right: 5%;'>
+  <p>
+    <strong>Unordered list:</strong>
+  </p>
+  <ul>
+    <li>Unordered list</li>
+    <li>Unordered list</li>
+    <li>
+      <ul>
+        <li>Nested unordered list</li>
+        <li>Nested unordered list</li>
+        <li>Nested unordered list</li>
+      </ul>
+    </li>
+    <li>Unordered list</li>
+    <li>
+      <ol>
+        <li>Nested ordered list</li>
+        <li>Nested ordered list</li>
+        <li>Nested ordered list</li>
+      </ol>
+    </li>
+  </ul>
+</section>
+<section style='width:20%; float:left; margin-right: 5%;'>
+  <p>
+    <strong>Ordered list:</strong>
+  </p>
+  <ol>
+    <li>Ordered list</li>
+    <li>Ordered list</li>
+    <li>
+      <ol>
+        <li>Nested ordered list</li>
+        <li>Nested ordered list</li>
+        <li>Nested ordered list</li>
+      </ol>
+    </li>
+    <li>Ordered list</li>
+    <li>
+      <ul>
+        <li>Nested unordered list</li>
+        <li>Nested unordered list</li>
+        <li>Nested unordered list</li>
+      </ul>
+    </li>
+  </ol>
+</section>
+<section style='width:20%; float:left; margin-right: 5%;'>
+  <p>
+    <strong>Unstyled list:</strong>
+  </p>
+  <ul class='unstyled'>
+    <li>Unordered list</li>
+    <li>Unordered list</li>
+    <li>
+      <ul>
+        <li>Nested unordered list</li>
+        <li>Nested unordered list</li>
+        <li>Nested unordered list</li>
+      </ul>
+    </li>
+    <li>Unordered list</li>
+    <li>
+      <ol>
+        <li>Nested ordered list</li>
+        <li>Nested ordered list</li>
+        <li>Nested ordered list</li>
+      </ol>
+    </li>
+  </ul>
+</section>
+<section style='width:20%; float:left;'>
+  <p>
+    <strong>Definition list:</strong>
+  </p>
+  <dl>
+    <dt>Definition Term</dt>
+    <dd>Definition Description Lorem ipsum dolor sit amet.</dd>
+    <dt>Definition Term</dt>
+    <dd>Definition Description Lorem ipsum dolor sit amet.</dd>
+    <dt>Definition Term</dt>
+    <dd>Definition Description Lorem ipsum dolor sit amet.</dd>
+  </dl>
+</section>
+</div>
+
+<pre><code class="haml">%section(style=&quot;width:20%; float:left; margin-right: 5%;&quot;)
+  %p
+    %strong Unordered list:
+  %ul
+    %li Unordered list
+    %li Unordered list
+    %li
+      %ul
+        %li Nested unordered list
+        %li Nested unordered list
+        %li Nested unordered list
+    %li Unordered list
+    %li
+      %ol
+        %li Nested ordered list
+        %li Nested ordered list
+        %li Nested ordered list
+
+%section(style=&quot;width:20%; float:left; margin-right: 5%;&quot;)
+  %p
+    %strong Ordered list:
+  %ol
+    %li Ordered list
+    %li Ordered list
+    %li
+      %ol
+        %li Nested ordered list
+        %li Nested ordered list
+        %li Nested ordered list
+    %li Ordered list
+    %li
+      %ul
+        %li Nested unordered list
+        %li Nested unordered list
+        %li Nested unordered list
+
+%section(style=&quot;width:20%; float:left; margin-right: 5%;&quot;)
+  %p
+    %strong Unstyled list:
+  %ul.unstyled
+    %li Unordered list
+    %li Unordered list
+    %li
+      %ul
+        %li Nested unordered list
+        %li Nested unordered list
+        %li Nested unordered list
+    %li Unordered list
+    %li
+      %ol
+        %li Nested ordered list
+        %li Nested ordered list
+        %li Nested ordered list
+
+%section(style=&quot;width:20%; float:left;&quot;)
+  %p
+    %strong Definition list:
+  %dl
+    %dt Definition Term
+    %dd Definition Description Lorem ipsum dolor sit amet.
+    %dt Definition Term
+    %dd Definition Description Lorem ipsum dolor sit amet.
+    %dt Definition Term
+    %dd Definition Description Lorem ipsum dolor sit amet.
+</code></pre>
 
 <p></section></p>
 

@@ -1,66 +1,4 @@
 
-# Normalize
-Normalize and reset base elements to allow browsers to render all controls
-more consistently and in line with modern standards.
-
-Normalization and resets based on
-
-- [normalize.css](http://necolas.github.com/normalize.css/)
-- [HTML5 Boilerplate](http://html5boilerplate.com/)
-
-
-# Scaffold
-Setup main scaffolding elements for `html`, `body`, selections, generic links and navigation.
-Scaffolding includes font sizes, families, colors, backgrounds and line heights.
-
-
-## Base navs
-The base nav is the building block for navigation structures and components
-(tabs, pills, breadcrumbs, pagination and navigation lists). The `.nav` class
-can be used for simple navigation as well. The buttons below will change the
-class on the `ul` element to showcase the different navigation systems
-based off the same markup structure.
-
-Warnings:
-- **Heads Up!** All navigation components depend on the `.nav` class being attached to the container element
-
-Notes:
-- **Pro Tip!** For convenience, add the `inline` class to the `.nav` element to display the base nav inline
-
-## Usage Example
-
-```haml
-%nav
-  %ul.nav.inline#underoos_nav_demo
-    %li
-      %a(data-classes="nav" href="#") Base Nav
-    %li.active
-      %a(data-classes="nav inline" href="#") Base Nav Inline
-    %li
-      %a(data-classes="nav tabs" href="#") Tabs
-    %li
-      %a(data-classes="nav pills" href="#") Pills
-    %li
-      %a(data-classes="nav breadcrumb" href="#") Breadcrumbs
-    %li
-      %a(data-classes="nav pagination" href="#") Pagination
-    %li
-      %a(data-classes="nav tabs stacked" href="#") Stacked Tabs
-    %li
-      %a(data-classes="nav pills stacked" href="#") Stacked Pills
-```
-
-# Transitions
-Transitions are helper classes added and removed via JavaScript.
-
-Class                  | Usage
----------------------- | -----------------------------------------------------------
-`.fade`                | Transitions an element to an `opacity` of `0`
-`.fade.in`             | Transitions an element to an `opacity` of `1`
-`.collapse`            | Transitions an element to a `height` of `0`
-`.collapse.in`         | Transitions an element to a `height` of `auto`
-`.hardware-accelerate` | Adds hardware acceleration to an element
-
 # Typography
 Heading, paragraph, lists, and inline typographic elements.
 
@@ -143,17 +81,18 @@ Element     | Usage
 
 ## Blockquotes
 
-Notes:
-- **Pro Tip!** Utilize `&#8220;` and `&#8221;` for opening and closing quotes within a `<blockquote>` element
-
 ## Usage Example
 
 ```haml
 %blockquote
   %p
-  &#8220;Let me tell you what Melba Toast is packin' right here, all right. We got 4:11 Positrac outback, 750 double pumper, Edelbrock intake, bored over 30, 11 to 1 pop-up pistons, turbo-jet 390 horsepower. We're talkin' some f***in' muscle.&#8221;
-  <small>David Wooderson, <cite title="link to source">Dazed &amp; Confused</cite></small>
+    &#8220;Let me tell you what Melba Toast is packin' right here, all right. We got 4:11 Positrac outback, 750 double pumper, Edelbrock intake, bored over 30, 11 to 1 pop-up pistons, turbo-jet 390 horsepower. We're talkin' some f***in' muscle.&#8221;
+    <small>David Wooderson, <cite title="link to source">Dazed &amp; Confused</cite></small>
 ```
+
+###### Notes
+- **Pro Tip!** Utilize `&#8220;` and `&#8221;` for opening and closing quotes within a `<blockquote>` element
+
 
 ## Rules
 Horizontal rules can utilize the class `.dashed` and `.dotted` for a different separator.

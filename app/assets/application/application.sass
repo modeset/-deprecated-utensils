@@ -1,22 +1,28 @@
 
 // Setup the configuration settings
-@import stylesheets/config
+@import config
 
 // Pick a library: compass, bourbon or underoos/polyfills
 @import ../underoos/polyfills
+
+// Reset should be the first component
+@import ../components/normalize/normalize
 
 // Import underoos mixins
 @import ../underoos/mixins
 
 // Core base styles
-@import stylesheets/base/base
+@import ../components/scaffold/scaffold
+@import ../components/transition/transitions
+@import ../components/typography/typography
+@import ../components/container/containers
+
 
 // Component styles
 @import ../components/table/table
 @import ../components/tip/tip
 
 // Layouts and application specific imports
-@import stylesheets/layouts/containers
 
-@import stylesheets/layouts/print
+@import ../components/print/print
 

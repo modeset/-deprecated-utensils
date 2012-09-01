@@ -7,25 +7,18 @@ Client side component library
 
 ## Todo
 
-### These items are copied in:
-- ~~base/normalize~~
-- ~~base/scaffold~~
-- ~~base/transitions~~
-- ~~base/typography~~
-- base/buttons
-- ~~layouts/containers~~
-- ~~layouts/print~~
-- layouts/upgrades
-
-### These become components:
-- tables
+### Need to add to components:
 - forms
+- base/buttons
+- layouts/upgrades
 
 ### This moves to a mixin
 - button-btn-mixin
 
 ## Tasks
 - Cleanup the base styles (see above)
+- Get the documentation correct for the base structures
+- Get pluralization correct
 - Look at making the sass files use abstract elements
 - Move toggler, toggler group over to markup for fixtures and dox
 - Make popover

@@ -1,7 +1,8 @@
 
-// Heading Styles
+// Heading elements
+// -----------------------------------------------------------------------------
 h1, h2, h3, h4, h5, h6
-  color: #333
+  color: $heading-color
 
 h1
   +font-size(30)
@@ -16,24 +17,21 @@ h4
   +font-size(16)
 
 h5
-  +font-size(14)
+  +font-size(15)
 
 h6
   +font-size(14)
-  font-style: italic
 
-// Paragraph Styles
+// Inline paragraph elements
+// -----------------------------------------------------------------------------
 p
-  font-style: normal
+  margin: 1em 0
 
 p a:hover
   text-decoration: underline
 
 small
   font-size: 85%
-
-b, strong
-  font-weight: bold
 
 sub, sup
   font-size: 75%
@@ -57,15 +55,51 @@ dfn[title]
   font-style: normal
   cursor: help
 
+mark
+  background: $yellow
+  padding: 0 0.3em
+
+// Code inline and block elements
+// -----------------------------------------------------------------------------
+pre, code, kbd, samp
+  font-family: $code-norm
+  font-size: 85%
+
+code, kbd, samp
+  background: $off-white
+  border: 1px solid lighten(#ccc, 10%)
+  padding: 0 0.3em
+
+code
+  color: $red
+
+pre
+  background: $off-white
+  border: 1px solid #ccc
+  margin: 1em 0
+  padding: 0.75em
+  text-shadow: 0 1px 0 $white
+  white-space: pre
+  white-space: pre-wrap
+  word-wrap: break-word
+  overflow: hidden
+
+pre code
+  color: $body-color
+  background: transparent
+  border: 0
+  font-size: 100%
+  padding: 0
 
 // Blockquotes
+// -----------------------------------------------------------------------------
 blockquote
   font-family: $serif-norm
-  margin: 1em
-  padding: 0 10%
+  margin: 1em 0
+  padding-right: 10%
 
 blockquote p
-  +font-size($base-font-size + 2)
+  +font-size($base-font-size)
   font-style: italic
 
 blockquote small
@@ -85,7 +119,8 @@ blockquote:after
   content: ""
 
 
-// Misc
+// Rules
+// -----------------------------------------------------------------------------
 hr
   display: block
   height: 1px
@@ -97,43 +132,9 @@ hr
   &.dashed
     border-top-style: dashed
 
-mark
-  background: $yellow
-  padding: 0 0.3em
-
-// Code, TODO: Move to it's own file?
-pre, code, kbd, samp
-  font-family: $code-norm
-  font-size: 85%
-
-code, kbd, samp
-  background: $off-white
-  border: 1px solid lighten(#ccc, 10%)
-  padding: 0 0.3em
-
-code
-  color: $red
-
-pre
-  background: $off_white
-  border: 1px solid #ccc
-  margin: 1em 0
-  padding: 0.75em
-  text-shadow: 0 1px 0 $white
-  white-space: pre
-  white-space: pre-wrap
-  word-wrap: break-word
-  overflow: hidden
-
-pre code
-  color: $body_color
-  background: transparent
-  border: 0
-  font-size: 100%
-  padding: 0
-
 
 // Ordered and Unordered Lists
+// -----------------------------------------------------------------------------
 ul
   list-style: square inside
 

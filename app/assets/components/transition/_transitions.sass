@@ -1,0 +1,19 @@
+
+.fade
+  +transition(opacity $speed)
+  +opacity(0)
+  &.in
+    +opacity(1)
+
+.collapse
+  +transition(height $speed $ease-in-out-quart)
+  position: relative
+  overflow: hidden
+  height: 0
+  &.in
+    height: auto
+
+.hardware-accelerate
+  -webkit-transform: translate3d(0,0,0)
+  -webkit-backface-visibility: hidden
+
