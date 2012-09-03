@@ -25,6 +25,7 @@
         <ul class="sherpa-anchor-nav sherpa-nav-list">
           <li><a href='#bindable'>Bindable</a></li>
 <li><a href='#container'>Container</a></li>
+<li><a href='#decal'>Decal</a></li>
 <li><a href='#detect'>Detect</a></li>
 <li><a href='#normalize'>Normalize</a></li>
 <li><a href='#print'>Print</a></li>
@@ -35,6 +36,7 @@
 <li><a href='#toggler_group'>Toggler group</a></li>
 <li><a href='#transition'>Transition</a></li>
 <li><a href='#typography'>Typography</a></li>
+<li><a href='#well'>Well</a></li>
 
         </ul>
       </nav>
@@ -99,7 +101,7 @@ to clear any floats from interior elements.</p>
 <p>There are a few modifiers which can be applied to the default container
 to affect how it displays contained elements.</p>
 
-<pre><code class="sass">@import roos/components/container/containers
+<pre><code class="sass">@import roos/components/container/container
 </code></pre>
 
 <h2>Usage</h2>
@@ -149,6 +151,54 @@ within your <code>config.sass</code> file or before <code>container.sass</code> 
 <td><code>$container-padding-right</code></td>
 <td><code>$container-padding-left</code></td>
 <td>Set the <code>padding-right</code> on the <code>container.outer</code> element</td>
+</tr>
+</tbody></table>
+
+<p></section><section class="sherpa-section sherpa-clearfix"></p>
+
+<h1>Decal</h1>
+
+<p>Decals are used to <span class="decal important">POP</span> information in a block of text.
+They are typically used with inline elements.</p>
+
+<pre><code class="sass">@import roos/components/decal/decal
+</code></pre>
+
+<h2>Usage</h2>
+
+<table><thead>
+<tr>
+<th>Decal</th>
+<th>Markup</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="decal">Default</span></td>
+<td><code>&lt;span class=&quot;decal&quot;&gt;Default&lt;/span&gt;</code></td>
+</tr>
+<tr>
+<td><span class="decal info">Info</span></td>
+<td><code>&lt;span class=&quot;decal info&quot;&gt;Info&lt;/span&gt;</code></td>
+</tr>
+<tr>
+<td><span class="decal important">Important</span></td>
+<td><code>&lt;span class=&quot;decal important&quot;&gt;Important&lt;/span&gt;</code></td>
+</tr>
+<tr>
+<td><span class="decal success">Success</span></td>
+<td><code>&lt;span class=&quot;decal success&quot;&gt;Success&lt;/span&gt;</code></td>
+</tr>
+<tr>
+<td><span class="decal warning">Warning</span></td>
+<td><code>&lt;span class=&quot;decal warning&quot;&gt;Warning&lt;/span&gt;</code></td>
+</tr>
+<tr>
+<td><span class="decal danger">Danger</span></td>
+<td><code>&lt;span class=&quot;decal danger&quot;&gt;Danger&lt;/span&gt;</code></td>
+</tr>
+<tr>
+<td><span class="decal primary">Primary</span></td>
+<td><code>&lt;span class=&quot;decal primary&quot;&gt;Primary&lt;/span&gt;</code></td>
 </tr>
 </tbody></table>
 
@@ -1460,6 +1510,76 @@ within your <code>config.sass</code> file or before <code>typography.sass</code>
 <td><code>$definition-horiz-offset-padding</code></td>
 <td><code>$horiz-offset-padding</code></td>
 <td>The padding between a term and definition within the <code>.dl-horizontal</code> element</td>
+</tr>
+</tbody></table>
+
+<p></section><section class="sherpa-section sherpa-clearfix"></p>
+
+<h1>Well</h1>
+
+<p>Wells are used to contain components and other various elements.</p>
+
+<pre><code class="sass">@import roos/components/well/well
+</code></pre>
+
+<!--~ markup/well.html.haml -->
+
+<div class="sherpa-showcase sherpa-clearfix"><div class='well'>.well</div>
+
+<div class='well lite'>.well.lite</div>
+
+<div class='well dark'>.well.dark</div>
+
+<p></div></p>
+
+<pre><code class="haml">.well .well
+.well.lite .well.lite
+.well.dark .well.dark
+</code></pre>
+
+<!-- end -->
+
+<h2>Style Settings</h2>
+
+<p>To override the default settings, set the variable and it&#39;s value
+within your <code>config.sass</code> file or before <code>well.sass</code> is loaded.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>$well-border-color</code></td>
+<td><code>invert($body-color)</code></td>
+<td>The default border color for all wells</td>
+</tr>
+<tr>
+<td><code>$well-radii</code></td>
+<td><code>$radii</code></td>
+<td>The default border radius around wells</td>
+</tr>
+<tr>
+<td><code>$well-spacing</code></td>
+<td><code>1.25em</code></td>
+<td>The default padding and spacing around wells</td>
+</tr>
+<tr>
+<td><code>$well-bgc</code></td>
+<td><code>transparent</code></td>
+<td>The default background of a <code>.well</code> element</td>
+</tr>
+<tr>
+<td><code>$well-lite-bgc</code></td>
+<td><code>$off-white</code></td>
+<td>The default background of a <code>.well.lite</code> element</td>
+</tr>
+<tr>
+<td><code>$well-dark-bgc</code></td>
+<td><code>$off-grey</code></td>
+<td>The default background of a <code>.well.dark</code> element</td>
 </tr>
 </tbody></table>
 

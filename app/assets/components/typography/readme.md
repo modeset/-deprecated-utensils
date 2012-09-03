@@ -36,11 +36,6 @@ Generic `h1`-`h6` headings with a paragraph element.
 ```
 <!-- end -->
 
-
-
-
-
-
 ### Inline paragraph elements
 These elements are typically found within blocks of copy.
 
@@ -95,9 +90,6 @@ Element     | Usage
 <!-- end -->
 
 
-
-
-
 ### Pre blocks
 Used for showcasing a block of a code.
 
@@ -111,10 +103,6 @@ Used for showcasing a block of a code.
   git push
 ```
 <!-- end -->
-
-
-
-
 
 ### Blockquotes
 Typically used for quoting blocks of text from another source.
@@ -130,13 +118,8 @@ Typically used for quoting blocks of text from another source.
 ```
 <!-- end -->
 
-
-
-
-
 ###### Notes
 - **Pro Tip!** Utilize `&#8220;` and `&#8221;` for opening and closing quotes within a `<blockquote>` element
-
 
 ### Rules
 Horizontal rules can utilize the class `.dashed` and `.dotted` for a different separator.
@@ -150,11 +133,6 @@ Horizontal rules can utilize the class `.dashed` and `.dotted` for a different s
 %hr.dotted
 ```
 <!-- end -->
-
-
-
-
-
 
 ### Lists
 Lists come in three varieties, unordered (`<ul>`), ordered (`<ol>`), and unstyled (`.unstyled`). Unstyled simply removes any list styles and left padding. By default all `<ul>` and `<ol>` elements nested under a `<nav>` element render the same as an `.unstyled` list 
@@ -219,10 +197,6 @@ Lists come in three varieties, unordered (`<ul>`), ordered (`<ol>`), and unstyle
 ```
 <!-- end -->
 
-
-
-
-
 ### Definition Lists
 Definition lists are used to encapsulate a term and it's definition
 
@@ -253,10 +227,6 @@ Definition lists are used to encapsulate a term and it's definition
     %dd Definition Description Lorem ipsum dolor sit amet.
 ```
 <!-- end -->
-
-
-
-
 
 ## Style Settings
 To override the default settings, set the variable and it's value

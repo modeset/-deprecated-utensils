@@ -26,12 +26,6 @@ trigger. `Tip` is inspired by
 ```
 <!-- end -->
 
-
-
-
-
-
-
 ## Options
 
 Attribute   | Default    | Description

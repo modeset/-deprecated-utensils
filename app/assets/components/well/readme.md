@@ -16,8 +16,6 @@ Wells are used to contain components and other various elements.
 ```
 <!-- end -->
 
-
-
 ## Style Settings
 To override the default settings, set the variable and it's value
 within your `config.sass` file or before `well.sass` is loaded.

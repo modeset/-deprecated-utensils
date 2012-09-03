@@ -34,11 +34,6 @@ can be used for simple navigation as well.
 ```
 <!-- end -->
 
-
-
-
-
-
 ###### Warnings
 - **Heads Up!** All navigation components depend on the `.nav` class being attached to the container element
 
