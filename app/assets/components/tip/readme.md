@@ -5,6 +5,10 @@ are generally used on `hover` states, but can be tied to any event
 trigger. `Tip` is inspired by
 [tipsy](https://github.com/jaz303/tipsy) and [component/tip](https://github.com/component/tip)
 
+```sass
+@import roos/components/tip/tip
+```
+
 
 ## Usage Examples
 
@@ -122,6 +126,8 @@ Remove the tip behavior
 `Tip` is a subclass of `Toggler`.
 
 ## Style Settings
+To override the default settings, set the variable and it's value
+within your `config.sass` file or before `tip.sass` is loaded.
 
 Attribute         | Default    | Description
 ----------------- | ---------- | -------------------------------------------
@@ -132,12 +138,8 @@ Attribute         | Default    | Description
 `$tip-opacity-in` | `0.9`      | The opacity value to apply when the tip is shown
 `$zindex-tips`    | `1010`     | The `z-index` value tips sit on
 
-_To override the default settings, set the variable and it's value
-within your `config.sass` file or before `tip.sass` is loaded._
-
-
 ## Injected Markup
-The markup injected when a tip is shown:
+This markup is injected when a tip is shown:
 
 ```html
 <div class="tip north fade">

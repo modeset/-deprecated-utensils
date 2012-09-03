@@ -26,7 +26,7 @@ Bindable.register('mocker', roos.MockClass)
 As markup instantiating a class that is registered with `Bindable`:
 
 ```haml
-%a.one(data-bindable="mocker" href="#") Binded to MockClass
+%a.mock(data-bindable="mocker" href="#") Binded to MockClass
 ```
 
 `Bindable` is created after the page has loaded (typically in a

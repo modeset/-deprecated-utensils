@@ -69,7 +69,7 @@ Bindable.register(&#39;mocker&#39;, roos.MockClass)
 
 <p>As markup instantiating a class that is registered with <code>Bindable</code>:</p>
 
-<pre><code class="haml">%a.one(data-bindable=&quot;mocker&quot; href=&quot;#&quot;) Binded to MockClass
+<pre><code class="haml">%a.mock(data-bindable=&quot;mocker&quot; href=&quot;#&quot;) Binded to MockClass
 </code></pre>
 
 <p><code>Bindable</code> is created after the page has loaded (typically in a
@@ -99,6 +99,11 @@ to clear any floats from interior elements.</p>
 <p>There are a few modifiers which can be applied to the default container
 to affect how it displays contained elements.</p>
 
+<pre><code class="sass">@import roos/components/container/containers
+</code></pre>
+
+<h2>Usage</h2>
+
 <table><thead>
 <tr>
 <th>Class</th>
@@ -111,7 +116,7 @@ to affect how it displays contained elements.</p>
 </tr>
 <tr>
 <td><code>.container.outer</code></td>
-<td>Adding the <code>.outer</code> class to a <code>container</code> adds left and right padding, which creates a little breathing room in fluid layouts from the browser&#39;s edges.</td>
+<td>Adding the <code>.outer</code> class to a <code>container</code> adds left and right padding, which creates breathing room in fluid layouts from the browser&#39;s edges.</td>
 </tr>
 <tr>
 <td><code>.container.fluid</code></td>
@@ -123,8 +128,29 @@ to affect how it displays contained elements.</p>
 </tr>
 </tbody></table>
 
-<pre><code class="sass">@import roos/components/container/containers
-</code></pre>
+<h2>Style Settings</h2>
+
+<p>To override the default settings, set the variable and it&#39;s value
+within your <code>config.sass</code> file or before <code>container.sass</code> is loaded.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>$container-padding-left</code></td>
+<td><code>1%</code></td>
+<td>Set the <code>padding-left</code> on the <code>container.outer</code> element</td>
+</tr>
+<tr>
+<td><code>$container-padding-right</code></td>
+<td><code>$container-padding-left</code></td>
+<td>Set the <code>padding-right</code> on the <code>container.outer</code> element</td>
+</tr>
+</tbody></table>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
@@ -162,20 +188,18 @@ properties, normalizing event names, and other useful detection.</p>
 <p>Normalize and reset base element styles to allow browsers to render all controls
 more consistently and in line with modern standards.</p>
 
-<p>Normalization and resets based on</p>
+<p>Normalization and resets based on:</p>
 
 <ul>
 <li><a href="http://necolas.github.com/normalize.css/">normalize.css</a></li>
 <li><a href="http://html5boilerplate.com/">HTML5 Boilerplate</a></li>
 </ul>
 
-<h2>Usage</h2>
-
-<p>This should appear right after library and mixin loads, but before any
+<p>This should appear right after compass, bourbon or the polyfills loads, but before any
 specific styles are imported. This module operates on top level elements
 and inserts them directly into your style sheet.</p>
 
-<pre><code class="sass">@import roos/components/normalize
+<pre><code class="sass">@import roos/components/normalize/normalize
 </code></pre>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
@@ -207,67 +231,63 @@ class roos.ClassName
 
 <h1>Scaffold</h1>
 
-<p>Setup main scaffolding elements for <code>html</code>, <code>body</code>, selections, generic links and navigation.
-Scaffolding includes font sizes, families, colors, backgrounds and line heights.</p>
+<p>Sets up main scaffolding elements for <code>html</code>, <code>body</code>, selections, links and navigation.</p>
 
-<h2>Base navs</h2>
+<pre><code class="sass">@import roos/components/scaffold/scaffold
+</code></pre>
 
-<p>The base nav is the building block for navigation structures and components
+<p>The base <code>.nav</code> is the building block for navigation structures and components
 (tabs, pills, breadcrumbs, pagination and navigation lists). The <code>.nav</code> class
-can be used for simple navigation as well. The buttons below will change the
-class on the <code>ul</code> element to showcase the different navigation systems
-based off the same markup structure.</p>
+can be used for simple navigation as well.</p>
 
 <!--~ markup/scaffold-nav.html.haml -->
 
 <div class="sherpa-showcase sherpa-clearfix"><nav>
-  <ul class='nav inline' id='underoos_nav_demo'>
+  <ul class='nav' data-bindable='toggler-group'>
     <li>
-      <a data-classes='nav' href='#'>Base Nav</a>
+      <a href='#'>Block Link 1</a>
     </li>
     <li class='active'>
-      <a data-classes='nav inline' href='#'>Base Nav Inline</a>
+      <a href='#'>Block Link 2</a>
     </li>
     <li>
-      <a data-classes='nav tabs' href='#'>Tabs</a>
+      <a href='#'>Block Link 3</a>
+    </li>
+  </ul>
+</nav>
+<br />
+<nav>
+  <ul class='nav inline' data-bindable='toggler-group'>
+    <li>
+      <a href='#'>Inline Link 1</a>
+    </li>
+    <li class='active'>
+      <a href='#'>Inline Link 2</a>
     </li>
     <li>
-      <a data-classes='nav pills' href='#'>Pills</a>
-    </li>
-    <li>
-      <a data-classes='nav breadcrumb' href='#'>Breadcrumbs</a>
-    </li>
-    <li>
-      <a data-classes='nav pagination' href='#'>Pagination</a>
-    </li>
-    <li>
-      <a data-classes='nav tabs stacked' href='#'>Stacked Tabs</a>
-    </li>
-    <li>
-      <a data-classes='nav pills stacked' href='#'>Stacked Pills</a>
+      <a href='#'>Inline Link 3</a>
     </li>
   </ul>
 </nav>
 </div>
 
 <pre><code class="haml">%nav
-  %ul.nav.inline#underoos_nav_demo
+  %ul.nav(data-bindable=&quot;toggler-group&quot;)
     %li
-      %a(data-classes=&quot;nav&quot; href=&quot;#&quot;) Base Nav
+      %a(href=&quot;#&quot;) Block Link 1
     %li.active
-      %a(data-classes=&quot;nav inline&quot; href=&quot;#&quot;) Base Nav Inline
+      %a(href=&quot;#&quot;) Block Link 2
     %li
-      %a(data-classes=&quot;nav tabs&quot; href=&quot;#&quot;) Tabs
+      %a(href=&quot;#&quot;) Block Link 3
+%br
+%nav
+  %ul.nav.inline(data-bindable=&quot;toggler-group&quot;)
     %li
-      %a(data-classes=&quot;nav pills&quot; href=&quot;#&quot;) Pills
+      %a(href=&quot;#&quot;) Inline Link 1
+    %li.active
+      %a(href=&quot;#&quot;) Inline Link 2
     %li
-      %a(data-classes=&quot;nav breadcrumb&quot; href=&quot;#&quot;) Breadcrumbs
-    %li
-      %a(data-classes=&quot;nav pagination&quot; href=&quot;#&quot;) Pagination
-    %li
-      %a(data-classes=&quot;nav tabs stacked&quot; href=&quot;#&quot;) Stacked Tabs
-    %li
-      %a(data-classes=&quot;nav pills stacked&quot; href=&quot;#&quot;) Stacked Pills
+      %a(href=&quot;#&quot;) Inline Link 3
 </code></pre>
 
 <!-- end -->
@@ -284,6 +304,30 @@ based off the same markup structure.</p>
 <li><strong>Pro Tip!</strong> For convenience, add the <code>inline</code> class to the <code>.nav</code> element to display the base nav inline</li>
 </ul>
 
+<h2>Style Settings</h2>
+
+<p>To override the default settings, set the variable and it&#39;s value
+within your <code>config.sass</code> file or before <code>scaffold.sass</code> is loaded.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>$nav-padding-left</code></td>
+<td><code>1%</code></td>
+<td>Set the <code>padding-left</code> on the <code>.nav.inline</code> element</td>
+</tr>
+<tr>
+<td><code>$nav-padding-right</code></td>
+<td><code>$nav-padding-left</code></td>
+<td>Set the <code>padding-right</code> on the <code>.nav.inline</code> element</td>
+</tr>
+</tbody></table>
+
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
 <h1>Tip</h1>
@@ -292,6 +336,9 @@ based off the same markup structure.</p>
 are generally used on <code>hover</code> states, but can be tied to any event
 trigger. <code>Tip</code> is inspired by
 <a href="https://github.com/jaz303/tipsy">tipsy</a> and <a href="https://github.com/component/tip">component/tip</a></p>
+
+<pre><code class="sass">@import roos/components/tip/tip
+</code></pre>
 
 <!--~ markup/tip.html.haml -->
 
@@ -457,6 +504,9 @@ element&#39;s toggle event</p>
 
 <h2>Style Settings</h2>
 
+<p>To override the default settings, set the variable and it&#39;s value
+within your <code>config.sass</code> file or before <code>tip.sass</code> is loaded.</p>
+
 <table><thead>
 <tr>
 <th>Attribute</th>
@@ -496,12 +546,9 @@ element&#39;s toggle event</p>
 </tr>
 </tbody></table>
 
-<p><em>To override the default settings, set the variable and it&#39;s value
-within your <code>config.sass</code> file or before <code>tip.sass</code> is loaded.</em></p>
-
 <h2>Injected Markup</h2>
 
-<p>The markup injected when a tip is shown:</p>
+<p>This markup is injected when a tip is shown:</p>
 
 <pre><code class="html">&lt;div class=&quot;tip north fade&quot;&gt;
  &lt;div class=&quot;tip-arrow&quot;&gt;&lt;/div&gt;
@@ -643,7 +690,7 @@ element&#39;s toggle event</p>
 <h3>Requires</h3>
 
 <ul>
-<li>roos</li>
+<li><code>roos</code></li>
 </ul>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
@@ -807,7 +854,13 @@ Deactivating will remove the toggle classes from the element.</p>
 
 <h1>Transition</h1>
 
-<p>Transitions are helper classes added and removed via JavaScript.</p>
+<p>Contains helper classes added and removed via JavaScript for css
+transitions.</p>
+
+<pre><code class="sass">@import roos/components/transition/transition
+</code></pre>
+
+<h2>Usage</h2>
 
 <table><thead>
 <tr>
@@ -831,9 +884,39 @@ Deactivating will remove the toggle classes from the element.</p>
 <td><code>.collapse.in</code></td>
 <td>Transitions an element to a <code>height</code> of <code>auto</code></td>
 </tr>
+</tbody></table>
+
+<h2>Style Settings</h2>
+
+<p>To override the default settings, set the variable and it&#39;s value
+within your <code>config.sass</code> file or before <code>transition.sass</code> is loaded.</p>
+
+<table><thead>
 <tr>
-<td><code>.hardware-accelerate</code></td>
-<td>Adds hardware acceleration to an element</td>
+<th>Attribute</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>$fade-duration</code></td>
+<td><code>$speed</code></td>
+<td>Duration to fade the element</td>
+</tr>
+<tr>
+<td><code>$fade-timing-function</code></td>
+<td><code>linear</code></td>
+<td>Timing equation to fade the element</td>
+</tr>
+<tr>
+<td><code>$collapse-duration</code></td>
+<td><code>$speed</code></td>
+<td>Duration to collapse or expand the element</td>
+</tr>
+<tr>
+<td><code>$collapse-timing-function</code></td>
+<td><code>$ease-in-out-quart</code></td>
+<td>Timing equation to fade the element</td>
 </tr>
 </tbody></table>
 
@@ -841,49 +924,63 @@ Deactivating will remove the toggle classes from the element.</p>
 
 <h1>Typography</h1>
 
-<p>Heading, paragraph, lists, and inline typographic elements.</p>
+<p>Heading, paragraph, blockquotes, code, lists, and inline typographic elements.</p>
 
-<h2>Headings and body copy</h2>
-
-<div class="sherpa-showcase sherpa-clearfix"><h1>Google hearts h1 headings, but only use one per page.</h1>
-<p>~lorem</p>
-<br />
-<h2>Got sections? Try using h2 headings.</h2>
-<p>~lorem</p>
-<br />
-<h3>Good things come in threes, like tacos and h3 headings.</h3>
-<p>~lorem</p>
-<br />
-<h4>There's nothing clever to say about h4 headings.</h4>
-<p>~lorem</p>
-<br />
-<h5>Every time you use an h5 heading, Google kills a puppy. A tiny little puppy.</h5>
-<p>~lorem</p>
-<br />
-<h6>An h6 heading? Google just killed a litter of kittens.</h6>
-<p>~lorem</p>
-</div>
-
-<pre><code class="haml">%h1 Google hearts h1 headings, but only use one per page.
-%p ~lorem
-%br
-%h2 Got sections? Try using h2 headings.
-%p ~lorem
-%br
-%h3 Good things come in threes, like tacos and h3 headings.
-%p ~lorem
-%br
-%h4 There&#39;s nothing clever to say about h4 headings.
-%p ~lorem
-%br
-%h5 Every time you use an h5 heading, Google kills a puppy. A tiny little puppy.
-%p ~lorem
-%br
-%h6 An h6 heading? Google just killed a litter of kittens.
-%p ~lorem
+<pre><code class="sass">@import roos/components/typography/typography
 </code></pre>
 
-<h2>Inline paragraph elements</h2>
+<h3>Headings and body copy</h3>
+
+<p>Generic <code>h1</code>-<code>h6</code> headings with a paragraph element.</p>
+
+<!--~ markup/typography-headings.html.haml -->
+
+<div class="sherpa-showcase sherpa-clearfix"><h1>Google hearts h1 headings, but only use one per page.</h1>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<br />
+<h2>Got sections? Try using h2 headings.</h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<br />
+<h3>Good things come in threes, like tacos and h3 headings.</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<br />
+<h4>There's nothing clever to say about h4 headings.</h4>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<br />
+<h5>Every time you use an h5 heading, Google kills a puppy. A tiny little puppy.</h5>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<br />
+<h6>An h6 heading? Google just killed a litter of kittens.</h6>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</div>
+
+<pre><code class="haml">:ruby
+  lorem = &quot;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&quot;
+
+%h1 Google hearts h1 headings, but only use one per page.
+%p=lorem
+%br
+%h2 Got sections? Try using h2 headings.
+%p=lorem
+%br
+%h3 Good things come in threes, like tacos and h3 headings.
+%p=lorem
+%br
+%h4 There&#39;s nothing clever to say about h4 headings.
+%p=lorem
+%br
+%h5 Every time you use an h5 heading, Google kills a puppy. A tiny little puppy.
+%p=lorem
+%br
+%h6 An h6 heading? Google just killed a litter of kittens.
+%p=lorem
+</code></pre>
+
+<!-- end -->
+
+<h3>Inline paragraph elements</h3>
+
+<p>These elements are typically found within blocks of copy.</p>
 
 <table><thead>
 <tr>
@@ -955,11 +1052,9 @@ Deactivating will remove the toggle classes from the element.</p>
 <td><code>&lt;samp&gt;</code></td>
 <td>The <samp>samp</samp> tag defines sample computer code</td>
 </tr>
-<tr>
-<td><code>&lt;pre&gt;</code></td>
-<td>The <code>pre</code> tag is used for blocks of code</td>
-</tr>
 </tbody></table>
+
+<!--~ markup/typography-inline.html.haml -->
 
 <div class="sherpa-showcase sherpa-clearfix"><section style='width:45%; float:left; margin-right: 5%;'>
   <h4>Inline elements examples</h4>
@@ -1016,7 +1111,32 @@ Deactivating will remove the toggle classes from the element.</p>
     &lt;a href=&quot;#&quot;&gt;president@whitehouse.gov&lt;/a&gt;
 </code></pre>
 
-<h2>Blockquotes</h2>
+<!-- end -->
+
+<h3>Pre blocks</h3>
+
+<p>Used for showcasing a block of a code.</p>
+
+<!--~ markup/typography-pre.html.haml -->
+
+<div class="sherpa-showcase sherpa-clearfix"><pre>git commit -am "Fixes issue #666"
+git pull
+git push</pre>
+</div>
+
+<pre><code class="haml">%pre
+  git commit -am &quot;Fixes issue #666&quot;
+  git pull
+  git push
+</code></pre>
+
+<!-- end -->
+
+<h3>Blockquotes</h3>
+
+<p>Typically used for quoting blocks of text from another source.</p>
+
+<!--~ markup/typography-blockquote.html.haml -->
 
 <div class="sherpa-showcase sherpa-clearfix"><blockquote>
   <p>
@@ -1032,15 +1152,19 @@ Deactivating will remove the toggle classes from the element.</p>
     &lt;small&gt;David Wooderson, &lt;cite title=&quot;link to source&quot;&gt;Dazed &amp;amp; Confused&lt;/cite&gt;&lt;/small&gt;
 </code></pre>
 
+<!-- end -->
+
 <h6>Notes</h6>
 
 <ul>
 <li><strong>Pro Tip!</strong> Utilize <code>&amp;#8220;</code> and <code>&amp;#8221;</code> for opening and closing quotes within a <code>&lt;blockquote&gt;</code> element</li>
 </ul>
 
-<h2>Rules</h2>
+<h3>Rules</h3>
 
 <p>Horizontal rules can utilize the class <code>.dashed</code> and <code>.dotted</code> for a different separator.</p>
+
+<!--~ markup/typography-rules.html.haml -->
 
 <div class="sherpa-showcase sherpa-clearfix"><hr />
 <hr class='dashed' />
@@ -1052,9 +1176,15 @@ Deactivating will remove the toggle classes from the element.</p>
 %hr.dotted
 </code></pre>
 
-<h2>Lists</h2>
+<!-- end -->
 
-<div class="sherpa-showcase sherpa-clearfix"><section style='width:20%; float:left; margin-right: 5%;'>
+<h3>Lists</h3>
+
+<p>Lists come in three varieties, unordered (<code>&lt;ul&gt;</code>), ordered (<code>&lt;ol&gt;</code>), and unstyled (<code>.unstyled</code>). Unstyled simply removes any list styles and left padding. By default all <code>&lt;ul&gt;</code> and <code>&lt;ol&gt;</code> elements nested under a <code>&lt;nav&gt;</code> element render the same as an <code>.unstyled</code> list </p>
+
+<!--~ markup/typography-lists.html.haml -->
+
+<div class="sherpa-showcase sherpa-clearfix"><section style='width:25%; float:left; margin-right: 5%;'>
   <p>
     <strong>Unordered list:</strong>
   </p>
@@ -1078,7 +1208,7 @@ Deactivating will remove the toggle classes from the element.</p>
     </li>
   </ul>
 </section>
-<section style='width:20%; float:left; margin-right: 5%;'>
+<section style='width:25%; float:left; margin-right: 5%;'>
   <p>
     <strong>Ordered list:</strong>
   </p>
@@ -1102,7 +1232,7 @@ Deactivating will remove the toggle classes from the element.</p>
     </li>
   </ol>
 </section>
-<section style='width:20%; float:left; margin-right: 5%;'>
+<section style='width:25%; float:left;'>
   <p>
     <strong>Unstyled list:</strong>
   </p>
@@ -1126,22 +1256,9 @@ Deactivating will remove the toggle classes from the element.</p>
     </li>
   </ul>
 </section>
-<section style='width:20%; float:left;'>
-  <p>
-    <strong>Definition list:</strong>
-  </p>
-  <dl>
-    <dt>Definition Term</dt>
-    <dd>Definition Description Lorem ipsum dolor sit amet.</dd>
-    <dt>Definition Term</dt>
-    <dd>Definition Description Lorem ipsum dolor sit amet.</dd>
-    <dt>Definition Term</dt>
-    <dd>Definition Description Lorem ipsum dolor sit amet.</dd>
-  </dl>
-</section>
 </div>
 
-<pre><code class="haml">%section(style=&quot;width:20%; float:left; margin-right: 5%;&quot;)
+<pre><code class="haml">%section(style=&quot;width:25%; float:left; margin-right: 5%;&quot;)
   %p
     %strong Unordered list:
   %ul
@@ -1159,7 +1276,7 @@ Deactivating will remove the toggle classes from the element.</p>
         %li Nested ordered list
         %li Nested ordered list
 
-%section(style=&quot;width:20%; float:left; margin-right: 5%;&quot;)
+%section(style=&quot;width:25%; float:left; margin-right: 5%;&quot;)
   %p
     %strong Ordered list:
   %ol
@@ -1177,7 +1294,7 @@ Deactivating will remove the toggle classes from the element.</p>
         %li Nested unordered list
         %li Nested unordered list
 
-%section(style=&quot;width:20%; float:left; margin-right: 5%;&quot;)
+%section(style=&quot;width:25%; float:left;&quot;)
   %p
     %strong Unstyled list:
   %ul.unstyled
@@ -1194,8 +1311,45 @@ Deactivating will remove the toggle classes from the element.</p>
         %li Nested ordered list
         %li Nested ordered list
         %li Nested ordered list
+</code></pre>
 
-%section(style=&quot;width:20%; float:left;&quot;)
+<!-- end -->
+
+<h3>Definition Lists</h3>
+
+<p>Definition lists are used to encapsulate a term and it&#39;s definition</p>
+
+<!--~ markup/typography-definition.html.haml -->
+
+<div class="sherpa-showcase sherpa-clearfix"><section style='width:25%; float:left; margin-right: 5%;'>
+  <p>
+    <strong>Definition list:</strong>
+  </p>
+  <dl>
+    <dt>Definition Term</dt>
+    <dd>Definition Description Lorem ipsum dolor sit amet.</dd>
+    <dt>Definition Term</dt>
+    <dd>Definition Description Lorem ipsum dolor sit amet.</dd>
+    <dt>Definition Term</dt>
+    <dd>Definition Description Lorem ipsum dolor sit amet.</dd>
+  </dl>
+</section>
+<section style='width:60%; float:left;'>
+  <p>
+    <strong>Horizontal Definition list:</strong>
+  </p>
+  <dl class='dl-horizontal'>
+    <dt>Definition Term</dt>
+    <dd>Definition Description Lorem ipsum dolor sit amet.</dd>
+    <dt>Definition Term</dt>
+    <dd>Definition Description Lorem ipsum dolor sit amet.</dd>
+    <dt>Definition Term</dt>
+    <dd>Definition Description Lorem ipsum dolor sit amet.</dd>
+  </dl>
+</section>
+</div>
+
+<pre><code class="haml">%section(style=&quot;width:25%; float:left; margin-right: 5%;&quot;)
   %p
     %strong Definition list:
   %dl
@@ -1205,7 +1359,109 @@ Deactivating will remove the toggle classes from the element.</p>
     %dd Definition Description Lorem ipsum dolor sit amet.
     %dt Definition Term
     %dd Definition Description Lorem ipsum dolor sit amet.
+
+%section(style=&quot;width:60%; float:left;&quot;)
+  %p
+    %strong Horizontal Definition list:
+  %dl.dl-horizontal
+    %dt Definition Term
+    %dd Definition Description Lorem ipsum dolor sit amet.
+    %dt Definition Term
+    %dd Definition Description Lorem ipsum dolor sit amet.
+    %dt Definition Term
+    %dd Definition Description Lorem ipsum dolor sit amet.
 </code></pre>
+
+<!-- end -->
+
+<h2>Style Settings</h2>
+
+<p>To override the default settings, set the variable and it&#39;s value
+within your <code>config.sass</code> file or before <code>typography.sass</code> is loaded.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>$h1-size</code></td>
+<td><code>$base-font-size + 16</code></td>
+<td>The default size of <code>h1</code> elements</td>
+</tr>
+<tr>
+<td><code>$h2-size</code></td>
+<td><code>$base-font-size + 10</code></td>
+<td>The default size of <code>h2</code> elements</td>
+</tr>
+<tr>
+<td><code>$h3-size</code></td>
+<td><code>$base-font-size + 4</code></td>
+<td>The default size of <code>h3</code> elements</td>
+</tr>
+<tr>
+<td><code>$h4-size</code></td>
+<td><code>$base-font-size + 2</code></td>
+<td>The default size of <code>h4</code> elements</td>
+</tr>
+<tr>
+<td><code>$h5-size</code></td>
+<td><code>$base-font-size + 1</code></td>
+<td>The default size of <code>h5</code> elements</td>
+</tr>
+<tr>
+<td><code>$h6-size</code></td>
+<td><code>$base-font-size</code></td>
+<td>The default size of <code>h6</code> elements</td>
+</tr>
+<tr>
+<td><code>$heading-color</code></td>
+<td><code>$body-color</code></td>
+<td>The default color of heading elements</td>
+</tr>
+<tr>
+<td><code>$hr-rule-color</code></td>
+<td><code>lighten($body-color, 20%)</code></td>
+<td>The default color of horizontal rules</td>
+</tr>
+<tr>
+<td><code>$mark-bgc</code></td>
+<td><code>$yellow</code></td>
+<td>The default background color of the <code>mark</code> element</td>
+</tr>
+<tr>
+<td><code>$code-bgc</code></td>
+<td><code>$off-white</code></td>
+<td>The default background color of <code>code</code> and <code>pre</code> blocks</td>
+</tr>
+<tr>
+<td><code>$code-border-color</code></td>
+<td><code>invert($body-color)</code></td>
+<td>The default border color of <code>code</code> and <code>pre</code> blocks</td>
+</tr>
+<tr>
+<td><code>$code-inline-color</code></td>
+<td><code>$body-color</code></td>
+<td>The default color of inline <code>code</code> elements</td>
+</tr>
+<tr>
+<td><code>$pre-border-radii</code></td>
+<td><code>$radii</code></td>
+<td>The default border-radius of <code>pre</code> blocks</td>
+</tr>
+<tr>
+<td><code>$definition-horiz-offset</code></td>
+<td><code>$horiz-offset</code></td>
+<td>The offset to use for <code>.dl-horizontal</code></td>
+</tr>
+<tr>
+<td><code>$definition-horiz-offset-padding</code></td>
+<td><code>$horiz-offset-padding</code></td>
+<td>The padding between a term and definition within the <code>.dl-horizontal</code> element</td>
+</tr>
+</tbody></table>
 
 <p></section></p>
 

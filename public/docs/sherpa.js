@@ -25,6 +25,7 @@ Sherpa.prototype.initialize = function() {
 
 // Find and store references to common DOM items..
 Sherpa.prototype.domLookup = function() {
+  this.sherpa_sections = this.el.find('.sherpa-section')
   this.sections = this.el.find('.sherpa-section > h1')
   this.subsections = this.el.find('.sherpa-section > h2')
   this.section_nav = this.el.find('.sherpa-anchor-nav li')
@@ -51,9 +52,12 @@ Sherpa.prototype.captureKeyStroke = function(evt) {
   var u = 85
   var e = 69
   var t = 84
+  var x = 88
 
   if (evt.which === 63 && evt.shiftKey) {
     self.toggleSettings()
+  } else if (evt.which === x && evt.shiftKey) {
+    self.toggleSandbox()
   } else if (evt.which === w && evt.shiftKey) {
     self.subsections.trigger('click')
   } else if (evt.which === e && evt.shiftKey) {
@@ -81,21 +85,39 @@ Sherpa.prototype.toggleSettings = function() {
     var table = '<table><thead>'
     table += '<tr><th>Keyboard Shortcuts</th><th>&nbsp;</th></tr>'
     table += '</thead><tbody>'
-    table += '<tr><td>Toggle Settings window</td><td><code>&lt;SHIFT&gt; + ?</code></td></tr>'
-    table += '<tr><td>Toggle All Section documentation</td><td><code>&lt;SHIFT&gt; + w</code></td></tr>'
-    table += '<tr><td>Toggle All Usage Example blocks</td><td><code>&lt;SHIFT&gt; + e</code></td></tr>'
-    table += '<tr><td>Toggle All Usage blocks</td><td><code>&lt;SHIFT&gt; + u</code></td></tr>'
+    table += '<tr><td>Toggle settings window</td><td><code>&lt;SHIFT&gt; + ?</code></td></tr>'
+    table += '<tr><td>Toggle showing only h1, showcase and usage blocks</td><td><code>&lt;SHIFT&gt; + x</code></td></tr>'
+    table += '<tr><td>Toggle all Section documentation</td><td><code>&lt;SHIFT&gt; + w</code></td></tr>'
+    table += '<tr><td>Toggle all Usage Example blocks</td><td><code>&lt;SHIFT&gt; + e</code></td></tr>'
+    table += '<tr><td>Toggle all Usage blocks</td><td><code>&lt;SHIFT&gt; + u</code></td></tr>'
     table += '<tr><td>Toggle API documentation</td><td><code>&lt;SHIFT&gt; + a</code></td></tr>'
-    table += '<tr><td>Toggle Options documentation</td><td><code>&lt;SHIFT&gt; + o</code></td></tr>'
-    table += '<tr><td>Toggle Style documentation</td><td><code>&lt;SHIFT&gt; + s</code></td></tr>'
-    table += '<tr><td>Toggle Todo documentation</td><td><code>&lt;SHIFT&gt; + t</code></td></tr>'
-    table += '<tr><td>Toggle Misc. documentation</td><td><code>&lt;SHIFT&gt; + m</code></td></tr>'
+    table += '<tr><td>Toggle options documentation</td><td><code>&lt;SHIFT&gt; + o</code></td></tr>'
+    table += '<tr><td>Toggle style documentation</td><td><code>&lt;SHIFT&gt; + s</code></td></tr>'
+    table += '<tr><td>Toggle todo documentation</td><td><code>&lt;SHIFT&gt; + t</code></td></tr>'
+    table += '<tr><td>Toggle misc. documentation</td><td><code>&lt;SHIFT&gt; + m</code></td></tr>'
     table += '</tbody></table>'
     this.el.prepend('<div class="sherpa-settings">' + table + '</div>')
   } else {
     this.el.find('.sherpa-settings').remove()
   }
   this.settings_shown = !this.settings_shown
+};
+
+// Toggle the h1, showcase, and usage example
+Sherpa.prototype.toggleSandbox = function() {
+  this.sherpa_sections.children().toggleClass('sherpa-hidden')
+  this.sections.removeClass('sherpa-hidden')
+  this.showcases.removeClass('sherpa-hidden')
+  this.usage_examples.removeClass('sherpa-hidden')
+  var is_sandbox = this.sherpa_sections.children().first().hasClass('sherpa-hidden')
+
+  for (var i = 0, len = this.usage_examples.length; i < len; i += 1) {
+    var el = $(this.usage_examples[i])
+    var pre = el.next('pre')
+    if (is_sandbox) {
+      this.usageExampleHide(el, pre)
+    }
+  }
 };
 
 // Make sections linkable from the nav..

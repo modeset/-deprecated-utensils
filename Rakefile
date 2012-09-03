@@ -39,6 +39,9 @@ task :readmes do
   end
 end
 
+desc "Update the readmes and sherpa in one shot"
+task :readmes_sherpa => ['readmes', 'sherpa']
+
 desc "Update all of the docs in one shot"
 task :document => ['readmes','fixtures', 'sherpa']
 
@@ -54,7 +57,7 @@ def replace_blocks(readme, path)
 
   contents = File.read(readme)
   contents.gsub! /^<!-*~ (.\S*) -*>(.*?)<!-* end -*>$/m do |match|
-    fixture_path = $1 
+    fixture_path = $1
     fixture_file = File.join(path, fixture_path)
     fixture_contents = File.read(fixture_file).strip
     <<-EOF

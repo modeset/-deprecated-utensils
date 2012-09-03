@@ -2,7 +2,6 @@
 # Toggler
 Base class for adding, removing and toggling classes on a given element.
 
-
 ## Usage Examples
 
 ```haml
@@ -86,5 +85,5 @@ Remove the toggler behavior
 ```
 
 ### Requires
-- roos
+- `roos`
 

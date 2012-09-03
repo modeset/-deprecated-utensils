@@ -1,4 +1,7 @@
 
+$nav-inline-padding-left: 0.5em !default
+$nav-inline-padding-right: $nav-inline-padding-left !default
+
 // Top level elements
 html
   font-size: 100%
@@ -60,6 +63,10 @@ a:link
   padding-left: $nav-inline-padding-left
   padding-right: $nav-inline-padding-right
 
+.nav.inline > li:first-child > a
+  padding-left: 0
+
+
 // Active states for navs get a default cursor
 .nav > .active > a,
 .nav > .active > a:hover
@@ -71,6 +78,7 @@ a:link
 .nav[data-behavior="checkbox"] > .active > a:hover
   cursor: pointer
 
+// TODO: Figure this cat out
 // Headers within a Nav
 // .nav .nav-header
   // display: block

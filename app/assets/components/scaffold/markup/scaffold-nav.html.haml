@@ -1,20 +1,19 @@
 
 %nav
-  %ul.nav.inline#underoos_nav_demo
+  %ul.nav(data-bindable="toggler-group")
     %li
-      %a(data-classes="nav" href="#") Base Nav
+      %a(href="#") Block Link 1
     %li.active
-      %a(data-classes="nav inline" href="#") Base Nav Inline
+      %a(href="#") Block Link 2
     %li
-      %a(data-classes="nav tabs" href="#") Tabs
+      %a(href="#") Block Link 3
+%br
+%nav
+  %ul.nav.inline(data-bindable="toggler-group")
     %li
-      %a(data-classes="nav pills" href="#") Pills
+      %a(href="#") Inline Link 1
+    %li.active
+      %a(href="#") Inline Link 2
     %li
-      %a(data-classes="nav breadcrumb" href="#") Breadcrumbs
-    %li
-      %a(data-classes="nav pagination" href="#") Pagination
-    %li
-      %a(data-classes="nav tabs stacked" href="#") Stacked Tabs
-    %li
-      %a(data-classes="nav pills stacked" href="#") Stacked Pills
+      %a(href="#") Inline Link 3
 

@@ -1,26 +1,47 @@
 
+$h1-size: $base-font-size + 16 !default
+$h2-size: $base-font-size + 10 !default
+$h3-size: $base-font-size + 4 !default
+$h4-size: $base-font-size + 2 !default
+$h5-size: $base-font-size + 1 !default
+$h6-size: $base-font-size !default
+$heading-color: $body-color !default
+
+$hr-rule-color: lighten($body-color, 20%) !default
+$mark-bgc: $yellow !default
+
+$code-bgc: $off-white !default
+$code-border-color: invert($body-color) !default
+$code-inline-color: $body-color !default
+$pre-border-radii: $radii !default
+
+$definition-horiz-offset: $horiz-offset !default
+$definition-horiz-offset-padding: $horiz-offset-padding !default
+
+
 // Heading elements
 // -----------------------------------------------------------------------------
 h1, h2, h3, h4, h5, h6
   color: $heading-color
 
 h1
-  +font-size(30)
+  +font-size($h1-size)
 
 h2
-  +font-size(24)
+  +font-size($h2-size)
 
 h3
-  +font-size(18)
+  +font-size($h3-size)
 
 h4
-  +font-size(16)
+  +font-size($h4-size)
 
 h5
-  +font-size(15)
+  +font-size($h5-size)
 
 h6
-  +font-size(14)
+  +font-size($h6-size)
+
 
 // Inline paragraph elements
 // -----------------------------------------------------------------------------
@@ -56,29 +77,42 @@ dfn[title]
   cursor: help
 
 mark
-  background: $yellow
+  background: $mark-bgc
   padding: 0 0.3em
+
+
+// Rules
+// -----------------------------------------------------------------------------
+hr
+  display: block
+  height: 1px
+  border: 0
+  border-top: 1px solid $hr-rule-color
+  margin: 1em 0
+  &.dotted
+    border-top-style: dotted
+  &.dashed
+    border-top-style: dashed
+
 
 // Code inline and block elements
 // -----------------------------------------------------------------------------
 pre, code, kbd, samp
+  background-color: $code-bgc
+  border: 1px solid $code-border-color
   font-family: $code-norm
   font-size: 85%
 
 code, kbd, samp
-  background: $off-white
-  border: 1px solid lighten(#ccc, 10%)
-  padding: 0 0.3em
+  padding: 0.1em 0.3em
 
 code
-  color: $red
+  color: $code-inline-color
 
 pre
-  background: $off-white
-  border: 1px solid #ccc
+  border-radius: $pre-border-radii
   margin: 1em 0
   padding: 0.75em
-  text-shadow: 0 1px 0 $white
   white-space: pre
   white-space: pre-wrap
   word-wrap: break-word
@@ -90,6 +124,7 @@ pre code
   border: 0
   font-size: 100%
   padding: 0
+
 
 // Blockquotes
 // -----------------------------------------------------------------------------
@@ -117,20 +152,6 @@ q:before, q:after,
 blockquote:before,
 blockquote:after
   content: ""
-
-
-// Rules
-// -----------------------------------------------------------------------------
-hr
-  display: block
-  height: 1px
-  border: 0
-  border-top: 1px solid #666
-  margin: 1em 0
-  &.dotted
-    border-top-style: dotted
-  &.dashed
-    border-top-style: dashed
 
 
 // Ordered and Unordered Lists
@@ -164,9 +185,20 @@ dt
   margin-top: 0.5em
   &:after
     content: ":"
-
 dd
   font-weight: normal
 
-// TODO: Add a class for horizontal definition lists
+// Horizontal layout
+.dl-horizontal dt
+  float: left
+  width: $definition-horiz-offset - 10
+  clear: left
+  text-align: right
+  overflow: hidden
+  text-overflow: ellipsis
+  white-space: nowrap
+  margin-top: 0
+
+.dl-horizontal dd
+  margin-left: $definition-horiz-offset
 
