@@ -8,6 +8,7 @@ Client side component library
 
 ### Tasks
 - Look at making the sass files use abstract elements
+- Fix the extra lines from matches around substitutions
 - Move toggler, toggler group over to markup for fixtures and dox
 - Add view layout templates
 - Turn into engine with generators
@@ -17,10 +18,8 @@ Client side component library
 - button-btn-mixin
 - base/buttons
 - cleanup tables
-- wells.sass
-- carets.sass
 - close.sass
-- decals.sass
+- carets.sass
 - paddles.sass
 - media.sass
 - layouts/upgrades
@@ -39,3 +38,4 @@ Client side component library
 - carousels.sass *
 - navbars.sass *
 - forms
+
