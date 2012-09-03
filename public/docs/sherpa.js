@@ -18,6 +18,7 @@ Sherpa.prototype.initialize = function() {
   this.addSectionIds()
   this.addSubsectionClasses()
   this.usage_examples = this.addUsageExampleToggler()
+  this.clean()
   this.addListeners()
   this.usage_examples.trigger('click')
   this.popNotes()
@@ -114,9 +115,7 @@ Sherpa.prototype.toggleSandbox = function() {
   for (var i = 0, len = this.usage_examples.length; i < len; i += 1) {
     var el = $(this.usage_examples[i])
     var pre = el.next('pre')
-    if (is_sandbox) {
-      this.usageExampleHide(el, pre)
-    }
+    this.usageExampleHide(el, pre)
   }
 };
 
@@ -188,6 +187,16 @@ Sherpa.prototype.addUsageExampleToggler = function() {
     $(el).after(contents)
   })
   return this.el.find('.sherpa-togglable-usage-example')
+};
+
+// Cleanup some empty `p` tags..
+Sherpa.prototype.clean = function() {
+  this.usage_examples.each(function(index, el) {
+    var next_el = $(el).next()
+    if(next_el.is(':empty')) {
+      next_el.remove()
+    }
+  })
 };
 
 // Toggle a usage example
