@@ -1,0 +1,29 @@
+
+$decal-radii: $radii !default
+
+.decal
+  background-color: $standard
+  border-radius: $radii
+  font-size: 85%
+  font-weight: bold
+  text-transform: uppercase
+  padding: 0.125em 0.5em
+  &.info, &.important, &.success,
+  &.warning, &.danger, &.error, &.primary
+    color: $white
+  &.info
+    background-color: $info
+  &.important
+    background-color: $important
+  &.success
+    background-color: $success
+  &.warning
+    background-color: $warning
+  &.danger, &.error
+    background-color: $danger
+  &.primary
+    background-color: $primary
+
+.decal:hover
+  text-decoration: none
+
