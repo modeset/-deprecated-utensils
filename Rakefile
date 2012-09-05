@@ -60,13 +60,14 @@ def replace_blocks(readme, path)
     fixture_path = $1
     fixture_file = File.join(path, fixture_path)
     fixture_contents = File.read(fixture_file).strip
-    <<-EOF
+    sub = <<-EOF
 <!--~ #{fixture_path} -->
 ```#{File.extname(fixture_file).gsub('.','')}
 #{fixture_contents}
 ```
 <!-- end -->
     EOF
+    sub.strip
   end
   File.write(readme, contents)
 end
