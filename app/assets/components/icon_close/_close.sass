@@ -1,0 +1,30 @@
+
+$close-size: $base-font-size + 6 !default
+$close-opacity: 0.3 !default
+$close-opacity-active: 0.5 !default
+$close-color: $black !default
+$close-color-alt: invert($close-color) !default
+$close-shadow: $small-drop-lite !default
+$close-shadow-alt: $small-drop-dark !default
+
+.close
+  +font-size($close-size)
+  +opacity($close-opacity)
+  cursor: pointer
+  color: $close-color
+  font-weight: bold
+  line-height: 1
+  text-shadow: $close-shadow
+  text-decoration: none !important
+  &:visited, &:hover, &:active
+    color: $close-color
+  &:hover, &:active
+    +opacity($close-opacity-active)
+
+// The alternative is reversed
+.close.alt
+  color: $close-color-alt
+  text-shadow: $close-shadow-alt
+  &:visited, &:hover, &:active
+    color: $close-color-alt
+
