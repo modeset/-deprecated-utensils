@@ -9,7 +9,6 @@ Client side component library
 ### Tasks
 - Look at making the sass files use abstract elements
 - Take another stab at buttons and how to best abstract these
-- Fix the extra lines from matches around substitutions
 - Move toggler, toggler group over to markup for fixtures and dox
 - Add view layout templates
 - Turn into engine with generators

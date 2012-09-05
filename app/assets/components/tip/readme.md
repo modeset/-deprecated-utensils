@@ -77,6 +77,7 @@ handled through `Bindable`.
 @el = $('#tip')
 @tip = new roos.Tip(@el, {delay:'show:1000, hide:2000'})
 ```
+
 ### #toggle
 This is normally handled through events, but you can always `trigger` the
 element's toggle event
@@ -98,6 +99,7 @@ Removes the tip
 ```coffee
 @tip.deactivate()
 ```
+
 ### #remove
 Removes the tip immediately
 
