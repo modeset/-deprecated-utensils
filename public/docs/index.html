@@ -24,9 +24,11 @@
         </ul>
         <ul class="sherpa-anchor-nav sherpa-nav-list">
           <li><a href='#bindable'>Bindable</a></li>
+<li><a href='#buttons'>Buttons</a></li>
 <li><a href='#container'>Container</a></li>
 <li><a href='#decal'>Decal</a></li>
 <li><a href='#detect'>Detect</a></li>
+<li><a href='#icon_close'>Icon close</a></li>
 <li><a href='#normalize'>Normalize</a></li>
 <li><a href='#print'>Print</a></li>
 <li><a href='#roos'>Roos</a></li>
@@ -89,6 +91,64 @@ $ -&gt;
 <ul>
 <li><strong>TODO</strong>! Need to describe the public API</li>
 </ul>
+
+<p></section><section class="sherpa-section sherpa-clearfix"></p>
+
+<h1>Buttons</h1>
+
+<p>Describe these</p>
+
+<!-- ```sass -->
+
+<!-- @import roos/components/container/container -->
+
+<!-- ``` -->
+
+<h2>Usage</h2>
+
+<table><thead>
+<tr>
+<th>Button</th>
+<th>Class</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><button class="btn">Default</button></td>
+<td><code>.btn</code></td>
+<td>The default button is typically used in forms</td>
+</tr>
+<tr>
+<td><button class="btn info">Info</button></td>
+<td><code>.btn.info</code></td>
+<td>The info button is an alternate to the default button</td>
+</tr>
+<tr>
+<td><button class="btn important">Important</button></td>
+<td><code>.btn.important</code></td>
+<td>The important button is used to showcase a primary action</td>
+</tr>
+<tr>
+<td><button class="btn success">Success</button></td>
+<td><code>.btn.success</code></td>
+<td>The success button indicates a successful or positive action</td>
+</tr>
+<tr>
+<td><button class="btn warning">Warning</button></td>
+<td><code>.btn.warning</code></td>
+<td>The warning button indicates caution should be taken with this action</td>
+</tr>
+<tr>
+<td><button class="btn danger">Danger</button></td>
+<td><code>.btn.danger</code></td>
+<td>The danger button indicates a dangerous or potentially negative action</td>
+</tr>
+<tr>
+<td><button class="btn primary">Primary</button></td>
+<td><code>.btn.primary</code></td>
+<td>The primary button is based off of the CI settings within the application</td>
+</tr>
+</tbody></table>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
@@ -230,6 +290,91 @@ properties, normalizing event names, and other useful detection.</p>
 <ul>
 <li><code>roos</code></li>
 </ul>
+
+<p></section><section class="sherpa-section sherpa-clearfix"></p>
+
+<h1>Icon Close</h1>
+
+<p>Use the close icon to dismiss modals, notifications and other elements.</p>
+
+<pre><code class="sass">@import roos/components/icon_close/close
+</code></pre>
+
+<!--~ markup/close.html.haml -->
+
+<div class="sherpa-showcase sherpa-clearfix"><div class='well' style='background-color:#CEE6F6; border-color:#78B9E6;'>
+  <a class='close' href='#'>&times;</a>
+</div>
+
+<div class='well' style='background-color:#333; border-color:#000;'>
+  <a class='close alt' href='#'>&times;</a>
+</div>
+
+<p></div></p>
+
+<pre><code class="haml">.well(style=&quot;background-color:#CEE6F6; border-color:#78B9E6;&quot;)
+  %a.close(href=&quot;#&quot;) &amp;times;
+
+.well(style=&quot;background-color:#333; border-color:#000;&quot;)
+  %a.close.alt(href=&quot;#&quot;) &amp;times;
+</code></pre>
+
+<!-- end -->
+
+<h6>Notes</h6>
+
+<ul>
+<li><strong>Pro Tip!</strong> In your markup use <code>&amp;times;</code> for the content of the close icon</li>
+</ul>
+
+<h2>Style Settings</h2>
+
+<p>To override the default settings, set the variable and it&#39;s value
+within your <code>config.sass</code> file or before <code>close.sass</code> is loaded.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>$close-size</code></td>
+<td><code>$base-font-size + 6</code></td>
+<td>The size of the font</td>
+</tr>
+<tr>
+<td><code>$close-opacity</code></td>
+<td><code>0.3</code></td>
+<td>The opacity level in the static state</td>
+</tr>
+<tr>
+<td><code>$close-opacity-active</code></td>
+<td><code>0.5</code></td>
+<td>The opacity level when hovered or active</td>
+</tr>
+<tr>
+<td><code>$close-color</code></td>
+<td><code>$black</code></td>
+<td>The default color of the <code>.close</code> element</td>
+</tr>
+<tr>
+<td><code>$close-color-alt</code></td>
+<td><code>invert($close-color)</code></td>
+<td>The default color of the <code>.close.alt</code> element</td>
+</tr>
+<tr>
+<td><code>$close-shadow</code></td>
+<td><code>$small-drop-lite</code></td>
+<td>The text shadow for the <code>.close</code> element</td>
+</tr>
+<tr>
+<td><code>$close-shadow-alt</code></td>
+<td><code>$small-drop-dark</code></td>
+<td>The text shadow for the <code>.close.alt</code> element</td>
+</tr>
+</tbody></table>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
