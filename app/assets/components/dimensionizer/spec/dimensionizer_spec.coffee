@@ -3,7 +3,7 @@
 describe 'Dimensionizer', ->
 
   afterEach ->
-    $('#dimensionizer').remove()
+    $('#_dimensionizer').remove()
 
   describe '#options', ->
     it 'sets up basic default options', ->
@@ -32,8 +32,7 @@ describe 'Dimensionizer', ->
     it 'removes the dimensionizer from the dom', ->
       dimensionizer = new roos.Dimensionizer()
       dimensionizer.dispose()
-      console.log $('#dimensionizer')
-      expect($('#dimensionizer').length).toEqual(0)
+      expect($('#_dimensionizer').length).toEqual(0)
 
   describe '#render', ->
     it 'returns a string for rendering the default markup of a dimensionizer', ->

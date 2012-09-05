@@ -1,4 +1,6 @@
 
+/*global roos */
+
 // Adds behavior to the sherpa documentation..
 var Sherpa = function(el) {
   this.el = el
@@ -40,6 +42,7 @@ Sherpa.prototype.addListeners = function() {
   this.usage_examples.on('click', {self: this}, this.toggleUsageExample)
   this.subsections.on('click', {self: this}, this.toggleSubsection)
   $(window).keypress({self: this}, this.captureKeyStroke)
+  $('#dimensionizer_demo').on('click', {self: this}, this.activateDimensionizer)
 };
 
 // Typically handles toggling items associated with the settings menu..
@@ -244,6 +247,12 @@ Sherpa.prototype.popNotes = function() {
       }
     }
   })
+};
+
+// Demos..
+Sherpa.prototype.activateDimensionizer = function(e) {
+  e.preventDefault()
+  var dimensionizer = new roos.Dimensionizer()
 };
 
 // Bring the magic..

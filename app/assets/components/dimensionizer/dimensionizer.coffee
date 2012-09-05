@@ -17,7 +17,7 @@ class roos.Dimensionizer
   initialize: ->
     @window = $(window)
     $('body').append(@render())
-    @dimensionizer = $('#dimensionizer')
+    @dimensionizer = $('#_dimensionizer')
     @resize()
     @addListeners()
 
@@ -41,19 +41,19 @@ class roos.Dimensionizer
 
   render: ->
     html = """
-          <div id="dimensionizer" class="fade in" style="
-            position:fixed;
-            #{@pos_y}:#{@offset}px;
-            #{@pos_x}:#{@offset}px;
-            background-color:#{@bg_color};
-            border-radius:0.5em;
-            font-weight:bold;
-            color:#{@color};
-            cursor:default;
-            padding:0.5em;
-            z-index:99999;
-          ">
-      </div>
-      """
+           <div id="_dimensionizer" class="fade in" style="
+             position:fixed;
+             #{@pos_y}:#{@offset}px;
+             #{@pos_x}:#{@offset}px;
+             background-color:#{@bg_color};
+             border-radius:0.5em;
+             font-weight:bold;
+             color:#{@color};
+             cursor:default;
+             padding:0.5em;
+             z-index:99999;
+           ">
+           </div>
+           """
     return html
 
