@@ -6,7 +6,7 @@ trigger. `Tip` is inspired by
 [tipsy](https://github.com/jaz303/tipsy) and [component/tip](https://github.com/component/tip)
 
 ```sass
-@import roos/components/tip/tip
+@import utensils/components/tip/tip
 ```
 
 
@@ -78,7 +78,7 @@ handled through `Bindable`.
 #= require tip
 
 @el = $('#tip')
-@tip = new roos.Tip(@el, {delay:'show:1000, hide:2000'})
+@tip = new utensils.Tip(@el, {delay:'show:1000, hide:2000'})
 ```
 
 ### #toggle
@@ -118,7 +118,7 @@ Remove the tip behavior
 ```
 
 ### Requires
-- `roos`
+- `utensils`
 - `bindable`
 - `detect`
 - `toggler`

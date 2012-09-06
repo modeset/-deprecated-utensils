@@ -1,4 +1,4 @@
-# $LOAD_PATH.unshift File.join(File.dirname(__FILE__), 'lib')
+ $LOAD_PATH.unshift File.join(File.dirname(__FILE__), 'lib')
 
 require 'rubygems'
 require 'bundler/setup'
@@ -8,9 +8,9 @@ require 'sprockets/railtie'
 Bundler.require(*Rails.groups(:assets => %w(development test)))
 
 
-module Roos
+module Utensils
   class Application < Rails::Application
-    config.session_store :cookie_store, :key => '_roos_app_session'
+    config.session_store :cookie_store, :key => '_utensils_app_session'
     config.secret_token = '5df96576e3993124e11fa574f45b0704401b333941e356a414eff39cade37040e81988de770e8e580a63903f3a61c96c019c9ca0283a4c19d49e0967ec9ce6cc'
 
     config.consider_all_requests_local       = true
@@ -43,9 +43,9 @@ module Roos
 end
 
 
-Roos::Application.initialize!
+Utensils::Application.initialize!
 
-Roos::Application.routes.draw do
+Utensils::Application.routes.draw do
   mount Jasminerice::Engine => '/jasmine'
   match '*page' => 'pages#show'
   root :to => 'pages#index'

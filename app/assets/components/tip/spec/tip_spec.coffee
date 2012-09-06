@@ -20,12 +20,12 @@ describe 'Tip', ->
     @image_el = @html.find('#image')
     @override_el = @html.find('#overrides')
 
-    @north_tip = new roos.Tip(@north_el)
-    @south_tip = new roos.Tip(@south_el)
-    @east_tip = new roos.Tip(@east_el)
-    @west_tip = new roos.Tip(@west_el)
-    @image_tip = new roos.Tip(@image_el)
-    @override_tip = new roos.Tip(@override_el)
+    @north_tip = new utensils.Tip(@north_el)
+    @south_tip = new utensils.Tip(@south_el)
+    @east_tip = new utensils.Tip(@east_el)
+    @west_tip = new utensils.Tip(@west_el)
+    @image_tip = new utensils.Tip(@image_el)
+    @override_tip = new utensils.Tip(@override_el)
 
   afterEach ->
     $('.tip').remove()
@@ -33,7 +33,7 @@ describe 'Tip', ->
 
   describe 'binding', ->
     it 'is registered in bindable', ->
-      expect(Bindable.getClass('tip')).toEqual(roos.Tip)
+      expect(Bindable.getClass('tip')).toEqual(utensils.Tip)
 
 
   describe '#options', ->
@@ -211,8 +211,8 @@ describe 'Tip', ->
       expect(@south_tip.delay.hide).toEqual(2000)
 
     it 'tests various settings for show and hide attributes', ->
-      show_hide = new roos.Tip(@html, {delay: 'show:1000, hide:2000'})
-      hide_show = new roos.Tip(@html, {delay: 'hide:4000, hide:5000'})
+      show_hide = new utensils.Tip(@html, {delay: 'show:1000, hide:2000'})
+      hide_show = new utensils.Tip(@html, {delay: 'hide:4000, hide:5000'})
       expect(show_hide.delay.show).toEqual(1000)
       expect(show_hide.delay.hide).toEqual(2000)
       expect(hide_show.delay.show).toEqual(4000)

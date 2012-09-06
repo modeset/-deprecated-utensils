@@ -9,15 +9,15 @@ properties, normalizing event names, and other useful detection.
 Get the transition event name for the current browser for use in css transitions
 
 ```coffee
-@tranny_event = roos.Detect.transition.end
+@tranny_event = utensils.Detect.transition.end
 ```
 ### #hasTransition
 Boolean value based on the browsers support for transitions
 
 ```coffee
-$(el).on(roos.Detect.transition.end, @onDone) if roos.Detect.hasTransition
+$(el).on(utensils.Detect.transition.end, @onDone) if utensils.Detect.hasTransition
 ```
 
 ### Requires
-- `roos`
+- `utensils`
 

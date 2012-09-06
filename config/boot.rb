@@ -1,1 +1,1 @@
-require File.expand_path('../../lib/roos/application', __FILE__)
+require File.expand_path('../../lib/utensils/application', __FILE__)

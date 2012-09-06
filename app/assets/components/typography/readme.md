@@ -3,7 +3,7 @@
 Heading, paragraph, blockquotes, code, lists, and inline typographic elements.
 
 ```sass
-@import roos/components/typography/typography
+@import utensils/components/typography/typography
 ```
 
 ### Headings and body copy

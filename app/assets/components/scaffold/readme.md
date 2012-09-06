@@ -3,7 +3,7 @@
 Sets up main scaffolding elements for `html`, `body`, selections, links and navigation.
 
 ```sass
-@import roos/components/scaffold/scaffold
+@import utensils/components/scaffold/scaffold
 ```
 
 ## Usage Example

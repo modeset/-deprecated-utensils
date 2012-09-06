@@ -4,7 +4,7 @@ Contains helper classes added and removed via JavaScript for css
 transitions.
 
 ```sass
-@import roos/components/transition/transition
+@import utensils/components/transition/transition
 ```
 
 ## Usage

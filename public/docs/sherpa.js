@@ -1,5 +1,5 @@
 
-/*global roos */
+/*global utensils */
 
 // Adds behavior to the sherpa documentation..
 var Sherpa = function(el) {
@@ -252,7 +252,7 @@ Sherpa.prototype.popNotes = function() {
 // Demos..
 Sherpa.prototype.activateDimensionizer = function(e) {
   e.preventDefault()
-  var dimensionizer = new roos.Dimensionizer()
+  var dimensionizer = new utensils.Dimensionizer()
 };
 
 // Bring the magic..

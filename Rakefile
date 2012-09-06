@@ -3,9 +3,9 @@
 # for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.
 
 require 'fileutils'
-require File.expand_path('../lib/roos/application', __FILE__)
+require File.expand_path('../lib/utensils/application', __FILE__)
 
-Roos::Application.load_tasks
+Utensils::Application.load_tasks
 
 task :default => :sherpa
 

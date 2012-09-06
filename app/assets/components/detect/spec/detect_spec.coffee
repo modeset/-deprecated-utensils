@@ -4,7 +4,7 @@ describe 'Detect', ->
 
   describe 'transition', ->
     it 'creates the transition object', ->
-      expect(roos.Detect.transition).toBeDefined()
+      expect(utensils.Detect.transition).toBeDefined()
 
     it 'returns one of the existing strings based on the browser', ->
       el = document.createElement('tranny')
@@ -17,11 +17,11 @@ describe 'Detect', ->
       value = undefined
       for name of transEndEventNames
         value = transEndEventNames[name]  if el.style[name] isnt `undefined`
-      expect(value).toEqual(roos.Detect.transition.end)
+      expect(value).toEqual(utensils.Detect.transition.end)
 
     it 'reports whether the users browser has transition end support', ->
-      if roos.Detect.transition.end
-        expect(roos.Detect.hasTransition).toEqual(true)
+      if utensils.Detect.transition.end
+        expect(utensils.Detect.hasTransition).toEqual(true)
       else
-        expect(roos.Detect.hasTransition).toEqual(false)
+        expect(utensils.Detect.hasTransition).toEqual(false)
 

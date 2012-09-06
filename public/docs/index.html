@@ -18,7 +18,7 @@
 
     <aside class="sherpa-sidebar">
       <nav>
-        <a class="sherpa-brand" href="/">Roos!</a>
+        <a class="sherpa-brand" href="/">Utensils</a>
         <ul class="sherpa-dox-nav sherpa-nav-list">
           <li class="sherpa-nav-header">Documentation</li>
         </ul>
@@ -32,13 +32,13 @@
 <li><a href='#icon_close'>Icon close</a></li>
 <li><a href='#normalize'>Normalize</a></li>
 <li><a href='#print'>Print</a></li>
-<li><a href='#roos'>Roos</a></li>
 <li><a href='#scaffold'>Scaffold</a></li>
 <li><a href='#tip'>Tip</a></li>
 <li><a href='#toggler'>Toggler</a></li>
 <li><a href='#toggler_group'>Toggler group</a></li>
 <li><a href='#transition'>Transition</a></li>
 <li><a href='#typography'>Typography</a></li>
+<li><a href='#utensils'>Utensils</a></li>
 <li><a href='#well'>Well</a></li>
 
         </ul>
@@ -64,12 +64,12 @@ converted to a <code>$</code> object.</p>
 <p>As a class making use of the <code>Bindable</code> registry:</p>
 
 <pre><code class="coffee">#= require bindable
-class roos.MockClass
+class utensils.MockClass
   constructor: (@el) -&gt;
   # make some magic
 
 # register with Bindable
-Bindable.register(&#39;mocker&#39;, roos.MockClass)
+Bindable.register(&#39;mocker&#39;, utensils.MockClass)
 </code></pre>
 
 <p>As markup instantiating a class that is registered with <code>Bindable</code>:</p>
@@ -104,7 +104,7 @@ style sheet. </p>
 <p>The placeholders automatically build states for info, important, success,
 warning, danger and primary.</p>
 
-<pre><code class="sass">@import roos/components/button_simple/simple_button
+<pre><code class="sass">@import utensils/components/button_simple/simple_button
 </code></pre>
 
 <div class="sherpa-showcase sherpa-clearfix"><section class='simple-btn-demo'>
@@ -288,7 +288,7 @@ to clear any floats from interior elements.</p>
 <p>There are a few modifiers which can be applied to the default container
 to affect how it displays contained elements.</p>
 
-<pre><code class="sass">@import roos/components/container/container
+<pre><code class="sass">@import utensils/components/container/container
 </code></pre>
 
 <h2>Usage</h2>
@@ -348,7 +348,7 @@ within your <code>config.sass</code> file or before <code>container.sass</code> 
 <p>Decals are used to <span class="decal important">POP</span> information in a block of text.
 They are typically used with inline elements.</p>
 
-<pre><code class="sass">@import roos/components/decal/decal
+<pre><code class="sass">@import utensils/components/decal/decal
 </code></pre>
 
 <div class="sherpa-showcase sherpa-clearfix"><span class='decal'>Default</span>
@@ -382,20 +382,20 @@ properties, normalizing event names, and other useful detection.</p>
 
 <p>Get the transition event name for the current browser for use in css transitions</p>
 
-<pre><code class="coffee">@tranny_event = roos.Detect.transition.end
+<pre><code class="coffee">@tranny_event = utensils.Detect.transition.end
 </code></pre>
 
 <h3>#hasTransition</h3>
 
 <p>Boolean value based on the browsers support for transitions</p>
 
-<pre><code class="coffee">$(el).on(roos.Detect.transition.end, @onDone) if roos.Detect.hasTransition
+<pre><code class="coffee">$(el).on(utensils.Detect.transition.end, @onDone) if utensils.Detect.hasTransition
 </code></pre>
 
 <h3>Requires</h3>
 
 <ul>
-<li><code>roos</code></li>
+<li><code>utensils</code></li>
 </ul>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
@@ -468,10 +468,10 @@ when creating a <code>Dimensionizer</code> as the constructor&#39;s <code>data</
 
 <pre><code class="coffee">#= require dimensionizer
 
-@dimensionizer = new roos.Dimensionizer()
+@dimensionizer = new utensils.Dimensionizer()
 
 # Or with options
-@dimensionizer = new roos.Dimensionizer({pos_x:&#39;left&#39;, &#39;pos_y:&#39;bottom&#39;, offset:&#39;10&#39;, color:&#39;light&#39;})
+@dimensionizer = new utensils.Dimensionizer({pos_x:&#39;left&#39;, &#39;pos_y:&#39;bottom&#39;, offset:&#39;10&#39;, color:&#39;light&#39;})
 </code></pre>
 
 <h3>#dispose</h3>
@@ -484,7 +484,7 @@ when creating a <code>Dimensionizer</code> as the constructor&#39;s <code>data</
 <h3>Requires</h3>
 
 <ul>
-<li><code>roos</code></li>
+<li><code>utensils</code></li>
 <li><code>detect</code></li>
 </ul>
 
@@ -494,7 +494,7 @@ when creating a <code>Dimensionizer</code> as the constructor&#39;s <code>data</
 
 <p>Use the close icon to dismiss modals, notifications and other elements.</p>
 
-<pre><code class="sass">@import roos/components/icon_close/close
+<pre><code class="sass">@import utensils/components/icon_close/close
 </code></pre>
 
 <!--~ markup/close.html.haml -->
@@ -591,7 +591,7 @@ more consistently and in line with modern standards.</p>
 specific styles are imported. This module operates on top level elements
 and inserts them directly into your style sheet.</p>
 
-<pre><code class="sass">@import roos/components/normalize/normalize
+<pre><code class="sass">@import utensils/components/normalize/normalize
 </code></pre>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
@@ -602,21 +602,7 @@ and inserts them directly into your style sheet.</p>
 Boilerplate</a>. Styles are associated with
 the <code>@media print</code> query.</p>
 
-<pre><code class="sass">@import roos/components/print/print
-</code></pre>
-
-<p></section><section class="sherpa-section sherpa-clearfix"></p>
-
-<h1>Roos</h1>
-
-<p>The top level namespace object for the <code>roos</code> library created on window.</p>
-
-<h2>Usage</h2>
-
-<pre><code class="coffee">#= require roos
-
-class roos.ClassName
-  # class definition..
+<pre><code class="sass">@import utensils/components/print/print
 </code></pre>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
@@ -625,7 +611,7 @@ class roos.ClassName
 
 <p>Sets up main scaffolding elements for <code>html</code>, <code>body</code>, selections, links and navigation.</p>
 
-<pre><code class="sass">@import roos/components/scaffold/scaffold
+<pre><code class="sass">@import utensils/components/scaffold/scaffold
 </code></pre>
 
 <p>The base <code>.nav</code> is the building block for navigation structures and components
@@ -729,7 +715,7 @@ are generally used on <code>hover</code> states, but can be tied to any event
 trigger. <code>Tip</code> is inspired by
 <a href="https://github.com/jaz303/tipsy">tipsy</a> and <a href="https://github.com/component/tip">component/tip</a></p>
 
-<pre><code class="sass">@import roos/components/tip/tip
+<pre><code class="sass">@import utensils/components/tip/tip
 </code></pre>
 
 <!--~ markup/tip.html.haml -->
@@ -857,7 +843,7 @@ handled through <code>Bindable</code>. </p>
 <pre><code class="coffee">#= require tip
 
 @el = $(&#39;#tip&#39;)
-@tip = new roos.Tip(@el, {delay:&#39;show:1000, hide:2000&#39;})
+@tip = new utensils.Tip(@el, {delay:&#39;show:1000, hide:2000&#39;})
 </code></pre>
 
 <h3>#toggle</h3>
@@ -899,7 +885,7 @@ element&#39;s toggle event</p>
 <h3>Requires</h3>
 
 <ul>
-<li><code>roos</code></li>
+<li><code>utensils</code></li>
 <li><code>bindable</code></li>
 <li><code>detect</code></li>
 <li><code>toggler</code></li>
@@ -1060,7 +1046,7 @@ handled through Bindable. </p>
 <pre><code class="coffee">#= require toggler
 
 @el = $(&#39;#toggler&#39;)
-@toggler = new roos.Toggler(@el, {toggle: &#39;show&#39;, trigger: &#39;hover&#39;})
+@toggler = new utensils.Toggler(@el, {toggle: &#39;show&#39;, trigger: &#39;hover&#39;})
 </code></pre>
 
 <h3>#toggle</h3>
@@ -1095,7 +1081,7 @@ element&#39;s toggle event</p>
 <h3>Requires</h3>
 
 <ul>
-<li><code>roos</code></li>
+<li><code>utensils</code></li>
 </ul>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
@@ -1194,8 +1180,8 @@ handled through <code>Bindable</code>. Most setup occurs within <code>Toggler</c
 @radios = $(&#39;#radios&#39;)
 @checks = $(&#39;#checks&#39;)
 
-@radio_group = new roos.TogglerGroup(radios, {behavior: &#39;radio&#39;})
-@check_group = new roos.TogglerGroup(checks, {behavior: &#39;checkbox&#39;})
+@radio_group = new utensils.TogglerGroup(radios, {behavior: &#39;radio&#39;})
+@check_group = new utensils.TogglerGroup(checks, {behavior: &#39;checkbox&#39;})
 </code></pre>
 
 <h3>#toggle</h3>
@@ -1248,7 +1234,7 @@ Deactivating will remove the toggle classes from the element.</p>
 <h3>Requires</h3>
 
 <ul>
-<li>roos</li>
+<li>utensils</li>
 <li>bindable</li>
 <li>toggler</li>
 </ul>
@@ -1262,7 +1248,7 @@ Deactivating will remove the toggle classes from the element.</p>
 <p>Contains helper classes added and removed via JavaScript for css
 transitions.</p>
 
-<pre><code class="sass">@import roos/components/transition/transition
+<pre><code class="sass">@import utensils/components/transition/transition
 </code></pre>
 
 <h2>Usage</h2>
@@ -1331,7 +1317,7 @@ within your <code>config.sass</code> file or before <code>transition.sass</code>
 
 <p>Heading, paragraph, blockquotes, code, lists, and inline typographic elements.</p>
 
-<pre><code class="sass">@import roos/components/typography/typography
+<pre><code class="sass">@import utensils/components/typography/typography
 </code></pre>
 
 <h3>Headings and body copy</h3>
@@ -1870,11 +1856,25 @@ within your <code>config.sass</code> file or before <code>typography.sass</code>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
+<h1>Utensils</h1>
+
+<p>The top level namespace object for the <code>utensils</code> library created on window.</p>
+
+<h2>Usage</h2>
+
+<pre><code class="coffee">#= require utensils
+
+class utensils.ClassName
+  # class definition..
+</code></pre>
+
+<p></section><section class="sherpa-section sherpa-clearfix"></p>
+
 <h1>Well</h1>
 
 <p>Wells are used to contain components and other various elements.</p>
 
-<pre><code class="sass">@import roos/components/well/well
+<pre><code class="sass">@import utensils/components/well/well
 </code></pre>
 
 <div class="sherpa-showcase sherpa-clearfix"><div class='well'>.well</div>

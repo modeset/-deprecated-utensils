@@ -1,8 +1,8 @@
 
-#= require roos
+#= require utensils
 #= require bindable
 
-class roos.Toggler
+class utensils.Toggler
   constructor: (@el, data) ->
     @is_active = false
     @data = if data then data else @el.data()
@@ -63,5 +63,5 @@ class roos.Toggler
     @deactivate()
     @el.off(@trigger)
 
-Bindable.register('toggler', roos.Toggler)
+Bindable.register('toggler', utensils.Toggler)
 

@@ -3,7 +3,7 @@
 Wells are used to contain components and other various elements.
 
 ```sass
-@import roos/components/well/well
+@import utensils/components/well/well
 ```
 
 ## Usage Example

@@ -5,7 +5,7 @@ They are typically used with inline elements.
 
 
 ```sass
-@import roos/components/decal/decal
+@import utensils/components/decal/decal
 ```
 
 ## Usage Example

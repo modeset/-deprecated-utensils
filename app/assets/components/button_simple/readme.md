@@ -8,7 +8,7 @@ The placeholders automatically build states for info, important, success,
 warning, danger and primary.
 
 ```sass
-@import roos/components/button_simple/simple_button
+@import utensils/components/button_simple/simple_button
 ```
 
 ## Usage Examples

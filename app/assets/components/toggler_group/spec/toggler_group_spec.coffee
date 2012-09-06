@@ -30,13 +30,13 @@ describe 'Toggler Group', ->
     @check$ = @html.find('#checks')
     @radio_kids = @radio$.find('li')
     @check_kids = @check$.find('li')
-    @radio_group = new roos.TogglerGroup(@radio$)
-    @check_group = new roos.TogglerGroup(@check$)
+    @radio_group = new utensils.TogglerGroup(@radio$)
+    @check_group = new utensils.TogglerGroup(@check$)
 
 
   describe 'binding', ->
     it 'is registered in bindable', ->
-      expect(Bindable.getClass('toggler-group')).toEqual(roos.TogglerGroup)
+      expect(Bindable.getClass('toggler-group')).toEqual(utensils.TogglerGroup)
 
 
   describe '#options', ->
@@ -47,7 +47,7 @@ describe 'Toggler Group', ->
 
   describe '#initialize', ->
     it 'activates an element on initialization', ->
-      toggler = new roos.TogglerGroup(@check$, {activate: 1, behavior: 'checkbox'})
+      toggler = new utensils.TogglerGroup(@check$, {activate: 1, behavior: 'checkbox'})
       expect($(@check_kids[1])).toHaveClass('active')
 
     it 'sets the toggle behavior correctly', ->

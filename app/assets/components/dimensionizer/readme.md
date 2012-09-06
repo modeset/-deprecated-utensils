@@ -39,10 +39,10 @@ Create a new `Dimensionizer` instance programmatically.
 ```coffee
 #= require dimensionizer
 
-@dimensionizer = new roos.Dimensionizer()
+@dimensionizer = new utensils.Dimensionizer()
 
 # Or with options
-@dimensionizer = new roos.Dimensionizer({pos_x:'left', 'pos_y:'bottom', offset:'10', color:'light'})
+@dimensionizer = new utensils.Dimensionizer({pos_x:'left', 'pos_y:'bottom', offset:'10', color:'light'})
 ```
 
 ### #dispose
@@ -53,6 +53,6 @@ Remove the `Dimensionizer` from the `DOM`
 ```
 
 ### Requires
-- `roos`
+- `utensils`
 - `detect`
 

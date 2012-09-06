@@ -52,7 +52,7 @@ handled through Bindable.
 #= require toggler
 
 @el = $('#toggler')
-@toggler = new roos.Toggler(@el, {toggle: 'show', trigger: 'hover'})
+@toggler = new utensils.Toggler(@el, {toggle: 'show', trigger: 'hover'})
 ```
 
 ### #toggle
@@ -85,5 +85,5 @@ Remove the toggler behavior
 ```
 
 ### Requires
-- `roos`
+- `utensils`
 

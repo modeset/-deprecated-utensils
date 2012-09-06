@@ -49,8 +49,8 @@ handled through `Bindable`. Most setup occurs within `Toggler`.
 @radios = $('#radios')
 @checks = $('#checks')
 
-@radio_group = new roos.TogglerGroup(radios, {behavior: 'radio'})
-@check_group = new roos.TogglerGroup(checks, {behavior: 'checkbox'})
+@radio_group = new utensils.TogglerGroup(radios, {behavior: 'radio'})
+@check_group = new utensils.TogglerGroup(checks, {behavior: 'checkbox'})
 ```
 
 ### #toggle
@@ -101,7 +101,7 @@ Deactivating will remove the toggle classes from the element.
 _Note: this does not call the super's `deactivate` method_
 
 ### Requires
-- roos
+- utensils
 - bindable
 - toggler
 

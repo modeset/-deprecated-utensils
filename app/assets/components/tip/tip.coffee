@@ -1,10 +1,10 @@
 
-#= require roos
+#= require utensils
 #= require bindable
 #= require detect
 #= require toggler
 
-class roos.Tip extends roos.Toggler
+class utensils.Tip extends utensils.Toggler
   constructor: (@el, data) ->
     super(@el, data)
 
@@ -51,8 +51,8 @@ class roos.Tip extends roos.Toggler
     @tip.addClass(@toggle_classes)
 
   deactivate: ->
-    if @tip && roos.Detect.hasTransition
-      @tip.one(roos.Detect.transition.end, => @remove())
+    if @tip && utensils.Detect.hasTransition
+      @tip.one(utensils.Detect.transition.end, => @remove())
       @tip.removeClass(@toggle_classes)
     else
       @remove()
@@ -136,5 +136,5 @@ class roos.Tip extends roos.Toggler
         hide: parseInt(params[1].match(/\d+/g), 10)
       }
 
-Bindable.register('tip', roos.Tip)
+Bindable.register('tip', utensils.Tip)
 

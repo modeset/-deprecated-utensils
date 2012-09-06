@@ -18,13 +18,13 @@ describe 'Toggler', ->
            """
     @html = $(html)
     setFixtures(@html)
-    @parent = new roos.Toggler(@html.find('#parent'))
-    @defaulter = new roos.Toggler(@html.find('#defaulter'))
-    @overrider = new roos.Toggler(@html.find('#overrider'))
-    @this_hash = new roos.Toggler(@html.find('#this_hash'))
-    @just_hash = new roos.Toggler(@html.find('#just_hash'))
-    @stnd_link = new roos.Toggler(@html.find('#stnd_link'))
-    @by_target = new roos.Toggler(@html.find('#by_target'))
+    @parent = new utensils.Toggler(@html.find('#parent'))
+    @defaulter = new utensils.Toggler(@html.find('#defaulter'))
+    @overrider = new utensils.Toggler(@html.find('#overrider'))
+    @this_hash = new utensils.Toggler(@html.find('#this_hash'))
+    @just_hash = new utensils.Toggler(@html.find('#just_hash'))
+    @stnd_link = new utensils.Toggler(@html.find('#stnd_link'))
+    @by_target = new utensils.Toggler(@html.find('#by_target'))
 
     @$defaults = @html.find('#defaulter')
     @$override = @html.find('#overrider')
@@ -33,7 +33,7 @@ describe 'Toggler', ->
 
   describe 'binding', ->
     it 'is registered in bindable', ->
-      expect(Bindable.getClass('toggler')).toEqual(roos.Toggler)
+      expect(Bindable.getClass('toggler')).toEqual(utensils.Toggler)
 
 
   describe '#constructor', ->
@@ -65,7 +65,7 @@ describe 'Toggler', ->
 
     it 'sets default values from a javascript class', ->
       el = @html.find('#empty')
-      toggler = new roos.Toggler(el, {toggle: 'show', trigger: 'hover', lookup: 'closest'})
+      toggler = new utensils.Toggler(el, {toggle: 'show', trigger: 'hover', lookup: 'closest'})
       expect(toggler.toggle_classes).toEqual('show')
       expect(toggler.trigger).toEqual('hover')
       expect(toggler.lookup).toEqual('closest')
@@ -75,7 +75,7 @@ describe 'Toggler', ->
   describe '#initialize', ->
     it 'activates an element on initialization', ->
       el = @html.find('#empty')
-      toggler = new roos.Toggler(el, {activate: 'true'})
+      toggler = new utensils.Toggler(el, {activate: 'true'})
       expect(el).toHaveClass('active')
 
 
