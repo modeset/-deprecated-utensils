@@ -95,61 +95,187 @@ $ -&gt;
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
-<h1>Buttons</h1>
+<h1>Button Simple</h1>
 
-<p>Describe these</p>
+<p>A simple button created via a mixin or through extension of
+placeholders. Simple button does not create any classes within the
+style sheet. </p>
 
-<!-- ```sass -->
+<p>The placeholders automatically build states for info, important, success,
+warning, danger and primary.</p>
 
-<!-- @import roos/components/container/container -->
+<pre><code class="sass">@import roos/components/button_simple/simple_button
+</code></pre>
 
-<!-- ``` -->
+<div class="sherpa-showcase sherpa-clearfix"><section class='simple-btn-demo'>
+  <button class='btn'>Default</button>
+  <button class='btn info'>Info</button>
+  <button class='btn important'>Important</button>
+  <button class='btn success'>Success</button>
+  <button class='btn warning'>Warning</button>
+  <button class='btn danger'>Danger</button>
+  <button class='btn primary'>Primary</button>
+</section>
+</div>
 
-<h2>Usage</h2>
+<pre><code class="haml">%section.simple-btn-demo
+  %button.btn Default
+  %button.btn.info Info
+  %button.btn.important Important
+  %button.btn.success Success
+  %button.btn.warning Warning
+  %button.btn.danger Danger
+  %button.btn.primary Primary
+</code></pre>
+
+<p>The simple-button class can be applied to <code>&lt;a&gt;</code>, <code>&lt;button&gt;</code> and <code>&lt;input&gt;</code> elements.</p>
+
+<div class="sherpa-showcase sherpa-clearfix"><section class='simple-btn-demo'>
+  <a class='btn' href='#'>Link</a>
+  <button class='btn' type='submit'>Button</button>
+  <input class='btn' type='button' value='Input' />
+  <input class='btn' type='submit' value='Submit' />
+</section>
+</div>
+
+<pre><code class="haml">%section.simple-btn-demo
+  %a.btn(href=&quot;#&quot;) Link
+  %button.btn(type=&quot;submit&quot;) Button
+  %input.btn(type=&quot;button&quot; value=&quot;Input&quot;)
+  %input.btn(type=&quot;submit&quot; value=&quot;Submit&quot;)
+</code></pre>
+
+<h2>Options</h2>
+
+<p>Simple button contains 2 mixins. Use the <code>simple-button</code> mixin for generating
+the base class and the <code>simple-button-override</code> for modifiers of the
+base class.</p>
+
+<p><strong>Mixin:</strong> <code>simple-button</code> <strong>parameters (in order)</strong></p>
 
 <table><thead>
 <tr>
-<th>Button</th>
-<th>Class</th>
+<th>Parameter</th>
+<th>Default</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td><button class="btn">Default</button></td>
-<td><code>.btn</code></td>
-<td>The default button is typically used in forms</td>
+<td><code>$bg</code></td>
+<td><em>none</em></td>
+<td>This is a required parameter</td>
 </tr>
 <tr>
-<td><button class="btn info">Info</button></td>
-<td><code>.btn.info</code></td>
-<td>The info button is an alternate to the default button</td>
+<td><code>$color</code></td>
+<td><code>#fff</code></td>
+<td>The text <code>color</code></td>
 </tr>
 <tr>
-<td><button class="btn important">Important</button></td>
-<td><code>.btn.important</code></td>
-<td>The important button is used to showcase a primary action</td>
+<td><code>$hover-percent</code></td>
+<td><code>10%</code></td>
+<td>The percentage to darken the <code>background-color</code> on hover</td>
 </tr>
 <tr>
-<td><button class="btn success">Success</button></td>
-<td><code>.btn.success</code></td>
-<td>The success button indicates a successful or positive action</td>
+<td><code>$active-percent</code></td>
+<td><code>15%</code></td>
+<td>The percentage to darken the <code>background-color</code> on press and <code>.active</code></td>
 </tr>
 <tr>
-<td><button class="btn warning">Warning</button></td>
-<td><code>.btn.warning</code></td>
-<td>The warning button indicates caution should be taken with this action</td>
+<td><code>$border-percent</code></td>
+<td><code>30%</code></td>
+<td>The percentage to darken the <code>border-color</code> against <code>$bg</code></td>
 </tr>
 <tr>
-<td><button class="btn danger">Danger</button></td>
-<td><code>.btn.danger</code></td>
-<td>The danger button indicates a dangerous or potentially negative action</td>
+<td><code>$padding</code></td>
+<td><code>0.4em 0.7em</code></td>
+<td>The <code>padding</code> within the button</td>
 </tr>
 <tr>
-<td><button class="btn primary">Primary</button></td>
-<td><code>.btn.primary</code></td>
-<td>The primary button is based off of the CI settings within the application</td>
+<td><code>$radii</code></td>
+<td><code>$radii</code></td>
+<td>The button&#39;s <code>border-radius</code></td>
 </tr>
 </tbody></table>
+
+<p><strong>Mixin:</strong> <code>simple-button-override</code> <strong>parameters (in order)</strong></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>$bg</code></td>
+<td><em>none</em></td>
+<td>This is a required parameter</td>
+</tr>
+<tr>
+<td><code>$color</code></td>
+<td><code>#fff</code></td>
+<td>The text <code>color</code> to override from the base button</td>
+</tr>
+<tr>
+<td><code>$hover-percent</code></td>
+<td><code>10%</code></td>
+<td>The percentage to darken the <code>background-color</code> on hover</td>
+</tr>
+<tr>
+<td><code>$active-percent</code></td>
+<td><code>12.5%</code></td>
+<td>The percentage to darken the <code>background-color</code> on press and <code>.active</code></td>
+</tr>
+<tr>
+<td><code>$border-percent</code></td>
+<td><code>15%</code></td>
+<td>The percentage to darken the <code>border-color</code> against <code>$bg</code></td>
+</tr>
+</tbody></table>
+
+<h2>Usage</h2>
+
+<p>To use as a mixin, add the following within a projects <code>.sass</code> file:</p>
+
+<pre><code class="sass">.btn
+  +simple-button($standard, #666)
+  &amp;.info
+    +simple-button-override($info, $white)
+  &amp;.important
+    +simple-button-override($important, $white)
+  &amp;.success
+    +simple-button-override($success, $white)
+  &amp;.warning
+    +simple-button-override($warning, $white)
+  &amp;.danger
+    +simple-button-override($danger, $white)
+  &amp;.primary
+    +simple-button-override($primary, $white)
+</code></pre>
+
+<p>To use as a placeholder, add the following within a projects <code>.sass</code> file:</p>
+
+<pre><code class="sass">.btn
+  @extend %simple-button
+.btn.info
+  @extend %simple-button-info
+.btn.important
+  @extend %simple-button-important
+.btn.success
+  @extend %simple-button-success
+.btn.warning
+  @extend %simple-button-warning
+.btn.danger
+  @extend %simple-button-danger
+.btn.primary
+  @extend %simple-button-primary
+</code></pre>
+
+<p>The base class (in this case <code>.btn</code>) adds all of the necessary
+properties to render a button. The modifiers (<code>.success</code>, <code>.important</code>)
+mainly override the color values for various states. To keep the output
+as small as possible, just mixin or extend the states needed within the
+project or application.</p>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
@@ -225,43 +351,23 @@ They are typically used with inline elements.</p>
 <pre><code class="sass">@import roos/components/decal/decal
 </code></pre>
 
-<h2>Usage</h2>
+<div class="sherpa-showcase sherpa-clearfix"><span class='decal'>Default</span>
+<span class='decal info'>Info</span>
+<span class='decal important'>Important</span>
+<span class='decal success'>Success</span>
+<span class='decal warning'>Warning</span>
+<span class='decal danger'>Danger</span>
+<span class='decal primary'>Primary</span>
+</div>
 
-<table><thead>
-<tr>
-<th>Decal</th>
-<th>Markup</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><span class="decal">Default</span></td>
-<td><code>&lt;span class=&quot;decal&quot;&gt;Default&lt;/span&gt;</code></td>
-</tr>
-<tr>
-<td><span class="decal info">Info</span></td>
-<td><code>&lt;span class=&quot;decal info&quot;&gt;Info&lt;/span&gt;</code></td>
-</tr>
-<tr>
-<td><span class="decal important">Important</span></td>
-<td><code>&lt;span class=&quot;decal important&quot;&gt;Important&lt;/span&gt;</code></td>
-</tr>
-<tr>
-<td><span class="decal success">Success</span></td>
-<td><code>&lt;span class=&quot;decal success&quot;&gt;Success&lt;/span&gt;</code></td>
-</tr>
-<tr>
-<td><span class="decal warning">Warning</span></td>
-<td><code>&lt;span class=&quot;decal warning&quot;&gt;Warning&lt;/span&gt;</code></td>
-</tr>
-<tr>
-<td><span class="decal danger">Danger</span></td>
-<td><code>&lt;span class=&quot;decal danger&quot;&gt;Danger&lt;/span&gt;</code></td>
-</tr>
-<tr>
-<td><span class="decal primary">Primary</span></td>
-<td><code>&lt;span class=&quot;decal primary&quot;&gt;Primary&lt;/span&gt;</code></td>
-</tr>
-</tbody></table>
+<pre><code class="haml">%span.decal Default
+%span.decal.info Info
+%span.decal.important Important
+%span.decal.success Success
+%span.decal.warning Warning
+%span.decal.danger Danger
+%span.decal.primary Primary
+</code></pre>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
@@ -628,26 +734,39 @@ trigger. <code>Tip</code> is inspired by
 
 <!--~ markup/tip.html.haml -->
 
-<div class="sherpa-showcase sherpa-clearfix"><a data-bindable='tip' data-delay='100' data-target='.sherpa-wrapper' href='#' id='north' title='The Northern Tip'>Northern Tip</a>
-|
-<a data-bindable='tip' data-delay='1000,2000' data-placement='south' href='#' id='south' title='The Southern Tip'>Southern Tip</a>
-|
-<a data-bindable='tip' data-placement='east' href='#' id='east' title='The Eastern Tip'>Eastern Tip</a>
-|
-<a data-bindable='tip' data-placement='west' href='#' id='west' title='The Western Tip'>Western Tip</a>
-|
-<a data-bindable='tip' data-placement='south' data-trigger='click' href='#' id='image' title="&lt;img src='http://placehold.it/350x150'/&gt;">Image Tip (click)</a>
+<div class="sherpa-showcase sherpa-clearfix"><nav>
+  <ul class='nav inline'>
+    <li>
+      <a data-bindable='tip' data-delay='100' data-target='.sherpa-wrapper' href='#' id='north' title='The Northern Tip'>Northern Tip</a>
+    </li>
+    <li>
+      <a data-bindable='tip' data-delay='1000,2000' data-placement='south' href='#' id='south' title='The Southern Tip'>Southern Tip</a>
+    </li>
+    <li>
+      <a data-bindable='tip' data-placement='east' href='#' id='east' title='The Eastern Tip'>Eastern Tip</a>
+    </li>
+    <li>
+      <a data-bindable='tip' data-placement='west' href='#' id='west' title='The Western Tip'>Western Tip</a>
+    </li>
+    <li>
+      <a data-bindable='tip' data-placement='south' data-trigger='click' href='#' id='image' title="&lt;img src='http://placehold.it/350x150'/&gt;">Image Tip (click)</a>
+    </li>
+  </ul>
+</nav>
 </div>
 
-<pre><code class="haml">%a#north(data-bindable=&quot;tip&quot; data-delay=&quot;100&quot; data-target=&quot;.sherpa-wrapper&quot; title=&quot;The Northern Tip&quot; href=&quot;#&quot;) Northern Tip
-|
-%a#south(data-bindable=&quot;tip&quot; data-placement=&quot;south&quot; data-delay=&quot;1000,2000&quot; title=&quot;The Southern Tip&quot; href=&quot;#&quot;) Southern Tip
-|
-%a#east(data-bindable=&quot;tip&quot; data-placement=&quot;east&quot; title=&quot;The Eastern Tip&quot; href=&quot;#&quot;) Eastern Tip
-|
-%a#west(data-bindable=&quot;tip&quot; data-placement=&quot;west&quot; title=&quot;The Western Tip&quot; href=&quot;#&quot;) Western Tip
-|
-%a#image(data-bindable=&quot;tip&quot; data-placement=&quot;south&quot; data-trigger=&quot;click&quot; title=&quot;&lt;img src=&#39;http://placehold.it/350x150&#39;/&gt;&quot; href=&quot;#&quot;) Image Tip (click)
+<pre><code class="haml">%nav
+  %ul.nav.inline
+    %li
+      %a#north(data-bindable=&quot;tip&quot; data-delay=&quot;100&quot; data-target=&quot;.sherpa-wrapper&quot; title=&quot;The Northern Tip&quot; href=&quot;#&quot;) Northern Tip
+    %li
+      %a#south(data-bindable=&quot;tip&quot; data-placement=&quot;south&quot; data-delay=&quot;1000,2000&quot; title=&quot;The Southern Tip&quot; href=&quot;#&quot;) Southern Tip
+    %li
+      %a#east(data-bindable=&quot;tip&quot; data-placement=&quot;east&quot; title=&quot;The Eastern Tip&quot; href=&quot;#&quot;) Eastern Tip
+    %li
+      %a#west(data-bindable=&quot;tip&quot; data-placement=&quot;west&quot; title=&quot;The Western Tip&quot; href=&quot;#&quot;) Western Tip
+    %li
+      %a#image(data-bindable=&quot;tip&quot; data-placement=&quot;south&quot; data-trigger=&quot;click&quot; title=&quot;&lt;img src=&#39;http://placehold.it/350x150&#39;/&gt;&quot; href=&quot;#&quot;) Image Tip (click)
 </code></pre>
 
 <!-- end -->
@@ -1758,8 +1877,6 @@ within your <code>config.sass</code> file or before <code>typography.sass</code>
 <pre><code class="sass">@import roos/components/well/well
 </code></pre>
 
-<!--~ markup/well.html.haml -->
-
 <div class="sherpa-showcase sherpa-clearfix"><div class='well'>.well</div>
 
 <div class='well lite'>.well.lite</div>
@@ -1772,8 +1889,6 @@ within your <code>config.sass</code> file or before <code>typography.sass</code>
 .well.lite .well.lite
 .well.dark .well.dark
 </code></pre>
-
-<!-- end -->
 
 <h2>Style Settings</h2>
 

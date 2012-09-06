@@ -8,13 +8,11 @@ Wells are used to contain components and other various elements.
 
 ## Usage Example
 
-<!--~ markup/well.html.haml -->
 ```haml
 .well .well
 .well.lite .well.lite
 .well.dark .well.dark
 ```
-<!-- end -->
 
 ## Style Settings
 To override the default settings, set the variable and it's value

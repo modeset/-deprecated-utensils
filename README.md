@@ -15,12 +15,14 @@ Client side component library
 - Create a component generator
 
 ### Needed components
+- rename project
+- button-groups.sass *
+- Add state docs for simple button
 - cleanup tables
 - carets.sass
 - paddles.sass
 - media.sass
 - layouts/upgrades
-- button-groups.sass *
 - popovers.sass *
 - notifications.sass *
 - progress-bars.sass *

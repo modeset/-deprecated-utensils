@@ -8,15 +8,15 @@ They are typically used with inline elements.
 @import roos/components/decal/decal
 ```
 
-## Usage
+## Usage Example
 
-Decal                                          | Markup
----------------------------------------------- | ---------------------------
-<span class="decal">Default</span>             | `<span class="decal">Default</span>`
-<span class="decal info">Info</span>           | `<span class="decal info">Info</span>`
-<span class="decal important">Important</span> | `<span class="decal important">Important</span>`
-<span class="decal success">Success</span>     | `<span class="decal success">Success</span>`
-<span class="decal warning">Warning</span>     | `<span class="decal warning">Warning</span>`
-<span class="decal danger">Danger</span>       | `<span class="decal danger">Danger</span>`
-<span class="decal primary">Primary</span>     | `<span class="decal primary">Primary</span>`
+```haml
+%span.decal Default
+%span.decal.info Info
+%span.decal.important Important
+%span.decal.success Success
+%span.decal.warning Warning
+%span.decal.danger Danger
+%span.decal.primary Primary
+```
 
