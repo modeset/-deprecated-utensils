@@ -14,15 +14,18 @@ trigger. `Tip` is inspired by
 
 <!--~ markup/tip.html.haml -->
 ```haml
-%a#north(data-bindable="tip" data-delay="100" data-target=".sherpa-wrapper" title="The Northern Tip" href="#") Northern Tip
-|
-%a#south(data-bindable="tip" data-placement="south" data-delay="1000,2000" title="The Southern Tip" href="#") Southern Tip
-|
-%a#east(data-bindable="tip" data-placement="east" title="The Eastern Tip" href="#") Eastern Tip
-|
-%a#west(data-bindable="tip" data-placement="west" title="The Western Tip" href="#") Western Tip
-|
-%a#image(data-bindable="tip" data-placement="south" data-trigger="click" title="<img src='http://placehold.it/350x150'/>" href="#") Image Tip (click)
+%nav
+  %ul.nav.inline
+    %li
+      %a#north(data-bindable="tip" data-delay="100" data-target=".sherpa-wrapper" title="The Northern Tip" href="#") Northern Tip
+    %li
+      %a#south(data-bindable="tip" data-placement="south" data-delay="1000,2000" title="The Southern Tip" href="#") Southern Tip
+    %li
+      %a#east(data-bindable="tip" data-placement="east" title="The Eastern Tip" href="#") Eastern Tip
+    %li
+      %a#west(data-bindable="tip" data-placement="west" title="The Western Tip" href="#") Western Tip
+    %li
+      %a#image(data-bindable="tip" data-placement="south" data-trigger="click" title="<img src='http://placehold.it/350x150'/>" href="#") Image Tip (click)
 ```
 <!-- end -->
 
