@@ -28,6 +28,12 @@ describe 'Dimensionizer', ->
       dimension_el = dimensionizer.dimensionizer
       expect(dimension_el).not.toBeNull()
 
+  describe '#resize', ->
+    it 'registers a resize event and changes the dimensionizer', ->
+      dimensionizer = new roos.Dimensionizer()
+      dimension_el = dimensionizer.dimensionizer
+      expect(dimension_el.text()).toEqual("#{$(window).width()}px")
+
   describe '#dispose', ->
     it 'removes the dimensionizer from the dom', ->
       dimensionizer = new roos.Dimensionizer()
