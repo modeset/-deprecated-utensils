@@ -9,6 +9,9 @@ trigger. `Tip` is inspired by
 @import utensils/components/tip/tip
 ```
 
+```html
+data-bindable="tip"
+```
 
 ## Usage Examples
 

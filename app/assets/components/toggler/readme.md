@@ -2,6 +2,10 @@
 # Toggler
 Base class for adding, removing and toggling classes on a given element.
 
+```html
+data-bindable="toggler"
+```
+
 ## Usage Examples
 
 ```haml
