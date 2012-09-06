@@ -1,0 +1,53 @@
+
+$button-group-radii: $radii !default
+$button-group-next-offset: 0.5em !default
+
+.button-group
+  +clearfixer
+  +box-sizing(border-box)
+  position: relative
+
+.button-group + .button-group
+  margin-left: $button-group-next-offset
+
+.button-toolbar .button-group
+  +inline-block
+
+.button-group .dropdown-toggle:active,
+.button-group.open .dropdown-toggle
+  outline: 0
+
+// Inherits from .dropdown.open .dropdown-menu
+.button-group.open .dropdown-menu
+  margin-top: 1px
+
+.button-group a,
+.button-group button
+  border-radius: 0
+  float: left
+  margin-left: -1px
+  position: relative
+
+.button-group a:first-child,
+.button-group button:first-child
+  border-top-left-radius: $button-group-radii
+  border-bottom-left-radius: $button-group-radii
+
+.button-group a:last-child,
+.button-group button:last-child,
+.button-group .dropdown-toggle
+  border-top-right-radius: $button-group-radii
+  border-bottom-right-radius: $button-group-radii
+
+.button-group a:hover,
+.button-group a:focus,
+.button-group a:active,
+.button-group button:hover,
+.button-group button:focus,
+.button-group button:active,
+.button-group .active
+  z-index: 2
+
+// .button-group.open .btn.dropdown-toggle
+  +box-shadow($inset_dark)
+
