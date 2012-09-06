@@ -8,33 +8,31 @@ Client side component library
 
 ### Tasks
 - Look at making the sass files use abstract elements
-- Take another stab at buttons and how to best abstract these
 - Move toggler, toggler group over to markup for fixtures and dox
 - Add view layout templates
 - Turn into engine with generators
 - Create a component generator
 
 ### Needed components
-- rename project
-- button-groups.sass *
-- Add state docs for simple button
+- cleanup button
 - cleanup tables
+- forms
 - carets.sass
 - paddles.sass
 - media.sass
-- layouts/upgrades
 - popovers.sass *
 - notifications.sass *
 - progress-bars.sass *
+- dropdowns.sass *
 - accordions.sass *
-- modals.sass *
 - breadcrumbs.sass
 - pagination.sass
 - tabs.sass *
 - pills.sass *
 - nav-lists.sass
-- dropdowns.sass *
+- modals.sass *
 - carousels.sass *
 - navbars.sass *
-- forms
+- layouts/upgrades
+- fishnet
 
