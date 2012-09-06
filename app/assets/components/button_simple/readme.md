@@ -110,3 +110,10 @@ mainly override the color values for various states. To keep the output
 as small as possible, just mixin or extend the states needed within the
 project or application.
 
+## Todo
+
+- Add state docs for simple button
+- Add inverse color
+- How to deal with carets
+- Block display
+
