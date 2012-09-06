@@ -22,6 +22,8 @@
     background: darken($bg, $active-percent)
     color: $color
     outline: 0
+  &.active
+    cursor: default
   &.error
     border-color: $error
     color: $color
@@ -31,6 +33,7 @@
     +opacity($disabled-opacity)
     background-color: $bg
     color: $color
+    cursor: default
 
 // Override for specific color types
 @mixin simple-button-override($bg, $color:#fff, $hover-percent:10%, $active-percent:12.5%, $border-percent:15%)
@@ -56,6 +59,8 @@
 // Add abstract classes for easier extension
 %simple-button
   +simple-button($standard, #666)
+%simple-button-inverse
+  +simple-button-override(#333, $white)
 %simple-button-info
   +simple-button-override($info, $white)
 %simple-button-important

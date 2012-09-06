@@ -206,8 +206,9 @@ warning, danger and primary.</p>
 <pre><code class="sass">@import utensils/components/button_simple/simple_button
 </code></pre>
 
-<div class="sherpa-showcase sherpa-clearfix"><section class='simple-btn-demo'>
+<div class="sherpa-showcase sherpa-clearfix"><section class='simple-btn-demo demo' data-remove='active error disabled' data-target='.btn'>
   <button class='btn'>Default</button>
+  <button class='btn inverse'>Inverse</button>
   <button class='btn info'>Info</button>
   <button class='btn important'>Important</button>
   <button class='btn success'>Success</button>
@@ -215,16 +216,31 @@ warning, danger and primary.</p>
   <button class='btn danger'>Danger</button>
   <button class='btn primary'>Primary</button>
 </section>
+<h5 style='margin-bottom:1em; margin-top:3em;'>Select to view states</h5>
+<nav class='radio-demo button-group' data-bindable='toggler-group' data-target='.btn'>
+  <a class='btn active' data-add='' href='#'>Normal</a>
+  <a class='btn' data-add='active' href='#'>Active</a>
+  <a class='btn' data-add='error' href='#'>Error</a>
+  <a class='btn' data-add='disabled' href='#'>Disabled</a>
+</nav>
 </div>
 
-<pre><code class="haml">%section.simple-btn-demo
+<pre><code class="haml">%section.simple-btn-demo.demo(data-target=&quot;.btn&quot; data-remove=&quot;active error disabled&quot;)
   %button.btn Default
+  %button.btn.inverse Inverse
   %button.btn.info Info
   %button.btn.important Important
   %button.btn.success Success
   %button.btn.warning Warning
   %button.btn.danger Danger
   %button.btn.primary Primary
+
+%h5(style=&quot;margin-bottom:1em; margin-top:3em;&quot;) Select to view states
+%nav.radio-demo.button-group(data-bindable=&quot;toggler-group&quot; data-target=&quot;.btn&quot;)
+  %a.btn.active(href=&quot;#&quot; data-add=&quot;&quot;) Normal
+  %a.btn(href=&quot;#&quot; data-add=&quot;active&quot;) Active 
+  %a.btn(href=&quot;#&quot; data-add=&quot;error&quot;) Error
+  %a.btn(href=&quot;#&quot; data-add=&quot;disabled&quot;) Disabled
 </code></pre>
 
 <p>The simple-button class can be applied to <code>&lt;a&gt;</code>, <code>&lt;button&gt;</code> and <code>&lt;input&gt;</code> elements.</p>
@@ -375,15 +391,6 @@ properties to render a button. The modifiers (<code>.success</code>, <code>.impo
 mainly override the color values for various states. To keep the output
 as small as possible, just mixin or extend the states needed within the
 project or application.</p>
-
-<h2>Todo</h2>
-
-<ul>
-<li>Add state docs for simple button</li>
-<li>Add inverse color</li>
-<li>How to deal with carets</li>
-<li>Block display</li>
-</ul>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 

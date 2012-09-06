@@ -14,14 +14,22 @@ warning, danger and primary.
 ## Usage Examples
 
 ```haml
-%section.simple-btn-demo
+%section.simple-btn-demo.demo(data-target=".btn" data-remove="active error disabled")
   %button.btn Default
+  %button.btn.inverse Inverse
   %button.btn.info Info
   %button.btn.important Important
   %button.btn.success Success
   %button.btn.warning Warning
   %button.btn.danger Danger
   %button.btn.primary Primary
+
+%h5(style="margin-bottom:1em; margin-top:3em;") Select to view states
+%nav.radio-demo.button-group(data-bindable="toggler-group" data-target=".btn")
+  %a.btn.active(href="#" data-add="") Normal
+  %a.btn(href="#" data-add="active") Active 
+  %a.btn(href="#" data-add="error") Error
+  %a.btn(href="#" data-add="disabled") Disabled
 ```
 
 The simple-button class can be applied to `<a>`, `<button>` and `<input>` elements.
@@ -109,11 +117,4 @@ properties to render a button. The modifiers (`.success`, `.important`)
 mainly override the color values for various states. To keep the output
 as small as possible, just mixin or extend the states needed within the
 project or application.
-
-## Todo
-
-- Add state docs for simple button
-- Add inverse color
-- How to deal with carets
-- Block display
 

@@ -14,10 +14,10 @@ Client side component library
 - Create a component generator
 
 ### Needed components
-- cleanup button
 - cleanup tables
 - forms
-- carets.sass
+- Add button utilities (small, mini, large, block)
+- carets.sass (deal with this in buttons or button utils)
 - paddles.sass
 - media.sass
 - popovers.sass *

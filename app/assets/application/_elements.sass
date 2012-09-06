@@ -5,6 +5,8 @@
 .simple-btn-demo
   .btn
     +simple-button($standard, #666)
+    &.inverse
+      +simple-button-override(#333, $white)
     &.info
       +simple-button-override($info, $white)
     &.important

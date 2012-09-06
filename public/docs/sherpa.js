@@ -34,6 +34,7 @@ Sherpa.prototype.domLookup = function() {
   this.section_nav = this.el.find('.sherpa-anchor-nav li')
   this.showcases = this.el.find('.sherpa-showcase')
   this.usage_examples = this.el.find('.sherpa-showcase + pre')
+  this.radio_demos = this.el.find('.radio-demo')
 };
 
 // Listen for various events on navigations, sections and keys..
@@ -41,8 +42,20 @@ Sherpa.prototype.addListeners = function() {
   this.section_nav.on('click', {self: this}, this.activateSectionNav)
   this.usage_examples.on('click', {self: this}, this.toggleUsageExample)
   this.subsections.on('click', {self: this}, this.toggleSubsection)
+  this.radio_demos.on('click', {self: this}, this.radioDemo)
   $(window).keypress({self: this}, this.captureKeyStroke)
   $('#dimensionizer_demo').on('click', {self: this}, this.activateDimensionizer)
+};
+
+Sherpa.prototype.radioDemo = function(e) {
+  var self = e.data.self
+  var target = $(e.target)
+  var demo = target.closest('.sherpa-showcase').find('.demo')
+  var add_classes = target.data('add')
+  var remove_classes = demo.data('remove')
+  var items = demo.find(demo.data('target'))
+  items.removeClass(remove_classes)
+  items.addClass(add_classes)
 };
 
 // Typically handles toggling items associated with the settings menu..
