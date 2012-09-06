@@ -1,16 +1,19 @@
 
-.btn
-  +simple-button($standard, #666)
-  &.info
-    +simple-button-override($info, $white)
-  &.important
-    +simple-button-override($important, $white)
-  &.success
-    +simple-button-override($success, $white)
-  &.warning
-    +simple-button-override($warning, $white)
-  &.danger
-    +simple-button-override($danger, $white)
-  &.primary
-    +simple-button-override($primary, $white)
+.simple-btn-demo
+  .btn
+    +simple-button($standard, #666)
+    &.info
+      +simple-button-override($info, $white)
+    &.important
+      +simple-button-override($important, $white)
+    &.success
+      +simple-button-override($success, $white)
+    &.warning
+      +simple-button-override($warning, $white)
+    &.danger
+      +simple-button-override($danger, $white)
+    &.primary
+      +simple-button-override($primary, $white)
+  a.btn
+    font-weight: bold
 
