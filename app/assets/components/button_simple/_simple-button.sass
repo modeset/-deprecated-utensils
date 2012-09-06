@@ -20,14 +20,17 @@
   &.active,
   &:active
     background: darken($bg, $active-percent)
+    color: $color
     outline: 0
   &.error
     border-color: $error
+    color: $color
   &.disabled,
   &[disabled],
   &[readonly]
     +opacity($disabled-opacity)
     background-color: $bg
+    color: $color
 
 // Override for specific color types
 @mixin simple-button-override($bg, $color:#fff, $hover-percent:10%, $active-percent:12.5%, $border-percent:15%)
@@ -40,12 +43,15 @@
   &.active,
   &:active
     background: darken($bg, $active-percent)
+    color: $color
   &.error
     border-color: $error
+    color: $color
   &.disabled,
   &[disabled],
   &[readonly]
     background-color: $bg
+    color: $color
 
 // Add abstract classes for easier extension
 %simple-button
