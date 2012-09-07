@@ -78,6 +78,8 @@ To use as a mixin, add the following within a projects `.sass` file:
 ```sass
 .btn
   +simple-button($standard, #666)
+  &.inverse
+    +simple-button-override(#333, $white)
   &.info
     +simple-button-override($info, $white)
   &.important
@@ -98,6 +100,8 @@ To use as a placeholder, add the following within a projects `.sass` file:
 ```sass
 .btn
   @extend %simple-button
+.btn.inverse
+  @extend %simple-button-inverse
 .btn.info
   @extend %simple-button-info
 .btn.important
