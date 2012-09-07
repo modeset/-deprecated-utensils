@@ -221,7 +221,7 @@
   border: 1px solid #ccc;
   text-align: left;
   margin: 0;
-  padding: 6px 13px;
+  padding: 0.75em 0.5em;
 }
 
 .sherpa-section > table tr {

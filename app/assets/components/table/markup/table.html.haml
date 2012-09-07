@@ -1,0 +1,43 @@
+
+%table.demo(data-target="this")
+  %caption>Table Caption
+  %thead
+    %tr
+      %th
+        %a(href="#") #
+      %th Table Header
+      %th
+        %a(href="#") Table Header Link
+      %th Table Header
+  %tfoot
+    %tr
+      %td(colspan="4") Set the <code>colspan</code> attribute to span the width of the table for footers.
+  %tbody
+    %tr
+      %td 1
+      %td Table Data
+      %td One
+      %td Three
+    %tr
+      %td 2
+      %td
+        %a(href="#") Click me!
+      %td Two
+      %td Two
+    %tr
+      %td 3
+      %td
+        %a(href="#") Click me!
+      %td Three
+      %td One
+
+%h5(style="margin-bottom:1em; margin-top:3em;") Select to toggle table classes
+%nav.check-demo.button-group(data-bindable="toggler-group" data-behavior="checkbox" data-target=".btn")
+  %a.btn(href="#" data-toggle="table-box") Box
+  %a.btn(href="#" data-toggle="table-vborder") Vertical Border
+  %a.btn(href="#" data-toggle="table-condensed") Condensed
+  %a.btn(href="#" data-toggle="table-banded") Banded
+  %a.btn(href="#" data-toggle="table-hover") Hover
+  %a.btn(href="#" data-toggle="table-thead") Header
+  %a.btn(href="#" data-toggle="table-tfoot") Footer
+

@@ -35,6 +35,7 @@ Sherpa.prototype.domLookup = function() {
   this.showcases = this.el.find('.sherpa-showcase')
   this.usage_examples = this.el.find('.sherpa-showcase + pre')
   this.radio_demos = this.el.find('.radio-demo')
+  this.check_demos = this.el.find('.check-demo')
 };
 
 // Listen for various events on navigations, sections and keys..
@@ -43,19 +44,9 @@ Sherpa.prototype.addListeners = function() {
   this.usage_examples.on('click', {self: this}, this.toggleUsageExample)
   this.subsections.on('click', {self: this}, this.toggleSubsection)
   this.radio_demos.on('click', {self: this}, this.radioDemo)
+  this.check_demos.on('click', {self: this}, this.checkDemo)
   $(window).keypress({self: this}, this.captureKeyStroke)
   $('#dimensionizer_demo').on('click', {self: this}, this.activateDimensionizer)
-};
-
-Sherpa.prototype.radioDemo = function(e) {
-  var self = e.data.self
-  var target = $(e.target)
-  var demo = target.closest('.sherpa-showcase').find('.demo')
-  var add_classes = target.data('add')
-  var remove_classes = demo.data('remove')
-  var items = demo.find(demo.data('target'))
-  items.removeClass(remove_classes)
-  items.addClass(add_classes)
 };
 
 // Typically handles toggling items associated with the settings menu..
@@ -266,6 +257,30 @@ Sherpa.prototype.popNotes = function() {
 Sherpa.prototype.activateDimensionizer = function(e) {
   e.preventDefault()
   var dimensionizer = new utensils.Dimensionizer()
+};
+
+// Demos using radio groups
+Sherpa.prototype.radioDemo = function(e) {
+  var self = e.data.self
+  var target = $(e.target)
+  var demo = target.closest('.sherpa-showcase').find('.demo')
+  var data_targets = demo.data('target')
+  var demo_targets = (data_targets === 'this') ? demo : demo.find(data_targets)
+  var add_classes = target.data('add')
+  var remove_classes = demo.data('remove')
+  demo_targets.removeClass(remove_classes)
+  demo_targets.addClass(add_classes)
+};
+
+// Demos using check groups
+Sherpa.prototype.checkDemo = function(e) {
+  var self = e.data.self
+  var target = $(e.target)
+  var demo = target.closest('.sherpa-showcase').find('.demo')
+  var data_targets = demo.data('target')
+  var demo_targets = (data_targets === 'this') ? demo : demo.find(data_targets)
+  var toggle_classes = target.data('toggle')
+  demo_targets.toggleClass(toggle_classes)
 };
 
 // Bring the magic..

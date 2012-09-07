@@ -1,5 +1,16 @@
 
+$table-bgc: $body-bgc !default
+$table-border-color: $component-border !default
+$table-band-odd-bgc: transparent !default
+$table-band-even-bgc: lighten($table-border-color, 15%) !default
+$table-thead-bgc: lighten($table-border-color, 10%) !default
+$table-tfoot-bgc: lighten($table-border-color, 18%) !default
+$table-hover-bgc: lighten($table-border-color, 10%) !default
+$table-padding-lr: 0.5em !default
+$table-padding-tb: 1em !default
+
 table
+  background-color: $table-bgc
   margin: 0.5em 0
   width: 100%
 
@@ -7,14 +18,13 @@ table
     font-size: 0.85em
     font-weight: bold
     text-align: left
-    margin-bottom: .5em
+    margin-bottom: 0.5em
 
   th, td
-    // border-top: 1px solid $component_border
-    border-top: 1px solid #666
+    border-top: 1px solid $table-border-color
     line-height: 1
     text-align: left
-    padding: 0.6em
+    padding: $table-padding-tb $table-padding-lr
 
   th
     font-weight: bold
@@ -24,90 +34,71 @@ table
   thead:first-child tr td
     border-top: 0
 
-  tbody td > a:hover
-    text-decoration: underline
-
   tfoot
     font-size: 0.85em
 
   tbody + tbody
-    // border-top: 2px solid $component_border
-    border-top: 2px solid #666
-
-  th .ascending .caret
-    margin-top: 6px
-  th .descending .caret
-    margin-top: 2px
-
-  th .ascending:hover .caret
-    border-top-color: $link_hover
-
-  th .descending:hover .caret
-    border-bottom-color: $link_hover
+    border-top: 2px solid $table-border-color
 
 // Outer box
-table.box
+.table-box
   thead tr
-    // border: 1px solid $component_border
-    border: 1px solid #666
+    border: 1px solid $table-border-color
   tbody tr
-    // border: 1px solid $component_border
-    border: 1px solid #666
+    border: 1px solid $table-border-color
   tfoot tr
-    // border: 1px solid $component_border
-    border: 1px solid #666
+    border: 1px solid $table-border-color
 
   thead th
     &:first-child
-      // border-left-color: $component_border !important
-      border-left-color: #666 !important
+      border-left-color: $table-border-color !important
     &:last-child
-      // border-right-color: $component_border !important
-      border-right-color: #666 !important
+      border-right-color: $table-border-color !important
   tbody td
     &:first-child
-      // border-left-color: $component_border !important
-      border-left-color: #666 !important
+      border-left-color: $table-border-color !important
     &:last-child
-      // border-right-color: $component_border !important
-      border-right-color: #666 !important
+      border-right-color: $table-border-color !important
 
 // Vertical borders
-table.vborder
+.table-vborder
   thead th
-    // border-left: 1px solid $component_border
-    // border-right: 1px solid $component_border
-    border-left-color: #666 !important
-    border-right-color: #666 !important
+    border-left: 1px solid $table-border-color
+    border-right: 1px solid $table-border-color
     &:first-child
       border-left-color: transparent
     &:last-child
       border-right-color: transparent
 
   tbody td
-    // border-left: 1px solid $component_border
-    // border-right: 1px solid $component_border
-    border-left-color: #666
-    border-right-color: #666
+    border-left: 1px solid $table-border-color
+    border-right: 1px solid $table-border-color
     &:first-child
       border-left-color: transparent
     &:last-child
       border-right-color: transparent
 
+// Half the height of a normal table
+.table-condensed
+  th, td
+    padding: ($table-padding-tb * 0.5) $table-padding-lr
+
 // Banded table
-table.banded tbody tr
-  &:nth-child(odd)
-    background-color: transparent
-  &:nth-child(even)
-    // background-color: $component_bg_hover
-    background-color: #eee
+.table-banded tbody tr
+  &:nth-child(odd) td
+    background-color: $table-band-odd-bgc
+  &:nth-child(even) td
+    background-color: $table-band-even-bgc
+
+// Hoverable tables
+.table-hover tbody tr:hover td
+  background-color: $table-hover-bgc
 
 // Colorize the table header background
-table.thead-decorate thead
-  // background-color: darken($component_bg_hover, 5%)
-  background-color: darken(#eee, 5%)
+.table-thead thead
+  background-color: $table-thead-bgc
 
 // Colorize the table footer background
-table.tfoot-decorate tfoot
-  background-color: $off_white
+.table-tfoot tfoot
+  background-color: $table-tfoot-bgc
 

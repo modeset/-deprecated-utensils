@@ -34,6 +34,7 @@
 <li><a href='#normalize'>Normalize</a></li>
 <li><a href='#print'>Print</a></li>
 <li><a href='#scaffold'>Scaffold</a></li>
+<li><a href='#table'>Table</a></li>
 <li><a href='#tip'>Tip</a></li>
 <li><a href='#toggler'>Toggler</a></li>
 <li><a href='#toggler_group'>Toggler group</a></li>
@@ -823,6 +824,226 @@ within your <code>config.sass</code> file or before <code>scaffold.sass</code> i
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
+<h1>Table</h1>
+
+<p>Building tables is additive around the classes applied to the top level <code>&lt;table&gt;</code> element.
+By combining any of the following classes, the table can be given a different look and feel.</p>
+
+<pre><code class="sass">@import utensils/components/table/table
+</code></pre>
+
+<!--~ markup/table.html.haml -->
+
+<div class="sherpa-showcase sherpa-clearfix"><table class='demo' data-target='this'><caption>Table Caption</caption><thead>
+    <tr>
+      <th>
+        <a href='#'>#</a>
+      </th>
+      <th>Table Header</th>
+      <th>
+        <a href='#'>Table Header Link</a>
+      </th>
+      <th>Table Header</th>
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <td colspan='4'>Set the <code>colspan</code> attribute to span the width of the table for footers.</td>
+    </tr>
+  </tfoot>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Table Data</td>
+      <td>One</td>
+      <td>Three</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>
+        <a href='#'>Click me!</a>
+      </td>
+      <td>Two</td>
+      <td>Two</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>
+        <a href='#'>Click me!</a>
+      </td>
+      <td>Three</td>
+      <td>One</td>
+    </tr>
+  </tbody>
+</table>
+<h5 style='margin-bottom:1em; margin-top:3em;'>Select to toggle table classes</h5>
+<nav class='check-demo button-group' data-behavior='checkbox' data-bindable='toggler-group' data-target='.btn'>
+  <a class='btn' data-toggle='table-box' href='#'>Box</a>
+  <a class='btn' data-toggle='table-vborder' href='#'>Vertical Border</a>
+  <a class='btn' data-toggle='table-condensed' href='#'>Condensed</a>
+  <a class='btn' data-toggle='table-banded' href='#'>Banded</a>
+  <a class='btn' data-toggle='table-hover' href='#'>Hover</a>
+  <a class='btn' data-toggle='table-thead' href='#'>Header</a>
+  <a class='btn' data-toggle='table-tfoot' href='#'>Footer</a>
+</nav>
+</div>
+
+<pre><code class="haml">%table.demo(data-target=&quot;this&quot;)
+  %caption&gt;Table Caption
+  %thead
+    %tr
+      %th
+        %a(href=&quot;#&quot;) #
+      %th Table Header
+      %th
+        %a(href=&quot;#&quot;) Table Header Link
+      %th Table Header
+  %tfoot
+    %tr
+      %td(colspan=&quot;4&quot;) Set the &lt;code&gt;colspan&lt;/code&gt; attribute to span the width of the table for footers.
+  %tbody
+    %tr
+      %td 1
+      %td Table Data
+      %td One
+      %td Three
+    %tr
+      %td 2
+      %td
+        %a(href=&quot;#&quot;) Click me!
+      %td Two
+      %td Two
+    %tr
+      %td 3
+      %td
+        %a(href=&quot;#&quot;) Click me!
+      %td Three
+      %td One
+
+%h5(style=&quot;margin-bottom:1em; margin-top:3em;&quot;) Select to toggle table classes
+%nav.check-demo.button-group(data-bindable=&quot;toggler-group&quot; data-behavior=&quot;checkbox&quot; data-target=&quot;.btn&quot;)
+  %a.btn(href=&quot;#&quot; data-toggle=&quot;table-box&quot;) Box
+  %a.btn(href=&quot;#&quot; data-toggle=&quot;table-vborder&quot;) Vertical Border
+  %a.btn(href=&quot;#&quot; data-toggle=&quot;table-condensed&quot;) Condensed
+  %a.btn(href=&quot;#&quot; data-toggle=&quot;table-banded&quot;) Banded
+  %a.btn(href=&quot;#&quot; data-toggle=&quot;table-hover&quot;) Hover
+  %a.btn(href=&quot;#&quot; data-toggle=&quot;table-thead&quot;) Header
+  %a.btn(href=&quot;#&quot; data-toggle=&quot;table-tfoot&quot;) Footer
+</code></pre>
+
+<!-- end -->
+
+<h2>Options</h2>
+
+<p>Adding a class directly to the <code>table</code> element produces the following.</p>
+
+<table><thead>
+<tr>
+<th>Class</th>
+<th>Usage</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><em>none</em></td>
+<td>The base table creates division in data with horizontal dividers</td>
+</tr>
+<tr>
+<td><code>.table-box</code></td>
+<td>Renders the table with exterior boundaries for all table rows</td>
+</tr>
+<tr>
+<td><code>.table-vborder</code></td>
+<td>Renders the table with vertical divisions for table data</td>
+</tr>
+<tr>
+<td><code>.table-condensed</code></td>
+<td>Condenses the table cell heights by 1/2</td>
+</tr>
+<tr>
+<td><code>.table-banded</code></td>
+<td>Renders alternating <code>&lt;tbody&gt;</code> rows with a different color</td>
+</tr>
+<tr>
+<td><code>.table-hover</code></td>
+<td>Shows a hover state on the table cell</td>
+</tr>
+<tr>
+<td><code>.table-thead</code></td>
+<td>Fills the <code>thead</code> with a background fill</td>
+</tr>
+<tr>
+<td><code>.table-tfoot</code></td>
+<td>Fills the <code>tfoot</code> with a background fill</td>
+</tr>
+</tbody></table>
+
+<h2>Style Settings</h2>
+
+<p>To override the default settings, set the variable and it&#39;s value
+within your <code>config.sass</code> file or before <code>table.sass</code> is loaded.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>$table-bgc</code></td>
+<td><code>$body-bgc</code></td>
+<td>Sets the <code>background-color</code> of the table</td>
+</tr>
+<tr>
+<td><code>$table-border-color</code></td>
+<td><code>$component-border</code></td>
+<td>Sets the <code>border-color</code></td>
+</tr>
+<tr>
+<td><code>$table-band-odd-bgc</code></td>
+<td><code>transparent</code></td>
+<td>The <code>background-color</code> of odd rows in <code>.table-banded</code></td>
+</tr>
+<tr>
+<td><code>$table-band-even-bgc</code></td>
+<td><code>lighten($table-border-color, 15%)</code></td>
+<td>The <code>background-color</code> of even rows in <code>.table-banded</code></td>
+</tr>
+<tr>
+<td><code>$table-thead-bgc</code></td>
+<td><code>lighten($table-border-color, 10%)</code></td>
+<td>The <code>background-color</code> of the <code>thead</code> element in <code>.table-thead</code></td>
+</tr>
+<tr>
+<td><code>$table-tfoot-bgc</code></td>
+<td><code>lighten($table-border-color, 18%)</code></td>
+<td>The <code>background-color</code> of the <code>tfoot</code> element in <code>.table-tfoot</code></td>
+</tr>
+<tr>
+<td><code>$table-hover-bgc</code></td>
+<td><code>lighten($table-border-color, 10%)</code></td>
+<td>The <code>background-color</code> of the <code>td</code> element in <code>.table-hover</code></td>
+</tr>
+<tr>
+<td><code>$table-padding-lr</code></td>
+<td><code>0.5em</code></td>
+<td>The <code>padding-left</code>, <code>padding-right</code> value for <code>th</code> and <code>td</code></td>
+</tr>
+<tr>
+<td><code>$table-padding-tb</code></td>
+<td><code>1em</code></td>
+<td>The <code>padding-top</code>, <code>padding-bottom</code> value for <code>th</code> and <code>td</code> (divided by 2 for <code>table-condensed</code>)</td>
+</tr>
+</tbody></table>
+
+<h6>Warnings</h6>
+
+<ul>
+<li><strong>Heads Up!</strong> Tables throughout the style guide may not contain the exact styles of the application</li>
+</ul>
+
+<p></section><section class="sherpa-section sherpa-clearfix"></p>
+
 <h1>Tip</h1>
 
 <p>Tool tip component for showing quick bits of information to a user. Tips
@@ -831,6 +1052,9 @@ trigger. <code>Tip</code> is inspired by
 <a href="https://github.com/jaz303/tipsy">tipsy</a> and <a href="https://github.com/component/tip">component/tip</a></p>
 
 <pre><code class="sass">@import utensils/components/tip/tip
+</code></pre>
+
+<pre><code class="html">data-bindable=&quot;tip&quot;
 </code></pre>
 
 <!--~ markup/tip.html.haml -->
@@ -1068,6 +1292,9 @@ within your <code>config.sass</code> file or before <code>tip.sass</code> is loa
 
 <p>Base class for adding, removing and toggling classes on a given element.</p>
 
+<pre><code class="html">data-bindable=&quot;toggler&quot;
+</code></pre>
+
 <div class="sherpa-showcase sherpa-clearfix"><h5 class='mansfield'>Mansfield</h5>
 <a class='one' data-bindable='toggler' href='#'>Basic</a>
 <a class='two' data-bindable='toggler' data-toggle='fade' data-trigger='hover' href='#this'>Hover</a>
@@ -1204,6 +1431,9 @@ element&#39;s toggle event</p>
 <h1>Toggler Group</h1>
 
 <p>An extension of <code>Toggler</code> for adding, removing and toggling groups of related elements. These are predominantly used in navigation type systems. A toggler group can function either like radio buttons or check boxes.</p>
+
+<pre><code class="html">data-bindable=&quot;toggler-group&quot;
+</code></pre>
 
 <div class="sherpa-showcase sherpa-clearfix"><section class='shell'>
   <nav>
