@@ -8,21 +8,30 @@ data-bindable="toggler"
 
 ## Usage Examples
 
+<!--~ markup/toggler.html.haml -->
 ```haml
-%h5.mansfield Mansfield
-%a.one(data-bindable="toggler" href="#") Basic
-%a.two(data-bindable="toggler" href="#this" data-trigger="hover" data-toggle="fade") Hover
-%a.three(data-bindable="toggler" href="#span" data-solo="true" data-toggle="fade") Hide <span id="span">Span</span> only
-%a.four(data-bindable="toggler" href=".mansfield" data-lookup="siblings" data-toggle="fade") Hide Mansfield and link
-%a.five(data-bindable="toggler" href="#toggler" data-target=".mansfield" data-lookup="siblings" data-toggle="fade" data-bubble="true") Change url
-%a.six(data-bindable="toggler" href="#" data-activate="true") Start in active state
+%nav
+  %ul.nav.inline
+    %li#one
+      %a(data-bindable="toggler" href="#") One
+    %li#two
+      %a(data-bindable="toggler" href="#this" data-trigger="hover" data-toggle="fade") Two
+    %li#three
+      %a(data-bindable="toggler" href="#span" data-solo="true" data-toggle="fade") Three <span id="span">Span</span>
+    %li#four
+      %a.inline(data-bindable="toggler" href=".nav" data-lookup="closest" data-toggle="inline") Four
+    %li#five
+      %a(data-bindable="toggler" href="#toggler" data-target=".nav" data-lookup="closest" data-toggle="inline" data-bubble="true") Five
+    %li#six
+      %a(data-bindable="toggler" href="#" data-activate="true") Six
 ```
+<!-- end -->
 
 1. Toggles the class `active` on `click`
-- Toggles the classes `in cool` on `hover`, the `href` is merely referencing the element as it's target
-- Toggles the class `active` on `click` for only the child `<span>` and not the `<link>` element
-- Toggles the class `active` on `click` for both the `link` and the `<h2>`, using the `$.closest` method to find the target
-- Same as number four except on `click` the url will change to the `href` hash
+- Toggles the classes `fade` on `hover`, the `href` is merely referencing the element as it's target
+- Toggles the class `fade` on `click` for only the child `<span>` and not the `<link>` element
+- Toggles the class `inline` on `click` for both the `link` and `ul.nav`, using the `$.closest` method to find the target
+- Same as number four except on `click` the url will change to the `href` hash to `#toggler`
 - Toggles the class `active` on `click`, but is initialized with the `active` class on the element
 
 
@@ -90,4 +99,7 @@ Remove the toggler behavior
 
 ### Requires
 - `utensils`
+
+## Todo
+- Look at passing a context object for easier searching via `@lookup`
 

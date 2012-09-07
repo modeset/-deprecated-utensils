@@ -3,32 +3,32 @@
 describe 'Toggler', ->
 
   beforeEach ->
-    html = """
-          <section class="shell">
-             <div id="parent" data-target="#defaulter" data-solo="true">
-               <a id="defaulter">More</a>
-               <a id="overrider" href="#parent" data-toggle="in bordered" data-lookup="closest" data-trigger="hover">More</a>
-               <a id="this_hash" href="#this">More</a>
-               <a id="just_hash" href="#">More</a>
-               <a id="stnd_link" href="/some-url">More</a>
-               <a id="by_target" href="#" data-target="#parent" data-lookup="closest">More</a>
-             </div>
-             <div id="empty"></div>
-           </section>
-           """
-    @html = $(html)
-    setFixtures(@html)
-    @parent = new utensils.Toggler(@html.find('#parent'))
-    @defaulter = new utensils.Toggler(@html.find('#defaulter'))
-    @overrider = new utensils.Toggler(@html.find('#overrider'))
-    @this_hash = new utensils.Toggler(@html.find('#this_hash'))
-    @just_hash = new utensils.Toggler(@html.find('#just_hash'))
-    @stnd_link = new utensils.Toggler(@html.find('#stnd_link'))
-    @by_target = new utensils.Toggler(@html.find('#by_target'))
+    extra = """
+            <a id="stnd_link" href="/some-url">More</a>
+            <div id="empty"></div>
+            """
 
-    @$defaults = @html.find('#defaulter')
-    @$override = @html.find('#overrider')
-    @$parent = @html.find('#parent')
+    loadFixtures('toggler')
+    @html = $('#jasmine-fixtures')
+    @html.append(extra)
+
+    @nav = @html.find('.nav')
+    @one = @html.find('#one > a')
+    @two = @html.find('#two > a')
+    @three = @html.find('#three > a')
+    @four = @html.find('#four > a')
+    @five = @html.find('#five > a')
+    @six = @html.find('#six > a')
+    @empty = @html.find('#empty')
+    @link = @html.find('#stnd_link')
+
+    @defaulter = new utensils.Toggler(@one)
+    @overrider = new utensils.Toggler(@two)
+    @spanner = new utensils.Toggler(@three)
+    @closest = new utensils.Toggler(@four)
+    @bubbler = new utensils.Toggler(@five)
+    @active = new utensils.Toggler(@six)
+    @stnd_link = new utensils.Toggler(@link)
 
 
   describe 'binding', ->
@@ -50,133 +50,128 @@ describe 'Toggler', ->
       expect(@defaulter.lookup).toEqual('find')
 
     it 'overrides default options', ->
-      expect(@overrider.toggle_classes).toEqual('in bordered')
+      expect(@overrider.toggle_classes).toEqual('fade')
       expect(@overrider.trigger).toEqual('hover')
-      expect(@overrider.lookup).toEqual('closest')
+      expect(@closest.lookup).toEqual('closest')
 
     it 'sets the ability for dual toggles by default', ->
-      expect(@overrider.dual_toggle).toEqual(true)
+      expect(@closest.dual_toggle).toEqual(true)
 
-    it 'sets the ability for dual toggles by default', ->
-      expect(@overrider.dual_toggle).toEqual(true)
+    it 'does not set the ability for dual toggles if the toggler is @el', ->
+      expect(@defaulter.dual_toggle).toEqual(false)
 
     it 'does not set dual toggle when passed as an attribute', ->
-      expect(@parent.dual_toggle).toEqual(false)
+      expect(@spanner.dual_toggle).toEqual(false)
 
     it 'sets default values from a javascript class', ->
-      el = @html.find('#empty')
-      toggler = new utensils.Toggler(el, {toggle: 'show', trigger: 'hover', lookup: 'closest'})
+      toggler = new utensils.Toggler(@empty, {toggle: 'show', trigger: 'hover', lookup: 'closest'})
       expect(toggler.toggle_classes).toEqual('show')
       expect(toggler.trigger).toEqual('hover')
       expect(toggler.lookup).toEqual('closest')
-      expect(toggler.target).toEqual(el)
+      expect(toggler.target).toEqual(@empty)
 
 
   describe '#initialize', ->
     it 'activates an element on initialization', ->
-      el = @html.find('#empty')
-      toggler = new utensils.Toggler(el, {activate: 'true'})
-      expect(el).toHaveClass('active')
+      toggler = new utensils.Toggler(@empty, {activate: 'true'})
+      expect(@empty).toHaveClass('active')
 
 
   describe '#getTarget', ->
     it 'finds itself as an element when there is no href or data-target present', ->
-      expect(@defaulter.target).toEqual(@$defaults)
+      expect(@defaulter.target).toEqual(@one)
 
     it 'returns itself when there is an "#this" target attached to the href', ->
-      expect(@this_hash.target).toEqual(@html.find('#this_hash'))
+      expect(@overrider.target).toEqual(@two)
 
     it 'returns itself when there is a "#" target attached to the href', ->
-      expect(@just_hash.target).toEqual(@html.find('#just_hash'))
-
-    it 'returns itself when there is a "#" target attached to the href', ->
-      expect(@just_hash.target).toEqual(@html.find('#just_hash'))
+      expect(@active.target).toEqual(@six)
 
     it 'returns itself when there is a "normal link" target attached to the href', ->
-      expect(@stnd_link.target).toEqual(@html.find('#stnd_link'))
+      expect(@stnd_link.target).toEqual(@link)
 
     it 'finds the parent element from a selector within the href attribute', ->
-      expect(@overrider.target.html()).toEqual(@$parent.html())
+      expect(@closest.target.html()).toEqual(@nav.html())
 
     it 'finds the parent element from a "data-target" attribute', ->
-      expect(@by_target.target.html()).toEqual(@$parent.html())
+      expect(@bubbler.target.html()).toEqual(@nav.html())
 
     it 'uses $.find by default', ->
-      expect(@parent.lookup).toEqual('find')
-      expect(@parent.target.html()).toEqual(@$defaults.html())
+      expect(@spanner.lookup).toEqual('find')
+      expect(@spanner.target.html()).toEqual(@three.find('span').html())
 
     it 'uses $.closest when provided as a lookup fn', ->
-      expect(@overrider.lookup).toEqual('closest')
-      expect(@overrider.target.html()).toEqual(@$parent.html())
+      expect(@closest.lookup).toEqual('closest')
+      expect(@closest.target.html()).toEqual(@nav.html())
 
 
   describe '#toggle', ->
     it 'toggles the correct classes from a trigger', ->
       spyEvent = spyOn(@defaulter, 'toggle').andCallThrough()
-      @$defaults.click()
+      @one.click()
       expect(spyEvent).toHaveBeenCalled()
 
     it 'toggles the default classes from a call', ->
-      expect(@$defaults).not.toHaveClass('active')
+      expect(@one).not.toHaveClass('active')
       expect(@defaulter.is_active).toEqual(false)
 
       @defaulter.toggle()
-      expect(@$defaults).toHaveClass('active')
+      expect(@one).toHaveClass('active')
       expect(@defaulter.is_active).toEqual(true)
 
       @defaulter.toggle()
-      expect(@$defaults).not.toHaveClass('active')
+      expect(@one).not.toHaveClass('active')
       expect(@defaulter.is_active).toEqual(false)
 
     it 'toggles the custom classes from a call on both the element and target', ->
-      expect(@$override).not.toHaveClass('in bordered')
-      expect(@$parent).not.toHaveClass('in bordered')
-      expect(@overrider.is_active).toEqual(false)
+      expect(@four).toHaveClass('inline')
+      expect(@nav).toHaveClass('inline')
+      expect(@closest.is_active).toEqual(false)
 
-      @overrider.toggle()
-      expect(@$override).toHaveClass('in bordered')
-      expect(@$parent).toHaveClass('in bordered')
-      expect(@overrider.is_active).toEqual(true)
+      @closest.toggle()
+      expect(@four).not.toHaveClass('inline')
+      expect(@nav).not.toHaveClass('inline')
+      expect(@closest.is_active).toEqual(true)
 
-      @overrider.toggle()
-      expect(@$override).not.toHaveClass('in bordered')
-      expect(@$parent).not.toHaveClass('in bordered')
-      expect(@overrider.is_active).toEqual(false)
+      @closest.toggle()
+      expect(@four).toHaveClass('inline')
+      expect(@nav).toHaveClass('inline')
+      expect(@closest.is_active).toEqual(false)
 
     it 'toggles only the target and not the element when specified', ->
-      expect(@$defaults).not.toHaveClass('active')
-      expect(@$parent).not.toHaveClass('active')
+      expect(@three.find('span')).not.toHaveClass('fade')
+      expect(@three).not.toHaveClass('fade')
 
-      @parent.toggle()
-      expect(@$defaults).toHaveClass('active')
-      expect(@$parent).not.toHaveClass('active')
+      @spanner.toggle()
+      expect(@three.find('span')).toHaveClass('fade')
+      expect(@three).not.toHaveClass('fade')
 
-      @parent.toggle()
-      expect(@$defaults).not.toHaveClass('active')
-      expect(@$parent).not.toHaveClass('active')
+      @spanner.toggle()
+      expect(@three.find('span')).not.toHaveClass('fade')
+      expect(@three).not.toHaveClass('fade')
 
 
   describe '#activate', ->
     it 'adds classes to the element', ->
-      expect(@$defaults).not.toHaveClass('active')
+      expect(@one).not.toHaveClass('active')
       expect(@defaulter.is_active).toEqual(false)
 
       @defaulter.activate()
-      expect(@$defaults).toHaveClass('active')
+      expect(@one).toHaveClass('active')
       expect(@defaulter.is_active).toEqual(true)
 
 
   describe '#deactivate', ->
     it 'removes classes from the element', ->
-      expect(@$defaults).not.toHaveClass('active')
+      expect(@one).not.toHaveClass('active')
       expect(@defaulter.is_active).toEqual(false)
 
       @defaulter.activate()
-      expect(@$defaults).toHaveClass('active')
+      expect(@one).toHaveClass('active')
       expect(@defaulter.is_active).toEqual(true)
 
       @defaulter.deactivate()
-      expect(@$defaults).not.toHaveClass('active')
+      expect(@one).not.toHaveClass('active')
       expect(@defaulter.is_active).toEqual(false)
 
 
@@ -184,6 +179,6 @@ describe 'Toggler', ->
     it 'cleans up its own mess', ->
       spyEvent = spyOn(@defaulter, 'toggle')
       @defaulter.dispose()
-      @$defaults.click()
+      @one.click()
       expect(spyEvent).not.toHaveBeenCalled()
 
