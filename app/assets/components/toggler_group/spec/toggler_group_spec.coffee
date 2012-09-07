@@ -4,27 +4,8 @@
 describe 'Toggler Group', ->
 
   beforeEach ->
-    html = """
-          <section class="shell">
-            <nav>
-              <ul id="radios" class="nav" data-bindable="toggler-group" data-target=".radio-li">
-                <li class="radio-li"><a href="#">Radio 1</a></li>
-                <li class="radio-li"><a href="#">Radio 2</a></li>
-                <li class="radio-li"><a href="#">Radio 3</a></li>
-              </ul>
-            </nav>
-
-            <nav>
-              <ul id="checks" class="nav" data-bindable="toggler-group" data-behavior="checkbox">
-                <li><a href="#">Checkbox 1</a></li>
-                <li><a href="#">Checkbox 2</a></li>
-                <li><a href="#">Checkbox 3</a></li>
-              </ul>
-            </nav>
-           </section>
-           """
-    @html = $(html)
-    setFixtures(@html)
+    loadFixtures('toggler_group')
+    @html = $('#jasmine-fixtures')
 
     @radio$ = @html.find('#radios')
     @check$ = @html.find('#checks')

@@ -8,26 +8,27 @@ data-bindable="toggler-group"
 
 ## Usage Examples
 
+<!--~ markup/toggler_group.html.haml -->
 ```haml
-%section.shell
-  %nav
-    %ul#radios.nav(data-bindable="toggler-group" data-target=".radio-li")
-      %li.radio-li
-        %a(href="#") Radio 1
-      %li.radio-li
-        %a(href="#") Radio 2
-      %li.radio-li
-        %a(href="#") Radio 3
+%nav
+  %ul#radios.nav.inline(data-bindable="toggler-group" data-target=".radio-li")
+    %li.radio-li
+      %a(href="#") Radio 1
+    %li.radio-li
+      %a(href="#") Radio 2
+    %li.radio-li
+      %a(href="#") Radio 3
 
-  %nav
-    %ul#checks.nav(data-bindable="toggler-group" data-behavior="checkbox")
-      %li
-        %a(href="#") Checkbox 1
-      %li
-        %a(href="#") Checkbox 2
-      %li
-        %a(href="#") Checkbox 3
+%nav(style="margin-top: 2em;")
+  %ul#checks.nav.inline(data-bindable="toggler-group" data-behavior="checkbox")
+    %li
+      %a(href="#") Checkbox 1
+    %li
+      %a(href="#") Checkbox 2
+    %li
+      %a(href="#") Checkbox 3
 ```
+<!-- end -->
 
 ## Options
 
