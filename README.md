@@ -8,13 +8,10 @@ Client side component library
 
 ### Tasks
 - Look at making the sass files use abstract elements
-- Move toggler, toggler group over to markup for fixtures and dox
 - Add view layout templates
 - Turn into engine with generators
-- Create a component generator
 
 ### Needed components
-- cleanup tables
 - forms
 - Add button utilities (small, mini, large, block)
 - carets.sass (deal with this in buttons or button utils)

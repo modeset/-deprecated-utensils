@@ -355,6 +355,8 @@ base class.</p>
 
 <pre><code class="sass">.btn
   +simple-button($standard, #666)
+  &amp;.inverse
+    +simple-button-override(#333, $white)
   &amp;.info
     +simple-button-override($info, $white)
   &amp;.important
@@ -373,6 +375,8 @@ base class.</p>
 
 <pre><code class="sass">.btn
   @extend %simple-button
+.btn.inverse
+  @extend %simple-button-inverse
 .btn.info
   @extend %simple-button-info
 .btn.important
@@ -1295,30 +1299,56 @@ within your <code>config.sass</code> file or before <code>tip.sass</code> is loa
 <pre><code class="html">data-bindable=&quot;toggler&quot;
 </code></pre>
 
-<div class="sherpa-showcase sherpa-clearfix"><h5 class='mansfield'>Mansfield</h5>
-<a class='one' data-bindable='toggler' href='#'>Basic</a>
-<a class='two' data-bindable='toggler' data-toggle='fade' data-trigger='hover' href='#this'>Hover</a>
-<a class='three' data-bindable='toggler' data-solo='true' data-toggle='fade' href='#span'>Hide <span id="span">Span</span> only</a>
-<a class='four' data-bindable='toggler' data-lookup='siblings' data-toggle='fade' href='.mansfield'>Hide Mansfield and link</a>
-<a class='five' data-bindable='toggler' data-bubble='true' data-lookup='siblings' data-target='.mansfield' data-toggle='fade' href='#toggler'>Change url</a>
-<a class='six' data-activate='true' data-bindable='toggler' href='#'>Start in active state</a>
+<!--~ markup/toggler.html.haml -->
+
+<div class="sherpa-showcase sherpa-clearfix"><nav>
+  <ul class='nav inline'>
+    <li id='one'>
+      <a data-bindable='toggler' href='#'>One</a>
+    </li>
+    <li id='two'>
+      <a data-bindable='toggler' data-toggle='fade' data-trigger='hover' href='#this'>Two</a>
+    </li>
+    <li id='three'>
+      <a data-bindable='toggler' data-solo='true' data-toggle='fade' href='#span'>Three <span id="span">Span</span></a>
+    </li>
+    <li id='four'>
+      <a class='inline' data-bindable='toggler' data-lookup='closest' data-toggle='inline' href='.nav'>Four</a>
+    </li>
+    <li id='five'>
+      <a data-bindable='toggler' data-bubble='true' data-lookup='closest' data-target='.nav' data-toggle='inline' href='#toggler'>Five</a>
+    </li>
+    <li id='six'>
+      <a data-activate='true' data-bindable='toggler' href='#'>Six</a>
+    </li>
+  </ul>
+</nav>
 </div>
 
-<pre><code class="haml">%h5.mansfield Mansfield
-%a.one(data-bindable=&quot;toggler&quot; href=&quot;#&quot;) Basic
-%a.two(data-bindable=&quot;toggler&quot; href=&quot;#this&quot; data-trigger=&quot;hover&quot; data-toggle=&quot;fade&quot;) Hover
-%a.three(data-bindable=&quot;toggler&quot; href=&quot;#span&quot; data-solo=&quot;true&quot; data-toggle=&quot;fade&quot;) Hide &lt;span id=&quot;span&quot;&gt;Span&lt;/span&gt; only
-%a.four(data-bindable=&quot;toggler&quot; href=&quot;.mansfield&quot; data-lookup=&quot;siblings&quot; data-toggle=&quot;fade&quot;) Hide Mansfield and link
-%a.five(data-bindable=&quot;toggler&quot; href=&quot;#toggler&quot; data-target=&quot;.mansfield&quot; data-lookup=&quot;siblings&quot; data-toggle=&quot;fade&quot; data-bubble=&quot;true&quot;) Change url
-%a.six(data-bindable=&quot;toggler&quot; href=&quot;#&quot; data-activate=&quot;true&quot;) Start in active state
+<pre><code class="haml">%nav
+  %ul.nav.inline
+    %li#one
+      %a(data-bindable=&quot;toggler&quot; href=&quot;#&quot;) One
+    %li#two
+      %a(data-bindable=&quot;toggler&quot; href=&quot;#this&quot; data-trigger=&quot;hover&quot; data-toggle=&quot;fade&quot;) Two
+    %li#three
+      %a(data-bindable=&quot;toggler&quot; href=&quot;#span&quot; data-solo=&quot;true&quot; data-toggle=&quot;fade&quot;) Three &lt;span id=&quot;span&quot;&gt;Span&lt;/span&gt;
+    %li#four
+      %a.inline(data-bindable=&quot;toggler&quot; href=&quot;.nav&quot; data-lookup=&quot;closest&quot; data-toggle=&quot;inline&quot;) Four
+    %li#five
+      %a(data-bindable=&quot;toggler&quot; href=&quot;#toggler&quot; data-target=&quot;.nav&quot; data-lookup=&quot;closest&quot; data-toggle=&quot;inline&quot; data-bubble=&quot;true&quot;) Five
+    %li#six
+      %a(data-bindable=&quot;toggler&quot; href=&quot;#&quot; data-activate=&quot;true&quot;) Six
 </code></pre>
+
+<!-- end -->
 
 <ol>
 <li>Toggles the class <code>active</code> on <code>click</code></li>
-<li>Toggles the classes <code>in cool</code> on <code>hover</code>, the <code>href</code> is merely referencing the element as it&#39;s target</li>
-<li>Toggles the class <code>active</code> on <code>click</code> for only the child <code>&lt;span&gt;</code> and not the <code>&lt;link&gt;</code> element</li>
-<li>Toggles the class <code>active</code> on <code>click</code> for both the <code>link</code> and the <code>&lt;h2&gt;</code>, using the <code>$.closest</code> method to find the target</li>
-<li>Same as number four except on <code>click</code> the url will change to the <code>href</code> hash</li>
+<li>Toggles the classes <code>fade</code> on <code>hover</code>, the <code>href</code> is merely referencing the element as it&#39;s target</li>
+<li>Toggles the class <code>fade</code> on <code>click</code> for only the child <code>&lt;span&gt;</code> and not the <code>&lt;link&gt;</code> element</li>
+<li>Toggles the class <code>inline</code> on <code>click</code> for both the <code>link</code> and <code>ul.nav</code>, using the <code>$.closest</code> method to find the target</li>
+<li>Same as number four except on <code>click</code> the url will change to the <code>href</code> hash to <code>#toggler</code></li>
 <li>Toggles the class <code>active</code> on <code>click</code>, but is initialized with the <code>active</code> class on the element</li>
 </ol>
 
@@ -1426,6 +1456,12 @@ element&#39;s toggle event</p>
 <li><code>utensils</code></li>
 </ul>
 
+<h2>Todo</h2>
+
+<ul>
+<li>Look at passing a context object for easier searching via <code>@lookup</code></li>
+</ul>
+
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
 <h1>Toggler Group</h1>
@@ -1435,55 +1471,56 @@ element&#39;s toggle event</p>
 <pre><code class="html">data-bindable=&quot;toggler-group&quot;
 </code></pre>
 
-<div class="sherpa-showcase sherpa-clearfix"><section class='shell'>
-  <nav>
-    <ul class='nav' data-bindable='toggler-group' data-target='.radio-li' id='radios'>
-      <li class='radio-li'>
-        <a href='#'>Radio 1</a>
-      </li>
-      <li class='radio-li'>
-        <a href='#'>Radio 2</a>
-      </li>
-      <li class='radio-li'>
-        <a href='#'>Radio 3</a>
-      </li>
-    </ul>
-  </nav>
-  <nav>
-    <ul class='nav' data-behavior='checkbox' data-bindable='toggler-group' id='checks'>
-      <li>
-        <a href='#'>Checkbox 1</a>
-      </li>
-      <li>
-        <a href='#'>Checkbox 2</a>
-      </li>
-      <li>
-        <a href='#'>Checkbox 3</a>
-      </li>
-    </ul>
-  </nav>
-</section>
+<!--~ markup/toggler_group.html.haml -->
+
+<div class="sherpa-showcase sherpa-clearfix"><nav>
+  <ul class='nav inline' data-bindable='toggler-group' data-target='.radio-li' id='radios'>
+    <li class='radio-li'>
+      <a href='#'>Radio 1</a>
+    </li>
+    <li class='radio-li'>
+      <a href='#'>Radio 2</a>
+    </li>
+    <li class='radio-li'>
+      <a href='#'>Radio 3</a>
+    </li>
+  </ul>
+</nav>
+<nav style='margin-top: 2em;'>
+  <ul class='nav inline' data-behavior='checkbox' data-bindable='toggler-group' id='checks'>
+    <li>
+      <a href='#'>Checkbox 1</a>
+    </li>
+    <li>
+      <a href='#'>Checkbox 2</a>
+    </li>
+    <li>
+      <a href='#'>Checkbox 3</a>
+    </li>
+  </ul>
+</nav>
 </div>
 
-<pre><code class="haml">%section.shell
-  %nav
-    %ul#radios.nav(data-bindable=&quot;toggler-group&quot; data-target=&quot;.radio-li&quot;)
-      %li.radio-li
-        %a(href=&quot;#&quot;) Radio 1
-      %li.radio-li
-        %a(href=&quot;#&quot;) Radio 2
-      %li.radio-li
-        %a(href=&quot;#&quot;) Radio 3
+<pre><code class="haml">%nav
+  %ul#radios.nav.inline(data-bindable=&quot;toggler-group&quot; data-target=&quot;.radio-li&quot;)
+    %li.radio-li
+      %a(href=&quot;#&quot;) Radio 1
+    %li.radio-li
+      %a(href=&quot;#&quot;) Radio 2
+    %li.radio-li
+      %a(href=&quot;#&quot;) Radio 3
 
-  %nav
-    %ul#checks.nav(data-bindable=&quot;toggler-group&quot; data-behavior=&quot;checkbox&quot;)
-      %li
-        %a(href=&quot;#&quot;) Checkbox 1
-      %li
-        %a(href=&quot;#&quot;) Checkbox 2
-      %li
-        %a(href=&quot;#&quot;) Checkbox 3
+%nav(style=&quot;margin-top: 2em;&quot;)
+  %ul#checks.nav.inline(data-bindable=&quot;toggler-group&quot; data-behavior=&quot;checkbox&quot;)
+    %li
+      %a(href=&quot;#&quot;) Checkbox 1
+    %li
+      %a(href=&quot;#&quot;) Checkbox 2
+    %li
+      %a(href=&quot;#&quot;) Checkbox 3
 </code></pre>
+
+<!-- end -->
 
 <h2>Options</h2>
 
