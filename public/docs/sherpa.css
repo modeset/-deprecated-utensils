@@ -119,6 +119,9 @@
   font-size: 90%;
   padding: 1em;
 }
+.sherpa-settings > table {
+  background-color: transparent;
+}
 
 /* Section Containers */
 .sherpa-container {
@@ -147,6 +150,21 @@
   margin-bottom: 1.25em;
   padding: 2em;
   position: relative;
+}
+
+.sherpa-split-pull,
+.sherpa-split-push {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  float: left;
+  width: 48%;
+}
+.sherpa-split-pull {
+  margin-right: 1%
+}
+.sherpa-split-push {
+  margin-left: 1%
 }
 
 .sherpa-notes + .sherpa-notes {
@@ -203,6 +221,11 @@
 .sherpa-section > h5 + p,
 .sherpa-section > h6 + p {
   margin-top: 0;
+}
+
+.sherpa-section > ul li,
+.sherpa-section > ol li {
+  margin-bottom: 0.5em;
 }
 
 .sherpa-section > table {

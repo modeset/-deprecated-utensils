@@ -109,7 +109,7 @@ module Sherpa
     end
 
     def convert_to_html(block)
-      Haml::Engine.new(block).render
+      Haml::Engine.new(block).render.gsub(/^\s*/, '')
     end
 
     def carpet_bag(lines)

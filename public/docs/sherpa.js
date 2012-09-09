@@ -196,12 +196,13 @@ Sherpa.prototype.addUsageExampleToggler = function() {
   return this.el.find('.sherpa-togglable-usage-example')
 };
 
-// Cleanup some empty `p` tags..
+// Cleanup empty `p` tags being generated from the compiler (see sherpa/todo.md)..
 Sherpa.prototype.clean = function() {
-  this.usage_examples.each(function(index, el) {
-    var next_el = $(el).next()
-    if(next_el.is(':empty')) {
-      next_el.remove()
+  var ptags = $('p')
+  ptags.each(function(index, el) {
+    var $el = $(el)
+    if($el.is(':empty')) {
+      $el.remove()
     }
   })
 };
@@ -253,13 +254,15 @@ Sherpa.prototype.popNotes = function() {
   })
 };
 
-// Demos..
+// Demos
+
+// Activate the dimensionizer tool..
 Sherpa.prototype.activateDimensionizer = function(e) {
   e.preventDefault()
   var dimensionizer = new utensils.Dimensionizer()
 };
 
-// Demos using radio groups
+// Demos using radio groups..
 Sherpa.prototype.radioDemo = function(e) {
   var self = e.data.self
   var target = $(e.target)

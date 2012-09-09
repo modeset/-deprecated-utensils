@@ -29,7 +29,7 @@ task :fixtures do
   end
 end
 
-desc "Write the fixtures into the markdown file"
+desc "Write the fixtures into the markdown file usage blocks"
 task :readmes do
   manifest = Dir["./app/assets/**/*.md"]
   manifest.each do |file|
