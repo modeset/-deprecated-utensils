@@ -30,6 +30,7 @@
 <li><a href='#decal'>Decal</a></li>
 <li><a href='#detect'>Detect</a></li>
 <li><a href='#dimensionizer'>Dimensionizer</a></li>
+<li><a href='#form_controls'>Form controls</a></li>
 <li><a href='#icon_close'>Icon close</a></li>
 <li><a href='#normalize'>Normalize</a></li>
 <li><a href='#print'>Print</a></li>
@@ -109,26 +110,26 @@ elements under a <code>.button-toolbar</code> container to form a navigation sys
 
 <div class="sherpa-showcase sherpa-clearfix"><h5 style='margin-bottom:1em;'>Button Group (radio)</h5>
 <nav class='button-group' data-bindable='toggler-group' data-target='.btn'>
-  <a class='btn' href='#'>Left</a>
-  <a class='btn active' href='#'>Middle 1</a>
-  <a class='btn' href='#'>Middle 2</a>
-  <a class='btn' href='#'>Right</a>
+<a class='btn' href='#'>Left</a>
+<a class='btn active' href='#'>Middle 1</a>
+<a class='btn' href='#'>Middle 2</a>
+<a class='btn' href='#'>Right</a>
 </nav>
 <h5 style='margin-bottom:1em; margin-top:3em;'>Button Toolbar (checkbox)</h5>
 <section class='button-toolbar' data-behavior='checkbox' data-bindable='toggler-group' data-target='.btn'>
-  <nav class='button-group'>
-    <button class='btn' href='#'>1</button>
-    <button class='btn' href='#'>2</button>
-    <button class='btn' href='#'>3</button>
-  </nav>
-  <nav class='button-group'>
-    <button class='btn active' href='#'>4</button>
-  </nav>
-  <nav class='button-group'>
-    <button class='btn' href='#'>5</button>
-    <button class='btn' href='#'>6</button>
-    <button class='btn' href='#'>7</button>
-  </nav>
+<nav class='button-group'>
+<button class='btn' href='#'>1</button>
+<button class='btn' href='#'>2</button>
+<button class='btn' href='#'>3</button>
+</nav>
+<nav class='button-group'>
+<button class='btn active' href='#'>4</button>
+</nav>
+<nav class='button-group'>
+<button class='btn' href='#'>5</button>
+<button class='btn' href='#'>6</button>
+<button class='btn' href='#'>7</button>
+</nav>
 </section>
 </div>
 
@@ -208,21 +209,21 @@ warning, danger and primary.</p>
 </code></pre>
 
 <div class="sherpa-showcase sherpa-clearfix"><section class='simple-btn-demo demo' data-remove='active error disabled' data-target='.btn'>
-  <button class='btn'>Default</button>
-  <button class='btn inverse'>Inverse</button>
-  <button class='btn info'>Info</button>
-  <button class='btn important'>Important</button>
-  <button class='btn success'>Success</button>
-  <button class='btn warning'>Warning</button>
-  <button class='btn danger'>Danger</button>
-  <button class='btn primary'>Primary</button>
+<button class='btn'>Default</button>
+<button class='btn inverse'>Inverse</button>
+<button class='btn info'>Info</button>
+<button class='btn important'>Important</button>
+<button class='btn success'>Success</button>
+<button class='btn warning'>Warning</button>
+<button class='btn danger'>Danger</button>
+<button class='btn primary'>Primary</button>
 </section>
 <h5 style='margin-bottom:1em; margin-top:3em;'>Select to view states</h5>
 <nav class='radio-demo button-group' data-bindable='toggler-group' data-target='.btn'>
-  <a class='btn active' data-add='' href='#'>Normal</a>
-  <a class='btn' data-add='active' href='#'>Active</a>
-  <a class='btn' data-add='error' href='#'>Error</a>
-  <a class='btn' data-add='disabled' href='#'>Disabled</a>
+<a class='btn active' data-add='' href='#'>Normal</a>
+<a class='btn' data-add='active' href='#'>Active</a>
+<a class='btn' data-add='error' href='#'>Error</a>
+<a class='btn' data-add='disabled' href='#'>Disabled</a>
 </nav>
 </div>
 
@@ -247,10 +248,10 @@ warning, danger and primary.</p>
 <p>The simple-button class can be applied to <code>&lt;a&gt;</code>, <code>&lt;button&gt;</code> and <code>&lt;input&gt;</code> elements.</p>
 
 <div class="sherpa-showcase sherpa-clearfix"><section class='simple-btn-demo'>
-  <a class='btn' href='#'>Link</a>
-  <button class='btn' type='submit'>Button</button>
-  <input class='btn' type='button' value='Input' />
-  <input class='btn' type='submit' value='Submit' />
+<a class='btn' href='#'>Link</a>
+<button class='btn' type='submit'>Button</button>
+<input class='btn' type='button' value='Input' />
+<input class='btn' type='submit' value='Submit' />
 </section>
 </div>
 
@@ -610,6 +611,596 @@ when creating a <code>Dimensionizer</code> as the constructor&#39;s <code>data</
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
+<h1>Form Controls</h1>
+
+<p>Contain the style definitions for <code>input</code>, <code>textarea</code>, <code>select</code>, <code>radio</code>
+<code>checkbox</code>, <code>labels</code>, <code>.hints</code>, <code>button</code> elements and other common form
+controls. The styles do contain some base structure, but typically
+pairing the form controls with a form layout file is preferred.</p>
+
+<pre><code class="sass">@import utensils/components/form_controls/form-controls
+</code></pre>
+
+<h2>Structure</h2>
+
+<p>Form structures typically consist of:</p>
+
+<ul>
+<li>A top level <code>%form</code> element</li>
+<li>One or multiple <code>%fieldset</code> elements</li>
+<li>A <code>%legend</code> for each <code>%fieldset</code> describing the controls within it</li>
+<li>A <code>%div.control-group</code> containing a <code>%label</code> and <code>%div.controls</code> element</li>
+<li>The child <code>%label</code> of the <code>.control-group</code> describes the contents of
+it&#39;s <code>.controls</code> sibling</li>
+<li>The <code>%div.controls</code> element hosting the control object, plus <code>.hints</code>
+or other descriptive helpers</li>
+</ul>
+
+<!--~ markup/form-controls-structure.html.haml -->
+
+<div class="sherpa-showcase sherpa-clearfix"><form>
+<fieldset>
+<legend>I am Legend</legend>
+<div class='control-group'>
+<label for='fcs_text'>Label Name<abbr title="Required">*</abbr></label>
+<div class='controls'>
+<input id='fcs_text' placeholder='text' type='text' />
+<p class='hint'>The hint for the control element</p>
+</div>
+
+<p></div>
+</fieldset>
+</form>
+</div></p>
+
+<pre><code class="haml">%form
+  %fieldset
+    %legend I am Legend
+    .control-group
+      %label(for=&quot;fcs_text&quot;) Label Name&lt;abbr title=&quot;Required&quot;&gt;*&lt;/abbr&gt;
+      .controls
+        %input#fcs_text(type=&quot;text&quot; placeholder=&quot;text&quot;)
+        %p.hint The hint for the control element
+</code></pre>
+
+<!-- end -->
+
+<h2>Text based input controls</h2>
+
+<p>Represents the basic controls for creating forms. Contains support for all of the HTML5 types.</p>
+
+<!--~ markup/form-controls-inputs.html.haml -->
+
+<div class="sherpa-showcase sherpa-clearfix"><form class='sherpa-clearfix'>
+<fieldset class='sherpa-split-pull'>
+<legend>Common input controls</legend>
+<div class='control-group'>
+<div class='controls'>
+<input class='input-large' placeholder='text' type='text' />
+</div>
+
+<p></div></p>
+
+<div class='control-group'>
+<div class='controls'>
+<input class='input-large' placeholder='name@example.com' type='email' />
+</div>
+
+<p></div></p>
+
+<div class='control-group'>
+<div class='controls'>
+<input class='input-large' placeholder='password' type='password' />
+</div>
+
+<p></div></p>
+
+<div class='control-group'>
+<div class='controls'>
+<input class='input-large' placeholder='www.example.com' type='url' />
+</div>
+
+<p></div></p>
+
+<div class='control-group'>
+<div class='controls'>
+<input class='input-large' placeholder='303-867-5309' type='tel' />
+</div>
+
+<p></div></p>
+
+<div class='control-group'>
+<div class='controls'>
+<input class='input-large' placeholder='google' type='search' />
+</div>
+
+<p></div></p>
+
+<div class='control-group'>
+<div class='controls'>
+<input class='input-medium' placeholder='date' type='date' />
+</div>
+
+<p></div></p>
+
+<div class='control-group'>
+<div class='controls'>
+<input class='input-small' max='10' min='0' placeholder='number' type='number' />
+</div>
+
+<p></div>
+</fieldset></p>
+
+<fieldset class='sherpa-split-push'>
+<legend>Less common input controls</legend>
+<div class='control-group'>
+<div class='controls'>
+<input class='input-large' placeholder='datetime' type='datetime' />
+</div>
+</div>
+<div class='control-group'>
+<div class='controls'>
+<input class='input-large' placeholder='datetime-local' type='datetime-local' />
+</div>
+</div>
+<div class='control-group'>
+<div class='controls'>
+<input class='input-large' placeholder='time' type='time' />
+</div>
+</div>
+<div class='control-group'>
+<div class='controls'>
+<input class='input-large' placeholder='month' type='month' />
+</div>
+</div>
+<div class='control-group'>
+<div class='controls'>
+<input class='input-large' placeholder='week' type='week' />
+</div>
+</div>
+<div class='control-group'>
+<div class='controls'>
+<input class='input-medium' max='10' min='0' placeholder='range' step='.5' type='range' />
+</div>
+</div>
+<div class='control-group'>
+<div class='controls'>
+<input class='input-xsmall' type='color' value='#ff00ff' />
+</div>
+</div>
+<div class='control-group'>
+<label><abbr title="The input field's type is set to hidden">Hidden Input Field</abbr></label>
+<div class='controls'>
+<input class='input-small' placeholder='hidden' type='hidden' />
+</div>
+</div>
+</fieldset>
+
+<p></form>
+</div></p>
+
+<pre><code class="haml">%form.sherpa-clearfix
+  %fieldset.sherpa-split-pull
+    %legend Common input controls
+    .control-group
+      .controls
+        %input.input-large(type=&quot;text&quot; placeholder=&quot;text&quot;)
+    .control-group
+      .controls
+        %input.input-large(type=&quot;email&quot; placeholder=&quot;name@example.com&quot;)
+    .control-group
+      .controls
+        %input.input-large(type=&quot;password&quot; placeholder=&quot;password&quot;)
+    .control-group
+      .controls
+        %input.input-large(type=&quot;url&quot; placeholder=&quot;www.example.com&quot;)
+    .control-group
+      .controls
+        %input.input-large(type=&quot;tel&quot; placeholder=&quot;303-867-5309&quot;)
+    .control-group
+      .controls
+        %input.input-large(type=&quot;search&quot; placeholder=&quot;google&quot;)
+    .control-group
+      .controls
+        %input.input-medium(type=&quot;date&quot; placeholder=&quot;date&quot;)
+    .control-group
+      .controls
+        %input.input-small(type=&quot;number&quot; placeholder=&quot;number&quot; max=&quot;10&quot; min=&quot;0&quot;)
+
+  %fieldset.sherpa-split-push
+    %legend Less common input controls
+    .control-group
+      .controls
+        %input.input-large(type=&quot;datetime&quot; placeholder=&quot;datetime&quot;)
+    .control-group
+      .controls
+        %input.input-large(type=&quot;datetime-local&quot; placeholder=&quot;datetime-local&quot;)
+    .control-group
+      .controls
+        %input.input-large(type=&quot;time&quot; placeholder=&quot;time&quot;)
+    .control-group
+      .controls
+        %input.input-large(type=&quot;month&quot; placeholder=&quot;month&quot;)
+    .control-group
+      .controls
+        %input.input-large(type=&quot;week&quot; placeholder=&quot;week&quot;)
+    .control-group
+      .controls
+        %input.input-medium(type=&quot;range&quot; placeholder=&quot;range&quot; max=&quot;10&quot; min=&quot;0&quot; step=&quot;.5&quot;)
+    .control-group
+      .controls
+        %input.input-xsmall(type=&quot;color&quot; value=&quot;#ff00ff&quot;)
+    .control-group
+      %label &lt;abbr title=&quot;The input field&#39;s type is set to hidden&quot;&gt;Hidden Input Field&lt;/abbr&gt;
+      .controls
+        %input.input-small(type=&quot;hidden&quot; placeholder=&quot;hidden&quot;)
+</code></pre>
+
+<!-- end -->
+
+<h2>Textarea controls</h2>
+
+<p>Represents a multi-line plain-text editing control.</p>
+
+<!--~ markup/form-controls-textarea.html.haml -->
+
+<div class="sherpa-showcase sherpa-clearfix"><form>
+<fieldset>
+<legend>Textarea Controls</legend>
+<div class='control-group'>
+<div class='controls'>
+<textarea class='input-small' placeholder='Enter the textarea...' rows='8'></textarea>
+</div>
+
+<p></div>
+</fieldset>
+</form>
+</div></p>
+
+<pre><code class="haml">%form
+  %fieldset
+    %legend Textarea Controls
+    .control-group
+      .controls
+        %textarea.input-small(placeholder=&quot;Enter the textarea...&quot; rows=&quot;8&quot;)
+</code></pre>
+
+<!-- end -->
+
+<h2>Select controls</h2>
+
+<p>Represents a control that presents menu of options.</p>
+
+<!--~ markup/form-controls-select.html.haml -->
+
+<div class="sherpa-showcase sherpa-clearfix"><form>
+<fieldset>
+<legend>Select Controls</legend>
+<div class='control-group'>
+<div class='controls'>
+<select class='input-small'>
+<optgroup label='Colorado'>
+<option selected='selected' value='denver'>Denver</option>
+<option value='boulder'>Boulder</option>
+</optgroup>
+<optgroup label='California'>
+<option value='los angeles'>Los Angeles</option>
+<option value='san francisco'>San Francisco</option>
+</optgroup>
+</select>
+</div>
+
+<p></div></p>
+
+<div class='control-group'>
+<label for='fcsm_select'>Multiple Select</label>
+<div class='controls'>
+<select class='input-small' id='fcsm_select' multiple='multiple'>
+<option value='1'>One</option>
+<option selected='selected' value='2'>Two</option>
+<option value='3'>Three</option>
+<option value='4'>Four</option>
+<option value='5'>Five</option>
+</select>
+</div>
+
+<p></div>
+</fieldset>
+</form>
+</div></p>
+
+<pre><code class="haml">%form
+  %fieldset
+    %legend Select Controls
+    .control-group
+      .controls
+        %select.input-small
+          %optgroup(label=&quot;Colorado&quot;)
+            %option(selected=&quot;selected&quot; value=&quot;denver&quot;) Denver
+            %option(value=&quot;boulder&quot;) Boulder
+          %optgroup(label=&quot;California&quot;)
+            %option(value=&quot;los angeles&quot;) Los Angeles
+            %option(value=&quot;san francisco&quot;) San Francisco
+    .control-group
+      %label(for=&quot;fcsm_select&quot;) Multiple Select
+      .controls
+        %select#fcsm_select.input-small(multiple)
+          %option(value=&quot;1&quot;) One
+          %option(selected=&quot;selected&quot; value=&quot;2&quot;) Two
+          %option(value=&quot;3&quot;) Three
+          %option(value=&quot;4&quot;) Four
+          %option(value=&quot;5&quot;) Five
+</code></pre>
+
+<!-- end -->
+
+<h2>Radio &amp; Checkbox controls</h2>
+
+<p>Radio and checkboxes are for selecting options within a list. Radios are
+used for selecting a single option, while checkboxes are for selecting
+0-many options.</p>
+
+<!--~ markup/form-controls-radio-check.html.haml -->
+
+<div class="sherpa-showcase sherpa-clearfix"><form>
+<fieldset>
+<legend>Radio Controls</legend>
+<div class='control-group'>
+<label>
+<h5>Radio</h5>
+</label>
+<div class='controls'>
+<label class='radio-label' for='fc_radio1-1'>
+<input checked='checked' id='fc_radio1-1' name='fc[radios1]' type='radio' value='true'>Yes, to radio buttons</input>
+</label>
+<label class='radio-label' for='fc_radio1-2'>
+<input id='fc_radio1-2' name='fc[radios1]' type='radio' value='false'>No, to radio buttons</input>
+</label>
+</div>
+
+<p></div></p>
+
+<div class='control-group'>
+<label>
+<h5>Inline Radio</h5>
+</label>
+<div class='controls'>
+<label class='radio-label inline' for='fc_radio2-1'>
+<input checked='checked' id='fc_radio2-1' name='fc[radios2]' type='radio' value='true'>Yes, to inline radios</input>
+</label>
+<label class='radio-label inline' for='fc_radio2-2'>
+<input id='fc_radio2-2' name='fc[radios2]' type='radio' value='false'>No, to inline radios</input>
+</label>
+</div>
+
+<p></div>
+<legend>Checkbox Controls</legend></p>
+
+<div class='control-group'>
+<label>
+<h5>Checkbox</h5>
+</label>
+<div class='controls'>
+<label class='checkbox-label' for='fc_check1-1'>
+<input id='fc_check1-1' type='checkbox' value='0'>Check your premises</input>
+</label>
+<label class='checkbox-label' for='fc_check1-2'>
+<input checked='checked' id='fc_check1-2' type='checkbox' value='1'>Premises, checked.</input>
+</label>
+</div>
+
+<p></div></p>
+
+<div class='control-group'>
+<label>
+<h5>Inline Checkbox</h5>
+</label>
+<div class='controls'>
+<label class='checkbox-label inline' for='fc_check2-1'>
+<input id='fc_check2-1' type='checkbox' value='0'>Check your inline premises</input>
+</label>
+<label class='checkbox-label inline' for='fc_check2-2'>
+<input checked='checked' id='fc_check2-2' type='checkbox' value='1'>Premises inline, checked.</input>
+</label>
+</div>
+
+<p></div>
+</fieldset>
+</form>
+</div></p>
+
+<pre><code class="haml">%form
+  %fieldset
+    %legend Radio Controls
+    .control-group
+      %label
+        %h5 Radio
+      .controls
+        %label.radio-label(for=&quot;fc_radio1-1&quot;)
+          %input#fc_radio1-1(type=&quot;radio&quot; name=&quot;fc[radios1]&quot; value=&quot;true&quot; checked) Yes, to radio buttons
+        %label.radio-label(for=&quot;fc_radio1-2&quot;)
+          %input#fc_radio1-2(type=&quot;radio&quot; name=&quot;fc[radios1]&quot; value=&quot;false&quot;) No, to radio buttons
+
+    .control-group
+      %label
+        %h5 Inline Radio
+      .controls
+        %label.radio-label.inline(for=&quot;fc_radio2-1&quot;)
+          %input#fc_radio2-1(type=&quot;radio&quot; name=&quot;fc[radios2]&quot; value=&quot;true&quot; checked) Yes, to inline radios
+        %label.radio-label.inline(for=&quot;fc_radio2-2&quot;)
+          %input#fc_radio2-2(type=&quot;radio&quot; name=&quot;fc[radios2]&quot; value=&quot;false&quot;) No, to inline radios
+
+    %legend Checkbox Controls
+    .control-group
+      %label
+        %h5 Checkbox
+      .controls
+        %label.checkbox-label(for=&quot;fc_check1-1&quot;)
+          %input#fc_check1-1(type=&quot;checkbox&quot; value=&quot;0&quot;) Check your premises
+        %label.checkbox-label(for=&quot;fc_check1-2&quot;)
+          %input#fc_check1-2(type=&quot;checkbox&quot; value=&quot;1&quot; checked) Premises, checked.
+
+    .control-group
+      %label
+        %h5 Inline Checkbox
+      .controls
+        %label.checkbox-label.inline(for=&quot;fc_check2-1&quot;)
+          %input#fc_check2-1(type=&quot;checkbox&quot; value=&quot;0&quot;) Check your inline premises
+        %label.checkbox-label.inline(for=&quot;fc_check2-2&quot;)
+          %input#fc_check2-2(type=&quot;checkbox&quot; value=&quot;1&quot; checked) Premises inline, checked.
+</code></pre>
+
+<!-- end -->
+
+<h2>Description elements</h2>
+
+<p>Description elements describe or act as helpers around their controls.</p>
+
+<!--~ markup/form-controls-description.html.haml -->
+
+<div class="sherpa-showcase sherpa-clearfix"><form>
+<fieldset>
+<legend>Description Elements</legend>
+<div class='control-group'>
+<label for='fcd_text1'>Label Name<abbr title="Required">*</abbr></label>
+<div class='controls'>
+<input id='fcd_text1' placeholder='text' type='text' />
+<p class='hint'>The hint for the control element</p>
+</div>
+
+<p></div></p>
+
+<div class='control-group'>
+<label for='fcd_text2'>Label Name<abbr title="Required">*</abbr></label>
+<div class='controls'>
+<input id='fcd_text2' placeholder='text' type='text' />
+<p class='hint inline'>The inline hint for the control element</p>
+</div>
+
+<p></div>
+</fieldset>
+</form>
+</div></p>
+
+<pre><code class="haml">%form
+  %fieldset
+    %legend Description Elements
+
+    .control-group
+      %label(for=&quot;fcd_text1&quot;) Label Name&lt;abbr title=&quot;Required&quot;&gt;*&lt;/abbr&gt;
+      .controls
+        %input#fcd_text1(type=&quot;text&quot; placeholder=&quot;text&quot;)
+        %p.hint The hint for the control element
+
+    .control-group
+      %label(for=&quot;fcd_text2&quot;) Label Name&lt;abbr title=&quot;Required&quot;&gt;*&lt;/abbr&gt;
+      .controls
+        %input#fcd_text2(type=&quot;text&quot; placeholder=&quot;text&quot;)
+        %p.hint.inline The inline hint for the control element
+</code></pre>
+
+<!-- end -->
+
+<h3>Usage</h3>
+
+<table><thead>
+<tr>
+<th>Element</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>%legend</code></td>
+<td>Represents a caption for the content of its parent <code>fieldset</code></td>
+</tr>
+<tr>
+<td><code>%label</code></td>
+<td>Associated with a control by the <code>for</code> attribute or by placing the control element inside the <code>%label</code></td>
+</tr>
+<tr>
+<td><code>%abbr</code></td>
+<td>Typically used within a <code>%label</code> element to denote a required control for the user</td>
+</tr>
+<tr>
+<td><code>.hint</code></td>
+<td>The block level element which appears below the control. It can describe actions needed for the user</td>
+</tr>
+<tr>
+<td><code>.hint.inline</code></td>
+<td>Allows the hint to appear directly to the right of the control element</td>
+</tr>
+</tbody></table>
+
+<h2>Uneditable controls</h2>
+
+<p>Represents <code>span</code> elements disguised as <code>inputs</code>.</p>
+
+<!--~ markup/form-controls-uneditable.html.haml -->
+
+<div class="sherpa-showcase sherpa-clearfix"><form>
+<fieldset>
+<legend>Uneditable Controls</legend>
+<div class='control-group'>
+<label for='fcu_text'>Uneditable field<abbr title="Fill entire form first">!</abbr></label>
+<div class='controls'>
+<span class='uneditable-input input-small'>Can't touch this!</span>
+<p class='hint inline'>Hurry up!</p>
+</div>
+
+<p></div>
+</fieldset>
+</form>
+</div></p>
+
+<pre><code class="haml">%form
+  %fieldset
+    %legend Uneditable Controls
+    .control-group
+      %label(for=&quot;fcu_text&quot;) Uneditable field&lt;abbr title=&quot;Fill entire form first&quot;&gt;!&lt;/abbr&gt;
+      .controls
+        %span.uneditable-input.input-small Can&#39;t touch this!
+        %p.hint.inline Hurry up!
+</code></pre>
+
+<!-- end -->
+
+<h2>Sizing helpers</h2>
+
+<p>By default, form controls typically do not have a <code>width</code> value
+out of the box. There are some convenience helper classes for settings
+this directly on a control. However, it&#39;s best practice to set <code>width</code>
+sizing within a form layout template.</p>
+
+<table><thead>
+<tr>
+<th>Class</th>
+<th>Size</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>input-xsmall</code></td>
+<td><input class="input-xsmall" type="text" placeholder="12.5%" /></td>
+</tr>
+<tr>
+<td><code>input-small</code></td>
+<td><input class="input-small" type="text" placeholder="25%" /></td>
+</tr>
+<tr>
+<td><code>input-medium</code></td>
+<td><input class="input-medium" type="text" placeholder="50%" /></td>
+</tr>
+<tr>
+<td><code>input-large</code></td>
+<td><input class="input-large" type="text" placeholder="75%" /></td>
+</tr>
+<tr>
+<td><code>input-xlarge</code></td>
+<td><input class="input-xlarge" type="text" placeholder="100%" /></td>
+</tr>
+</tbody></table>
+
+<p></section><section class="sherpa-section sherpa-clearfix"></p>
+
 <h1>Icon Close</h1>
 
 <p>Use the close icon to dismiss modals, notifications and other elements.</p>
@@ -620,11 +1211,11 @@ when creating a <code>Dimensionizer</code> as the constructor&#39;s <code>data</
 <!--~ markup/close.html.haml -->
 
 <div class="sherpa-showcase sherpa-clearfix"><div class='well' style='background-color:#CEE6F6; border-color:#78B9E6;'>
-  <a class='close' href='#'>&times;</a>
+<a class='close' href='#'>&times;</a>
 </div>
 
 <div class='well' style='background-color:#333; border-color:#000;'>
-  <a class='close alt' href='#'>&times;</a>
+<a class='close alt' href='#'>&times;</a>
 </div>
 
 <p></div></p>
@@ -741,31 +1332,31 @@ can be used for simple navigation as well.</p>
 <!--~ markup/scaffold-nav.html.haml -->
 
 <div class="sherpa-showcase sherpa-clearfix"><nav>
-  <ul class='nav' data-bindable='toggler-group'>
-    <li>
-      <a href='#'>Block Link 1</a>
-    </li>
-    <li class='active'>
-      <a href='#'>Block Link 2</a>
-    </li>
-    <li>
-      <a href='#'>Block Link 3</a>
-    </li>
-  </ul>
+<ul class='nav' data-bindable='toggler-group'>
+<li>
+<a href='#'>Block Link 1</a>
+</li>
+<li class='active'>
+<a href='#'>Block Link 2</a>
+</li>
+<li>
+<a href='#'>Block Link 3</a>
+</li>
+</ul>
 </nav>
 <br />
 <nav>
-  <ul class='nav inline' data-bindable='toggler-group'>
-    <li>
-      <a href='#'>Inline Link 1</a>
-    </li>
-    <li class='active'>
-      <a href='#'>Inline Link 2</a>
-    </li>
-    <li>
-      <a href='#'>Inline Link 3</a>
-    </li>
-  </ul>
+<ul class='nav inline' data-bindable='toggler-group'>
+<li>
+<a href='#'>Inline Link 1</a>
+</li>
+<li class='active'>
+<a href='#'>Inline Link 2</a>
+</li>
+<li>
+<a href='#'>Inline Link 3</a>
+</li>
+</ul>
 </nav>
 </div>
 
@@ -839,56 +1430,56 @@ By combining any of the following classes, the table can be given a different lo
 <!--~ markup/table.html.haml -->
 
 <div class="sherpa-showcase sherpa-clearfix"><table class='demo' data-target='this'><caption>Table Caption</caption><thead>
-    <tr>
-      <th>
-        <a href='#'>#</a>
-      </th>
-      <th>Table Header</th>
-      <th>
-        <a href='#'>Table Header Link</a>
-      </th>
-      <th>Table Header</th>
-    </tr>
-  </thead>
-  <tfoot>
-    <tr>
-      <td colspan='4'>Set the <code>colspan</code> attribute to span the width of the table for footers.</td>
-    </tr>
-  </tfoot>
-  <tbody>
-    <tr>
-      <td>1</td>
-      <td>Table Data</td>
-      <td>One</td>
-      <td>Three</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>
-        <a href='#'>Click me!</a>
-      </td>
-      <td>Two</td>
-      <td>Two</td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td>
-        <a href='#'>Click me!</a>
-      </td>
-      <td>Three</td>
-      <td>One</td>
-    </tr>
-  </tbody>
+<tr>
+<th>
+<a href='#'>#</a>
+</th>
+<th>Table Header</th>
+<th>
+<a href='#'>Table Header Link</a>
+</th>
+<th>Table Header</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td colspan='4'>Set the <code>colspan</code> attribute to span the width of the table for footers.</td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td>1</td>
+<td>Table Data</td>
+<td>One</td>
+<td>Three</td>
+</tr>
+<tr>
+<td>2</td>
+<td>
+<a href='#'>Click me!</a>
+</td>
+<td>Two</td>
+<td>Two</td>
+</tr>
+<tr>
+<td>3</td>
+<td>
+<a href='#'>Click me!</a>
+</td>
+<td>Three</td>
+<td>One</td>
+</tr>
+</tbody>
 </table>
 <h5 style='margin-bottom:1em; margin-top:3em;'>Select to toggle table classes</h5>
 <nav class='check-demo button-group' data-behavior='checkbox' data-bindable='toggler-group' data-target='.btn'>
-  <a class='btn' data-toggle='table-box' href='#'>Box</a>
-  <a class='btn' data-toggle='table-vborder' href='#'>Vertical Border</a>
-  <a class='btn' data-toggle='table-condensed' href='#'>Condensed</a>
-  <a class='btn' data-toggle='table-banded' href='#'>Banded</a>
-  <a class='btn' data-toggle='table-hover' href='#'>Hover</a>
-  <a class='btn' data-toggle='table-thead' href='#'>Header</a>
-  <a class='btn' data-toggle='table-tfoot' href='#'>Footer</a>
+<a class='btn' data-toggle='table-box' href='#'>Box</a>
+<a class='btn' data-toggle='table-vborder' href='#'>Vertical Border</a>
+<a class='btn' data-toggle='table-condensed' href='#'>Condensed</a>
+<a class='btn' data-toggle='table-banded' href='#'>Banded</a>
+<a class='btn' data-toggle='table-hover' href='#'>Hover</a>
+<a class='btn' data-toggle='table-thead' href='#'>Header</a>
+<a class='btn' data-toggle='table-tfoot' href='#'>Footer</a>
 </nav>
 </div>
 
@@ -1064,23 +1655,23 @@ trigger. <code>Tip</code> is inspired by
 <!--~ markup/tip.html.haml -->
 
 <div class="sherpa-showcase sherpa-clearfix"><nav>
-  <ul class='nav inline'>
-    <li>
-      <a data-bindable='tip' data-delay='100' data-target='.sherpa-wrapper' href='#' id='north' title='The Northern Tip'>Northern Tip</a>
-    </li>
-    <li>
-      <a data-bindable='tip' data-delay='1000,2000' data-placement='south' href='#' id='south' title='The Southern Tip'>Southern Tip</a>
-    </li>
-    <li>
-      <a data-bindable='tip' data-placement='east' href='#' id='east' title='The Eastern Tip'>Eastern Tip</a>
-    </li>
-    <li>
-      <a data-bindable='tip' data-placement='west' href='#' id='west' title='The Western Tip'>Western Tip</a>
-    </li>
-    <li>
-      <a data-bindable='tip' data-placement='south' data-trigger='click' href='#' id='image' title="&lt;img src='http://placehold.it/350x150'/&gt;">Image Tip (click)</a>
-    </li>
-  </ul>
+<ul class='nav inline'>
+<li>
+<a data-bindable='tip' data-delay='100' data-target='.sherpa-wrapper' href='#' id='north' title='The Northern Tip'>Northern Tip</a>
+</li>
+<li>
+<a data-bindable='tip' data-delay='1000,2000' data-placement='south' href='#' id='south' title='The Southern Tip'>Southern Tip</a>
+</li>
+<li>
+<a data-bindable='tip' data-placement='east' href='#' id='east' title='The Eastern Tip'>Eastern Tip</a>
+</li>
+<li>
+<a data-bindable='tip' data-placement='west' href='#' id='west' title='The Western Tip'>Western Tip</a>
+</li>
+<li>
+<a data-bindable='tip' data-placement='south' data-trigger='click' href='#' id='image' title="&lt;img src='http://placehold.it/350x150'/&gt;">Image Tip (click)</a>
+</li>
+</ul>
 </nav>
 </div>
 
@@ -1302,26 +1893,26 @@ within your <code>config.sass</code> file or before <code>tip.sass</code> is loa
 <!--~ markup/toggler.html.haml -->
 
 <div class="sherpa-showcase sherpa-clearfix"><nav>
-  <ul class='nav inline'>
-    <li id='one'>
-      <a data-bindable='toggler' href='#'>One</a>
-    </li>
-    <li id='two'>
-      <a data-bindable='toggler' data-toggle='fade' data-trigger='hover' href='#this'>Two</a>
-    </li>
-    <li id='three'>
-      <a data-bindable='toggler' data-solo='true' data-toggle='fade' href='#span'>Three <span id="span">Span</span></a>
-    </li>
-    <li id='four'>
-      <a class='inline' data-bindable='toggler' data-lookup='closest' data-toggle='inline' href='.nav'>Four</a>
-    </li>
-    <li id='five'>
-      <a data-bindable='toggler' data-bubble='true' data-lookup='closest' data-target='.nav' data-toggle='inline' href='#toggler'>Five</a>
-    </li>
-    <li id='six'>
-      <a data-activate='true' data-bindable='toggler' href='#'>Six</a>
-    </li>
-  </ul>
+<ul class='nav inline'>
+<li id='one'>
+<a data-bindable='toggler' href='#'>One</a>
+</li>
+<li id='two'>
+<a data-bindable='toggler' data-toggle='fade' data-trigger='hover' href='#this'>Two</a>
+</li>
+<li id='three'>
+<a data-bindable='toggler' data-solo='true' data-toggle='fade' href='#span'>Three <span id="span">Span</span></a>
+</li>
+<li id='four'>
+<a class='inline' data-bindable='toggler' data-lookup='closest' data-toggle='inline' href='.nav'>Four</a>
+</li>
+<li id='five'>
+<a data-bindable='toggler' data-bubble='true' data-lookup='closest' data-target='.nav' data-toggle='inline' href='#toggler'>Five</a>
+</li>
+<li id='six'>
+<a data-activate='true' data-bindable='toggler' href='#'>Six</a>
+</li>
+</ul>
 </nav>
 </div>
 
@@ -1474,30 +2065,30 @@ element&#39;s toggle event</p>
 <!--~ markup/toggler_group.html.haml -->
 
 <div class="sherpa-showcase sherpa-clearfix"><nav>
-  <ul class='nav inline' data-bindable='toggler-group' data-target='.radio-li' id='radios'>
-    <li class='radio-li'>
-      <a href='#'>Radio 1</a>
-    </li>
-    <li class='radio-li'>
-      <a href='#'>Radio 2</a>
-    </li>
-    <li class='radio-li'>
-      <a href='#'>Radio 3</a>
-    </li>
-  </ul>
+<ul class='nav inline' data-bindable='toggler-group' data-target='.radio-li' id='radios'>
+<li class='radio-li'>
+<a href='#'>Radio 1</a>
+</li>
+<li class='radio-li'>
+<a href='#'>Radio 2</a>
+</li>
+<li class='radio-li'>
+<a href='#'>Radio 3</a>
+</li>
+</ul>
 </nav>
 <nav style='margin-top: 2em;'>
-  <ul class='nav inline' data-behavior='checkbox' data-bindable='toggler-group' id='checks'>
-    <li>
-      <a href='#'>Checkbox 1</a>
-    </li>
-    <li>
-      <a href='#'>Checkbox 2</a>
-    </li>
-    <li>
-      <a href='#'>Checkbox 3</a>
-    </li>
-  </ul>
+<ul class='nav inline' data-behavior='checkbox' data-bindable='toggler-group' id='checks'>
+<li>
+<a href='#'>Checkbox 1</a>
+</li>
+<li>
+<a href='#'>Checkbox 2</a>
+</li>
+<li>
+<a href='#'>Checkbox 3</a>
+</li>
+</ul>
 </nav>
 </div>
 
@@ -1830,31 +2421,31 @@ within your <code>config.sass</code> file or before <code>transition.sass</code>
 <!--~ markup/typography-inline.html.haml -->
 
 <div class="sherpa-showcase sherpa-clearfix"><section style='width:45%; float:left; margin-right: 5%;'>
-  <h4>Inline elements examples</h4>
-  <br />
-  <p>
-    Yeah, well, <em>listen</em>. You <kbd>ought</kbd> to <strong>ditch</strong> the <strong><em>two</em></strong>
-    <a href="http://modeset.com/">geeks</a> you're in the <dfn title="motorized vehicle">car</dfn> with now and get
-    <sub>in with</sub> us. But <samp>that's</samp> <code>alright</code>, <mark>we'll worry about</mark> that <time>later</time>.
-    I will <small>see you</small> there. All right<sup>™</sup>? <del>Man</del>, <ins>I love</ins> those
-    <abbr title="Hotties">redheads</abbr>.
-  </p>
+<h4>Inline elements examples</h4>
+<br />
+<p>
+Yeah, well, <em>listen</em>. You <kbd>ought</kbd> to <strong>ditch</strong> the <strong><em>two</em></strong>
+<a href="http://modeset.com/">geeks</a> you're in the <dfn title="motorized vehicle">car</dfn> with now and get
+<sub>in with</sub> us. But <samp>that's</samp> <code>alright</code>, <mark>we'll worry about</mark> that <time>later</time>.
+I will <small>see you</small> there. All right<sup>™</sup>? <del>Man</del>, <ins>I love</ins> those
+<abbr title="Hotties">redheads</abbr>.
+</p>
 </section>
 <section style='width:45%; float:left;'>
-  <h4>Address examples</h4>
-  <br />
-  <address>
-    <strong>Mr. Address Tag</strong>
-    <br />
-    1600 Pennsylvania Ave NW
-    <br />
-    Washington D.C. DC 20500
-    <br />
-    <br />
-    <strong>Email:</strong>
-    <br />
-    <a href="#">president@whitehouse.gov</a>
-  </address>
+<h4>Address examples</h4>
+<br />
+<address>
+<strong>Mr. Address Tag</strong>
+<br />
+1600 Pennsylvania Ave NW
+<br />
+Washington D.C. DC 20500
+<br />
+<br />
+<strong>Email:</strong>
+<br />
+<a href="#">president@whitehouse.gov</a>
+</address>
 </section>
 </div>
 
@@ -1912,10 +2503,10 @@ git push</pre>
 <!--~ markup/typography-blockquote.html.haml -->
 
 <div class="sherpa-showcase sherpa-clearfix"><blockquote>
-  <p>
-    &#8220;Let me tell you what Melba Toast is packin' right here, all right. We got 4:11 Positrac outback, 750 double pumper, Edelbrock intake, bored over 30, 11 to 1 pop-up pistons, turbo-jet 390 horsepower. We're talkin' some f***in' muscle.&#8221;
-    <small>David Wooderson, <cite title="link to source">Dazed &amp; Confused</cite></small>
-  </p>
+<p>
+&#8220;Let me tell you what Melba Toast is packin' right here, all right. We got 4:11 Positrac outback, 750 double pumper, Edelbrock intake, bored over 30, 11 to 1 pop-up pistons, turbo-jet 390 horsepower. We're talkin' some f***in' muscle.&#8221;
+<small>David Wooderson, <cite title="link to source">Dazed &amp; Confused</cite></small>
+</p>
 </blockquote>
 </div>
 
@@ -1958,76 +2549,76 @@ git push</pre>
 <!--~ markup/typography-lists.html.haml -->
 
 <div class="sherpa-showcase sherpa-clearfix"><section style='width:25%; float:left; margin-right: 5%;'>
-  <p>
-    <strong>Unordered list:</strong>
-  </p>
-  <ul>
-    <li>Unordered list</li>
-    <li>Unordered list</li>
-    <li>
-      <ul>
-        <li>Nested unordered list</li>
-        <li>Nested unordered list</li>
-        <li>Nested unordered list</li>
-      </ul>
-    </li>
-    <li>Unordered list</li>
-    <li>
-      <ol>
-        <li>Nested ordered list</li>
-        <li>Nested ordered list</li>
-        <li>Nested ordered list</li>
-      </ol>
-    </li>
-  </ul>
+<p>
+<strong>Unordered list:</strong>
+</p>
+<ul>
+<li>Unordered list</li>
+<li>Unordered list</li>
+<li>
+<ul>
+<li>Nested unordered list</li>
+<li>Nested unordered list</li>
+<li>Nested unordered list</li>
+</ul>
+</li>
+<li>Unordered list</li>
+<li>
+<ol>
+<li>Nested ordered list</li>
+<li>Nested ordered list</li>
+<li>Nested ordered list</li>
+</ol>
+</li>
+</ul>
 </section>
 <section style='width:25%; float:left; margin-right: 5%;'>
-  <p>
-    <strong>Ordered list:</strong>
-  </p>
-  <ol>
-    <li>Ordered list</li>
-    <li>Ordered list</li>
-    <li>
-      <ol>
-        <li>Nested ordered list</li>
-        <li>Nested ordered list</li>
-        <li>Nested ordered list</li>
-      </ol>
-    </li>
-    <li>Ordered list</li>
-    <li>
-      <ul>
-        <li>Nested unordered list</li>
-        <li>Nested unordered list</li>
-        <li>Nested unordered list</li>
-      </ul>
-    </li>
-  </ol>
+<p>
+<strong>Ordered list:</strong>
+</p>
+<ol>
+<li>Ordered list</li>
+<li>Ordered list</li>
+<li>
+<ol>
+<li>Nested ordered list</li>
+<li>Nested ordered list</li>
+<li>Nested ordered list</li>
+</ol>
+</li>
+<li>Ordered list</li>
+<li>
+<ul>
+<li>Nested unordered list</li>
+<li>Nested unordered list</li>
+<li>Nested unordered list</li>
+</ul>
+</li>
+</ol>
 </section>
 <section style='width:25%; float:left;'>
-  <p>
-    <strong>Unstyled list:</strong>
-  </p>
-  <ul class='unstyled'>
-    <li>Unordered list</li>
-    <li>Unordered list</li>
-    <li>
-      <ul>
-        <li>Nested unordered list</li>
-        <li>Nested unordered list</li>
-        <li>Nested unordered list</li>
-      </ul>
-    </li>
-    <li>Unordered list</li>
-    <li>
-      <ol>
-        <li>Nested ordered list</li>
-        <li>Nested ordered list</li>
-        <li>Nested ordered list</li>
-      </ol>
-    </li>
-  </ul>
+<p>
+<strong>Unstyled list:</strong>
+</p>
+<ul class='unstyled'>
+<li>Unordered list</li>
+<li>Unordered list</li>
+<li>
+<ul>
+<li>Nested unordered list</li>
+<li>Nested unordered list</li>
+<li>Nested unordered list</li>
+</ul>
+</li>
+<li>Unordered list</li>
+<li>
+<ol>
+<li>Nested ordered list</li>
+<li>Nested ordered list</li>
+<li>Nested ordered list</li>
+</ol>
+</li>
+</ul>
 </section>
 </div>
 
@@ -2095,30 +2686,30 @@ git push</pre>
 <!--~ markup/typography-definition.html.haml -->
 
 <div class="sherpa-showcase sherpa-clearfix"><section style='width:25%; float:left; margin-right: 5%;'>
-  <p>
-    <strong>Definition list:</strong>
-  </p>
-  <dl>
-    <dt>Definition Term</dt>
-    <dd>Definition Description Lorem ipsum dolor sit amet.</dd>
-    <dt>Definition Term</dt>
-    <dd>Definition Description Lorem ipsum dolor sit amet.</dd>
-    <dt>Definition Term</dt>
-    <dd>Definition Description Lorem ipsum dolor sit amet.</dd>
-  </dl>
+<p>
+<strong>Definition list:</strong>
+</p>
+<dl>
+<dt>Definition Term</dt>
+<dd>Definition Description Lorem ipsum dolor sit amet.</dd>
+<dt>Definition Term</dt>
+<dd>Definition Description Lorem ipsum dolor sit amet.</dd>
+<dt>Definition Term</dt>
+<dd>Definition Description Lorem ipsum dolor sit amet.</dd>
+</dl>
 </section>
 <section style='width:60%; float:left;'>
-  <p>
-    <strong>Horizontal Definition list:</strong>
-  </p>
-  <dl class='dl-horizontal'>
-    <dt>Definition Term</dt>
-    <dd>Definition Description Lorem ipsum dolor sit amet.</dd>
-    <dt>Definition Term</dt>
-    <dd>Definition Description Lorem ipsum dolor sit amet.</dd>
-    <dt>Definition Term</dt>
-    <dd>Definition Description Lorem ipsum dolor sit amet.</dd>
-  </dl>
+<p>
+<strong>Horizontal Definition list:</strong>
+</p>
+<dl class='dl-horizontal'>
+<dt>Definition Term</dt>
+<dd>Definition Description Lorem ipsum dolor sit amet.</dd>
+<dt>Definition Term</dt>
+<dd>Definition Description Lorem ipsum dolor sit amet.</dd>
+<dt>Definition Term</dt>
+<dd>Definition Description Lorem ipsum dolor sit amet.</dd>
+</dl>
 </section>
 </div>
 

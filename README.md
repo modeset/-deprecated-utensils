@@ -13,6 +13,7 @@ Client side component library
 
 ### Needed components
 - forms
+- utensils should be singular for the namespace
 - Add button utilities (small, mini, large, block)
 - carets.sass (deal with this in buttons or button utils)
 - paddles.sass
@@ -30,6 +31,6 @@ Client side component library
 - modals.sass *
 - carousels.sass *
 - navbars.sass *
-- layouts/upgrades
 - fishnet
+- layouts/upgrades
 
