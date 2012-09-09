@@ -1,0 +1,151 @@
+
+// TODO:
+// - Add search
+// - Look at @content for placeholder
+// - Buttons (button, file, image, reset, submit)
+// - Add uneditable textarea?
+// - Content editable (own component?)
+// - States (disabled, statuses)
+// - How to showcase states?
+// - Move container setting to normalize?
+// - Abstract settings to !defaults
+
+// Base container settings
+fieldset
+  border: 0
+
+// TODO: Make sure to clearfix control groups in form-horizontal
+.control-group
+  margin-bottom: 1em
+  &:last-child
+    margin-bottom: 0
+
+\:-moz-placeholder
+  +form-placeholder($placeholder)
+
+\::-webkit-input-placeholder
+  +form-placeholder($placeholder)
+
+// Description items
+form abbr[title]
+  border: none
+  margin-left: 0.25em
+
+form hr
+  border-top-color: $component-border
+
+legend
+  display: block
+  border-bottom: 1px solid $component-border
+  color: $body-color
+  font-size: 1.25em
+  padding-bottom: 0.25em
+  width: 100%
+
+legend + .control-group
+  margin-top: 1.5em
+  -webkit-margin-top-collapse: separate
+
+.control-group + legend
+  margin-top: 1.5em
+
+
+label
+  display: block
+  font-size: 0.85em
+  margin-bottom: 0.3em
+
+.hint
+  display: block
+  color: lighten($body-color, 20%)
+  margin-top: 0.25em
+  margin-bottom: 0.25em
+
+.hint.inline
+  +inline-block
+  padding-left: 1em
+
+// Text input controls
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="url"],
+input[type="tel"],
+input[type="search"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="time"],
+input[type="month"],
+input[type="week"],
+input[type="number"],
+input[type="color"],
+textarea,
+.uneditable-input
+  +inline-block
+  +box-sizing(border-box)
+  +box-shadow($input-inset-shadow)
+  +font-size($base-font-size)
+  background-color: $white
+  border: 1px solid $component-border
+  border-radius: $radii
+  color: $body-color
+  padding: 0.4em
+  &:focus
+    background-color: $off-white
+
+input[type="color"]
+  +box-shadow(none)
+  border-radius: 0
+  padding: 0 0.2em
+  cursor: pointer
+
+.uneditable-input
+  background-color: $off-white
+  cursor: not-allowed
+
+textarea
+  vertical-align: top
+
+// Select controls
+select
+  +box-sizing(border-box)
+  +font-size($base-font-size)
+  +inline-block
+  background-color: $white
+  border: 1px solid $component-border
+  color: $body-color
+  height: 28px
+
+select[multiple],
+select[size]
+  height: auto
+
+// Radio and Checkboxes
+.checkbox-label,
+.radio-label
+  +font-size($base-font-size)
+  line-height: 1.5em
+
+.checkbox-label.inline,
+.radio-label.inline
+  +inline-block
+  margin-right: 1em
+
+input[type="checkbox"],
+input[type="radio"]
+  margin-right: 0.3em
+  cursor: pointer
+
+// Convenience classes for sizing
+.input-xsmall
+  width: 12.5%
+.input-small
+  width: 25%
+.input-medium
+  width: 50%
+.input-large
+  width: 75%
+.input-xlarge
+  width: 100%
+
