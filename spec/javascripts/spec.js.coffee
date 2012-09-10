@@ -1,7 +1,7 @@
 #= require jquery
 
+#= require utensil/spec
 #= require bindable/spec
-#= require utensils/spec
 #= require detect/spec
 #= require toggler/spec
 #= require toggler_group/spec

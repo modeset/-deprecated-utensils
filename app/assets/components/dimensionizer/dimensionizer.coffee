@@ -1,7 +1,7 @@
 
-#= require utensils
+#= require utensil
 #= require detect
-class utensils.Dimensionizer
+class utensil.Dimensionizer
   constructor: (data) ->
     @data = if data then data else {}
     @options()
@@ -29,8 +29,8 @@ class utensils.Dimensionizer
     @dimensionizer.html(@window.width() + 'px')
 
   remove: =>
-    if @dimensionizer && utensils.Detect.hasTransition
-      @dimensionizer.one(utensils.Detect.transition.end, => @dispose())
+    if @dimensionizer && utensil.Detect.hasTransition
+      @dimensionizer.one(utensil.Detect.transition.end, => @dispose())
       @dimensionizer.removeClass('in')
     else
       @dispose()

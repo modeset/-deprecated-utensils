@@ -1,12 +1,12 @@
 
-# usage: $(el).on(utensils.Detect.transition.end, @onDone) if utensils.Detect.hasTransition
+# usage: $(el).on(utensil.Detect.transition.end, @onDone) if utensil.Detect.hasTransition
 
-#= require utensils
-class utensils.Detect
+#= require utensil
+class utensil.Detect
 
   # Describes browser detection for transition end events
-  # utensils.Detect.transition.end
-  # utensils.Detect.hasTransition
+  # utensil.Detect.transition.end
+  # utensil.Detect.hasTransition
   @transition = (=>
     transitionEnd = (->
       el = document.createElement("tranny")

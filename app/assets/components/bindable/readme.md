@@ -15,12 +15,12 @@ As a class making use of the `Bindable` registry:
 
 ```coffee
 #= require bindable
-class utensils.MockClass
+class utensil.MockClass
   constructor: (@el) ->
   # make some magic
 
 # register with Bindable
-Bindable.register('mocker', utensils.MockClass)
+Bindable.register('mocker', utensil.MockClass)
 ```
 
 As markup instantiating a class that is registered with `Bindable`:

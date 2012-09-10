@@ -22,18 +22,18 @@ describe 'Toggler', ->
     @empty = @html.find('#empty')
     @link = @html.find('#stnd_link')
 
-    @defaulter = new utensils.Toggler(@one)
-    @overrider = new utensils.Toggler(@two)
-    @spanner = new utensils.Toggler(@three)
-    @closest = new utensils.Toggler(@four)
-    @bubbler = new utensils.Toggler(@five)
-    @active = new utensils.Toggler(@six)
-    @stnd_link = new utensils.Toggler(@link)
+    @defaulter = new utensil.Toggler(@one)
+    @overrider = new utensil.Toggler(@two)
+    @spanner = new utensil.Toggler(@three)
+    @closest = new utensil.Toggler(@four)
+    @bubbler = new utensil.Toggler(@five)
+    @active = new utensil.Toggler(@six)
+    @stnd_link = new utensil.Toggler(@link)
 
 
   describe 'binding', ->
     it 'is registered in bindable', ->
-      expect(Bindable.getClass('toggler')).toEqual(utensils.Toggler)
+      expect(Bindable.getClass('toggler')).toEqual(utensil.Toggler)
 
 
   describe '#constructor', ->
@@ -64,7 +64,7 @@ describe 'Toggler', ->
       expect(@spanner.dual_toggle).toEqual(false)
 
     it 'sets default values from a javascript class', ->
-      toggler = new utensils.Toggler(@empty, {toggle: 'show', trigger: 'hover', lookup: 'closest'})
+      toggler = new utensil.Toggler(@empty, {toggle: 'show', trigger: 'hover', lookup: 'closest'})
       expect(toggler.toggle_classes).toEqual('show')
       expect(toggler.trigger).toEqual('hover')
       expect(toggler.lookup).toEqual('closest')
@@ -73,7 +73,7 @@ describe 'Toggler', ->
 
   describe '#initialize', ->
     it 'activates an element on initialization', ->
-      toggler = new utensils.Toggler(@empty, {activate: 'true'})
+      toggler = new utensil.Toggler(@empty, {activate: 'true'})
       expect(@empty).toHaveClass('active')
 
 

@@ -81,7 +81,7 @@ handled through `Bindable`.
 #= require tip
 
 @el = $('#tip')
-@tip = new utensils.Tip(@el, {delay:'show:1000, hide:2000'})
+@tip = new utensil.Tip(@el, {delay:'show:1000, hide:2000'})
 ```
 
 ### #toggle
@@ -121,7 +121,7 @@ Remove the tip behavior
 ```
 
 ### Requires
-- `utensils`
+- `utensil`
 - `bindable`
 - `detect`
 - `toggler`

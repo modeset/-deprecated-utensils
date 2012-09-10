@@ -1,5 +1,5 @@
 
-/*global utensils */
+/*global utensil */
 
 // Adds behavior to the sherpa documentation..
 var Sherpa = function(el) {
@@ -261,7 +261,7 @@ Sherpa.prototype.popNotes = function() {
 // Activate the dimensionizer tool..
 Sherpa.prototype.activateDimensionizer = function(e) {
   e.preventDefault()
-  var dimensionizer = new utensils.Dimensionizer()
+  var dimensionizer = new utensil.Dimensionizer()
 };
 
 // Demos using radio groups..

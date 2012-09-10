@@ -42,7 +42,7 @@
 <li><a href='#toggler_group'>Toggler group</a></li>
 <li><a href='#transition'>Transition</a></li>
 <li><a href='#typography'>Typography</a></li>
-<li><a href='#utensils'>Utensils</a></li>
+<li><a href='#utensil'>Utensil</a></li>
 <li><a href='#well'>Well</a></li>
 
         </ul>
@@ -68,12 +68,12 @@ converted to a <code>$</code> object.</p>
 <p>As a class making use of the <code>Bindable</code> registry:</p>
 
 <pre><code class="coffee">#= require bindable
-class utensils.MockClass
+class utensil.MockClass
   constructor: (@el) -&gt;
   # make some magic
 
 # register with Bindable
-Bindable.register(&#39;mocker&#39;, utensils.MockClass)
+Bindable.register(&#39;mocker&#39;, utensil.MockClass)
 </code></pre>
 
 <p>As markup instantiating a class that is registered with <code>Bindable</code>:</p>
@@ -551,20 +551,20 @@ properties, normalizing event names, and other useful detection.</p>
 
 <p>Get the transition event name for the current browser for use in css transitions</p>
 
-<pre><code class="coffee">@tranny_event = utensils.Detect.transition.end
+<pre><code class="coffee">@tranny_event = utensil.Detect.transition.end
 </code></pre>
 
 <h3>#hasTransition</h3>
 
 <p>Boolean value based on the browsers support for transitions</p>
 
-<pre><code class="coffee">$(el).on(utensils.Detect.transition.end, @onDone) if utensils.Detect.hasTransition
+<pre><code class="coffee">$(el).on(utensil.Detect.transition.end, @onDone) if utensil.Detect.hasTransition
 </code></pre>
 
 <h3>Requires</h3>
 
 <ul>
-<li><code>utensils</code></li>
+<li><code>utensil</code></li>
 </ul>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
@@ -637,10 +637,10 @@ when creating a <code>Dimensionizer</code> as the constructor&#39;s <code>data</
 
 <pre><code class="coffee">#= require dimensionizer
 
-@dimensionizer = new utensils.Dimensionizer()
+@dimensionizer = new utensil.Dimensionizer()
 
 # Or with options
-@dimensionizer = new utensils.Dimensionizer({pos_x:&#39;left&#39;, &#39;pos_y:&#39;bottom&#39;, offset:&#39;10&#39;, color:&#39;light&#39;})
+@dimensionizer = new utensil.Dimensionizer({pos_x:&#39;left&#39;, &#39;pos_y:&#39;bottom&#39;, offset:&#39;10&#39;, color:&#39;light&#39;})
 </code></pre>
 
 <h3>#dispose</h3>
@@ -653,7 +653,7 @@ when creating a <code>Dimensionizer</code> as the constructor&#39;s <code>data</
 <h3>Requires</h3>
 
 <ul>
-<li><code>utensils</code></li>
+<li><code>utensil</code></li>
 <li><code>detect</code></li>
 </ul>
 
@@ -2299,7 +2299,7 @@ handled through <code>Bindable</code>. </p>
 <pre><code class="coffee">#= require tip
 
 @el = $(&#39;#tip&#39;)
-@tip = new utensils.Tip(@el, {delay:&#39;show:1000, hide:2000&#39;})
+@tip = new utensil.Tip(@el, {delay:&#39;show:1000, hide:2000&#39;})
 </code></pre>
 
 <h3>#toggle</h3>
@@ -2341,7 +2341,7 @@ element&#39;s toggle event</p>
 <h3>Requires</h3>
 
 <ul>
-<li><code>utensils</code></li>
+<li><code>utensil</code></li>
 <li><code>bindable</code></li>
 <li><code>detect</code></li>
 <li><code>toggler</code></li>
@@ -2531,7 +2531,7 @@ handled through Bindable. </p>
 <pre><code class="coffee">#= require toggler
 
 @el = $(&#39;#toggler&#39;)
-@toggler = new utensils.Toggler(@el, {toggle: &#39;show&#39;, trigger: &#39;hover&#39;})
+@toggler = new utensil.Toggler(@el, {toggle: &#39;show&#39;, trigger: &#39;hover&#39;})
 </code></pre>
 
 <h3>#toggle</h3>
@@ -2566,7 +2566,7 @@ element&#39;s toggle event</p>
 <h3>Requires</h3>
 
 <ul>
-<li><code>utensils</code></li>
+<li><code>utensil</code></li>
 </ul>
 
 <h2>Todo</h2>
@@ -2675,8 +2675,8 @@ handled through <code>Bindable</code>. Most setup occurs within <code>Toggler</c
 @radios = $(&#39;#radios&#39;)
 @checks = $(&#39;#checks&#39;)
 
-@radio_group = new utensils.TogglerGroup(radios, {behavior: &#39;radio&#39;})
-@check_group = new utensils.TogglerGroup(checks, {behavior: &#39;checkbox&#39;})
+@radio_group = new utensil.TogglerGroup(radios, {behavior: &#39;radio&#39;})
+@check_group = new utensil.TogglerGroup(checks, {behavior: &#39;checkbox&#39;})
 </code></pre>
 
 <h3>#toggle</h3>
@@ -2729,7 +2729,7 @@ Deactivating will remove the toggle classes from the element.</p>
 <h3>Requires</h3>
 
 <ul>
-<li>utensils</li>
+<li>utensil</li>
 <li>bindable</li>
 <li>toggler</li>
 </ul>
@@ -3351,15 +3351,15 @@ within your <code>config.sass</code> file or before <code>typography.sass</code>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
-<h1>Utensils</h1>
+<h1>Utensil</h1>
 
-<p>The top level namespace object for the <code>utensils</code> library created on window.</p>
+<p>The top level namespace object for the utensils library created on window.</p>
 
 <h2>Usage</h2>
 
-<pre><code class="coffee">#= require utensils
+<pre><code class="coffee">#= require utensil
 
-class utensils.ClassName
+class utensil.ClassName
   # class definition..
 </code></pre>
 

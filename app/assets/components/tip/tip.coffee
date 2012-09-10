@@ -1,10 +1,10 @@
 
-#= require utensils
+#= require utensil
 #= require bindable
 #= require detect
 #= require toggler
 
-class utensils.Tip extends utensils.Toggler
+class utensil.Tip extends utensil.Toggler
   constructor: (@el, data) ->
     super(@el, data)
 
@@ -51,8 +51,8 @@ class utensils.Tip extends utensils.Toggler
     @tip.addClass(@toggle_classes)
 
   deactivate: ->
-    if @tip && utensils.Detect.hasTransition
-      @tip.one(utensils.Detect.transition.end, => @remove())
+    if @tip && utensil.Detect.hasTransition
+      @tip.one(utensil.Detect.transition.end, => @remove())
       @tip.removeClass(@toggle_classes)
     else
       @remove()
@@ -136,5 +136,5 @@ class utensils.Tip extends utensils.Toggler
         hide: parseInt(params[1].match(/\d+/g), 10)
       }
 
-Bindable.register('tip', utensils.Tip)
+Bindable.register('tip', utensil.Tip)
 

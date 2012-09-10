@@ -16,11 +16,10 @@ Client side component library
 
 ### Needed components
 - Go back and look at normalize and get rid of *
-- utensils should be singular for the namespace
-- can we abstract focus/disabled states to a mixin?
 - form layouts (Make sure to clearfix control groups in form-horizontal)
 - Revisit simple button?
 - Add button utilities (small, mini, large, block)
+- can we abstract focus/disabled states to a mixin?
 - carets.sass (deal with this in buttons or button utils)
 - paddles.sass
 - media.sass

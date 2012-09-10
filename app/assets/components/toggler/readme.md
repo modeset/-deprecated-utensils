@@ -65,7 +65,7 @@ handled through Bindable.
 #= require toggler
 
 @el = $('#toggler')
-@toggler = new utensils.Toggler(@el, {toggle: 'show', trigger: 'hover'})
+@toggler = new utensil.Toggler(@el, {toggle: 'show', trigger: 'hover'})
 ```
 
 ### #toggle
@@ -98,7 +98,7 @@ Remove the toggler behavior
 ```
 
 ### Requires
-- `utensils`
+- `utensil`
 
 ## Todo
 - Look at passing a context object for easier searching via `@lookup`
