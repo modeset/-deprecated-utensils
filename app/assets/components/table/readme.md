@@ -76,7 +76,7 @@ within your `config.sass` file or before `table.sass` is loaded.
 Attribute              | Default                             | Description
 ---------------------- | ----------------------------------- | -------------------------------------------
 `$table-bgc`           | `$body-bgc`                         | Sets the `background-color` of the table
-`$table-border-color`  | `$component-border`                 | Sets the `border-color`
+`$table-border-color`  | `$border-color`                     | Sets the `border-color`
 `$table-band-odd-bgc`  | `transparent`                       | The `background-color` of odd rows in `.table-banded`
 `$table-band-even-bgc` | `lighten($table-border-color, 15%)` | The `background-color` of even rows in `.table-banded`
 `$table-thead-bgc`     | `lighten($table-border-color, 10%)` | The `background-color` of the `thead` element in `.table-thead`

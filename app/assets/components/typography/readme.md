@@ -232,21 +232,21 @@ Definition lists are used to encapsulate a term and it's definition
 To override the default settings, set the variable and it's value
 within your `config.sass` file or before `typography.sass` is loaded.
 
-Attribute                          | Default                     | Description
----------------------------------- | --------------------------- | -------------------------------------------
-`$h1-size`                         | `$base-font-size + 16`      | The default size of `h1` elements
-`$h2-size`                         | `$base-font-size + 10`      | The default size of `h2` elements
-`$h3-size`                         | `$base-font-size + 4`       | The default size of `h3` elements
-`$h4-size`                         | `$base-font-size + 2`       | The default size of `h4` elements
-`$h5-size`                         | `$base-font-size + 1`       | The default size of `h5` elements
-`$h6-size`                         | `$base-font-size`           | The default size of `h6` elements
-`$heading-color`                   | `$body-color`               | The default color of heading elements
-`$hr-rule-color`                   | `lighten($body-color, 20%)` | The default color of horizontal rules
-`$mark-bgc`                        | `$yellow`                   | The default background color of the `mark` element
-`$code-bgc`                        | `$off-white`                | The default background color of `code` and `pre` blocks
-`$code-border-color`               | `invert($body-color)`       | The default border color of `code` and `pre` blocks
-`$code-inline-color`               | `$body-color`               | The default color of inline `code` elements
-`$pre-border-radii`                | `$radii`                    | The default border-radius of `pre` blocks
-`$definition-horiz-offset`         | `$horiz-offset`             | The offset to use for `.dl-horizontal`
-`$definition-horiz-offset-padding` | `$horiz-offset-padding`     | The padding between a term and definition within the `.dl-horizontal` element
+Attribute                          | Default                  | Description
+---------------------------------- | ------------------------ | -------------------------------------------
+`$h1-size`                         | `$base-font-size + 16`   | The default size of `h1` elements
+`$h2-size`                         | `$base-font-size + 10`   | The default size of `h2` elements
+`$h3-size`                         | `$base-font-size + 4`    | The default size of `h3` elements
+`$h4-size`                         | `$base-font-size + 2`    | The default size of `h4` elements
+`$h5-size`                         | `$base-font-size + 1`    | The default size of `h5` elements
+`$h6-size`                         | `$base-font-size`        | The default size of `h6` elements
+`$heading-color`                   | `$body-color`            | The default color of heading elements
+`$hr-rule-color`                   | `$border-color`          | The default color of horizontal rules
+`$mark-bgc`                        | `$yellow`                | The default background color of the `mark` element
+`$code-bgc`                        | `$off-white`             | The default background color of `code` and `pre` blocks
+`$code-border-color`               | `invert($body-color)`    | The default border color of `code` and `pre` blocks
+`$code-inline-color`               | `$body-color`            | The default color of inline `code` elements
+`$pre-border-radii`                | `$radii`                 | The default border-radius of `pre` blocks
+`$definition-horiz-offset`         | `$horiz-offset`          | The offset to use for `.dl-horizontal`
+`$definition-horiz-offset-padding` | `$horiz-offset-padding`  | The padding between a term and definition within the `.dl-horizontal` element
 
