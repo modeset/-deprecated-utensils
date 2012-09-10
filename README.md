@@ -15,7 +15,6 @@ Client side component library
 - Turn into engine with generators
 
 ### Needed components
-- Content editable
 - Go back and look at normalize and get rid of *
 - utensils should be singular for the namespace
 - can we abstract focus/disabled states to a mixin?

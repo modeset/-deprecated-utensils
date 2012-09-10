@@ -1,0 +1,16 @@
+
+$editable-bgc: $off-white !default
+$editable-border: $blue !default
+$editable-focus-glow: $focus-glow !default
+
+[contenteditable="true"]
+  border: 1px dotted transparent
+
+[contenteditable="true"]:hover
+  border-color: $editable-border
+
+[contenteditable="true"]:focus
+  +box-shadow($editable-focus-glow)
+  background-color: $editable-bgc
+  border-color: transparent
+

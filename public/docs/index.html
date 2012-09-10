@@ -27,6 +27,7 @@
 <li><a href='#button_group'>Button group</a></li>
 <li><a href='#button_simple'>Button simple</a></li>
 <li><a href='#container'>Container</a></li>
+<li><a href='#content_editable'>Content editable</a></li>
 <li><a href='#decal'>Decal</a></li>
 <li><a href='#detect'>Detect</a></li>
 <li><a href='#dimensionizer'>Dimensionizer</a></li>
@@ -459,6 +460,53 @@ within your <code>config.sass</code> file or before <code>container.sass</code> 
 <td><code>$container-padding-right</code></td>
 <td><code>$container-padding-left</code></td>
 <td>Set the <code>padding-right</code> on the <code>container.outer</code> element</td>
+</tr>
+</tbody></table>
+
+<p></section><section class="sherpa-section sherpa-clearfix"></p>
+
+<h1>Content Editable</h1>
+
+<p>Apply the attribute <code>contenteditable=&quot;true&quot;</code> to a given element,
+allows the user to change it&#39;s contents.</p>
+
+<pre><code class="sass">@import utensils/components/content_editable/content-editable
+</code></pre>
+
+<div class="sherpa-showcase sherpa-clearfix"><h2 contenteditable='true'>Edit Title</h2>
+<p contenteditable='true'>Edit Description</p>
+</div>
+
+<pre><code class="haml">%h2(contenteditable=&quot;true&quot;) Edit Title
+%p(contenteditable=&quot;true&quot;) Edit Description
+</code></pre>
+
+<h2>Style Settings</h2>
+
+<p>To override the default settings, set the variable and it&#39;s value
+within your <code>config.sass</code> file or before <code>content-editable.sass</code> is loaded.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>$editable-bgc</code></td>
+<td><code>$off-white</code></td>
+<td>The <code>background-color</code> while the region is focused</td>
+</tr>
+<tr>
+<td><code>$editable-border</code></td>
+<td><code>$blue</code></td>
+<td>The <code>border-color</code> while the region is hovered</td>
+</tr>
+<tr>
+<td><code>$editable-focus-glow</code></td>
+<td><code>$focus-glow</code></td>
+<td>The glow while the region is focused</td>
 </tr>
 </tbody></table>
 
