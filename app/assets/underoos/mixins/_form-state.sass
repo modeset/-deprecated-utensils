@@ -1,0 +1,12 @@
+
+@mixin form-state($highlight, $percentage:30%)
+  input, textarea
+    +form-placeholder(lighten($highlight, $percentage))
+
+  label, .hint, .hint-inline
+    color: $highlight
+
+  input, textarea, select
+    color: $highlight
+    border-color: $highlight
+

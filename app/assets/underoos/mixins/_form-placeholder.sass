@@ -1,4 +1,9 @@
 
-@mixin form-placeholder($placeholder:#ccc)
-  color: $placeholder
+@mixin form-placeholder($color:#ccc)
+  &:-moz-placeholder
+    color: $color
+  &:-ms-input-placeholder
+    color: $color
+  &::-webkit-input-placeholder
+    color: $color
 

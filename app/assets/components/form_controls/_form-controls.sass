@@ -1,69 +1,104 @@
 
-// TODO:
-// - Add search
-// - Look at @content for placeholder
-// - Buttons (button, file, image, reset, submit)
-// - Add uneditable textarea?
-// - Content editable (own component?)
-// - States (disabled, statuses)
-// - How to showcase states?
-// - Move container setting to normalize?
-// - Abstract settings to !defaults
+$form-bgc: $white !default
+$form-border-color: $border-color !default
+$form-color: $body-color !default
+$form-focus-bgc: $off-white !default
+$form-inset-shadow: inset 0 1px 1px rgba($black, 0.1) !default
+$form-focus-glow: $focus-glow !default
+
+$placeholder: #ccc !default
+$placeholder-search: $placeholder !default
+$legend-color: $form-color !default
+$hint-color: lighten($form-color, 20%) !default
+$uneditable-bgc: $form-focus-bgc !default
+$uneditable-color: $form-color !default
+$form-disabled-bgc: $disabled-bgc !default
+$form-disabled-color: $disabled-color !default
+
+$legend-font-size: 1.25em !default
+$label-font-size: 0.85em !default
+$hint-font-size: 0.85em !default
+$select-height: 28px !default
+$form-radii: $radii !default
+$form-input-padding: 0.5em !default
+$form-group-spacing: 1em !default
+
+// These should be similar to wells
+$form-well-bgc: $off-white !default
+$form-well-lite-bgc: darken($form-well-bgc, 3%) !default
+$form-well-dark-bgc: darken($off-grey, 5%) !default
+$form-well-dark-border: darken($form-border-color, 5%) !default
+
 
 // Base container settings
 fieldset
   border: 0
 
-// TODO: Make sure to clearfix control groups in form-horizontal
 .control-group
-  margin-bottom: 1em
-  &:last-child
-    margin-bottom: 0
+  +box-sizing(border-box)
+  margin-bottom: $form-group-spacing
 
-\:-moz-placeholder
-  +form-placeholder($placeholder)
+.form-actions
+  +box-sizing(border-box)
+  +clearfixer
+  background-color: transparent
+  border-top: 1px solid $form-border-color
+  margin-top: $form-group-spacing * 2
+  padding: $form-group-spacing * 1.5
+  .well &
+    background-color: $form-well-bgc
+    border-bottom-left-radius: $form-radii
+    border-bottom-right-radius: $form-radii
+  .lite &
+    background-color: $form-well-lite-bgc
+  .dark &
+    background-color: $form-well-dark-bgc
+    border-top-color: $form-well-dark-border
 
-\::-webkit-input-placeholder
-  +form-placeholder($placeholder)
+legend + .control-group
+  -webkit-margin-top-collapse: separate
+  margin-top: $form-group-spacing * 1.5
 
-// Description items
+// Description elements
+legend
+  display: block
+  border-bottom: 1px solid $form-border-color
+  color: $legend-color
+  font-size: $legend-font-size
+  padding-bottom: 0.25em
+  width: 100%
+
+.control-group + legend
+  margin-top: $form-group-spacing * 1.5
+
 form abbr[title]
   border: none
   margin-left: 0.25em
 
-form hr
-  border-top-color: $component-border
-
-legend
-  display: block
-  border-bottom: 1px solid $component-border
-  color: $body-color
-  font-size: 1.25em
-  padding-bottom: 0.25em
-  width: 100%
-
-legend + .control-group
-  margin-top: 1.5em
-  -webkit-margin-top-collapse: separate
-
-.control-group + legend
-  margin-top: 1.5em
-
-
 label
   display: block
-  font-size: 0.85em
+  font-size: $label-font-size
   margin-bottom: 0.3em
 
-.hint
-  display: block
-  color: lighten($body-color, 20%)
+.hint,
+.hint-inline
+  color: $hint-color
+  font-size: $hint-font-size
   margin-top: 0.25em
   margin-bottom: 0.25em
 
-.hint.inline
+.hint
+  display: block
+
+.hint-inline
   +inline-block
   padding-left: 1em
+
+.hint.success-msg,
+.hint-inline.success-msg,
+.hint.error-msg,
+.hint-inline.error-msg
+  display: none
 
 // Text input controls
 input[type="text"],
@@ -79,63 +114,157 @@ input[type="time"],
 input[type="month"],
 input[type="week"],
 input[type="number"],
-input[type="color"],
-textarea,
-.uneditable-input
+textarea
   +inline-block
   +box-sizing(border-box)
-  +box-shadow($input-inset-shadow)
+  +box-shadow($form-inset-shadow)
   +font-size($base-font-size)
-  background-color: $white
-  border: 1px solid $component-border
-  border-radius: $radii
-  color: $body-color
-  padding: 0.4em
-  &:focus
-    background-color: $off-white
+  background-color: $form-bgc
+  border: 1px solid $form-border-color
+  border-radius: $form-radii
+  color: $form-color
+  padding: $form-input-padding
 
-input[type="color"]
-  +box-shadow(none)
-  border-radius: 0
-  padding: 0 0.2em
+// Setup some of the odd balls
+input[type="range"],
+input[type="color"],
+input[type="file"]
+  +inline-block
+  +box-sizing(border-box)
+  +font-size($base-font-size)
+  color: $form-color
   cursor: pointer
 
-.uneditable-input
-  background-color: $off-white
-  cursor: not-allowed
+input[type="color"]
+  background-color: $form-bgc
+  border: 1px solid $form-border-color
+  padding: 0 0.2em
 
+input[type="file"]
+  border-radius: $form-radii
+
+// Search controls
+input.search-query
+  border-radius: 1em
+  padding-left: 1em
+  padding-right: 1em
+
+// Text area controls
 textarea
   vertical-align: top
+
+// Define colors for placeholders
+input,
+textarea
+  +form-placeholder($placeholder)
+input.search-query
+  +form-placeholder($placeholder-search)
 
 // Select controls
 select
   +box-sizing(border-box)
   +font-size($base-font-size)
   +inline-block
-  background-color: $white
-  border: 1px solid $component-border
-  color: $body-color
-  height: 28px
+  background-color: $form-bgc
+  border: 1px solid $form-border-color
+  color: $form-color
+  height: $select-height
 
 select[multiple],
 select[size]
   height: auto
 
-// Radio and Checkboxes
+// Radio and Checkbox controls
 .checkbox-label,
-.radio-label
+.checkbox-label-inline,
+.radio-label,
+.radio-label-inline
   +font-size($base-font-size)
   line-height: 1.5em
 
-.checkbox-label.inline,
-.radio-label.inline
+.checkbox-label-inline,
+.radio-label-inline
   +inline-block
   margin-right: 1em
 
 input[type="checkbox"],
 input[type="radio"]
-  margin-right: 0.3em
+  margin-right: $form-input-padding
   cursor: pointer
+
+// Focus States
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="url"],
+input[type="tel"],
+input[type="search"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="time"],
+input[type="month"],
+input[type="week"],
+input[type="number"],
+input[type="color"],
+input[type="file"],
+textarea
+  &:focus
+    +box-shadow($form-inset-shadow, $focus-glow)
+    background-color: $form-focus-bgc
+    outline: 0
+
+// Disabled control states
+input,
+textarea,
+select
+  &[disabled],
+  &[readonly]
+    background-color: $form-disabled-bgc
+    color: $form-disabled-color
+    cursor: not-allowed
+
+input[type="checkbox"],
+input[type="radio"],
+input[type="range"],
+input[type="color"],
+input[type="file"]
+  &[disabled],
+  &[readonly]
+    background-color: transparent
+
+.control-group.disabled label,
+.control-group.disabled .hint,
+.control-group.disabled .hint-inline
+  color: $form-disabled-color
+
+// Status control states, mixed in
+.control-group.error
+  +form-state($danger)
+  .hint.error-msg
+    display: block
+  .hint-inline.error-msg
+    +inline-block
+.control-group.success
+  +form-state($success)
+  .hint.success-msg
+    display: block
+  .hint-inline.success-msg
+    +inline-block
+
+// HTML5 invalid states
+input:focus:required:invalid,
+textarea:focus:required:invalid,
+select:focus:required:invalid
+  border-color: $danger
+  color: $danger
+
+// Uneditable fields (input and textarea)
+input.uneditable-field,
+textarea.uneditable-field
+  background-color: $uneditable-bgc
+  color: $uneditable-color
+  cursor: not-allowed
 
 // Convenience classes for sizing
 .input-xsmall

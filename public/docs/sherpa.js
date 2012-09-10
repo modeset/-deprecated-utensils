@@ -36,6 +36,7 @@ Sherpa.prototype.domLookup = function() {
   this.usage_examples = this.el.find('.sherpa-showcase + pre')
   this.radio_demos = this.el.find('.radio-demo')
   this.check_demos = this.el.find('.check-demo')
+  this.form_demo = this.el.find('#demo_form').next('form')
 };
 
 // Listen for various events on navigations, sections and keys..
@@ -45,6 +46,7 @@ Sherpa.prototype.addListeners = function() {
   this.subsections.on('click', {self: this}, this.toggleSubsection)
   this.radio_demos.on('click', {self: this}, this.radioDemo)
   this.check_demos.on('click', {self: this}, this.checkDemo)
+  $('#demo_form').on('click', {self: this}, this.formDemo)
   $(window).keypress({self: this}, this.captureKeyStroke)
   $('#dimensionizer_demo').on('click', {self: this}, this.activateDimensionizer)
 };
@@ -284,6 +286,36 @@ Sherpa.prototype.checkDemo = function(e) {
   var demo_targets = (data_targets === 'this') ? demo : demo.find(data_targets)
   var toggle_classes = target.data('toggle')
   demo_targets.toggleClass(toggle_classes)
+};
+
+Sherpa.prototype.formDemo = function(e) {
+  var self = e.data.self
+  var target = $(e.target)
+  var form = self.form_demo
+  var add_classes = target.data('add')
+  var remove_classes = target.closest('.button-group').data('remove')
+
+  var is_state_group = (/disabled/).test(remove_classes)
+
+  // Re-enable all the form elements
+  if (is_state_group) {
+    form.find('input,textarea,select').removeAttr("disabled")
+    form.find('.uneditable-field').attr("disabled", "disabled")
+  }
+
+  // Add a status class to correct elements
+  if (is_state_group && add_classes !== 'disabled') {
+    form.find('.control-group').removeClass(remove_classes).addClass(add_classes)
+
+  // Add disabled states to correct elements
+  } else if (is_state_group && add_classes === 'disabled') {
+    form.find('input,textarea,select').attr("disabled", "disabled")
+    form.find('.control-group').removeClass(remove_classes).addClass(add_classes)
+
+  // Add top level classes for `form` (wells, layout)
+  } else {
+    form.removeClass(remove_classes).addClass(add_classes)
+  }
 };
 
 // Bring the magic..
