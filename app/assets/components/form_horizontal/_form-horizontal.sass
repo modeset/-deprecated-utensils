@@ -1,0 +1,22 @@
+
+$form-horiz-offset: $horiz-offset !default
+$form-horiz-offset-padding: $horiz-offset-padding !default
+
+.form-horizontal .control-group
+  +clearfixer
+
+.form-horizontal .control-label
+  float: left
+  clear: left
+  overflow: hidden
+  text-align: right
+  text-overflow: ellipsis
+  white-space: nowrap
+  width: $form-horiz-offset - $form-horiz-offset-padding
+
+.form-horizontal .controls
+  margin-left: $form-horiz-offset
+
+.form-horizontal .form-actions
+  padding-left: $form-horiz-offset
+

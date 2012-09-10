@@ -70,7 +70,7 @@ Represents the basic controls for creating forms. Contains support for all of th
       .controls
         %input(type="file" value="file")
     .control-group
-      %label <abbr title="The input field's type is set to hidden">Hidden Input Field</abbr>
+      %label.control-label <abbr title="The input field's type is set to hidden">Hidden Input Field</abbr>
       .controls
         %input(type="hidden" placeholder="hidden")
 ```
@@ -136,7 +136,7 @@ Represents a control that presents a menu of options.
             %option(value="los angeles") Los Angeles
             %option(value="san francisco") San Francisco
     .control-group
-      %label(for="fcsm_select") Multiple Select
+      %label.control-label(for="fcsm_select") Multiple Select
       .controls
         %select#fcsm_select(multiple)
           %option(value="1") One
@@ -161,7 +161,7 @@ zero to many options.
   %fieldset
     %legend Radio Controls
     .control-group
-      %label
+      %label.control-label<
         %h5 Radio
       .controls
         %label.radio-label(for="fc_radio1-1")
@@ -170,7 +170,7 @@ zero to many options.
           %input#fc_radio1-2(type="radio" name="fc[radios1]" value="false") No, to radio buttons
 
     .control-group
-      %label
+      %label.control-label<
         %h5 Radio Inline
       .controls
         %label.radio-label-inline(for="fc_radio2-1")
@@ -180,7 +180,7 @@ zero to many options.
 
     %legend Checkbox Controls
     .control-group
-      %label
+      %label.control-label<
         %h5 Checkbox
       .controls
         %label.checkbox-label(for="fc_check1-1")
@@ -189,7 +189,7 @@ zero to many options.
           %input#fc_check1-2(type="checkbox" value="1" checked) Premises, checked.
 
     .control-group
-      %label
+      %label.control-label<
         %h5 Checkbox Inline
       .controls
         %label.checkbox-label-inline(for="fc_check2-1")
@@ -212,15 +212,15 @@ Description elements describe or act as helpers around their controls.
     %legend I am Legend
 
     .control-group
-      %label(for="fcd_text1") Label<abbr title="Required">*</abbr>
+      %label.control-label(for="fcd_text1") Label<abbr title="Required">*</abbr>
       .controls
         %input#fcd_text1(type="text" placeholder="text")
-        %p.hint The hint for the control element
+        %p.hint-block The hint block for the control element
 
     %hr
 
     .control-group
-      %label(for="fcd_text2") Label<abbr title="Required">*</abbr>
+      %label.control-label(for="fcd_text2") Label<abbr title="Required">*</abbr>
       .controls
         %input#fcd_text2(type="text" placeholder="text")
         %p.hint-inline The inline hint for the control element
@@ -234,7 +234,7 @@ Element        | Description
 `%legend`      | Represents a caption for the content of its parent `fieldset`
 `%label`       | Associated with a control by the `for` attribute or by placing the control element inside the `%label`
 `%abbr`        | Typically used within a `%label` element to denote a required control for the user
-`.hint`        | The block level element which appears below the control. It can describe actions needed for the user
+`.hint-block`  | The block level element which appears below the control. It can describe actions needed for the user
 `.hint-inline` | Allows the hint to appear directly to the right of the control element
 
 ###### Notes
@@ -256,13 +256,13 @@ user.
   %fieldset
     %legend Uneditable Controls
     .control-group
-      %label(for="fcu_text") Uneditable field<abbr title="Fill out entire form first">!</abbr>
+      %label.control-label(for="fcu_text") Uneditable field<abbr title="Fill out entire form first">!</abbr>
       .controls
         %input#fcu_text.uneditable-field(type="text" placeholder="text" value="Can't touch this!" disabled)
         %p.hint-inline Hurry up!
 
     .control-group
-      %label(for="fcu_textarea") Uneditable field<abbr title="Fill out entire form first">!</abbr>
+      %label.control-label(for="fcu_textarea") Uneditable field<abbr title="Fill out entire form first">!</abbr>
       .controls
         %textarea#fcu_textarea.uneditable-field(placeholder="Enter the textarea..." rows="8" disabled) Can't touch this either
 ```
@@ -320,10 +320,9 @@ Form structures typically consist of:
 ### Usage Examples
 <!--~ markup/form-controls-structure.html.haml -->
 ```haml
-%section#demo_form.button-toolbar(style="margin-bottom:3em;")
+%section#demo_form.button-toolbar(style="margin-bottom:1em;")
   %nav.button-group(data-bindable="toggler-group" data-target=".btn" data-remove="form-vertical form-horizontal")
     %button.btn.active(href="#" data-add="") Default
-    %button.btn(href="#" data-add="form-vertical") Vertical
     %button.btn(href="#" data-add="form-horizontal") Horizontal
   %nav.button-group(data-bindable="toggler-group" data-target=".btn" data-remove="well dark lite")
     %button.btn.active(href="#" data-add="") None
@@ -341,69 +340,80 @@ Form structures typically consist of:
     %legend Standard information
     -# Text inputs
     .control-group
-      %label(for="fcs_text") Text:<abbr title="Required">*</abbr>
+      %label.control-label(for="fcs_text") Text:<abbr title="Required">*</abbr>
       .controls
         %input#fcs_text(type="text" placeholder="Enter your name")
         %p.hint-inline.error-msg That failed terribly
         %p.hint-inline.success-msg Gold stars all around
-        %p.hint First and last name
+        %p.hint-block First and last name
     .control-group
-      %label(for="fcs_email") Email:<abbr title="Required">*</abbr>
+      %label.control-label(for="fcs_email") Email:<abbr title="Required">*</abbr>
       .controls
         %input#fcs_email(type="email" placeholder="name@example.com")
+        %p.hint-inline No AOL accounts!
         %p.hint-inline.error-msg That failed terribly
         %p.hint-inline.success-msg Gold stars all around
-        %p.hint We won't share it
+        %p.hint-block We won't share it
     .control-group
-      %label(for="fcs_file") File Browser:
+      %label.control-label(for="fcs_file") File Browser:
       .controls
         %input#fcs_file(type="file" value="file")
+        %p.hint-inline.error-msg That failed terribly
+        %p.hint-inline.success-msg Gold stars all around
     .control-group
-      %label(for="fcs_textarea") Textarea:
+      %label.control-label(for="fcs_textarea") Textarea:
       .controls
         %textarea#fcs_textarea(placeholder="Enter the textarea..." rows="8")
+        %p.hint-inline.error-msg That failed terribly
+        %p.hint-inline.success-msg Gold stars all around
     -# Uneditable
     .control-group
-      %label(for="fcs_uneditable") Uneditable field<abbr title="Fill out entire form first">!</abbr>
+      %label.control-label(for="fcs_uneditable") <abbr title="Fill out entire form first">Uneditable field:</abbr>
       .controls
         %input#fcs_uneditable.uneditable-field(type="text" placeholder="text" value="Can't touch this!" disabled)
         %p.hint-inline Hurry up!
+        %p.hint-inline.error-msg That failed terribly
+        %p.hint-inline.success-msg Gold stars all around
 
   %fieldset
     %legend Make a choice
     -# Radios
     .control-group
-      %label Radio
+      %label.control-label Radio:
       .controls
         %label.radio-label(for="fcs_radio1-1")
           %input#fcs_radio1-1(type="radio" name="fc[radios1]" value="true" checked) Yes, to radio buttons
         %label.radio-label(for="fcs_radio1-2")
           %input#fcs_radio1-2(type="radio" name="fc[radios1]" value="false") No, to radio buttons
     .control-group
-      %label Radio Inline
+      %label.control-label Radio Inline:
       .controls
         %label.radio-label-inline(for="fcs_radio2-1")
           %input#fcs_radio2-1(type="radio" name="fc[radios2]" value="true" checked) Yes, to inline radios
         %label.radio-label-inline(for="fcs_radio2-2")
           %input#fcs_radio2-2(type="radio" name="fc[radios2]" value="false") No, to inline radios
+        %p.hint-inline.error-msg That failed terribly
+        %p.hint-inline.success-msg Gold stars all around
     -# Checks
     .control-group
-      %label Checkbox
+      %label.control-label Checkbox:
       .controls
         %label.checkbox-label(for="fcs_check1-1")
           %input#fcs_check1-1(type="checkbox" value="0") Check your premises
         %label.checkbox-label(for="fcs_check1-2")
           %input#fcs_check1-2(type="checkbox" value="1" checked) Premises, checked.
     .control-group
-      %label Checkbox Inline
+      %label.control-label Checkbox Inline:
       .controls
         %label.checkbox-label-inline(for="fcs_check2-1")
           %input#fcs_check2-1(type="checkbox" value="0") Check your inline premises
         %label.checkbox-label-inline(for="fcs_check2-2")
           %input#fcs_check2-2(type="checkbox" value="1" checked) Premises inline, checked.
+        %p.hint-inline.error-msg That failed terribly
+        %p.hint-inline.success-msg Gold stars all around
     -# Selects
     .control-group
-      %label(for="fcs_multiselect") Multiple Select:
+      %label.control-label(for="fcs_multiselect") Multiple Select:
       .controls
         %select#fcs_multiselect(multiple)
           %option(value="1") One
@@ -411,14 +421,18 @@ Form structures typically consist of:
           %option(value="3") Three
           %option(value="4") Four
           %option(value="5") Five
+        %p.hint-inline.error-msg That failed terribly
+        %p.hint-inline.success-msg Gold stars all around
     .control-group
-      %label(for="fcs_select") Select:
+      %label.control-label(for="fcs_select") Select:
       .controls
         %select
           %option(selected="selected" value="denver") Denver
           %option(value="boulder") Boulder
           %option(value="los angeles") Los Angeles
           %option(value="san francisco") San Francisco
+        %p.hint-inline.error-msg That failed terribly
+        %p.hint-inline.success-msg Gold stars all around
 
     .form-actions
       %input.btn(type="submit" value="Submit")

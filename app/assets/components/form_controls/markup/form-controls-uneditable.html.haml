@@ -3,13 +3,13 @@
   %fieldset
     %legend Uneditable Controls
     .control-group
-      %label(for="fcu_text") Uneditable field<abbr title="Fill out entire form first">!</abbr>
+      %label.control-label(for="fcu_text") Uneditable field<abbr title="Fill out entire form first">!</abbr>
       .controls
         %input#fcu_text.uneditable-field(type="text" placeholder="text" value="Can't touch this!" disabled)
         %p.hint-inline Hurry up!
 
     .control-group
-      %label(for="fcu_textarea") Uneditable field<abbr title="Fill out entire form first">!</abbr>
+      %label.control-label(for="fcu_textarea") Uneditable field<abbr title="Fill out entire form first">!</abbr>
       .controls
         %textarea#fcu_textarea.uneditable-field(placeholder="Enter the textarea..." rows="8" disabled) Can't touch this either
 

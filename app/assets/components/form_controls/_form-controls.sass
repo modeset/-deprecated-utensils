@@ -22,7 +22,7 @@ $form-legend-width: 100% !default
 $legend-font-size: 1.25em !default
 $label-font-size: 0.85em !default
 $hint-font-size: 0.85em !default
-$select-height: 28px !default
+$select-height: 30px !default
 $form-radii: $radii !default
 $form-input-padding: 0.5em !default
 $form-group-spacing: 1em !default
@@ -79,25 +79,23 @@ form abbr[title]
 label
   display: block
   font-size: $label-font-size
-  margin-bottom: 0.3em
+  margin-bottom: 0.25em
 
-.hint,
+.hint-block,
 .hint-inline
   color: $hint-color
   font-size: $hint-font-size
-  margin-top: 0.25em
-  margin-bottom: 0.25em
+  margin: 0
+  padding: 0 0 0 0.5em
 
-.hint
+.hint-block
   display: block
-
 .hint-inline
   +inline-block
-  padding-left: 1em
 
-.hint.success-msg,
+.hint-block.success-msg,
 .hint-inline.success-msg,
-.hint.error-msg,
+.hint-block.error-msg,
 .hint-inline.error-msg
   display: none
 
@@ -124,6 +122,7 @@ textarea
   border: 1px solid $form-border-color
   border-radius: $form-radii
   color: $form-color
+  margin-bottom: 0.5em
   padding: $form-input-padding
   width: $form-input-width
 
@@ -135,6 +134,7 @@ input[type="file"]
   +box-sizing(border-box)
   +font-size($base-font-size)
   color: $form-color
+  margin-bottom: 0.5em
   cursor: pointer
 
 input[type="range"]
@@ -147,6 +147,7 @@ input[type="color"]
 
 input[type="file"]
   border-radius: $form-radii
+  padding: $form-input-padding
   width: $form-input-width
 
 // Search controls
@@ -174,6 +175,7 @@ select
   background-color: $form-bgc
   border: 1px solid $form-border-color
   color: $form-color
+  margin-bottom: 0.5em
   height: $select-height
   width: $form-select-width
 
@@ -187,12 +189,19 @@ select[size]
 .radio-label,
 .radio-label-inline
   +font-size($base-font-size)
-  line-height: 1.5em
+  margin-bottom: 0.5em
 
 .checkbox-label-inline,
 .radio-label-inline
   +inline-block
   margin-right: 1em
+  margin-bottom: 1.5em
+
+.checkbox-label-inline + .hint-inline,
+.radio-label-inline + .hint-inline,
+.checkbox-label-inline + .hint-inline + .hint-inline,
+.radio-label-inline + .hint-inline + .hint-inline
+  margin-top: -1.5em
 
 input[type="checkbox"],
 input[type="radio"]
@@ -241,20 +250,20 @@ input[type="file"]
     background-color: transparent
 
 .control-group.disabled label,
-.control-group.disabled .hint,
+.control-group.disabled .hint-block,
 .control-group.disabled .hint-inline
   color: $form-disabled-color
 
 // Status control states, mixed in
 .control-group.error
   +form-state($danger)
-  .hint.error-msg
+  .hint-block.error-msg
     display: block
   .hint-inline.error-msg
     +inline-block
 .control-group.success
   +form-state($success)
-  .hint.success-msg
+  .hint-block.success-msg
     display: block
   .hint-inline.success-msg
     +inline-block

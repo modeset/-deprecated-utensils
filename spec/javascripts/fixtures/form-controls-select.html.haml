@@ -4,7 +4,7 @@
     %legend Select Controls
     .control-group
       .controls
-        %select.input-small
+        %select
           %optgroup(label="Colorado")
             %option(selected="selected" value="denver") Denver
             %option(value="boulder") Boulder
@@ -12,9 +12,9 @@
             %option(value="los angeles") Los Angeles
             %option(value="san francisco") San Francisco
     .control-group
-      %label(for="fcsm_select") Multiple Select
+      %label.control-label(for="fcsm_select") Multiple Select
       .controls
-        %select#fcsm_select.input-small(multiple)
+        %select#fcsm_select(multiple)
           %option(value="1") One
           %option(selected="selected" value="2") Two
           %option(value="3") Three

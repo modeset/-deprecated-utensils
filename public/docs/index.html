@@ -32,6 +32,7 @@
 <li><a href='#detect'>Detect</a></li>
 <li><a href='#dimensionizer'>Dimensionizer</a></li>
 <li><a href='#form_controls'>Form controls</a></li>
+<li><a href='#form_horizontal'>Form horizontal</a></li>
 <li><a href='#icon_close'>Icon close</a></li>
 <li><a href='#normalize'>Normalize</a></li>
 <li><a href='#print'>Print</a></li>
@@ -777,7 +778,7 @@ paired with one of the form layout components.</p>
 </div>
 </div>
 <div class='control-group'>
-<label><abbr title="The input field's type is set to hidden">Hidden Input Field</abbr></label>
+<label class='control-label'><abbr title="The input field's type is set to hidden">Hidden Input Field</abbr></label>
 <div class='controls'>
 <input placeholder='hidden' type='hidden' />
 </div>
@@ -842,7 +843,7 @@ paired with one of the form layout components.</p>
       .controls
         %input(type=&quot;file&quot; value=&quot;file&quot;)
     .control-group
-      %label &lt;abbr title=&quot;The input field&#39;s type is set to hidden&quot;&gt;Hidden Input Field&lt;/abbr&gt;
+      %label.control-label &lt;abbr title=&quot;The input field&#39;s type is set to hidden&quot;&gt;Hidden Input Field&lt;/abbr&gt;
       .controls
         %input(type=&quot;hidden&quot; placeholder=&quot;hidden&quot;)
 </code></pre>
@@ -942,7 +943,7 @@ other text input controls. These types of inputs require the
 <p></div></p>
 
 <div class='control-group'>
-<label for='fcsm_select'>Multiple Select</label>
+<label class='control-label' for='fcsm_select'>Multiple Select</label>
 <div class='controls'>
 <select id='fcsm_select' multiple='multiple'>
 <option value='1'>One</option>
@@ -971,7 +972,7 @@ other text input controls. These types of inputs require the
             %option(value=&quot;los angeles&quot;) Los Angeles
             %option(value=&quot;san francisco&quot;) San Francisco
     .control-group
-      %label(for=&quot;fcsm_select&quot;) Multiple Select
+      %label.control-label(for=&quot;fcsm_select&quot;) Multiple Select
       .controls
         %select#fcsm_select(multiple)
           %option(value=&quot;1&quot;) One
@@ -995,9 +996,7 @@ zero to many options.</p>
 <fieldset>
 <legend>Radio Controls</legend>
 <div class='control-group'>
-<label>
-<h5>Radio</h5>
-</label>
+<label class='control-label'><h5>Radio</h5></label>
 <div class='controls'>
 <label class='radio-label' for='fc_radio1-1'>
 <input checked='checked' id='fc_radio1-1' name='fc[radios1]' type='radio' value='true'>Yes, to radio buttons</input>
@@ -1010,9 +1009,7 @@ zero to many options.</p>
 <p></div></p>
 
 <div class='control-group'>
-<label>
-<h5>Radio Inline</h5>
-</label>
+<label class='control-label'><h5>Radio Inline</h5></label>
 <div class='controls'>
 <label class='radio-label-inline' for='fc_radio2-1'>
 <input checked='checked' id='fc_radio2-1' name='fc[radios2]' type='radio' value='true'>Yes, to inline radios</input>
@@ -1026,9 +1023,7 @@ zero to many options.</p>
 <legend>Checkbox Controls</legend></p>
 
 <div class='control-group'>
-<label>
-<h5>Checkbox</h5>
-</label>
+<label class='control-label'><h5>Checkbox</h5></label>
 <div class='controls'>
 <label class='checkbox-label' for='fc_check1-1'>
 <input id='fc_check1-1' type='checkbox' value='0'>Check your premises</input>
@@ -1041,9 +1036,7 @@ zero to many options.</p>
 <p></div></p>
 
 <div class='control-group'>
-<label>
-<h5>Checkbox Inline</h5>
-</label>
+<label class='control-label'><h5>Checkbox Inline</h5></label>
 <div class='controls'>
 <label class='checkbox-label-inline' for='fc_check2-1'>
 <input id='fc_check2-1' type='checkbox' value='0'>Check your inline premises</input>
@@ -1062,7 +1055,7 @@ zero to many options.</p>
   %fieldset
     %legend Radio Controls
     .control-group
-      %label
+      %label.control-label&lt;
         %h5 Radio
       .controls
         %label.radio-label(for=&quot;fc_radio1-1&quot;)
@@ -1071,7 +1064,7 @@ zero to many options.</p>
           %input#fc_radio1-2(type=&quot;radio&quot; name=&quot;fc[radios1]&quot; value=&quot;false&quot;) No, to radio buttons
 
     .control-group
-      %label
+      %label.control-label&lt;
         %h5 Radio Inline
       .controls
         %label.radio-label-inline(for=&quot;fc_radio2-1&quot;)
@@ -1081,7 +1074,7 @@ zero to many options.</p>
 
     %legend Checkbox Controls
     .control-group
-      %label
+      %label.control-label&lt;
         %h5 Checkbox
       .controls
         %label.checkbox-label(for=&quot;fc_check1-1&quot;)
@@ -1090,7 +1083,7 @@ zero to many options.</p>
           %input#fc_check1-2(type=&quot;checkbox&quot; value=&quot;1&quot; checked) Premises, checked.
 
     .control-group
-      %label
+      %label.control-label&lt;
         %h5 Checkbox Inline
       .controls
         %label.checkbox-label-inline(for=&quot;fc_check2-1&quot;)
@@ -1111,10 +1104,10 @@ zero to many options.</p>
 <fieldset>
 <legend>I am Legend</legend>
 <div class='control-group'>
-<label for='fcd_text1'>Label<abbr title="Required">*</abbr></label>
+<label class='control-label' for='fcd_text1'>Label<abbr title="Required">*</abbr></label>
 <div class='controls'>
 <input id='fcd_text1' placeholder='text' type='text' />
-<p class='hint'>The hint for the control element</p>
+<p class='hint-block'>The hint block for the control element</p>
 </div>
 
 <p></div></p>
@@ -1122,7 +1115,7 @@ zero to many options.</p>
 <hr />
 
 <div class='control-group'>
-<label for='fcd_text2'>Label<abbr title="Required">*</abbr></label>
+<label class='control-label' for='fcd_text2'>Label<abbr title="Required">*</abbr></label>
 <div class='controls'>
 <input id='fcd_text2' placeholder='text' type='text' />
 <p class='hint-inline'>The inline hint for the control element</p>
@@ -1138,15 +1131,15 @@ zero to many options.</p>
     %legend I am Legend
 
     .control-group
-      %label(for=&quot;fcd_text1&quot;) Label&lt;abbr title=&quot;Required&quot;&gt;*&lt;/abbr&gt;
+      %label.control-label(for=&quot;fcd_text1&quot;) Label&lt;abbr title=&quot;Required&quot;&gt;*&lt;/abbr&gt;
       .controls
         %input#fcd_text1(type=&quot;text&quot; placeholder=&quot;text&quot;)
-        %p.hint The hint for the control element
+        %p.hint-block The hint block for the control element
 
     %hr
 
     .control-group
-      %label(for=&quot;fcd_text2&quot;) Label&lt;abbr title=&quot;Required&quot;&gt;*&lt;/abbr&gt;
+      %label.control-label(for=&quot;fcd_text2&quot;) Label&lt;abbr title=&quot;Required&quot;&gt;*&lt;/abbr&gt;
       .controls
         %input#fcd_text2(type=&quot;text&quot; placeholder=&quot;text&quot;)
         %p.hint-inline The inline hint for the control element
@@ -1175,7 +1168,7 @@ zero to many options.</p>
 <td>Typically used within a <code>%label</code> element to denote a required control for the user</td>
 </tr>
 <tr>
-<td><code>.hint</code></td>
+<td><code>.hint-block</code></td>
 <td>The block level element which appears below the control. It can describe actions needed for the user</td>
 </tr>
 <tr>
@@ -1204,7 +1197,7 @@ user.</p>
 <fieldset>
 <legend>Uneditable Controls</legend>
 <div class='control-group'>
-<label for='fcu_text'>Uneditable field<abbr title="Fill out entire form first">!</abbr></label>
+<label class='control-label' for='fcu_text'>Uneditable field<abbr title="Fill out entire form first">!</abbr></label>
 <div class='controls'>
 <input class='uneditable-field' disabled='disabled' id='fcu_text' placeholder='text' type='text' value="Can't touch this!" />
 <p class='hint-inline'>Hurry up!</p>
@@ -1213,7 +1206,7 @@ user.</p>
 <p></div></p>
 
 <div class='control-group'>
-<label for='fcu_textarea'>Uneditable field<abbr title="Fill out entire form first">!</abbr></label>
+<label class='control-label' for='fcu_textarea'>Uneditable field<abbr title="Fill out entire form first">!</abbr></label>
 <div class='controls'>
 <textarea class='uneditable-field' disabled='disabled' id='fcu_textarea' placeholder='Enter the textarea...' rows='8'>Can't touch this either</textarea>
 </div>
@@ -1227,13 +1220,13 @@ user.</p>
   %fieldset
     %legend Uneditable Controls
     .control-group
-      %label(for=&quot;fcu_text&quot;) Uneditable field&lt;abbr title=&quot;Fill out entire form first&quot;&gt;!&lt;/abbr&gt;
+      %label.control-label(for=&quot;fcu_text&quot;) Uneditable field&lt;abbr title=&quot;Fill out entire form first&quot;&gt;!&lt;/abbr&gt;
       .controls
         %input#fcu_text.uneditable-field(type=&quot;text&quot; placeholder=&quot;text&quot; value=&quot;Can&#39;t touch this!&quot; disabled)
         %p.hint-inline Hurry up!
 
     .control-group
-      %label(for=&quot;fcu_textarea&quot;) Uneditable field&lt;abbr title=&quot;Fill out entire form first&quot;&gt;!&lt;/abbr&gt;
+      %label.control-label(for=&quot;fcu_textarea&quot;) Uneditable field&lt;abbr title=&quot;Fill out entire form first&quot;&gt;!&lt;/abbr&gt;
       .controls
         %textarea#fcu_textarea.uneditable-field(placeholder=&quot;Enter the textarea...&quot; rows=&quot;8&quot; disabled) Can&#39;t touch this either
 </code></pre>
@@ -1319,10 +1312,9 @@ or other descriptive helpers</li>
 
 <!--~ markup/form-controls-structure.html.haml -->
 
-<div class="sherpa-showcase sherpa-clearfix"><section class='button-toolbar' id='demo_form' style='margin-bottom:3em;'>
+<div class="sherpa-showcase sherpa-clearfix"><section class='button-toolbar' id='demo_form' style='margin-bottom:1em;'>
 <nav class='button-group' data-bindable='toggler-group' data-remove='form-vertical form-horizontal' data-target='.btn'>
 <button class='btn active' data-add='' href='#'>Default</button>
-<button class='btn' data-add='form-vertical' href='#'>Vertical</button>
 <button class='btn' data-add='form-horizontal' href='#'>Horizontal</button>
 </nav>
 <nav class='button-group' data-bindable='toggler-group' data-remove='well dark lite' data-target='.btn'>
@@ -1342,48 +1334,55 @@ or other descriptive helpers</li>
 <fieldset>
 <legend>Standard information</legend>
 <div class='control-group'>
-<label for='fcs_text'>Text:<abbr title="Required">*</abbr></label>
+<label class='control-label' for='fcs_text'>Text:<abbr title="Required">*</abbr></label>
 <div class='controls'>
 <input id='fcs_text' placeholder='Enter your name' type='text' />
 <p class='hint-inline error-msg'>That failed terribly</p>
 <p class='hint-inline success-msg'>Gold stars all around</p>
-<p class='hint'>First and last name</p>
+<p class='hint-block'>First and last name</p>
 </div>
 
 <p></div></p>
 
 <div class='control-group'>
-<label for='fcs_email'>Email:<abbr title="Required">*</abbr></label>
+<label class='control-label' for='fcs_email'>Email:<abbr title="Required">*</abbr></label>
 <div class='controls'>
 <input id='fcs_email' placeholder='name@example.com' type='email' />
+<p class='hint-inline'>No AOL accounts!</p>
 <p class='hint-inline error-msg'>That failed terribly</p>
 <p class='hint-inline success-msg'>Gold stars all around</p>
-<p class='hint'>We won't share it</p>
+<p class='hint-block'>We won't share it</p>
 </div>
 
 <p></div></p>
 
 <div class='control-group'>
-<label for='fcs_file'>File Browser:</label>
+<label class='control-label' for='fcs_file'>File Browser:</label>
 <div class='controls'>
 <input id='fcs_file' type='file' value='file' />
+<p class='hint-inline error-msg'>That failed terribly</p>
+<p class='hint-inline success-msg'>Gold stars all around</p>
 </div>
 
 <p></div></p>
 
 <div class='control-group'>
-<label for='fcs_textarea'>Textarea:</label>
+<label class='control-label' for='fcs_textarea'>Textarea:</label>
 <div class='controls'>
 <textarea id='fcs_textarea' placeholder='Enter the textarea...' rows='8'></textarea>
+<p class='hint-inline error-msg'>That failed terribly</p>
+<p class='hint-inline success-msg'>Gold stars all around</p>
 </div>
 
 <p></div></p>
 
 <div class='control-group'>
-<label for='fcs_uneditable'>Uneditable field<abbr title="Fill out entire form first">!</abbr></label>
+<label class='control-label' for='fcs_uneditable'><abbr title="Fill out entire form first">Uneditable field:</abbr></label>
 <div class='controls'>
 <input class='uneditable-field' disabled='disabled' id='fcs_uneditable' placeholder='text' type='text' value="Can't touch this!" />
 <p class='hint-inline'>Hurry up!</p>
+<p class='hint-inline error-msg'>That failed terribly</p>
+<p class='hint-inline success-msg'>Gold stars all around</p>
 </div>
 
 <p></div>
@@ -1392,7 +1391,7 @@ or other descriptive helpers</li>
 <fieldset>
 <legend>Make a choice</legend>
 <div class='control-group'>
-<label>Radio</label>
+<label class='control-label'>Radio:</label>
 <div class='controls'>
 <label class='radio-label' for='fcs_radio1-1'>
 <input checked='checked' id='fcs_radio1-1' name='fc[radios1]' type='radio' value='true'>Yes, to radio buttons</input>
@@ -1403,7 +1402,7 @@ or other descriptive helpers</li>
 </div>
 </div>
 <div class='control-group'>
-<label>Radio Inline</label>
+<label class='control-label'>Radio Inline:</label>
 <div class='controls'>
 <label class='radio-label-inline' for='fcs_radio2-1'>
 <input checked='checked' id='fcs_radio2-1' name='fc[radios2]' type='radio' value='true'>Yes, to inline radios</input>
@@ -1411,10 +1410,12 @@ or other descriptive helpers</li>
 <label class='radio-label-inline' for='fcs_radio2-2'>
 <input id='fcs_radio2-2' name='fc[radios2]' type='radio' value='false'>No, to inline radios</input>
 </label>
+<p class='hint-inline error-msg'>That failed terribly</p>
+<p class='hint-inline success-msg'>Gold stars all around</p>
 </div>
 </div>
 <div class='control-group'>
-<label>Checkbox</label>
+<label class='control-label'>Checkbox:</label>
 <div class='controls'>
 <label class='checkbox-label' for='fcs_check1-1'>
 <input id='fcs_check1-1' type='checkbox' value='0'>Check your premises</input>
@@ -1425,7 +1426,7 @@ or other descriptive helpers</li>
 </div>
 </div>
 <div class='control-group'>
-<label>Checkbox Inline</label>
+<label class='control-label'>Checkbox Inline:</label>
 <div class='controls'>
 <label class='checkbox-label-inline' for='fcs_check2-1'>
 <input id='fcs_check2-1' type='checkbox' value='0'>Check your inline premises</input>
@@ -1433,10 +1434,12 @@ or other descriptive helpers</li>
 <label class='checkbox-label-inline' for='fcs_check2-2'>
 <input checked='checked' id='fcs_check2-2' type='checkbox' value='1'>Premises inline, checked.</input>
 </label>
+<p class='hint-inline error-msg'>That failed terribly</p>
+<p class='hint-inline success-msg'>Gold stars all around</p>
 </div>
 </div>
 <div class='control-group'>
-<label for='fcs_multiselect'>Multiple Select:</label>
+<label class='control-label' for='fcs_multiselect'>Multiple Select:</label>
 <div class='controls'>
 <select id='fcs_multiselect' multiple='multiple'>
 <option value='1'>One</option>
@@ -1445,10 +1448,12 @@ or other descriptive helpers</li>
 <option value='4'>Four</option>
 <option value='5'>Five</option>
 </select>
+<p class='hint-inline error-msg'>That failed terribly</p>
+<p class='hint-inline success-msg'>Gold stars all around</p>
 </div>
 </div>
 <div class='control-group'>
-<label for='fcs_select'>Select:</label>
+<label class='control-label' for='fcs_select'>Select:</label>
 <div class='controls'>
 <select>
 <option selected='selected' value='denver'>Denver</option>
@@ -1456,6 +1461,8 @@ or other descriptive helpers</li>
 <option value='los angeles'>Los Angeles</option>
 <option value='san francisco'>San Francisco</option>
 </select>
+<p class='hint-inline error-msg'>That failed terribly</p>
+<p class='hint-inline success-msg'>Gold stars all around</p>
 </div>
 </div>
 <div class='form-actions'>
@@ -1467,10 +1474,9 @@ or other descriptive helpers</li>
 <p></form>
 </div></p>
 
-<pre><code class="haml">%section#demo_form.button-toolbar(style=&quot;margin-bottom:3em;&quot;)
+<pre><code class="haml">%section#demo_form.button-toolbar(style=&quot;margin-bottom:1em;&quot;)
   %nav.button-group(data-bindable=&quot;toggler-group&quot; data-target=&quot;.btn&quot; data-remove=&quot;form-vertical form-horizontal&quot;)
     %button.btn.active(href=&quot;#&quot; data-add=&quot;&quot;) Default
-    %button.btn(href=&quot;#&quot; data-add=&quot;form-vertical&quot;) Vertical
     %button.btn(href=&quot;#&quot; data-add=&quot;form-horizontal&quot;) Horizontal
   %nav.button-group(data-bindable=&quot;toggler-group&quot; data-target=&quot;.btn&quot; data-remove=&quot;well dark lite&quot;)
     %button.btn.active(href=&quot;#&quot; data-add=&quot;&quot;) None
@@ -1488,69 +1494,80 @@ or other descriptive helpers</li>
     %legend Standard information
     -# Text inputs
     .control-group
-      %label(for=&quot;fcs_text&quot;) Text:&lt;abbr title=&quot;Required&quot;&gt;*&lt;/abbr&gt;
+      %label.control-label(for=&quot;fcs_text&quot;) Text:&lt;abbr title=&quot;Required&quot;&gt;*&lt;/abbr&gt;
       .controls
         %input#fcs_text(type=&quot;text&quot; placeholder=&quot;Enter your name&quot;)
         %p.hint-inline.error-msg That failed terribly
         %p.hint-inline.success-msg Gold stars all around
-        %p.hint First and last name
+        %p.hint-block First and last name
     .control-group
-      %label(for=&quot;fcs_email&quot;) Email:&lt;abbr title=&quot;Required&quot;&gt;*&lt;/abbr&gt;
+      %label.control-label(for=&quot;fcs_email&quot;) Email:&lt;abbr title=&quot;Required&quot;&gt;*&lt;/abbr&gt;
       .controls
         %input#fcs_email(type=&quot;email&quot; placeholder=&quot;name@example.com&quot;)
+        %p.hint-inline No AOL accounts!
         %p.hint-inline.error-msg That failed terribly
         %p.hint-inline.success-msg Gold stars all around
-        %p.hint We won&#39;t share it
+        %p.hint-block We won&#39;t share it
     .control-group
-      %label(for=&quot;fcs_file&quot;) File Browser:
+      %label.control-label(for=&quot;fcs_file&quot;) File Browser:
       .controls
         %input#fcs_file(type=&quot;file&quot; value=&quot;file&quot;)
+        %p.hint-inline.error-msg That failed terribly
+        %p.hint-inline.success-msg Gold stars all around
     .control-group
-      %label(for=&quot;fcs_textarea&quot;) Textarea:
+      %label.control-label(for=&quot;fcs_textarea&quot;) Textarea:
       .controls
         %textarea#fcs_textarea(placeholder=&quot;Enter the textarea...&quot; rows=&quot;8&quot;)
+        %p.hint-inline.error-msg That failed terribly
+        %p.hint-inline.success-msg Gold stars all around
     -# Uneditable
     .control-group
-      %label(for=&quot;fcs_uneditable&quot;) Uneditable field&lt;abbr title=&quot;Fill out entire form first&quot;&gt;!&lt;/abbr&gt;
+      %label.control-label(for=&quot;fcs_uneditable&quot;) &lt;abbr title=&quot;Fill out entire form first&quot;&gt;Uneditable field:&lt;/abbr&gt;
       .controls
         %input#fcs_uneditable.uneditable-field(type=&quot;text&quot; placeholder=&quot;text&quot; value=&quot;Can&#39;t touch this!&quot; disabled)
         %p.hint-inline Hurry up!
+        %p.hint-inline.error-msg That failed terribly
+        %p.hint-inline.success-msg Gold stars all around
 
   %fieldset
     %legend Make a choice
     -# Radios
     .control-group
-      %label Radio
+      %label.control-label Radio:
       .controls
         %label.radio-label(for=&quot;fcs_radio1-1&quot;)
           %input#fcs_radio1-1(type=&quot;radio&quot; name=&quot;fc[radios1]&quot; value=&quot;true&quot; checked) Yes, to radio buttons
         %label.radio-label(for=&quot;fcs_radio1-2&quot;)
           %input#fcs_radio1-2(type=&quot;radio&quot; name=&quot;fc[radios1]&quot; value=&quot;false&quot;) No, to radio buttons
     .control-group
-      %label Radio Inline
+      %label.control-label Radio Inline:
       .controls
         %label.radio-label-inline(for=&quot;fcs_radio2-1&quot;)
           %input#fcs_radio2-1(type=&quot;radio&quot; name=&quot;fc[radios2]&quot; value=&quot;true&quot; checked) Yes, to inline radios
         %label.radio-label-inline(for=&quot;fcs_radio2-2&quot;)
           %input#fcs_radio2-2(type=&quot;radio&quot; name=&quot;fc[radios2]&quot; value=&quot;false&quot;) No, to inline radios
+        %p.hint-inline.error-msg That failed terribly
+        %p.hint-inline.success-msg Gold stars all around
     -# Checks
     .control-group
-      %label Checkbox
+      %label.control-label Checkbox:
       .controls
         %label.checkbox-label(for=&quot;fcs_check1-1&quot;)
           %input#fcs_check1-1(type=&quot;checkbox&quot; value=&quot;0&quot;) Check your premises
         %label.checkbox-label(for=&quot;fcs_check1-2&quot;)
           %input#fcs_check1-2(type=&quot;checkbox&quot; value=&quot;1&quot; checked) Premises, checked.
     .control-group
-      %label Checkbox Inline
+      %label.control-label Checkbox Inline:
       .controls
         %label.checkbox-label-inline(for=&quot;fcs_check2-1&quot;)
           %input#fcs_check2-1(type=&quot;checkbox&quot; value=&quot;0&quot;) Check your inline premises
         %label.checkbox-label-inline(for=&quot;fcs_check2-2&quot;)
           %input#fcs_check2-2(type=&quot;checkbox&quot; value=&quot;1&quot; checked) Premises inline, checked.
+        %p.hint-inline.error-msg That failed terribly
+        %p.hint-inline.success-msg Gold stars all around
     -# Selects
     .control-group
-      %label(for=&quot;fcs_multiselect&quot;) Multiple Select:
+      %label.control-label(for=&quot;fcs_multiselect&quot;) Multiple Select:
       .controls
         %select#fcs_multiselect(multiple)
           %option(value=&quot;1&quot;) One
@@ -1558,14 +1575,18 @@ or other descriptive helpers</li>
           %option(value=&quot;3&quot;) Three
           %option(value=&quot;4&quot;) Four
           %option(value=&quot;5&quot;) Five
+        %p.hint-inline.error-msg That failed terribly
+        %p.hint-inline.success-msg Gold stars all around
     .control-group
-      %label(for=&quot;fcs_select&quot;) Select:
+      %label.control-label(for=&quot;fcs_select&quot;) Select:
       .controls
         %select
           %option(selected=&quot;selected&quot; value=&quot;denver&quot;) Denver
           %option(value=&quot;boulder&quot;) Boulder
           %option(value=&quot;los angeles&quot;) Los Angeles
           %option(value=&quot;san francisco&quot;) San Francisco
+        %p.hint-inline.error-msg That failed terribly
+        %p.hint-inline.success-msg Gold stars all around
 
     .form-actions
       %input.btn(type=&quot;submit&quot; value=&quot;Submit&quot;)
@@ -1738,6 +1759,49 @@ within your <code>config.sass</code> file or before <code>form-controls.sass</co
 <td><code>$form-well-dark-border</code></td>
 <td><code>darken($form-border-color, 5%)</code></td>
 <td>The <code>border-color</code> of <code>.form-actions</code> when <code>form</code> has a <code>.well.dark</code> class</td>
+</tr>
+</tbody></table>
+
+<p></section><section class="sherpa-section sherpa-clearfix"></p>
+
+<h1>Form Horizontal</h1>
+
+<p>An alternative to the default stacked form, floats control labels down
+the left side of the form. The markup structure remains the same as the
+default layout, it only requires the class <code>.form-horizontal</code> on the
+<code>form</code> element.</p>
+
+<pre><code class="sass">@import utensils/components/form_horizontal/form-horizontal
+</code></pre>
+
+<h6>Notes</h6>
+
+<ul>
+<li><strong>Pro Tip!</strong> Check out the &quot;Form Structure&quot; section under &quot;Form
+Controls&quot; for the demo and usage example.</li>
+</ul>
+
+<h2>Style Settings</h2>
+
+<p>To override the default settings, set the variable and it&#39;s value
+within your <code>config.sass</code> file or before <code>form-horizontal.sass</code> is loaded.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>$form-horiz-offset</code></td>
+<td><code>$horiz-offset</code></td>
+<td>The for <code>.control-label</code>, <code>.controls</code> and <code>.form-actions</code> containers</td>
+</tr>
+<tr>
+<td><code>$form-horiz-offset-padding</code></td>
+<td><code>$horiz-offset-padding</code></td>
+<td>The padding between the <code>.control-label</code> and <code>.controls</code> containers</td>
 </tr>
 </tbody></table>
 
