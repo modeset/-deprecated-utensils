@@ -9,6 +9,7 @@ $heading-color: $body-color !default
 
 $hr-rule-color: $border-color !default
 $mark-bgc: $yellow !default
+$mark-color: #333 !default
 
 $code-bgc: $off-white !default
 $code-border-color: invert($body-color) !default
@@ -23,6 +24,7 @@ $definition-horiz-offset-padding: $horiz-offset-padding !default
 // -----------------------------------------------------------------------------
 h1, h2, h3, h4, h5, h6
   color: $heading-color
+  margin: 0
 
 h1
   +font-size($h1-size)
@@ -51,6 +53,9 @@ p
 p a:hover
   text-decoration: underline
 
+strong
+  font-weight: bold
+
 small
   font-size: 85%
 
@@ -78,6 +83,7 @@ dfn[title]
 
 mark
   background: $mark-bgc
+  color: $mark-color
   padding: 0 0.3em
 
 
@@ -89,6 +95,7 @@ hr
   border: 0
   border-top: 1px solid $hr-rule-color
   margin: 1em 0
+  padding: 0
   &.dotted
     border-top-style: dotted
   &.dashed
@@ -156,28 +163,20 @@ blockquote:after
 
 // Ordered and Unordered Lists
 // -----------------------------------------------------------------------------
-ul
-  list-style: square inside
 
-ol
-  list-style: decimal inside
+ol, ul, dl, menu, dd
+  margin: 0
+  padding: 0
 
-ul li,
-ol li
-  margin-left: 0.25em
+ul, ol
+  margin-left: 1.65em
 
-ul ul li, ul ol li,
-ol ul li, ol ol li
-  margin-left: 1.5em
-
-// Navigation and unstyled Lists
 nav ul,
 nav ol,
-.unstyled
+.unstyled-list
+  margin-left: 0
   list-style: none
-  ul li, ol li, li
-    margin-left: 0
-    padding: 0
+  list-style-image: none
 
 // Definition Lists
 dt

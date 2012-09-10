@@ -1,5 +1,5 @@
 
-// Normalization and resets based on normalize.css and html5boilerplate
+// Normalization based on normalize.css and html5boilerplate
 
 // HTML 5 definitions and normalization
 article, aside, details, figcaption, figure,
@@ -8,6 +8,9 @@ footer, header, hgroup, nav, section, summary
 
 audio, canvas, video
   display: inline-block
+  @if $legacy-support-for-ie
+    *display: inline
+    *zoom: 1
 
 audio:not([controls])
   display: none
@@ -15,11 +18,6 @@ audio:not([controls])
 
 [hidden]
   display: none
-
-// Start at 0
-*
-  margin: 0
-  padding: 0
 
 
 // All scaffold normalization is found in _scaffold.sass
@@ -37,24 +35,44 @@ img
 svg:not(:root)
   overflow: hidden
 
+figure
+  margin: 0
+
 // Form normalization
+form
+  margin: 0
+
 fieldset,
 legend
   border: 0
+  margin: 0
+  padding: 0
+
+legend
+  white-space: normal
+  @if $legacy-support-for-ie
+    *margin-left: -7px
 
 button, input, select, textarea
   font-family: inherit
   font-size: 100%
+  margin: 0
+  vertical-align: baseline
+  @if $legacy-support-for-ie
+    *vertical-align: middle
 
 button, input
   line-height: normal
+
 
 button,
 html input[type="button"],
 input[type="reset"],
 input[type="submit"]
-  cursor: pointer
   -webkit-appearance: button
+  cursor: pointer
+  @if $legacy-support-for-ie
+    *overflow: visible
 
 button[disabled],
 input[disabled],
@@ -65,6 +83,10 @@ li.disabled > a
 input[type="checkbox"],
 input[type="radio"]
   +box-sizing(border-box)
+  padding: 0
+  @if $legacy-support-for-ie
+    *height: 13px
+    *width: 13px
 
 input[type="search"]
   +box-sizing(content-box)
@@ -77,6 +99,7 @@ input[type="search"]::-webkit-search-cancel-button
 button::-moz-focus-inner,
 input::-moz-focus-inner
   border: 0
+  padding: 0
 
 textarea
   overflow: auto

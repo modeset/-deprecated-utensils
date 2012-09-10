@@ -41,7 +41,7 @@ Attribute  | Default            | Description
 ---------- | ------------------ | -------------------------------------------
 `toggle`   | `active`           | The class(es) to toggle when triggered
 `trigger`  | `click`            | The event to trigger toggle behavior
-`target`   | `bindable element` | The target element to toggle classes on (the `href` attribute can also be used)
+`target`   | `bindable`         | The target element to toggle classes on (the `href` attribute can also be used)
 `lookup`   | `find`             | The `$` method to find a target or href target ~ [`closest`, `siblings`, `parents`...]
 `solo`     | `true`             | When the target is not the bindable element, classes are toggled to both the target and bindable element. Setting to false will result in classes only being applied to the target
 `activate` | `false`            | If present, this will auto activate the element

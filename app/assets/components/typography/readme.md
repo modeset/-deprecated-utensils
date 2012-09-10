@@ -135,61 +135,67 @@ Horizontal rules can utilize the class `.dashed` and `.dotted` for a different s
 <!-- end -->
 
 ### Lists
-Lists come in three varieties, unordered (`<ul>`), ordered (`<ol>`), and unstyled (`.unstyled`). Unstyled simply removes any list styles and left padding. By default all `<ul>` and `<ol>` elements nested under a `<nav>` element render the same as an `.unstyled` list 
+Lists come in three varieties, unordered (`ul`), ordered (`ol`), and unstyled (`.unstyled-list`). Unstyled simply removes any list styles and left margin. By default all `ul` and `ol` elements nested under a `nav` element render the same as an `.unstyled-list` class. 
 
 ### Usage Example
 
 <!--~ markup/typography-lists.html.haml -->
 ```haml
 %section(style="width:25%; float:left; margin-right: 5%;")
-  %p
+  %p<
     %strong Unordered list:
   %ul
     %li Unordered list
     %li Unordered list
     %li
+      Start nested unordered list
       %ul
         %li Nested unordered list
         %li Nested unordered list
         %li Nested unordered list
     %li Unordered list
     %li
+      Start nested ordered list
       %ol
         %li Nested ordered list
         %li Nested ordered list
         %li Nested ordered list
 
 %section(style="width:25%; float:left; margin-right: 5%;")
-  %p
+  %p<
     %strong Ordered list:
   %ol
     %li Ordered list
     %li Ordered list
     %li
+      Start nested ordered list
       %ol
         %li Nested ordered list
         %li Nested ordered list
         %li Nested ordered list
     %li Ordered list
     %li
+      Start nested unordered list
       %ul
         %li Nested unordered list
         %li Nested unordered list
         %li Nested unordered list
 
 %section(style="width:25%; float:left;")
-  %p
+  %p<
     %strong Unstyled list:
-  %ul.unstyled
+  %ul.unstyled-list
     %li Unordered list
     %li Unordered list
     %li
+      Start nested unordered list
       %ul
         %li Nested unordered list
         %li Nested unordered list
         %li Nested unordered list
     %li Unordered list
     %li
+      Start nested ordered list
       %ol
         %li Nested ordered list
         %li Nested ordered list
@@ -198,7 +204,13 @@ Lists come in three varieties, unordered (`<ul>`), ordered (`<ol>`), and unstyle
 <!-- end -->
 
 ### Definition Lists
-Definition lists are used to encapsulate a term and it's definition
+Definition lists are used to encapsulate a term and it's definition. The
+standard definition list utilizes a block level structure. Giving the
+`dl` the class `dl-horizontal` renders the `dt` and `dd` on the same
+line. You can control the positioning by altering the
+`$definition-horiz-offset` and `$definition-horiz-offset-padding`
+variables.
+
 
 ### Usage Example
 
@@ -243,6 +255,7 @@ Attribute                          | Default                  | Description
 `$heading-color`                   | `$body-color`            | The default color of heading elements
 `$hr-rule-color`                   | `$border-color`          | The default color of horizontal rules
 `$mark-bgc`                        | `$yellow`                | The default background color of the `mark` element
+`$mark-color`                      | `#333`                   | The default text `color` for the `mark` element
 `$code-bgc`                        | `$off-white`             | The default background color of `code` and `pre` blocks
 `$code-border-color`               | `invert($body-color)`    | The default border color of `code` and `pre` blocks
 `$code-inline-color`               | `$body-color`            | The default color of inline `code` elements

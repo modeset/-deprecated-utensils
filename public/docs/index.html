@@ -1810,7 +1810,7 @@ within your <code>config.sass</code> file or before <code>close.sass</code> is l
 
 <h1>Normalize</h1>
 
-<p>Normalize and reset base element styles to allow browsers to render all controls
+<p>Normalize base element styles to allow browsers to render all controls
 more consistently and in line with modern standards.</p>
 
 <p>Normalization and resets based on:</p>
@@ -1820,7 +1820,7 @@ more consistently and in line with modern standards.</p>
 <li><a href="http://html5boilerplate.com/">HTML5 Boilerplate</a></li>
 </ul>
 
-<p>This should appear right after compass, bourbon or the polyfills loads, but before any
+<p>This should appear right after compass, bourbon or the polyfills load, but before any
 specific styles are imported. This module operates on top level elements
 and inserts them directly into your style sheet.</p>
 
@@ -2486,7 +2486,7 @@ within your <code>config.sass</code> file or before <code>tip.sass</code> is loa
 </tr>
 <tr>
 <td><code>target</code></td>
-<td><code>bindable element</code></td>
+<td><code>bindable</code></td>
 <td>The target element to toggle classes on (the <code>href</code> attribute can also be used)</td>
 </tr>
 <tr>
@@ -3066,18 +3066,17 @@ git push</pre>
 
 <h3>Lists</h3>
 
-<p>Lists come in three varieties, unordered (<code>&lt;ul&gt;</code>), ordered (<code>&lt;ol&gt;</code>), and unstyled (<code>.unstyled</code>). Unstyled simply removes any list styles and left padding. By default all <code>&lt;ul&gt;</code> and <code>&lt;ol&gt;</code> elements nested under a <code>&lt;nav&gt;</code> element render the same as an <code>.unstyled</code> list </p>
+<p>Lists come in three varieties, unordered (<code>ul</code>), ordered (<code>ol</code>), and unstyled (<code>.unstyled-list</code>). Unstyled simply removes any list styles and left margin. By default all <code>ul</code> and <code>ol</code> elements nested under a <code>nav</code> element render the same as an <code>.unstyled-list</code> class. </p>
 
 <!--~ markup/typography-lists.html.haml -->
 
 <div class="sherpa-showcase sherpa-clearfix"><section style='width:25%; float:left; margin-right: 5%;'>
-<p>
-<strong>Unordered list:</strong>
-</p>
+<p><strong>Unordered list:</strong></p>
 <ul>
 <li>Unordered list</li>
 <li>Unordered list</li>
 <li>
+Start nested unordered list
 <ul>
 <li>Nested unordered list</li>
 <li>Nested unordered list</li>
@@ -3086,6 +3085,7 @@ git push</pre>
 </li>
 <li>Unordered list</li>
 <li>
+Start nested ordered list
 <ol>
 <li>Nested ordered list</li>
 <li>Nested ordered list</li>
@@ -3095,13 +3095,12 @@ git push</pre>
 </ul>
 </section>
 <section style='width:25%; float:left; margin-right: 5%;'>
-<p>
-<strong>Ordered list:</strong>
-</p>
+<p><strong>Ordered list:</strong></p>
 <ol>
 <li>Ordered list</li>
 <li>Ordered list</li>
 <li>
+Start nested ordered list
 <ol>
 <li>Nested ordered list</li>
 <li>Nested ordered list</li>
@@ -3110,6 +3109,7 @@ git push</pre>
 </li>
 <li>Ordered list</li>
 <li>
+Start nested unordered list
 <ul>
 <li>Nested unordered list</li>
 <li>Nested unordered list</li>
@@ -3119,13 +3119,12 @@ git push</pre>
 </ol>
 </section>
 <section style='width:25%; float:left;'>
-<p>
-<strong>Unstyled list:</strong>
-</p>
-<ul class='unstyled'>
+<p><strong>Unstyled list:</strong></p>
+<ul class='unstyled-list'>
 <li>Unordered list</li>
 <li>Unordered list</li>
 <li>
+Start nested unordered list
 <ul>
 <li>Nested unordered list</li>
 <li>Nested unordered list</li>
@@ -3134,6 +3133,7 @@ git push</pre>
 </li>
 <li>Unordered list</li>
 <li>
+Start nested ordered list
 <ol>
 <li>Nested ordered list</li>
 <li>Nested ordered list</li>
@@ -3145,54 +3145,60 @@ git push</pre>
 </div>
 
 <pre><code class="haml">%section(style=&quot;width:25%; float:left; margin-right: 5%;&quot;)
-  %p
+  %p&lt;
     %strong Unordered list:
   %ul
     %li Unordered list
     %li Unordered list
     %li
+      Start nested unordered list
       %ul
         %li Nested unordered list
         %li Nested unordered list
         %li Nested unordered list
     %li Unordered list
     %li
+      Start nested ordered list
       %ol
         %li Nested ordered list
         %li Nested ordered list
         %li Nested ordered list
 
 %section(style=&quot;width:25%; float:left; margin-right: 5%;&quot;)
-  %p
+  %p&lt;
     %strong Ordered list:
   %ol
     %li Ordered list
     %li Ordered list
     %li
+      Start nested ordered list
       %ol
         %li Nested ordered list
         %li Nested ordered list
         %li Nested ordered list
     %li Ordered list
     %li
+      Start nested unordered list
       %ul
         %li Nested unordered list
         %li Nested unordered list
         %li Nested unordered list
 
 %section(style=&quot;width:25%; float:left;&quot;)
-  %p
+  %p&lt;
     %strong Unstyled list:
-  %ul.unstyled
+  %ul.unstyled-list
     %li Unordered list
     %li Unordered list
     %li
+      Start nested unordered list
       %ul
         %li Nested unordered list
         %li Nested unordered list
         %li Nested unordered list
     %li Unordered list
     %li
+      Start nested ordered list
       %ol
         %li Nested ordered list
         %li Nested ordered list
@@ -3203,7 +3209,12 @@ git push</pre>
 
 <h3>Definition Lists</h3>
 
-<p>Definition lists are used to encapsulate a term and it&#39;s definition</p>
+<p>Definition lists are used to encapsulate a term and it&#39;s definition. The
+standard definition list utilizes a block level structure. Giving the
+<code>dl</code> the class <code>dl-horizontal</code> renders the <code>dt</code> and <code>dd</code> on the same
+line. You can control the positioning by altering the
+<code>$definition-horiz-offset</code> and <code>$definition-horiz-offset-padding</code>
+variables.</p>
 
 <!--~ markup/typography-definition.html.haml -->
 
@@ -3318,6 +3329,11 @@ within your <code>config.sass</code> file or before <code>typography.sass</code>
 <td>The default background color of the <code>mark</code> element</td>
 </tr>
 <tr>
+<td><code>$mark-color</code></td>
+<td><code>#333</code></td>
+<td>The default text <code>color</code> for the <code>mark</code> element</td>
+</tr>
+<tr>
 <td><code>$code-bgc</code></td>
 <td><code>$off-white</code></td>
 <td>The default background color of <code>code</code> and <code>pre</code> blocks</td>
@@ -3372,17 +3388,17 @@ class utensil.ClassName
 <pre><code class="sass">@import utensils/components/well/well
 </code></pre>
 
-<div class="sherpa-showcase sherpa-clearfix"><div class='well'>.well</div>
+<div class="sherpa-showcase sherpa-clearfix"><div class='well'><code>.well</code></div>
 
-<div class='well lite'>.well.lite</div>
+<div class='well lite'><code>.well.lite</code></div>
 
-<div class='well dark'>.well.dark</div>
+<div class='well dark'><code>.well.dark</code></div>
 
 <p></div></p>
 
-<pre><code class="haml">.well .well
-.well.lite .well.lite
-.well.dark .well.dark
+<pre><code class="haml">.well &lt;code&gt;.well&lt;/code&gt;
+.well.lite &lt;code&gt;.well.lite&lt;/code&gt;
+.well.dark &lt;code&gt;.well.dark&lt;/code&gt;
 </code></pre>
 
 <h2>Style Settings</h2>

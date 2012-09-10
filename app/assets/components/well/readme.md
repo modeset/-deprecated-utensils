@@ -9,9 +9,9 @@ Wells are used to contain components and other various elements.
 ## Usage Example
 
 ```haml
-.well .well
-.well.lite .well.lite
-.well.dark .well.dark
+.well <code>.well</code>
+.well.lite <code>.well.lite</code>
+.well.dark <code>.well.dark</code>
 ```
 
 ## Style Settings

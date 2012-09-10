@@ -8,14 +8,13 @@ Client side component library
 
 ### Tasks
 - Look at making the sass files use abstract elements
-- Is there a way to pass status variables to limit the output
+- Is there a way to pass status variables to limit the output?
 - Test out the simple form integration
 - Convert media queries
 - Add view layout templates
 - Turn into engine with generators
 
 ### Needed components
-- Go back and look at normalize and get rid of *
 - form layouts (Make sure to clearfix control groups in form-horizontal)
 - Revisit simple button?
 - Add button utilities (small, mini, large, block)
