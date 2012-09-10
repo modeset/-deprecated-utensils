@@ -613,57 +613,12 @@ when creating a <code>Dimensionizer</code> as the constructor&#39;s <code>data</
 
 <h1>Form Controls</h1>
 
-<p>Contain the style definitions for <code>input</code>, <code>textarea</code>, <code>select</code>, <code>radio</code>
-<code>checkbox</code>, <code>labels</code>, <code>.hints</code>, <code>button</code> elements and other common form
-controls. The styles do contain some base structure, but typically
-pairing the form controls with a form layout file is preferred.</p>
+<p>Contains the style definitions for form control elements, form control
+states, and basic structure for containers. Form controls are typically
+paired with one of the form layout components.</p>
 
 <pre><code class="sass">@import utensils/components/form_controls/form-controls
 </code></pre>
-
-<h2>Structure</h2>
-
-<p>Form structures typically consist of:</p>
-
-<ul>
-<li>A top level <code>%form</code> element</li>
-<li>One or multiple <code>%fieldset</code> elements</li>
-<li>A <code>%legend</code> for each <code>%fieldset</code> describing the controls within it</li>
-<li>A <code>%div.control-group</code> containing a <code>%label</code> and <code>%div.controls</code> element</li>
-<li>The child <code>%label</code> of the <code>.control-group</code> describes the contents of
-it&#39;s <code>.controls</code> sibling</li>
-<li>The <code>%div.controls</code> element hosting the control object, plus <code>.hints</code>
-or other descriptive helpers</li>
-</ul>
-
-<!--~ markup/form-controls-structure.html.haml -->
-
-<div class="sherpa-showcase sherpa-clearfix"><form>
-<fieldset>
-<legend>I am Legend</legend>
-<div class='control-group'>
-<label for='fcs_text'>Label Name<abbr title="Required">*</abbr></label>
-<div class='controls'>
-<input id='fcs_text' placeholder='text' type='text' />
-<p class='hint'>The hint for the control element</p>
-</div>
-
-<p></div>
-</fieldset>
-</form>
-</div></p>
-
-<pre><code class="haml">%form
-  %fieldset
-    %legend I am Legend
-    .control-group
-      %label(for=&quot;fcs_text&quot;) Label Name&lt;abbr title=&quot;Required&quot;&gt;*&lt;/abbr&gt;
-      .controls
-        %input#fcs_text(type=&quot;text&quot; placeholder=&quot;text&quot;)
-        %p.hint The hint for the control element
-</code></pre>
-
-<!-- end -->
 
 <h2>Text based input controls</h2>
 
@@ -711,7 +666,7 @@ or other descriptive helpers</li>
 
 <div class='control-group'>
 <div class='controls'>
-<input class='input-large' placeholder='google' type='search' />
+<input class='input-large' placeholder='search' type='search' />
 </div>
 
 <p></div></p>
@@ -769,6 +724,11 @@ or other descriptive helpers</li>
 </div>
 </div>
 <div class='control-group'>
+<div class='controls'>
+<input type='file' value='file' />
+</div>
+</div>
+<div class='control-group'>
 <label><abbr title="The input field's type is set to hidden">Hidden Input Field</abbr></label>
 <div class='controls'>
 <input class='input-small' placeholder='hidden' type='hidden' />
@@ -799,7 +759,7 @@ or other descriptive helpers</li>
         %input.input-large(type=&quot;tel&quot; placeholder=&quot;303-867-5309&quot;)
     .control-group
       .controls
-        %input.input-large(type=&quot;search&quot; placeholder=&quot;google&quot;)
+        %input.input-large(type=&quot;search&quot; placeholder=&quot;search&quot;)
     .control-group
       .controls
         %input.input-medium(type=&quot;date&quot; placeholder=&quot;date&quot;)
@@ -831,12 +791,53 @@ or other descriptive helpers</li>
       .controls
         %input.input-xsmall(type=&quot;color&quot; value=&quot;#ff00ff&quot;)
     .control-group
+      .controls
+        %input(type=&quot;file&quot; value=&quot;file&quot;)
+    .control-group
       %label &lt;abbr title=&quot;The input field&#39;s type is set to hidden&quot;&gt;Hidden Input Field&lt;/abbr&gt;
       .controls
         %input.input-small(type=&quot;hidden&quot; placeholder=&quot;hidden&quot;)
 </code></pre>
 
 <!-- end -->
+
+<h2>Search controls</h2>
+
+<p>Represents a search form control. These are set by adding the class
+<code>.search-query</code> to any text input control element.</p>
+
+<!--~ markup/form-controls-search.html.haml -->
+
+<div class="sherpa-showcase sherpa-clearfix"><form>
+<fieldset>
+<legend>Search Elements</legend>
+<div class='control-group'>
+<div class='controls'>
+<input class='search-query input-small' placeholder='search' type='search' />
+</div>
+
+<p></div>
+</fieldset>
+</form>
+</div></p>
+
+<pre><code class="haml">%form
+  %fieldset
+    %legend Search Elements
+    .control-group
+      .controls
+        %input.search-query.input-small(type=&quot;search&quot; placeholder=&quot;search&quot;)
+</code></pre>
+
+<!-- end -->
+
+<h6>Warning</h6>
+
+<ul>
+<li><strong>Heads Up!</strong> <code>input[type=&quot;search&quot;]</code> renders the same as
+other text input controls. These types of inputs require the
+<code>.search-query</code> class to be added to the control.</li>
+</ul>
 
 <h2>Textarea controls</h2>
 
@@ -869,7 +870,7 @@ or other descriptive helpers</li>
 
 <h2>Select controls</h2>
 
-<p>Represents a control that presents menu of options.</p>
+<p>Represents a control that presents a menu of options.</p>
 
 <!--~ markup/form-controls-select.html.haml -->
 
@@ -938,7 +939,7 @@ or other descriptive helpers</li>
 
 <p>Radio and checkboxes are for selecting options within a list. Radios are
 used for selecting a single option, while checkboxes are for selecting
-0-many options.</p>
+zero to many options.</p>
 
 <!--~ markup/form-controls-radio-check.html.haml -->
 
@@ -962,13 +963,13 @@ used for selecting a single option, while checkboxes are for selecting
 
 <div class='control-group'>
 <label>
-<h5>Inline Radio</h5>
+<h5>Radio Inline</h5>
 </label>
 <div class='controls'>
-<label class='radio-label inline' for='fc_radio2-1'>
+<label class='radio-label-inline' for='fc_radio2-1'>
 <input checked='checked' id='fc_radio2-1' name='fc[radios2]' type='radio' value='true'>Yes, to inline radios</input>
 </label>
-<label class='radio-label inline' for='fc_radio2-2'>
+<label class='radio-label-inline' for='fc_radio2-2'>
 <input id='fc_radio2-2' name='fc[radios2]' type='radio' value='false'>No, to inline radios</input>
 </label>
 </div>
@@ -993,13 +994,13 @@ used for selecting a single option, while checkboxes are for selecting
 
 <div class='control-group'>
 <label>
-<h5>Inline Checkbox</h5>
+<h5>Checkbox Inline</h5>
 </label>
 <div class='controls'>
-<label class='checkbox-label inline' for='fc_check2-1'>
+<label class='checkbox-label-inline' for='fc_check2-1'>
 <input id='fc_check2-1' type='checkbox' value='0'>Check your inline premises</input>
 </label>
-<label class='checkbox-label inline' for='fc_check2-2'>
+<label class='checkbox-label-inline' for='fc_check2-2'>
 <input checked='checked' id='fc_check2-2' type='checkbox' value='1'>Premises inline, checked.</input>
 </label>
 </div>
@@ -1023,11 +1024,11 @@ used for selecting a single option, while checkboxes are for selecting
 
     .control-group
       %label
-        %h5 Inline Radio
+        %h5 Radio Inline
       .controls
-        %label.radio-label.inline(for=&quot;fc_radio2-1&quot;)
+        %label.radio-label-inline(for=&quot;fc_radio2-1&quot;)
           %input#fc_radio2-1(type=&quot;radio&quot; name=&quot;fc[radios2]&quot; value=&quot;true&quot; checked) Yes, to inline radios
-        %label.radio-label.inline(for=&quot;fc_radio2-2&quot;)
+        %label.radio-label-inline(for=&quot;fc_radio2-2&quot;)
           %input#fc_radio2-2(type=&quot;radio&quot; name=&quot;fc[radios2]&quot; value=&quot;false&quot;) No, to inline radios
 
     %legend Checkbox Controls
@@ -1042,11 +1043,11 @@ used for selecting a single option, while checkboxes are for selecting
 
     .control-group
       %label
-        %h5 Inline Checkbox
+        %h5 Checkbox Inline
       .controls
-        %label.checkbox-label.inline(for=&quot;fc_check2-1&quot;)
+        %label.checkbox-label-inline(for=&quot;fc_check2-1&quot;)
           %input#fc_check2-1(type=&quot;checkbox&quot; value=&quot;0&quot;) Check your inline premises
-        %label.checkbox-label.inline(for=&quot;fc_check2-2&quot;)
+        %label.checkbox-label-inline(for=&quot;fc_check2-2&quot;)
           %input#fc_check2-2(type=&quot;checkbox&quot; value=&quot;1&quot; checked) Premises inline, checked.
 </code></pre>
 
@@ -1060,9 +1061,9 @@ used for selecting a single option, while checkboxes are for selecting
 
 <div class="sherpa-showcase sherpa-clearfix"><form>
 <fieldset>
-<legend>Description Elements</legend>
+<legend>I am Legend</legend>
 <div class='control-group'>
-<label for='fcd_text1'>Label Name<abbr title="Required">*</abbr></label>
+<label for='fcd_text1'>Label<abbr title="Required">*</abbr></label>
 <div class='controls'>
 <input id='fcd_text1' placeholder='text' type='text' />
 <p class='hint'>The hint for the control element</p>
@@ -1070,11 +1071,13 @@ used for selecting a single option, while checkboxes are for selecting
 
 <p></div></p>
 
+<hr />
+
 <div class='control-group'>
-<label for='fcd_text2'>Label Name<abbr title="Required">*</abbr></label>
+<label for='fcd_text2'>Label<abbr title="Required">*</abbr></label>
 <div class='controls'>
 <input id='fcd_text2' placeholder='text' type='text' />
-<p class='hint inline'>The inline hint for the control element</p>
+<p class='hint-inline'>The inline hint for the control element</p>
 </div>
 
 <p></div>
@@ -1084,19 +1087,21 @@ used for selecting a single option, while checkboxes are for selecting
 
 <pre><code class="haml">%form
   %fieldset
-    %legend Description Elements
+    %legend I am Legend
 
     .control-group
-      %label(for=&quot;fcd_text1&quot;) Label Name&lt;abbr title=&quot;Required&quot;&gt;*&lt;/abbr&gt;
+      %label(for=&quot;fcd_text1&quot;) Label&lt;abbr title=&quot;Required&quot;&gt;*&lt;/abbr&gt;
       .controls
         %input#fcd_text1(type=&quot;text&quot; placeholder=&quot;text&quot;)
         %p.hint The hint for the control element
 
+    %hr
+
     .control-group
-      %label(for=&quot;fcd_text2&quot;) Label Name&lt;abbr title=&quot;Required&quot;&gt;*&lt;/abbr&gt;
+      %label(for=&quot;fcd_text2&quot;) Label&lt;abbr title=&quot;Required&quot;&gt;*&lt;/abbr&gt;
       .controls
         %input#fcd_text2(type=&quot;text&quot; placeholder=&quot;text&quot;)
-        %p.hint.inline The inline hint for the control element
+        %p.hint-inline The inline hint for the control element
 </code></pre>
 
 <!-- end -->
@@ -1126,14 +1131,24 @@ used for selecting a single option, while checkboxes are for selecting
 <td>The block level element which appears below the control. It can describe actions needed for the user</td>
 </tr>
 <tr>
-<td><code>.hint.inline</code></td>
+<td><code>.hint-inline</code></td>
 <td>Allows the hint to appear directly to the right of the control element</td>
 </tr>
 </tbody></table>
 
+<h6>Notes</h6>
+
+<ul>
+<li><strong>Pro Tip!</strong> Hints support modifiers for <code>.success-msg</code> and
+<code>.error-msg</code>, these are hidden by default, but will render when the
+<code>.control-group</code> has been modified with either a <code>.error</code> or
+<code>.success</code></li>
+</ul>
+
 <h2>Uneditable controls</h2>
 
-<p>Represents <code>span</code> elements disguised as <code>inputs</code>.</p>
+<p>A modifier on <code>input</code> or <code>textarea</code> fields that is uneditable by the
+user.</p>
 
 <!--~ markup/form-controls-uneditable.html.haml -->
 
@@ -1141,10 +1156,18 @@ used for selecting a single option, while checkboxes are for selecting
 <fieldset>
 <legend>Uneditable Controls</legend>
 <div class='control-group'>
-<label for='fcu_text'>Uneditable field<abbr title="Fill entire form first">!</abbr></label>
+<label for='fcu_text'>Uneditable field<abbr title="Fill out entire form first">!</abbr></label>
 <div class='controls'>
-<span class='uneditable-input input-small'>Can't touch this!</span>
-<p class='hint inline'>Hurry up!</p>
+<input class='uneditable-field' disabled='disabled' id='fcu_text' placeholder='text' type='text' value="Can't touch this!" />
+<p class='hint-inline'>Hurry up!</p>
+</div>
+
+<p></div></p>
+
+<div class='control-group'>
+<label for='fcu_textarea'>Uneditable field<abbr title="Fill out entire form first">!</abbr></label>
+<div class='controls'>
+<textarea class='uneditable-field input-small' disabled='disabled' id='fcu_textarea' placeholder='Enter the textarea...' rows='8'>Can't touch this either</textarea>
 </div>
 
 <p></div>
@@ -1156,13 +1179,24 @@ used for selecting a single option, while checkboxes are for selecting
   %fieldset
     %legend Uneditable Controls
     .control-group
-      %label(for=&quot;fcu_text&quot;) Uneditable field&lt;abbr title=&quot;Fill entire form first&quot;&gt;!&lt;/abbr&gt;
+      %label(for=&quot;fcu_text&quot;) Uneditable field&lt;abbr title=&quot;Fill out entire form first&quot;&gt;!&lt;/abbr&gt;
       .controls
-        %span.uneditable-input.input-small Can&#39;t touch this!
-        %p.hint.inline Hurry up!
+        %input#fcu_text.uneditable-field(type=&quot;text&quot; placeholder=&quot;text&quot; value=&quot;Can&#39;t touch this!&quot; disabled)
+        %p.hint-inline Hurry up!
+
+    .control-group
+      %label(for=&quot;fcu_textarea&quot;) Uneditable field&lt;abbr title=&quot;Fill out entire form first&quot;&gt;!&lt;/abbr&gt;
+      .controls
+        %textarea#fcu_textarea.uneditable-field.input-small(placeholder=&quot;Enter the textarea...&quot; rows=&quot;8&quot; disabled) Can&#39;t touch this either
 </code></pre>
 
 <!-- end -->
+
+<h6>Warning</h6>
+
+<ul>
+<li><strong>Heads Up!</strong> Make sure the field has the <code>disabled</code> attribute set.</li>
+</ul>
 
 <h2>Sizing helpers</h2>
 
@@ -1196,6 +1230,446 @@ sizing within a form layout template.</p>
 <tr>
 <td><code>input-xlarge</code></td>
 <td><input class="input-xlarge" type="text" placeholder="100%" /></td>
+</tr>
+</tbody></table>
+
+<h2>Button controls</h2>
+
+<p>There are no specific style settings for input types of <code>submit</code>,
+<code>reset</code>, <code>button</code> and <code>image</code>. Styles associated with button controls
+need to be defined by either a class or by allowing a form layout to
+create it&#39;s own definition.</p>
+
+<h2>Form Structure, Layout and States</h2>
+
+<p>Form structures typically consist of:</p>
+
+<ul>
+<li>A top level <code>form</code> element</li>
+<li>One or multiple <code>fieldset</code> elements</li>
+<li>A <code>legend</code> for each <code>fieldset</code> describing the controls within it</li>
+<li>A <code>div.control-group</code> containing a <code>label</code> and <code>div.controls</code> element</li>
+<li>The child <code>label</code> of the <code>.control-group</code> describes the contents of
+it&#39;s <code>.controls</code> sibling</li>
+<li>The <code>div.controls</code> element hosting the control object, plus <code>.hints</code>
+or other descriptive helpers</li>
+</ul>
+
+<!--~ markup/form-controls-structure.html.haml -->
+
+<div class="sherpa-showcase sherpa-clearfix"><section class='button-toolbar' id='demo_form' style='margin-bottom:3em;'>
+<nav class='button-group' data-bindable='toggler-group' data-remove='form-vertical form-horizontal' data-target='.btn'>
+<button class='btn active' data-add='' href='#'>Default</button>
+<button class='btn' data-add='form-vertical' href='#'>Vertical</button>
+<button class='btn' data-add='form-horizontal' href='#'>Horizontal</button>
+</nav>
+<nav class='button-group' data-bindable='toggler-group' data-remove='well dark lite' data-target='.btn'>
+<button class='btn active' data-add='' href='#'>None</button>
+<button class='btn' data-add='well' href='#'>Well</button>
+<button class='btn' data-add='well lite' href='#'>Well Lite</button>
+<button class='btn' data-add='well dark' href='#'>Well Dark</button>
+</nav>
+<nav class='button-group' data-bindable='toggler-group' data-remove='disabled error success' data-target='.btn'>
+<button class='btn active' data-add='' href='#'>Normal</button>
+<button class='btn' data-add='disabled' href='#'>Disabled</button>
+<button class='btn' data-add='error' href='#'>Error</button>
+<button class='btn' data-add='success' href='#'>Success</button>
+</nav>
+</section>
+<form>
+<fieldset>
+<legend>Standard information</legend>
+<div class='control-group'>
+<label for='fcs_text'>Text:<abbr title="Required">*</abbr></label>
+<div class='controls'>
+<input id='fcs_text' placeholder='Enter your name' type='text' />
+<p class='hint-inline error-msg'>That failed terribly</p>
+<p class='hint-inline success-msg'>Gold stars all around</p>
+<p class='hint'>First and last name</p>
+</div>
+
+<p></div></p>
+
+<div class='control-group'>
+<label for='fcs_email'>Email:<abbr title="Required">*</abbr></label>
+<div class='controls'>
+<input id='fcs_email' placeholder='name@example.com' type='email' />
+<p class='hint-inline error-msg'>That failed terribly</p>
+<p class='hint-inline success-msg'>Gold stars all around</p>
+<p class='hint'>We won't share it</p>
+</div>
+
+<p></div></p>
+
+<div class='control-group'>
+<label for='fcs_file'>File Browser:</label>
+<div class='controls'>
+<input id='fcs_file' type='file' value='file' />
+</div>
+
+<p></div></p>
+
+<div class='control-group'>
+<label for='fcs_textarea'>Textarea:</label>
+<div class='controls'>
+<textarea id='fcs_textarea' placeholder='Enter the textarea...' rows='8'></textarea>
+</div>
+
+<p></div></p>
+
+<div class='control-group'>
+<label for='fcs_uneditable'>Uneditable field<abbr title="Fill out entire form first">!</abbr></label>
+<div class='controls'>
+<input class='uneditable-field' disabled='disabled' id='fcs_uneditable' placeholder='text' type='text' value="Can't touch this!" />
+<p class='hint-inline'>Hurry up!</p>
+</div>
+
+<p></div>
+<legend>Make a choice</legend></p>
+
+<div class='control-group'>
+<label>Radio</label>
+<div class='controls'>
+<label class='radio-label' for='fcs_radio1-1'>
+<input checked='checked' id='fcs_radio1-1' name='fc[radios1]' type='radio' value='true'>Yes, to radio buttons</input>
+</label>
+<label class='radio-label' for='fcs_radio1-2'>
+<input id='fcs_radio1-2' name='fc[radios1]' type='radio' value='false'>No, to radio buttons</input>
+</label>
+</div>
+
+<p></div></p>
+
+<div class='control-group'>
+<label>Radio Inline</label>
+<div class='controls'>
+<label class='radio-label-inline' for='fcs_radio2-1'>
+<input checked='checked' id='fcs_radio2-1' name='fc[radios2]' type='radio' value='true'>Yes, to inline radios</input>
+</label>
+<label class='radio-label-inline' for='fcs_radio2-2'>
+<input id='fcs_radio2-2' name='fc[radios2]' type='radio' value='false'>No, to inline radios</input>
+</label>
+</div>
+
+<p></div></p>
+
+<div class='control-group'>
+<label>Checkbox</label>
+<div class='controls'>
+<label class='checkbox-label' for='fcs_check1-1'>
+<input id='fcs_check1-1' type='checkbox' value='0'>Check your premises</input>
+</label>
+<label class='checkbox-label' for='fcs_check1-2'>
+<input checked='checked' id='fcs_check1-2' type='checkbox' value='1'>Premises, checked.</input>
+</label>
+</div>
+
+<p></div></p>
+
+<div class='control-group'>
+<label>Checkbox Inline</label>
+<div class='controls'>
+<label class='checkbox-label-inline' for='fcs_check2-1'>
+<input id='fcs_check2-1' type='checkbox' value='0'>Check your inline premises</input>
+</label>
+<label class='checkbox-label-inline' for='fcs_check2-2'>
+<input checked='checked' id='fcs_check2-2' type='checkbox' value='1'>Premises inline, checked.</input>
+</label>
+</div>
+
+<p></div></p>
+
+<div class='control-group'>
+<label for='fcs_multiselect'>Multiple Select:</label>
+<div class='controls'>
+<select id='fcs_multiselect' multiple='multiple'>
+<option value='1'>One</option>
+<option selected='selected' value='2'>Two</option>
+<option value='3'>Three</option>
+<option value='4'>Four</option>
+<option value='5'>Five</option>
+</select>
+</div>
+
+<p></div></p>
+
+<div class='control-group'>
+<label for='fcs_select'>Select:</label>
+<div class='controls'>
+<select>
+<option selected='selected' value='denver'>Denver</option>
+<option value='boulder'>Boulder</option>
+<option value='los angeles'>Los Angeles</option>
+<option value='san francisco'>San Francisco</option>
+</select>
+</div>
+
+<p></div></p>
+
+<div class='form-actions'>
+<input class='btn' type='submit' value='Submit' />
+<input class='btn' type='reset' value='Cancel' />
+</div>
+
+<p></fieldset>
+</form>
+</div></p>
+
+<pre><code class="haml">%section#demo_form.button-toolbar(style=&quot;margin-bottom:3em;&quot;)
+  %nav.button-group(data-bindable=&quot;toggler-group&quot; data-target=&quot;.btn&quot; data-remove=&quot;form-vertical form-horizontal&quot;)
+    %button.btn.active(href=&quot;#&quot; data-add=&quot;&quot;) Default
+    %button.btn(href=&quot;#&quot; data-add=&quot;form-vertical&quot;) Vertical
+    %button.btn(href=&quot;#&quot; data-add=&quot;form-horizontal&quot;) Horizontal
+  %nav.button-group(data-bindable=&quot;toggler-group&quot; data-target=&quot;.btn&quot; data-remove=&quot;well dark lite&quot;)
+    %button.btn.active(href=&quot;#&quot; data-add=&quot;&quot;) None
+    %button.btn(href=&quot;#&quot; data-add=&quot;well&quot;) Well
+    %button.btn(href=&quot;#&quot; data-add=&quot;well lite&quot;) Well Lite
+    %button.btn(href=&quot;#&quot; data-add=&quot;well dark&quot;) Well Dark
+  %nav.button-group(data-bindable=&quot;toggler-group&quot; data-target=&quot;.btn&quot; data-remove=&quot;disabled error success&quot;)
+    %button.btn.active(href=&quot;#&quot; data-add=&quot;&quot;) Normal
+    %button.btn(href=&quot;#&quot; data-add=&quot;disabled&quot;) Disabled
+    %button.btn(href=&quot;#&quot; data-add=&quot;error&quot;) Error
+    %button.btn(href=&quot;#&quot; data-add=&quot;success&quot;) Success
+
+%form
+  %fieldset
+    %legend Standard information
+    -# Text inputs
+    .control-group
+      %label(for=&quot;fcs_text&quot;) Text:&lt;abbr title=&quot;Required&quot;&gt;*&lt;/abbr&gt;
+      .controls
+        %input#fcs_text(type=&quot;text&quot; placeholder=&quot;Enter your name&quot;)
+        %p.hint-inline.error-msg That failed terribly
+        %p.hint-inline.success-msg Gold stars all around
+        %p.hint First and last name
+    .control-group
+      %label(for=&quot;fcs_email&quot;) Email:&lt;abbr title=&quot;Required&quot;&gt;*&lt;/abbr&gt;
+      .controls
+        %input#fcs_email(type=&quot;email&quot; placeholder=&quot;name@example.com&quot;)
+        %p.hint-inline.error-msg That failed terribly
+        %p.hint-inline.success-msg Gold stars all around
+        %p.hint We won&#39;t share it
+    .control-group
+      %label(for=&quot;fcs_file&quot;) File Browser:
+      .controls
+        %input#fcs_file(type=&quot;file&quot; value=&quot;file&quot;)
+    .control-group
+      %label(for=&quot;fcs_textarea&quot;) Textarea:
+      .controls
+        %textarea#fcs_textarea(placeholder=&quot;Enter the textarea...&quot; rows=&quot;8&quot;)
+    -# Uneditable
+    .control-group
+      %label(for=&quot;fcs_uneditable&quot;) Uneditable field&lt;abbr title=&quot;Fill out entire form first&quot;&gt;!&lt;/abbr&gt;
+      .controls
+        %input#fcs_uneditable.uneditable-field(type=&quot;text&quot; placeholder=&quot;text&quot; value=&quot;Can&#39;t touch this!&quot; disabled)
+        %p.hint-inline Hurry up!
+
+    %legend Make a choice
+    -# Radios
+    .control-group
+      %label Radio
+      .controls
+        %label.radio-label(for=&quot;fcs_radio1-1&quot;)
+          %input#fcs_radio1-1(type=&quot;radio&quot; name=&quot;fc[radios1]&quot; value=&quot;true&quot; checked) Yes, to radio buttons
+        %label.radio-label(for=&quot;fcs_radio1-2&quot;)
+          %input#fcs_radio1-2(type=&quot;radio&quot; name=&quot;fc[radios1]&quot; value=&quot;false&quot;) No, to radio buttons
+    .control-group
+      %label Radio Inline
+      .controls
+        %label.radio-label-inline(for=&quot;fcs_radio2-1&quot;)
+          %input#fcs_radio2-1(type=&quot;radio&quot; name=&quot;fc[radios2]&quot; value=&quot;true&quot; checked) Yes, to inline radios
+        %label.radio-label-inline(for=&quot;fcs_radio2-2&quot;)
+          %input#fcs_radio2-2(type=&quot;radio&quot; name=&quot;fc[radios2]&quot; value=&quot;false&quot;) No, to inline radios
+    -# Checks
+    .control-group
+      %label Checkbox
+      .controls
+        %label.checkbox-label(for=&quot;fcs_check1-1&quot;)
+          %input#fcs_check1-1(type=&quot;checkbox&quot; value=&quot;0&quot;) Check your premises
+        %label.checkbox-label(for=&quot;fcs_check1-2&quot;)
+          %input#fcs_check1-2(type=&quot;checkbox&quot; value=&quot;1&quot; checked) Premises, checked.
+    .control-group
+      %label Checkbox Inline
+      .controls
+        %label.checkbox-label-inline(for=&quot;fcs_check2-1&quot;)
+          %input#fcs_check2-1(type=&quot;checkbox&quot; value=&quot;0&quot;) Check your inline premises
+        %label.checkbox-label-inline(for=&quot;fcs_check2-2&quot;)
+          %input#fcs_check2-2(type=&quot;checkbox&quot; value=&quot;1&quot; checked) Premises inline, checked.
+    -# Selects
+    .control-group
+      %label(for=&quot;fcs_multiselect&quot;) Multiple Select:
+      .controls
+        %select#fcs_multiselect(multiple)
+          %option(value=&quot;1&quot;) One
+          %option(selected=&quot;selected&quot; value=&quot;2&quot;) Two
+          %option(value=&quot;3&quot;) Three
+          %option(value=&quot;4&quot;) Four
+          %option(value=&quot;5&quot;) Five
+    .control-group
+      %label(for=&quot;fcs_select&quot;) Select:
+      .controls
+        %select
+          %option(selected=&quot;selected&quot; value=&quot;denver&quot;) Denver
+          %option(value=&quot;boulder&quot;) Boulder
+          %option(value=&quot;los angeles&quot;) Los Angeles
+          %option(value=&quot;san francisco&quot;) San Francisco
+
+    .form-actions
+      %input.btn(type=&quot;submit&quot; value=&quot;Submit&quot;)
+      %input.btn(type=&quot;reset&quot; value=&quot;Cancel&quot;)
+</code></pre>
+
+<!-- end -->
+
+<h6>Notes</h6>
+
+<ul>
+<li><strong>Pro Tip!</strong> Add one of the <code>.well</code> classes to the <code>form</code> element to contain it from other items on the page</li>
+</ul>
+
+<h6>Warning</h6>
+
+<ul>
+<li><strong>Heads Up!</strong> Not all layouts may render in the demo if they aren&#39;t
+included in the project</li>
+</ul>
+
+<h2>Style Settings</h2>
+
+<p>To override the default settings, set the variable and it&#39;s value
+within your <code>config.sass</code> file or before <code>form-controls.sass</code> is loaded.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>$form-bgc</code></td>
+<td><code>$white</code></td>
+<td>The <code>background-color</code> of form controls</td>
+</tr>
+<tr>
+<td><code>$form-border-color</code></td>
+<td><code>$border-color</code></td>
+<td>The <code>border-color</code> of form controls</td>
+</tr>
+<tr>
+<td><code>$form-color</code></td>
+<td><code>$body-color</code></td>
+<td>The text <code>color</code> of form controls</td>
+</tr>
+<tr>
+<td><code>$form-focus-bgc</code></td>
+<td><code>$off-white</code></td>
+<td>The focus <code>background-color</code> of form controls</td>
+</tr>
+<tr>
+<td><code>$form-inset-shadow</code></td>
+<td><code>inset 0 1px 1px rgba($black, 0.1)</code></td>
+<td>The inset shadow of form controls</td>
+</tr>
+<tr>
+<td><code>$form-focus-glow</code></td>
+<td><code>$focus-glow</code></td>
+<td>The focus glow of form controls</td>
+</tr>
+<tr>
+<td><code>$placeholder</code></td>
+<td><code>#ccc</code></td>
+<td>The text <code>color</code> of the <code>placeholder</code></td>
+</tr>
+<tr>
+<td><code>$placeholder-search</code></td>
+<td><code>$placeholder</code></td>
+<td>The text <code>color</code> of the <code>placeholder</code> for controls with the <code>.search-query</code> class</td>
+</tr>
+<tr>
+<td><code>$legend-color</code></td>
+<td><code>$form-color</code></td>
+<td>The text <code>color</code> of <code>legends</code></td>
+</tr>
+<tr>
+<td><code>$hint-color</code></td>
+<td><code>lighten($form-color, 20%)</code></td>
+<td>The text <code>color</code> of <code>hints</code></td>
+</tr>
+<tr>
+<td><code>$uneditable-bgc</code></td>
+<td><code>$form-focus-bgc</code></td>
+<td>The text <code>background-color</code> of <code>.uneditable-fields</code></td>
+</tr>
+<tr>
+<td><code>$uneditable-color</code></td>
+<td><code>$form-color</code></td>
+<td>The text <code>color</code> of <code>.uneditable-fields</code></td>
+</tr>
+<tr>
+<td><code>$form-disabled-bgc</code></td>
+<td><code>$disabled-bgc</code></td>
+<td>The text <code>background-color</code> of disabled controls</td>
+</tr>
+<tr>
+<td><code>$form-disabled-color</code></td>
+<td><code>$disabled-color</code></td>
+<td>The text text <code>color</code> of disabled controls</td>
+</tr>
+<tr>
+<td><code>$legend-font-size</code></td>
+<td><code>1.25em</code></td>
+<td>The <code>font-size</code> of <code>legends</code></td>
+</tr>
+<tr>
+<td><code>$label-font-size</code></td>
+<td><code>0.85em</code></td>
+<td>The <code>font-size</code> of <code>labels</code></td>
+</tr>
+<tr>
+<td><code>$hint-font-size</code></td>
+<td><code>0.85em</code></td>
+<td>The <code>font-size</code> of <code>hints</code></td>
+</tr>
+<tr>
+<td><code>$select-height</code></td>
+<td><code>28px</code></td>
+<td>The <code>height</code> of <code>select</code> menus</td>
+</tr>
+<tr>
+<td><code>$form-radii</code></td>
+<td><code>$radii</code></td>
+<td>The <code>radii</code> to use for controls</td>
+</tr>
+<tr>
+<td><code>$form-input-padding</code></td>
+<td><code>0.5em</code></td>
+<td>The <code>padding</code> within control elements</td>
+</tr>
+<tr>
+<td><code>$form-group-spacing</code></td>
+<td><code>1em</code></td>
+<td>The <code>spacing</code> between <code>.control-groups</code></td>
+</tr>
+<tr>
+<td><code>$form-well-bgc</code></td>
+<td><code>$off-white</code></td>
+<td>The <code>background-color</code> of <code>.form-actions</code> when <code>form</code> has a <code>.well</code> class</td>
+</tr>
+<tr>
+<td><code>$form-well-lite-bgc</code></td>
+<td><code>darken($form-well-bgc, 3%)</code></td>
+<td>The <code>background-color</code> of <code>.form-actions</code> when <code>form</code> has a <code>.well.lite</code> class</td>
+</tr>
+<tr>
+<td><code>$form-well-dark-bgc</code></td>
+<td><code>darken($off-grey, 5%)</code></td>
+<td>The <code>background-color</code> of <code>.form-actions</code> when <code>form</code> has a <code>.well.dark</code> class</td>
+</tr>
+<tr>
+<td><code>$form-well-dark-border</code></td>
+<td><code>darken($form-border-color, 5%)</code></td>
+<td>The <code>border-color</code> of <code>.form-actions</code> when <code>form</code> has a <code>.well.dark</code> class</td>
 </tr>
 </tbody></table>
 
@@ -1591,7 +2065,7 @@ within your <code>config.sass</code> file or before <code>table.sass</code> is l
 </tr>
 <tr>
 <td><code>$table-border-color</code></td>
-<td><code>$component-border</code></td>
+<td><code>$border-color</code></td>
 <td>Sets the <code>border-color</code></td>
 </tr>
 <tr>
@@ -2787,7 +3261,7 @@ within your <code>config.sass</code> file or before <code>typography.sass</code>
 </tr>
 <tr>
 <td><code>$hr-rule-color</code></td>
-<td><code>lighten($body-color, 20%)</code></td>
+<td><code>$border-color</code></td>
 <td>The default color of horizontal rules</td>
 </tr>
 <tr>
