@@ -15,6 +15,10 @@ $uneditable-color: $form-color !default
 $form-disabled-bgc: $disabled-bgc !default
 $form-disabled-color: $disabled-color !default
 
+$form-input-width: 50% !default
+$form-select-width: 25% !default
+$form-legend-width: 100% !default
+
 $legend-font-size: 1.25em !default
 $label-font-size: 0.85em !default
 $hint-font-size: 0.85em !default
@@ -63,7 +67,7 @@ legend
   color: $legend-color
   font-size: $legend-font-size
   padding-bottom: 0.25em
-  width: 100%
+  width: $form-legend-width
 
 .control-group + legend
   margin-top: $form-group-spacing * 1.5
@@ -121,6 +125,7 @@ textarea
   border-radius: $form-radii
   color: $form-color
   padding: $form-input-padding
+  width: $form-input-width
 
 // Setup some of the odd balls
 input[type="range"],
@@ -132,6 +137,9 @@ input[type="file"]
   color: $form-color
   cursor: pointer
 
+input[type="range"]
+  width: $form-input-width
+
 input[type="color"]
   background-color: $form-bgc
   border: 1px solid $form-border-color
@@ -139,6 +147,7 @@ input[type="color"]
 
 input[type="file"]
   border-radius: $form-radii
+  width: $form-input-width
 
 // Search controls
 input.search-query
@@ -166,6 +175,7 @@ select
   border: 1px solid $form-border-color
   color: $form-color
   height: $select-height
+  width: $form-select-width
 
 select[multiple],
 select[size]
@@ -264,14 +274,14 @@ textarea.uneditable-field
   cursor: not-allowed
 
 // Convenience classes for sizing
-.input-xsmall
-  width: 12.5%
-.input-small
-  width: 25%
-.input-medium
-  width: 50%
-.input-large
-  width: 75%
-.input-xlarge
-  width: 100%
+.field-xsmall
+  width: 12.5% !important
+.field-small
+  width: 25% !important
+.field-medium
+  width: 50% !important
+.field-large
+  width: 75% !important
+.field-xlarge
+  width: 100% !important
 

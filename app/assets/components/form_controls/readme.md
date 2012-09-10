@@ -20,59 +20,59 @@ Represents the basic controls for creating forms. Contains support for all of th
     %legend Common input controls
     .control-group
       .controls
-        %input.input-large(type="text" placeholder="text")
+        %input(type="text" placeholder="text")
     .control-group
       .controls
-        %input.input-large(type="email" placeholder="name@example.com")
+        %input(type="email" placeholder="name@example.com")
     .control-group
       .controls
-        %input.input-large(type="password" placeholder="password")
+        %input(type="password" placeholder="password")
     .control-group
       .controls
-        %input.input-large(type="url" placeholder="www.example.com")
+        %input(type="url" placeholder="www.example.com")
     .control-group
       .controls
-        %input.input-large(type="tel" placeholder="303-867-5309")
+        %input(type="tel" placeholder="303-867-5309")
     .control-group
       .controls
-        %input.input-large(type="search" placeholder="search")
+        %input(type="search" placeholder="search")
     .control-group
       .controls
-        %input.input-medium(type="date" placeholder="date")
+        %input(type="date" placeholder="date")
     .control-group
       .controls
-        %input.input-small(type="number" placeholder="number" max="10" min="0")
+        %input(type="number" placeholder="number" max="10" min="0")
 
   %fieldset.sherpa-split-push
     %legend Less common input controls
     .control-group
       .controls
-        %input.input-large(type="datetime" placeholder="datetime")
+        %input(type="datetime" placeholder="datetime")
     .control-group
       .controls
-        %input.input-large(type="datetime-local" placeholder="datetime-local")
+        %input(type="datetime-local" placeholder="datetime-local")
     .control-group
       .controls
-        %input.input-large(type="time" placeholder="time")
+        %input(type="time" placeholder="time")
     .control-group
       .controls
-        %input.input-large(type="month" placeholder="month")
+        %input(type="month" placeholder="month")
     .control-group
       .controls
-        %input.input-large(type="week" placeholder="week")
+        %input(type="week" placeholder="week")
     .control-group
       .controls
-        %input.input-medium(type="range" placeholder="range" max="10" min="0" step=".5")
+        %input(type="range" placeholder="range" max="10" min="0" step=".5")
     .control-group
       .controls
-        %input.input-xsmall(type="color" value="#ff00ff")
+        %input(type="color" value="#ff00ff")
     .control-group
       .controls
         %input(type="file" value="file")
     .control-group
       %label <abbr title="The input field's type is set to hidden">Hidden Input Field</abbr>
       .controls
-        %input.input-small(type="hidden" placeholder="hidden")
+        %input(type="hidden" placeholder="hidden")
 ```
 <!-- end -->
 
@@ -89,7 +89,7 @@ Represents a search form control. These are set by adding the class
     %legend Search Elements
     .control-group
       .controls
-        %input.search-query.input-small(type="search" placeholder="search")
+        %input.search-query(type="search" placeholder="search")
 ```
 <!-- end -->
 
@@ -111,7 +111,7 @@ Represents a multi-line plain-text editing control.
     %legend Textarea Controls
     .control-group
       .controls
-        %textarea.input-small(placeholder="Enter the textarea..." rows="8")
+        %textarea(placeholder="Enter the textarea..." rows="8")
 ```
 <!-- end -->
 
@@ -128,7 +128,7 @@ Represents a control that presents a menu of options.
     %legend Select Controls
     .control-group
       .controls
-        %select.input-small
+        %select
           %optgroup(label="Colorado")
             %option(selected="selected" value="denver") Denver
             %option(value="boulder") Boulder
@@ -138,7 +138,7 @@ Represents a control that presents a menu of options.
     .control-group
       %label(for="fcsm_select") Multiple Select
       .controls
-        %select#fcsm_select.input-small(multiple)
+        %select#fcsm_select(multiple)
           %option(value="1") One
           %option(selected="selected" value="2") Two
           %option(value="3") Three
@@ -264,7 +264,7 @@ user.
     .control-group
       %label(for="fcu_textarea") Uneditable field<abbr title="Fill out entire form first">!</abbr>
       .controls
-        %textarea#fcu_textarea.uneditable-field.input-small(placeholder="Enter the textarea..." rows="8" disabled) Can't touch this either
+        %textarea#fcu_textarea.uneditable-field(placeholder="Enter the textarea..." rows="8" disabled) Can't touch this either
 ```
 <!-- end -->
 
@@ -273,18 +273,29 @@ user.
 
 
 ## Sizing helpers
-By default, form controls typically do not have a `width` value
-out of the box. There are some convenience helper classes for settings
-this directly on a control. However, it's best practice to set `width`
-sizing within a form layout template.
+By default all `input`and `textarea` controls have a `width` value of
+`50%`. The exceptions are inputs with the `type` of `color`, `checkbox`,
+`radio`, and the button type inputs which have no `width` value
+assigned. The `select` controls have a `width` value of `25%`. The
+`legend` element has a `width` value of `100%`. These values can be
+overridden in a configuration file.
+
+There are a few helper classes which can be attached to individual
+controls, but it's recommended to use these on a control's container.
+Typically, these are applied on the `fieldset` or the `.control-group`.
+It's even better practice to assign these values within a form layout.
 
 Class          | Size
 -------------- | ---------------------------------------
-`input-xsmall` | <input class="input-xsmall" type="text" placeholder="12.5%" />
-`input-small ` | <input class="input-small" type="text" placeholder="25%" />
-`input-medium` | <input class="input-medium" type="text" placeholder="50%" />
-`input-large ` | <input class="input-large" type="text" placeholder="75%" />
-`input-xlarge` | <input class="input-xlarge" type="text" placeholder="100%" />
+`field-xsmall` | <input class="field-xsmall" type="text" placeholder="12.5%" />
+`field-small ` | <input class="field-small" type="text" placeholder="25%" />
+`field-medium` | <input class="field-medium" type="text" placeholder="50%" />
+`field-large ` | <input class="field-large" type="text" placeholder="75%" />
+`field-xlarge` | <input class="field-xlarge" type="text" placeholder="100%" />
+
+###### Alert
+- **Heads Up!** These classes set their `width` with `!important` to
+  override specificity. Use them only when you mean it.
 
 ## Button controls
 There are no specific style settings for input types of `submit`,
@@ -358,6 +369,7 @@ Form structures typically consist of:
         %input#fcs_uneditable.uneditable-field(type="text" placeholder="text" value="Can't touch this!" disabled)
         %p.hint-inline Hurry up!
 
+  %fieldset
     %legend Make a choice
     -# Radios
     .control-group
@@ -442,6 +454,9 @@ Attribute                | Default                             | Description
 `$uneditable-color`      | `$form-color`                       | The text `color` of `.uneditable-fields`
 `$form-disabled-bgc`     | `$disabled-bgc`                     | The text `background-color` of disabled controls
 `$form-disabled-color`   | `$disabled-color`                   | The text text `color` of disabled controls
+`$form-input-width`      | `50%`                               | The default width of most `input` and `textarea` controls
+`$form-select-width`     | `25%`                               | The default width of `select` controls
+`$form-legend-width`     | `100%`                              | The default width of `legend` elements
 `$legend-font-size`      | `1.25em`                            | The `font-size` of `legends`
 `$label-font-size`       | `0.85em`                            | The `font-size` of `labels`
 `$hint-font-size`        | `0.85em`                            | The `font-size` of `hints`

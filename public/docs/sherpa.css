@@ -172,6 +172,7 @@
 }
 .sherpa-notes {
   list-style: none;
+  margin-left: 0
 }
 .sherpa-notes li {
   background-color: #cee6f6;
