@@ -1,0 +1,41 @@
+
+%form
+  %fieldset
+    %legend Radio Controls
+    .control-group
+      %label
+        %h5 Radio
+      .controls
+        %label.radio-label(for="fc_radio1-1")
+          %input#fc_radio1-1(type="radio" name="fc[radios1]" value="true" checked) Yes, to radio buttons
+        %label.radio-label(for="fc_radio1-2")
+          %input#fc_radio1-2(type="radio" name="fc[radios1]" value="false") No, to radio buttons
+
+    .control-group
+      %label
+        %h5 Radio Inline
+      .controls
+        %label.radio-label-inline(for="fc_radio2-1")
+          %input#fc_radio2-1(type="radio" name="fc[radios2]" value="true" checked) Yes, to inline radios
+        %label.radio-label-inline(for="fc_radio2-2")
+          %input#fc_radio2-2(type="radio" name="fc[radios2]" value="false") No, to inline radios
+
+    %legend Checkbox Controls
+    .control-group
+      %label
+        %h5 Checkbox
+      .controls
+        %label.checkbox-label(for="fc_check1-1")
+          %input#fc_check1-1(type="checkbox" value="0") Check your premises
+        %label.checkbox-label(for="fc_check1-2")
+          %input#fc_check1-2(type="checkbox" value="1" checked) Premises, checked.
+
+    .control-group
+      %label
+        %h5 Checkbox Inline
+      .controls
+        %label.checkbox-label-inline(for="fc_check2-1")
+          %input#fc_check2-1(type="checkbox" value="0") Check your inline premises
+        %label.checkbox-label-inline(for="fc_check2-2")
+          %input#fc_check2-2(type="checkbox" value="1" checked) Premises inline, checked.
+

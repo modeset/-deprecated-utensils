@@ -1,0 +1,104 @@
+
+%section#demo_form.button-toolbar(style="margin-bottom:3em;")
+  %nav.button-group(data-bindable="toggler-group" data-target=".btn" data-remove="form-vertical form-horizontal")
+    %button.btn.active(href="#" data-add="") Default
+    %button.btn(href="#" data-add="form-vertical") Vertical
+    %button.btn(href="#" data-add="form-horizontal") Horizontal
+  %nav.button-group(data-bindable="toggler-group" data-target=".btn" data-remove="well dark lite")
+    %button.btn.active(href="#" data-add="") None
+    %button.btn(href="#" data-add="well") Well
+    %button.btn(href="#" data-add="well lite") Well Lite
+    %button.btn(href="#" data-add="well dark") Well Dark
+  %nav.button-group(data-bindable="toggler-group" data-target=".btn" data-remove="disabled error success")
+    %button.btn.active(href="#" data-add="") Normal
+    %button.btn(href="#" data-add="disabled") Disabled
+    %button.btn(href="#" data-add="error") Error
+    %button.btn(href="#" data-add="success") Success
+
+%form
+  %fieldset
+    %legend Standard information
+    -# Text inputs
+    .control-group
+      %label(for="fcs_text") Text:<abbr title="Required">*</abbr>
+      .controls
+        %input#fcs_text(type="text" placeholder="Enter your name")
+        %p.hint-inline.error-msg That failed terribly
+        %p.hint-inline.success-msg Gold stars all around
+        %p.hint First and last name
+    .control-group
+      %label(for="fcs_email") Email:<abbr title="Required">*</abbr>
+      .controls
+        %input#fcs_email(type="email" placeholder="name@example.com")
+        %p.hint-inline.error-msg That failed terribly
+        %p.hint-inline.success-msg Gold stars all around
+        %p.hint We won't share it
+    .control-group
+      %label(for="fcs_file") File Browser:
+      .controls
+        %input#fcs_file(type="file" value="file")
+    .control-group
+      %label(for="fcs_textarea") Textarea:
+      .controls
+        %textarea#fcs_textarea(placeholder="Enter the textarea..." rows="8")
+    -# Uneditable
+    .control-group
+      %label(for="fcs_uneditable") Uneditable field<abbr title="Fill out entire form first">!</abbr>
+      .controls
+        %input#fcs_uneditable.uneditable-field(type="text" placeholder="text" value="Can't touch this!" disabled)
+        %p.hint-inline Hurry up!
+
+    %legend Make a choice
+    -# Radios
+    .control-group
+      %label Radio
+      .controls
+        %label.radio-label(for="fcs_radio1-1")
+          %input#fcs_radio1-1(type="radio" name="fc[radios1]" value="true" checked) Yes, to radio buttons
+        %label.radio-label(for="fcs_radio1-2")
+          %input#fcs_radio1-2(type="radio" name="fc[radios1]" value="false") No, to radio buttons
+    .control-group
+      %label Radio Inline
+      .controls
+        %label.radio-label-inline(for="fcs_radio2-1")
+          %input#fcs_radio2-1(type="radio" name="fc[radios2]" value="true" checked) Yes, to inline radios
+        %label.radio-label-inline(for="fcs_radio2-2")
+          %input#fcs_radio2-2(type="radio" name="fc[radios2]" value="false") No, to inline radios
+    -# Checks
+    .control-group
+      %label Checkbox
+      .controls
+        %label.checkbox-label(for="fcs_check1-1")
+          %input#fcs_check1-1(type="checkbox" value="0") Check your premises
+        %label.checkbox-label(for="fcs_check1-2")
+          %input#fcs_check1-2(type="checkbox" value="1" checked) Premises, checked.
+    .control-group
+      %label Checkbox Inline
+      .controls
+        %label.checkbox-label-inline(for="fcs_check2-1")
+          %input#fcs_check2-1(type="checkbox" value="0") Check your inline premises
+        %label.checkbox-label-inline(for="fcs_check2-2")
+          %input#fcs_check2-2(type="checkbox" value="1" checked) Premises inline, checked.
+    -# Selects
+    .control-group
+      %label(for="fcs_multiselect") Multiple Select:
+      .controls
+        %select#fcs_multiselect(multiple)
+          %option(value="1") One
+          %option(selected="selected" value="2") Two
+          %option(value="3") Three
+          %option(value="4") Four
+          %option(value="5") Five
+    .control-group
+      %label(for="fcs_select") Select:
+      .controls
+        %select
+          %option(selected="selected" value="denver") Denver
+          %option(value="boulder") Boulder
+          %option(value="los angeles") Los Angeles
+          %option(value="san francisco") San Francisco
+
+    .form-actions
+      %input.btn(type="submit" value="Submit")
+      %input.btn(type="reset" value="Cancel")
+
