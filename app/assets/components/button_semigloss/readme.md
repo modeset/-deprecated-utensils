@@ -1,20 +1,16 @@
 
-# Button Simple
-A simple button created via a mixin or through extension of
-placeholders. Simple button does not create any classes within the
-style sheet. 
-
-The placeholders automatically build states for info, important, success,
-warning, danger and primary.
+# Button Semigloss
+A semi-glossy button created via various mixins. By default, no classes
+are added to the style sheet unless told to do so.
 
 ```sass
-@import utensils/components/button_simple/simple_button
+@import utensils/components/button_semigloss/semigloss-button
 ```
 
 ## Usage Examples
 
 ```haml
-%section.simple-btn-demo.demo(data-target=".btn" data-remove="active error disabled")
+%section.demo(data-target=".btn" data-remove="active error disabled")
   %button.btn Default
   %button.btn.inverse Inverse
   %button.btn.standard Standard
@@ -33,10 +29,10 @@ warning, danger and primary.
   %a.btn(href="#" data-add="disabled") Disabled
 ```
 
-The simple-button class can be applied to `<a>`, `<button>` and `<input>` elements.
+The semigloss-button class can be applied to `<a>`, `<button>` and `<input>` elements.
 
 ```haml
-%section.simple-btn-demo
+%section.semigloss-btn-demo
   %a.btn(href="#") Link
   %button.btn(type="submit") Button
   %input.btn(type="button" value="Input")
@@ -45,11 +41,11 @@ The simple-button class can be applied to `<a>`, `<button>` and `<input>` elemen
 
 
 ## Options
-Simple button contains 2 mixins. Use the `simple-button` mixin for generating
-the base class and the `simple-button-override` for modifiers of the
-base class.
+Semigloss button contains 3 mixins. 
 
-**Mixin:** `simple-button` **parameters (in order)**
+### Mixin: `semigloss-button`
+
+Generates the base class for modifiers to extend.
 
 Parameter          | Default          | Description
 ------------------ | ---------------- | -------------------------------------------
@@ -58,11 +54,18 @@ Parameter          | Default          | Description
 `$hover-percent`   | `10%`            | The percentage to darken the `background-color` on hover
 `$active-percent`  | `15%`            | The percentage to darken the `background-color` on press and `.active`
 `$border-percent`  | `30%`            | The percentage to darken the `border-color` against `$bg`
-`$padding`         | `0.4em 0.7em`    | The `padding` within the button
+`$padding`         | `0.5em 0.8em`    | The `padding` within the button
 `$radii`           | `$radii`         | The button's `border-radius`
 
+```sass
+.btn
+  +semigloss-button($body-bgc, $link-color)
+```
 
-**Mixin:** `simple-button-override` **parameters (in order)**
+### Mixin: `semigloss-button-modifier`
+
+Generates the modifier classes from the base class. This limits the
+amount of output for a given button.
 
 Parameter          | Default          | Description
 ------------------ | ---------------- | -------------------------------------------
@@ -72,54 +75,51 @@ Parameter          | Default          | Description
 `$active-percent`  | `12.5%`          | The percentage to darken the `background-color` on press and `.active`
 `$border-percent`  | `15%`            | The percentage to darken the `border-color` against `$bg`
 
-
-## Usage
-To use as a mixin, add the following within a projects `.sass` file:
-
 ```sass
 .btn
-  +simple-button($standard, #666)
-  &.inverse
-    +simple-button-override(#333, $white)
-  &.info
-    +simple-button-override($info, $white)
   &.important
-    +simple-button-override($important, $white)
+    +semigloss-button-modifier($important, $white)
   &.success
-    +simple-button-override($success, $white)
+    +semigloss-button-modifier($success, $white)
   &.warning
-    +simple-button-override($warning, $white)
-  &.danger
-    +simple-button-override($danger, $white)
-  &.primary
-    +simple-button-override($primary, $white)
+    +semigloss-button-modifier($warning, $white)
 ```
 
-To use as a placeholder, add the following within a projects `.sass` file:
+### Mixin: `generate-semigloss-buttons`
+
+Generates the base class and modifier classes from the list directly to
+the style sheet.
+
+Parameter          | Default          | Description
+------------------ | ---------------- | -------------------------------------------
+`$name`            | _none_           | The base class name to call it (`btn`, `action`, ...), required parameter
+`$list`            | _empty_          | A list of named status classes ("important", "success"), passing an empty list does not generate any modifiers
 
 
 ```sass
++generate-semigloss-buttons("btn", "important", "success", "danger")
+
+// results in styles for..
 .btn
-  @extend %simple-button
-.btn.inverse
-  @extend %simple-button-inverse
-.btn.info
-  @extend %simple-button-info
+  // styles...
+
 .btn.important
-  @extend %simple-button-important
+  // modified styles...
+
 .btn.success
-  @extend %simple-button-success
-.btn.warning
-  @extend %simple-button-warning
+  // modified styles...
+
 .btn.danger
-  @extend %simple-button-danger
-.btn.primary
-  @extend %simple-button-primary
+  // modified styles...
 ```
 
-The base class (in this case `.btn`) adds all of the necessary
+The base class (in these cases `.btn`) adds all of the necessary
 properties to render a button. The modifiers (`.success`, `.important`)
 mainly override the color values for various states. To keep the output
-as small as possible, just mixin or extend the states needed within the
+as small as possible, just mixin or generate the states needed within the
 project or application.
+
+###### Warning
+- **Heads Up!** Currently the only color states supported are the `status`
+  states and the `primary` state for auto generating buttons
 

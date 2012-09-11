@@ -20,7 +20,7 @@
 
 // Component styles
 @import ../components/icon_close/close
-@import ../components/button_simple/simple-button
+@import ../components/button_semigloss/semigloss-button
 @import ../components/table/table
 @import ../components/well/well
 @import ../components/form_controls/form-controls
@@ -32,8 +32,10 @@
 @import ../components/button_group/button-group
 @import ../components/tip/tip
 
+// Auto generate some defaults
++generate-semigloss-buttons("btn", "inverse", "standard", "info", "important", "success", "warning", "danger", "primary")
+
 // Layouts and application specific imports
 
-@import elements
 @import ../components/print/print
 
