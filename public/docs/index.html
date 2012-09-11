@@ -33,6 +33,7 @@
 <li><a href='#dimensionizer'>Dimensionizer</a></li>
 <li><a href='#form_controls'>Form controls</a></li>
 <li><a href='#form_horizontal'>Form horizontal</a></li>
+<li><a href='#form_search'>Form search</a></li>
 <li><a href='#icon_close'>Icon close</a></li>
 <li><a href='#normalize'>Normalize</a></li>
 <li><a href='#print'>Print</a></li>
@@ -1804,6 +1805,35 @@ within your <code>config.sass</code> file or before <code>form-horizontal.sass</
 <td>The padding between the <code>.control-label</code> and <code>.controls</code> containers</td>
 </tr>
 </tbody></table>
+
+<p></section><section class="sherpa-section sherpa-clearfix"></p>
+
+<h1>Form Search</h1>
+
+<p>Utilize the <code>.form-search</code> class on the <code>form</code> element to create a simple
+search form. Supports hints and control labels as well.</p>
+
+<p>Any input fields of type <code>&quot;text&quot;</code> or <code>&quot;search&quot;</code> automatically receive the
+properties of the <code>.search-query</code> class. Any input buttons used will
+inherit the top and bottom <code>padding</code> of the input element.</p>
+
+<pre><code class="sass">@import utensils/components/form_search/form-search
+</code></pre>
+
+<!--~ markup/form-search.html.haml -->
+
+<div class="sherpa-showcase sherpa-clearfix"><form class='form-search well dark'>
+<input id='fs_search' placeholder='search' type='search' />
+<input class='btn' type='submit' value='Submit' />
+</form>
+</div>
+
+<pre><code class="haml">%form.form-search.well.dark
+  %input#fs_search(type=&quot;search&quot; placeholder=&quot;search&quot;)
+  %input.btn(type=&quot;submit&quot; value=&quot;Submit&quot;)
+</code></pre>
+
+<!-- end -->
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
