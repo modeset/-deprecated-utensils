@@ -1,0 +1,19 @@
+
+%section.demo(data-target=".btn" data-remove="active error disabled")
+  %button.btn Default
+  %button.btn.inverse Inverse
+  %button.btn.standard Standard
+  %button.btn.info Info
+  %button.btn.important Important
+  %button.btn.success Success
+  %button.btn.warning Warning
+  %button.btn.danger Danger
+  %button.btn.primary Primary
+
+%h5(style="margin-bottom:1em; margin-top:3em;") Select to view states
+%nav.radio-demo.button-group(data-bindable="toggler-group" data-target=".btn")
+  %a.btn.active(href="#" data-add="") Normal
+  %a.btn(href="#" data-add="active") Active
+  %a.btn(href="#" data-add="error") Error
+  %a.btn(href="#" data-add="disabled") Disabled
+

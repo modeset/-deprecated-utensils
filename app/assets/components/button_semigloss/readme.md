@@ -4,11 +4,12 @@ A semi-glossy button created via various mixins. By default, no classes
 are added to the style sheet unless told to do so.
 
 ```sass
-@import utensils/components/button_semigloss/semigloss-button
+@import utensils/components/button_semigloss/button-semigloss
 ```
 
 ## Usage Examples
 
+<!--~ markup/button-semigloss.html.haml -->
 ```haml
 %section.demo(data-target=".btn" data-remove="active error disabled")
   %button.btn Default
@@ -24,10 +25,11 @@ are added to the style sheet unless told to do so.
 %h5(style="margin-bottom:1em; margin-top:3em;") Select to view states
 %nav.radio-demo.button-group(data-bindable="toggler-group" data-target=".btn")
   %a.btn.active(href="#" data-add="") Normal
-  %a.btn(href="#" data-add="active") Active 
+  %a.btn(href="#" data-add="active") Active
   %a.btn(href="#" data-add="error") Error
   %a.btn(href="#" data-add="disabled") Disabled
 ```
+<!-- end -->
 
 The semigloss-button class can be applied to `<a>`, `<button>` and `<input>` elements.
 
