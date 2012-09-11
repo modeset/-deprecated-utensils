@@ -10,16 +10,8 @@ elements under a `.button-toolbar` container to form a navigation system.
 
 <!--~ markup/button-group.html.haml -->
 ```haml
-%h5(style="margin-bottom:1em;") Button Group (radio)
-%nav.button-group(data-bindable="toggler-group" data-target=".btn")
-  %a.btn(href="#") Left
-  %a.btn.active(href="#") Middle 1
-  %a.btn(href="#") Middle 2
-  %a.btn(href="#") Right
-
-
-%h5(style="margin-bottom:1em; margin-top:3em;") Button Toolbar (checkbox)
-%section.button-toolbar(data-bindable="toggler-group" data-behavior="checkbox" data-target=".btn")
+%h5(style="margin-bottom:1em;") Button Toolbar (radio)
+%section.button-toolbar(data-bindable="toggler-group" data-target=".btn")
   %nav.button-group
     %button.btn(href="#") 1
     %button.btn(href="#") 2
@@ -30,6 +22,13 @@ elements under a `.button-toolbar` container to form a navigation system.
     %button.btn(href="#") 5
     %button.btn(href="#") 6
     %button.btn(href="#") 7
+
+%h5(style="margin-top:3em; margin-bottom:1em;") Button Group (checkbox)
+%nav.button-group(data-bindable="toggler-group" data-behavior="checkbox" data-target=".btn")
+  %a.btn(href="#") Left
+  %a.btn.active(href="#") Middle 1
+  %a.btn(href="#") Middle 2
+  %a.btn(href="#") Right
 ```
 <!-- end -->
 

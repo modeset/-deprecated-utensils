@@ -7,8 +7,6 @@ Client side component library
 ## Todo
 
 ### Needed components
-- Add button utilities (small, mini, large, block)
-- Revisit anything that might have status colors for now
 - carets.sass (deal with this in buttons or button utils)
 - paddles.sass
 - media.sass
@@ -30,7 +28,7 @@ Client side component library
 
 ### Reminders and Tasks
 - Look at making the sass files use abstract elements
-- Auto add the buttons
+- Auto add the modifiers?
 - Abstract status colors out to a variable to limit the output
 - Anything that has a status color should get a builder?
 - Should we abstract focus/disabled states to a mixin?
@@ -38,4 +36,6 @@ Client side component library
 - Convert media queries
 - Add view layout templates
 - Turn into engine with generators
+
+- Add status classes to forms?
 

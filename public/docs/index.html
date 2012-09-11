@@ -25,7 +25,7 @@
         <ul class="sherpa-anchor-nav sherpa-nav-list">
           <li><a href='#bindable'>Bindable</a></li>
 <li><a href='#button_group'>Button group</a></li>
-<li><a href='#button_helpers'>Button helpers</a></li>
+<li><a href='#button_modifiers'>Button modifiers</a></li>
 <li><a href='#button_semigloss'>Button semigloss</a></li>
 <li><a href='#container'>Container</a></li>
 <li><a href='#content_editable'>Content editable</a></li>
@@ -113,15 +113,8 @@ elements under a <code>.button-toolbar</code> container to form a navigation sys
 
 <!--~ markup/button-group.html.haml -->
 
-<div class="sherpa-showcase sherpa-clearfix"><h5 style='margin-bottom:1em;'>Button Group (radio)</h5>
-<nav class='button-group' data-bindable='toggler-group' data-target='.btn'>
-<a class='btn' href='#'>Left</a>
-<a class='btn active' href='#'>Middle 1</a>
-<a class='btn' href='#'>Middle 2</a>
-<a class='btn' href='#'>Right</a>
-</nav>
-<h5 style='margin-bottom:1em; margin-top:3em;'>Button Toolbar (checkbox)</h5>
-<section class='button-toolbar' data-behavior='checkbox' data-bindable='toggler-group' data-target='.btn'>
+<div class="sherpa-showcase sherpa-clearfix"><h5 style='margin-bottom:1em;'>Button Toolbar (radio)</h5>
+<section class='button-toolbar' data-bindable='toggler-group' data-target='.btn'>
 <nav class='button-group'>
 <button class='btn' href='#'>1</button>
 <button class='btn' href='#'>2</button>
@@ -136,18 +129,17 @@ elements under a <code>.button-toolbar</code> container to form a navigation sys
 <button class='btn' href='#'>7</button>
 </nav>
 </section>
+<h5 style='margin-top:3em; margin-bottom:1em;'>Button Group (checkbox)</h5>
+<nav class='button-group' data-behavior='checkbox' data-bindable='toggler-group' data-target='.btn'>
+<a class='btn' href='#'>Left</a>
+<a class='btn active' href='#'>Middle 1</a>
+<a class='btn' href='#'>Middle 2</a>
+<a class='btn' href='#'>Right</a>
+</nav>
 </div>
 
-<pre><code class="haml">%h5(style=&quot;margin-bottom:1em;&quot;) Button Group (radio)
-%nav.button-group(data-bindable=&quot;toggler-group&quot; data-target=&quot;.btn&quot;)
-  %a.btn(href=&quot;#&quot;) Left
-  %a.btn.active(href=&quot;#&quot;) Middle 1
-  %a.btn(href=&quot;#&quot;) Middle 2
-  %a.btn(href=&quot;#&quot;) Right
-
-
-%h5(style=&quot;margin-bottom:1em; margin-top:3em;&quot;) Button Toolbar (checkbox)
-%section.button-toolbar(data-bindable=&quot;toggler-group&quot; data-behavior=&quot;checkbox&quot; data-target=&quot;.btn&quot;)
+<pre><code class="haml">%h5(style=&quot;margin-bottom:1em;&quot;) Button Toolbar (radio)
+%section.button-toolbar(data-bindable=&quot;toggler-group&quot; data-target=&quot;.btn&quot;)
   %nav.button-group
     %button.btn(href=&quot;#&quot;) 1
     %button.btn(href=&quot;#&quot;) 2
@@ -158,6 +150,13 @@ elements under a <code>.button-toolbar</code> container to form a navigation sys
     %button.btn(href=&quot;#&quot;) 5
     %button.btn(href=&quot;#&quot;) 6
     %button.btn(href=&quot;#&quot;) 7
+
+%h5(style=&quot;margin-top:3em; margin-bottom:1em;&quot;) Button Group (checkbox)
+%nav.button-group(data-bindable=&quot;toggler-group&quot; data-behavior=&quot;checkbox&quot; data-target=&quot;.btn&quot;)
+  %a.btn(href=&quot;#&quot;) Left
+  %a.btn.active(href=&quot;#&quot;) Middle 1
+  %a.btn(href=&quot;#&quot;) Middle 2
+  %a.btn(href=&quot;#&quot;) Right
 </code></pre>
 
 <!-- end -->
@@ -201,15 +200,15 @@ within your <code>config.sass</code> file or before <code>button-group.sass</cod
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
-<h1>Button Helpers</h1>
+<h1>Button Modifiers</h1>
 
 <p>A set of modifier classes which can be added to any button to adjust
 various aspects around a button&#39;s display type, sizing, or positioning.</p>
 
-<pre><code class="sass">@import utensils/components/button_helpers/button-helpers
+<pre><code class="sass">@import utensils/components/button_modifiers/button-modifiers
 </code></pre>
 
-<!--~ markup/button-helper.html.haml -->
+<!--~ markup/button-modifiers.html.haml -->
 
 <div class="sherpa-showcase sherpa-clearfix"><section class='demo' data-remove='btn-xsmall btn-small btn-large btn-xlarge' data-target='.btn'>
 <input class='btn standard' type='submit' value='Submit' />
@@ -292,7 +291,7 @@ various aspects around a button&#39;s display type, sizing, or positioning.</p>
 <h2>Style Settings</h2>
 
 <p>To override the default settings, set the variable and it&#39;s value
-within your <code>config.sass</code> file or before <code>button-helper.sass</code> is loaded.</p>
+within your <code>config.sass</code> file or before <code>button-modifiers.sass</code> is loaded.</p>
 
 <table><thead>
 <tr>
@@ -676,7 +675,9 @@ within your <code>config.sass</code> file or before <code>content-editable.sass<
 <h1>Decal</h1>
 
 <p>Decals are used to <span class="decal important">POP</span> information in a block of text.
-They are typically used with inline elements.</p>
+They are typically used with inline elements. The default color is
+equivalent to the <code>$inverse</code> status color and <code>$standard</code> is not
+available.</p>
 
 <pre><code class="sass">@import utensils/components/decal/decal
 </code></pre>
@@ -2325,6 +2326,30 @@ By combining any of the following classes, the table can be given a different lo
 <td>Three</td>
 <td>One</td>
 </tr>
+<tr class='success'>
+<td>4</td>
+<td>
+<a href='#'>Click me!</a>
+</td>
+<td><code>tr.success</code></td>
+<td>Modifier name: "success"</td>
+</tr>
+<tr class='danger'>
+<td>5</td>
+<td>
+<a href='#'>Click me!</a>
+</td>
+<td><code>tr.danger</code></td>
+<td>Modifier name: "danger"</td>
+</tr>
+<tr class='important'>
+<td>6</td>
+<td>
+<a href='#'>Click me!</a>
+</td>
+<td><code>tr.important</code></td>
+<td>Modifier name: "important"</td>
+</tr>
 </tbody>
 </table>
 <h5 style='margin-bottom:1em; margin-top:3em;'>Select to toggle table classes</h5>
@@ -2370,6 +2395,25 @@ By combining any of the following classes, the table can be given a different lo
         %a(href=&quot;#&quot;) Click me!
       %td Three
       %td One
+    %tr.success
+      %td 4
+      %td
+        %a(href=&quot;#&quot;) Click me!
+      %td &lt;code&gt;tr.success&lt;/code&gt;
+      %td Modifier name: &quot;success&quot;
+    %tr.danger
+      %td 5
+      %td
+        %a(href=&quot;#&quot;) Click me!
+      %td &lt;code&gt;tr.danger&lt;/code&gt;
+      %td Modifier name: &quot;danger&quot;
+    %tr.important
+      %td 6
+      %td
+        %a(href=&quot;#&quot;) Click me!
+      %td &lt;code&gt;tr.important&lt;/code&gt;
+      %td Modifier name: &quot;important&quot;
+
 
 %h5(style=&quot;margin-bottom:1em; margin-top:3em;&quot;) Select to toggle table classes
 %nav.check-demo.button-group(data-bindable=&quot;toggler-group&quot; data-behavior=&quot;checkbox&quot; data-target=&quot;.btn&quot;)
@@ -2383,6 +2427,13 @@ By combining any of the following classes, the table can be given a different lo
 </code></pre>
 
 <!-- end -->
+
+<h6>Note</h6>
+
+<ul>
+<li><strong>Heads up!</strong> To get the status colors, see the &quot;Table Modifiers&quot;
+section below.</li>
+</ul>
 
 <h2>Options</h2>
 
@@ -2486,6 +2537,18 @@ within your <code>config.sass</code> file or before <code>table.sass</code> is l
 <td>The <code>padding-top</code>, <code>padding-bottom</code> value for <code>th</code> and <code>td</code> (divided by 2 for <code>table-condensed</code>)</td>
 </tr>
 </tbody></table>
+
+<h2>Table Modifiers</h2>
+
+<p>The status styles around <code>tbody tr</code> elements are not supported out of
+the box. To include these, import the modifier file and generate the
+needed status colors after the import of <code>table.sass</code>.</p>
+
+<pre><code class="sass">@import utensils/components/table/table
++generate_table_status_modifiers(&quot;success&quot;,&quot;danger&quot;,&quot;important&quot;)
+</code></pre>
+
+<p>Supported status flags are <code>success</code>, <code>danger</code>, and <code>important</code>.</p>
 
 <h6>Warnings</h6>
 

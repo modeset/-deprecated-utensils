@@ -1,7 +1,9 @@
 
 # Decal
 Decals are used to <span class="decal important">POP</span> information in a block of text.
-They are typically used with inline elements.
+They are typically used with inline elements. The default color is
+equivalent to the `$inverse` status color and `$standard` is not
+available.
 
 
 ```sass
