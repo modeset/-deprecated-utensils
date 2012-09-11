@@ -9,9 +9,12 @@
 //    .column
 //      +box-sizing(border-box)
 
+$experimental-support-for-mozilla: true !default
+
 @mixin box-sizing ($type:border-box)
   $box: unquote($type)
   -webkit-box-sizing: $box
-  -moz-box-sizing: $box
+  @if $experimental-support-for-mozilla == true
+    -moz-box-sizing: $box
   box-sizing: $box
 

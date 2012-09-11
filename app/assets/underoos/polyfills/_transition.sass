@@ -9,11 +9,18 @@
 //    .element
 //      +transition(height $speed $ease-in-out-quart, color $speed)
 
+$experimental-support-for-mozilla: true !default
+$experimental-support-for-opera: true !default
+$experimental-support-for-microsoft: true !default
+
 @mixin transition($transition-1:all 0.25s, $transition-2:false, $transition-3:false, $transition-4:false, $transition-5:false, $transition-6:false, $transition-7:false, $transition-8:false, $transition-9:false)
   $full: combine($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9)
   -webkit-transition: $full
-  -moz-transition: $full
-  -ms-transition: $full
-  -o-transition: $full
+  @if $experimental-support-for-mozilla == true
+    -moz-transition: $full
+  @if $experimental-support-for-microsoft == true
+    -ms-transition: $full
+  @if $experimental-support-for-opera == true
+    -o-transition: $full
   transition: $full
 

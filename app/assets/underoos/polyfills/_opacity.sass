@@ -9,7 +9,10 @@
 //    .tooltip
 //      +opacity(0.5)
 
+$legacy-support-for-ie: true !default
+
 @mixin opacity($alpha:1)
-  filter: unquote("progid:DXImageTransform.Microsoft.Alpha(Opacity=#{round($alpha * 100)})")
+  @if $legacy-support-for-ie
+    filter: unquote("progid:DXImageTransform.Microsoft.Alpha(Opacity=#{round($alpha * 100)})")
   opacity: $alpha
 
