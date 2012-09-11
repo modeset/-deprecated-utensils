@@ -41,6 +41,25 @@ By combining any of the following classes, the table can be given a different lo
         %a(href="#") Click me!
       %td Three
       %td One
+    %tr.success
+      %td 4
+      %td
+        %a(href="#") Click me!
+      %td <code>tr.success</code>
+      %td Modifier name: "success"
+    %tr.danger
+      %td 5
+      %td
+        %a(href="#") Click me!
+      %td <code>tr.danger</code>
+      %td Modifier name: "danger"
+    %tr.important
+      %td 6
+      %td
+        %a(href="#") Click me!
+      %td <code>tr.important</code>
+      %td Modifier name: "important"
+
 
 %h5(style="margin-bottom:1em; margin-top:3em;") Select to toggle table classes
 %nav.check-demo.button-group(data-bindable="toggler-group" data-behavior="checkbox" data-target=".btn")
@@ -53,6 +72,12 @@ By combining any of the following classes, the table can be given a different lo
   %a.btn(href="#" data-toggle="table-tfoot") Footer
 ```
 <!-- end -->
+
+###### Note
+- **Heads up!** To get the status colors, see the "Table Modifiers"
+  section below.
+
+
 
 ## Options
 Adding a class directly to the `table` element produces the following.
@@ -85,6 +110,16 @@ Attribute              | Default                             | Description
 `$table-padding-lr`    | `0.5em`                             | The `padding-left`, `padding-right` value for `th` and `td`
 `$table-padding-tb`    | `1em`                               | The `padding-top`, `padding-bottom` value for `th` and `td` (divided by 2 for `table-condensed`)
 
+## Table Modifiers
+The status styles around `tbody tr` elements are not supported out of
+the box. To include these, import the modifier file and generate the
+needed status colors after the import of `table.sass`.
+
+```sass
+@import utensils/components/table/table
++generate_table_status_modifiers("success","danger","important")
+```
+Supported status flags are `success`, `danger`, and `important`.
 
 ###### Warnings
 - **Heads Up!** Tables throughout the style guide may not contain the exact styles of the application
