@@ -17,7 +17,7 @@ inherit the top and bottom `padding` of the input element.
 ```haml
 %form.form-search.well.dark
   %input#fs_search(type="search" placeholder="search")
-  %input.btn(type="submit" value="Submit")
+  %input.btn.standard(type="submit" value="Submit")
 ```
 <!-- end -->
 

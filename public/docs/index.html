@@ -25,7 +25,7 @@
         <ul class="sherpa-anchor-nav sherpa-nav-list">
           <li><a href='#bindable'>Bindable</a></li>
 <li><a href='#button_group'>Button group</a></li>
-<li><a href='#button_simple'>Button simple</a></li>
+<li><a href='#button_semigloss'>Button semigloss</a></li>
 <li><a href='#container'>Container</a></li>
 <li><a href='#content_editable'>Content editable</a></li>
 <li><a href='#decal'>Decal</a></li>
@@ -200,19 +200,15 @@ within your <code>config.sass</code> file or before <code>button-group.sass</cod
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
-<h1>Button Simple</h1>
+<h1>Button Semigloss</h1>
 
-<p>A simple button created via a mixin or through extension of
-placeholders. Simple button does not create any classes within the
-style sheet. </p>
+<p>A semi-glossy button created via various mixins. By default, no classes
+are added to the style sheet unless told to do so.</p>
 
-<p>The placeholders automatically build states for info, important, success,
-warning, danger and primary.</p>
-
-<pre><code class="sass">@import utensils/components/button_simple/simple_button
+<pre><code class="sass">@import utensils/components/button_semigloss/semigloss-button
 </code></pre>
 
-<div class="sherpa-showcase sherpa-clearfix"><section class='simple-btn-demo demo' data-remove='active error disabled' data-target='.btn'>
+<div class="sherpa-showcase sherpa-clearfix"><section class='demo' data-remove='active error disabled' data-target='.btn'>
 <button class='btn'>Default</button>
 <button class='btn inverse'>Inverse</button>
 <button class='btn standard'>Standard</button>
@@ -232,7 +228,7 @@ warning, danger and primary.</p>
 </nav>
 </div>
 
-<pre><code class="haml">%section.simple-btn-demo.demo(data-target=&quot;.btn&quot; data-remove=&quot;active error disabled&quot;)
+<pre><code class="haml">%section.demo(data-target=&quot;.btn&quot; data-remove=&quot;active error disabled&quot;)
   %button.btn Default
   %button.btn.inverse Inverse
   %button.btn.standard Standard
@@ -251,9 +247,9 @@ warning, danger and primary.</p>
   %a.btn(href=&quot;#&quot; data-add=&quot;disabled&quot;) Disabled
 </code></pre>
 
-<p>The simple-button class can be applied to <code>&lt;a&gt;</code>, <code>&lt;button&gt;</code> and <code>&lt;input&gt;</code> elements.</p>
+<p>The semigloss-button class can be applied to <code>&lt;a&gt;</code>, <code>&lt;button&gt;</code> and <code>&lt;input&gt;</code> elements.</p>
 
-<div class="sherpa-showcase sherpa-clearfix"><section class='simple-btn-demo'>
+<div class="sherpa-showcase sherpa-clearfix"><section class='semigloss-btn-demo'>
 <a class='btn' href='#'>Link</a>
 <button class='btn' type='submit'>Button</button>
 <input class='btn' type='button' value='Input' />
@@ -261,7 +257,7 @@ warning, danger and primary.</p>
 </section>
 </div>
 
-<pre><code class="haml">%section.simple-btn-demo
+<pre><code class="haml">%section.semigloss-btn-demo
   %a.btn(href=&quot;#&quot;) Link
   %button.btn(type=&quot;submit&quot;) Button
   %input.btn(type=&quot;button&quot; value=&quot;Input&quot;)
@@ -270,11 +266,11 @@ warning, danger and primary.</p>
 
 <h2>Options</h2>
 
-<p>Simple button contains 2 mixins. Use the <code>simple-button</code> mixin for generating
-the base class and the <code>simple-button-override</code> for modifiers of the
-base class.</p>
+<p>Semigloss button contains 3 mixins. </p>
 
-<p><strong>Mixin:</strong> <code>simple-button</code> <strong>parameters (in order)</strong></p>
+<h3>Mixin: <code>semigloss-button</code></h3>
+
+<p>Generates the base class for modifiers to extend.</p>
 
 <table><thead>
 <tr>
@@ -310,7 +306,7 @@ base class.</p>
 </tr>
 <tr>
 <td><code>$padding</code></td>
-<td><code>0.4em 0.7em</code></td>
+<td><code>0.5em 0.8em</code></td>
 <td>The <code>padding</code> within the button</td>
 </tr>
 <tr>
@@ -320,7 +316,14 @@ base class.</p>
 </tr>
 </tbody></table>
 
-<p><strong>Mixin:</strong> <code>simple-button-override</code> <strong>parameters (in order)</strong></p>
+<pre><code class="sass">.btn
+  +semigloss-button($body-bgc, $link-color)
+</code></pre>
+
+<h3>Mixin: <code>semigloss-button-modifier</code></h3>
+
+<p>Generates the modifier classes from the base class. This limits the
+amount of output for a given button.</p>
 
 <table><thead>
 <tr>
@@ -356,53 +359,67 @@ base class.</p>
 </tr>
 </tbody></table>
 
-<h2>Usage</h2>
-
-<p>To use as a mixin, add the following within a projects <code>.sass</code> file:</p>
-
 <pre><code class="sass">.btn
-  +simple-button($standard, #666)
-  &amp;.inverse
-    +simple-button-override(#333, $white)
-  &amp;.info
-    +simple-button-override($info, $white)
   &amp;.important
-    +simple-button-override($important, $white)
+    +semigloss-button-modifier($important, $white)
   &amp;.success
-    +simple-button-override($success, $white)
+    +semigloss-button-modifier($success, $white)
   &amp;.warning
-    +simple-button-override($warning, $white)
-  &amp;.danger
-    +simple-button-override($danger, $white)
-  &amp;.primary
-    +simple-button-override($primary, $white)
+    +semigloss-button-modifier($warning, $white)
 </code></pre>
 
-<p>To use as a placeholder, add the following within a projects <code>.sass</code> file:</p>
+<h3>Mixin: <code>generate-semigloss-buttons</code></h3>
 
-<pre><code class="sass">.btn
-  @extend %simple-button
-.btn.inverse
-  @extend %simple-button-inverse
-.btn.info
-  @extend %simple-button-info
+<p>Generates the base class and modifier classes from the list directly to
+the style sheet.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>$name</code></td>
+<td><em>none</em></td>
+<td>The base class name to call it (<code>btn</code>, <code>action</code>, ...), required parameter</td>
+</tr>
+<tr>
+<td><code>$list</code></td>
+<td><em>empty</em></td>
+<td>A list of named status classes (&quot;important&quot;, &quot;success&quot;), passing an empty list does not generate any modifiers</td>
+</tr>
+</tbody></table>
+
+<pre><code class="sass">+generate-semigloss-buttons(&quot;btn&quot;, &quot;important&quot;, &quot;success&quot;, &quot;danger&quot;)
+
+// results in styles for..
+.btn
+  // styles...
+
 .btn.important
-  @extend %simple-button-important
+  // modified styles...
+
 .btn.success
-  @extend %simple-button-success
-.btn.warning
-  @extend %simple-button-warning
+  // modified styles...
+
 .btn.danger
-  @extend %simple-button-danger
-.btn.primary
-  @extend %simple-button-primary
+  // modified styles...
 </code></pre>
 
-<p>The base class (in this case <code>.btn</code>) adds all of the necessary
+<p>The base class (in these cases <code>.btn</code>) adds all of the necessary
 properties to render a button. The modifiers (<code>.success</code>, <code>.important</code>)
 mainly override the color values for various states. To keep the output
-as small as possible, just mixin or extend the states needed within the
+as small as possible, just mixin or generate the states needed within the
 project or application.</p>
+
+<h6>Warning</h6>
+
+<ul>
+<li><strong>Heads Up!</strong> Currently the only color states supported are the <code>status</code>
+states and the <code>primary</code> state for auto generating buttons</li>
+</ul>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
@@ -582,10 +599,10 @@ Useful when creating styles associated with media queries.</p>
 <p>To use this class, simply require it from <code>application.js</code> and
 instantiate it.</p>
 
-<div class="sherpa-showcase sherpa-clearfix"><a href='#' id='dimensionizer_demo'>Activate the dimensionizer</a>
+<div class="sherpa-showcase sherpa-clearfix"><a class='btn' href='#' id='dimensionizer_demo'>Activate the dimensionizer</a>
 </div>
 
-<pre><code class="haml">%a#dimensionizer_demo(href=&quot;#&quot;) Activate the dimensionizer
+<pre><code class="haml">%a#dimensionizer_demo.btn(href=&quot;#&quot;) Activate the dimensionizer
 </code></pre>
 
 <h6>Warnings</h6>
@@ -1470,8 +1487,8 @@ or other descriptive helpers</li>
 </div>
 </div>
 <div class='form-actions'>
-<input class='btn' type='submit' value='Submit' />
-<input class='btn' type='reset' value='Cancel' />
+<input class='btn standard' type='submit' value='Submit' />
+<input class='btn standard' type='reset' value='Cancel' />
 </div>
 </fieldset>
 
@@ -1593,8 +1610,8 @@ or other descriptive helpers</li>
         %p.hint-inline.success-msg Gold stars all around
 
     .form-actions
-      %input.btn(type=&quot;submit&quot; value=&quot;Submit&quot;)
-      %input.btn(type=&quot;reset&quot; value=&quot;Cancel&quot;)
+      %input.btn.standard(type=&quot;submit&quot; value=&quot;Submit&quot;)
+      %input.btn.standard(type=&quot;reset&quot; value=&quot;Cancel&quot;)
 </code></pre>
 
 <!-- end -->
@@ -1839,7 +1856,7 @@ inline form. Supports control labels as well.</p>
 <label class='checkbox-label'>
 <input type='checkbox'>Remember me</input>
 </label>
-<input class='btn' type='submit' value='Go' />
+<input class='btn standard' type='submit' value='Go' />
 </form>
 </div>
 
@@ -1853,7 +1870,7 @@ inline form. Supports control labels as well.</p>
     %option(value=&quot;san francisco&quot;) San Francisco
   %label.checkbox-label
     %input(type=&quot;checkbox&quot;) Remember me
-  %input.btn(type=&quot;submit&quot; value=&quot;Go&quot;)
+  %input.btn.standard(type=&quot;submit&quot; value=&quot;Go&quot;)
 </code></pre>
 
 <!-- end -->
@@ -1882,13 +1899,13 @@ inherit the top and bottom <code>padding</code> of the input element.</p>
 
 <div class="sherpa-showcase sherpa-clearfix"><form class='form-search well dark'>
 <input id='fs_search' placeholder='search' type='search' />
-<input class='btn' type='submit' value='Submit' />
+<input class='btn standard' type='submit' value='Submit' />
 </form>
 </div>
 
 <pre><code class="haml">%form.form-search.well.dark
   %input#fs_search(type=&quot;search&quot; placeholder=&quot;search&quot;)
-  %input.btn(type=&quot;submit&quot; value=&quot;Submit&quot;)
+  %input.btn.standard(type=&quot;submit&quot; value=&quot;Submit&quot;)
 </code></pre>
 
 <!-- end -->

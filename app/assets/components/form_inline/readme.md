@@ -21,7 +21,7 @@ inline form. Supports control labels as well.
     %option(value="san francisco") San Francisco
   %label.checkbox-label
     %input(type="checkbox") Remember me
-  %input.btn(type="submit" value="Go")
+  %input.btn.standard(type="submit" value="Go")
 ```
 <!-- end -->
 

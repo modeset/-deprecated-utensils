@@ -6,18 +6,8 @@ Client side component library
 
 ## Todo
 
-### Tasks
-- Look at making the sass files use abstract elements
-- Is there a way to pass status variables to limit the output?
-- Test out the simple form integration
-- Convert media queries
-- Add view layout templates
-- Turn into engine with generators
-
 ### Needed components
-- Revisit simple button?
 - Add button utilities (small, mini, large, block)
-- can we abstract focus/disabled states to a mixin?
 - carets.sass (deal with this in buttons or button utils)
 - paddles.sass
 - media.sass
@@ -36,4 +26,14 @@ Client side component library
 - navbars.sass *
 - fishnet
 - layouts/upgrades
+
+### Reminders and Tasks
+- Look at making the sass files use abstract elements
+- Abstract status colors out to a variable to limit the output
+- Anything that has a status color should get a builder?
+- Can we abstract focus/disabled states to a mixin?
+- Test out the simple form integration
+- Convert media queries
+- Add view layout templates
+- Turn into engine with generators
 

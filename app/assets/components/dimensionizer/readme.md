@@ -9,7 +9,7 @@ instantiate it.
 ## Usage Examples
 
 ```haml
-%a#dimensionizer_demo(href="#") Activate the dimensionizer
+%a#dimensionizer_demo.btn(href="#") Activate the dimensionizer
 ```
 
 ###### Warnings

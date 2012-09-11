@@ -435,8 +435,8 @@ Form structures typically consist of:
         %p.hint-inline.success-msg Gold stars all around
 
     .form-actions
-      %input.btn(type="submit" value="Submit")
-      %input.btn(type="reset" value="Cancel")
+      %input.btn.standard(type="submit" value="Submit")
+      %input.btn.standard(type="reset" value="Cancel")
 ```
 <!-- end -->
 
