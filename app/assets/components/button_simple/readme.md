@@ -17,6 +17,7 @@ warning, danger and primary.
 %section.simple-btn-demo.demo(data-target=".btn" data-remove="active error disabled")
   %button.btn Default
   %button.btn.inverse Inverse
+  %button.btn.standard Standard
   %button.btn.info Info
   %button.btn.important Important
   %button.btn.success Success

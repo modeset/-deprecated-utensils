@@ -1,24 +1,51 @@
 
-.btn
-  +simple-button($standard, #666)
+// .btn
+  // +simple-button($white, #08C)
+  // +simple-button(#333, $white)
+  // +simple-button($standard, #666)
+  // +simple-button($important, #fff)
+// a.btn
+  // font-weight: bold
 
-.simple-btn-demo
-  .btn
-    +simple-button($standard, #666)
-    &.inverse
-      +simple-button-override(#333, $white)
-    &.info
-      +simple-button-override($info, $white)
-    &.important
-      +simple-button-override($important, $white)
-    &.success
-      +simple-button-override($success, $white)
-    &.warning
-      +simple-button-override($warning, $white)
-    &.danger
-      +simple-button-override($danger, $white)
-    &.primary
-      +simple-button-override($primary, $white)
-  a.btn
-    font-weight: bold
+.btn
+  +simple-button($white, $link-normal)
+  &.standard
+    +simple-button-override($standard, #666, 10%, 15%, 30%)
+  &.inverse
+    +simple-button-override(#333, $white)
+  &.info
+    +simple-button-override($info, $white)
+  &.important
+    +simple-button-override($important, $white)
+  &.success
+    +simple-button-override($success, $white)
+  &.warning
+    +simple-button-override($warning, $white)
+  &.danger
+    +simple-button-override($danger, $white)
+  &.primary
+    +simple-button-override($primary, $white)
+a.btn
+  font-weight: bold
+
+
+// .simple-btn-demo
+  // .btn
+    // +simple-button($standard, #666)
+    // &.inverse
+      // +simple-button-override(#333, $white)
+    // &.info
+      // +simple-button-override($info, $white)
+    // &.important
+      // +simple-button-override($important, $white)
+    // &.success
+      // +simple-button-override($success, $white)
+    // &.warning
+      // +simple-button-override($warning, $white)
+    // &.danger
+      // +simple-button-override($danger, $white)
+    // &.primary
+      // +simple-button-override($primary, $white)
+  // a.btn
+    // font-weight: bold
 

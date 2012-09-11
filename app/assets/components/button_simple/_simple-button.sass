@@ -1,76 +1,82 @@
 
+// - Abstract the 2 box shadows?
+// - Rename this to glossy button
+// - Test out an external transition
+// - Normalize the percentages
+// - Create the placeholders
+// - Create a mixin to auto-generate a button
+// - Mixin should define what status colors to produce
+// - Cleanup some of the existing generated buttons from the docs
+
 // The base mixin for creating a simple button
-@mixin simple-button($bg, $color:#fff, $hover-percent:10%, $active-percent:15%, $border-percent:30%, $padding:0.4em 0.7em, $radii:$radii)
+@mixin simple-button($bg, $color:#fff, $hover-percent:10%, $active-percent:15%, $border-percent:30%, $padding:0.5em 0.8em, $radii:$radii)
+  background-color: $bg
+  +background-image(linear-gradient(rgba(255,255,255,0.2), rgba(0,0,0,0.05)))
+  +box-shadow(inset 0 1px 4px rgba($white, 0.5))
   +box-sizing(border-box)
-  +font-size($base-font-size)
   +inline-block
-  background: $bg
+  +font-size($base-font-size)
   border: 1px solid darken($bg, $border-percent)
   border-radius: $radii
   color: $color
-  line-height: 1.1
   padding: $padding
   cursor: pointer
   &:hover
-    background: darken($bg, $hover-percent)
+    background-color: darken($bg, $hover-percent)
     color: $color
     text-decoration: none
   &:focus
     +tab-focus
-  &.active,
-  &:active
+  &.active, &:active
+    +box-shadow(inset 0 1px 4px rgba($black, 0.3))
     background: darken($bg, $active-percent)
     color: $color
     outline: 0
-  &.active
     cursor: default
   &.error
     border-color: $error
     color: $color
-  &.disabled,
-  &[disabled],
-  &[readonly]
+  &.disabled, &[disabled], &[readonly]
+    +box-shadow(none)
     +opacity($disabled-opacity)
-    background-color: $bg
+    background-color: darken($bg, $hover-percent)
     color: $color
     cursor: default
+    background-image: none
+    outline: 0
 
 // Override for specific color types
 @mixin simple-button-override($bg, $color:#fff, $hover-percent:10%, $active-percent:12.5%, $border-percent:15%)
-  background: $bg
+  background-color: $bg
   border-color: darken($bg, $border-percent)
   color: $color
   &:hover
     background: darken($bg, $hover-percent)
-    color: $color
-  &.active,
-  &:active
+  &.active, &:active
     background: darken($bg, $active-percent)
-    color: $color
   &.error
     border-color: $error
-    color: $color
-  &.disabled,
-  &[disabled],
-  &[readonly]
-    background-color: $bg
-    color: $color
+  &.disabled, &[disabled], &[readonly]
+    background: darken($bg, $hover-percent)
+
+
+
 
 // Add abstract classes for easier extension
-%simple-button
-  +simple-button($standard, #666)
-%simple-button-inverse
-  +simple-button-override(#333, $white)
-%simple-button-info
-  +simple-button-override($info, $white)
-%simple-button-important
-  +simple-button-override($important, $white)
-%simple-button-success
-  +simple-button-override($success, $white)
-%simple-button-warning
-  +simple-button-override($warning, $white)
-%simple-button-danger
-  +simple-button-override($danger, $white)
-%simple-button-primary
-  +simple-button-override($primary, $white)
+// %simple-button
+  // +simple-button($standard, #666)
+// %simple-button-inverse
+  // +simple-button-override(#333, $white)
+// %simple-button-info
+  // +simple-button-override($info, $white)
+// %simple-button-important
+  // +simple-button-override($important, $white)
+// %simple-button-success
+  // +simple-button-override($success, $white)
+// %simple-button-warning
+  // +simple-button-override($warning, $white)
+// %simple-button-danger
+  // +simple-button-override($danger, $white)
+// %simple-button-primary
+  // +simple-button-override($primary, $white)
 
