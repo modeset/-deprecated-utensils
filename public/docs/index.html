@@ -25,6 +25,7 @@
         <ul class="sherpa-anchor-nav sherpa-nav-list">
           <li><a href='#bindable'>Bindable</a></li>
 <li><a href='#button_group'>Button group</a></li>
+<li><a href='#button_helpers'>Button helpers</a></li>
 <li><a href='#button_semigloss'>Button semigloss</a></li>
 <li><a href='#container'>Container</a></li>
 <li><a href='#content_editable'>Content editable</a></li>
@@ -200,13 +201,149 @@ within your <code>config.sass</code> file or before <code>button-group.sass</cod
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
+<h1>Button Helpers</h1>
+
+<p>A set of modifier classes which can be added to any button to adjust
+various aspects around a button&#39;s display type, sizing, or positioning.</p>
+
+<pre><code class="sass">@import utensils/components/button_helpers/button-helpers
+</code></pre>
+
+<!--~ markup/button-helper.html.haml -->
+
+<div class="sherpa-showcase sherpa-clearfix"><section class='demo' data-remove='btn-xsmall btn-small btn-large btn-xlarge' data-target='.btn'>
+<input class='btn standard' type='submit' value='Submit' />
+<button class='btn inverse'>Inverse</button>
+<button class='btn important'>Important</button>
+<a class='btn success' href='#'>Success</a>
+</section>
+<h5 style='margin-bottom:1em; margin-top:3em;'>Select to view states</h5>
+<section class='button-toolbar'>
+<nav class='check-demo button-group' data-behavior='checkbox' data-bindable='toggler-group' data-target='.btn'>
+<a class='btn' data-toggle='btn-block' href='#'>Block</a>
+<a class='btn' data-toggle='btn-transition' href='#'>Transition</a>
+</nav>
+<nav class='radio-demo button-group' data-bindable='toggler-group' data-target='.btn'>
+<a class='btn active' data-add='' href='#'>Normal</a>
+<a class='btn' data-add='btn-xsmall' href='#'>XS</a>
+<a class='btn' data-add='btn-small' href='#'>Small</a>
+<a class='btn' data-add='btn-large' href='#'>Large</a>
+<a class='btn' data-add='btn-xlarge' href='#'>XL</a>
+</nav>
+</section>
+</div>
+
+<pre><code class="haml">%section.demo(data-target=&quot;.btn&quot; data-remove=&quot;btn-xsmall btn-small btn-large btn-xlarge&quot;)
+  %input.btn.standard(type=&quot;submit&quot; value=&quot;Submit&quot;)
+  %button.btn.inverse Inverse
+  %button.btn.important Important
+  %a.btn.success(href=&quot;#&quot;) Success
+
+%h5(style=&quot;margin-bottom:1em; margin-top:3em;&quot;) Select to view states
+%section.button-toolbar
+  %nav.check-demo.button-group(data-bindable=&quot;toggler-group&quot; data-behavior=&quot;checkbox&quot; data-target=&quot;.btn&quot;)
+    %a.btn(href=&quot;#&quot; data-toggle=&quot;btn-block&quot;) Block
+    %a.btn(href=&quot;#&quot; data-toggle=&quot;btn-transition&quot;) Transition
+
+  %nav.radio-demo.button-group(data-bindable=&quot;toggler-group&quot; data-target=&quot;.btn&quot;)
+    %a.btn.active(href=&quot;#&quot; data-add=&quot;&quot;) Normal
+    %a.btn(href=&quot;#&quot; data-add=&quot;btn-xsmall&quot;) XS
+    %a.btn(href=&quot;#&quot; data-add=&quot;btn-small&quot;) Small
+    %a.btn(href=&quot;#&quot; data-add=&quot;btn-large&quot;) Large
+    %a.btn(href=&quot;#&quot; data-add=&quot;btn-xlarge&quot;) XL
+</code></pre>
+
+<!-- end -->
+
+<h2>Usage</h2>
+
+<table><thead>
+<tr>
+<th>Modifier Class</th>
+<th>Usage</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>.btn-block</code></td>
+<td>Displays the button block level filling the container <code>width</code></td>
+</tr>
+<tr>
+<td><code>.btn-transition</code></td>
+<td>Adds CSS transitions to a buttons states (uses <code>transition-property:all</code>)</td>
+</tr>
+<tr>
+<td><code>.btn-xsmall</code></td>
+<td>Renders the button 4x smaller based on the multiplier number</td>
+</tr>
+<tr>
+<td><code>.btn-small</code></td>
+<td>Renders the button 2x smaller based on the multiplier number</td>
+</tr>
+<tr>
+<td><code>.btn-large</code></td>
+<td>Renders the button 2x bigger based on the multiplier number</td>
+</tr>
+<tr>
+<td><code>.btn-xlarge</code></td>
+<td>Renders the button 4x bigger based on the multiplier number</td>
+</tr>
+</tbody></table>
+
+<h2>Style Settings</h2>
+
+<p>To override the default settings, set the variable and it&#39;s value
+within your <code>config.sass</code> file or before <code>button-helper.sass</code> is loaded.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>$btn-block-spacing</code></td>
+<td><code>0.5em</code></td>
+<td>The <code>margin-top</code> between stacked button blocks</td>
+</tr>
+<tr>
+<td><code>$btn-speed</code></td>
+<td><code>$speed</code></td>
+<td>The duration for <code>.btn-transition</code></td>
+</tr>
+<tr>
+<td><code>$btn-timing-function</code></td>
+<td><code>linear</code></td>
+<td>The timing function for <code>.btn-transition</code></td>
+</tr>
+<tr>
+<td><code>$btn-base-font-size</code></td>
+<td><code>$base-font-size</code></td>
+<td>The base <code>font-size</code> to use for incrementing button sizes</td>
+</tr>
+<tr>
+<td><code>$btn-base-line-height</code></td>
+<td><code>$base-line-height</code></td>
+<td>The base <code>line-height</code> to use for incrementing button sizes</td>
+</tr>
+<tr>
+<td><code>$btn-size-multiplier</code></td>
+<td><code>2</code></td>
+<td>The base multiplier to use for changing a button size</td>
+</tr>
+</tbody></table>
+
+<p></section><section class="sherpa-section sherpa-clearfix"></p>
+
 <h1>Button Semigloss</h1>
 
 <p>A semi-glossy button created via various mixins. By default, no classes
 are added to the style sheet unless told to do so.</p>
 
-<pre><code class="sass">@import utensils/components/button_semigloss/semigloss-button
+<pre><code class="sass">@import utensils/components/button_semigloss/button-semigloss
 </code></pre>
+
+<!--~ markup/button-semigloss.html.haml -->
 
 <div class="sherpa-showcase sherpa-clearfix"><section class='demo' data-remove='active error disabled' data-target='.btn'>
 <button class='btn'>Default</button>
@@ -242,10 +379,12 @@ are added to the style sheet unless told to do so.</p>
 %h5(style=&quot;margin-bottom:1em; margin-top:3em;&quot;) Select to view states
 %nav.radio-demo.button-group(data-bindable=&quot;toggler-group&quot; data-target=&quot;.btn&quot;)
   %a.btn.active(href=&quot;#&quot; data-add=&quot;&quot;) Normal
-  %a.btn(href=&quot;#&quot; data-add=&quot;active&quot;) Active 
+  %a.btn(href=&quot;#&quot; data-add=&quot;active&quot;) Active
   %a.btn(href=&quot;#&quot; data-add=&quot;error&quot;) Error
   %a.btn(href=&quot;#&quot; data-add=&quot;disabled&quot;) Disabled
 </code></pre>
+
+<!-- end -->
 
 <p>The semigloss-button class can be applied to <code>&lt;a&gt;</code>, <code>&lt;button&gt;</code> and <code>&lt;input&gt;</code> elements.</p>
 
