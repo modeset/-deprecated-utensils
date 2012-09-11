@@ -15,7 +15,6 @@ Client side component library
 - Turn into engine with generators
 
 ### Needed components
-- form layouts (inline form, search form)
 - Revisit simple button?
 - Add button utilities (small, mini, large, block)
 - can we abstract focus/disabled states to a mixin?

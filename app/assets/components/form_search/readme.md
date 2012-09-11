@@ -21,3 +21,6 @@ inherit the top and bottom `padding` of the input element.
 ```
 <!-- end -->
 
+###### Notes
+- **Heads Up!** Requires the `form-controls` utensil.
+

@@ -33,6 +33,7 @@
 <li><a href='#dimensionizer'>Dimensionizer</a></li>
 <li><a href='#form_controls'>Form controls</a></li>
 <li><a href='#form_horizontal'>Form horizontal</a></li>
+<li><a href='#form_inline'>Form inline</a></li>
 <li><a href='#form_search'>Form search</a></li>
 <li><a href='#icon_close'>Icon close</a></li>
 <li><a href='#normalize'>Normalize</a></li>
@@ -1806,6 +1807,61 @@ within your <code>config.sass</code> file or before <code>form-horizontal.sass</
 </tr>
 </tbody></table>
 
+<h6>Notes</h6>
+
+<ul>
+<li><strong>Heads Up!</strong> Requires the <code>form-controls</code> utensil.</li>
+</ul>
+
+<p></section><section class="sherpa-section sherpa-clearfix"></p>
+
+<h1>Form Inline</h1>
+
+<p>Utilize the <code>.form-inline</code> class on the <code>form</code> element to create a simple
+inline form. Supports control labels as well.</p>
+
+<pre><code class="sass">@import utensils/components/form_inline/form-inline
+</code></pre>
+
+<!--~ markup/form-inline.html.haml -->
+
+<div class="sherpa-showcase sherpa-clearfix"><form class='form-inline well lite'>
+<input id='fi_email' placeholder='email' type='email' />
+<input id='fi_passw' placeholder='password' type='password' />
+<select>
+<option selected='selected' value='denver'>Denver</option>
+<option value='boulder'>Boulder</option>
+<option value='los angeles'>Los Angeles</option>
+<option value='san francisco'>San Francisco</option>
+</select>
+<label class='checkbox-label'>
+<input type='checkbox'>Remember me</input>
+</label>
+<input class='btn' type='submit' value='Go' />
+</form>
+</div>
+
+<pre><code class="haml">%form.form-inline.well.lite
+  %input#fi_email(type=&quot;email&quot; placeholder=&quot;email&quot;)
+  %input#fi_passw(type=&quot;password&quot; placeholder=&quot;password&quot;)
+  %select
+    %option(selected=&quot;selected&quot; value=&quot;denver&quot;) Denver
+    %option(value=&quot;boulder&quot;) Boulder
+    %option(value=&quot;los angeles&quot;) Los Angeles
+    %option(value=&quot;san francisco&quot;) San Francisco
+  %label.checkbox-label
+    %input(type=&quot;checkbox&quot;) Remember me
+  %input.btn(type=&quot;submit&quot; value=&quot;Go&quot;)
+</code></pre>
+
+<!-- end -->
+
+<h6>Notes</h6>
+
+<ul>
+<li><strong>Heads Up!</strong> Requires the <code>form-controls</code> utensil.</li>
+</ul>
+
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
 <h1>Form Search</h1>
@@ -1834,6 +1890,12 @@ inherit the top and bottom <code>padding</code> of the input element.</p>
 </code></pre>
 
 <!-- end -->
+
+<h6>Notes</h6>
+
+<ul>
+<li><strong>Heads Up!</strong> Requires the <code>form-controls</code> utensil.</li>
+</ul>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 

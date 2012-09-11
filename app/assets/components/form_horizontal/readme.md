@@ -22,3 +22,6 @@ Attribute                    | Default                  | Description
 `$form-horiz-offset`         | `$horiz-offset`          | The for `.control-label`, `.controls` and `.form-actions` containers
 `$form-horiz-offset-padding` | `$horiz-offset-padding`  | The padding between the `.control-label` and `.controls` containers
 
+###### Notes
+- **Heads Up!** Requires the `form-controls` utensil.
+
