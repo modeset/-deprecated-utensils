@@ -1,15 +1,15 @@
 
-# Button Helpers
+# Button Modifiers
 A set of modifier classes which can be added to any button to adjust
 various aspects around a button's display type, sizing, or positioning.
 
 ```sass
-@import utensils/components/button_helpers/button-helpers
+@import utensils/components/button_modifiers/button-modifiers
 ```
 
 ## Usage Examples
 
-<!--~ markup/button-helper.html.haml -->
+<!--~ markup/button-modifiers.html.haml -->
 ```haml
 %section.demo(data-target=".btn" data-remove="btn-xsmall btn-small btn-large btn-xlarge")
   %input.btn.standard(type="submit" value="Submit")
@@ -46,7 +46,7 @@ Modifier Class    | Usage
 
 ## Style Settings
 To override the default settings, set the variable and it's value
-within your `config.sass` file or before `button-helper.sass` is loaded.
+within your `config.sass` file or before `button-modifiers.sass` is loaded.
 
 Attribute                | Default              | Description
 ------------------------ | -------------------- | -------------------------------------------
