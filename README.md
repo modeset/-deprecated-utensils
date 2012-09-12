@@ -7,14 +7,12 @@ Client side component library
 ## Todo
 
 ### Needed components
-- media.sass
+- pagination.sass
 - popovers.sass *
 - notifications.sass *
 - progress-bars.sass *
 - dropdowns.sass * (figure out how carets play into this)
 - accordions.sass *
-- breadcrumbs.sass
-- pagination.sass
 - tabs.sass *
 - pills.sass *
 - nav-lists.sass
@@ -22,7 +20,7 @@ Client side component library
 - carousels.sass *
 - navbars.sass *
 - fishnet
-- layouts/upgrades
+- upgrades
 
 ### Reminders and Tasks
 - Look at making the sass files use abstract elements

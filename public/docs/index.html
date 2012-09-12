@@ -24,6 +24,7 @@
         </ul>
         <ul class="sherpa-anchor-nav sherpa-nav-list">
           <li><a href='#bindable'>Bindable</a></li>
+<li><a href='#breadcrumb'>Breadcrumb</a></li>
 <li><a href='#button_group'>Button group</a></li>
 <li><a href='#button_modifiers'>Button modifiers</a></li>
 <li><a href='#button_semigloss'>Button semigloss</a></li>
@@ -107,6 +108,76 @@ $ -&gt;
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
+<h1>Breadcrumb</h1>
+
+<p>Apply the <code>.breadcrumb</code> class to the <code>ol</code> or <code>ul</code> element to provide linkable
+references to nested sections within the application. Utilize a <code>span.divider</code>
+for separation of links. The list should contain the <code>.nav</code> class.</p>
+
+<pre><code class="sass">@import utensils/components/breadcrumb/breadcrumb
+</code></pre>
+
+<!--~ markup/breadcrumb.html.haml -->
+
+<div class="sherpa-showcase sherpa-clearfix"><nav>
+<ol class='nav breadcrumb'>
+<li><a href='#'>Level 1</a></li>
+<li><a href='#'>Level 2</a></li>
+<li><a href='#'>Level 3</a></li>
+<li class='active'><a href='#'>Active</a></li>
+</ol>
+</nav>
+</div>
+
+<pre><code class="haml">%nav
+  %ol.nav.breadcrumb
+    %li&lt;
+      %a(href=&quot;#&quot;) Level 1
+    %li&lt;
+      %a(href=&quot;#&quot;) Level 2
+    %li&lt;
+      %a(href=&quot;#&quot;) Level 3
+    %li.active&lt;
+      %a(href=&quot;#&quot;) Active
+</code></pre>
+
+<!-- end -->
+
+<h2>Style Settings</h2>
+
+<p>To override the default settings, set the variable and it&#39;s value
+within your <code>config.sass</code> file or before <code>caret.sass</code> is loaded.</p>
+
+<table><thead>
+<tr>
+<th>Variable</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>$caret-width</code></td>
+<td><code>4px</code></td>
+<td>The <code>border-width</code> (size) of the caret</td>
+</tr>
+<tr>
+<td><code>$caret-color</code></td>
+<td><code>$link-color</code></td>
+<td>The base <code>border-color</code> of the caret</td>
+</tr>
+</tbody></table>
+
+<p><code>$breadcrumb-color</code>           | <code>$body-color-medium</code> | The text <code>color</code> for breadcrumbs (includes the active breadcrumb and divider)
+<code>$breadcrumb-link-color</code>      | <code>$link-color</code>        | The text <code>color</code> of an active breadcrumb link
+<code>$breadcrumb-link-hover</code>      | <code>$link-hover</code>        | The text <code>color</code> when a breadcrumb link is hovered
+<code>$breadcrumb-bgc</code>             | <code>$off-white</code>         | The <code>background-color</code> of the breadcrumb component
+<code>$breadcrumb-font-weight</code>     | <code>bold</code>               | The default <code>font-weight</code> for breadcrumbs
+<code>$breadcrumb-radii</code>           | <code>$radii</code>             | The <code>border-radius</code> of the breadcrumb container
+<code>$breadcrumb-divider-content</code> | <code>&quot; /&quot;</code>               | The content to appear after a breadcrumb link
+<code>$breadcrumb-divider-color</code>   | <code>$breadcrumb-color</code>  | The text <code>color</code> of the breadcrumb divider</p>
+
+<p></section><section class="sherpa-section sherpa-clearfix"></p>
+
 <h1>Button Group</h1>
 
 <p>Use button groups to join multiple buttons together as one composite component.
@@ -178,7 +249,7 @@ within your <code>config.sass</code> file or before <code>button-group.sass</cod
 
 <table><thead>
 <tr>
-<th>Attribute</th>
+<th>Variable</th>
 <th>Default</th>
 <th>Description</th>
 </tr>
@@ -299,7 +370,7 @@ within your <code>config.sass</code> file or before <code>button-modifiers.sass<
 
 <table><thead>
 <tr>
-<th>Attribute</th>
+<th>Variable</th>
 <th>Default</th>
 <th>Description</th>
 </tr>
@@ -610,7 +681,7 @@ within your <code>config.sass</code> file or before <code>container.sass</code> 
 
 <table><thead>
 <tr>
-<th>Attribute</th>
+<th>Variable</th>
 <th>Default</th>
 <th>Description</th>
 </tr>
@@ -717,6 +788,35 @@ container for this reason.</p>
 to align buttons to the right</li>
 </ul>
 
+<h2>Style Settings</h2>
+
+<p>To override the default settings, set the variable and it&#39;s value
+within your <code>config.sass</code> file or before <code>container-media.sass</code> is loaded.</p>
+
+<table><thead>
+<tr>
+<th>Variable</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>$media-border-color</code></td>
+<td><code>$border-color</code></td>
+<td>The <code>border-color</code> of the <code>.media-item</code></td>
+</tr>
+<tr>
+<td><code>$media-border-color-hover</code></td>
+<td><code>$link-color</code></td>
+<td>The <code>border-color</code> of the <code>.media-item</code> when a link is hovered</td>
+</tr>
+<tr>
+<td><code>$media-radii</code></td>
+<td><code>$radii</code></td>
+<td>The <code>border-radius</code> of the <code>.media-item</code></td>
+</tr>
+</tbody></table>
+
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
 <h1>Content Editable</h1>
@@ -742,7 +842,7 @@ within your <code>config.sass</code> file or before <code>content-editable.sass<
 
 <table><thead>
 <tr>
-<th>Attribute</th>
+<th>Variable</th>
 <th>Default</th>
 <th>Description</th>
 </tr>
@@ -793,6 +893,25 @@ available.</p>
 %span.decal.danger Danger
 %span.decal.primary Primary
 </code></pre>
+
+<h2>Style Settings</h2>
+
+<p>To override the default settings, set the variable and it&#39;s value
+within your <code>config.sass</code> file or before <code>decal.sass</code> is loaded.</p>
+
+<table><thead>
+<tr>
+<th>Variable</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>$decal-radii</code></td>
+<td><code>$radii</code></td>
+<td>The <code>border-radius</code> of a decal</td>
+</tr>
+</tbody></table>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
@@ -1870,7 +1989,7 @@ within your <code>config.sass</code> file or before <code>form-controls.sass</co
 
 <table><thead>
 <tr>
-<th>Attribute</th>
+<th>Variable</th>
 <th>Default</th>
 <th>Description</th>
 </tr>
@@ -2043,7 +2162,7 @@ within your <code>config.sass</code> file or before <code>form-horizontal.sass</
 
 <table><thead>
 <tr>
-<th>Attribute</th>
+<th>Variable</th>
 <th>Default</th>
 <th>Description</th>
 </tr>
@@ -2196,7 +2315,7 @@ within your <code>config.sass</code> file or before <code>caret.sass</code> is l
 
 <table><thead>
 <tr>
-<th>Attribute</th>
+<th>Variable</th>
 <th>Default</th>
 <th>Description</th>
 </tr>
@@ -2256,7 +2375,7 @@ within your <code>config.sass</code> file or before <code>close.sass</code> is l
 
 <table><thead>
 <tr>
-<th>Attribute</th>
+<th>Variable</th>
 <th>Default</th>
 <th>Description</th>
 </tr>
@@ -2627,7 +2746,7 @@ within your <code>config.sass</code> file or before <code>scaffold.sass</code> i
 
 <table><thead>
 <tr>
-<th>Attribute</th>
+<th>Variable</th>
 <th>Default</th>
 <th>Description</th>
 </tr>
@@ -2856,7 +2975,7 @@ within your <code>config.sass</code> file or before <code>table.sass</code> is l
 
 <table><thead>
 <tr>
-<th>Attribute</th>
+<th>Variable</th>
 <th>Default</th>
 <th>Description</th>
 </tr>
@@ -3123,7 +3242,7 @@ within your <code>config.sass</code> file or before <code>tip.sass</code> is loa
 
 <table><thead>
 <tr>
-<th>Attribute</th>
+<th>Variable</th>
 <th>Default</th>
 <th>Description</th>
 </tr>
@@ -3546,7 +3665,7 @@ within your <code>config.sass</code> file or before <code>transition.sass</code>
 
 <table><thead>
 <tr>
-<th>Attribute</th>
+<th>Variable</th>
 <th>Default</th>
 <th>Description</th>
 </tr>
@@ -4045,7 +4164,7 @@ within your <code>config.sass</code> file or before <code>typography.sass</code>
 
 <table><thead>
 <tr>
-<th>Attribute</th>
+<th>Variable</th>
 <th>Default</th>
 <th>Description</th>
 </tr>
@@ -4175,7 +4294,7 @@ within your <code>config.sass</code> file or before <code>well.sass</code> is lo
 
 <table><thead>
 <tr>
-<th>Attribute</th>
+<th>Variable</th>
 <th>Default</th>
 <th>Description</th>
 </tr>

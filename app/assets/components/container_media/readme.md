@@ -45,3 +45,13 @@ container for this reason.
 - **Pro Tip!** Add `media-caption-right` on the `media-caption-footer`
   to align buttons to the right
 
+## Style Settings
+To override the default settings, set the variable and it's value
+within your `config.sass` file or before `container-media.sass` is loaded.
+
+Variable                    | Default               | Description
+--------------------------- | --------------------- | -------------------------------------------
+`$media-border-color`       | `$border-color`       | The `border-color` of the `.media-item`
+`$media-border-color-hover` | `$link-color`         | The `border-color` of the `.media-item` when a link is hovered
+`$media-radii`              | `$radii`              | The `border-radius` of the `.media-item`
+

@@ -5,7 +5,6 @@ They are typically used with inline elements. The default color is
 equivalent to the `$inverse` status color and `$standard` is not
 available.
 
-
 ```sass
 @import utensils/components/decal/decal
 ```
@@ -21,4 +20,12 @@ available.
 %span.decal.danger Danger
 %span.decal.primary Primary
 ```
+
+## Style Settings
+To override the default settings, set the variable and it's value
+within your `config.sass` file or before `decal.sass` is loaded.
+
+Variable       | Default  | Description
+-------------- | -------- | -------------------------------------------
+`$decal-radii` | `$radii` | The `border-radius` of a decal
 
