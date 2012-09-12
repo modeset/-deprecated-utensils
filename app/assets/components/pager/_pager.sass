@@ -1,0 +1,41 @@
+
+$pager-bgc: $body-bgc !default
+$pager-bgc-hover: darken($pager-bgc, 5%) !default
+$pager-bgc-active: darken($pager-bgc-hover, 5%) !default
+$pager-border: $border-color !default
+$pager-disabled-bgc: $disabled-bgc !default
+$pager-disabled-color: $disabled-color !default
+
+.pager
+  +clearfixer
+
+.pager.pager-center
+  text-align: center
+
+.pager.pager-right
+  text-align: right
+
+.pager li
+  display: inline
+
+.pager a
+  +inline-block
+  background-color: $pager-bgc
+  border: 1px solid $pager-border
+  border-radius: 1em
+  padding: 0.5em 0.8em
+  &:hover
+    background-color: $pager-bgc-hover
+  &:active
+    background-color: $pager-bgc-active
+
+.pager .disabled a,
+.pager .disabled a:hover
+  background: $pager-disabled-bgc
+  color: $pager-disabled-color
+
+.pager .next > a
+  float: right
+.pager .prev > a
+  float: left
+

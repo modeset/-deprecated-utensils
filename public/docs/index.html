@@ -36,8 +36,11 @@
 <li><a href='#form_horizontal'>Form horizontal</a></li>
 <li><a href='#form_inline'>Form inline</a></li>
 <li><a href='#form_search'>Form search</a></li>
+<li><a href='#icon_caret'>Icon caret</a></li>
 <li><a href='#icon_close'>Icon close</a></li>
+<li><a href='#icon_paddle'>Icon paddle</a></li>
 <li><a href='#normalize'>Normalize</a></li>
+<li><a href='#pager'>Pager</a></li>
 <li><a href='#print'>Print</a></li>
 <li><a href='#scaffold'>Scaffold</a></li>
 <li><a href='#table'>Table</a></li>
@@ -2058,6 +2061,69 @@ inherit the top and bottom <code>padding</code> of the input element.</p>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
+<h1>Icon Caret</h1>
+
+<p>Carets are used as icons for links and are typically wrapped in <code>span</code>
+elements. Carets are similar to the <code>+arrow</code> mixin, where in the <code>+arrow</code>
+mixin is used for <code>:before</code> and <code>:after</code> pseudo elements and carets are
+embedded directly in the markup.</p>
+
+<pre><code class="sass">@import utensils/components/icon_caret/caret
+</code></pre>
+
+<table><thead>
+<tr>
+<th>Caret</th>
+<th>Markup</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span class="caret"></span></td>
+<td><code>%span.caret</code> or <code>%span.caret.south</code></td>
+</tr>
+<tr>
+<td><span class="caret north"></span></td>
+<td><code>%span.caret.north</code></td>
+</tr>
+<tr>
+<td><span class="caret east"></span></td>
+<td><code>%span.caret.east</code></td>
+</tr>
+<tr>
+<td><span class="caret west"></span></td>
+<td><code>%span.caret.west</code></td>
+</tr>
+</tbody></table>
+
+<p>There is another caret modifier for <code>caret.caret-center</code> which is used
+in split drop down menus.</p>
+
+<h2>Style Settings</h2>
+
+<p>To override the default settings, set the variable and it&#39;s value
+within your <code>config.sass</code> file or before <code>caret.sass</code> is loaded.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>$caret-width</code></td>
+<td><code>4px</code></td>
+<td>The <code>border-width</code> (size) of the caret</td>
+</tr>
+<tr>
+<td><code>$caret-color</code></td>
+<td><code>$link-color</code></td>
+<td>The base <code>border-color</code> of the caret</td>
+</tr>
+</tbody></table>
+
+<p></section><section class="sherpa-section sherpa-clearfix"></p>
+
 <h1>Icon Close</h1>
 
 <p>Use the close icon to dismiss modals, notifications and other elements.</p>
@@ -2143,6 +2209,65 @@ within your <code>config.sass</code> file or before <code>close.sass</code> is l
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
+<h1>Icon Paddle</h1>
+
+<p>Paddles are commonly used in carousel or simple paging navigations.
+The paddle icons are setup as absolutely positioned and should reside in
+an element that is positioned relatively.</p>
+
+<p>Paddles should be extended by a component class for exact positioning
+and styles.</p>
+
+<pre><code class="sass">@import utensils/components/icon_paddle/paddle
+</code></pre>
+
+<!--~ markup/paddle.html.haml -->
+
+<div class="sherpa-showcase sherpa-clearfix"><nav>
+<a class='paddle-icon north' href='#'>&uarr;</a>
+<a class='paddle-icon south' href='#'>&darr;</a>
+<a class='paddle-icon west' href='#'>&larr;</a>
+<a class='paddle-icon east' href='#'>&rarr;</a>
+</nav>
+</div>
+
+<pre><code class="haml">%nav
+  %a.paddle-icon.north(href=&quot;#&quot;) &amp;uarr;
+  %a.paddle-icon.south(href=&quot;#&quot;) &amp;darr;
+  %a.paddle-icon.west(href=&quot;#&quot;) &amp;larr;
+  %a.paddle-icon.east(href=&quot;#&quot;) &amp;rarr;
+</code></pre>
+
+<!-- end -->
+
+<h2>Usage</h2>
+
+<table><thead>
+<tr>
+<th>Class</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>.paddle-icon.north</code></td>
+<td>Positions the icon at <code>top:0</code> and <code>left:50%</code></td>
+</tr>
+<tr>
+<td><code>.paddle-icon.south</code></td>
+<td>Positions the icon at <code>bottom:0</code> and <code>left:50%</code></td>
+</tr>
+<tr>
+<td><code>.paddle-icon.east</code></td>
+<td>Positions the icon at <code>top:50%</code> and <code>right:0</code></td>
+</tr>
+<tr>
+<td><code>.paddle-icon.west</code></td>
+<td>Positions the icon at <code>top:50%</code> and <code>left:0</code></td>
+</tr>
+</tbody></table>
+
+<p></section><section class="sherpa-section sherpa-clearfix"></p>
+
 <h1>Normalize</h1>
 
 <p>Normalize base element styles to allow browsers to render all controls
@@ -2161,6 +2286,160 @@ and inserts them directly into your style sheet.</p>
 
 <pre><code class="sass">@import utensils/components/normalize/normalize
 </code></pre>
+
+<p></section><section class="sherpa-section sherpa-clearfix"></p>
+
+<h1>Pager</h1>
+
+<p>Pagers are commonly used in simple paging navigations, where a full
+blown pagination system isn&#39;t required.</p>
+
+<p>To allow pager to float on the sides of the container, apply the
+<code>.prev</code> and <code>.next</code> classes to the containing pager <code>li</code> element.</p>
+
+<pre><code class="sass">@import utensils/components/pager/pager
+</code></pre>
+
+<!--~ markup/pager.html.haml -->
+
+<div class="sherpa-showcase sherpa-clearfix"><nav>
+<ul class='pager'>
+<li class='disabled'><a href='#'>&larr; Prev</a></li>
+<li><a href='#'>Next &rarr;</a></li>
+</ul>
+</nav>
+<hr />
+<nav>
+<ul class='pager pager-center'>
+<li><a href='#'>&larr; Prev</a></li>
+<li><a href='#'>Next &rarr;</a></li>
+</ul>
+</nav>
+<hr />
+<nav>
+<ul class='pager pager-right'>
+<li><a href='#'>&larr; Prev</a></li>
+<li class='disabled'><a href='#'>Next &rarr;</a></li>
+</ul>
+</nav>
+<hr />
+<nav>
+<ul class='pager'>
+<li class='prev'><a href='#'>&larr; Prev</a></li>
+<li class='next'><a href='#'>Next &rarr;</a></li>
+</ul>
+</nav>
+</div>
+
+<pre><code class="haml">%nav
+  %ul.pager
+    %li.disabled&lt;
+      %a(href=&quot;#&quot;) &amp;larr; Prev
+    %li&lt;
+      %a(href=&quot;#&quot;) Next &amp;rarr;
+
+%hr
+
+%nav
+  %ul.pager.pager-center
+    %li&lt;
+      %a(href=&quot;#&quot;) &amp;larr; Prev
+    %li&lt;
+      %a(href=&quot;#&quot;) Next &amp;rarr;
+
+%hr
+
+%nav
+  %ul.pager.pager-right
+    %li&lt;
+      %a(href=&quot;#&quot;) &amp;larr; Prev
+    %li.disabled&lt;
+      %a(href=&quot;#&quot;) Next &amp;rarr;
+
+%hr
+
+%nav
+  %ul.pager
+    %li.prev&lt;
+      %a(href=&quot;#&quot;) &amp;larr; Prev
+    %li.next&lt;
+      %a(href=&quot;#&quot;) Next &amp;rarr;
+</code></pre>
+
+<!-- end -->
+
+<h2>Usage</h2>
+
+<table><thead>
+<tr>
+<th>Class</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>.pager</code></td>
+<td>Aligns pagers grouped together on the left edge of the container</td>
+</tr>
+<tr>
+<td><code>.pager.pager-center</code></td>
+<td>Aligns pagers grouped together in the center of the container</td>
+</tr>
+<tr>
+<td><code>.pager.pager-right</code></td>
+<td>Aligns pagers grouped together on the right edge of the container</td>
+</tr>
+</tbody></table>
+
+<p>By adding the classes <code>.next</code> and <code>.prev</code> on the <code>li</code> will split the
+pager buttons with <code>.prev</code> on the left and <code>.next</code> on the right. There
+is no need to add the center or right modifier classes for this to work.</p>
+
+<p>To disable a pager, add the <code>disabled</code> class to the <code>a</code> element&#39;s parent
+<code>li</code>.</p>
+
+<h2>Style Settings</h2>
+
+<p>To override the default settings, set the variable and it&#39;s value
+within your <code>config.sass</code> file or before <code>pager.sass</code> is loaded.</p>
+
+<table><thead>
+<tr>
+<th>Variable</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>$pager-bgc</code></td>
+<td><code>$body-bgc</code></td>
+<td>The <code>background-color</code> of the pager</td>
+</tr>
+<tr>
+<td><code>$pager-bgc-hover</code></td>
+<td><code>darken($pager-bgc,5%)</code></td>
+<td>The <code>background-color</code> of the pager when hovered</td>
+</tr>
+<tr>
+<td><code>$pager-bgc-active</code></td>
+<td><code>darken($pager-bgc-hover,5%)</code></td>
+<td>The <code>background-color</code> of the pager when active</td>
+</tr>
+<tr>
+<td><code>$pager-border</code></td>
+<td><code>$border-color</code></td>
+<td>The <code>border-color</code> of the pager</td>
+</tr>
+<tr>
+<td><code>$pager-disabled-bgc</code></td>
+<td><code>$disabled-bgc</code></td>
+<td>The disabled <code>background-color</code> of the pager</td>
+</tr>
+<tr>
+<td><code>$pager-disabled-color</code></td>
+<td><code>$disabled-color</code></td>
+<td>The disabled text <code>color</code> of the pager</td>
+</tr>
+</tbody></table>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 

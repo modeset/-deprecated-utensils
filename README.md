@@ -7,13 +7,11 @@ Client side component library
 ## Todo
 
 ### Needed components
-- carets.sass (deal with this in buttons or button utils)
-- paddles.sass
 - media.sass
 - popovers.sass *
 - notifications.sass *
 - progress-bars.sass *
-- dropdowns.sass *
+- dropdowns.sass * (figure out how carets play into this)
 - accordions.sass *
 - breadcrumbs.sass
 - pagination.sass
