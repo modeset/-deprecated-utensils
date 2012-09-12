@@ -1,0 +1,36 @@
+
+$breadcrumb-color: $body-color-medium !default
+$breadcrumb-link-color: $link-color !default
+$breadcrumb-link-hover: $link-hover !default
+$breadcrumb-bgc: $off-white !default
+$breadcrumb-font-weight: bold !default
+$breadcrumb-radii: $radii !default
+$breadcrumb-divider-content: " /" !default
+$breadcrumb-divider-color: $breadcrumb-color !default
+
+.breadcrumb
+  padding: 1em
+  background-color: $breadcrumb-bgc
+  border-radius: $breadcrumb-radii
+
+.breadcrumb > li
+  +inline-block
+  color: $breadcrumb-color
+  font-weight: $breadcrumb-font-weight
+  &:after
+    content: $breadcrumb-divider-content
+  &:last-child:after
+    content: ""
+
+.breadcrumb > li > a
+  display: inline
+  color: $breadcrumb-link-color
+
+.breadcrumb > li > a:hover,
+.breadcrumb > li > a:active
+  color: $breadcrumb-link-hover
+
+.breadcrumb > .active > a,
+.breadcrumb > .active > a:hover
+  color: $breadcrumb-color
+
