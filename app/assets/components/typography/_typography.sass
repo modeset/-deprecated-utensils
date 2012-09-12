@@ -1,20 +1,20 @@
 
+$heading-color: $body-color !default
 $h1-size: $base-font-size + 16 !default
 $h2-size: $base-font-size + 10 !default
 $h3-size: $base-font-size + 4 !default
 $h4-size: $base-font-size + 2 !default
 $h5-size: $base-font-size + 1 !default
 $h6-size: $base-font-size !default
-$heading-color: $body-color !default
 
-$hr-rule-color: $border-color !default
-$mark-bgc: $yellow !default
+$hr-border: $base-border !default
 $mark-color: #333 !default
+$mark-bgc: $yellow !default
 
-$code-bgc: $off-white !default
-$code-border-color: invert($body-color) !default
-$code-inline-color: $body-color !default
-$pre-border-radii: $radii !default
+$code-color-inline: $body-color !default
+$code-bgc: $focus-bgc !default
+$code-border: $base-border !default
+$pre-radii: $radii !default
 
 $definition-horiz-offset: $horiz-offset !default
 $definition-horiz-offset-padding: $horiz-offset-padding !default
@@ -93,7 +93,7 @@ hr
   display: block
   height: 1px
   border: 0
-  border-top: 1px solid $hr-rule-color
+  border-top: 1px solid $hr-border
   margin: 1em 0
   padding: 0
   &.dotted
@@ -106,7 +106,7 @@ hr
 // -----------------------------------------------------------------------------
 pre, code, kbd, samp
   background-color: $code-bgc
-  border: 1px solid $code-border-color
+  border: 1px solid $code-border
   font-family: $code-norm
   font-size: 85%
 
@@ -114,10 +114,10 @@ code, kbd, samp
   padding: 0.1em 0.3em
 
 code
-  color: $code-inline-color
+  color: $code-color-inline
 
 pre
-  border-radius: $pre-border-radii
+  border-radius: $pre-radii
   margin: 1em 0
   padding: 0.75em
   white-space: pre

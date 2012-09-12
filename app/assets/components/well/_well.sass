@@ -1,20 +1,17 @@
 
-$well-border-color: invert($body-color) !default
+$well-border: $base-border !default
+$well-bgc: $base-bgc !default
+$well-bgc-fill: darken($well-bgc, 8%) !default
 $well-radii: $radii !default
 $well-spacing: 1.25em !default
-$well-bgc: transparent !default
-$well-lite-bgc: $off-white !default
-$well-dark-bgc: $off-grey !default
 
 .well
   +box-sizing(border-box)
-  border: 1px solid $well-border-color
-  border-radius: $well-radii
   background-color: $well-bgc
+  border: 1px solid $well-border
+  border-radius: $well-radii
   margin-bottom: $well-spacing
   padding: $well-spacing
-  &.lite
-    background-color: $well-lite-bgc
-  &.dark
-    background-color: $well-dark-bgc
+  &.fill
+    background-color: $well-bgc-fill
 

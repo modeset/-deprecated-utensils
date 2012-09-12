@@ -1,4 +1,9 @@
 
+$body-color: $base-color !default
+$body-background: $base-bgc !default
+$select-color: white !default
+$select-bgc: $primary !default
+$tap-highlight: $link-color !default
 $nav-inline-padding-left: 0.5em !default
 $nav-inline-padding-right: $nav-inline-padding-left !default
 
@@ -15,15 +20,15 @@ html, button, input, select, textarea
 
 body
   +font-size($base-font-size)
-  background: $body-bg
+  background: $body-background
   line-height: $base-line-height
   margin: 0
 
 \::-moz-selection
-  +text-selection($select-bg, $select-color)
+  +text-selection($select-bgc, $select-color)
 
 \::selection
-  +text-selection($select-bg, $select-color)
+  +text-selection($select-bgc, $select-color)
 
 // Links
 a, a:visited
@@ -41,7 +46,7 @@ a:hover
   color: $link-hover
 
 a:active, a.active, .active > a
-  color: $link-hover
+  color: $link-active
 
 a:link
   -webkit-tap-highlight-color: $tap-highlight

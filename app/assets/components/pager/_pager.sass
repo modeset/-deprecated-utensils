@@ -1,10 +1,10 @@
 
-$pager-bgc: $body-bgc !default
-$pager-bgc-hover: darken($pager-bgc, 5%) !default
-$pager-bgc-active: darken($pager-bgc-hover, 5%) !default
-$pager-border: $border-color !default
-$pager-disabled-bgc: $disabled-bgc !default
+$pager-bgc: $base-bgc !default
+$pager-bgc-hover: $base-bgc-hover !default
+$pager-bgc-active: $base-bgc-active !default
+$pager-border: $base-border !default
 $pager-disabled-color: $disabled-color !default
+$pager-disabled-bgc: $disabled-bgc !default
 
 .pager
   +clearfixer
@@ -34,8 +34,8 @@ $pager-disabled-color: $disabled-color !default
   background: $pager-disabled-bgc
   color: $pager-disabled-color
 
-.pager .next > a
+.pager .pager-next > a
   float: right
-.pager .prev > a
+.pager .pager-prev > a
   float: left
 

@@ -33,7 +33,7 @@ elements under a `.button-toolbar` container to form a navigation system.
 <!-- end -->
 
 ###### Notes
-- **Pro Tip!** Button groups and toolbars play great with the `TogglerGroup` behavior
+- **Pro Tip!** Button groups and tool bars play great with the `TogglerGroup` behavior
 
 ## Style Settings
 To override the default settings, set the variable and it's value

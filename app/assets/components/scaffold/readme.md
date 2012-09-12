@@ -44,8 +44,13 @@ can be used for simple navigation as well.
 To override the default settings, set the variable and it's value
 within your `config.sass` file or before `scaffold.sass` is loaded.
 
-Variable             | Default             | Description
--------------------- | ------------------- | -------------------------------------------
-`$nav-padding-left`  | `1%`                | Set the `padding-left` on the `.nav.inline` element
-`$nav-padding-right` | `$nav-padding-left` | Set the `padding-right` on the `.nav.inline` element
+Variable                    | Default                    | Description
+--------------------------- | -------------------------- | -------------------------------------------
+`$body-color`               | `$base-color`              | The body's text `color`
+`$body-background`          | `$base-bgc`                | The body's `background`
+`$select-color`             | `white`                    | The selected text's `color`
+`$select-bgc`               | `$primary`                 | The selected text's `background`
+`$tap-highlight`            | `$link-color`              | The `tap-highlight-color` for touch devices
+`$nav-inline-padding-left`  | `0.5em`                    | The `padding-left` on the `.nav.inline` element
+`$nav-inline-padding-right` | `$nav-inline-padding-left` | The `padding-right` on the `.nav.inline` element
 

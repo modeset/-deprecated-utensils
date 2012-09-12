@@ -74,9 +74,7 @@ By combining any of the following classes, the table can be given a different lo
 <!-- end -->
 
 ###### Note
-- **Heads up!** To get the status colors, see the "Table Modifiers"
-  section below.
-
+- **Heads up!** To get the status colors, see the "Table Modifiers" section below.
 
 
 ## Options
@@ -98,17 +96,18 @@ _none_             | The base table creates division in data with horizontal div
 To override the default settings, set the variable and it's value
 within your `config.sass` file or before `table.sass` is loaded.
 
-Variable               | Default                             | Description
----------------------- | ----------------------------------- | -------------------------------------------
-`$table-bgc`           | `$body-bgc`                         | Sets the `background-color` of the table
-`$table-border-color`  | `$border-color`                     | Sets the `border-color`
-`$table-band-odd-bgc`  | `transparent`                       | The `background-color` of odd rows in `.table-banded`
-`$table-band-even-bgc` | `lighten($table-border-color, 15%)` | The `background-color` of even rows in `.table-banded`
-`$table-thead-bgc`     | `lighten($table-border-color, 10%)` | The `background-color` of the `thead` element in `.table-thead`
-`$table-tfoot-bgc`     | `lighten($table-border-color, 18%)` | The `background-color` of the `tfoot` element in `.table-tfoot`
-`$table-hover-bgc`     | `lighten($table-border-color, 10%)` | The `background-color` of the `td` element in `.table-hover`
-`$table-padding-lr`    | `0.5em`                             | The `padding-left`, `padding-right` value for `th` and `td`
-`$table-padding-tb`    | `1em`                               | The `padding-top`, `padding-bottom` value for `th` and `td` (divided by 2 for `table-condensed`)
+Variable               | Default                           | Description
+---------------------- | --------------------------------- | -------------------------------------------
+`$table-bgc`           | `$base-bgc`                       | The `background-color` of the table
+`$table-border`        | `$base-border`                    | The `border-color` of the table
+`$table-band-odd-bgc`  | `$table-bgc`                      | The `background-color` of odd rows in `.table-banded`
+`$table-band-even-bgc` | `darken($table-band-odd-bgc, 5%)` | The `background-color` of even rows in `.table-banded`
+`$table-hover-bgc`     | `darken($table-bgc, 10%)`         | The `background-color` of the `td` element in `.table-hover`
+`$table-thead-bgc`     | `darken($table-bgc, 12%)`         | The `background-color` of the `thead` element in `.table-thead`
+`$table-tfoot-bgc`     | `darken($table-bgc, 5%) `         | The `background-color` of the `tfoot` element in `.table-tfoot`
+`$table-padding-lr`    | `0.5em`                           | The `padding-left`, `padding-right` value for `th` and `td`
+`$table-padding-tb`    | `1em`                             | The `padding-top`, `padding-bottom` value for `th` and `td` (divided by 2 for `table-condensed`)
+
 
 ## Table Modifiers
 The status styles around `tbody tr` elements are not supported out of

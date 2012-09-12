@@ -7,7 +7,12 @@ Client side component library
 ## Todo
 
 ### Needed components
-- pagination.sass
+- finish pagination.sass
+- Get rid of the opacity for close icons
+- rework status stuff
+- normalize padding?
+- add remaining shadow and glow properties
+- rename togglers
 - popovers.sass *
 - notifications.sass *
 - progress-bars.sass *
@@ -27,11 +32,10 @@ Client side component library
 - Auto add the modifiers?
 - Abstract status colors out to a variable to limit the output
 - Anything that has a status color should get a builder?
+- Add status classes to forms?
 - Should we abstract focus/disabled states to a mixin?
 - Test out the simple form integration
 - Convert media queries
 - Add view layout templates
 - Turn into engine with generators
-
-- Add status classes to forms?
-
+  

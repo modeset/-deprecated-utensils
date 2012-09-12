@@ -1,11 +1,11 @@
 
-$table-bgc: $body-bgc !default
-$table-border-color: $border-color !default
-$table-band-odd-bgc: transparent !default
-$table-band-even-bgc: lighten($table-border-color, 15%) !default
-$table-thead-bgc: lighten($table-border-color, 10%) !default
-$table-tfoot-bgc: lighten($table-border-color, 18%) !default
-$table-hover-bgc: lighten($table-border-color, 10%) !default
+$table-bgc: $base-bgc !default
+$table-border: $base-border !default
+$table-band-odd-bgc: $table-bgc !default
+$table-band-even-bgc: darken($table-band-odd-bgc, 5%) !default
+$table-hover-bgc: darken($table-bgc, 10%) !default
+$table-thead-bgc: darken($table-bgc, 12%) !default
+$table-tfoot-bgc: darken($table-bgc, 5%) !default
 $table-padding-lr: 0.5em !default
 $table-padding-tb: 1em !default
 
@@ -21,7 +21,7 @@ table
     margin-bottom: 0.5em
 
   th, td
-    border-top: 1px solid $table-border-color
+    border-top: 1px solid $table-border
     line-height: 1
     text-align: left
     padding: $table-padding-tb $table-padding-lr
@@ -38,41 +38,41 @@ table
     font-size: 0.85em
 
   tbody + tbody
-    border-top: 2px solid $table-border-color
+    border-top: 2px solid $table-border
 
 // Outer box
 .table-box
   thead tr
-    border: 1px solid $table-border-color
+    border: 1px solid $table-border
   tbody tr
-    border: 1px solid $table-border-color
+    border: 1px solid $table-border
   tfoot tr
-    border: 1px solid $table-border-color
+    border: 1px solid $table-border
 
   thead th
     &:first-child
-      border-left-color: $table-border-color !important
+      border-left-color: $table-border !important
     &:last-child
-      border-right-color: $table-border-color !important
+      border-right-color: $table-border !important
   tbody td
     &:first-child
-      border-left-color: $table-border-color !important
+      border-left-color: $table-border !important
     &:last-child
-      border-right-color: $table-border-color !important
+      border-right-color: $table-border !important
 
 // Vertical borders
 .table-vborder
   thead th
-    border-left: 1px solid $table-border-color
-    border-right: 1px solid $table-border-color
+    border-left: 1px solid $table-border
+    border-right: 1px solid $table-border
     &:first-child
       border-left-color: transparent
     &:last-child
       border-right-color: transparent
 
   tbody td
-    border-left: 1px solid $table-border-color
-    border-right: 1px solid $table-border-color
+    border-left: 1px solid $table-border
+    border-right: 1px solid $table-border
     &:first-child
       border-left-color: transparent
     &:last-child

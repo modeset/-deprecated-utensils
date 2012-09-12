@@ -49,9 +49,9 @@ container for this reason.
 To override the default settings, set the variable and it's value
 within your `config.sass` file or before `container-media.sass` is loaded.
 
-Variable                    | Default               | Description
---------------------------- | --------------------- | -------------------------------------------
-`$media-border-color`       | `$border-color`       | The `border-color` of the `.media-item`
-`$media-border-color-hover` | `$link-color`         | The `border-color` of the `.media-item` when a link is hovered
-`$media-radii`              | `$radii`              | The `border-radius` of the `.media-item`
+Variable              | Default              | Description
+--------------------- | -------------------- | -------------------------------------------
+`$media-border`       | `$base-border`       | The `border-color` of the `.media-item`
+`$media-border-hover` | `$base-border-hover` | The `border-color` of the `.media-item` when a link is hovered
+`$media-radii`        | `$radii`             | The `border-radius` of the `.media-item`
 

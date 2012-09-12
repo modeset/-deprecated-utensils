@@ -1,6 +1,6 @@
 
 # Transition
-Contains helper classes added and removed via JavaScript for css
+Contains helper classes added and removed via JavaScript for CSS
 transitions.
 
 ```sass

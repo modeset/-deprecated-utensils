@@ -134,9 +134,9 @@ within your `config.sass` file or before `tip.sass` is loaded.
 
 Variable          | Default    | Description
 ----------------- | ---------- | -------------------------------------------
-`$tip-bgc`        | `$black`   | Sets the `background-color` of the tip and arrow
-`$tip-color`      | `$white`   | Sets the `color` of the font within the tip
-`$tip-radii`      | `$radii`   | Sets the `border-radius` value of the tip
+`$tip-color`      | `white`    | The text `color` of the tip
+`$tip-bgc`        | `black`    | The `background-color` of the tip and arrow
+`$tip-radii`      | `$radii`   | The `border-radius` value of the tip
 `$tip-offset`     | `2px`      | The amount to offset each tip from their target
 `$tip-opacity-in` | `0.9`      | The opacity value to apply when the tip is shown
 `$zindex-tips`    | `1010`     | The `z-index` value tips sit on

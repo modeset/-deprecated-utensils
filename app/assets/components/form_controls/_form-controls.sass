@@ -1,38 +1,35 @@
 
-$form-bgc: $white !default
-$form-border-color: $border-color !default
-$form-color: $body-color !default
-$form-focus-bgc: $off-white !default
-$form-inset-shadow: inset 0 1px 1px rgba($black, 0.1) !default
+$form-color: $base-color !default
+$form-bgc: $base-bgc !default
+$form-border: $base-border !default
+$form-focus-bgc: $focus-bgc !default
 $form-focus-glow: $focus-glow !default
+$form-inset-shadow: inset 0 1px 1px rgba(black, 0.1) !default
 
 $placeholder: #ccc !default
 $placeholder-search: $placeholder !default
 $legend-color: $form-color !default
-$hint-color: lighten($form-color, 20%) !default
-$uneditable-bgc: $form-focus-bgc !default
+$hint-color: $base-color-active !default
 $uneditable-color: $form-color !default
-$form-disabled-bgc: $disabled-bgc !default
+$uneditable-bgc: $form-focus-bgc !default
 $form-disabled-color: $disabled-color !default
-
-$form-input-width: 50% !default
-$form-select-width: 25% !default
-$form-legend-width: 100% !default
+$form-disabled-bgc: $disabled-bgc !default
 
 $legend-font-size: 1.25em !default
 $label-font-size: 0.85em !default
 $hint-font-size: 0.85em !default
-$select-height: 30px !default
-$form-radii: $radii !default
 $form-input-padding: 0.5em !default
 $form-group-spacing: 1em !default
 
-// These should be similar to wells
-$form-well-bgc: $off-white !default
-$form-well-lite-bgc: darken($form-well-bgc, 3%) !default
-$form-well-dark-bgc: darken($off-grey, 5%) !default
-$form-well-dark-border: darken($form-border-color, 5%) !default
+$form-legend-width: 100% !default
+$form-input-width: 50% !default
+$form-select-width: 25% !default
+$select-height: 30px !default
+$form-radii: $radii !default
 
+// These should be similar to wells
+$form-actions-well-bgc: darken($base-bgc, 2%) !default
+$form-actions-well-fill-bgc: darken($form-actions-well-bgc, 10%) !default
 
 // Base container settings
 .control-group
@@ -43,18 +40,15 @@ $form-well-dark-border: darken($form-border-color, 5%) !default
   +box-sizing(border-box)
   +clearfixer
   background-color: transparent
-  border-top: 1px solid $form-border-color
+  border-top: 1px solid $form-border
   margin-top: $form-group-spacing * 2
   padding: $form-group-spacing * 1.5
   .well &
-    background-color: $form-well-bgc
+    background-color: $form-actions-well-bgc
     border-bottom-left-radius: $form-radii
     border-bottom-right-radius: $form-radii
-  .lite &
-    background-color: $form-well-lite-bgc
-  .dark &
-    background-color: $form-well-dark-bgc
-    border-top-color: $form-well-dark-border
+  .fill &
+    background-color: $form-actions-well-fill-bgc
 
 legend + .control-group
   -webkit-margin-top-collapse: separate
@@ -63,7 +57,7 @@ legend + .control-group
 // Description elements
 legend
   display: block
-  border-bottom: 1px solid $form-border-color
+  border-bottom: 1px solid $form-border
   color: $legend-color
   font-size: $legend-font-size
   padding-bottom: 0.25em
@@ -119,7 +113,7 @@ textarea
   +box-shadow($form-inset-shadow)
   +font-size($base-font-size)
   background-color: $form-bgc
-  border: 1px solid $form-border-color
+  border: 1px solid $form-border
   border-radius: $form-radii
   color: $form-color
   margin-bottom: 0.5em
@@ -142,7 +136,7 @@ input[type="range"]
 
 input[type="color"]
   background-color: $form-bgc
-  border: 1px solid $form-border-color
+  border: 1px solid $form-border
   padding: 0 0.2em
 
 input[type="file"]
@@ -173,7 +167,7 @@ select
   +font-size($base-font-size)
   +inline-block
   background-color: $form-bgc
-  border: 1px solid $form-border-color
+  border: 1px solid $form-border
   color: $form-color
   margin-bottom: 0.5em
   height: $select-height

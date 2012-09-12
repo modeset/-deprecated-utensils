@@ -18,9 +18,9 @@ allows the user to change it's contents.
 To override the default settings, set the variable and it's value
 within your `config.sass` file or before `content-editable.sass` is loaded.
 
-Variable               | Default       | Description
----------------------- | ------------- | -------------------------------------------
-`$editable-bgc`        | `$off-white`  | The `background-color` while the region is focused
-`$editable-border`     | `$blue`       | The `border-color` while the region is hovered
-`$editable-focus-glow` | `$focus-glow` | The glow while the region is focused
+Variable                 | Default              | Description
+------------------------ | -------------------- | -------------------------------------------
+`$editable-border-hover` | `$base-border-hover` | The `border-color` while the region is hovered
+`$editable-focus-bgc`    | `$focus-bgc`         | The `background-color` while the region is focused
+`$editable-focus-glow`   | `$focus-glow`        | The glow while the region is focused
 

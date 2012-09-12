@@ -149,8 +149,8 @@ Represents a control that presents a menu of options.
 
 
 ## Radio &amp; Checkbox controls
-Radio and checkboxes are for selecting options within a list. Radios are
-used for selecting a single option, while checkboxes are for selecting
+Radio and checkbox are for selecting options within a list. Radios are
+used for selecting a single option, while checkbox is used for selecting
 zero to many options.
 
 ### Usage Examples
@@ -324,11 +324,10 @@ Form structures typically consist of:
   %nav.button-group(data-bindable="toggler-group" data-target=".btn" data-remove="form-vertical form-horizontal")
     %button.btn.active(href="#" data-add="") Default
     %button.btn(href="#" data-add="form-horizontal") Horizontal
-  %nav.button-group(data-bindable="toggler-group" data-target=".btn" data-remove="well dark lite")
+  %nav.button-group(data-bindable="toggler-group" data-target=".btn" data-remove="well fill")
     %button.btn.active(href="#" data-add="") None
     %button.btn(href="#" data-add="well") Well
-    %button.btn(href="#" data-add="well lite") Well Lite
-    %button.btn(href="#" data-add="well dark") Well Dark
+    %button.btn(href="#" data-add="well fill") Well Fill
   %nav.button-group(data-bindable="toggler-group" data-target=".btn" data-remove="disabled error success")
     %button.btn.active(href="#" data-add="") Normal
     %button.btn(href="#" data-add="disabled") Disabled
@@ -441,45 +440,42 @@ Form structures typically consist of:
 <!-- end -->
 
 ###### Notes
-- **Pro Tip!** Add one of the `.well` classes to the `form` element to contain it from other items on the page
+- **Pro Tip!** Add either `.well` or `well.fill` to the `form` element to contain it from other items on the page (requires `well.sass`)
 
 ###### Warning
-- **Heads Up!** Not all layouts may render in the demo if they aren't
-  included in the project
+- **Heads Up!** Not all layouts may render in the demo if they aren't included in the project
 
 
 ## Style Settings
 To override the default settings, set the variable and it's value
 within your `config.sass` file or before `form-controls.sass` is loaded.
 
-Variable                 | Default                             | Description
------------------------- | ----------------------------------- | -------------------------------------------
-`$form-bgc`              | `$white`                            | The `background-color` of form controls
-`$form-border-color`     | `$border-color`                     | The `border-color` of form controls
-`$form-color`            | `$body-color`                       | The text `color` of form controls
-`$form-focus-bgc`        | `$off-white`                        | The focus `background-color` of form controls
-`$form-inset-shadow`     | `inset 0 1px 1px rgba($black, 0.1)` | The inset shadow of form controls
-`$form-focus-glow`       | `$focus-glow`                       | The focus glow of form controls
-`$placeholder`           | `#ccc`                              | The text `color` of the `placeholder`
-`$placeholder-search`    | `$placeholder`                      | The text `color` of the `placeholder` for controls with the `.search-query` class
-`$legend-color`          | `$form-color`                       | The text `color` of `legends`
-`$hint-color`            | `lighten($form-color, 20%)`         | The text `color` of `hints`
-`$uneditable-bgc`        | `$form-focus-bgc`                   | The text `background-color` of `.uneditable-fields`
-`$uneditable-color`      | `$form-color`                       | The text `color` of `.uneditable-fields`
-`$form-disabled-bgc`     | `$disabled-bgc`                     | The text `background-color` of disabled controls
-`$form-disabled-color`   | `$disabled-color`                   | The text text `color` of disabled controls
-`$form-input-width`      | `50%`                               | The default width of most `input` and `textarea` controls
-`$form-select-width`     | `25%`                               | The default width of `select` controls
-`$form-legend-width`     | `100%`                              | The default width of `legend` elements
-`$legend-font-size`      | `1.25em`                            | The `font-size` of `legends`
-`$label-font-size`       | `0.85em`                            | The `font-size` of `labels`
-`$hint-font-size`        | `0.85em`                            | The `font-size` of `hints`
-`$select-height`         | `28px`                              | The `height` of `select` menus
-`$form-radii`            | `$radii`                            | The `radii` to use for controls
-`$form-input-padding`    | `0.5em`                             | The `padding` within control elements
-`$form-group-spacing`    | `1em`                               | The `spacing` between `.control-groups`
-`$form-well-bgc`         | `$off-white`                        | The `background-color` of `.form-actions` when `form` has a `.well` class
-`$form-well-lite-bgc`    | `darken($form-well-bgc, 3%)`        | The `background-color` of `.form-actions` when `form` has a `.well.lite` class
-`$form-well-dark-bgc`    | `darken($off-grey, 5%)`             | The `background-color` of `.form-actions` when `form` has a `.well.dark` class
-`$form-well-dark-border` | `darken($form-border-color, 5%)`    | The `border-color` of `.form-actions` when `form` has a `.well.dark` class
+Variable                      | Default                               | Description
+----------------------------- | ------------------------------------- | -------------------------------------------
+`$form-color`                 | `$base-color`                         | The text `color` of form controls
+`$form-bgc`                   | `$base-bgc`                           | The `background-color` of form controls
+`$form-border`                | `$base-border`                        | The `border-color` of form controls
+`$form-focus-bgc`             | `$focus-bgc`                          | The focus `background-color` of form controls
+`$form-focus-glow`            | `$focus-glow`                         | The focus glow of form controls
+`$form-inset-shadow`          | `inset 0 1px 1px rgba(black, 0.1)`    | The inset shadow of form controls
+`$placeholder`                | `#ccc`                                | The text `color` of the `placeholder`
+`$placeholder-search`         | `$placeholder`                        | The text `color` of the `placeholder` for controls with the `.search-query` class
+`$legend-color`               | `$form-color`                         | The text `color` of `legends`
+`$hint-color`                 | `$base-color-active`                  | The text `color` of `hints`
+`$uneditable-color`           | `$form-color`                         | The text `color` of `.uneditable-fields`
+`$uneditable-bgc`             | `$form-focus-bgc`                     | The text `background-color` of `.uneditable-fields`
+`$form-disabled-color`        | `$disabled-color`                     | The text text `color` of disabled controls
+`$form-disabled-bgc`          | `$disabled-bgc`                       | The text `background-color` of disabled controls
+`$legend-font-size`           | `1.25em`                              | The `font-size` of `legends`
+`$label-font-size`            | `0.85em`                              | The `font-size` of `labels`
+`$hint-font-size`             | `0.85em`                              | The `font-size` of `hints`
+`$form-input-padding`         | `0.5em`                               | The `padding` within control elements
+`$form-group-spacing`         | `1em`                                 | The `spacing` between `.control-groups`
+`$form-legend-width`          | `100%`                                | The default width of `legend` elements
+`$form-input-width`           | `50%`                                 | The default width of most `input` and `textarea` controls
+`$form-select-width`          | `25%`                                 | The default width of `select` controls
+`$select-height`              | `30px`                                | The `height` of `select` menus
+`$form-radii`                 | `$radii`                              | The `radii` to use for controls
+`$form-actions-well-bgc`      | `darken($base-bgc, 2%)`               | The `background-color` of `.form-actions` when `form` has a `.well` class
+`$form-actions-well-fill-bgc` | `darken($form-actions-well-bgc, 10%)` | The `background-color` of `.form-actions` when `form` has a `.well.fill` class
 

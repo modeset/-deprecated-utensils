@@ -5,13 +5,14 @@
 @mixin semigloss-button($bgc, $color:#fff, $hover-percent:10%, $active-percent:15%, $border-percent:30%, $padding:0.5em 0.8em, $radii:$radii)
   background-color: $bgc
   +background-image(linear-gradient(rgba(255,255,255,0.2), rgba(0,0,0,0.05)))
-  +box-shadow(inset 0 1px 4px rgba($white, 0.5))
+  +box-shadow(inset 0 1px 4px rgba(white, 0.5))
   +box-sizing(border-box)
   +inline-block
   +font-size($base-font-size)
   border: 1px solid darken($bgc, $border-percent)
   border-radius: $radii
   color: $color
+  line-height: 1.2
   text-align: center
   padding: $padding
   cursor: pointer
@@ -22,7 +23,7 @@
   &:focus
     +tab-focus
   &.active, &:active
-    +box-shadow(inset 0 1px 4px rgba($black, 0.3))
+    +box-shadow(inset 0 1px 4px rgba(black, 0.3))
     background: darken($bgc, $active-percent)
     color: $color
     outline: 0
@@ -59,25 +60,25 @@
   $name: unquote($name)
   $list: unquote($list)
   .#{$name}
-    +semigloss-button($body-bgc, $link-color)
+    +semigloss-button($base-bgc, $link-color)
   @each $status in $list
     .#{$name}.#{$status}
       @if $status == inverse
-        +semigloss-button-modifier($inverse, $white)
+        +semigloss-button-modifier($inverse, white)
       @else if $status == standard
         +semigloss-button-modifier($standard, #666, 10%, 15%, 30%)
       @else if $status == info
-        +semigloss-button-modifier($info, $white)
+        +semigloss-button-modifier($info, white)
       @else if $status == important
-        +semigloss-button-modifier($important, $white)
+        +semigloss-button-modifier($important, white)
       @else if $status == success
-        +semigloss-button-modifier($success, $white)
+        +semigloss-button-modifier($success, white)
       @else if $status == warning
-        +semigloss-button-modifier($warning, $white)
+        +semigloss-button-modifier($warning, white)
       @else if $status == danger
-        +semigloss-button-modifier($danger, $white)
+        +semigloss-button-modifier($danger, white)
       @else if $status == primary
-        +semigloss-button-modifier($primary, $white)
+        +semigloss-button-modifier($primary, white)
   a.#{$name}
     font-weight: bold
 

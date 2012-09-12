@@ -10,20 +10,18 @@ Wells are used to contain components and other various elements.
 
 ```haml
 .well <code>.well</code>
-.well.lite <code>.well.lite</code>
-.well.dark <code>.well.dark</code>
+.well.fill <code>.well.fill</code>
 ```
 
 ## Style Settings
 To override the default settings, set the variable and it's value
 within your `config.sass` file or before `well.sass` is loaded.
 
-Variable             | Default               | Description
--------------------- | --------------------- | -------------------------------------------
-`$well-border-color` | `invert($body-color)` | The default border color for all wells
-`$well-radii`        | `$radii`              | The default border radius around wells
-`$well-spacing`      | `1.25em`              | The default padding and spacing around wells
-`$well-bgc`          | `transparent`         | The default background of a `.well` element
-`$well-lite-bgc`     | `$off-white`          | The default background of a `.well.lite` element
-`$well-dark-bgc`     | `$off-grey`           | The default background of a `.well.dark` element
+Variable         | Default                 | Description
+---------------- | ----------------------- | -------------------------------------------
+`$well-border`   | `$base-border`          | The `border-color` for all wells
+`$well-bgc`      | `$base-bgc`             | The `background-color` for `.well`
+`$well-bgc-fill` | `darken($well-bgc, 8%)` | The `background-color` for `.well.fill`
+`$well-radii`    | `$radii`                | The `border-radius` around wells
+`$well-spacing`  | `1.25em`                | The `padding` and `margin-bottom` around wells
 

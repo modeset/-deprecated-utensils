@@ -13,25 +13,19 @@ $experimental-support-for-microsoft: true
 // Required settings
 // -----------------------------------------------------------------------------
 
-// Base Sizing
-$context-px: 16
-$base-font-size: 14
-$base-width: 1000
-$base-line-height: 1.2
-$base-vertical: $base-font-size * $base-line-height
-
-// Fonts
+// fonts
 $sans-norm: "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif
 $serif-norm: "Georgia", "Times", "Times New Roman", serif
 $code-norm: "Bitstream Vera Sans Mono", "Menslo LG M", "Menlo", "Monaco", monospace
 
-// greyscale
-$black: #000
-$white: #fff
-$off-white: #fafafa
-$off-grey: #eaeaea
+// base Sizing
+$context-px: 16
+$base-font-size: 14
+$base-width: 1000
+$base-line-height: 1.4
+$base-vertical: $base-font-size * $base-line-height
 
-// mc roy g biv
+// mc roy g. biv (Do we need all of these?
 $magenta: #ff00ff
 $cyan: #00ffff
 $red: #b22222
@@ -45,41 +39,50 @@ $violet: #ee82ee
 // ci
 $primary: $blue
 
-// States
-$disabled-color: #bbb
-$disabled-bgc: #eee
-// $disabled-border: $greyD
+// base colors
+$base-color: #333
+$base-color-hover: #666
+$base-color-active: $base-color-hover
 
-// Shadow and Glows
-$small-drop-dark: 0 1px 0 rgba($black, 0.25)
-$small-drop-lite: 0 1px 0 rgba($white, 0.75)
+$link-color: $primary
+$link-hover: darken($link-color, 20%)
+$link-active: $link-hover
+
+$base-bgc: white
+$base-bgc-hover: darken($base-bgc, 5%)
+$base-bgc-active: $base-bgc-hover
+
+$base-border: #ccc
+$base-border-hover: $primary
+$base-border-active: $base-border-hover
+
+// focus state
+$focus-color: $base-color-hover
+$focus-bgc: #fafafa
+$focus-border: $base-border-hover
 $focus-glow: 0 0 6px 2px #52a8ec
 
-// Misc
+// disabled state
+$disabled-color: #bbb
+$disabled-bgc: #eee
+$disabled-border: #ddd
+
+// base shadows
+$small-drop-dark: 0 1px 0 rgba(black, 0.25)
+$small-drop-lite: 0 1px 0 rgba(white, 0.75)
+
+// settings
 $radii: 0.4em
 $speed: 0.25s
 $horiz-offset: 130px
 $horiz-offset-padding: 10
 $disabled-opacity: 0.65
 
-// scaffold
-$body-bg: $white
-$body-bgc: $white
-$body-color: #333
-$body-color-medium: #666
-$body-color-soft: #999
-$border-color: #ccc
-$select-bg: $primary
-$select-color: $white
-$tap-highlight: $primary
-$link-color: $primary
-$link-hover: darken($link-color, 20%)
-
 
 // Top level component settings (only required for certain components)
 // -----------------------------------------------------------------------------
 
-// status
+// status colors
 $inverse: #333
 $standard: #f5f5f5
 $info: #999
@@ -100,7 +103,7 @@ $zindex-tips: 1010
 
 // Component overrides
 // -----------------------------------------------------------------------------
-$code-inline-color: $red
+$code-color-inline: $red
 
 
 // Project specific
@@ -109,15 +112,6 @@ $code-inline-color: $red
 
 // Old crap
 // -----------------------------------------------------------------------------
-
-// Component..
-// $component_normal: $grey6
-// $component_active: $white
-// $component_bg: transparent
-// $component_bg_hover: $greyE
-// $component_bg_active: $primary
-// $component_border: $greyC
-// $component_border_alt: darken($component_border, 10%)
 
 // Shadows..
 // $text_inset_dark: 0 -1px 0 rgba($black, 0.25)

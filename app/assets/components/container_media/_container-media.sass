@@ -1,6 +1,6 @@
 
-$media-border-color: $border-color !default
-$media-border-color-hover: $link-color !default
+$media-border: $base-border !default
+$media-border-hover: $base-border-hover !default
 $media-radii: $radii !default
 
 .media-container
@@ -14,13 +14,13 @@ $media-radii: $radii !default
 
 .media-item
   +box-sizing(border-box)
-  border: 1px solid $media-border-color
+  border: 1px solid $media-border
   border-radius: $media-radii
   display: block
   padding: 0.5em
 
 a.media-item:hover
-  border-color: $media-border-color-hover
+  border-color: $media-border-hover
 
 .media-item img
   display: block
