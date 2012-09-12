@@ -49,6 +49,7 @@ Sherpa.prototype.addListeners = function() {
   $('#demo_form').on('click', {self: this}, this.formDemo)
   $(window).keypress({self: this}, this.captureKeyStroke)
   $('#dimensionizer_demo').on('click', {self: this}, this.activateDimensionizer)
+  this.showcases.find('[href=#]').on('click', function(e){e.preventDefault()})
 };
 
 // Typically handles toggling items associated with the settings menu..
