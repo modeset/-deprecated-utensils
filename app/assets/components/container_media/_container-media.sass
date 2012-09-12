@@ -1,0 +1,39 @@
+
+$media-border-color: $border-color !default
+$media-border-color-hover: $link-color !default
+$media-radii: $radii !default
+
+.media-container
+  +box-sizing(border-box)
+  +clearfixer
+  list-style: none
+
+.media-container > li
+  +box-sizing(border-box)
+  float: left
+
+.media-item
+  +box-sizing(border-box)
+  border: 1px solid $media-border-color
+  border-radius: $media-radii
+  display: block
+  padding: 0.5em
+
+a.media-item:hover
+  border-color: $media-border-color-hover
+
+.media-item img
+  display: block
+  margin-left: auto
+  margin-right: auto
+  max-width: 100%
+
+.media-item .media-caption
+  padding: 1em
+
+.media-item .media-caption-footer
+  margin-top: 2em
+
+.media-item .media-caption-right
+  text-align: right
+
