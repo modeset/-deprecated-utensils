@@ -244,7 +244,7 @@ variables.
 To override the default settings, set the variable and it's value
 within your `config.sass` file or before `typography.sass` is loaded.
 
-Attribute                          | Default                  | Description
+Variable                           | Default                  | Description
 ---------------------------------- | ------------------------ | -------------------------------------------
 `$h1-size`                         | `$base-font-size + 16`   | The default size of `h1` elements
 `$h2-size`                         | `$base-font-size + 10`   | The default size of `h2` elements

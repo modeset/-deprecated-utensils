@@ -20,8 +20,8 @@ Class                  | Usage
 To override the default settings, set the variable and it's value
 within your `config.sass` file or before `transition.sass` is loaded.
 
-Attribute                  | Default             | Description
--------------------------- | ------------------- | -------------------------------------------
+Variable                    | Default              | Description
+--------------------------- | -------------------- | -------------------------------------------
 `$fade-duration`            | `$speed`             | Duration to fade the element
 `$fade-timing-function`     | `linear`             | Timing equation to fade the element
 `$collapse-duration`        | `$speed`             | Duration to collapse or expand the element

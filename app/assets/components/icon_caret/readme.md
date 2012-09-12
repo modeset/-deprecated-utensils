@@ -25,7 +25,7 @@ in split drop down menus.
 To override the default settings, set the variable and it's value
 within your `config.sass` file or before `caret.sass` is loaded.
 
-Attribute      | Default       | Description
+Variable       | Default       | Description
 -------------- | ------------- | -------------------------------------------
 `$caret-width` | `4px`         | The `border-width` (size) of the caret
 `$caret-color` | `$link-color` | The base `border-color` of the caret

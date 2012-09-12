@@ -24,7 +24,7 @@ Class              | Usage
 To override the default settings, set the variable and it's value
 within your `config.sass` file or before `container.sass` is loaded.
 
-Attribute                  | Default                   | Description
+Variable                   | Default                   | Description
 -------------------------- | ------------------------- | -------------------------------------------
 `$container-padding-left`  | `1%`                      | Set the `padding-left` on the `container.outer` element
 `$container-padding-right` | `$container-padding-left` | Set the `padding-right` on the `container.outer` element

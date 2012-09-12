@@ -452,7 +452,7 @@ Form structures typically consist of:
 To override the default settings, set the variable and it's value
 within your `config.sass` file or before `form-controls.sass` is loaded.
 
-Attribute                | Default                             | Description
+Variable                 | Default                             | Description
 ------------------------ | ----------------------------------- | -------------------------------------------
 `$form-bgc`              | `$white`                            | The `background-color` of form controls
 `$form-border-color`     | `$border-color`                     | The `border-color` of form controls

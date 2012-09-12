@@ -39,7 +39,7 @@ elements under a `.button-toolbar` container to form a navigation system.
 To override the default settings, set the variable and it's value
 within your `config.sass` file or before `button-group.sass` is loaded.
 
-Attribute              | Default    | Description
+Variable               | Default    | Description
 ---------------------- | ---------- | -------------------------------------------
 `$button-group-radii`  | `$radii`   | Sets the `border-radius` value of the first and last elements
 `$button-group-offset` | `0.5em`    | The `margin-left` for a `.button-group + .button-group`

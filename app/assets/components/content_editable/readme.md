@@ -18,7 +18,7 @@ allows the user to change it's contents.
 To override the default settings, set the variable and it's value
 within your `config.sass` file or before `content-editable.sass` is loaded.
 
-Attribute              | Default       | Description
+Variable               | Default       | Description
 ---------------------- | ------------- | -------------------------------------------
 `$editable-bgc`        | `$off-white`  | The `background-color` while the region is focused
 `$editable-border`     | `$blue`       | The `border-color` while the region is hovered

@@ -44,7 +44,7 @@ can be used for simple navigation as well.
 To override the default settings, set the variable and it's value
 within your `config.sass` file or before `scaffold.sass` is loaded.
 
-Attribute            | Default             | Description
+Variable             | Default             | Description
 -------------------- | ------------------- | -------------------------------------------
 `$nav-padding-left`  | `1%`                | Set the `padding-left` on the `.nav.inline` element
 `$nav-padding-right` | `$nav-padding-left` | Set the `padding-right` on the `.nav.inline` element

@@ -18,7 +18,7 @@ Wells are used to contain components and other various elements.
 To override the default settings, set the variable and it's value
 within your `config.sass` file or before `well.sass` is loaded.
 
-Attribute            | Default               | Description
+Variable             | Default               | Description
 -------------------- | --------------------- | -------------------------------------------
 `$well-border-color` | `invert($body-color)` | The default border color for all wells
 `$well-radii`        | `$radii`              | The default border radius around wells

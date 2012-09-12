@@ -25,7 +25,7 @@ Use the close icon to dismiss modals, notifications and other elements.
 To override the default settings, set the variable and it's value
 within your `config.sass` file or before `close.sass` is loaded.
 
-Attribute               | Default                | Description
+Variable                | Default                | Description
 ----------------------- | ---------------------  | -------------------------------------------
 `$close-size`           | `$base-font-size + 6`  | The size of the font
 `$close-opacity`        | `0.3`                  | The opacity level in the static state

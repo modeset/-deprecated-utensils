@@ -132,7 +132,7 @@ Remove the tip behavior
 To override the default settings, set the variable and it's value
 within your `config.sass` file or before `tip.sass` is loaded.
 
-Attribute         | Default    | Description
+Variable          | Default    | Description
 ----------------- | ---------- | -------------------------------------------
 `$tip-bgc`        | `$black`   | Sets the `background-color` of the tip and arrow
 `$tip-color`      | `$white`   | Sets the `color` of the font within the tip

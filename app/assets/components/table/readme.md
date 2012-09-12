@@ -98,7 +98,7 @@ _none_             | The base table creates division in data with horizontal div
 To override the default settings, set the variable and it's value
 within your `config.sass` file or before `table.sass` is loaded.
 
-Attribute              | Default                             | Description
+Variable               | Default                             | Description
 ---------------------- | ----------------------------------- | -------------------------------------------
 `$table-bgc`           | `$body-bgc`                         | Sets the `background-color` of the table
 `$table-border-color`  | `$border-color`                     | Sets the `border-color`

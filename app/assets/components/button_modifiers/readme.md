@@ -48,7 +48,7 @@ Modifier Class    | Usage
 To override the default settings, set the variable and it's value
 within your `config.sass` file or before `button-modifiers.sass` is loaded.
 
-Attribute                | Default              | Description
+Variable                 | Default              | Description
 ------------------------ | -------------------- | -------------------------------------------
 `$btn-block-spacing`     | `0.5em`              | The `margin-top` between stacked button blocks
 `$btn-speed`             | `$speed`             | The duration for `.btn-transition`
