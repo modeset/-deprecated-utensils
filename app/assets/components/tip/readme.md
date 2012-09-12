@@ -28,7 +28,7 @@ data-bindable="tip"
     %li
       %a#west(data-bindable="tip" data-placement="west" title="The Western Tip" href="#") Western Tip
     %li
-      %a#image(data-bindable="tip" data-placement="south" data-trigger="click" title="<img src='http://placehold.it/350x150'/>" href="#") Image Tip (click)
+      %a#image(data-bindable="tip" data-placement="south" data-trigger="click" title="<img src='/assets/snow-260x180.png'/>" href="#") Image Tip (click)
 ```
 <!-- end -->
 
