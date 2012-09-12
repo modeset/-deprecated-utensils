@@ -28,6 +28,7 @@
 <li><a href='#button_modifiers'>Button modifiers</a></li>
 <li><a href='#button_semigloss'>Button semigloss</a></li>
 <li><a href='#container'>Container</a></li>
+<li><a href='#container_media'>Container media</a></li>
 <li><a href='#content_editable'>Content editable</a></li>
 <li><a href='#decal'>Decal</a></li>
 <li><a href='#detect'>Detect</a></li>
@@ -625,6 +626,96 @@ within your <code>config.sass</code> file or before <code>container.sass</code> 
 <td>Set the <code>padding-right</code> on the <code>container.outer</code> element</td>
 </tr>
 </tbody></table>
+
+<p></section><section class="sherpa-section sherpa-clearfix"></p>
+
+<h1>Container Media</h1>
+
+<p>Media container provides a simple way for showcasing images, video
+and other media items as static media or clickable links. Include
+a <code>.media-caption</code> element when an area is needed to describe the figure.</p>
+
+<p>The media container contains basic settings for styling and structure,
+but it will need some sort of grid setting or <code>width</code> defined on the <code>li</code>
+tags. There are currently no <code>margin</code> settings included in the media
+container for this reason.</p>
+
+<!--~ markup/container-media.html.haml -->
+
+<div class="sherpa-showcase sherpa-clearfix"><ul class='media-container'>
+<li style='width:25%'>
+<figure class='media-item'>
+<img src='/assets/snow-260x180.png' />
+<figcaption class='media-caption'>
+<h3>Media Item</h3>
+<p>This is some caption copy with the footer aligned to the left.</p>
+<footer class='media-caption-footer'>
+<button class='btn'>Action</button>
+</footer>
+</figcaption>
+</figure>
+</li>
+<li style='width:25%'>
+<a class='media-item' href='#'>
+<img src='/assets/snow-260x180.png' />
+</a>
+</li>
+<li style='width:25%'>
+<figure class='media-item'>
+<a class='media-item' href='#'>
+<img src='/assets/snow-260x180.png' />
+</a>
+<figcaption class='media-caption'>
+<h3>Media Item</h3>
+<p>This is some caption copy with the footer aligned to the right.</p>
+<footer class='media-caption-footer media-caption-right'>
+<button class='btn'>Action</button>
+</footer>
+</figcaption>
+</figure>
+</li>
+<li style='width:25%'>
+<figure class='media-item'>
+<img src='/assets/snow-260x180.png' />
+</figure>
+</li>
+</ul>
+</div>
+
+<pre><code class="haml">%ul.media-container
+  %li(style=&quot;width:25%&quot;)
+    %figure.media-item
+      %img(src=&quot;/assets/snow-260x180.png&quot;)
+      %figcaption.media-caption
+        %h3 Media Item
+        %p This is some caption copy with the footer aligned to the left.
+        %footer.media-caption-footer
+          %button.btn Action
+  %li(style=&quot;width:25%&quot;)
+    %a.media-item(href=&quot;#&quot;)
+      %img(src=&quot;/assets/snow-260x180.png&quot;)
+  %li(style=&quot;width:25%&quot;)
+    %figure.media-item
+      %a.media-item(href=&quot;#&quot;)
+        %img(src=&quot;/assets/snow-260x180.png&quot;)
+      %figcaption.media-caption
+        %h3 Media Item
+        %p This is some caption copy with the footer aligned to the right.
+        %footer.media-caption-footer.media-caption-right
+          %button.btn Action
+  %li(style=&quot;width:25%&quot;)
+    %figure.media-item
+      %img(src=&quot;/assets/snow-260x180.png&quot;)
+</code></pre>
+
+<!-- end -->
+
+<h6>Notes</h6>
+
+<ul>
+<li><strong>Pro Tip!</strong> Add <code>media-caption-right</code> on the <code>media-caption-footer</code>
+to align buttons to the right</li>
+</ul>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
@@ -2867,7 +2958,7 @@ trigger. <code>Tip</code> is inspired by
 <a data-bindable='tip' data-placement='west' href='#' id='west' title='The Western Tip'>Western Tip</a>
 </li>
 <li>
-<a data-bindable='tip' data-placement='south' data-trigger='click' href='#' id='image' title="&lt;img src='http://placehold.it/350x150'/&gt;">Image Tip (click)</a>
+<a data-bindable='tip' data-placement='south' data-trigger='click' href='#' id='image' title="&lt;img src='/assets/snow-260x180.png'/&gt;">Image Tip (click)</a>
 </li>
 </ul>
 </nav>
@@ -2884,7 +2975,7 @@ trigger. <code>Tip</code> is inspired by
     %li
       %a#west(data-bindable=&quot;tip&quot; data-placement=&quot;west&quot; title=&quot;The Western Tip&quot; href=&quot;#&quot;) Western Tip
     %li
-      %a#image(data-bindable=&quot;tip&quot; data-placement=&quot;south&quot; data-trigger=&quot;click&quot; title=&quot;&lt;img src=&#39;http://placehold.it/350x150&#39;/&gt;&quot; href=&quot;#&quot;) Image Tip (click)
+      %a#image(data-bindable=&quot;tip&quot; data-placement=&quot;south&quot; data-trigger=&quot;click&quot; title=&quot;&lt;img src=&#39;/assets/snow-260x180.png&#39;/&gt;&quot; href=&quot;#&quot;) Image Tip (click)
 </code></pre>
 
 <!-- end -->
