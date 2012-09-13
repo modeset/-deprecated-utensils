@@ -1,4 +1,5 @@
 
+$decal-status-list: $base-status-list !default
 $decal-radii: $radii !default
 
 .decal
@@ -9,18 +10,14 @@ $decal-radii: $radii !default
   text-transform: uppercase
   padding: 0.125em 0.5em
   color: white
-  &.info
-    background-color: $info
-  &.important
-    background-color: $important
-  &.success
-    background-color: $success
-  &.warning
-    background-color: $warning
-  &.danger, &.error
-    background-color: $danger
-  &.primary
-    background-color: $primary
+
+  // Generate the status classes based on the list
+  @if $decal-status-list != nil
+    @each $_decal-status in $decal-status-list
+      $_class_name: nth($_decal-status,1)
+      $_color_value: nth($_decal-status,2)
+      &.#{$_class_name}
+        background-color: $_color_value
 
 a.decal:hover
   text-decoration: none
