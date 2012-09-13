@@ -164,18 +164,18 @@ zero to many options.
       %label.control-label<
         %h5 Radio
       .controls
-        %label.radio-label(for="fc_radio1-1")
+        %label.radio(for="fc_radio1-1")
           %input#fc_radio1-1(type="radio" name="fc[radios1]" value="true" checked) Yes, to radio buttons
-        %label.radio-label(for="fc_radio1-2")
+        %label.radio(for="fc_radio1-2")
           %input#fc_radio1-2(type="radio" name="fc[radios1]" value="false") No, to radio buttons
 
     .control-group
       %label.control-label<
         %h5 Radio Inline
       .controls
-        %label.radio-label-inline(for="fc_radio2-1")
+        %label.radio-inline(for="fc_radio2-1")
           %input#fc_radio2-1(type="radio" name="fc[radios2]" value="true" checked) Yes, to inline radios
-        %label.radio-label-inline(for="fc_radio2-2")
+        %label.radio-inline(for="fc_radio2-2")
           %input#fc_radio2-2(type="radio" name="fc[radios2]" value="false") No, to inline radios
 
     %legend Checkbox Controls
@@ -183,18 +183,18 @@ zero to many options.
       %label.control-label<
         %h5 Checkbox
       .controls
-        %label.checkbox-label(for="fc_check1-1")
+        %label.checkbox(for="fc_check1-1")
           %input#fc_check1-1(type="checkbox" value="0") Check your premises
-        %label.checkbox-label(for="fc_check1-2")
+        %label.checkbox(for="fc_check1-2")
           %input#fc_check1-2(type="checkbox" value="1" checked) Premises, checked.
 
     .control-group
       %label.control-label<
         %h5 Checkbox Inline
       .controls
-        %label.checkbox-label-inline(for="fc_check2-1")
+        %label.checkbox-inline(for="fc_check2-1")
           %input#fc_check2-1(type="checkbox" value="0") Check your inline premises
-        %label.checkbox-label-inline(for="fc_check2-2")
+        %label.checkbox-inline(for="fc_check2-2")
           %input#fc_check2-2(type="checkbox" value="1" checked) Premises inline, checked.
 ```
 <!-- end -->
@@ -389,16 +389,16 @@ Form structures typically consist of:
     .control-group
       %label.control-label Radio:
       .controls
-        %label.radio-label(for="fcs_radio1-1")
+        %label.radio(for="fcs_radio1-1")
           %input#fcs_radio1-1(type="radio" name="fc[radios1]" value="true" checked) Yes, to radio buttons
-        %label.radio-label(for="fcs_radio1-2")
+        %label.radio(for="fcs_radio1-2")
           %input#fcs_radio1-2(type="radio" name="fc[radios1]" value="false") No, to radio buttons
     .control-group
       %label.control-label Radio Inline:
       .controls
-        %label.radio-label-inline(for="fcs_radio2-1")
+        %label.radio-inline(for="fcs_radio2-1")
           %input#fcs_radio2-1(type="radio" name="fc[radios2]" value="true" checked) Yes, to inline radios
-        %label.radio-label-inline(for="fcs_radio2-2")
+        %label.radio-inline(for="fcs_radio2-2")
           %input#fcs_radio2-2(type="radio" name="fc[radios2]" value="false") No, to inline radios
         %p.hint-inline.error-msg That failed terribly
         %p.hint-inline.success-msg Gold stars all around
@@ -406,16 +406,16 @@ Form structures typically consist of:
     .control-group
       %label.control-label Checkbox:
       .controls
-        %label.checkbox-label(for="fcs_check1-1")
+        %label.checkbox(for="fcs_check1-1")
           %input#fcs_check1-1(type="checkbox" value="0") Check your premises
-        %label.checkbox-label(for="fcs_check1-2")
+        %label.checkbox(for="fcs_check1-2")
           %input#fcs_check1-2(type="checkbox" value="1" checked) Premises, checked.
     .control-group
       %label.control-label Checkbox Inline:
       .controls
-        %label.checkbox-label-inline(for="fcs_check2-1")
+        %label.checkbox-inline(for="fcs_check2-1")
           %input#fcs_check2-1(type="checkbox" value="0") Check your inline premises
-        %label.checkbox-label-inline(for="fcs_check2-2")
+        %label.checkbox-inline(for="fcs_check2-2")
           %input#fcs_check2-2(type="checkbox" value="1" checked) Premises inline, checked.
         %p.hint-inline.error-msg That failed terribly
         %p.hint-inline.success-msg Gold stars all around
