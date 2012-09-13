@@ -66,6 +66,7 @@ $focus-glow: 0 0 6px 2px #52a8ec
 $disabled-color: #bbb
 $disabled-bgc: #eee
 $disabled-border: #ddd
+$disabled-opacity: 0.65
 
 // Shadows
 $small-drop-dark: 0 1px 0 rgba(black, 0.25)
@@ -76,7 +77,6 @@ $radii: 0.4em
 $speed: 0.25s
 $horiz-offset: 130px
 $horiz-offset-padding: 10
-$disabled-opacity: 0.65
 
 
 // Top level component settings (only required for certain components)
@@ -89,21 +89,44 @@ $info: #999
 $important: $blue
 $success: $green
 $warning: $yellow
-$error: $red
 $danger: $red
+$error: $red
 
+// Define core list pairings
+$important-list: important $important
+$success-list: success $success
+$warning-list: warning $warning
+$danger-list: danger $danger
+$error-list: error $error
+$inverse-list: inverse $inverse
+$standard-list: standard $standard
+$info-list: info $info
+$primary-list: primary $primary
+
+// Create basic lists for status objects, to pass an empty list, set to `nil`
+$base-level-list: $important-list, $success-list, $warning-list, $danger-list
+$base-color-list: $inverse-list, $standard-list, $info-list, $primary-list
+$base-status-list: join($base-color-list, $base-level-list)
 
 // z-indexing
-// $zindex-dropdown: 1000
+$zindex-dropdown: 1000
 $zindex-tips: 1010
-// $zindex-navbar: 1020
-// $zindex-modal-backdrop: 1030
-// $zindex-modal: 1040
-// $zindex-flash-message: 1050
+$zindex-navbar: 1020
+$zindex-modal-backdrop: 1030
+$zindex-modal: 1040
+$zindex-flash-message: 1050
+
 
 // Component overrides
 // -----------------------------------------------------------------------------
 $code-color-inline: $red
+$decal-status-list: join($base-level-list, $info-list $primary-list)
+$table-status-list: $base-level-list
+
+
+// Auto generate base utensils
+// -----------------------------------------------------------------------------
+$auto-generate-semigloss: btn, $base-status-list
 
 
 // Project specific
