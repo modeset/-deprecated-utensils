@@ -1,7 +1,8 @@
 
 # Button Modifiers
-A set of modifier classes which can be added to any button to adjust
-various aspects around a button's display type, sizing, or positioning.
+A set of modifier classes which can be added to any button, regardless
+of their base class,  to adjust various aspects around a button's display
+type, sizing, or positioning.
 
 ```sass
 @import utensils/components/button_modifiers/button-modifiers

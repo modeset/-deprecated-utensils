@@ -95,11 +95,11 @@ the style sheet.
 Parameter          | Default          | Description
 ------------------ | ---------------- | -------------------------------------------
 `$name`            | _none_           | The base class name to call it (`btn`, `action`, ...), required parameter
-`$list`            | _empty_          | A list of named status classes ("important", "success"), passing an empty list does not generate any modifiers
+`$list`            | _none_           | A `list` of named status classes, passing an empty list does not generate any modifiers
 
 
 ```sass
-+generate-semigloss-buttons("btn", "important", "success", "danger")
++generate-semigloss-buttons(btn, $base-level-list)
 
 // results in styles for..
 .btn
@@ -109,6 +109,9 @@ Parameter          | Default          | Description
   // modified styles...
 
 .btn.success
+  // modified styles...
+
+.btn.warning
   // modified styles...
 
 .btn.danger
@@ -121,7 +124,15 @@ mainly override the color values for various states. To keep the output
 as small as possible, just mixin or generate the states needed within the
 project or application.
 
-###### Warning
-- **Heads Up!** Currently the only color states supported are the `status`
-  states and the `primary` state for auto generating buttons
+#### Auto Generation
+To auto generate buttons into the style sheet, within `config.sass` add
+the following:
+
+```sass
+$auto-generate-semigloss: btn, $base-status-list
+```
+
+This will create a base button with the class of `.btn` and
+modifiers for each of the elements within the `$base-status-list`. By
+default this is set to `false` so no buttons are created.
 

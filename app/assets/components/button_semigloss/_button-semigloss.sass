@@ -1,6 +1,8 @@
 
 // - Abstract the 2 box shadows?
 
+$auto-generate-semigloss: false !default
+
 // The base mixin for creating a semigloss button
 @mixin semigloss-button($bgc, $color:#fff, $hover-percent:10%, $active-percent:15%, $border-percent:30%, $padding:0.5em 0.8em, $radii:$radii)
   background-color: $bgc
@@ -54,31 +56,28 @@
   &.disabled, &[disabled], &[readonly]
     background: darken($bgc, $hover-percent)
 
-
-// Auto generate a name and status cases
-@mixin generate-semigloss-buttons($name, $list...)
-  $name: unquote($name)
-  $list: unquote($list)
+// Auto generate a base button and any modifiers from the list
+@mixin generate-semigloss-buttons($name, $list)
+  // the base button
   .#{$name}
     +semigloss-button($base-bgc, $link-color)
-  @each $status in $list
-    .#{$name}.#{$status}
-      @if $status == inverse
-        +semigloss-button-modifier($inverse, white)
-      @else if $status == standard
-        +semigloss-button-modifier($standard, #666, 10%, 15%, 30%)
-      @else if $status == info
-        +semigloss-button-modifier($info, white)
-      @else if $status == important
-        +semigloss-button-modifier($important, white)
-      @else if $status == success
-        +semigloss-button-modifier($success, white)
-      @else if $status == warning
-        +semigloss-button-modifier($warning, white)
-      @else if $status == danger
-        +semigloss-button-modifier($danger, white)
-      @else if $status == primary
-        +semigloss-button-modifier($primary, white)
+
+  // the button modifiers
+  @each $_button in $list
+    $_class_name: nth($_button,1)
+    $_color_value: nth($_button,2)
+    .#{$name}.#{$_class_name}
+      @if $_class_name == standard
+        +semigloss-button-modifier($_color_value, #666, 10%, 15%, 30%)
+      @else
+        +semigloss-button-modifier($_color_value, white)
+  // Make links look like buttons
   a.#{$name}
     font-weight: bold
+
+// Auto generate if the variable exists and not false
+@if $auto-generate-semigloss != false
+  $_name: nth($auto-generate-semigloss,1)
+  $_list: nth($auto-generate-semigloss,2)
+  +generate-semigloss-buttons($_name, $_list)
 
