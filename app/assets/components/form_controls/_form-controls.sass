@@ -27,6 +27,8 @@ $form-select-width: 25% !default
 $select-height: 30px !default
 $form-radii: $radii !default
 
+$form-status-list: $success-list, $error-list !default
+
 // These should be similar to wells
 $form-actions-well-bgc: darken($base-bgc, 2%) !default
 $form-actions-well-fill-bgc: darken($form-actions-well-bgc, 10%) !default
@@ -86,12 +88,6 @@ label
   display: block
 .hint-inline
   +inline-block
-
-.hint-block.success-msg,
-.hint-inline.success-msg,
-.hint-block.error-msg,
-.hint-inline.error-msg
-  display: none
 
 // Text input controls
 input[type="text"],
@@ -248,19 +244,31 @@ input[type="file"]
 .control-group.disabled .hint-inline
   color: $form-disabled-color
 
-// Status control states, mixed in
-.control-group.error
-  +form-state($danger)
-  .hint-block.error-msg
-    display: block
-  .hint-inline.error-msg
-    +inline-block
-.control-group.success
-  +form-state($success)
-  .hint-block.success-msg
-    display: block
-  .hint-inline.success-msg
-    +inline-block
+// Generate the status level classes based on the `$form-status-list`
+@if $form-status-list != nil
+  @each $_form-status in $form-status-list
+    $_class_name: nth($_form-status,1)
+    $_color_value: nth($_form-status,2)
+
+    .hint-block.#{$_class_name}-msg,
+    .hint-inline.#{$_class_name}-msg
+      display: none
+
+    .control-group.#{$_class_name}
+      input, textarea
+        +form-placeholder(lighten($_color_value, 30%))
+
+      input, textarea, select
+        color: $_color_value
+        border-color: $_color_value
+
+      label, .hint-block, .hint-inline
+        color: $_color_value
+
+      .hint-block.#{$_class_name}-msg
+        display: block
+      .hint-inline.#{$_class_name}-msg
+        +inline-block
 
 // HTML5 invalid states
 input:focus:required:invalid,

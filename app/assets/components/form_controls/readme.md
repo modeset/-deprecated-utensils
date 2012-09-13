@@ -237,12 +237,21 @@ Element        | Description
 `.hint-block`  | The block level element which appears below the control. It can describe actions needed for the user
 `.hint-inline` | Allows the hint to appear directly to the right of the control element
 
-###### Notes
-- **Pro Tip!** Hints support modifiers for `.success-msg` and
-  `.error-msg`, these are hidden by default, but will render when the
-  `.control-group` has been modified with either a `.error` or
-  `.success`
+#### Status Messages
+Hints support modifiers based on the `$form-status-list` variable. These
+take the form of `.status-msg` based on the status types passed in. These
+are hidden by default, but are shown when the parent `.control-group`
+has the status type class added. The following would show only the
+`.hint-inline.error-msg`
 
+```haml
+.control-group.error
+  %label.control-label(for="ex_text") Text:
+  .controls
+    %input#ex_text(type="text" placeholder="Enter your name")
+    %p.hint-inline.error-msg That failed terribly
+    %p.hint-inline.success-msg Gold stars all around
+```
 
 ## Uneditable controls
 A modifier on `input` or `textarea` fields that is uneditable by the
@@ -331,8 +340,8 @@ Form structures typically consist of:
   %nav.button-group(data-bindable="toggler-group" data-target=".btn" data-remove="disabled error success")
     %button.btn.active(href="#" data-add="") Normal
     %button.btn(href="#" data-add="disabled") Disabled
-    %button.btn(href="#" data-add="error") Error
     %button.btn(href="#" data-add="success") Success
+    %button.btn(href="#" data-add="error") Error
 
 %form
   %fieldset
@@ -476,6 +485,7 @@ Variable                      | Default                               | Descript
 `$form-select-width`          | `25%`                                 | The default width of `select` controls
 `$select-height`              | `30px`                                | The `height` of `select` menus
 `$form-radii`                 | `$radii`                              | The `radii` to use for controls
+`$form-status-list`           | `$success-list, $error-list`          | The `list` of modifier classes for form statuses messages
 `$form-actions-well-bgc`      | `darken($base-bgc, 2%)`               | The `background-color` of `.form-actions` when `form` has a `.well` class
 `$form-actions-well-fill-bgc` | `darken($form-actions-well-bgc, 10%)` | The `background-color` of `.form-actions` when `form` has a `.well.fill` class
 
