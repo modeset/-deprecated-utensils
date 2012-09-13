@@ -2,7 +2,7 @@
 #= require utensil
 #= require bindable
 
-class utensil.Toggler
+class utensil.Togglable
   constructor: (@el, data) ->
     @is_active = false
     @data = if data then data else @el.data()
@@ -63,5 +63,5 @@ class utensil.Toggler
     @deactivate()
     @el.off(@trigger)
 
-Bindable.register('toggler', utensil.Toggler)
+Bindable.register('togglable', utensil.Togglable)
 

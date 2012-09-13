@@ -15,7 +15,7 @@ can be used for simple navigation as well.
 <!--~ markup/scaffold-nav.html.haml -->
 ```haml
 %nav
-  %ul.nav(data-bindable="toggler-group")
+  %ul.nav(data-bindable="togglable-group")
     %li
       %a(href="#") Block Link 1
     %li.active
@@ -24,7 +24,7 @@ can be used for simple navigation as well.
       %a(href="#") Block Link 3
 %br
 %nav
-  %ul.nav.inline(data-bindable="toggler-group")
+  %ul.nav.inline(data-bindable="togglable-group")
     %li
       %a(href="#") Inline Link 1
     %li.active

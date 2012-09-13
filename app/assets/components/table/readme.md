@@ -69,7 +69,7 @@ By combining any of the following classes, the table can be given a different lo
 
 
 %h5(style="margin-bottom:1em; margin-top:3em;") Select to toggle table classes
-%nav.check-demo.button-group(data-bindable="toggler-group" data-behavior="checkbox" data-target=".btn")
+%nav.check-demo.button-group(data-bindable="togglable-group" data-behavior="checkbox" data-target=".btn")
   %a.btn(href="#" data-toggle="table-box") Box
   %a.btn(href="#" data-toggle="table-vborder") Vertical Border
   %a.btn(href="#" data-toggle="table-condensed") Condensed

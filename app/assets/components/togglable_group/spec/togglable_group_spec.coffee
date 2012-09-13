@@ -1,23 +1,23 @@
 
-#= require toggler_group
+#= require togglable_group
 
-describe 'Toggler Group', ->
+describe 'Togglable Group', ->
 
   beforeEach ->
-    loadFixtures('toggler_group')
+    loadFixtures('togglable_group')
     @html = $('#jasmine-fixtures')
 
     @radio$ = @html.find('#radios')
     @check$ = @html.find('#checks')
     @radio_kids = @radio$.find('li')
     @check_kids = @check$.find('li')
-    @radio_group = new utensil.TogglerGroup(@radio$)
-    @check_group = new utensil.TogglerGroup(@check$)
+    @radio_group = new utensil.TogglableGroup(@radio$)
+    @check_group = new utensil.TogglableGroup(@check$)
 
 
   describe 'binding', ->
     it 'is registered in bindable', ->
-      expect(Bindable.getClass('toggler-group')).toEqual(utensil.TogglerGroup)
+      expect(Bindable.getClass('togglable-group')).toEqual(utensil.TogglableGroup)
 
 
   describe '#options', ->
@@ -28,7 +28,7 @@ describe 'Toggler Group', ->
 
   describe '#initialize', ->
     it 'activates an element on initialization', ->
-      toggler = new utensil.TogglerGroup(@check$, {activate: 1, behavior: 'checkbox'})
+      togglable = new utensil.TogglableGroup(@check$, {activate: 1, behavior: 'checkbox'})
       expect($(@check_kids[1])).toHaveClass('active')
 
     it 'sets the toggle behavior correctly', ->

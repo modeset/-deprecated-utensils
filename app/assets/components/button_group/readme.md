@@ -11,7 +11,7 @@ elements under a `.button-toolbar` container to form a navigation system.
 <!--~ markup/button-group.html.haml -->
 ```haml
 %h5(style="margin-bottom:1em;") Button Toolbar (radio)
-%section.button-toolbar(data-bindable="toggler-group" data-target=".btn")
+%section.button-toolbar(data-bindable="togglable-group" data-target=".btn")
   %nav.button-group
     %button.btn(href="#") 1
     %button.btn(href="#") 2
@@ -24,7 +24,7 @@ elements under a `.button-toolbar` container to form a navigation system.
     %button.btn(href="#") 7
 
 %h5(style="margin-top:3em; margin-bottom:1em;") Button Group (checkbox)
-%nav.button-group(data-bindable="toggler-group" data-behavior="checkbox" data-target=".btn")
+%nav.button-group(data-bindable="togglable-group" data-behavior="checkbox" data-target=".btn")
   %a.btn(href="#") Left
   %a.btn.active(href="#") Middle 1
   %a.btn(href="#") Middle 2
@@ -33,7 +33,7 @@ elements under a `.button-toolbar` container to form a navigation system.
 <!-- end -->
 
 ###### Notes
-- **Pro Tip!** Button groups and tool bars play great with the `TogglerGroup` behavior
+- **Pro Tip!** Button groups and tool bars play great with the `TogglableGroup` behavior
 
 ## Style Settings
 To override the default settings, set the variable and it's value

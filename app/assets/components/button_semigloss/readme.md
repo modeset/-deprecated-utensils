@@ -23,7 +23,7 @@ are added to the style sheet unless told to do so.
   %button.btn.primary Primary
 
 %h5(style="margin-bottom:1em; margin-top:3em;") Select to view states
-%nav.radio-demo.button-group(data-bindable="toggler-group" data-target=".btn")
+%nav.radio-demo.button-group(data-bindable="togglable-group" data-target=".btn")
   %a.btn.active(href="#" data-add="") Normal
   %a.btn(href="#" data-add="active") Active
   %a.btn(href="#" data-add="error") Error

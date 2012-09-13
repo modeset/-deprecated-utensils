@@ -1,17 +1,17 @@
 
-# Toggler Group
-An extension of `Toggler` for adding, removing and toggling groups of related elements. These are predominantly used in navigation type systems. A toggler group can function either like radio buttons or check boxes.
+# Togglable Group
+An extension of `Togglable` for adding, removing and toggling groups of related elements. These are predominantly used in navigation type systems. A togglable group can function either like radio buttons or check boxes.
 
 ```html
-data-bindable="toggler-group"
+data-bindable="togglable-group"
 ```
 
 ## Usage Examples
 
-<!--~ markup/toggler_group.html.haml -->
+<!--~ markup/togglable_group.html.haml -->
 ```haml
 %nav
-  %ul#radios.nav.inline(data-bindable="toggler-group" data-target=".radio-li")
+  %ul#radios.nav.inline(data-bindable="togglable-group" data-target=".radio-li")
     %li.radio-li
       %a(href="#") Radio 1
     %li.radio-li
@@ -20,7 +20,7 @@ data-bindable="toggler-group"
       %a(href="#") Radio 3
 
 %nav(style="margin-top: 2em;")
-  %ul#checks.nav.inline(data-bindable="toggler-group" data-behavior="checkbox")
+  %ul#checks.nav.inline(data-bindable="togglable-group" data-behavior="checkbox")
     %li
       %a(href="#") Checkbox 1
     %li
@@ -38,23 +38,23 @@ Attribute  | Default              | Description
 `behavior` | `radio`              | Set to `radio` for radio style toggling or `checkbox` for check box style toggling
 `activate` | `element` or `index` | If present, this will auto activate the element or index item on initialization
 
-_See `Toggler` for other options_  
+_See `Togglable` for other options_  
 
 
 ## API
 
 ### #new
-Create a new instance of `TogglerGroup` programatically. Normally this is
-handled through `Bindable`. Most setup occurs within `Toggler`. 
+Create a new instance of `TogglableGroup` programatically. Normally this is
+handled through `Bindable`. Most setup occurs within `Togglable`. 
 
 ```coffee
-#= require toggler_group
+#= require togglable_group
 
 @radios = $('#radios')
 @checks = $('#checks')
 
-@radio_group = new utensil.TogglerGroup(radios, {behavior: 'radio'})
-@check_group = new utensil.TogglerGroup(checks, {behavior: 'checkbox'})
+@radio_group = new utensil.TogglableGroup(radios, {behavior: 'radio'})
+@check_group = new utensil.TogglableGroup(checks, {behavior: 'checkbox'})
 ```
 
 ### #toggle
@@ -107,7 +107,7 @@ _Note: this does not call the super's `deactivate` method_
 ### Requires
 - utensil
 - bindable
-- toggler
+- togglable
 
-`TogglerGroup` is a subclass of `Toggler`.
+`TogglableGroup` is a subclass of `Togglable`.
 

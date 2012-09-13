@@ -4,7 +4,7 @@
 //= require bindable
 
 //= require tip
-//= require toggler_group
+//= require togglable_group
 
 // :: Debuggers ::
 //= require dimensionizer

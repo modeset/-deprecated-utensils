@@ -1,6 +1,6 @@
 
-#= require toggler
-describe 'Toggler', ->
+#= require togglable
+describe 'Togglable', ->
 
   beforeEach ->
     extra = """
@@ -8,7 +8,7 @@ describe 'Toggler', ->
             <div id="empty"></div>
             """
 
-    loadFixtures('toggler')
+    loadFixtures('togglable')
     @html = $('#jasmine-fixtures')
     @html.append(extra)
 
@@ -22,18 +22,18 @@ describe 'Toggler', ->
     @empty = @html.find('#empty')
     @link = @html.find('#stnd_link')
 
-    @defaulter = new utensil.Toggler(@one)
-    @overrider = new utensil.Toggler(@two)
-    @spanner = new utensil.Toggler(@three)
-    @closest = new utensil.Toggler(@four)
-    @bubbler = new utensil.Toggler(@five)
-    @active = new utensil.Toggler(@six)
-    @stnd_link = new utensil.Toggler(@link)
+    @defaulter = new utensil.Togglable(@one)
+    @overrider = new utensil.Togglable(@two)
+    @spanner = new utensil.Togglable(@three)
+    @closest = new utensil.Togglable(@four)
+    @bubbler = new utensil.Togglable(@five)
+    @active = new utensil.Togglable(@six)
+    @stnd_link = new utensil.Togglable(@link)
 
 
   describe 'binding', ->
     it 'is registered in bindable', ->
-      expect(Bindable.getClass('toggler')).toEqual(utensil.Toggler)
+      expect(Bindable.getClass('togglable')).toEqual(utensil.Togglable)
 
 
   describe '#constructor', ->
@@ -57,23 +57,23 @@ describe 'Toggler', ->
     it 'sets the ability for dual toggles by default', ->
       expect(@closest.dual_toggle).toEqual(true)
 
-    it 'does not set the ability for dual toggles if the toggler is @el', ->
+    it 'does not set the ability for dual toggles if the togglable is @el', ->
       expect(@defaulter.dual_toggle).toEqual(false)
 
     it 'does not set dual toggle when passed as an attribute', ->
       expect(@spanner.dual_toggle).toEqual(false)
 
     it 'sets default values from a javascript class', ->
-      toggler = new utensil.Toggler(@empty, {toggle: 'show', trigger: 'hover', lookup: 'closest'})
-      expect(toggler.toggle_classes).toEqual('show')
-      expect(toggler.trigger).toEqual('hover')
-      expect(toggler.lookup).toEqual('closest')
-      expect(toggler.target).toEqual(@empty)
+      togglable = new utensil.Togglable(@empty, {toggle: 'show', trigger: 'hover', lookup: 'closest'})
+      expect(togglable.toggle_classes).toEqual('show')
+      expect(togglable.trigger).toEqual('hover')
+      expect(togglable.lookup).toEqual('closest')
+      expect(togglable.target).toEqual(@empty)
 
 
   describe '#initialize', ->
     it 'activates an element on initialization', ->
-      toggler = new utensil.Toggler(@empty, {activate: 'true'})
+      togglable = new utensil.Togglable(@empty, {activate: 'true'})
       expect(@empty).toHaveClass('active')
 
 

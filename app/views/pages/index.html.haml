@@ -37,15 +37,15 @@
 -# %br
 -# %br
 
-%a.box(data-bindable="toggler" data-lookup="siblings" data-trigger="hover" data-target=".hello" href="#")
+%a.box(data-bindable="togglable" data-lookup="siblings" data-trigger="hover" data-target=".hello" href="#")
   .hello
-%a.box(data-bindable="toggler" data-toggle="in bordered" href="#")
+%a.box(data-bindable="togglable" data-toggle="in bordered" href="#")
 
 %br
 %br
 
 %nav.tester
-  %ul.nav(data-bindable="toggler-group")
+  %ul.nav(data-bindable="togglable-group")
     %li
       %a(href="#") Radio 1
     %li
@@ -57,7 +57,7 @@
 %br
 
 %nav.tester
-  %ul.nav(data-bindable="toggler-group" data-behavior="checkbox")
+  %ul.nav(data-bindable="togglable-group" data-behavior="checkbox")
     %li
       %a(href="#") Checkbox 1
     %li

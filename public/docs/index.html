@@ -48,8 +48,8 @@
 <li><a href='#scaffold'>Scaffold</a></li>
 <li><a href='#table'>Table</a></li>
 <li><a href='#tip'>Tip</a></li>
-<li><a href='#toggler'>Toggler</a></li>
-<li><a href='#toggler_group'>Toggler group</a></li>
+<li><a href='#togglable'>Togglable</a></li>
+<li><a href='#togglable_group'>Togglable group</a></li>
 <li><a href='#transition'>Transition</a></li>
 <li><a href='#typography'>Typography</a></li>
 <li><a href='#utensil'>Utensil</a></li>
@@ -213,7 +213,7 @@ elements under a <code>.button-toolbar</code> container to form a navigation sys
 <!--~ markup/button-group.html.haml -->
 
 <div class="sherpa-showcase sherpa-clearfix"><h5 style='margin-bottom:1em;'>Button Toolbar (radio)</h5>
-<section class='button-toolbar' data-bindable='toggler-group' data-target='.btn'>
+<section class='button-toolbar' data-bindable='togglable-group' data-target='.btn'>
 <nav class='button-group'>
 <button class='btn' href='#'>1</button>
 <button class='btn' href='#'>2</button>
@@ -229,7 +229,7 @@ elements under a <code>.button-toolbar</code> container to form a navigation sys
 </nav>
 </section>
 <h5 style='margin-top:3em; margin-bottom:1em;'>Button Group (checkbox)</h5>
-<nav class='button-group' data-behavior='checkbox' data-bindable='toggler-group' data-target='.btn'>
+<nav class='button-group' data-behavior='checkbox' data-bindable='togglable-group' data-target='.btn'>
 <a class='btn' href='#'>Left</a>
 <a class='btn active' href='#'>Middle 1</a>
 <a class='btn' href='#'>Middle 2</a>
@@ -238,7 +238,7 @@ elements under a <code>.button-toolbar</code> container to form a navigation sys
 </div>
 
 <pre><code class="haml">%h5(style=&quot;margin-bottom:1em;&quot;) Button Toolbar (radio)
-%section.button-toolbar(data-bindable=&quot;toggler-group&quot; data-target=&quot;.btn&quot;)
+%section.button-toolbar(data-bindable=&quot;togglable-group&quot; data-target=&quot;.btn&quot;)
   %nav.button-group
     %button.btn(href=&quot;#&quot;) 1
     %button.btn(href=&quot;#&quot;) 2
@@ -251,7 +251,7 @@ elements under a <code>.button-toolbar</code> container to form a navigation sys
     %button.btn(href=&quot;#&quot;) 7
 
 %h5(style=&quot;margin-top:3em; margin-bottom:1em;&quot;) Button Group (checkbox)
-%nav.button-group(data-bindable=&quot;toggler-group&quot; data-behavior=&quot;checkbox&quot; data-target=&quot;.btn&quot;)
+%nav.button-group(data-bindable=&quot;togglable-group&quot; data-behavior=&quot;checkbox&quot; data-target=&quot;.btn&quot;)
   %a.btn(href=&quot;#&quot;) Left
   %a.btn.active(href=&quot;#&quot;) Middle 1
   %a.btn(href=&quot;#&quot;) Middle 2
@@ -263,7 +263,7 @@ elements under a <code>.button-toolbar</code> container to form a navigation sys
 <h6>Notes</h6>
 
 <ul>
-<li><strong>Pro Tip!</strong> Button groups and tool bars play great with the <code>TogglerGroup</code> behavior</li>
+<li><strong>Pro Tip!</strong> Button groups and tool bars play great with the <code>TogglableGroup</code> behavior</li>
 </ul>
 
 <h2>Style Settings</h2>
@@ -318,11 +318,11 @@ type, sizing, or positioning.</p>
 </section>
 <h5 style='margin-bottom:1em; margin-top:3em;'>Select to view states</h5>
 <section class='button-toolbar'>
-<nav class='check-demo button-group' data-behavior='checkbox' data-bindable='toggler-group' data-target='.btn'>
+<nav class='check-demo button-group' data-behavior='checkbox' data-bindable='togglable-group' data-target='.btn'>
 <a class='btn' data-toggle='btn-block' href='#'>Block</a>
 <a class='btn' data-toggle='btn-transition' href='#'>Transition</a>
 </nav>
-<nav class='radio-demo button-group' data-bindable='toggler-group' data-target='.btn'>
+<nav class='radio-demo button-group' data-bindable='togglable-group' data-target='.btn'>
 <a class='btn active' data-add='' href='#'>Normal</a>
 <a class='btn' data-add='btn-xsmall' href='#'>XS</a>
 <a class='btn' data-add='btn-small' href='#'>Small</a>
@@ -340,11 +340,11 @@ type, sizing, or positioning.</p>
 
 %h5(style=&quot;margin-bottom:1em; margin-top:3em;&quot;) Select to view states
 %section.button-toolbar
-  %nav.check-demo.button-group(data-bindable=&quot;toggler-group&quot; data-behavior=&quot;checkbox&quot; data-target=&quot;.btn&quot;)
+  %nav.check-demo.button-group(data-bindable=&quot;togglable-group&quot; data-behavior=&quot;checkbox&quot; data-target=&quot;.btn&quot;)
     %a.btn(href=&quot;#&quot; data-toggle=&quot;btn-block&quot;) Block
     %a.btn(href=&quot;#&quot; data-toggle=&quot;btn-transition&quot;) Transition
 
-  %nav.radio-demo.button-group(data-bindable=&quot;toggler-group&quot; data-target=&quot;.btn&quot;)
+  %nav.radio-demo.button-group(data-bindable=&quot;togglable-group&quot; data-target=&quot;.btn&quot;)
     %a.btn.active(href=&quot;#&quot; data-add=&quot;&quot;) Normal
     %a.btn(href=&quot;#&quot; data-add=&quot;btn-xsmall&quot;) XS
     %a.btn(href=&quot;#&quot; data-add=&quot;btn-small&quot;) Small
@@ -456,7 +456,7 @@ are added to the style sheet unless told to do so.</p>
 <button class='btn primary'>Primary</button>
 </section>
 <h5 style='margin-bottom:1em; margin-top:3em;'>Select to view states</h5>
-<nav class='radio-demo button-group' data-bindable='toggler-group' data-target='.btn'>
+<nav class='radio-demo button-group' data-bindable='togglable-group' data-target='.btn'>
 <a class='btn active' data-add='' href='#'>Normal</a>
 <a class='btn' data-add='active' href='#'>Active</a>
 <a class='btn' data-add='error' href='#'>Error</a>
@@ -476,7 +476,7 @@ are added to the style sheet unless told to do so.</p>
   %button.btn.primary Primary
 
 %h5(style=&quot;margin-bottom:1em; margin-top:3em;&quot;) Select to view states
-%nav.radio-demo.button-group(data-bindable=&quot;toggler-group&quot; data-target=&quot;.btn&quot;)
+%nav.radio-demo.button-group(data-bindable=&quot;togglable-group&quot; data-target=&quot;.btn&quot;)
   %a.btn.active(href=&quot;#&quot; data-add=&quot;&quot;) Normal
   %a.btn(href=&quot;#&quot; data-add=&quot;active&quot;) Active
   %a.btn(href=&quot;#&quot; data-add=&quot;error&quot;) Error
@@ -1734,16 +1734,16 @@ or other descriptive helpers</li>
 <!--~ markup/form-controls-structure.html.haml -->
 
 <div class="sherpa-showcase sherpa-clearfix"><section class='button-toolbar' id='demo_form' style='margin-bottom:1em;'>
-<nav class='button-group' data-bindable='toggler-group' data-remove='form-vertical form-horizontal' data-target='.btn'>
+<nav class='button-group' data-bindable='togglable-group' data-remove='form-vertical form-horizontal' data-target='.btn'>
 <button class='btn active' data-add='' href='#'>Default</button>
 <button class='btn' data-add='form-horizontal' href='#'>Horizontal</button>
 </nav>
-<nav class='button-group' data-bindable='toggler-group' data-remove='well fill' data-target='.btn'>
+<nav class='button-group' data-bindable='togglable-group' data-remove='well fill' data-target='.btn'>
 <button class='btn active' data-add='' href='#'>None</button>
 <button class='btn' data-add='well' href='#'>Well</button>
 <button class='btn' data-add='well fill' href='#'>Well Fill</button>
 </nav>
-<nav class='button-group' data-bindable='toggler-group' data-remove='disabled error success' data-target='.btn'>
+<nav class='button-group' data-bindable='togglable-group' data-remove='disabled error success' data-target='.btn'>
 <button class='btn active' data-add='' href='#'>Normal</button>
 <button class='btn' data-add='disabled' href='#'>Disabled</button>
 <button class='btn' data-add='success' href='#'>Success</button>
@@ -1895,14 +1895,14 @@ or other descriptive helpers</li>
 </div></p>
 
 <pre><code class="haml">%section#demo_form.button-toolbar(style=&quot;margin-bottom:1em;&quot;)
-  %nav.button-group(data-bindable=&quot;toggler-group&quot; data-target=&quot;.btn&quot; data-remove=&quot;form-vertical form-horizontal&quot;)
+  %nav.button-group(data-bindable=&quot;togglable-group&quot; data-target=&quot;.btn&quot; data-remove=&quot;form-vertical form-horizontal&quot;)
     %button.btn.active(href=&quot;#&quot; data-add=&quot;&quot;) Default
     %button.btn(href=&quot;#&quot; data-add=&quot;form-horizontal&quot;) Horizontal
-  %nav.button-group(data-bindable=&quot;toggler-group&quot; data-target=&quot;.btn&quot; data-remove=&quot;well fill&quot;)
+  %nav.button-group(data-bindable=&quot;togglable-group&quot; data-target=&quot;.btn&quot; data-remove=&quot;well fill&quot;)
     %button.btn.active(href=&quot;#&quot; data-add=&quot;&quot;) None
     %button.btn(href=&quot;#&quot; data-add=&quot;well&quot;) Well
     %button.btn(href=&quot;#&quot; data-add=&quot;well fill&quot;) Well Fill
-  %nav.button-group(data-bindable=&quot;toggler-group&quot; data-target=&quot;.btn&quot; data-remove=&quot;disabled error success&quot;)
+  %nav.button-group(data-bindable=&quot;togglable-group&quot; data-target=&quot;.btn&quot; data-remove=&quot;disabled error success&quot;)
     %button.btn.active(href=&quot;#&quot; data-add=&quot;&quot;) Normal
     %button.btn(href=&quot;#&quot; data-add=&quot;disabled&quot;) Disabled
     %button.btn(href=&quot;#&quot; data-add=&quot;success&quot;) Success
@@ -2892,7 +2892,7 @@ can be used for simple navigation as well.</p>
 <!--~ markup/scaffold-nav.html.haml -->
 
 <div class="sherpa-showcase sherpa-clearfix"><nav>
-<ul class='nav' data-bindable='toggler-group'>
+<ul class='nav' data-bindable='togglable-group'>
 <li>
 <a href='#'>Block Link 1</a>
 </li>
@@ -2906,7 +2906,7 @@ can be used for simple navigation as well.</p>
 </nav>
 <br />
 <nav>
-<ul class='nav inline' data-bindable='toggler-group'>
+<ul class='nav inline' data-bindable='togglable-group'>
 <li>
 <a href='#'>Inline Link 1</a>
 </li>
@@ -2921,7 +2921,7 @@ can be used for simple navigation as well.</p>
 </div>
 
 <pre><code class="haml">%nav
-  %ul.nav(data-bindable=&quot;toggler-group&quot;)
+  %ul.nav(data-bindable=&quot;togglable-group&quot;)
     %li
       %a(href=&quot;#&quot;) Block Link 1
     %li.active
@@ -2930,7 +2930,7 @@ can be used for simple navigation as well.</p>
       %a(href=&quot;#&quot;) Block Link 3
 %br
 %nav
-  %ul.nav.inline(data-bindable=&quot;toggler-group&quot;)
+  %ul.nav.inline(data-bindable=&quot;togglable-group&quot;)
     %li
       %a(href=&quot;#&quot;) Inline Link 1
     %li.active
@@ -3094,7 +3094,7 @@ By combining any of the following classes, the table can be given a different lo
 </tbody>
 </table>
 <h5 style='margin-bottom:1em; margin-top:3em;'>Select to toggle table classes</h5>
-<nav class='check-demo button-group' data-behavior='checkbox' data-bindable='toggler-group' data-target='.btn'>
+<nav class='check-demo button-group' data-behavior='checkbox' data-bindable='togglable-group' data-target='.btn'>
 <a class='btn' data-toggle='table-box' href='#'>Box</a>
 <a class='btn' data-toggle='table-vborder' href='#'>Vertical Border</a>
 <a class='btn' data-toggle='table-condensed' href='#'>Condensed</a>
@@ -3164,7 +3164,7 @@ By combining any of the following classes, the table can be given a different lo
 
 
 %h5(style=&quot;margin-bottom:1em; margin-top:3em;&quot;) Select to toggle table classes
-%nav.check-demo.button-group(data-bindable=&quot;toggler-group&quot; data-behavior=&quot;checkbox&quot; data-target=&quot;.btn&quot;)
+%nav.check-demo.button-group(data-bindable=&quot;togglable-group&quot; data-behavior=&quot;checkbox&quot; data-target=&quot;.btn&quot;)
   %a.btn(href=&quot;#&quot; data-toggle=&quot;table-box&quot;) Box
   %a.btn(href=&quot;#&quot; data-toggle=&quot;table-vborder&quot;) Vertical Border
   %a.btn(href=&quot;#&quot; data-toggle=&quot;table-condensed&quot;) Condensed
@@ -3368,12 +3368,12 @@ trigger. <code>Tip</code> is inspired by
 <tr>
 <td><code>toggle</code></td>
 <td><code>in</code></td>
-<td>Overrides <code>Toggler&#39;s</code> default of <code>active</code></td>
+<td>Overrides <code>Togglable&#39;s</code> default of <code>active</code></td>
 </tr>
 <tr>
 <td><code>trigger</code></td>
 <td><code>hover</code></td>
-<td>Overrides <code>Toggler&#39;s</code> default of <code>click</code>, unless it&#39;s a touch enabled device</td>
+<td>Overrides <code>Togglable&#39;s</code> default of <code>click</code>, unless it&#39;s a touch enabled device</td>
 </tr>
 <tr>
 <td><code>target</code></td>
@@ -3383,7 +3383,7 @@ trigger. <code>Tip</code> is inspired by
 <tr>
 <td><code>lookup</code></td>
 <td><code>closest</code></td>
-<td>Overrides <code>Toggler&#39;s</code> default behavior of <code>find</code></td>
+<td>Overrides <code>Togglable&#39;s</code> default behavior of <code>find</code></td>
 </tr>
 <tr>
 <td><code>title</code></td>
@@ -3407,7 +3407,7 @@ trigger. <code>Tip</code> is inspired by
 </tr>
 </tbody></table>
 
-<p><em>See <code>Toggler</code> for other options</em>  </p>
+<p><em>See <code>Togglable</code> for other options</em>  </p>
 
 <p>When using the delay attribute, you can optionally pass a basic object
 with two <code>number</code> values. The values must be separated by a <code>,</code>. The
@@ -3487,10 +3487,10 @@ element&#39;s toggle event</p>
 <li><code>utensil</code></li>
 <li><code>bindable</code></li>
 <li><code>detect</code></li>
-<li><code>toggler</code></li>
+<li><code>togglable</code></li>
 </ul>
 
-<p><code>Tip</code> is a subclass of <code>Toggler</code>.</p>
+<p><code>Tip</code> is a subclass of <code>Togglable</code>.</p>
 
 <h2>Style Settings</h2>
 
@@ -3548,34 +3548,34 @@ within your <code>config.sass</code> file or before <code>tip.sass</code> is loa
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
-<h1>Toggler</h1>
+<h1>Togglable</h1>
 
 <p>Base class for adding, removing and toggling classes on a given element.</p>
 
-<pre><code class="html">data-bindable=&quot;toggler&quot;
+<pre><code class="html">data-bindable=&quot;togglable&quot;
 </code></pre>
 
-<!--~ markup/toggler.html.haml -->
+<!--~ markup/togglable.html.haml -->
 
 <div class="sherpa-showcase sherpa-clearfix"><nav>
 <ul class='nav inline'>
 <li id='one'>
-<a data-bindable='toggler' href='#'>One</a>
+<a data-bindable='togglable' href='#'>One</a>
 </li>
 <li id='two'>
-<a data-bindable='toggler' data-toggle='fade' data-trigger='hover' href='#this'>Two</a>
+<a data-bindable='togglable' data-toggle='fade' data-trigger='hover' href='#this'>Two</a>
 </li>
 <li id='three'>
-<a data-bindable='toggler' data-solo='true' data-toggle='fade' href='#span'>Three <span id="span">Span</span></a>
+<a data-bindable='togglable' data-solo='true' data-toggle='fade' href='#span'>Three <span id="span">Span</span></a>
 </li>
 <li id='four'>
-<a class='inline' data-bindable='toggler' data-lookup='closest' data-toggle='inline' href='.nav'>Four</a>
+<a class='inline' data-bindable='togglable' data-lookup='closest' data-toggle='inline' href='.nav'>Four</a>
 </li>
 <li id='five'>
-<a data-bindable='toggler' data-bubble='true' data-lookup='closest' data-target='.nav' data-toggle='inline' href='#toggler'>Five</a>
+<a data-bindable='togglable' data-bubble='true' data-lookup='closest' data-target='.nav' data-toggle='inline' href='#togglable'>Five</a>
 </li>
 <li id='six'>
-<a data-activate='true' data-bindable='toggler' href='#'>Six</a>
+<a data-activate='true' data-bindable='togglable' href='#'>Six</a>
 </li>
 </ul>
 </nav>
@@ -3584,17 +3584,17 @@ within your <code>config.sass</code> file or before <code>tip.sass</code> is loa
 <pre><code class="haml">%nav
   %ul.nav.inline
     %li#one
-      %a(data-bindable=&quot;toggler&quot; href=&quot;#&quot;) One
+      %a(data-bindable=&quot;togglable&quot; href=&quot;#&quot;) One
     %li#two
-      %a(data-bindable=&quot;toggler&quot; href=&quot;#this&quot; data-trigger=&quot;hover&quot; data-toggle=&quot;fade&quot;) Two
+      %a(data-bindable=&quot;togglable&quot; href=&quot;#this&quot; data-trigger=&quot;hover&quot; data-toggle=&quot;fade&quot;) Two
     %li#three
-      %a(data-bindable=&quot;toggler&quot; href=&quot;#span&quot; data-solo=&quot;true&quot; data-toggle=&quot;fade&quot;) Three &lt;span id=&quot;span&quot;&gt;Span&lt;/span&gt;
+      %a(data-bindable=&quot;togglable&quot; href=&quot;#span&quot; data-solo=&quot;true&quot; data-toggle=&quot;fade&quot;) Three &lt;span id=&quot;span&quot;&gt;Span&lt;/span&gt;
     %li#four
-      %a.inline(data-bindable=&quot;toggler&quot; href=&quot;.nav&quot; data-lookup=&quot;closest&quot; data-toggle=&quot;inline&quot;) Four
+      %a.inline(data-bindable=&quot;togglable&quot; href=&quot;.nav&quot; data-lookup=&quot;closest&quot; data-toggle=&quot;inline&quot;) Four
     %li#five
-      %a(data-bindable=&quot;toggler&quot; href=&quot;#toggler&quot; data-target=&quot;.nav&quot; data-lookup=&quot;closest&quot; data-toggle=&quot;inline&quot; data-bubble=&quot;true&quot;) Five
+      %a(data-bindable=&quot;togglable&quot; href=&quot;#togglable&quot; data-target=&quot;.nav&quot; data-lookup=&quot;closest&quot; data-toggle=&quot;inline&quot; data-bubble=&quot;true&quot;) Five
     %li#six
-      %a(data-bindable=&quot;toggler&quot; href=&quot;#&quot; data-activate=&quot;true&quot;) Six
+      %a(data-bindable=&quot;togglable&quot; href=&quot;#&quot; data-activate=&quot;true&quot;) Six
 </code></pre>
 
 <!-- end -->
@@ -3604,7 +3604,7 @@ within your <code>config.sass</code> file or before <code>tip.sass</code> is loa
 <li>Toggles the classes <code>fade</code> on <code>hover</code>, the <code>href</code> is merely referencing the element as it&#39;s target</li>
 <li>Toggles the class <code>fade</code> on <code>click</code> for only the child <code>&lt;span&gt;</code> and not the <code>&lt;link&gt;</code> element</li>
 <li>Toggles the class <code>inline</code> on <code>click</code> for both the <code>link</code> and <code>ul.nav</code>, using the <code>$.closest</code> method to find the target</li>
-<li>Same as number four except on <code>click</code> the url will change to the <code>href</code> hash to <code>#toggler</code></li>
+<li>Same as number four except on <code>click</code> the url will change to the <code>href</code> hash to <code>#togglable</code></li>
 <li>Toggles the class <code>active</code> on <code>click</code>, but is initialized with the <code>active</code> class on the element</li>
 </ol>
 
@@ -3654,7 +3654,7 @@ within your <code>config.sass</code> file or before <code>tip.sass</code> is loa
 </tr>
 </tbody></table>
 
-<p>Toggler finds the target based on the following rules:</p>
+<p>Togglable finds the target based on the following rules:</p>
 
 <ol>
 <li>If there is a <code>target</code> attribute and it can be found in the DOM, use it</li>
@@ -3668,13 +3668,13 @@ within your <code>config.sass</code> file or before <code>tip.sass</code> is loa
 
 <h3>#new</h3>
 
-<p>Create a new instance of Toggler programatically. Normally this is
+<p>Create a new instance of Togglable programatically. Normally this is
 handled through Bindable. </p>
 
-<pre><code class="coffee">#= require toggler
+<pre><code class="coffee">#= require togglable
 
-@el = $(&#39;#toggler&#39;)
-@toggler = new utensil.Toggler(@el, {toggle: &#39;show&#39;, trigger: &#39;hover&#39;})
+@el = $(&#39;#togglable&#39;)
+@togglable = new utensil.Togglable(@el, {toggle: &#39;show&#39;, trigger: &#39;hover&#39;})
 </code></pre>
 
 <h3>#toggle</h3>
@@ -3689,21 +3689,21 @@ element&#39;s toggle event</p>
 
 <p>Add the toggle classes to the element</p>
 
-<pre><code class="coffee">@toggler.activate()
+<pre><code class="coffee">@togglable.activate()
 </code></pre>
 
 <h3>#deactivate</h3>
 
 <p>Remove the toggle classes from the element</p>
 
-<pre><code class="coffee">@toggler.deactivate()
+<pre><code class="coffee">@togglable.deactivate()
 </code></pre>
 
 <h3>#dispose</h3>
 
-<p>Remove the toggler behavior</p>
+<p>Remove the togglable behavior</p>
 
-<pre><code class="coffee">@toggler.dispose()
+<pre><code class="coffee">@togglable.dispose()
 </code></pre>
 
 <h3>Requires</h3>
@@ -3720,17 +3720,17 @@ element&#39;s toggle event</p>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
-<h1>Toggler Group</h1>
+<h1>Togglable Group</h1>
 
-<p>An extension of <code>Toggler</code> for adding, removing and toggling groups of related elements. These are predominantly used in navigation type systems. A toggler group can function either like radio buttons or check boxes.</p>
+<p>An extension of <code>Togglable</code> for adding, removing and toggling groups of related elements. These are predominantly used in navigation type systems. A togglable group can function either like radio buttons or check boxes.</p>
 
-<pre><code class="html">data-bindable=&quot;toggler-group&quot;
+<pre><code class="html">data-bindable=&quot;togglable-group&quot;
 </code></pre>
 
-<!--~ markup/toggler_group.html.haml -->
+<!--~ markup/togglable_group.html.haml -->
 
 <div class="sherpa-showcase sherpa-clearfix"><nav>
-<ul class='nav inline' data-bindable='toggler-group' data-target='.radio-li' id='radios'>
+<ul class='nav inline' data-bindable='togglable-group' data-target='.radio-li' id='radios'>
 <li class='radio-li'>
 <a href='#'>Radio 1</a>
 </li>
@@ -3743,7 +3743,7 @@ element&#39;s toggle event</p>
 </ul>
 </nav>
 <nav style='margin-top: 2em;'>
-<ul class='nav inline' data-behavior='checkbox' data-bindable='toggler-group' id='checks'>
+<ul class='nav inline' data-behavior='checkbox' data-bindable='togglable-group' id='checks'>
 <li>
 <a href='#'>Checkbox 1</a>
 </li>
@@ -3758,7 +3758,7 @@ element&#39;s toggle event</p>
 </div>
 
 <pre><code class="haml">%nav
-  %ul#radios.nav.inline(data-bindable=&quot;toggler-group&quot; data-target=&quot;.radio-li&quot;)
+  %ul#radios.nav.inline(data-bindable=&quot;togglable-group&quot; data-target=&quot;.radio-li&quot;)
     %li.radio-li
       %a(href=&quot;#&quot;) Radio 1
     %li.radio-li
@@ -3767,7 +3767,7 @@ element&#39;s toggle event</p>
       %a(href=&quot;#&quot;) Radio 3
 
 %nav(style=&quot;margin-top: 2em;&quot;)
-  %ul#checks.nav.inline(data-bindable=&quot;toggler-group&quot; data-behavior=&quot;checkbox&quot;)
+  %ul#checks.nav.inline(data-bindable=&quot;togglable-group&quot; data-behavior=&quot;checkbox&quot;)
     %li
       %a(href=&quot;#&quot;) Checkbox 1
     %li
@@ -3804,22 +3804,22 @@ element&#39;s toggle event</p>
 </tr>
 </tbody></table>
 
-<p><em>See <code>Toggler</code> for other options</em>  </p>
+<p><em>See <code>Togglable</code> for other options</em>  </p>
 
 <h2>API</h2>
 
 <h3>#new</h3>
 
-<p>Create a new instance of <code>TogglerGroup</code> programatically. Normally this is
-handled through <code>Bindable</code>. Most setup occurs within <code>Toggler</code>. </p>
+<p>Create a new instance of <code>TogglableGroup</code> programatically. Normally this is
+handled through <code>Bindable</code>. Most setup occurs within <code>Togglable</code>. </p>
 
-<pre><code class="coffee">#= require toggler_group
+<pre><code class="coffee">#= require togglable_group
 
 @radios = $(&#39;#radios&#39;)
 @checks = $(&#39;#checks&#39;)
 
-@radio_group = new utensil.TogglerGroup(radios, {behavior: &#39;radio&#39;})
-@check_group = new utensil.TogglerGroup(checks, {behavior: &#39;checkbox&#39;})
+@radio_group = new utensil.TogglableGroup(radios, {behavior: &#39;radio&#39;})
+@check_group = new utensil.TogglableGroup(checks, {behavior: &#39;checkbox&#39;})
 </code></pre>
 
 <h3>#toggle</h3>
@@ -3874,10 +3874,10 @@ Deactivating will remove the toggle classes from the element.</p>
 <ul>
 <li>utensil</li>
 <li>bindable</li>
-<li>toggler</li>
+<li>togglable</li>
 </ul>
 
-<p><code>TogglerGroup</code> is a subclass of <code>Toggler</code>.</p>
+<p><code>TogglableGroup</code> is a subclass of <code>Togglable</code>.</p>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 

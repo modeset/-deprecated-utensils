@@ -1,29 +1,29 @@
 
-# Toggler
+# Togglable
 Base class for adding, removing and toggling classes on a given element.
 
 ```html
-data-bindable="toggler"
+data-bindable="togglable"
 ```
 
 ## Usage Examples
 
-<!--~ markup/toggler.html.haml -->
+<!--~ markup/togglable.html.haml -->
 ```haml
 %nav
   %ul.nav.inline
     %li#one
-      %a(data-bindable="toggler" href="#") One
+      %a(data-bindable="togglable" href="#") One
     %li#two
-      %a(data-bindable="toggler" href="#this" data-trigger="hover" data-toggle="fade") Two
+      %a(data-bindable="togglable" href="#this" data-trigger="hover" data-toggle="fade") Two
     %li#three
-      %a(data-bindable="toggler" href="#span" data-solo="true" data-toggle="fade") Three <span id="span">Span</span>
+      %a(data-bindable="togglable" href="#span" data-solo="true" data-toggle="fade") Three <span id="span">Span</span>
     %li#four
-      %a.inline(data-bindable="toggler" href=".nav" data-lookup="closest" data-toggle="inline") Four
+      %a.inline(data-bindable="togglable" href=".nav" data-lookup="closest" data-toggle="inline") Four
     %li#five
-      %a(data-bindable="toggler" href="#toggler" data-target=".nav" data-lookup="closest" data-toggle="inline" data-bubble="true") Five
+      %a(data-bindable="togglable" href="#togglable" data-target=".nav" data-lookup="closest" data-toggle="inline" data-bubble="true") Five
     %li#six
-      %a(data-bindable="toggler" href="#" data-activate="true") Six
+      %a(data-bindable="togglable" href="#" data-activate="true") Six
 ```
 <!-- end -->
 
@@ -31,7 +31,7 @@ data-bindable="toggler"
 - Toggles the classes `fade` on `hover`, the `href` is merely referencing the element as it's target
 - Toggles the class `fade` on `click` for only the child `<span>` and not the `<link>` element
 - Toggles the class `inline` on `click` for both the `link` and `ul.nav`, using the `$.closest` method to find the target
-- Same as number four except on `click` the url will change to the `href` hash to `#toggler`
+- Same as number four except on `click` the url will change to the `href` hash to `#togglable`
 - Toggles the class `active` on `click`, but is initialized with the `active` class on the element
 
 
@@ -47,7 +47,7 @@ Attribute  | Default            | Description
 `activate` | `false`            | If present, this will auto activate the element
 `bubble`   | `false`            | Controls whether an action `preventsDefault`, setting to `true` will allow normal events to fire
 
-Toggler finds the target based on the following rules:
+Togglable finds the target based on the following rules:
 
 1. If there is a `target` attribute and it can be found in the DOM, use it
 - Otherwise if there is NOT an `href` attribute use the bindable element
@@ -58,14 +58,14 @@ Toggler finds the target based on the following rules:
 ## API
 
 ### #new
-Create a new instance of Toggler programatically. Normally this is
+Create a new instance of Togglable programatically. Normally this is
 handled through Bindable. 
 
 ```coffee
-#= require toggler
+#= require togglable
 
-@el = $('#toggler')
-@toggler = new utensil.Toggler(@el, {toggle: 'show', trigger: 'hover'})
+@el = $('#togglable')
+@togglable = new utensil.Togglable(@el, {toggle: 'show', trigger: 'hover'})
 ```
 
 ### #toggle
@@ -80,21 +80,21 @@ element's toggle event
 Add the toggle classes to the element
 
 ```coffee
-@toggler.activate()
+@togglable.activate()
 ```
 
 ### #deactivate
 Remove the toggle classes from the element
 
 ```coffee
-@toggler.deactivate()
+@togglable.deactivate()
 ```
 
 ### #dispose
-Remove the toggler behavior
+Remove the togglable behavior
 
 ```coffee
-@toggler.dispose()
+@togglable.dispose()
 ```
 
 ### Requires

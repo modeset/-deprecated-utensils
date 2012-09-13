@@ -1,9 +1,9 @@
 
 #= require utensil
 #= require bindable
-#= require toggler
+#= require togglable
 
-class utensil.TogglerGroup extends utensil.Toggler
+class utensil.TogglableGroup extends utensil.Togglable
   constructor: (@el, data) ->
     super(@el, data)
 
@@ -33,5 +33,5 @@ class utensil.TogglerGroup extends utensil.Toggler
       deactivator = $(item).closest(@data.target)
     deactivator.removeClass(@toggle_classes)
 
-Bindable.register('toggler-group', utensil.TogglerGroup)
+Bindable.register('togglable-group', utensil.TogglableGroup)
 

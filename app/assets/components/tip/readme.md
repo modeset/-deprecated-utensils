@@ -37,16 +37,16 @@ data-bindable="tip"
 
 Attribute   | Default    | Description
 ----------- | ---------- | -------------------------------------------
-`toggle`    | `in`       | Overrides `Toggler's` default of `active`
-`trigger`   | `hover`    | Overrides `Toggler's` default of `click`, unless it's a touch enabled device
+`toggle`    | `in`       | Overrides `Togglable's` default of `active`
+`trigger`   | `hover`    | Overrides `Togglable's` default of `click`, unless it's a touch enabled device
 `target`    | `body`     | The element in which to append the tip markup (note this does not get the toggle classes)
-`lookup`    | `closest`  | Overrides `Toggler's` default behavior of `find`
+`lookup`    | `closest`  | Overrides `Togglable's` default behavior of `find`
 `title`     | `""`       | The content (html or text) to insert for the tip, use the actual `title` attribute
 `placement` | `north`    | Where to position the tip in relation to the element: `north`, `south`, `east`, `west`
 `effect`    | `fade`     | The base animation class to add to the tip markup
 `delay`     | `0`        | The amount of time in milliseconds to delay on show and hide, see notes below
 
-_See `Toggler` for other options_  
+_See `Togglable` for other options_  
 
 When using the delay attribute, you can optionally pass a basic object
 with two `number` values. The values must be separated by a `,`. The
@@ -124,9 +124,9 @@ Remove the tip behavior
 - `utensil`
 - `bindable`
 - `detect`
-- `toggler`
+- `togglable`
 
-`Tip` is a subclass of `Toggler`.
+`Tip` is a subclass of `Togglable`.
 
 ## Style Settings
 To override the default settings, set the variable and it's value

@@ -2,9 +2,9 @@
 #= require utensil
 #= require bindable
 #= require detect
-#= require toggler
+#= require togglable
 
-class utensil.Tip extends utensil.Toggler
+class utensil.Tip extends utensil.Togglable
   constructor: (@el, data) ->
     super(@el, data)
 
