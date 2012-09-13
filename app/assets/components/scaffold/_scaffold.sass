@@ -1,4 +1,5 @@
 
+$body-family: $sans-family !default
 $body-color: $base-color !default
 $body-background: $base-bgc !default
 $select-color: white !default
@@ -16,7 +17,7 @@ html
 
 html, button, input, select, textarea
   color: $body-color
-  font-family: $sans-norm
+  font-family: $body-family
 
 body
   +font-size($base-font-size)

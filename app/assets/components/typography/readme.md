@@ -246,20 +246,24 @@ within your `config.sass` file or before `typography.sass` is loaded.
 
 Variable                           | Default                 | Description
 ---------------------------------- | ----------------------- | -------------------------------------------
-`$heading-color`                   | `$body-color`           | The default color of heading elements
-`$h1-size`                         | `$base-font-size + 16`  | The default size of `h1` elements
-`$h2-size`                         | `$base-font-size + 10`  | The default size of `h2` elements
-`$h3-size`                         | `$base-font-size + 4`   | The default size of `h3` elements
-`$h4-size`                         | `$base-font-size + 2`   | The default size of `h4` elements
-`$h5-size`                         | `$base-font-size + 1`   | The default size of `h5` elements
-`$h6-size`                         | `$base-font-size`       | The default size of `h6` elements
-`$hr-border`                       | `$base-border`          | The default color of horizontal rules
-`$mark-bgc`                        | `$yellow`               | The default background color of the `mark` element
-`$mark-color`                      | `#333`                  | The default text `color` for the `mark` element
-`$code-color-inline`               | `$body-color`           | The default color of inline `code` elements
-`$code-bgc`                        | `$focus-bgc`            | The default background color of `code` and `pre` blocks
-`$code-border`                     | `$base-border`          | The default border color of `code` and `pre` blocks
-`$pre-radii`                       | `$radii`                | The default border-radius of `pre` blocks
+`$heading-family`                  | `$sans-family`          | The `font-family` of heading elements
+`$heading-font-weight`             | `bold`                  | The `font-weight` of heading elements
+`$heading-line-height`             | `1`                     | The `line-height` of heading elements
+`$heading-color`                   | `$body-color`           | The `color` of heading elements
+`$h1-size`                         | `$base-font-size + 16`  | The `font-size` of `h1` elements
+`$h2-size`                         | `$base-font-size + 10`  | The `font-size` of `h2` elements
+`$h3-size`                         | `$base-font-size + 4`   | The `font-size` of `h3` elements
+`$h4-size`                         | `$base-font-size + 2`   | The `font-size` of `h4` elements
+`$h5-size`                         | `$base-font-size + 1`   | The `font-size` of `h5` elements
+`$h6-size`                         | `$base-font-size`       | The `font-size` of `h6` elements
+`$hr-border`                       | `$base-border`          | The `color` of horizontal rules
+`$mark-bgc`                        | `$yellow`               | The `background-color` of the `mark` element
+`$mark-color`                      | `#333`                  | The text `color` for the `mark` element
+`$code-color-inline`               | `$body-color`           | The `color` of inline `code` elements
+`$code-bgc`                        | `$focus-bgc`            | The `background-color` of `code` and `pre` blocks
+`$code-border`                     | `$base-border`          | The `border-color` of `code` and `pre` blocks
+`$pre-radii`                       | `$radii`                | The `border-radius` of `pre` blocks
+`$blockquote-family`               | `$serif-family`         | The `font-family` of `blockquote` elements
 `$definition-horiz-offset`         | `$horiz-offset`         | The offset to use for `.dl-horizontal`
-`$definition-horiz-offset-padding` | `$horiz-offset-padding` | The padding between a term and definition within the `.dl-horizontal` element
+`$definition-horiz-offset-padding` | `$horiz-offset-padding` | The `padding` between a term and definition within the `.dl-horizontal` element
 

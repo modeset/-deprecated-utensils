@@ -1,4 +1,7 @@
 
+$heading-family: $sans-family !default
+$heading-font-weight: bold !default
+$heading-line-height: 1 !default
 $heading-color: $body-color !default
 $h1-size: $base-font-size + 16 !default
 $h2-size: $base-font-size + 10 !default
@@ -16,6 +19,8 @@ $code-bgc: $focus-bgc !default
 $code-border: $base-border !default
 $pre-radii: $radii !default
 
+$blockquote-family: $serif-family !default
+
 $definition-horiz-offset: $horiz-offset !default
 $definition-horiz-offset-padding: $horiz-offset-padding !default
 
@@ -24,6 +29,9 @@ $definition-horiz-offset-padding: $horiz-offset-padding !default
 // -----------------------------------------------------------------------------
 h1, h2, h3, h4, h5, h6
   color: $heading-color
+  font-family: $heading-family
+  font-weight: $heading-font-weight
+  line-height: $heading-line-height
   margin: 0
 
 h1
@@ -107,7 +115,7 @@ hr
 pre, code, kbd, samp
   background-color: $code-bgc
   border: 1px solid $code-border
-  font-family: $code-norm
+  font-family: $mono-family
   font-size: 85%
 
 code, kbd, samp
@@ -136,7 +144,7 @@ pre code
 // Blockquotes
 // -----------------------------------------------------------------------------
 blockquote
-  font-family: $serif-norm
+  font-family: $blockquote-family
   margin: 1em 0
   padding-right: 10%
 

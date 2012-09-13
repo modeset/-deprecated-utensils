@@ -13,19 +13,19 @@ $experimental-support-for-microsoft: true
 // Required settings
 // -----------------------------------------------------------------------------
 
-// fonts
-$sans-norm: "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif
-$serif-norm: "Georgia", "Times", "Times New Roman", serif
-$code-norm: "Bitstream Vera Sans Mono", "Menslo LG M", "Menlo", "Monaco", monospace
+// Fonts
+$sans-family: "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", sans-serif
+$serif-family: "Georgia", "Times", "Times New Roman", serif
+$mono-family: "Bitstream Vera Sans Mono", "Menslo LG M", "Menlo", "Monaco", monospace
 
-// base Sizing
+// Base Sizing
 $context-px: 16
 $base-font-size: 14
 $base-width: 1000
 $base-line-height: 1.4
 $base-vertical: $base-font-size * $base-line-height
 
-// mc roy g. biv (Do we need all of these?
+// Colors
 $magenta: #ff00ff
 $cyan: #00ffff
 $red: #b22222
@@ -36,10 +36,10 @@ $blue: #268bd2
 $indigo: #4b0082
 $violet: #ee82ee
 
-// ci
+// CI
 $primary: $blue
 
-// base colors
+// Base element colors
 $base-color: #333
 $base-color-hover: #666
 $base-color-active: $base-color-hover
@@ -56,22 +56,22 @@ $base-border: #ccc
 $base-border-hover: $primary
 $base-border-active: $base-border-hover
 
-// focus state
+// Focus state
 $focus-color: $base-color-hover
 $focus-bgc: #fafafa
 $focus-border: $base-border-hover
 $focus-glow: 0 0 6px 2px #52a8ec
 
-// disabled state
+// Disabled state
 $disabled-color: #bbb
 $disabled-bgc: #eee
 $disabled-border: #ddd
 
-// base shadows
+// Shadows
 $small-drop-dark: 0 1px 0 rgba(black, 0.25)
 $small-drop-lite: 0 1px 0 rgba(white, 0.75)
 
-// settings
+// Settings
 $radii: 0.4em
 $speed: 0.25s
 $horiz-offset: 130px
@@ -82,7 +82,7 @@ $disabled-opacity: 0.65
 // Top level component settings (only required for certain components)
 // -----------------------------------------------------------------------------
 
-// status colors
+// Status colors
 $inverse: #333
 $standard: #f5f5f5
 $info: #999

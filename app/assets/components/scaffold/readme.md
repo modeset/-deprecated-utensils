@@ -46,6 +46,7 @@ within your `config.sass` file or before `scaffold.sass` is loaded.
 
 Variable                    | Default                    | Description
 --------------------------- | -------------------------- | -------------------------------------------
+`$body-family`              | `$sans-family`             | The body's `font-family`
 `$body-color`               | `$base-color`              | The body's text `color`
 `$body-background`          | `$base-bgc`                | The body's `background`
 `$select-color`             | `white`                    | The selected text's `color`
