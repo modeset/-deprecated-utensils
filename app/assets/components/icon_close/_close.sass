@@ -3,9 +3,9 @@ $close-size: $base-font-size + 6 !default
 $close-opacity: 0.3 !default
 $close-opacity-active: 0.5 !default
 $close-color: black !default
-$close-color-alt: invert($close-color) !default
+$close-color-inverse: invert($close-color) !default
 $close-shadow: $small-drop-lite !default
-$close-shadow-alt: $small-drop-dark !default
+$close-shadow-inverse: $small-drop-dark !default
 
 .close
   +font-size($close-size)
@@ -18,13 +18,14 @@ $close-shadow-alt: $small-drop-dark !default
   text-decoration: none !important
   &:visited, &:hover, &:active
     color: $close-color
+    outline: 0
   &:hover, &:active
     +opacity($close-opacity-active)
 
-// The alternative is reversed
-.close.alt
-  color: $close-color-alt
-  text-shadow: $close-shadow-alt
+// The inverse is reversed
+.close.inverse
+  color: $close-color-inverse
+  text-shadow: $close-shadow-inverse
   &:visited, &:hover, &:active
-    color: $close-color-alt
+    color: $close-color-inverse
 

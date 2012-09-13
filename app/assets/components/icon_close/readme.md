@@ -14,7 +14,7 @@ Use the close icon to dismiss modals, notifications and other elements.
   %a.close(href="#") &times;
 
 .well(style="background-color:#333; border-color:#000;")
-  %a.close.alt(href="#") &times;
+  %a.close.inverse(href="#") &times;
 ```
 <!-- end -->
 
@@ -31,7 +31,7 @@ Variable                | Default                | Description
 `$close-opacity`        | `0.3`                  | The opacity level in the static state
 `$close-opacity-active` | `0.5`                  | The opacity level when hovered or active
 `$close-color`          | `$black`               | The default color of the `.close` element
-`$close-color-alt`      | `invert($close-color)` | The default color of the `.close.alt` element
+`$close-color-inverse`      | `invert($close-color)` | The default color of the `.close.inverse` element
 `$close-shadow`         | `$small-drop-lite`     | The text shadow for the `.close` element
-`$close-shadow-alt`     | `$small-drop-dark`     | The text shadow for the `.close.alt` element
+`$close-shadow-inverse`     | `$small-drop-dark`     | The text shadow for the `.close.inverse` element
 
