@@ -1,0 +1,54 @@
+
+$pagination-color-active: $base-color-active !default
+$pagination-bgc: $base-bgc !default
+$pagination-bgc-hover: $base-bgc-hover !default
+$pagination-bgc-active: $base-bgc-active !default
+$pagination-border: $base-border !default
+$pagination-disabled-color: $disabled-color !default
+$pagination-disabled-bgc: transparent !default
+$pagination-radii: $radii !default
+
+.pagination
+  +inline-block
+
+.pagination > li
+  +clearfixer
+  display: inline
+
+.pagination > li > a
+  float: left
+  background-color: $pagination-bgc
+  border: 1px solid $pagination-border
+  border-left-width: 0
+  padding: 0.5em 0.8em
+
+.pagination > li > a:hover
+  background-color: $pagination-bgc-hover
+
+.pagination > li > a:active
+  background-color: $pagination-bgc-active
+
+.pagination .active > a,
+.pagination .active > a:hover
+  background-color: $pagination-bgc-active
+  color: $pagination-color-active
+
+.pagination .disabled > a,
+.pagination .disabled > a:hover
+  background-color: $pagination-disabled-bgc
+  color: $pagination-disabled-color
+
+.pagination > li:first-child > a
+  border-left-width: 1px
+  border-top-left-radius: $pagination-radii
+  border-bottom-left-radius: $pagination-radii
+
+.pagination > li:last-child > a
+  border-top-right-radius: $pagination-radii
+  border-bottom-right-radius: $pagination-radii
+
+.pagination-center
+  text-align: center
+.pagination-right
+  text-align: right
+

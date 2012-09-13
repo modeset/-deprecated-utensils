@@ -43,6 +43,7 @@
 <li><a href='#icon_paddle'>Icon paddle</a></li>
 <li><a href='#normalize'>Normalize</a></li>
 <li><a href='#pager'>Pager</a></li>
+<li><a href='#pagination'>Pagination</a></li>
 <li><a href='#print'>Print</a></li>
 <li><a href='#scaffold'>Scaffold</a></li>
 <li><a href='#table'>Table</a></li>
@@ -111,8 +112,10 @@ $ -&gt;
 <h1>Breadcrumb</h1>
 
 <p>Apply the <code>.breadcrumb</code> class to the <code>ol</code> or <code>ul</code> element to provide linkable
-references to nested sections within the application. Utilize a <code>span.divider</code>
-for separation of links. The list should contain the <code>.nav</code> class.</p>
+references to nested sections within the application. The links generate
+a divider after their content. This is configurable from the
+<code>$breadcrumb-divider-content</code> variable. The list should contain the
+<code>.nav</code> class.</p>
 
 <pre><code class="sass">@import utensils/components/breadcrumb/breadcrumb
 </code></pre>
@@ -146,7 +149,7 @@ for separation of links. The list should contain the <code>.nav</code> class.</p
 <h2>Style Settings</h2>
 
 <p>To override the default settings, set the variable and it&#39;s value
-within your <code>config.sass</code> file or before <code>caret.sass</code> is loaded.</p>
+within your <code>config.sass</code> file or before <code>breadcrumb.sass</code> is loaded.</p>
 
 <table><thead>
 <tr>
@@ -156,25 +159,46 @@ within your <code>config.sass</code> file or before <code>caret.sass</code> is l
 </tr>
 </thead><tbody>
 <tr>
-<td><code>$caret-width</code></td>
-<td><code>4px</code></td>
-<td>The <code>border-width</code> (size) of the caret</td>
+<td><code>$breadcrumb-color</code></td>
+<td><code>$base-color-active</code></td>
+<td>The text <code>color</code> for breadcrumbs (includes the active breadcrumb and divider)</td>
 </tr>
 <tr>
-<td><code>$caret-color</code></td>
+<td><code>$breadcrumb-link-color</code></td>
 <td><code>$link-color</code></td>
-<td>The base <code>border-color</code> of the caret</td>
+<td>The text <code>color</code> of an active breadcrumb link</td>
+</tr>
+<tr>
+<td><code>$breadcrumb-link-hover</code></td>
+<td><code>$link-hover</code></td>
+<td>The text <code>color</code> when a breadcrumb link is hovered</td>
+</tr>
+<tr>
+<td><code>$breadcrumb-bgc</code></td>
+<td><code>$base-bgc-active</code></td>
+<td>The <code>background-color</code> of the breadcrumb component</td>
+</tr>
+<tr>
+<td><code>$breadcrumb-font-weight</code></td>
+<td><code>bold</code></td>
+<td>The default <code>font-weight</code> for breadcrumbs</td>
+</tr>
+<tr>
+<td><code>$breadcrumb-radii</code></td>
+<td><code>$radii</code></td>
+<td>The <code>border-radius</code> of the breadcrumb container</td>
+</tr>
+<tr>
+<td><code>$breadcrumb-divider-content</code></td>
+<td><code>&quot; /&quot;</code></td>
+<td>The content to appear after a breadcrumb link</td>
+</tr>
+<tr>
+<td><code>$breadcrumb-divider-color</code></td>
+<td><code>$breadcrumb-color</code></td>
+<td>The text <code>color</code> of the breadcrumb divider</td>
 </tr>
 </tbody></table>
-
-<p><code>$breadcrumb-color</code>           | <code>$body-color-medium</code> | The text <code>color</code> for breadcrumbs (includes the active breadcrumb and divider)
-<code>$breadcrumb-link-color</code>      | <code>$link-color</code>        | The text <code>color</code> of an active breadcrumb link
-<code>$breadcrumb-link-hover</code>      | <code>$link-hover</code>        | The text <code>color</code> when a breadcrumb link is hovered
-<code>$breadcrumb-bgc</code>             | <code>$off-white</code>         | The <code>background-color</code> of the breadcrumb component
-<code>$breadcrumb-font-weight</code>     | <code>bold</code>               | The default <code>font-weight</code> for breadcrumbs
-<code>$breadcrumb-radii</code>           | <code>$radii</code>             | The <code>border-radius</code> of the breadcrumb container
-<code>$breadcrumb-divider-content</code> | <code>&quot; /&quot;</code>               | The content to appear after a breadcrumb link
-<code>$breadcrumb-divider-color</code>   | <code>$breadcrumb-color</code>  | The text <code>color</code> of the breadcrumb divider</p>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
@@ -239,7 +263,7 @@ elements under a <code>.button-toolbar</code> container to form a navigation sys
 <h6>Notes</h6>
 
 <ul>
-<li><strong>Pro Tip!</strong> Button groups and toolbars play great with the <code>TogglerGroup</code> behavior</li>
+<li><strong>Pro Tip!</strong> Button groups and tool bars play great with the <code>TogglerGroup</code> behavior</li>
 </ul>
 
 <h2>Style Settings</h2>
@@ -801,13 +825,13 @@ within your <code>config.sass</code> file or before <code>container-media.sass</
 </tr>
 </thead><tbody>
 <tr>
-<td><code>$media-border-color</code></td>
-<td><code>$border-color</code></td>
+<td><code>$media-border</code></td>
+<td><code>$base-border</code></td>
 <td>The <code>border-color</code> of the <code>.media-item</code></td>
 </tr>
 <tr>
-<td><code>$media-border-color-hover</code></td>
-<td><code>$link-color</code></td>
+<td><code>$media-border-hover</code></td>
+<td><code>$base-border-hover</code></td>
 <td>The <code>border-color</code> of the <code>.media-item</code> when a link is hovered</td>
 </tr>
 <tr>
@@ -848,14 +872,14 @@ within your <code>config.sass</code> file or before <code>content-editable.sass<
 </tr>
 </thead><tbody>
 <tr>
-<td><code>$editable-bgc</code></td>
-<td><code>$off-white</code></td>
-<td>The <code>background-color</code> while the region is focused</td>
+<td><code>$editable-border-hover</code></td>
+<td><code>$base-border-hover</code></td>
+<td>The <code>border-color</code> while the region is hovered</td>
 </tr>
 <tr>
-<td><code>$editable-border</code></td>
-<td><code>$blue</code></td>
-<td>The <code>border-color</code> while the region is hovered</td>
+<td><code>$editable-focus-bgc</code></td>
+<td><code>$focus-bgc</code></td>
+<td>The <code>background-color</code> while the region is focused</td>
 </tr>
 <tr>
 <td><code>$editable-focus-glow</code></td>
@@ -1360,8 +1384,8 @@ other text input controls. These types of inputs require the
 
 <h2>Radio &amp; Checkbox controls</h2>
 
-<p>Radio and checkboxes are for selecting options within a list. Radios are
-used for selecting a single option, while checkboxes are for selecting
+<p>Radio and checkbox are for selecting options within a list. Radios are
+used for selecting a single option, while checkbox is used for selecting
 zero to many options.</p>
 
 <!--~ markup/form-controls-radio-check.html.haml -->
@@ -1691,11 +1715,10 @@ or other descriptive helpers</li>
 <button class='btn active' data-add='' href='#'>Default</button>
 <button class='btn' data-add='form-horizontal' href='#'>Horizontal</button>
 </nav>
-<nav class='button-group' data-bindable='toggler-group' data-remove='well dark lite' data-target='.btn'>
+<nav class='button-group' data-bindable='toggler-group' data-remove='well fill' data-target='.btn'>
 <button class='btn active' data-add='' href='#'>None</button>
 <button class='btn' data-add='well' href='#'>Well</button>
-<button class='btn' data-add='well lite' href='#'>Well Lite</button>
-<button class='btn' data-add='well dark' href='#'>Well Dark</button>
+<button class='btn' data-add='well fill' href='#'>Well Fill</button>
 </nav>
 <nav class='button-group' data-bindable='toggler-group' data-remove='disabled error success' data-target='.btn'>
 <button class='btn active' data-add='' href='#'>Normal</button>
@@ -1852,11 +1875,10 @@ or other descriptive helpers</li>
   %nav.button-group(data-bindable=&quot;toggler-group&quot; data-target=&quot;.btn&quot; data-remove=&quot;form-vertical form-horizontal&quot;)
     %button.btn.active(href=&quot;#&quot; data-add=&quot;&quot;) Default
     %button.btn(href=&quot;#&quot; data-add=&quot;form-horizontal&quot;) Horizontal
-  %nav.button-group(data-bindable=&quot;toggler-group&quot; data-target=&quot;.btn&quot; data-remove=&quot;well dark lite&quot;)
+  %nav.button-group(data-bindable=&quot;toggler-group&quot; data-target=&quot;.btn&quot; data-remove=&quot;well fill&quot;)
     %button.btn.active(href=&quot;#&quot; data-add=&quot;&quot;) None
     %button.btn(href=&quot;#&quot; data-add=&quot;well&quot;) Well
-    %button.btn(href=&quot;#&quot; data-add=&quot;well lite&quot;) Well Lite
-    %button.btn(href=&quot;#&quot; data-add=&quot;well dark&quot;) Well Dark
+    %button.btn(href=&quot;#&quot; data-add=&quot;well fill&quot;) Well Fill
   %nav.button-group(data-bindable=&quot;toggler-group&quot; data-target=&quot;.btn&quot; data-remove=&quot;disabled error success&quot;)
     %button.btn.active(href=&quot;#&quot; data-add=&quot;&quot;) Normal
     %button.btn(href=&quot;#&quot; data-add=&quot;disabled&quot;) Disabled
@@ -1972,14 +1994,13 @@ or other descriptive helpers</li>
 <h6>Notes</h6>
 
 <ul>
-<li><strong>Pro Tip!</strong> Add one of the <code>.well</code> classes to the <code>form</code> element to contain it from other items on the page</li>
+<li><strong>Pro Tip!</strong> Add either <code>.well</code> or <code>well.fill</code> to the <code>form</code> element to contain it from other items on the page (requires <code>well.sass</code>)</li>
 </ul>
 
 <h6>Warning</h6>
 
 <ul>
-<li><strong>Heads Up!</strong> Not all layouts may render in the demo if they aren&#39;t
-included in the project</li>
+<li><strong>Heads Up!</strong> Not all layouts may render in the demo if they aren&#39;t included in the project</li>
 </ul>
 
 <h2>Style Settings</h2>
@@ -1995,34 +2016,34 @@ within your <code>config.sass</code> file or before <code>form-controls.sass</co
 </tr>
 </thead><tbody>
 <tr>
-<td><code>$form-bgc</code></td>
-<td><code>$white</code></td>
-<td>The <code>background-color</code> of form controls</td>
-</tr>
-<tr>
-<td><code>$form-border-color</code></td>
-<td><code>$border-color</code></td>
-<td>The <code>border-color</code> of form controls</td>
-</tr>
-<tr>
 <td><code>$form-color</code></td>
-<td><code>$body-color</code></td>
+<td><code>$base-color</code></td>
 <td>The text <code>color</code> of form controls</td>
 </tr>
 <tr>
-<td><code>$form-focus-bgc</code></td>
-<td><code>$off-white</code></td>
-<td>The focus <code>background-color</code> of form controls</td>
+<td><code>$form-bgc</code></td>
+<td><code>$base-bgc</code></td>
+<td>The <code>background-color</code> of form controls</td>
 </tr>
 <tr>
-<td><code>$form-inset-shadow</code></td>
-<td><code>inset 0 1px 1px rgba($black, 0.1)</code></td>
-<td>The inset shadow of form controls</td>
+<td><code>$form-border</code></td>
+<td><code>$base-border</code></td>
+<td>The <code>border-color</code> of form controls</td>
+</tr>
+<tr>
+<td><code>$form-focus-bgc</code></td>
+<td><code>$focus-bgc</code></td>
+<td>The focus <code>background-color</code> of form controls</td>
 </tr>
 <tr>
 <td><code>$form-focus-glow</code></td>
 <td><code>$focus-glow</code></td>
 <td>The focus glow of form controls</td>
+</tr>
+<tr>
+<td><code>$form-inset-shadow</code></td>
+<td><code>inset 0 1px 1px rgba(black, 0.1)</code></td>
+<td>The inset shadow of form controls</td>
 </tr>
 <tr>
 <td><code>$placeholder</code></td>
@@ -2041,13 +2062,8 @@ within your <code>config.sass</code> file or before <code>form-controls.sass</co
 </tr>
 <tr>
 <td><code>$hint-color</code></td>
-<td><code>lighten($form-color, 20%)</code></td>
+<td><code>$base-color-active</code></td>
 <td>The text <code>color</code> of <code>hints</code></td>
-</tr>
-<tr>
-<td><code>$uneditable-bgc</code></td>
-<td><code>$form-focus-bgc</code></td>
-<td>The text <code>background-color</code> of <code>.uneditable-fields</code></td>
 </tr>
 <tr>
 <td><code>$uneditable-color</code></td>
@@ -2055,9 +2071,9 @@ within your <code>config.sass</code> file or before <code>form-controls.sass</co
 <td>The text <code>color</code> of <code>.uneditable-fields</code></td>
 </tr>
 <tr>
-<td><code>$form-disabled-bgc</code></td>
-<td><code>$disabled-bgc</code></td>
-<td>The text <code>background-color</code> of disabled controls</td>
+<td><code>$uneditable-bgc</code></td>
+<td><code>$form-focus-bgc</code></td>
+<td>The text <code>background-color</code> of <code>.uneditable-fields</code></td>
 </tr>
 <tr>
 <td><code>$form-disabled-color</code></td>
@@ -2065,19 +2081,9 @@ within your <code>config.sass</code> file or before <code>form-controls.sass</co
 <td>The text text <code>color</code> of disabled controls</td>
 </tr>
 <tr>
-<td><code>$form-input-width</code></td>
-<td><code>50%</code></td>
-<td>The default width of most <code>input</code> and <code>textarea</code> controls</td>
-</tr>
-<tr>
-<td><code>$form-select-width</code></td>
-<td><code>25%</code></td>
-<td>The default width of <code>select</code> controls</td>
-</tr>
-<tr>
-<td><code>$form-legend-width</code></td>
-<td><code>100%</code></td>
-<td>The default width of <code>legend</code> elements</td>
+<td><code>$form-disabled-bgc</code></td>
+<td><code>$disabled-bgc</code></td>
+<td>The text <code>background-color</code> of disabled controls</td>
 </tr>
 <tr>
 <td><code>$legend-font-size</code></td>
@@ -2095,16 +2101,6 @@ within your <code>config.sass</code> file or before <code>form-controls.sass</co
 <td>The <code>font-size</code> of <code>hints</code></td>
 </tr>
 <tr>
-<td><code>$select-height</code></td>
-<td><code>28px</code></td>
-<td>The <code>height</code> of <code>select</code> menus</td>
-</tr>
-<tr>
-<td><code>$form-radii</code></td>
-<td><code>$radii</code></td>
-<td>The <code>radii</code> to use for controls</td>
-</tr>
-<tr>
 <td><code>$form-input-padding</code></td>
 <td><code>0.5em</code></td>
 <td>The <code>padding</code> within control elements</td>
@@ -2115,24 +2111,39 @@ within your <code>config.sass</code> file or before <code>form-controls.sass</co
 <td>The <code>spacing</code> between <code>.control-groups</code></td>
 </tr>
 <tr>
-<td><code>$form-well-bgc</code></td>
-<td><code>$off-white</code></td>
+<td><code>$form-legend-width</code></td>
+<td><code>100%</code></td>
+<td>The default width of <code>legend</code> elements</td>
+</tr>
+<tr>
+<td><code>$form-input-width</code></td>
+<td><code>50%</code></td>
+<td>The default width of most <code>input</code> and <code>textarea</code> controls</td>
+</tr>
+<tr>
+<td><code>$form-select-width</code></td>
+<td><code>25%</code></td>
+<td>The default width of <code>select</code> controls</td>
+</tr>
+<tr>
+<td><code>$select-height</code></td>
+<td><code>30px</code></td>
+<td>The <code>height</code> of <code>select</code> menus</td>
+</tr>
+<tr>
+<td><code>$form-radii</code></td>
+<td><code>$radii</code></td>
+<td>The <code>radii</code> to use for controls</td>
+</tr>
+<tr>
+<td><code>$form-actions-well-bgc</code></td>
+<td><code>darken($base-bgc, 2%)</code></td>
 <td>The <code>background-color</code> of <code>.form-actions</code> when <code>form</code> has a <code>.well</code> class</td>
 </tr>
 <tr>
-<td><code>$form-well-lite-bgc</code></td>
-<td><code>darken($form-well-bgc, 3%)</code></td>
-<td>The <code>background-color</code> of <code>.form-actions</code> when <code>form</code> has a <code>.well.lite</code> class</td>
-</tr>
-<tr>
-<td><code>$form-well-dark-bgc</code></td>
-<td><code>darken($off-grey, 5%)</code></td>
-<td>The <code>background-color</code> of <code>.form-actions</code> when <code>form</code> has a <code>.well.dark</code> class</td>
-</tr>
-<tr>
-<td><code>$form-well-dark-border</code></td>
-<td><code>darken($form-border-color, 5%)</code></td>
-<td>The <code>border-color</code> of <code>.form-actions</code> when <code>form</code> has a <code>.well.dark</code> class</td>
+<td><code>$form-actions-well-fill-bgc</code></td>
+<td><code>darken($form-actions-well-bgc, 10%)</code></td>
+<td>The <code>background-color</code> of <code>.form-actions</code> when <code>form</code> has a <code>.well.fill</code> class</td>
 </tr>
 </tbody></table>
 
@@ -2197,7 +2208,7 @@ inline form. Supports control labels as well.</p>
 
 <!--~ markup/form-inline.html.haml -->
 
-<div class="sherpa-showcase sherpa-clearfix"><form class='form-inline well lite'>
+<div class="sherpa-showcase sherpa-clearfix"><form class='form-inline well fill'>
 <input id='fi_email' placeholder='email' type='email' />
 <input id='fi_passw' placeholder='password' type='password' />
 <select>
@@ -2213,7 +2224,7 @@ inline form. Supports control labels as well.</p>
 </form>
 </div>
 
-<pre><code class="haml">%form.form-inline.well.lite
+<pre><code class="haml">%form.form-inline.well.fill
   %input#fi_email(type=&quot;email&quot; placeholder=&quot;email&quot;)
   %input#fi_passw(type=&quot;password&quot; placeholder=&quot;password&quot;)
   %select
@@ -2250,13 +2261,13 @@ inherit the top and bottom <code>padding</code> of the input element.</p>
 
 <!--~ markup/form-search.html.haml -->
 
-<div class="sherpa-showcase sherpa-clearfix"><form class='form-search well dark'>
+<div class="sherpa-showcase sherpa-clearfix"><form class='form-search well fill'>
 <input id='fs_search' placeholder='search' type='search' />
 <input class='btn standard' type='submit' value='Submit' />
 </form>
 </div>
 
-<pre><code class="haml">%form.form-search.well.dark
+<pre><code class="haml">%form.form-search.well.fill
   %input#fs_search(type=&quot;search&quot; placeholder=&quot;search&quot;)
   %input.btn.standard(type=&quot;submit&quot; value=&quot;Submit&quot;)
 </code></pre>
@@ -2535,8 +2546,8 @@ blown pagination system isn&#39;t required.</p>
 <hr />
 <nav>
 <ul class='pager'>
-<li class='prev'><a href='#'>&larr; Prev</a></li>
-<li class='next'><a href='#'>Next &rarr;</a></li>
+<li class='pager-prev'><a href='#'>&larr; Prev</a></li>
+<li class='pager-next'><a href='#'>Next &rarr;</a></li>
 </ul>
 </nav>
 </div>
@@ -2570,9 +2581,9 @@ blown pagination system isn&#39;t required.</p>
 
 %nav
   %ul.pager
-    %li.prev&lt;
+    %li.pager-prev&lt;
       %a(href=&quot;#&quot;) &amp;larr; Prev
-    %li.next&lt;
+    %li.pager-next&lt;
       %a(href=&quot;#&quot;) Next &amp;rarr;
 </code></pre>
 
@@ -2598,14 +2609,17 @@ blown pagination system isn&#39;t required.</p>
 <td><code>.pager.pager-right</code></td>
 <td>Aligns pagers grouped together on the right edge of the container</td>
 </tr>
+<tr>
+<td><code>.pager &gt; .pager-next</code></td>
+<td>Apply <code>pager.next</code> on the <code>li</code> to align the &quot;next pager&quot; to the right edge of the container</td>
+</tr>
+<tr>
+<td><code>.pager &gt; .pager-prev</code></td>
+<td>Apply <code>pager.prev</code> on the <code>li</code> to align the &quot;prev pager&quot; to the left edge of the container</td>
+</tr>
 </tbody></table>
 
-<p>By adding the classes <code>.next</code> and <code>.prev</code> on the <code>li</code> will split the
-pager buttons with <code>.prev</code> on the left and <code>.next</code> on the right. There
-is no need to add the center or right modifier classes for this to work.</p>
-
-<p>To disable a pager, add the <code>disabled</code> class to the <code>a</code> element&#39;s parent
-<code>li</code>.</p>
+<p>To disable a pager, add the <code>disabled</code> class to the <code>a</code> element&#39;s parent <code>li</code>.</p>
 
 <h2>Style Settings</h2>
 
@@ -2621,35 +2635,207 @@ within your <code>config.sass</code> file or before <code>pager.sass</code> is l
 </thead><tbody>
 <tr>
 <td><code>$pager-bgc</code></td>
-<td><code>$body-bgc</code></td>
+<td><code>$base-bgc</code></td>
 <td>The <code>background-color</code> of the pager</td>
 </tr>
 <tr>
 <td><code>$pager-bgc-hover</code></td>
-<td><code>darken($pager-bgc,5%)</code></td>
+<td><code>$base-bgc-hover</code></td>
 <td>The <code>background-color</code> of the pager when hovered</td>
 </tr>
 <tr>
 <td><code>$pager-bgc-active</code></td>
-<td><code>darken($pager-bgc-hover,5%)</code></td>
+<td><code>$base-bgc-active</code></td>
 <td>The <code>background-color</code> of the pager when active</td>
 </tr>
 <tr>
 <td><code>$pager-border</code></td>
-<td><code>$border-color</code></td>
+<td><code>$base-border</code></td>
 <td>The <code>border-color</code> of the pager</td>
-</tr>
-<tr>
-<td><code>$pager-disabled-bgc</code></td>
-<td><code>$disabled-bgc</code></td>
-<td>The disabled <code>background-color</code> of the pager</td>
 </tr>
 <tr>
 <td><code>$pager-disabled-color</code></td>
 <td><code>$disabled-color</code></td>
 <td>The disabled text <code>color</code> of the pager</td>
 </tr>
+<tr>
+<td><code>$pager-disabled-bgc</code></td>
+<td><code>$disabled-bgc</code></td>
+<td>The disabled <code>background-color</code> of the pager</td>
+</tr>
 </tbody></table>
+
+<p></section><section class="sherpa-section sherpa-clearfix"></p>
+
+<h1>Pagination</h1>
+
+<p>Apply the <code>.pagination</code> class to the <code>ol</code> or <code>ul</code> element to
+represent pagination navigation. The list should contain the <code>.nav</code> class.</p>
+
+<pre><code class="sass">@import utensils/components/pagination/pagination
+</code></pre>
+
+<!--~ markup/pagination.html.haml -->
+
+<div class="sherpa-showcase sherpa-clearfix"><nav>
+<ol class='nav pagination'>
+<li class='disabled'><a href='#'>&laquo;</a></li>
+<li><a href='#'>1</a></li>
+<li class='active'><a href='#'>2</a></li>
+<li><a href='#' rel='next'>3</a></li>
+<li><a href='#'>&hellip;</a></li>
+<li><a href='#'>11</a></li>
+<li><a href='#'>12</a></li>
+<li><a href='#'>&raquo;</a></li>
+</ol>
+</nav>
+<hr />
+<nav class='pagination-center'>
+<ol class='nav pagination'>
+<li class='disabled'><a href='#'>&laquo;</a></li>
+<li><a href='#'>1</a></li>
+<li class='active'><a href='#'>2</a></li>
+<li><a href='#' rel='next'>3</a></li>
+<li><a href='#'>&hellip;</a></li>
+<li><a href='#'>11</a></li>
+<li><a href='#'>12</a></li>
+<li><a href='#'>&raquo;</a></li>
+</ol>
+</nav>
+<hr />
+<nav class='pagination-right'>
+<ol class='nav pagination'>
+<li class='disabled'><a href='#'>&laquo;</a></li>
+<li><a href='#'>1</a></li>
+<li class='active'><a href='#'>2</a></li>
+<li><a href='#' rel='next'>3</a></li>
+<li><a href='#'>&hellip;</a></li>
+<li><a href='#'>11</a></li>
+<li><a href='#'>12</a></li>
+<li><a href='#'>&raquo;</a></li>
+</ol>
+</nav>
+</div>
+
+<pre><code class="haml">%nav
+  %ol.nav.pagination
+    %li.disabled&lt;
+      %a(href=&quot;#&quot;) &amp;laquo;
+    %li&lt;
+      %a(href=&quot;#&quot;) 1
+    %li.active&lt;
+      %a(href=&quot;#&quot;) 2
+    %li&lt;
+      %a(href=&quot;#&quot; rel=&quot;next&quot;) 3
+    %li&lt;
+      %a(href=&quot;#&quot;) &amp;hellip;
+    %li&lt;
+      %a(href=&quot;#&quot;) 11
+    %li&lt;
+      %a(href=&quot;#&quot;) 12
+    %li&lt;
+      %a(href=&quot;#&quot;) &amp;raquo;
+%hr
+%nav.pagination-center
+  %ol.nav.pagination
+    %li.disabled&lt;
+      %a(href=&quot;#&quot;) &amp;laquo;
+    %li&lt;
+      %a(href=&quot;#&quot;) 1
+    %li.active&lt;
+      %a(href=&quot;#&quot;) 2
+    %li&lt;
+      %a(href=&quot;#&quot; rel=&quot;next&quot;) 3
+    %li&lt;
+      %a(href=&quot;#&quot;) &amp;hellip;
+    %li&lt;
+      %a(href=&quot;#&quot;) 11
+    %li&lt;
+      %a(href=&quot;#&quot;) 12
+    %li&lt;
+      %a(href=&quot;#&quot;) &amp;raquo;
+%hr
+%nav.pagination-right
+  %ol.nav.pagination
+    %li.disabled&lt;
+      %a(href=&quot;#&quot;) &amp;laquo;
+    %li&lt;
+      %a(href=&quot;#&quot;) 1
+    %li.active&lt;
+      %a(href=&quot;#&quot;) 2
+    %li&lt;
+      %a(href=&quot;#&quot; rel=&quot;next&quot;) 3
+    %li&lt;
+      %a(href=&quot;#&quot;) &amp;hellip;
+    %li&lt;
+      %a(href=&quot;#&quot;) 11
+    %li&lt;
+      %a(href=&quot;#&quot;) 12
+    %li&lt;
+      %a(href=&quot;#&quot;) &amp;raquo;
+</code></pre>
+
+<!-- end -->
+
+<h2>Style Settings</h2>
+
+<p>To override the default settings, set the variable and it&#39;s value
+within your <code>config.sass</code> file or before <code>pagination.sass</code> is loaded.</p>
+
+<table><thead>
+<tr>
+<th>Variable</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>$pagination-color-active</code></td>
+<td><code>$base-color-active</code></td>
+<td>The text <code>color</code> when a pagination button is <code>active</code></td>
+</tr>
+<tr>
+<td><code>$pagination-bgc</code></td>
+<td><code>$base-bgc</code></td>
+<td>The <code>background-color</code> of a pagination button</td>
+</tr>
+<tr>
+<td><code>$pagination-bgc-hover</code></td>
+<td><code>$base-bgc-hover</code></td>
+<td>The <code>background-color</code> of a pagination button on <code>hover</code></td>
+</tr>
+<tr>
+<td><code>$pagination-bgc-active</code></td>
+<td><code>$base-bgc-active</code></td>
+<td>The <code>background-color</code> of a pagination button when <code>active</code></td>
+</tr>
+<tr>
+<td><code>$pagination-border</code></td>
+<td><code>$base-border</code></td>
+<td>The <code>border-color</code> of a pagination button</td>
+</tr>
+<tr>
+<td><code>$pagination-disabled-color</code></td>
+<td><code>$disabled-color</code></td>
+<td>The text <code>color</code> when a pagination button is <code>disabled</code></td>
+</tr>
+<tr>
+<td><code>$pagination-disabled-bgc</code></td>
+<td><code>transparent</code></td>
+<td>The <code>background-color</code> of a pagination button when <code>disabled</code></td>
+</tr>
+<tr>
+<td><code>$pagination-radii</code></td>
+<td><code>$radii</code></td>
+<td>The <code>border-radius</code> of the <code>:first-child</code> and <code>:last-child</code> pagination button edges</td>
+</tr>
+</tbody></table>
+
+<h6>Note</h6>
+
+<ul>
+<li><strong>Pro Tip!</strong> Add <code>.pagination-center</code> or <code>.pagination-right</code> on the <code>.pagination</code> container&#39;s <code>parent</code> (<code>nav</code>) element to change the alignment</li>
+</ul>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
@@ -2752,14 +2938,44 @@ within your <code>config.sass</code> file or before <code>scaffold.sass</code> i
 </tr>
 </thead><tbody>
 <tr>
-<td><code>$nav-padding-left</code></td>
-<td><code>1%</code></td>
-<td>Set the <code>padding-left</code> on the <code>.nav.inline</code> element</td>
+<td><code>$body-family</code></td>
+<td><code>$sans-family</code></td>
+<td>The body&#39;s <code>font-family</code></td>
 </tr>
 <tr>
-<td><code>$nav-padding-right</code></td>
-<td><code>$nav-padding-left</code></td>
-<td>Set the <code>padding-right</code> on the <code>.nav.inline</code> element</td>
+<td><code>$body-color</code></td>
+<td><code>$base-color</code></td>
+<td>The body&#39;s text <code>color</code></td>
+</tr>
+<tr>
+<td><code>$body-background</code></td>
+<td><code>$base-bgc</code></td>
+<td>The body&#39;s <code>background</code></td>
+</tr>
+<tr>
+<td><code>$select-color</code></td>
+<td><code>white</code></td>
+<td>The selected text&#39;s <code>color</code></td>
+</tr>
+<tr>
+<td><code>$select-bgc</code></td>
+<td><code>$primary</code></td>
+<td>The selected text&#39;s <code>background</code></td>
+</tr>
+<tr>
+<td><code>$tap-highlight</code></td>
+<td><code>$link-color</code></td>
+<td>The <code>tap-highlight-color</code> for touch devices</td>
+</tr>
+<tr>
+<td><code>$nav-inline-padding-left</code></td>
+<td><code>0.5em</code></td>
+<td>The <code>padding-left</code> on the <code>.nav.inline</code> element</td>
+</tr>
+<tr>
+<td><code>$nav-inline-padding-right</code></td>
+<td><code>$nav-inline-padding-left</code></td>
+<td>The <code>padding-right</code> on the <code>.nav.inline</code> element</td>
 </tr>
 </tbody></table>
 
@@ -2920,8 +3136,7 @@ By combining any of the following classes, the table can be given a different lo
 <h6>Note</h6>
 
 <ul>
-<li><strong>Heads up!</strong> To get the status colors, see the &quot;Table Modifiers&quot;
-section below.</li>
+<li><strong>Heads up!</strong> To get the status colors, see the &quot;Table Modifiers&quot; section below.</li>
 </ul>
 
 <h2>Options</h2>
@@ -2982,38 +3197,38 @@ within your <code>config.sass</code> file or before <code>table.sass</code> is l
 </thead><tbody>
 <tr>
 <td><code>$table-bgc</code></td>
-<td><code>$body-bgc</code></td>
-<td>Sets the <code>background-color</code> of the table</td>
+<td><code>$base-bgc</code></td>
+<td>The <code>background-color</code> of the table</td>
 </tr>
 <tr>
-<td><code>$table-border-color</code></td>
-<td><code>$border-color</code></td>
-<td>Sets the <code>border-color</code></td>
+<td><code>$table-border</code></td>
+<td><code>$base-border</code></td>
+<td>The <code>border-color</code> of the table</td>
 </tr>
 <tr>
 <td><code>$table-band-odd-bgc</code></td>
-<td><code>transparent</code></td>
+<td><code>$table-bgc</code></td>
 <td>The <code>background-color</code> of odd rows in <code>.table-banded</code></td>
 </tr>
 <tr>
 <td><code>$table-band-even-bgc</code></td>
-<td><code>lighten($table-border-color, 15%)</code></td>
+<td><code>darken($table-band-odd-bgc, 5%)</code></td>
 <td>The <code>background-color</code> of even rows in <code>.table-banded</code></td>
 </tr>
 <tr>
+<td><code>$table-hover-bgc</code></td>
+<td><code>darken($table-bgc, 10%)</code></td>
+<td>The <code>background-color</code> of the <code>td</code> element in <code>.table-hover</code></td>
+</tr>
+<tr>
 <td><code>$table-thead-bgc</code></td>
-<td><code>lighten($table-border-color, 10%)</code></td>
+<td><code>darken($table-bgc, 12%)</code></td>
 <td>The <code>background-color</code> of the <code>thead</code> element in <code>.table-thead</code></td>
 </tr>
 <tr>
 <td><code>$table-tfoot-bgc</code></td>
-<td><code>lighten($table-border-color, 18%)</code></td>
+<td><code>darken($table-bgc, 5%)</code></td>
 <td>The <code>background-color</code> of the <code>tfoot</code> element in <code>.table-tfoot</code></td>
-</tr>
-<tr>
-<td><code>$table-hover-bgc</code></td>
-<td><code>lighten($table-border-color, 10%)</code></td>
-<td>The <code>background-color</code> of the <code>td</code> element in <code>.table-hover</code></td>
 </tr>
 <tr>
 <td><code>$table-padding-lr</code></td>
@@ -3248,19 +3463,19 @@ within your <code>config.sass</code> file or before <code>tip.sass</code> is loa
 </tr>
 </thead><tbody>
 <tr>
-<td><code>$tip-bgc</code></td>
-<td><code>$black</code></td>
-<td>Sets the <code>background-color</code> of the tip and arrow</td>
+<td><code>$tip-color</code></td>
+<td><code>white</code></td>
+<td>The text <code>color</code> of the tip</td>
 </tr>
 <tr>
-<td><code>$tip-color</code></td>
-<td><code>$white</code></td>
-<td>Sets the <code>color</code> of the font within the tip</td>
+<td><code>$tip-bgc</code></td>
+<td><code>black</code></td>
+<td>The <code>background-color</code> of the tip and arrow</td>
 </tr>
 <tr>
 <td><code>$tip-radii</code></td>
 <td><code>$radii</code></td>
-<td>Sets the <code>border-radius</code> value of the tip</td>
+<td>The <code>border-radius</code> value of the tip</td>
 </tr>
 <tr>
 <td><code>$tip-offset</code></td>
@@ -3626,7 +3841,7 @@ Deactivating will remove the toggle classes from the element.</p>
 
 <h1>Transition</h1>
 
-<p>Contains helper classes added and removed via JavaScript for css
+<p>Contains helper classes added and removed via JavaScript for CSS
 transitions.</p>
 
 <pre><code class="sass">@import utensils/components/transition/transition
@@ -4170,74 +4385,94 @@ within your <code>config.sass</code> file or before <code>typography.sass</code>
 </tr>
 </thead><tbody>
 <tr>
-<td><code>$h1-size</code></td>
-<td><code>$base-font-size + 16</code></td>
-<td>The default size of <code>h1</code> elements</td>
+<td><code>$heading-family</code></td>
+<td><code>$sans-family</code></td>
+<td>The <code>font-family</code> of heading elements</td>
 </tr>
 <tr>
-<td><code>$h2-size</code></td>
-<td><code>$base-font-size + 10</code></td>
-<td>The default size of <code>h2</code> elements</td>
+<td><code>$heading-font-weight</code></td>
+<td><code>bold</code></td>
+<td>The <code>font-weight</code> of heading elements</td>
 </tr>
 <tr>
-<td><code>$h3-size</code></td>
-<td><code>$base-font-size + 4</code></td>
-<td>The default size of <code>h3</code> elements</td>
-</tr>
-<tr>
-<td><code>$h4-size</code></td>
-<td><code>$base-font-size + 2</code></td>
-<td>The default size of <code>h4</code> elements</td>
-</tr>
-<tr>
-<td><code>$h5-size</code></td>
-<td><code>$base-font-size + 1</code></td>
-<td>The default size of <code>h5</code> elements</td>
-</tr>
-<tr>
-<td><code>$h6-size</code></td>
-<td><code>$base-font-size</code></td>
-<td>The default size of <code>h6</code> elements</td>
+<td><code>$heading-line-height</code></td>
+<td><code>1</code></td>
+<td>The <code>line-height</code> of heading elements</td>
 </tr>
 <tr>
 <td><code>$heading-color</code></td>
 <td><code>$body-color</code></td>
-<td>The default color of heading elements</td>
+<td>The <code>color</code> of heading elements</td>
 </tr>
 <tr>
-<td><code>$hr-rule-color</code></td>
-<td><code>$border-color</code></td>
-<td>The default color of horizontal rules</td>
+<td><code>$h1-size</code></td>
+<td><code>$base-font-size + 16</code></td>
+<td>The <code>font-size</code> of <code>h1</code> elements</td>
+</tr>
+<tr>
+<td><code>$h2-size</code></td>
+<td><code>$base-font-size + 10</code></td>
+<td>The <code>font-size</code> of <code>h2</code> elements</td>
+</tr>
+<tr>
+<td><code>$h3-size</code></td>
+<td><code>$base-font-size + 4</code></td>
+<td>The <code>font-size</code> of <code>h3</code> elements</td>
+</tr>
+<tr>
+<td><code>$h4-size</code></td>
+<td><code>$base-font-size + 2</code></td>
+<td>The <code>font-size</code> of <code>h4</code> elements</td>
+</tr>
+<tr>
+<td><code>$h5-size</code></td>
+<td><code>$base-font-size + 1</code></td>
+<td>The <code>font-size</code> of <code>h5</code> elements</td>
+</tr>
+<tr>
+<td><code>$h6-size</code></td>
+<td><code>$base-font-size</code></td>
+<td>The <code>font-size</code> of <code>h6</code> elements</td>
+</tr>
+<tr>
+<td><code>$hr-border</code></td>
+<td><code>$base-border</code></td>
+<td>The <code>color</code> of horizontal rules</td>
 </tr>
 <tr>
 <td><code>$mark-bgc</code></td>
 <td><code>$yellow</code></td>
-<td>The default background color of the <code>mark</code> element</td>
+<td>The <code>background-color</code> of the <code>mark</code> element</td>
 </tr>
 <tr>
 <td><code>$mark-color</code></td>
 <td><code>#333</code></td>
-<td>The default text <code>color</code> for the <code>mark</code> element</td>
+<td>The text <code>color</code> for the <code>mark</code> element</td>
+</tr>
+<tr>
+<td><code>$code-color-inline</code></td>
+<td><code>$body-color</code></td>
+<td>The <code>color</code> of inline <code>code</code> elements</td>
 </tr>
 <tr>
 <td><code>$code-bgc</code></td>
-<td><code>$off-white</code></td>
-<td>The default background color of <code>code</code> and <code>pre</code> blocks</td>
+<td><code>$focus-bgc</code></td>
+<td>The <code>background-color</code> of <code>code</code> and <code>pre</code> blocks</td>
 </tr>
 <tr>
-<td><code>$code-border-color</code></td>
-<td><code>invert($body-color)</code></td>
-<td>The default border color of <code>code</code> and <code>pre</code> blocks</td>
+<td><code>$code-border</code></td>
+<td><code>$base-border</code></td>
+<td>The <code>border-color</code> of <code>code</code> and <code>pre</code> blocks</td>
 </tr>
 <tr>
-<td><code>$code-inline-color</code></td>
-<td><code>$body-color</code></td>
-<td>The default color of inline <code>code</code> elements</td>
-</tr>
-<tr>
-<td><code>$pre-border-radii</code></td>
+<td><code>$pre-radii</code></td>
 <td><code>$radii</code></td>
-<td>The default border-radius of <code>pre</code> blocks</td>
+<td>The <code>border-radius</code> of <code>pre</code> blocks</td>
+</tr>
+<tr>
+<td><code>$blockquote-family</code></td>
+<td><code>$serif-family</code></td>
+<td>The <code>font-family</code> of <code>blockquote</code> elements</td>
 </tr>
 <tr>
 <td><code>$definition-horiz-offset</code></td>
@@ -4247,7 +4482,7 @@ within your <code>config.sass</code> file or before <code>typography.sass</code>
 <tr>
 <td><code>$definition-horiz-offset-padding</code></td>
 <td><code>$horiz-offset-padding</code></td>
-<td>The padding between a term and definition within the <code>.dl-horizontal</code> element</td>
+<td>The <code>padding</code> between a term and definition within the <code>.dl-horizontal</code> element</td>
 </tr>
 </tbody></table>
 
@@ -4276,15 +4511,12 @@ class utensil.ClassName
 
 <div class="sherpa-showcase sherpa-clearfix"><div class='well'><code>.well</code></div>
 
-<div class='well lite'><code>.well.lite</code></div>
-
-<div class='well dark'><code>.well.dark</code></div>
+<div class='well fill'><code>.well.fill</code></div>
 
 <p></div></p>
 
 <pre><code class="haml">.well &lt;code&gt;.well&lt;/code&gt;
-.well.lite &lt;code&gt;.well.lite&lt;/code&gt;
-.well.dark &lt;code&gt;.well.dark&lt;/code&gt;
+.well.fill &lt;code&gt;.well.fill&lt;/code&gt;
 </code></pre>
 
 <h2>Style Settings</h2>
@@ -4300,34 +4532,29 @@ within your <code>config.sass</code> file or before <code>well.sass</code> is lo
 </tr>
 </thead><tbody>
 <tr>
-<td><code>$well-border-color</code></td>
-<td><code>invert($body-color)</code></td>
-<td>The default border color for all wells</td>
+<td><code>$well-border</code></td>
+<td><code>$base-border</code></td>
+<td>The <code>border-color</code> for all wells</td>
+</tr>
+<tr>
+<td><code>$well-bgc</code></td>
+<td><code>$base-bgc</code></td>
+<td>The <code>background-color</code> for <code>.well</code></td>
+</tr>
+<tr>
+<td><code>$well-bgc-fill</code></td>
+<td><code>darken($well-bgc, 8%)</code></td>
+<td>The <code>background-color</code> for <code>.well.fill</code></td>
 </tr>
 <tr>
 <td><code>$well-radii</code></td>
 <td><code>$radii</code></td>
-<td>The default border radius around wells</td>
+<td>The <code>border-radius</code> around wells</td>
 </tr>
 <tr>
 <td><code>$well-spacing</code></td>
 <td><code>1.25em</code></td>
-<td>The default padding and spacing around wells</td>
-</tr>
-<tr>
-<td><code>$well-bgc</code></td>
-<td><code>transparent</code></td>
-<td>The default background of a <code>.well</code> element</td>
-</tr>
-<tr>
-<td><code>$well-lite-bgc</code></td>
-<td><code>$off-white</code></td>
-<td>The default background of a <code>.well.lite</code> element</td>
-</tr>
-<tr>
-<td><code>$well-dark-bgc</code></td>
-<td><code>$off-grey</code></td>
-<td>The default background of a <code>.well.dark</code> element</td>
+<td>The <code>padding</code> and <code>margin-bottom</code> around wells</td>
 </tr>
 </tbody></table>
 

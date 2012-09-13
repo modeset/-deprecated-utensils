@@ -7,7 +7,6 @@ Client side component library
 ## Todo
 
 ### Needed components
-- finish pagination.sass
 - Get rid of the opacity for close icons
 - rework status stuff
 - normalize padding?
