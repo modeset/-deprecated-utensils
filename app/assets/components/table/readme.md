@@ -41,24 +41,31 @@ By combining any of the following classes, the table can be given a different lo
         %a(href="#") Click me!
       %td Three
       %td One
-    %tr.success
+
+    %tr.important
       %td 4
       %td
         %a(href="#") Click me!
-      %td <code>tr.success</code>
-      %td Modifier name: "success"
-    %tr.danger
+      %td <code>tr.important</code>
+      %td Modifier name: <code>important</code>
+    %tr.success
       %td 5
       %td
         %a(href="#") Click me!
-      %td <code>tr.danger</code>
-      %td Modifier name: "danger"
-    %tr.important
+      %td <code>tr.success</code>
+      %td Modifier name: <code>success</code>
+    %tr.warning
       %td 6
       %td
         %a(href="#") Click me!
-      %td <code>tr.important</code>
-      %td Modifier name: "important"
+      %td <code>tr.warning</code>
+      %td Modifier name: <code>warning</code>
+    %tr.danger
+      %td 7
+      %td
+        %a(href="#") Click me!
+      %td <code>tr.danger</code>
+      %td Modifier name: <code>danger</code>
 
 
 %h5(style="margin-bottom:1em; margin-top:3em;") Select to toggle table classes
@@ -74,7 +81,7 @@ By combining any of the following classes, the table can be given a different lo
 <!-- end -->
 
 ###### Note
-- **Heads up!** To get the status colors, see the "Table Modifiers" section below.
+- **Heads up!** To get the status colors, see the "Table Status Modifiers" section below.
 
 
 ## Options
@@ -92,6 +99,12 @@ _none_             | The base table creates division in data with horizontal div
 `.table-tfoot`     | Fills the `tfoot` with a background fill
 
 
+## Table Status Modifiers
+The status styles around `tbody tr` elements are not supported out of
+the box. To include these, setup a `$table-status-list` variable with
+the associated classes and color values.
+
+
 ## Style Settings
 To override the default settings, set the variable and it's value
 within your `config.sass` file or before `table.sass` is loaded.
@@ -107,18 +120,7 @@ Variable               | Default                           | Description
 `$table-tfoot-bgc`     | `darken($table-bgc, 5%) `         | The `background-color` of the `tfoot` element in `.table-tfoot`
 `$table-padding-lr`    | `0.5em`                           | The `padding-left`, `padding-right` value for `th` and `td`
 `$table-padding-tb`    | `1em`                             | The `padding-top`, `padding-bottom` value for `th` and `td` (divided by 2 for `table-condensed`)
-
-
-## Table Modifiers
-The status styles around `tbody tr` elements are not supported out of
-the box. To include these, import the modifier file and generate the
-needed status colors after the import of `table.sass`.
-
-```sass
-@import utensils/components/table/table
-+generate_table_status_modifiers("success","danger","important")
-```
-Supported status flags are `success`, `danger`, and `important`.
+`$table-status-list`   | `nil`                             | The `list` of modifier classes to include for `tr` cell statuses
 
 ###### Warnings
 - **Heads Up!** Tables throughout the style guide may not contain the exact styles of the application

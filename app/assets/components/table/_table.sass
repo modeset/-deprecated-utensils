@@ -8,6 +8,7 @@ $table-thead-bgc: darken($table-bgc, 12%) !default
 $table-tfoot-bgc: darken($table-bgc, 5%) !default
 $table-padding-lr: 0.5em !default
 $table-padding-tb: 1em !default
+$table-status-list: nil !default
 
 table
   background-color: $table-bgc
@@ -101,4 +102,15 @@ table
 // Colorize the table footer background
 .table-tfoot tfoot
   background-color: $table-tfoot-bgc
+
+// Generate status cells if available
+@if $table-status-list != nil
+  @each $_table-status in $table-status-list
+    $_class_name: nth($_table-status,1)
+    $_color_value: nth($_table-status,2)
+    table tbody tr.#{$_class_name} td,
+    .table-banded tbody tr.#{$_class_name} td
+      background-color: lighten($_color_value, 45%)
+    .table-hover tbody tr.#{$_class_name}:hover td
+      background-color: lighten($_color_value, 40%)
 
