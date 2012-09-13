@@ -301,8 +301,9 @@ within your <code>config.sass</code> file or before <code>button-group.sass</cod
 
 <h1>Button Modifiers</h1>
 
-<p>A set of modifier classes which can be added to any button to adjust
-various aspects around a button&#39;s display type, sizing, or positioning.</p>
+<p>A set of modifier classes which can be added to any button, regardless
+of their base class,  to adjust various aspects around a button&#39;s display
+type, sizing, or positioning.</p>
 
 <pre><code class="sass">@import utensils/components/button_modifiers/button-modifiers
 </code></pre>
@@ -624,12 +625,12 @@ the style sheet.</p>
 </tr>
 <tr>
 <td><code>$list</code></td>
-<td><em>empty</em></td>
-<td>A list of named status classes (&quot;important&quot;, &quot;success&quot;), passing an empty list does not generate any modifiers</td>
+<td><em>none</em></td>
+<td>A <code>list</code> of named status classes, passing an empty list does not generate any modifiers</td>
 </tr>
 </tbody></table>
 
-<pre><code class="sass">+generate-semigloss-buttons(&quot;btn&quot;, &quot;important&quot;, &quot;success&quot;, &quot;danger&quot;)
+<pre><code class="sass">+generate-semigloss-buttons(btn, $base-level-list)
 
 // results in styles for..
 .btn
@@ -639,6 +640,9 @@ the style sheet.</p>
   // modified styles...
 
 .btn.success
+  // modified styles...
+
+.btn.warning
   // modified styles...
 
 .btn.danger
@@ -651,12 +655,17 @@ mainly override the color values for various states. To keep the output
 as small as possible, just mixin or generate the states needed within the
 project or application.</p>
 
-<h6>Warning</h6>
+<h4>Auto Generation</h4>
 
-<ul>
-<li><strong>Heads Up!</strong> Currently the only color states supported are the <code>status</code>
-states and the <code>primary</code> state for auto generating buttons</li>
-</ul>
+<p>To auto generate buttons into the style sheet, within <code>config.sass</code> add
+the following:</p>
+
+<pre><code class="sass">$auto-generate-semigloss: btn, $base-status-list
+</code></pre>
+
+<p>This will create a base button with the class of <code>.btn</code> and
+modifiers for each of the elements within the <code>$base-status-list</code>. By
+default this is set to <code>false</code> so no buttons are created.</p>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
@@ -894,27 +903,29 @@ within your <code>config.sass</code> file or before <code>content-editable.sass<
 
 <p>Decals are used to <span class="decal important">POP</span> information in a block of text.
 They are typically used with inline elements. The default color is
-equivalent to the <code>$inverse</code> status color and <code>$standard</code> is not
-available.</p>
+equivalent to the <code>$inverse</code> status color.</p>
+
+<p>It&#39;s recommended to pass a <code>$decal-status-list</code> of needed
+modifiers to limit the output of generated classes.</p>
 
 <pre><code class="sass">@import utensils/components/decal/decal
 </code></pre>
 
 <div class="sherpa-showcase sherpa-clearfix"><span class='decal'>Default</span>
-<span class='decal info'>Info</span>
 <span class='decal important'>Important</span>
 <span class='decal success'>Success</span>
 <span class='decal warning'>Warning</span>
 <span class='decal danger'>Danger</span>
+<span class='decal info'>Info</span>
 <span class='decal primary'>Primary</span>
 </div>
 
 <pre><code class="haml">%span.decal Default
-%span.decal.info Info
 %span.decal.important Important
 %span.decal.success Success
 %span.decal.warning Warning
 %span.decal.danger Danger
+%span.decal.info Info
 %span.decal.primary Primary
 </code></pre>
 
@@ -930,6 +941,11 @@ within your <code>config.sass</code> file or before <code>decal.sass</code> is l
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td><code>$decal-status-list</code></td>
+<td><code>$base-status-list</code></td>
+<td>The <code>list</code> of modifier classes to include</td>
+</tr>
 <tr>
 <td><code>$decal-radii</code></td>
 <td><code>$radii</code></td>
@@ -1575,14 +1591,21 @@ zero to many options.</p>
 </tr>
 </tbody></table>
 
-<h6>Notes</h6>
+<h4>Status Messages</h4>
 
-<ul>
-<li><strong>Pro Tip!</strong> Hints support modifiers for <code>.success-msg</code> and
-<code>.error-msg</code>, these are hidden by default, but will render when the
-<code>.control-group</code> has been modified with either a <code>.error</code> or
-<code>.success</code></li>
-</ul>
+<p>Hints support modifiers based on the <code>$form-status-list</code> variable. These
+take the form of <code>.status-msg</code> based on the status types passed in. These
+are hidden by default, but are shown when the parent <code>.control-group</code>
+has the status type class added. The following would show only the
+<code>.hint-inline.error-msg</code></p>
+
+<pre><code class="haml">.control-group.error
+  %label.control-label(for=&quot;ex_text&quot;) Text:
+  .controls
+    %input#ex_text(type=&quot;text&quot; placeholder=&quot;Enter your name&quot;)
+    %p.hint-inline.error-msg That failed terribly
+    %p.hint-inline.success-msg Gold stars all around
+</code></pre>
 
 <h2>Uneditable controls</h2>
 
@@ -1723,8 +1746,8 @@ or other descriptive helpers</li>
 <nav class='button-group' data-bindable='toggler-group' data-remove='disabled error success' data-target='.btn'>
 <button class='btn active' data-add='' href='#'>Normal</button>
 <button class='btn' data-add='disabled' href='#'>Disabled</button>
-<button class='btn' data-add='error' href='#'>Error</button>
 <button class='btn' data-add='success' href='#'>Success</button>
+<button class='btn' data-add='error' href='#'>Error</button>
 </nav>
 </section>
 <form>
@@ -1882,8 +1905,8 @@ or other descriptive helpers</li>
   %nav.button-group(data-bindable=&quot;toggler-group&quot; data-target=&quot;.btn&quot; data-remove=&quot;disabled error success&quot;)
     %button.btn.active(href=&quot;#&quot; data-add=&quot;&quot;) Normal
     %button.btn(href=&quot;#&quot; data-add=&quot;disabled&quot;) Disabled
-    %button.btn(href=&quot;#&quot; data-add=&quot;error&quot;) Error
     %button.btn(href=&quot;#&quot; data-add=&quot;success&quot;) Success
+    %button.btn(href=&quot;#&quot; data-add=&quot;error&quot;) Error
 
 %form
   %fieldset
@@ -2136,6 +2159,11 @@ within your <code>config.sass</code> file or before <code>form-controls.sass</co
 <td>The <code>radii</code> to use for controls</td>
 </tr>
 <tr>
+<td><code>$form-status-list</code></td>
+<td><code>$success-list, $error-list</code></td>
+<td>The <code>list</code> of modifier classes for form statuses messages</td>
+</tr>
+<tr>
 <td><code>$form-actions-well-bgc</code></td>
 <td><code>darken($base-bgc, 2%)</code></td>
 <td>The <code>background-color</code> of <code>.form-actions</code> when <code>form</code> has a <code>.well</code> class</td>
@@ -2359,7 +2387,7 @@ within your <code>config.sass</code> file or before <code>caret.sass</code> is l
 </div>
 
 <div class='well' style='background-color:#333; border-color:#000;'>
-<a class='close alt' href='#'>&times;</a>
+<a class='close inverse' href='#'>&times;</a>
 </div>
 
 <p></div></p>
@@ -2368,7 +2396,7 @@ within your <code>config.sass</code> file or before <code>caret.sass</code> is l
   %a.close(href=&quot;#&quot;) &amp;times;
 
 .well(style=&quot;background-color:#333; border-color:#000;&quot;)
-  %a.close.alt(href=&quot;#&quot;) &amp;times;
+  %a.close.inverse(href=&quot;#&quot;) &amp;times;
 </code></pre>
 
 <!-- end -->
@@ -2412,9 +2440,9 @@ within your <code>config.sass</code> file or before <code>close.sass</code> is l
 <td>The default color of the <code>.close</code> element</td>
 </tr>
 <tr>
-<td><code>$close-color-alt</code></td>
+<td><code>$close-color-inverse</code></td>
 <td><code>invert($close-color)</code></td>
-<td>The default color of the <code>.close.alt</code> element</td>
+<td>The default color of the <code>.close.inverse</code> element</td>
 </tr>
 <tr>
 <td><code>$close-shadow</code></td>
@@ -2422,9 +2450,9 @@ within your <code>config.sass</code> file or before <code>close.sass</code> is l
 <td>The text shadow for the <code>.close</code> element</td>
 </tr>
 <tr>
-<td><code>$close-shadow-alt</code></td>
+<td><code>$close-shadow-inverse</code></td>
 <td><code>$small-drop-dark</code></td>
-<td>The text shadow for the <code>.close.alt</code> element</td>
+<td>The text shadow for the <code>.close.inverse</code> element</td>
 </tr>
 </tbody></table>
 
@@ -3031,29 +3059,37 @@ By combining any of the following classes, the table can be given a different lo
 <td>Three</td>
 <td>One</td>
 </tr>
-<tr class='success'>
+<tr class='important'>
 <td>4</td>
 <td>
 <a href='#'>Click me!</a>
 </td>
-<td><code>tr.success</code></td>
-<td>Modifier name: "success"</td>
+<td><code>tr.important</code></td>
+<td>Modifier name: <code>important</code></td>
 </tr>
-<tr class='danger'>
+<tr class='success'>
 <td>5</td>
 <td>
 <a href='#'>Click me!</a>
 </td>
-<td><code>tr.danger</code></td>
-<td>Modifier name: "danger"</td>
+<td><code>tr.success</code></td>
+<td>Modifier name: <code>success</code></td>
 </tr>
-<tr class='important'>
+<tr class='warning'>
 <td>6</td>
 <td>
 <a href='#'>Click me!</a>
 </td>
-<td><code>tr.important</code></td>
-<td>Modifier name: "important"</td>
+<td><code>tr.warning</code></td>
+<td>Modifier name: <code>warning</code></td>
+</tr>
+<tr class='danger'>
+<td>7</td>
+<td>
+<a href='#'>Click me!</a>
+</td>
+<td><code>tr.danger</code></td>
+<td>Modifier name: <code>danger</code></td>
 </tr>
 </tbody>
 </table>
@@ -3100,24 +3136,31 @@ By combining any of the following classes, the table can be given a different lo
         %a(href=&quot;#&quot;) Click me!
       %td Three
       %td One
-    %tr.success
+
+    %tr.important
       %td 4
       %td
         %a(href=&quot;#&quot;) Click me!
-      %td &lt;code&gt;tr.success&lt;/code&gt;
-      %td Modifier name: &quot;success&quot;
-    %tr.danger
+      %td &lt;code&gt;tr.important&lt;/code&gt;
+      %td Modifier name: &lt;code&gt;important&lt;/code&gt;
+    %tr.success
       %td 5
       %td
         %a(href=&quot;#&quot;) Click me!
-      %td &lt;code&gt;tr.danger&lt;/code&gt;
-      %td Modifier name: &quot;danger&quot;
-    %tr.important
+      %td &lt;code&gt;tr.success&lt;/code&gt;
+      %td Modifier name: &lt;code&gt;success&lt;/code&gt;
+    %tr.warning
       %td 6
       %td
         %a(href=&quot;#&quot;) Click me!
-      %td &lt;code&gt;tr.important&lt;/code&gt;
-      %td Modifier name: &quot;important&quot;
+      %td &lt;code&gt;tr.warning&lt;/code&gt;
+      %td Modifier name: &lt;code&gt;warning&lt;/code&gt;
+    %tr.danger
+      %td 7
+      %td
+        %a(href=&quot;#&quot;) Click me!
+      %td &lt;code&gt;tr.danger&lt;/code&gt;
+      %td Modifier name: &lt;code&gt;danger&lt;/code&gt;
 
 
 %h5(style=&quot;margin-bottom:1em; margin-top:3em;&quot;) Select to toggle table classes
@@ -3136,7 +3179,7 @@ By combining any of the following classes, the table can be given a different lo
 <h6>Note</h6>
 
 <ul>
-<li><strong>Heads up!</strong> To get the status colors, see the &quot;Table Modifiers&quot; section below.</li>
+<li><strong>Heads up!</strong> To get the status colors, see the &quot;Table Status Modifiers&quot; section below.</li>
 </ul>
 
 <h2>Options</h2>
@@ -3182,6 +3225,12 @@ By combining any of the following classes, the table can be given a different lo
 <td>Fills the <code>tfoot</code> with a background fill</td>
 </tr>
 </tbody></table>
+
+<h2>Table Status Modifiers</h2>
+
+<p>The status styles around <code>tbody tr</code> elements are not supported out of
+the box. To include these, setup a <code>$table-status-list</code> variable with
+the associated classes and color values.</p>
 
 <h2>Style Settings</h2>
 
@@ -3240,19 +3289,12 @@ within your <code>config.sass</code> file or before <code>table.sass</code> is l
 <td><code>1em</code></td>
 <td>The <code>padding-top</code>, <code>padding-bottom</code> value for <code>th</code> and <code>td</code> (divided by 2 for <code>table-condensed</code>)</td>
 </tr>
+<tr>
+<td><code>$table-status-list</code></td>
+<td><code>nil</code></td>
+<td>The <code>list</code> of modifier classes to include for <code>tr</code> cell statuses</td>
+</tr>
 </tbody></table>
-
-<h2>Table Modifiers</h2>
-
-<p>The status styles around <code>tbody tr</code> elements are not supported out of
-the box. To include these, import the modifier file and generate the
-needed status colors after the import of <code>table.sass</code>.</p>
-
-<pre><code class="sass">@import utensils/components/table/table
-+generate_table_status_modifiers(&quot;success&quot;,&quot;danger&quot;,&quot;important&quot;)
-</code></pre>
-
-<p>Supported status flags are <code>success</code>, <code>danger</code>, and <code>important</code>.</p>
 
 <h6>Warnings</h6>
 

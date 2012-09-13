@@ -7,11 +7,11 @@ Client side component library
 ## Todo
 
 ### Needed components
-- Get rid of the opacity for close icons
-- rework status stuff
+- look at other ways to simplify the code as in the status
 - normalize padding?
 - add remaining shadow and glow properties
-- rename togglers
+- scrub it
+- rename togglers to togglable, togglable-group
 - popovers.sass *
 - notifications.sass *
 - progress-bars.sass *
@@ -28,10 +28,6 @@ Client side component library
 
 ### Reminders and Tasks
 - Look at making the sass files use abstract elements
-- Auto add the modifiers?
-- Abstract status colors out to a variable to limit the output
-- Anything that has a status color should get a builder?
-- Add status classes to forms?
 - Should we abstract focus/disabled states to a mixin?
 - Test out the simple form integration
 - Convert media queries
