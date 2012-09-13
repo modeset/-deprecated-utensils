@@ -1412,10 +1412,10 @@ zero to many options.</p>
 <div class='control-group'>
 <label class='control-label'><h5>Radio</h5></label>
 <div class='controls'>
-<label class='radio-label' for='fc_radio1-1'>
+<label class='radio' for='fc_radio1-1'>
 <input checked='checked' id='fc_radio1-1' name='fc[radios1]' type='radio' value='true'>Yes, to radio buttons</input>
 </label>
-<label class='radio-label' for='fc_radio1-2'>
+<label class='radio' for='fc_radio1-2'>
 <input id='fc_radio1-2' name='fc[radios1]' type='radio' value='false'>No, to radio buttons</input>
 </label>
 </div>
@@ -1425,10 +1425,10 @@ zero to many options.</p>
 <div class='control-group'>
 <label class='control-label'><h5>Radio Inline</h5></label>
 <div class='controls'>
-<label class='radio-label-inline' for='fc_radio2-1'>
+<label class='radio-inline' for='fc_radio2-1'>
 <input checked='checked' id='fc_radio2-1' name='fc[radios2]' type='radio' value='true'>Yes, to inline radios</input>
 </label>
-<label class='radio-label-inline' for='fc_radio2-2'>
+<label class='radio-inline' for='fc_radio2-2'>
 <input id='fc_radio2-2' name='fc[radios2]' type='radio' value='false'>No, to inline radios</input>
 </label>
 </div>
@@ -1439,10 +1439,10 @@ zero to many options.</p>
 <div class='control-group'>
 <label class='control-label'><h5>Checkbox</h5></label>
 <div class='controls'>
-<label class='checkbox-label' for='fc_check1-1'>
+<label class='checkbox' for='fc_check1-1'>
 <input id='fc_check1-1' type='checkbox' value='0'>Check your premises</input>
 </label>
-<label class='checkbox-label' for='fc_check1-2'>
+<label class='checkbox' for='fc_check1-2'>
 <input checked='checked' id='fc_check1-2' type='checkbox' value='1'>Premises, checked.</input>
 </label>
 </div>
@@ -1452,10 +1452,10 @@ zero to many options.</p>
 <div class='control-group'>
 <label class='control-label'><h5>Checkbox Inline</h5></label>
 <div class='controls'>
-<label class='checkbox-label-inline' for='fc_check2-1'>
+<label class='checkbox-inline' for='fc_check2-1'>
 <input id='fc_check2-1' type='checkbox' value='0'>Check your inline premises</input>
 </label>
-<label class='checkbox-label-inline' for='fc_check2-2'>
+<label class='checkbox-inline' for='fc_check2-2'>
 <input checked='checked' id='fc_check2-2' type='checkbox' value='1'>Premises inline, checked.</input>
 </label>
 </div>
@@ -1472,18 +1472,18 @@ zero to many options.</p>
       %label.control-label&lt;
         %h5 Radio
       .controls
-        %label.radio-label(for=&quot;fc_radio1-1&quot;)
+        %label.radio(for=&quot;fc_radio1-1&quot;)
           %input#fc_radio1-1(type=&quot;radio&quot; name=&quot;fc[radios1]&quot; value=&quot;true&quot; checked) Yes, to radio buttons
-        %label.radio-label(for=&quot;fc_radio1-2&quot;)
+        %label.radio(for=&quot;fc_radio1-2&quot;)
           %input#fc_radio1-2(type=&quot;radio&quot; name=&quot;fc[radios1]&quot; value=&quot;false&quot;) No, to radio buttons
 
     .control-group
       %label.control-label&lt;
         %h5 Radio Inline
       .controls
-        %label.radio-label-inline(for=&quot;fc_radio2-1&quot;)
+        %label.radio-inline(for=&quot;fc_radio2-1&quot;)
           %input#fc_radio2-1(type=&quot;radio&quot; name=&quot;fc[radios2]&quot; value=&quot;true&quot; checked) Yes, to inline radios
-        %label.radio-label-inline(for=&quot;fc_radio2-2&quot;)
+        %label.radio-inline(for=&quot;fc_radio2-2&quot;)
           %input#fc_radio2-2(type=&quot;radio&quot; name=&quot;fc[radios2]&quot; value=&quot;false&quot;) No, to inline radios
 
     %legend Checkbox Controls
@@ -1491,18 +1491,18 @@ zero to many options.</p>
       %label.control-label&lt;
         %h5 Checkbox
       .controls
-        %label.checkbox-label(for=&quot;fc_check1-1&quot;)
+        %label.checkbox(for=&quot;fc_check1-1&quot;)
           %input#fc_check1-1(type=&quot;checkbox&quot; value=&quot;0&quot;) Check your premises
-        %label.checkbox-label(for=&quot;fc_check1-2&quot;)
+        %label.checkbox(for=&quot;fc_check1-2&quot;)
           %input#fc_check1-2(type=&quot;checkbox&quot; value=&quot;1&quot; checked) Premises, checked.
 
     .control-group
       %label.control-label&lt;
         %h5 Checkbox Inline
       .controls
-        %label.checkbox-label-inline(for=&quot;fc_check2-1&quot;)
+        %label.checkbox-inline(for=&quot;fc_check2-1&quot;)
           %input#fc_check2-1(type=&quot;checkbox&quot; value=&quot;0&quot;) Check your inline premises
-        %label.checkbox-label-inline(for=&quot;fc_check2-2&quot;)
+        %label.checkbox-inline(for=&quot;fc_check2-2&quot;)
           %input#fc_check2-2(type=&quot;checkbox&quot; value=&quot;1&quot; checked) Premises inline, checked.
 </code></pre>
 
@@ -1813,10 +1813,10 @@ or other descriptive helpers</li>
 <div class='control-group'>
 <label class='control-label'>Radio:</label>
 <div class='controls'>
-<label class='radio-label' for='fcs_radio1-1'>
+<label class='radio' for='fcs_radio1-1'>
 <input checked='checked' id='fcs_radio1-1' name='fc[radios1]' type='radio' value='true'>Yes, to radio buttons</input>
 </label>
-<label class='radio-label' for='fcs_radio1-2'>
+<label class='radio' for='fcs_radio1-2'>
 <input id='fcs_radio1-2' name='fc[radios1]' type='radio' value='false'>No, to radio buttons</input>
 </label>
 </div>
@@ -1824,10 +1824,10 @@ or other descriptive helpers</li>
 <div class='control-group'>
 <label class='control-label'>Radio Inline:</label>
 <div class='controls'>
-<label class='radio-label-inline' for='fcs_radio2-1'>
+<label class='radio-inline' for='fcs_radio2-1'>
 <input checked='checked' id='fcs_radio2-1' name='fc[radios2]' type='radio' value='true'>Yes, to inline radios</input>
 </label>
-<label class='radio-label-inline' for='fcs_radio2-2'>
+<label class='radio-inline' for='fcs_radio2-2'>
 <input id='fcs_radio2-2' name='fc[radios2]' type='radio' value='false'>No, to inline radios</input>
 </label>
 <p class='hint-inline error-msg'>That failed terribly</p>
@@ -1837,10 +1837,10 @@ or other descriptive helpers</li>
 <div class='control-group'>
 <label class='control-label'>Checkbox:</label>
 <div class='controls'>
-<label class='checkbox-label' for='fcs_check1-1'>
+<label class='checkbox' for='fcs_check1-1'>
 <input id='fcs_check1-1' type='checkbox' value='0'>Check your premises</input>
 </label>
-<label class='checkbox-label' for='fcs_check1-2'>
+<label class='checkbox' for='fcs_check1-2'>
 <input checked='checked' id='fcs_check1-2' type='checkbox' value='1'>Premises, checked.</input>
 </label>
 </div>
@@ -1848,10 +1848,10 @@ or other descriptive helpers</li>
 <div class='control-group'>
 <label class='control-label'>Checkbox Inline:</label>
 <div class='controls'>
-<label class='checkbox-label-inline' for='fcs_check2-1'>
+<label class='checkbox-inline' for='fcs_check2-1'>
 <input id='fcs_check2-1' type='checkbox' value='0'>Check your inline premises</input>
 </label>
-<label class='checkbox-label-inline' for='fcs_check2-2'>
+<label class='checkbox-inline' for='fcs_check2-2'>
 <input checked='checked' id='fcs_check2-2' type='checkbox' value='1'>Premises inline, checked.</input>
 </label>
 <p class='hint-inline error-msg'>That failed terribly</p>
@@ -1954,16 +1954,16 @@ or other descriptive helpers</li>
     .control-group
       %label.control-label Radio:
       .controls
-        %label.radio-label(for=&quot;fcs_radio1-1&quot;)
+        %label.radio(for=&quot;fcs_radio1-1&quot;)
           %input#fcs_radio1-1(type=&quot;radio&quot; name=&quot;fc[radios1]&quot; value=&quot;true&quot; checked) Yes, to radio buttons
-        %label.radio-label(for=&quot;fcs_radio1-2&quot;)
+        %label.radio(for=&quot;fcs_radio1-2&quot;)
           %input#fcs_radio1-2(type=&quot;radio&quot; name=&quot;fc[radios1]&quot; value=&quot;false&quot;) No, to radio buttons
     .control-group
       %label.control-label Radio Inline:
       .controls
-        %label.radio-label-inline(for=&quot;fcs_radio2-1&quot;)
+        %label.radio-inline(for=&quot;fcs_radio2-1&quot;)
           %input#fcs_radio2-1(type=&quot;radio&quot; name=&quot;fc[radios2]&quot; value=&quot;true&quot; checked) Yes, to inline radios
-        %label.radio-label-inline(for=&quot;fcs_radio2-2&quot;)
+        %label.radio-inline(for=&quot;fcs_radio2-2&quot;)
           %input#fcs_radio2-2(type=&quot;radio&quot; name=&quot;fc[radios2]&quot; value=&quot;false&quot;) No, to inline radios
         %p.hint-inline.error-msg That failed terribly
         %p.hint-inline.success-msg Gold stars all around
@@ -1971,16 +1971,16 @@ or other descriptive helpers</li>
     .control-group
       %label.control-label Checkbox:
       .controls
-        %label.checkbox-label(for=&quot;fcs_check1-1&quot;)
+        %label.checkbox(for=&quot;fcs_check1-1&quot;)
           %input#fcs_check1-1(type=&quot;checkbox&quot; value=&quot;0&quot;) Check your premises
-        %label.checkbox-label(for=&quot;fcs_check1-2&quot;)
+        %label.checkbox(for=&quot;fcs_check1-2&quot;)
           %input#fcs_check1-2(type=&quot;checkbox&quot; value=&quot;1&quot; checked) Premises, checked.
     .control-group
       %label.control-label Checkbox Inline:
       .controls
-        %label.checkbox-label-inline(for=&quot;fcs_check2-1&quot;)
+        %label.checkbox-inline(for=&quot;fcs_check2-1&quot;)
           %input#fcs_check2-1(type=&quot;checkbox&quot; value=&quot;0&quot;) Check your inline premises
-        %label.checkbox-label-inline(for=&quot;fcs_check2-2&quot;)
+        %label.checkbox-inline(for=&quot;fcs_check2-2&quot;)
           %input#fcs_check2-2(type=&quot;checkbox&quot; value=&quot;1&quot; checked) Premises inline, checked.
         %p.hint-inline.error-msg That failed terribly
         %p.hint-inline.success-msg Gold stars all around

@@ -133,7 +133,7 @@ Sherpa.prototype.toggleSandbox = function() {
 Sherpa.prototype.addSectionIds = function() {
   this.sections.each(function(index, el) {
     var $el = $(el)
-    var id = $el.html().toLowerCase().replace(/\s|-/, '_')
+    var id = $el.html().toLowerCase().replace(/\s|-|&amp;|,/g, '_')
     $el.attr('id', id)
   })
 };
@@ -151,7 +151,7 @@ Sherpa.prototype.addSubsectionClasses = function() {
   var self = this
   this.subsections.each(function(index, el) {
     var $el = $(el)
-    var id = $el.html().toLowerCase().replace(/\s|_/, '-')
+    var id = $el.html().toLowerCase().replace(/\s|_|&amp;|,/g, '-')
     $el.addClass(id + ' sherpa-togglable')
     $el.attr('title', 'Toggle Section')
     self.addSubsectionToGrouping(id, $el)

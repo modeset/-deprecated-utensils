@@ -7,10 +7,6 @@ Client side component library
 ## Todo
 
 ### Needed components
-- look at other ways to simplify the code as in the status
-- normalize padding?
-- add remaining shadow and glow properties
-- scrub it
 - rename togglers to togglable, togglable-group
 - popovers.sass *
 - notifications.sass *
@@ -27,6 +23,7 @@ Client side component library
 - upgrades
 
 ### Reminders and Tasks
+- Lists should be able to pass a single element
 - Look at making the sass files use abstract elements
 - Should we abstract focus/disabled states to a mixin?
 - Test out the simple form integration
