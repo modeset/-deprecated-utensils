@@ -146,57 +146,6 @@ describe 'Tip', ->
       expect(west_render).toContain('The Western Tip')
 
 
-  describe '#getPlacement', ->
-    it 'places an item north of the link', ->
-      @north_tip.activate()
-      pos = @north_tip.getPlacement('north')
-      elp = @north_el.offset().top
-      expect(pos.top).toBeLessThan(elp)
-
-    it 'places an item south of the link', ->
-      @south_tip.activate()
-      pos = @south_tip.getPlacement('south')
-      elp = @south_el.offset().top
-      expect(pos.top).toBeGreaterThan(elp)
-
-    it 'places an item east of the link', ->
-      @east_tip.activate()
-      pos = @east_tip.getPlacement('east')
-      elp = @east_el.offset().left
-      expect(pos.left).toBeGreaterThan(elp)
-
-    it 'places an item west of the link', ->
-      @west_tip.activate()
-      pos = @west_tip.getPlacement('west')
-      elp = @west_el.offset().left
-      expect(pos.left).toBeLessThan(elp)
-
-
-  # These tests sometimes fail when there are other errors,
-  # we are testing for position here, so in failing tests
-  # postions are sometimes awkward
-  describe '#inBounds', ->
-    it 'repositions the item on stage when north is offscreen', ->
-      @north_el.css(position:'absolute', top:'0', left:'500')
-      @north_tip.activate()
-      expect($('.tip').first()).toHaveClass('south')
-
-    it 'repositions the item on stage when south is offscreen', ->
-      @south_el.css(position:'absolute', bottom:'0', left:'500')
-      @south_tip.activate()
-      expect($('.tip').first()).toHaveClass('north')
-
-    it 'repositions the item on stage when east is offscreen', ->
-      @east_el.css(position:'absolute', top:'0', right:'0')
-      @east_tip.activate()
-      expect($('.tip').first()).toHaveClass('west')
-
-    it 'repositions the item on stage when west is offscreen', ->
-      @west_el.css(position:'absolute', top:'0', left:'0')
-      @west_tip.activate()
-      expect($('.tip').first()).toHaveClass('east')
-
-
   describe '#getDelay', ->
     it 'sets up a default delay of 0 for show and hide', ->
       expect(@west_tip.delay.show).toEqual(0)

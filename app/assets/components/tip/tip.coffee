@@ -3,6 +3,7 @@
 #= require bindable
 #= require detect
 #= require togglable
+#= require directional
 
 class utensil.Tip extends utensil.Togglable
   constructor: (@el, data) ->
@@ -22,6 +23,7 @@ class utensil.Tip extends utensil.Togglable
   initialize: ->
     @tip = null
     @timeout = null
+    @directional = new utensil.Directional(null, @el, @placement)
     super()
     @el.attr('title', '')
 
@@ -46,8 +48,12 @@ class utensil.Tip extends utensil.Togglable
     @remove()
     @tip = $(@render())
     @tip.appendTo(@target)
-    pos = @inBounds(@getPlacement(@placement))
-    @tip.css({top: pos.top, left: pos.left})
+
+    @directional.setElement(@tip)
+    position = @directional.getPlacementAndConstrain()
+
+    @tip.removeClass(@placement).addClass(position.cardinal) unless position.cardinal == @placement
+    @tip.css({top: position.top, left: position.left})
     @tip.addClass(@toggle_classes)
 
   deactivate: ->
@@ -70,59 +76,6 @@ class utensil.Tip extends utensil.Togglable
            </div>
            """
     return html
-
-  getPlacement: (placement) ->
-    to = @tip.offset()
-    tw = @tip.outerWidth()
-    th = @tip.outerHeight()
-    eo = @el.offset()
-    ew = @el.outerWidth()
-    eh = @el.outerHeight()
-
-    if placement == 'north'
-      return {
-        top: Math.round(eo.top - th)
-        left: Math.round(eo.left + ew * 0.5 - tw * 0.5)
-      }
-    else if placement == 'south'
-      return {
-        top: Math.round(eo.top + eh)
-        left: Math.round(eo.left + ew * 0.5 - tw * 0.5)
-      }
-    else if placement == 'east'
-      return {
-        top: Math.round(eo.top + eh * 0.5 - th * 0.5)
-        left: Math.round(eo.left + ew)
-      }
-    else if placement == 'west'
-      return {
-        top: Math.round(eo.top + eh * 0.5 - th * 0.5)
-        left: Math.round(eo.left - tw)
-      }
-    return {top:0, left:0}
-
-  inBounds: (pos) ->
-    win = $(window)
-    top = win.scrollTop()
-    left = win.scrollLeft()
-    w = win.width()
-    h = win.height()
-    tw = @tip.outerWidth()
-    th = @tip.outerHeight()
-
-    if (pos.top < top)
-      @tip.removeClass(@placement).addClass('south')
-      return @getPlacement('south')
-    if (pos.top + th > top + h)
-      @tip.removeClass(@placement).addClass('north')
-      return @getPlacement('north')
-    if (pos.left + tw > left + w)
-      @tip.removeClass(@placement).addClass('west')
-      return @getPlacement('west')
-    if (pos.left < left)
-      @tip.removeClass(@placement).addClass('east')
-      return @getPlacement('east')
-    return pos
 
   getDelay: ->
     if !@data.delay

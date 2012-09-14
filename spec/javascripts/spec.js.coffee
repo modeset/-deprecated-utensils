@@ -5,6 +5,8 @@
 #= require detect/spec
 #= require togglable/spec
 #= require togglable_group/spec
+#= require directional/spec
+
 #= require tip/spec
 #= require dimensionizer/spec
 
