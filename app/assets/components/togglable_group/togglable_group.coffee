@@ -9,29 +9,32 @@ class utensil.TogglableGroup extends utensil.Togglable
 
   options: ->
     @data.target = 'li' unless @data.target
-    super()
     @behavior = @data.behavior || 'radio'
+    super()
+
+  # PUBLIC #
 
   toggle: (e) ->
     e?.preventDefault() unless @data.bubble
     activator = $(e.target).closest(@data.target)
-    @target.removeClass(@toggle_classes) if @behavior == 'radio'
-    activator.toggleClass(@toggle_classes)
+    if activator.hasClass(@toggle_classes) then @deactivate(e) else @activate(e)
 
-  activate: (item=0) ->
-    if typeof item == "number"
-      activator = $(@target[item])
+  # PROTECTED #
+
+  activeState: (e) ->
+    if typeof e.target == "number"
+      activator = $(@target[e.target])
     else
-      activator = $(item).closest(@data.target)
+      activator = $(e.target).closest(@data.target)
     @target.removeClass(@toggle_classes) if @behavior == 'radio'
     activator.addClass(@toggle_classes)
 
-  deactivate: (item=0) ->
-    if typeof item == "number"
-      deactivator = $(@target[item])
+  deactiveState: (e) ->
+    if typeof e.target == "number"
+      deactivator = $(@target[e.target])
     else
-      deactivator = $(item).closest(@data.target)
-    deactivator.removeClass(@toggle_classes)
+      deactivator = $(e.target).closest(@data.target)
+    deactivator.removeClass(@toggle_classes) unless @behavior == 'radio' && deactivator.hasClass(@toggle_classes)
 
 Bindable.register('togglable-group', utensil.TogglableGroup)
 

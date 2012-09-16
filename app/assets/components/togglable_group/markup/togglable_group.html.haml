@@ -8,7 +8,7 @@
     %li.radio-li
       %a(href="#") Radio 3
 
-%nav(style="margin-top: 2em;")
+%nav(style="margin-top: 1em;")
   %ul#checks.nav.inline(data-bindable="togglable-group" data-behavior="checkbox")
     %li
       %a(href="#") Checkbox 1
@@ -16,4 +16,13 @@
       %a(href="#") Checkbox 2
     %li
       %a(href="#") Checkbox 3
+
+%nav(style="margin-top: 1em;")
+  %ul#radios_delay.nav.inline(data-bindable="togglable-group" data-delay="activate: 500, deactivate: 500")
+    %li.radio-li
+      %a(href="#") Radio 1 Delay
+    %li.radio-li
+      %a(href="#") Radio 2 Delay
+    %li.radio-li
+      %a(href="#") Radio 3 Delay
 
