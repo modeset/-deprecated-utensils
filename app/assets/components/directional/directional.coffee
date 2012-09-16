@@ -11,15 +11,6 @@ class utensil.Directional
   setContainer: (@container) ->
   setCardinal: (@cardinal) ->
 
-  getDimensions: (element) ->
-    eo = element.offset()
-    return {
-      top: eo.top
-      left: eo.left
-      width: element.outerWidth()
-      height: element.outerHeight()
-    }
-
   getPlacementAndConstrain: () ->
     default_position = @getPlacementFromCardinal()
     return @constrainToViewport(default_position)
@@ -72,4 +63,13 @@ class utensil.Directional
     if (position.left < wl)
       return @getPlacementFromCardinal('east')
     return position
+
+  getDimensions: (element) ->
+    eo = element.offset()
+    return {
+      top: eo.top
+      left: eo.left
+      width: element.outerWidth()
+      height: element.outerHeight()
+    }
 

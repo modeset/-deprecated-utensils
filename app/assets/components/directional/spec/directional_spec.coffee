@@ -1,5 +1,5 @@
 
-#= require tip
+#= require directional
 
 describe 'Directional', ->
 
@@ -25,15 +25,6 @@ describe 'Directional', ->
       expect(@north_direc.element).toEqual(@north_el)
       expect(@north_direc.container).toEqual(@html)
       expect(@north_direc.cardinal).toEqual('north')
-
-
-  describe '#getDimensions', ->
-    it 'returns dimensions of an element', ->
-      dimensions = @north_direc.getDimensions(@north_el)
-      expect(dimensions.top).toEqual(@north_el.offset().top)
-      expect(dimensions.left).toEqual(@north_el.offset().left)
-      expect(dimensions.width).toEqual(@north_el.outerWidth())
-      expect(dimensions.height).toEqual(@north_el.outerHeight())
 
 
   describe '#getPlacementAndConstrain', ->
@@ -91,14 +82,23 @@ describe 'Directional', ->
       expect(suggested.cardinal).toEqual('north')
 
     it 'repositions the item on stage when east is offscreen', ->
-      @east_el.css(position:'absolute', top:0, right:0)
+      @html.css(position:'absolute', top:0, right:0)
       pos = @east_direc.getPlacementFromCardinal()
       suggested = @east_direc.constrainToViewport(pos)
       expect(suggested.cardinal).toEqual('west')
 
     it 'repositions the item on stage when west is offscreen', ->
-      @west_el.css(position:'absolute', top:0, left:0)
+      @html.css(position:'absolute', top:0, left:0)
       pos = @west_direc.getPlacementFromCardinal()
       suggested = @west_direc.constrainToViewport(pos)
       expect(suggested.cardinal).toEqual('east')
+
+
+  describe '#getDimensions', ->
+    it 'returns dimensions of an element', ->
+      dimensions = @north_direc.getDimensions(@north_el)
+      expect(dimensions.top).toEqual(@north_el.offset().top)
+      expect(dimensions.left).toEqual(@north_el.offset().left)
+      expect(dimensions.width).toEqual(@north_el.outerWidth())
+      expect(dimensions.height).toEqual(@north_el.outerHeight())
 
