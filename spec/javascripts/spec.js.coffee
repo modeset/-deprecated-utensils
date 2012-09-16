@@ -7,6 +7,7 @@
 #= require togglable/spec
 #= require togglable_group/spec
 #= require directional/spec
+#= require timeslot/spec
 
 #= require tip/spec
 #= require dimensionizer/spec
