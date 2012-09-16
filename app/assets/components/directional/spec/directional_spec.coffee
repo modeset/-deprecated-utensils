@@ -26,6 +26,9 @@ describe 'Directional', ->
       expect(@north_direc.container).toEqual(@html)
       expect(@north_direc.cardinal).toEqual('north')
 
+    it 'returns a list of directional cardinals', ->
+      expect(@north_direc.getCardinals()).toEqual('north south east west')
+
 
   describe '#getPlacementAndConstrain', ->
     it 'wraps #getPlacementFromCardinal and #constrainToViewport methods and does not alter', ->

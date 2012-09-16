@@ -38,6 +38,13 @@ Sets the cardinal position `north|south|east|west` to use.
 @directional.setCardinal('west')
 ```
 
+### #getCardinals
+Returns the cardinal position list tested against. 
+
+```coffee
+@cardinals = @directional.getCardinals()
+```
+
 ### #getDimensions
 Returns the sizing of a given element.
 

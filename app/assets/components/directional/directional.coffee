@@ -4,12 +4,14 @@
 class utensil.Directional
 
   constructor: (element=null, container=null, @cardinal='north') ->
+    @cardinals = "north south east west"
     @setElement(element) if element
     @setContainer(container) if container
 
   setElement: (@element) ->
   setContainer: (@container) ->
   setCardinal: (@cardinal) ->
+  getCardinals: -> @cardinals
 
   getPlacementAndConstrain: () ->
     default_position = @getPlacementFromCardinal()
