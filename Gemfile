@@ -7,9 +7,9 @@ gem 'capybara'
 # in production environments by default.
 group :assets do
   gem 'haml-rails'
-  gem 'haml_coffee_assets'
-  gem 'coffee-rails'
   gem 'sass-rails'
+  gem 'coffee-rails'
+  gem 'underscore-rails'
   gem 'uglifier'
 end
 

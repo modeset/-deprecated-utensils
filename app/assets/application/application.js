@@ -1,6 +1,6 @@
 
 //= require jquery
-//= require hamlcoffee
+//= require underscore
 //= require bindable
 
 //= require tip
