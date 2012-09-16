@@ -1,68 +1,13 @@
 
-:css
-  .box {
-    display: block;
-    width: 50px;
-    height: 50px;
-    background-color: blue;
-    margin-bottom: 10px;
-    border: 1px solid transparent;
-  }
-  .box.active {
-    background-color: green;
-  }
-  .box.in {
-    background-color: red;
-  }
-  .box.bordered {
-    border-color: black;
-  }
-  .hello.active {
-    color: green;
-  }
+%section.container(style="margin-top: 3em;")
+  %h1 Utensils
 
-  .tester .active a {
-    color: #ff00ff;
-  }
+  %p Client side component library
 
+  %p &raquo; <a href="/docs">Documentation</a>
+  %p &raquo; <a href="/jasmine">Jasmine Tests</a>
+  %p &raquo; <a href="http://www.modeset.com/">Mode Set</a>
 
-%hr
-%h1.hello Testing
+  %figure(style="margin-top: 3em;")<
+    %img(src="https://secure.gravatar.com/avatar/aa8ea677b07f626479fd280049b0e19f?s=75" alt="modeset")
 
-%br
-%br
-
--# %h2 Tips
--# = render :partial => '../assets/components/tip/markup/tip'
--# %br
--# %br
-
-%a.box(data-bindable="togglable" data-lookup="siblings" data-trigger="hover" data-target=".hello" href="#")
-  .hello
-%a.box(data-bindable="togglable" data-toggle="in bordered" href="#")
-
-%br
-%br
-
-%nav.tester
-  %ul.nav(data-bindable="togglable-group")
-    %li
-      %a(href="#") Radio 1
-    %li
-      %a(href="#") Radio 2
-    %li
-      %a(href="#") Radio 3
-
-%br
-%br
-
-%nav.tester
-  %ul.nav(data-bindable="togglable-group" data-behavior="checkbox")
-    %li
-      %a(href="#") Checkbox 1
-    %li
-      %a(href="#") Checkbox 2
-    %li
-      %a(href="#") Checkbox 3
-
-%hr
