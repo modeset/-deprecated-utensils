@@ -3,8 +3,8 @@
 //= require underscore
 //= require bindable
 
-//= require tip
 //= require togglable_group
+//= require tip
 
 // :: Debuggers ::
 //= require dimensionizer

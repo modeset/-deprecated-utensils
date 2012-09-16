@@ -2,8 +2,11 @@
 # Tip
 Tool tip component for showing quick bits of information to a user. Tips
 are generally used on `hover` states, but can be tied to any event
-trigger. `Tip` is inspired by
-[tipsy](https://github.com/jaz303/tipsy) and [component/tip](https://github.com/component/tip)
+trigger. Positioning is defined by cardinal points.
+
+`Tip` is structured for very simple use cases, mainly dealing with tool
+tip type behavior. Generally the `Pop` component is more robust and
+should be considered in most cases.
 
 ```sass
 @import utensils/components/tip/tip
@@ -20,52 +23,37 @@ data-bindable="tip"
 %nav
   %ul.nav.inline
     %li
-      %a#north(data-bindable="tip" data-delay="100" data-target=".sherpa-wrapper" title="The Northern Tip" href="#") Northern Tip
+      %a#north_tip(data-bindable="tip" data-delay="100" title="The Northern Tip" href="#") Northern Tip
     %li
-      %a#south(data-bindable="tip" data-placement="south" data-delay="1000,2000" title="The Southern Tip" href="#") Southern Tip
+      %a#south_tip(data-bindable="tip" data-placement="south" data-delay="500,1000" title="The Southern Tip" href="#") Southern Tip
     %li
-      %a#east(data-bindable="tip" data-placement="east" title="The Eastern Tip" href="#") Eastern Tip
+      %a#east_tip(data-bindable="tip" data-placement="east" title="The Eastern Tip" href="#") Eastern Tip
     %li
-      %a#west(data-bindable="tip" data-placement="west" title="The Western Tip" href="#") Western Tip
+      %a#west_tip(data-bindable="tip" data-placement="west" title="The Western Tip" href="#") Western Tip
     %li
-      %a#image(data-bindable="tip" data-placement="south" data-trigger="click" title="<img src='/assets/snow-260x180.png'/ width=260 height=180>" href="#") Image Tip (click)
+      %a#image_tip(data-bindable="tip" data-placement="north" data-trigger="click" title="<img src='/assets/snow-260x180.png' width=260 height=180 />" href="#") Image Tip (click)
 ```
 <!-- end -->
 
 
 ## Options
 
-Attribute   | Default    | Description
------------ | ---------- | -------------------------------------------
-`toggle`    | `in`       | Overrides `Togglable's` default of `active`
-`trigger`   | `hover`    | Overrides `Togglable's` default of `click`, unless it's a touch enabled device
-`target`    | `body`     | The element in which to append the tip markup (note this does not get the toggle classes)
-`lookup`    | `closest`  | Overrides `Togglable's` default behavior of `find`
-`title`     | `""`       | The content (html or text) to insert for the tip, use the actual `title` attribute
-`placement` | `north`    | Where to position the tip in relation to the element: `north`, `south`, `east`, `west`
-`effect`    | `fade`     | The base animation class to add to the tip markup
-`delay`     | `0`        | The amount of time in milliseconds to delay on show and hide, see notes below
+Attribute   | Default     | Description
+----------- | ----------- | -------------------------------------------
+`toggle`    | `active in` | Overrides `Togglable's` default of `active`
+`trigger`   | `hover`     | Overrides `Togglable's` default of `click`, unless it's a touch enabled device
+`title`     | `""`        | The content (html or text) to insert for the tip, use the actual `title` attribute though
+`placement` | `north`     | Where to position the tip in relation to the element: `north`, `south`, `east`, `west`
+`effect`    | `fade`      | The base animation class to add to the tip markup
 
-_See `Togglable` for other options_  
+See `Togglable` for other options 
 
-When using the delay attribute, you can optionally pass a basic object
-with two `number` values. The values must be separated by a `,`. The
-first number is the delay for showing the tip, the second is the delay
-time for hiding the tip. The following all end up computing a delay
-object of `{show:1000, hide:2000}`
-
-```html
-data-delay="1000, 2000"
-data-delay="show:1000, hide:2000"
-data-delay="{show:1000, hide:2000}"
-data-delay="hide:1000, show:2000"
-```
 
 ###### Notes  
 
-- **Heads Up!** `Tip` will override it's placement automatically if it
-  determines the requested position will render the tip outside the
-  viewable area.
+- **Heads Up!** `Tip` will override it's placement automatically through
+  `Directional` if it determines the requested position will render the
+  tip outside the viewable area.
 - **Touch it!** On touch devices when using [modernizr](http://www.modernizr.com/), tips will change
   their trigger behavior to `click` events. If the item is a link that
   resolves, make sure to add `data-bubble="true"` to the element
@@ -74,7 +62,7 @@ data-delay="hide:1000, show:2000"
 ## API
 
 ### #new
-Create a new `Tip` instance programmatically. Normally this is
+Create a new instance of `Tip` programmatically. Normally this is
 handled through `Bindable`. 
 
 ```coffee
@@ -85,15 +73,15 @@ handled through `Bindable`.
 ```
 
 ### #toggle
-This is normally handled through events, but you can always `trigger` the
-element's toggle event
+Typically called through user input, but can be triggered by the
+elements toggle event.
 
 ```coffee
-@el.trigger('hover')
+@el.trigger('mouseenter')
 ```
 
 ### #activate
-Show the tip immediately
+Show the tip
 
 ```coffee
 @tip.activate()
@@ -104,13 +92,6 @@ Removes the tip
 
 ```coffee
 @tip.deactivate()
-```
-
-### #remove
-Removes the tip immediately
-
-```coffee
-@tip.remove()
 ```
 
 ### #dispose
@@ -125,24 +106,34 @@ Remove the tip behavior
 - `bindable`
 - `detect`
 - `togglable`
+- `directional`
 
-`Tip` is a subclass of `Togglable`.
+`Tip` utilizes `Togglable` via composition.
 
 ## Style Settings
 To override the default settings, set the variable and it's value
 within your `config.sass` file or before `tip.sass` is loaded.
 
-Variable          | Default    | Description
------------------ | ---------- | -------------------------------------------
-`$tip-color`      | `white`    | The text `color` of the tip
-`$tip-bgc`        | `black`    | The `background-color` of the tip and arrow
-`$tip-radii`      | `$radii`   | The `border-radius` value of the tip
-`$tip-offset`     | `2px`      | The amount to offset each tip from their target
-`$tip-opacity-in` | `0.9`      | The opacity value to apply when the tip is shown
-`$zindex-tips`    | `1010`     | The `z-index` value tips sit on
+Variable            | Default               | Description
+-----------------   | ----------            | -------------------------------------------
+`$tip-color`        | `white`               | The text `color` of the tip
+`$tip-bgc`          | `black`               | The `background-color` of the tip and arrow
+`$tip-font-size`    | `$base-font-size - 2` | The `font-size` for tips
+`$tip-radii`        | `$radii`              | The `border-radius` value of the tip
+`$tip-offset`       | `2px`                 | The amount to offset each tip from their target
+`$tip-opacity-in`   | `0.9`                 | The opacity value to apply when the tip is shown
+`$tip-arrow-bgc`    | `$tip-bgc`            | The `background-color` for the arrow
+`$tip-arrow-size`   | `5px`                 | The size of the arrow
+`$tip-arrow-offset` | `-$tip-arrow-size`    | The offset for positioning the arrow
+
+###### Warning
+- **Heads Up!** The configuration file needs to define the `$zindex-tips`
+value before this file is imported, this is done to keep managing
+`z-index` mappings in one place.
+
 
 ## Injected Markup
-This markup is injected when a tip is shown:
+The markup injected when a tip is shown:
 
 ```html
 <div class="tip north fade">
@@ -150,4 +141,7 @@ This markup is injected when a tip is shown:
  <div class="tip-inner">The Northern Tip</div>
 </div>
 ```
+
+## Todo
+- Do we use `data-target` as an alternate `@container`?
 

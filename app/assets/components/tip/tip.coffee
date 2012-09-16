@@ -5,58 +5,74 @@
 #= require togglable
 #= require directional
 
-class utensil.Tip extends utensil.Togglable
+class utensil.Tip
   constructor: (@el, data) ->
-    super(@el, data)
+    @data = if data then data else @el.data()
+    @options()
+    @initialize()
+    @addListeners()
+    @activate() if @data.activate
 
   options: ->
-    @data.toggle = 'in' unless @data.toggle
+    # override togglable defaults
+    @toggle_classes = @data.toggle || 'active in'
+    @data.toggle = @toggle_classes
     @data.trigger = 'hover' unless @data.trigger || $('html').hasClass('touch')
-    @data.lookup = "closest" unless @data.lookup
-    @data.target = 'body' unless @data.target
-    super()
-    @content = @el.attr('title') || @data.title || ''
+
+    # tip options
     @placement = @data.placement || 'north'
+    @title = @el.attr('title') || @data.title || ''
     @effect = @data.effect || 'fade'
-    @delay = @getDelay()
 
   initialize: ->
     @tip = null
-    @timeout = null
+    @container = $('body')
+    @toggler = new utensil.Togglable(@el, @data)
     @directional = new utensil.Directional(null, @el, @placement)
-    super()
+    @cardinals = @directional.getCardinals()
     @el.attr('title', '')
 
-  toggle: (e) ->
-    e?.preventDefault() unless @data.bubble
-    clearTimeout(@timeout) if @timeout
-    @el.toggleClass(@toggle_classes) if @dual_toggle
-    @is_active = !@is_active
+  # PUBLIC #
 
-    if @is_active
-      if @delay.show != 0
-        @timeout = setTimeout(( => @activate()), @delay.show)
-      else
-        @activate()
-    else
-      if @delay.hide != 0
-        @timeout = setTimeout(( => @deactivate()), @delay.hide)
-      else
-        @deactivate()
+  toggle: ->
+    @toggler.toggle()
 
   activate: ->
-    @remove()
-    @tip = $(@render())
-    @tip.appendTo(@target)
+    @toggler.activate()
 
+  deactivate: ->
+    @toggler.deactivate()
+
+  dispose: ->
+    @removeListeners()
+    @toggler.dispose()
+    @toggler = null
+    @remove()
+
+  # PROTECTED #
+
+  addListeners: ->
+    @toggler.dispatcher.on('togglable:activate', => @activated.apply(@, arguments))
+    @toggler.dispatcher.on('togglable:deactivate', => @deactivated.apply(@, arguments))
+
+  removeListeners: ->
+    @toggler.dispatcher.off('togglable:activate')
+    @toggler.dispatcher.off('togglable:deactivate')
+
+  activated: (e) ->
+    @remove()
+    @addToViewport()
+
+  addToViewport: ->
+    @tip = $(@render())
+    @tip.appendTo(@container)
     @directional.setElement(@tip)
     position = @directional.getPlacementAndConstrain()
-
-    @tip.removeClass(@placement).addClass(position.cardinal) unless position.cardinal == @placement
+    @tip.removeClass(@cardinals).addClass(position.cardinal)
     @tip.css({top: position.top, left: position.left})
     @tip.addClass(@toggle_classes)
 
-  deactivate: ->
+  deactivated: (e) ->
     if @tip && utensil.Detect.hasTransition
       @tip.one(utensil.Detect.transition.end, => @remove())
       @tip.removeClass(@toggle_classes)
@@ -72,22 +88,10 @@ class utensil.Tip extends utensil.Togglable
     html = """
            <div class="tip #{@placement} #{@effect}">
              <div class="tip-arrow"></div>
-             <div class="tip-inner">#{@content}</div>
+             <div class="tip-inner">#{@title}</div>
            </div>
            """
     return html
-
-  getDelay: ->
-    if !@data.delay
-      return show: 0, hide: 0
-    else if @data.delay && typeof @data.delay == 'number'
-      return show: @data.delay, hide: @data.delay
-    else
-      params = @data.delay.split(',')
-      return {
-        show: parseInt(params[0].match(/\d+/g), 10)
-        hide: parseInt(params[1].match(/\d+/g), 10)
-      }
 
 Bindable.register('tip', utensil.Tip)
 

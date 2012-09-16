@@ -1,19 +1,20 @@
 
 $tip-color: white !default
 $tip-bgc: black !default
+$tip-font-size: $base-font-size - 2 !default
 $tip-radii: $radii !default
 $tip-offset: 2px !default
 $tip-opacity-in: 0.9 !default
-$zindex-tips: 1010 !default
+$tip-arrow-bgc: $tip-bgc !default
+$tip-arrow-size: 5px !default
+$tip-arrow-offset: -$tip-arrow-size !default
 
 .tip
-  +font-size($base-font-size - 2)
   +opacity(0)
-  font-weight: bold
-  padding: 5px
   display: block
   position: absolute
-  visibility: visible
+  top: 0
+  left: 0
   z-index: $zindex-tips
   &.in
     +opacity($tip-opacity-in)
@@ -25,28 +26,37 @@ $zindex-tips: 1010 !default
     margin-left: -$tip-offset
   &.east
     margin-left: $tip-offset
-  &.north .tip-arrow
-    +arrow_south($tip-bgc)
-    bottom: 0
-    left: 50%
-  &.south .tip-arrow
-    +arrow_north($tip-bgc)
-    top: 0
-    left: 50%
-  &.west .tip-arrow
-    +arrow_east($tip-bgc)
-    top: 50%
-    right: 0
-  &.east .tip-arrow
-    +arrow_west($tip-bgc)
-    top: 50%
-    left: 0
 
 .tip-inner
+  +font-size($tip-font-size)
   background-color: $tip-bgc
   border-radius: $tip-radii
   color: $tip-color
+  font-weight: bold
   text-align: center
   line-height: 1.4
   padding: 0.5em
+
+.tip-arrow
+  +arrow
+
+.tip.north .tip-arrow
+  +arrow-south($tip-arrow-bgc, $tip-arrow-size)
+  bottom: $tip-arrow-offset
+  left: 50%
+
+.tip.south .tip-arrow
+  +arrow-north($tip-arrow-bgc, $tip-arrow-size)
+  top: $tip-arrow-offset
+  left: 50%
+
+.tip.west .tip-arrow
+  +arrow-east($tip-arrow-bgc, $tip-arrow-size)
+  top: 50%
+  right: $tip-arrow-offset
+
+.tip.east .tip-arrow
+  +arrow-west($tip-arrow-bgc, $tip-arrow-size)
+  top: 50%
+  left: $tip-arrow-offset
 

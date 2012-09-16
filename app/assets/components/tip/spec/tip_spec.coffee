@@ -5,7 +5,7 @@ describe 'Tip', ->
   beforeEach ->
     # Add extra data which we might not want to be shown in documentation from the fixture
     extra = """
-              <a id="overrides" data-toggle="active" data-trigger="click" data-effect="move" data-target="#jasmine-fixtures" data-title="The Overrides Tip">Overrides</a>
+            <a id="overrides" data-toggle="active" data-trigger="click" data-effect="move" data-target="#jasmine-fixtures" data-title="The Overrides Tip">Overrides</a>
             """
 
     loadFixtures('tip')
@@ -13,11 +13,11 @@ describe 'Tip', ->
     @html.append(extra)
 
     # @shell_el = @html.find('#shell')
-    @north_el = @html.find('#north')
-    @south_el = @html.find('#south')
-    @east_el = @html.find('#east')
-    @west_el = @html.find('#west')
-    @image_el = @html.find('#image')
+    @north_el = @html.find('#north_tip')
+    @south_el = @html.find('#south_tip')
+    @east_el = @html.find('#east_tip')
+    @west_el = @html.find('#west_tip')
+    @image_el = @html.find('#image_tip')
     @override_el = @html.find('#overrides')
 
     @north_tip = new utensil.Tip(@north_el)
@@ -37,35 +37,42 @@ describe 'Tip', ->
 
 
   describe '#options', ->
-    it 'sets up basic default options', ->
-      expect(@north_tip.toggle_classes).toEqual('in')
-      expect(@south_tip.trigger).toEqual('hover')
-      expect(@south_tip.target).toBe($('body'))
+    it 'sets up tip toggler options', ->
+      expect(@north_tip.toggler.toggle_classes).toEqual('active in')
+      expect(@south_tip.toggler.trigger).toEqual(on:'mouseenter', off:'mouseleave')
+
+    it 'sets up tip options', ->
       expect(@south_tip.effect).toEqual('fade')
       expect(@north_tip.placement).toEqual('north')
-      expect(@south_tip.placement).toEqual('south')
-      expect(@north_tip.lookup).toEqual('closest')
 
-    it 'overrides the default options', ->
+    it 'overrides tip toggler default options', ->
+      expect(@override_tip.toggler.toggle_classes).toEqual('active')
+      expect(@override_tip.toggler.trigger).toEqual(on:'click', off:'click')
+
+    it 'overrides tip default options', ->
       expect(@override_tip.toggle_classes).toEqual('active')
-      expect(@override_tip.trigger).toEqual('click')
-      expect(@override_tip.target).toBe(@html)
       expect(@override_tip.effect).toEqual('move')
+      expect(@south_tip.placement).toEqual('south')
 
     it 'sets content from the title attribute', ->
-      expect(@south_tip.content).toEqual('The Southern Tip')
+      expect(@south_tip.title).toEqual('The Southern Tip')
 
     it 'sets content from the data-title attribute', ->
-      expect(@override_tip.content).toEqual('The Overrides Tip')
+      expect(@override_tip.title).toEqual('The Overrides Tip')
 
     it 'sets the toggle type to trigger if the html element has the class "touch"', ->
-      expect(@override_tip.trigger).toEqual('click')
+      expect(@override_tip.toggler.trigger).toEqual(on:'click', off:'click')
 
 
   describe '#initialize', ->
     it 'instantiates a class properties with null values', ->
       expect(@north_tip.tip).toBeNull()
-      expect(@north_tip.timeout).toBeNull()
+
+    it 'has a directional utility class for placing the tip', ->
+      expect(@north_tip.directional).toBeDefined()
+
+    it 'sets the default container to body', ->
+      expect(@north_tip.container).toEqual($('body'))
 
     it 'blows away the title attribute contents', ->
       expect(@north_el.attr('title')).toEqual('')
@@ -73,20 +80,12 @@ describe 'Tip', ->
 
 
   describe '#toggle', ->
-    it 'shows a tip on from an elements action', ->
+    it 'shows a tip from an elements action', ->
       @image_el.trigger('click')
       tip = $('.tip').first()
       expect(tip).toHaveClass('fade')
 
-    it 'shows a tip on an elements action after a delay', ->
-      runs ->
-        @north_el.trigger('mouseover')
-      waits 150
-      runs ->
-        tip = $('.tip').first()
-        expect(tip).toHaveClass('fade')
-
-    it 'hides a tip on an elements action after a delay', ->
+    it 'shows and hides a tip on an elements action after a delay', ->
       runs ->
         @north_el.trigger('mouseover')
       waits 150
@@ -108,11 +107,6 @@ describe 'Tip', ->
       tip = $('.tip').first()
       expect(tip).toHaveClass('fade')
 
-    it 'activates a tip immediately even though it has a delay', ->
-      @north_tip.activate()
-      tip = $('.tip').first()
-      expect(tip).toHaveClass('fade')
-
 
   describe '#deactivate', ->
     it 'deactivates a tip', ->
@@ -121,9 +115,48 @@ describe 'Tip', ->
       tip = $('.tip').first()
       expect(tip).not.toHaveClass('in')
 
+
+  describe '#dispose', ->
+    it 'gets rid of toggler', ->
+      @west_tip.dispose()
+      expect(@west_tip.toggler).toBeNull()
+
+    it 'cleans up its own mess', ->
+      spyEvent = spyOn(@west_tip, 'activate')
+      @west_tip.dispose()
+      @west_el.trigger('mouseover')
+      expect(spyEvent).not.toHaveBeenCalled()
+
+    it 'removes the tip when disposed', ->
+      @override_el.click()
+      expect($('.tip').length).toBeGreaterThan(0)
+      @override_tip.dispose()
+      expect($('.tip').length).toEqual(0)
+
+    it 'removes listeners when disposed', ->
+      spyEvent = spyOn(@west_tip, 'removeListeners')
+      @west_tip.dispose()
+      expect(spyEvent).toHaveBeenCalled()
+
+
+  describe '#activated', ->
+    it 'activates a tip immediately even though it has a delay', ->
+      @north_tip.activated()
+      tip = $('.tip').first()
+      expect(tip).toHaveClass('fade')
+
+
+  describe '#addToViewport', ->
+    it 'adds a tip to the viewport', ->
+      expect($('.tip').length).toEqual(0)
+      @east_el.trigger('mouseover')
+      expect($('.tip').length).toBeGreaterThan(0)
+
+
+  describe '#deactivated', ->
     it 'deactivates a tip immediately even though it has a delay', ->
-      @north_tip.activate()
-      @north_tip.deactivate()
+      @north_tip.activated()
+      @north_tip.deactivated()
       tip = $('.tip').first()
       expect(tip).not.toHaveClass('in')
 
@@ -144,26 +177,4 @@ describe 'Tip', ->
       expect(west_render).toContain('tip-arrow')
       expect(west_render).toContain('tip-inner')
       expect(west_render).toContain('The Western Tip')
-
-
-  describe '#getDelay', ->
-    it 'sets up a default delay of 0 for show and hide', ->
-      expect(@west_tip.delay.show).toEqual(0)
-      expect(@west_tip.delay.hide).toEqual(0)
-
-    it 'sets up delay.show and delay.hide with the same value from a number as the data attribute', ->
-      expect(@north_tip.delay.show).toEqual(100)
-      expect(@north_tip.delay.hide).toEqual(100)
-
-    it 'sets up delay.show and delay.hide with the their own values from an object data attribute', ->
-      expect(@south_tip.delay.show).toEqual(1000)
-      expect(@south_tip.delay.hide).toEqual(2000)
-
-    it 'tests various settings for show and hide attributes', ->
-      show_hide = new utensil.Tip(@html, {delay: 'show:1000, hide:2000'})
-      hide_show = new utensil.Tip(@html, {delay: 'hide:4000, hide:5000'})
-      expect(show_hide.delay.show).toEqual(1000)
-      expect(show_hide.delay.hide).toEqual(2000)
-      expect(hide_show.delay.show).toEqual(4000)
-      expect(hide_show.delay.hide).toEqual(5000)
 
