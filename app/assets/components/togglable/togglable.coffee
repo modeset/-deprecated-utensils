@@ -6,14 +6,15 @@
 class utensil.Togglable
   constructor: (@el, data) ->
     @dispatcher = @el
+    @is_listening = false
     @data = if data then data else @el.data()
     @options()
     @initialize()
-    @addListeners()
+    @addListeners() unless @trigger.on == 'manual'
 
   options: ->
     @toggle_classes = @data.toggle || 'active'
-    @trigger = @data.trigger || 'click'
+    @trigger = @setTriggerEventTypes(@data.trigger || 'click')
     @context = if @data.context then $(@data.context) else @el
     @lookup = @data.lookup || 'find'
     @target = @findTarget()
@@ -38,22 +39,41 @@ class utensil.Togglable
 
   dispose: ->
     @clearTimeout()
-    @removeListeners()
+    @removeListeners() unless @trigger.on == 'manual'
 
   # PROTECTED #
 
   addListeners: ->
-    @dispatcher.on(@trigger, => @toggle.apply(@, arguments))
+    if @trigger.on == @trigger.off
+      @dispatcher.on(@trigger.on, => @toggle.apply(@, arguments))
+    else
+      @dispatcher.on(@trigger.on, => @activate.apply(@, arguments))
+      @dispatcher.on(@trigger.off, => @deactivate.apply(@, arguments))
+    @is_listening = true
 
   removeListeners: ->
-    @dispatcher.off(@trigger)
+    if @trigger.on == @trigger.off
+      @dispatcher.off(@trigger.on)
+    else
+      @dispatcher.off(@trigger.on)
+      @dispatcher.off(@trigger.off)
+
+  setTriggerEventTypes: (trigger) ->
+    if trigger == 'hover'
+      return on:'mouseenter', off:'mouseleave'
+    else if trigger == 'focus'
+      return on:'focus', off:'blur'
+    else
+      return on:trigger, off:trigger
 
   setActivate: (e) ->
+    @clearTimeout()
     @activeState(e)
     @is_active = true
     @dispatcher.trigger('togglable:activate', e)
 
   setDeactivate: (e) ->
+    @clearTimeout()
     @deactiveState(e)
     @is_active = false
     @dispatcher.trigger('togglable:deactivate', e)

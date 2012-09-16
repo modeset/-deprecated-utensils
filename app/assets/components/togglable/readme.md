@@ -47,14 +47,33 @@ data-bindable="togglable"
 Attribute  | Default      | Description
 ---------- | ------------ | -------------------------------------------
 `toggle`   | `active`     | The class(es) to toggle when triggered
-`trigger`  | `click`      | The event to trigger toggle behavior
+`trigger`  | `click`      | The event to trigger toggle behavior [`click`, `hover`, `focus`, `manual`]
 `context`  | `bindable`   | The DOM node to use for lookups
-`lookup`   | `find`       | The `$` method to find a target or href target ~ [`closest`, `siblings`, `parents`...]
+`lookup`   | `find`       | The `$` method to find a target or href target [`closest`, `siblings`, `parents`...]
 `target`   | `bindable`   | The target element to toggle classes on (the `href` attribute can also be used)
 `solo`     | `true`       | If `target` is not the `bindable` element, classes are toggled on both `target` and `bindable`. Setting to `true` will result in classes only being applied to target
 `activate` | `false`      | If present, this will auto activate the element
-`bubble`   | `false`      | Controls whether an action `preventsDefault`, setting to `true` will allow normal events to fire
-`delay`     | `undefined` | The amount of time in milliseconds to delay on `activate` and `deactivate`, see the `Timeslot` class for more information
+`bubble`   | `false`      | Controls whether an action `preventsDefault`, setting to `true` will allow normal events to bubble
+`delay`    | `undefined`  | The amount of time in milliseconds to delay on `activate` and `deactivate`, see the `Timeslot` class for more information
+
+### Trigger Types
+The `trigger` attribute is mapped to an object with `on/off` properties
+based on the following:
+
+Attribute  | trigger.on => handler     | trigger.off => handler
+---------- | ------------------------- | --------------------------------------
+"click"    | `click => #toggle`        | `click => #toggle`
+"hover"    | `mouseenter => #activate` | `mouseleave => #deactivate`
+"focus"    | `focus => #activate`      | `blur => #deactivate`
+"manual"   | _none_                    | _none_
+
+The `manual` trigger does not add any listeners, as it's meant to be
+called programmatically from another object.
+
+Any other trigger types, not included in this list, map their `on/off`
+properties to the given trigger name. They will automatically call the
+`#toggle` handler.
+
 
 ### Finding Targets
 `Togglable` finds the target based on the following rules:

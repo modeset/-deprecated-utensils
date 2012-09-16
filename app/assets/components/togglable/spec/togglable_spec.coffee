@@ -55,12 +55,12 @@ describe 'Togglable', ->
   describe '#options', ->
     it 'sets default options', ->
       expect(@defaulter.toggle_classes).toEqual('active')
-      expect(@defaulter.trigger).toEqual('click')
+      expect(@defaulter.trigger).toEqual(on:'click', off:'click')
       expect(@defaulter.lookup).toEqual('find')
 
     it 'overrides default options', ->
       expect(@overrider.toggle_classes).toEqual('fade')
-      expect(@overrider.trigger).toEqual('hover')
+      expect(@overrider.trigger).toEqual(on:'mouseenter', off:'mouseleave')
       expect(@closest.lookup).toEqual('closest')
 
     it 'sets the ability for dual toggles by default', ->
@@ -75,7 +75,7 @@ describe 'Togglable', ->
     it 'sets default values from a javascript class', ->
       togglable = new utensil.Togglable(@empty, {toggle: 'show', trigger: 'hover', lookup: 'closest'})
       expect(togglable.toggle_classes).toEqual('show')
-      expect(togglable.trigger).toEqual('hover')
+      expect(togglable.trigger).toEqual(on:'mouseenter', off:'mouseleave')
       expect(togglable.lookup).toEqual('closest')
       expect(togglable.target).toEqual(@empty)
 
@@ -188,6 +188,68 @@ describe 'Togglable', ->
       expect(@delayer.timeout).toBeNull()
 
 
+  describe '#addListeners', ->
+    it 'adds a listener when the event type is click', ->
+      tester = new utensil.Togglable(@empty, trigger:'click')
+      expect(tester.is_listening).toEqual(true)
+
+    it 'adds a listener when the event type is hover', ->
+      tester = new utensil.Togglable(@empty, trigger:'hover')
+      expect(tester.is_listening).toEqual(true)
+
+    it 'adds a listener when the event type is focus', ->
+      tester = new utensil.Togglable(@empty, trigger:'focus')
+      expect(tester.is_listening).toEqual(true)
+
+    it 'does not add a listener when the event type is manual', ->
+      tester = new utensil.Togglable(@empty, trigger:'manual')
+      expect(tester.is_listening).toEqual(false)
+
+
+  describe '#removeListeners', ->
+    it 'removes a listener when the event type is click', ->
+      spyme = new utensil.Togglable(@empty, trigger:'click')
+      spyEvent = spyOn(spyme, 'removeListeners')
+      spyme.dispose()
+      expect(spyEvent).toHaveBeenCalled()
+
+    it 'removes a listener when the event type is hover', ->
+      spyme = new utensil.Togglable(@empty, trigger:'hover')
+      spyEvent = spyOn(spyme, 'removeListeners')
+      spyme.dispose()
+      expect(spyEvent).toHaveBeenCalled()
+
+    it 'removes a listener when the event type is focus', ->
+      spyme = new utensil.Togglable(@empty, trigger:'focus')
+      spyEvent = spyOn(spyme, 'removeListeners')
+      spyme.dispose()
+      expect(spyEvent).toHaveBeenCalled()
+
+    it 'does not call removeListeners when event type is manual since no listeners are added', ->
+      spyme = new utensil.Togglable(@empty, trigger:'manual')
+      spyEvent = spyOn(spyme, 'removeListeners')
+      spyme.dispose()
+      expect(spyEvent).not.toHaveBeenCalled()
+
+
+  describe '#setTriggerEventTypes', ->
+    it 'sets different event types for on and off from hover', ->
+      type = @defaulter.setTriggerEventTypes('hover')
+      expect(type).toEqual(on:'mouseenter', off:'mouseleave')
+
+    it 'sets different event types for on and off from focus', ->
+      type = @defaulter.setTriggerEventTypes('focus')
+      expect(type).toEqual(on:'focus', off:'blur')
+
+    it 'sets the same event types for on and off from click', ->
+      type = @defaulter.setTriggerEventTypes('click')
+      expect(type).toEqual(on:'click', off:'click')
+
+    it 'sets the same event types for on and off from manual', ->
+      type = @defaulter.setTriggerEventTypes('manual')
+      expect(type).toEqual(on:'manual', off:'manual')
+
+
   describe '#setActivate', ->
     it 'dispatches a togglable:activate event', ->
       tmp = 0
@@ -221,6 +283,7 @@ describe 'Togglable', ->
       waits 100
       runs ->
         expect(@eight).toHaveClass('active')
+        expect(@delayer.timeout).toBeNull()
 
 
   describe '#deactivateWithDelay', ->
@@ -236,6 +299,7 @@ describe 'Togglable', ->
       waits 100
       runs ->
         expect(@eight).not.toHaveClass('active')
+        expect(@delayer.timeout).toBeNull()
 
 
   describe '#findTarget', ->
