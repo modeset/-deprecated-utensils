@@ -1,5 +1,6 @@
 
 #= require togglable
+
 describe 'Togglable', ->
 
   beforeEach ->
@@ -19,8 +20,11 @@ describe 'Togglable', ->
     @four = @html.find('#four > a')
     @five = @html.find('#five > a')
     @six = @html.find('#six > a')
-    @empty = @html.find('#empty')
+    @seven = @html.find('#seven > a')
+    @eight = @html.find('#eight > a')
     @link = @html.find('#stnd_link')
+    @empty = @html.find('#empty')
+    @context_el = @html.find('#context')
 
     @defaulter = new utensil.Togglable(@one)
     @overrider = new utensil.Togglable(@two)
@@ -28,6 +32,8 @@ describe 'Togglable', ->
     @closest = new utensil.Togglable(@four)
     @bubbler = new utensil.Togglable(@five)
     @active = new utensil.Togglable(@six)
+    @contexter = new utensil.Togglable(@seven)
+    @delayer = new utensil.Togglable(@eight)
     @stnd_link = new utensil.Togglable(@link)
 
 
@@ -41,6 +47,9 @@ describe 'Togglable', ->
       expect(@defaulter.is_active).toEqual(false)
     it 'sets up a data object', ->
       expect(@defaulter.data).toBeDefined()
+
+    it 'sets up a dispatcher property', ->
+      expect(@defaulter.dispatcher).toEqual(@one)
 
 
   describe '#options', ->
@@ -70,6 +79,10 @@ describe 'Togglable', ->
       expect(togglable.lookup).toEqual('closest')
       expect(togglable.target).toEqual(@empty)
 
+    it 'sets the correct context for lookups', ->
+      expect(@contexter.context).toEqual($('body'))
+      expect(@defaulter.context).toEqual(@one)
+
 
   describe '#initialize', ->
     it 'activates an element on initialization', ->
@@ -77,7 +90,155 @@ describe 'Togglable', ->
       expect(@empty).toHaveClass('active')
 
 
-  describe '#getTarget', ->
+  describe '#toggle', ->
+    it 'toggles the correct classes from a trigger', ->
+      spyEvent = spyOn(@defaulter, 'toggle').andCallThrough()
+      @one.click()
+      expect(spyEvent).toHaveBeenCalled()
+
+    it 'toggles the default classes from a call', ->
+      expect(@one).not.toHaveClass('active')
+      expect(@defaulter.is_active).toEqual(false)
+
+      @defaulter.toggle()
+      expect(@one).toHaveClass('active')
+      expect(@defaulter.is_active).toEqual(true)
+
+      @defaulter.toggle()
+      expect(@one).not.toHaveClass('active')
+      expect(@defaulter.is_active).toEqual(false)
+
+    it 'toggles the custom classes from a call on both the element and target', ->
+      expect(@four).toHaveClass('inline')
+      expect(@nav).toHaveClass('inline')
+      expect(@closest.is_active).toEqual(true)
+
+      @closest.toggle()
+      expect(@four).not.toHaveClass('inline')
+      expect(@nav).not.toHaveClass('inline')
+      expect(@closest.is_active).toEqual(false)
+
+      @closest.toggle()
+      expect(@four).toHaveClass('inline')
+      expect(@nav).toHaveClass('inline')
+      expect(@closest.is_active).toEqual(true)
+
+    it 'toggles only the target and not the element when specified', ->
+      expect(@three.find('span')).not.toHaveClass('fade')
+      expect(@three).not.toHaveClass('fade')
+
+      @spanner.toggle()
+      expect(@three.find('span')).toHaveClass('fade')
+      expect(@three).not.toHaveClass('fade')
+
+      @spanner.toggle()
+      expect(@three.find('span')).not.toHaveClass('fade')
+      expect(@three).not.toHaveClass('fade')
+
+    it 'toggles a context object searching from the body', ->
+      heading = $('#togglable_heading')
+      expect(heading).not.toHaveClass('fade')
+
+      @contexter.toggle()
+      expect(heading).toHaveClass('fade')
+
+      @contexter.toggle()
+      expect(heading).not.toHaveClass('fade')
+
+
+  describe '#activate', ->
+    it 'adds classes to the element', ->
+      expect(@one).not.toHaveClass('active')
+      expect(@defaulter.is_active).toEqual(false)
+
+      @defaulter.activate()
+      expect(@one).toHaveClass('active')
+      expect(@defaulter.is_active).toEqual(true)
+
+    it 'changes the activate method when a delay is set', ->
+      expect(@delayer.activate).toEqual(@delayer.activateWithDelay)
+
+
+  describe '#deactivate', ->
+    it 'removes classes from the element', ->
+      expect(@one).not.toHaveClass('active')
+      expect(@defaulter.is_active).toEqual(false)
+
+      @defaulter.activate()
+      expect(@one).toHaveClass('active')
+      expect(@defaulter.is_active).toEqual(true)
+
+      @defaulter.deactivate()
+      expect(@one).not.toHaveClass('active')
+      expect(@defaulter.is_active).toEqual(false)
+
+    it 'changes the deactivate method when a delay is set', ->
+      expect(@delayer.deactivate).toEqual(@delayer.deactivateWithDelay)
+
+
+  describe '#dispose', ->
+    it 'cleans up its own mess', ->
+      spyEvent = spyOn(@defaulter, 'toggle')
+      @defaulter.dispose()
+      @one.click()
+      expect(spyEvent).not.toHaveBeenCalled()
+
+    it 'removes any timeouts for delay togglables', ->
+      @delayer.dispose()
+      expect(@delayer.timeout).toBeNull()
+
+
+  describe '#setActivate', ->
+    it 'dispatches a togglable:activate event', ->
+      tmp = 0
+      @defaulter.dispatcher.on('togglable:activate', => tmp += 1)
+      @defaulter.setActivate()
+      expect(tmp).not.toEqual(0)
+
+
+  describe '#setDeactivate', ->
+    it 'dispatches a togglable:activate event', ->
+      tmp = 0
+      @defaulter.dispatcher.on('togglable:deactivate', => tmp -= 1)
+      @defaulter.setDeactivate()
+      expect(tmp).not.toEqual(0)
+
+
+  describe '#setDelay', ->
+    it 'reports a togglable element has delays', ->
+      expect(@delayer.delay).toBeDefined()
+      expect(@defaulter.delay).not.toBeDefined()
+
+
+  describe '#activateWithDelay', ->
+    it 'activates a togglable element after a delay', ->
+      # override the delay to speed up the tests.
+      @delayer.delay.activate = 50
+      @delayer.delay.deactivate = 50
+
+      runs ->
+        @eight.trigger('click')
+      waits 100
+      runs ->
+        expect(@eight).toHaveClass('active')
+
+
+  describe '#deactivateWithDelay', ->
+    it 'deactivates a togglable element after a delay', ->
+      # override the delay to speed up the tests.
+      @delayer.delay.activate = 50
+      @delayer.delay.deactivate = 50
+
+      @delayer.setActivate()
+      expect(@eight).toHaveClass('active')
+      runs ->
+        @eight.trigger('click')
+      waits 100
+      runs ->
+        expect(@eight).not.toHaveClass('active')
+
+
+  describe '#findTarget', ->
     it 'finds itself as an element when there is no href or data-target present', ->
       expect(@defaulter.target).toEqual(@one)
 
@@ -104,81 +265,4 @@ describe 'Togglable', ->
       expect(@closest.lookup).toEqual('closest')
       expect(@closest.target.html()).toEqual(@nav.html())
 
-
-  describe '#toggle', ->
-    it 'toggles the correct classes from a trigger', ->
-      spyEvent = spyOn(@defaulter, 'toggle').andCallThrough()
-      @one.click()
-      expect(spyEvent).toHaveBeenCalled()
-
-    it 'toggles the default classes from a call', ->
-      expect(@one).not.toHaveClass('active')
-      expect(@defaulter.is_active).toEqual(false)
-
-      @defaulter.toggle()
-      expect(@one).toHaveClass('active')
-      expect(@defaulter.is_active).toEqual(true)
-
-      @defaulter.toggle()
-      expect(@one).not.toHaveClass('active')
-      expect(@defaulter.is_active).toEqual(false)
-
-    it 'toggles the custom classes from a call on both the element and target', ->
-      expect(@four).toHaveClass('inline')
-      expect(@nav).toHaveClass('inline')
-      expect(@closest.is_active).toEqual(false)
-
-      @closest.toggle()
-      expect(@four).not.toHaveClass('inline')
-      expect(@nav).not.toHaveClass('inline')
-      expect(@closest.is_active).toEqual(true)
-
-      @closest.toggle()
-      expect(@four).toHaveClass('inline')
-      expect(@nav).toHaveClass('inline')
-      expect(@closest.is_active).toEqual(false)
-
-    it 'toggles only the target and not the element when specified', ->
-      expect(@three.find('span')).not.toHaveClass('fade')
-      expect(@three).not.toHaveClass('fade')
-
-      @spanner.toggle()
-      expect(@three.find('span')).toHaveClass('fade')
-      expect(@three).not.toHaveClass('fade')
-
-      @spanner.toggle()
-      expect(@three.find('span')).not.toHaveClass('fade')
-      expect(@three).not.toHaveClass('fade')
-
-
-  describe '#activate', ->
-    it 'adds classes to the element', ->
-      expect(@one).not.toHaveClass('active')
-      expect(@defaulter.is_active).toEqual(false)
-
-      @defaulter.activate()
-      expect(@one).toHaveClass('active')
-      expect(@defaulter.is_active).toEqual(true)
-
-
-  describe '#deactivate', ->
-    it 'removes classes from the element', ->
-      expect(@one).not.toHaveClass('active')
-      expect(@defaulter.is_active).toEqual(false)
-
-      @defaulter.activate()
-      expect(@one).toHaveClass('active')
-      expect(@defaulter.is_active).toEqual(true)
-
-      @defaulter.deactivate()
-      expect(@one).not.toHaveClass('active')
-      expect(@defaulter.is_active).toEqual(false)
-
-
-  describe '#dispose', ->
-    it 'cleans up its own mess', ->
-      spyEvent = spyOn(@defaulter, 'toggle')
-      @defaulter.dispose()
-      @one.click()
-      expect(spyEvent).not.toHaveBeenCalled()
 

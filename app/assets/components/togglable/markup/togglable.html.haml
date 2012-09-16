@@ -1,3 +1,5 @@
+
+%h5#togglable_heading Heading
 %nav
   %ul.nav.inline
     %li#one
@@ -9,7 +11,11 @@
     %li#four
       %a.inline(data-bindable="togglable" href=".nav" data-lookup="closest" data-toggle="inline") Four
     %li#five
-      %a(data-bindable="togglable" href="#togglable" data-target=".nav" data-lookup="closest" data-toggle="inline" data-bubble="true") Five
+      %a(data-bindable="togglable" href="#five" data-target=".nav" data-lookup="closest" data-bubble="true") Five
     %li#six
       %a(data-bindable="togglable" href="#" data-activate="true") Six
+    %li#seven
+      %a(data-bindable="togglable" href="#togglable_heading" data-context="body" data-toggle="fade" data-solo="true") Seven
+    %li#eight
+      %a(data-bindable="togglable" href="#" data-delay="activate: 1000, deactivate: 500") Eight
 
