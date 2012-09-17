@@ -15,6 +15,7 @@
 - progress-bars.sass *
 - carousels.sass *
 - navbars.sass *
+- tracker.coffee
 - fishnet
 - upgrades
 - turn the dimensionizer demo to togglable
