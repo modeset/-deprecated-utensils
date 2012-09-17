@@ -5,6 +5,7 @@
 
 //= require togglable_group
 //= require tip
+//= require pop
 
 // :: Debuggers ::
 //= require dimensionizer

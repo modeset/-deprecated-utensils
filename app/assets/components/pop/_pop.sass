@@ -1,0 +1,93 @@
+
+$pop-bgc: $base-bgc !default
+$pop-border: $base-border !default
+$pop-radii: $radii !default
+$pop-offset: 10px !default
+
+$pop-header-bgc: $base-bgc-active !default
+$pop-header-font-weight: bold !default
+$pop-header-font-size: $base-font-size + 2 !default
+
+$pop-arrow-bgc: $pop-bgc !default
+$pop-arrow-border: $pop-border !default
+$pop-arrow-size: 10px !default
+$pop-arrow-border-size: $pop-arrow-size + 2 !default
+$pop-arrow-offset: -$pop-arrow-size + 1 !default
+
+.pop
+  display: block
+  position: absolute
+  top: 0
+  left: 0
+  z-index: $zindex-pops
+  &.north
+    margin-top: -$pop-offset
+  &.south
+    margin-top: $pop-offset
+  &.west
+    margin-left: -$pop-offset
+  &.east
+    margin-left: $pop-offset
+
+.pop-inner
+  background-color: $pop-bgc
+  border: 1px solid $pop-border
+  border-radius: $pop-radii
+
+.pop-header
+  +font-size($pop-header-font-size)
+  background-color: $pop-header-bgc
+  border-bottom: 1px solid $pop-border
+  border-top-left-radius: $pop-radii
+  border-top-right-radius: $pop-radii
+  font-weight: $pop-header-font-weight
+  line-height: 1
+  padding: 0.75em 1em
+
+.pop-content
+  border-bottom-left-radius: $pop-radii
+  border-bottom-right-radius: $pop-radii
+  padding: 1em
+
+.pop-arrow,
+.pop-arrow:after
+  +arrow
+.pop-arrow:after
+  content: ""
+  z-index: -1
+
+.pop.north .pop-arrow
+  +arrow-south($pop-arrow-bgc, $pop-arrow-size)
+  bottom: $pop-arrow-offset
+  left: 50%
+  &:after
+    +arrow-south($pop-border, $pop-arrow-border-size)
+    bottom: -1px
+
+.pop.south .pop-arrow
+  +arrow-north($pop-header-bgc, $pop-arrow-size)
+  top: $pop-arrow-offset
+  left: 50%
+  &:after
+    +arrow-north($pop-border, $pop-arrow-border-size)
+    top: -1px
+
+.pop.south.pop-no-header .pop-arrow
+  border-bottom-color: $pop-arrow-bgc
+
+.pop.west .pop-arrow
+  +arrow-east($pop-arrow-bgc, $pop-arrow-size)
+  top: 50%
+  right: $pop-arrow-offset
+  &:after
+    +arrow-east($pop-border, $pop-arrow-border-size)
+    right: -1px
+
+.pop.east .pop-arrow
+  +arrow-west($pop-arrow-bgc, $pop-arrow-size)
+  top: 50%
+  left: $pop-arrow-offset
+  &:after
+    +arrow-west($pop-border, $pop-arrow-border-size)
+    left: -1px
+
