@@ -1,0 +1,21 @@
+
+%nav.demo(data-target="#test_caret" data-remove="north south east west")
+  %ul.nav.inline
+    %li
+      %span.caret.north
+    %li
+      %span.caret.south
+    %li
+      %span.caret.east
+    %li
+      %span.caret.west
+    %li(style="margin-left: 5em;")
+      %span.caret.transall#test_caret
+
+%h5(style="margin-bottom:1em; margin-top:3em;") Select to spin the caret
+%nav.radio-demo.button-group(data-bindable="togglable-group" data-target=".btn")
+  %a.btn.active(href="#" data-add="south") Caret (South)
+  %a.btn(href="#" data-add="north") North
+  %a.btn(href="#" data-add="east") East
+  %a.btn(href="#" data-add="west") West
+

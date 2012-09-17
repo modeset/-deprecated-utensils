@@ -1,25 +1,28 @@
 
-$caret-width: 4px !default
+$caret-size: 6px !default
 $caret-color: $link-color !default
 
 .caret
   +inline-block
-  border-width: $caret-width
+  border-width: $caret-size
   border-style: solid
   border-color: $link-color transparent transparent transparent
   width: 0
   height: 0
-  vertical-align: top
-  &.north
-    border-color: transparent transparent $link-color transparent
+  content: ""
   &.south
     border-color: $link-color transparent transparent transparent
+  &.north
+    border-color: transparent transparent $link-color transparent
+    margin-top: -($caret-size * 2)
   &.east
     border-color: transparent transparent transparent $link-color
+    margin-top: -$caret-size
+    margin-left: $caret-size * 0.5
   &.west
-    border-width: $caret-width + 1
     border-color: transparent $link-color transparent transparent
-    margin-left: -($caret-width + 1)
+    margin-top: -$caret-size
+    margin-left: -$caret-size
   &.caret-center
     margin-left: 0
     @if $legacy-support-for-ie
