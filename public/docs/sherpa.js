@@ -24,6 +24,7 @@ Sherpa.prototype.initialize = function() {
   this.addListeners()
   this.usage_examples.trigger('click')
   this.popNotes()
+  // this.toggleSandbox()
 };
 
 // Find and store references to common DOM items..

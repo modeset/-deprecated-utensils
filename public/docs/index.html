@@ -34,6 +34,7 @@
 <li><a href='#decal'>Decal</a></li>
 <li><a href='#detect'>Detect</a></li>
 <li><a href='#dimensionizer'>Dimensionizer</a></li>
+<li><a href='#directional'>Directional</a></li>
 <li><a href='#form_controls'>Form controls</a></li>
 <li><a href='#form_horizontal'>Form horizontal</a></li>
 <li><a href='#form_inline'>Form inline</a></li>
@@ -44,9 +45,11 @@
 <li><a href='#normalize'>Normalize</a></li>
 <li><a href='#pager'>Pager</a></li>
 <li><a href='#pagination'>Pagination</a></li>
+<li><a href='#pop'>Pop</a></li>
 <li><a href='#print'>Print</a></li>
 <li><a href='#scaffold'>Scaffold</a></li>
 <li><a href='#table'>Table</a></li>
+<li><a href='#timeslot'>Timeslot</a></li>
 <li><a href='#tip'>Tip</a></li>
 <li><a href='#togglable'>Togglable</a></li>
 <li><a href='#togglable_group'>Togglable group</a></li>
@@ -1070,6 +1073,95 @@ when creating a <code>Dimensionizer</code> as the constructor&#39;s <code>data</
 <ul>
 <li><code>utensil</code></li>
 <li><code>detect</code></li>
+</ul>
+
+<p></section><section class="sherpa-section sherpa-clearfix"></p>
+
+<h1>Directional</h1>
+
+<p>Utility class for finding cardinal positions (<code>north|south|east|west</code>) for
+an element measured against it&#39;s container.</p>
+
+<p>For working examples, see <code>Tip</code> or <code>Pop</code></p>
+
+<h2>API</h2>
+
+<h3>#new</h3>
+
+<p>Create a new instance of <code>Directional</code>, typically used compositionally. </p>
+
+<pre><code class="coffee">#= require directional
+
+@directional = new utensil.Directional(@element, @container, &#39;north&#39;)
+</code></pre>
+
+<h3>#setElement</h3>
+
+<p>Sets the <code>element</code> being used for positioning. </p>
+
+<pre><code class="coffee">@directional.setElement(@target)
+</code></pre>
+
+<h3>#setContainer</h3>
+
+<p>Sets the <code>container</code> being used for positioning. </p>
+
+<pre><code class="coffee">@directional.setContainer(@el)
+</code></pre>
+
+<h3>#setCardinal</h3>
+
+<p>Sets the cardinal position <code>north|south|east|west</code> to use. </p>
+
+<pre><code class="coffee">@directional.setCardinal(&#39;west&#39;)
+</code></pre>
+
+<h3>#getCardinals</h3>
+
+<p>Returns the cardinal position list tested against. </p>
+
+<pre><code class="coffee">@cardinals = @directional.getCardinals()
+</code></pre>
+
+<h3>#getDimensions</h3>
+
+<p>Returns the sizing of a given element.</p>
+
+<pre><code class="coffee">@directional.getDimensions(@el)
+# returns: {top:10 left:20, width:200, height:100}
+</code></pre>
+
+<h3>#getPlacementFromCardinal</h3>
+
+<p>Returns the suggested position where the element should be within the
+container, based on the cardinal</p>
+
+<pre><code class="coffee">@directional.getPlacementFromCardinal()
+# returns: {top:50 left:220, cardinal:&#39;west&#39;}
+</code></pre>
+
+<h3>#constrainToViewport</h3>
+
+<p>Takes a given position and returns an altered cardinal position and
+coordinates if the passed position would render the element outside the
+viewport.</p>
+
+<pre><code class="coffee">position = @directional.getPlacementFromCardinal()
+on_screen = @directional.constrainToViewport(position)
+# returns: {top:50 left:-220, cardinal:&#39;east&#39;}
+</code></pre>
+
+<h3>#getPlacementAndConstrain</h3>
+
+<p>Wrapper method around returning the calls from <code>#getPlacementFromCardinal</code> and <code>#constrainToViewport</code></p>
+
+<pre><code class="coffee">position = @directional.getPlacementAndConstrain()
+</code></pre>
+
+<h3>Requires</h3>
+
+<ul>
+<li><code>utensil</code></li>
 </ul>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
@@ -2312,40 +2404,72 @@ inherit the top and bottom <code>padding</code> of the input element.</p>
 
 <h1>Icon Caret</h1>
 
-<p>Carets are used as icons for links and are typically wrapped in <code>span</code>
-elements. Carets are similar to the <code>+arrow</code> mixin, where in the <code>+arrow</code>
-mixin is used for <code>:before</code> and <code>:after</code> pseudo elements and carets are
-embedded directly in the markup.</p>
+<p>Carets are used as icons and are typically wrapped in <code>span</code> elements.
+Carets are similar to the <code>+arrow</code> mixin, where in the <code>+arrow</code> mixin is
+used for <code>:before</code> and <code>:after</code> pseudo elements and carets are embedded
+directly in the markup.</p>
 
 <pre><code class="sass">@import utensils/components/icon_caret/caret
 </code></pre>
 
-<table><thead>
-<tr>
-<th>Caret</th>
-<th>Markup</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><span class="caret"></span></td>
-<td><code>%span.caret</code> or <code>%span.caret.south</code></td>
-</tr>
-<tr>
-<td><span class="caret north"></span></td>
-<td><code>%span.caret.north</code></td>
-</tr>
-<tr>
-<td><span class="caret east"></span></td>
-<td><code>%span.caret.east</code></td>
-</tr>
-<tr>
-<td><span class="caret west"></span></td>
-<td><code>%span.caret.west</code></td>
-</tr>
-</tbody></table>
+<!--~ markup/caret.html.haml -->
+
+<div class="sherpa-showcase sherpa-clearfix"><nav class='demo' data-remove='north south east west' data-target='#test_caret'>
+<ul class='nav inline'>
+<li>
+<span class='caret north'></span>
+</li>
+<li>
+<span class='caret south'></span>
+</li>
+<li>
+<span class='caret east'></span>
+</li>
+<li>
+<span class='caret west'></span>
+</li>
+<li style='margin-left: 5em;'>
+<span class='caret transall' id='test_caret'></span>
+</li>
+</ul>
+</nav>
+<h5 style='margin-bottom:1em; margin-top:3em;'>Select to spin the caret</h5>
+<nav class='radio-demo button-group' data-bindable='togglable-group' data-target='.btn'>
+<a class='btn active' data-add='south' href='#'>Caret (South)</a>
+<a class='btn' data-add='north' href='#'>North</a>
+<a class='btn' data-add='east' href='#'>East</a>
+<a class='btn' data-add='west' href='#'>West</a>
+</nav>
+</div>
+
+<pre><code class="haml">%nav.demo(data-target=&quot;#test_caret&quot; data-remove=&quot;north south east west&quot;)
+  %ul.nav.inline
+    %li
+      %span.caret.north
+    %li
+      %span.caret.south
+    %li
+      %span.caret.east
+    %li
+      %span.caret.west
+    %li(style=&quot;margin-left: 5em;&quot;)
+      %span.caret.transall#test_caret
+
+%h5(style=&quot;margin-bottom:1em; margin-top:3em;&quot;) Select to spin the caret
+%nav.radio-demo.button-group(data-bindable=&quot;togglable-group&quot; data-target=&quot;.btn&quot;)
+  %a.btn.active(href=&quot;#&quot; data-add=&quot;south&quot;) Caret (South)
+  %a.btn(href=&quot;#&quot; data-add=&quot;north&quot;) North
+  %a.btn(href=&quot;#&quot; data-add=&quot;east&quot;) East
+  %a.btn(href=&quot;#&quot; data-add=&quot;west&quot;) West
+</code></pre>
+
+<!-- end -->
 
 <p>There is another caret modifier for <code>caret.caret-center</code> which is used
 in split drop down menus.</p>
+
+<p>Caret&#39;s are positioned to align with one another, most likely they will
+need some sort of offset based on the component they are paired with.</p>
 
 <h2>Style Settings</h2>
 
@@ -2360,8 +2484,8 @@ within your <code>config.sass</code> file or before <code>caret.sass</code> is l
 </tr>
 </thead><tbody>
 <tr>
-<td><code>$caret-width</code></td>
-<td><code>4px</code></td>
+<td><code>$caret-size</code></td>
+<td><code>6px</code></td>
 <td>The <code>border-width</code> (size) of the caret</td>
 </tr>
 <tr>
@@ -2867,6 +2991,329 @@ within your <code>config.sass</code> file or before <code>pagination.sass</code>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
+<h1>Pop</h1>
+
+<p>Pops are a more robust <code>Tip</code>. They are built for holding small bits of
+information, media or other secondary content, which is predominantly
+triggered through a <code>click</code> event. They can be assembled via
+<code>data</code> attributes or reference a hidden element within the DOM to
+inject into a <code>Pop</code> container. Positioning is defined by cardinal
+points.</p>
+
+<pre><code class="sass">@import utensils/components/pop/pop
+</code></pre>
+
+<pre><code class="html">data-bindable=&quot;pop&quot;
+</code></pre>
+
+<!--~ markup/pop.html.haml -->
+
+<div class="sherpa-showcase sherpa-clearfix"><nav>
+<ul class='nav inline'>
+<li>
+<a data-bindable='pop' data-content='North is way up there, just hanging out with the Canadians.' data-delay='100' href='#' id='pop_north' title='The Northern Pop'>Northern Pop</a>
+</li>
+<li>
+<a data-bindable='pop' data-content='South is where the snow goes in the summer. You should go there.' data-delay='1000,2000' data-placement='south' href='#' id='pop_south' title='The Southern Pop'>Southern Pop</a>
+</li>
+<li>
+<a data-bindable='pop' data-content='East Coast hip-hop in the 90s is about as good as it gets.' data-placement='east' data-trigger='hover' href='#' id='pop_east' title='The Eastern Pop'>Eastern Pop</a>
+</li>
+<li>
+<a data-bindable='pop' data-content='At some point the West Coast is just going to drop into the Pacific.' data-placement='west' href='#' id='pop_west' title='&lt;h2&gt;The Western Pop&lt;/h2&gt;'>Western Pop</a>
+</li>
+<li>
+<a data-bindable='pop' data-content='Check me out, rolling with no title and all. Total chaos.' data-placement='north' href='#' id='pop_no_title'>No Title</a>
+</li>
+<li>
+<a data-bindable='pop' href='#pop_exterior_content' id='pop_selector'>Exterior Content</a>
+</li>
+</ul>
+</nav>
+<div class='hidden' data-bubble='true' data-delay='activate: 1000, deactivate:0' data-placement='west' data-toggle='in' id='pop_exterior_content'>
+<div class='pop fade'>
+<div class='pop-arrow'></div>
+
+<div class='pop-inner'>
+<div class='pop-header'>
+<h3>Exterior content</h3>
+</div>
+
+<div class='pop-content' style='width: 260px; height:180px;'>
+<img src='/assets/snow-260x180.png' />
+</div>
+
+<p></div>
+</div>
+</div>
+</div></p>
+
+<pre><code class="haml">%nav
+  %ul.nav.inline
+    %li
+      %a#pop_north(data-bindable=&quot;pop&quot; data-delay=&quot;100&quot; title=&quot;The Northern Pop&quot; data-content=&quot;North is way up there, just hanging out with the Canadians.&quot; href=&quot;#&quot;) Northern Pop
+    %li
+      %a#pop_south(data-bindable=&quot;pop&quot; data-placement=&quot;south&quot; data-delay=&quot;1000,2000&quot; title=&quot;The Southern Pop&quot; data-content=&quot;South is where the snow goes in the summer. You should go there.&quot;  href=&quot;#&quot;) Southern Pop
+    %li
+      %a#pop_east(data-bindable=&quot;pop&quot; data-trigger=&quot;hover&quot; data-placement=&quot;east&quot; title=&quot;The Eastern Pop&quot; data-content=&quot;East Coast hip-hop in the 90s is about as good as it gets.&quot;  href=&quot;#&quot;) Eastern Pop
+    %li
+      %a#pop_west(data-bindable=&quot;pop&quot; data-placement=&quot;west&quot; title=&quot;&lt;h2&gt;The Western Pop&lt;/h2&gt;&quot; data-content=&quot;At some point the West Coast is just going to drop into the Pacific.&quot; href=&quot;#&quot;) Western Pop
+    %li
+      %a#pop_no_title(data-bindable=&quot;pop&quot; data-placement=&quot;north&quot; data-content=&quot;Check me out, rolling with no title and all. Total chaos.&quot;  href=&quot;#&quot;) No Title
+    %li
+      %a#pop_selector(data-bindable=&quot;pop&quot; href=&quot;#pop_exterior_content&quot;) Exterior Content
+
+.hidden#pop_exterior_content(data-placement=&quot;west&quot; data-toggle=&quot;in&quot; data-delay=&quot;activate: 1000, deactivate:0&quot; data-bubble=&quot;true&quot;)
+  .pop.fade
+    .pop-arrow
+    .pop-inner
+      .pop-header
+        %h3 Exterior content
+      .pop-content(style=&quot;width: 260px; height:180px;&quot;)
+        %img(src=&quot;/assets/snow-260x180.png&quot;)
+</code></pre>
+
+<!-- end -->
+
+<h2>Options</h2>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>toggle</code></td>
+<td><code>active in</code></td>
+<td>Overrides <code>Togglable&#39;s</code> default of <code>active</code></td>
+</tr>
+<tr>
+<td><code>trigger</code></td>
+<td><code>click</code></td>
+<td>The event to trigger toggle behavior [<code>click</code>, <code>hover</code>, <code>focus</code>, <code>manual</code>]</td>
+</tr>
+<tr>
+<td><code>title</code></td>
+<td><code>&quot;&quot;</code></td>
+<td>The title (html or text) to insert for the header when &quot;<em>is tip like</em>&quot;</td>
+</tr>
+<tr>
+<td><code>content</code></td>
+<td><code>&quot;&quot;</code></td>
+<td>The content (html or text) to insert for the body when &quot;<em>is tip like</em>&quot;</td>
+</tr>
+<tr>
+<td><code>placement</code></td>
+<td><code>north</code></td>
+<td>Where to position the pop in relation to the element: <code>north</code>, <code>south</code>, <code>east</code>, <code>west</code></td>
+</tr>
+<tr>
+<td><code>effect</code></td>
+<td><code>fade</code></td>
+<td>The base animation class to add to the tip markup</td>
+</tr>
+<tr>
+<td><code>href</code></td>
+<td><em>none</em></td>
+<td>Optional DOM element <code>id</code> for the contents and <code>data-attributes</code> to use for the contents of the <code>Pop</code></td>
+</tr>
+</tbody></table>
+
+<p>Referencing &quot;<em>is tip like</em>&quot; means the contents of the <code>Pop</code> reside within
+the <code>data</code> attributes of the link. When a <code>Pop</code> &quot;<em>is not tip like</em>&quot;, it
+references a <code>hidden</code> DOM element.</p>
+
+<p>See <code>Togglable</code> for other options </p>
+
+<h6>Notes</h6>
+
+<ul>
+<li><strong>Heads Up!</strong> <code>Pop</code> will override it&#39;s placement automatically through
+<code>Directional</code> if it determines the requested position will render the
+pop outside the viewport.</li>
+</ul>
+
+<h3>Referencing DOM elements</h3>
+
+<p>If the binded <code>pop</code> element has no <code>data-content</code> attribute, then <code>Pop</code>
+searches for the element in the DOM by the <code>id</code> given in the <code>href</code> or
+the <code>data-target</code> attribute. This element should have an outer container
+containing the markup and <code>data-attribute</code> options to be used with the
+<code>Pop</code>. This markup is blown away from the DOM and stored internally the
+first time the <code>Pop</code> is activated. It&#39;s a good idea to include the
+<code>.hidden</code> or <code>.visuallyhidden</code> class on the container to keep it from
+appearing on screen initially.</p>
+
+<h6>Notes</h6>
+
+<ul>
+<li><strong>Pro Tip!</strong> This is the preferred behavior for creating more complex
+<code>Pop</code> components</li>
+</ul>
+
+<h2>API</h2>
+
+<h3>#new</h3>
+
+<p>Create a new instance of <code>Pop</code> programmatically. Normally this is
+handled through <code>Bindable</code>. </p>
+
+<pre><code class="coffee">#= require pop
+
+@el = $(&#39;#pop&#39;)
+@pop = new utensil.Pop(@el, {target:&#39;#pop_exterior_content&#39;})
+</code></pre>
+
+<h3>#toggle</h3>
+
+<p>Typically called through user input, but can be triggered by the
+elements toggle event.</p>
+
+<pre><code class="coffee">@el.trigger(&#39;click&#39;)
+</code></pre>
+
+<h3>#activate</h3>
+
+<p>Show the pop</p>
+
+<pre><code class="coffee">@pop.activate()
+</code></pre>
+
+<h3>#deactivate</h3>
+
+<p>Removes the pop</p>
+
+<pre><code class="coffee">@pop.deactivate()
+</code></pre>
+
+<h3>#dispose</h3>
+
+<p>Remove the pop behavior</p>
+
+<pre><code class="coffee">@pop.dispose()
+</code></pre>
+
+<h3>Requires</h3>
+
+<ul>
+<li><code>utensil</code></li>
+<li><code>bindable</code></li>
+<li><code>detect</code></li>
+<li><code>togglable</code></li>
+<li><code>directional</code></li>
+</ul>
+
+<p><code>Pop</code> utilizes <code>Togglable</code> via composition.</p>
+
+<h2>Style Settings</h2>
+
+<p>To override the default settings, set the variable and it&#39;s value
+within your <code>config.sass</code> file or before <code>pop.sass</code> is loaded.</p>
+
+<table><thead>
+<tr>
+<th>Variable</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>$pop-bgc</code></td>
+<td><code>$base-bgc</code></td>
+<td>The <code>background-color</code> of the pop</td>
+</tr>
+<tr>
+<td><code>$pop-border</code></td>
+<td><code>$base-border</code></td>
+<td>The <code>border-color</code> of the pop</td>
+</tr>
+<tr>
+<td><code>$pop-radii</code></td>
+<td><code>$radii</code></td>
+<td>The <code>border-radius</code> value of the pop</td>
+</tr>
+<tr>
+<td><code>$pop-offset</code></td>
+<td><code>10px</code></td>
+<td>The amount to offset each pop from their target</td>
+</tr>
+<tr>
+<td><code>$pop-header-bgc</code></td>
+<td><code>$base-bgc-active</code></td>
+<td>The <code>background-color</code> of the <code>.pop-header</code></td>
+</tr>
+<tr>
+<td><code>$pop-header-font-weight</code></td>
+<td><code>bold</code></td>
+<td>The <code>font-weight</code> of the header (has very low specificity)</td>
+</tr>
+<tr>
+<td><code>$pop-header-font-size</code></td>
+<td><code>$base-font-size + 2</code></td>
+<td>The <code>font-size</code> of the header (has very low specificity)</td>
+</tr>
+<tr>
+<td><code>$pop-arrow-bgc</code></td>
+<td><code>$pop-bgc</code></td>
+<td>The <code>background-color</code> of the foreground arrow</td>
+</tr>
+<tr>
+<td><code>$pop-arrow-border</code></td>
+<td><code>$pop-border</code></td>
+<td>The <code>background-color</code> of the background arrow</td>
+</tr>
+<tr>
+<td><code>$pop-arrow-size</code></td>
+<td><code>10px</code></td>
+<td>The size of the arrow (this has a pretty distinct relation to <code>$pop-offset</code>)</td>
+</tr>
+<tr>
+<td><code>$pop-arrow-border-size</code></td>
+<td><code>$pop-arrow-size + 2</code></td>
+<td>The <code>width</code> of the background arrow creating the border effect</td>
+</tr>
+<tr>
+<td><code>$pop-arrow-offset</code></td>
+<td><code>-$pop-arrow-size + 1</code></td>
+<td>The offset against the background arrow</td>
+</tr>
+</tbody></table>
+
+<h6>Warning</h6>
+
+<ul>
+<li><strong>Heads Up!</strong> The configuration file needs to define the <code>$zindex-pops</code>
+value before this file is imported, this is done to keep managing
+<code>z-index</code> mappings in one place.</li>
+</ul>
+
+<h2>Injected Markup</h2>
+
+<p>The markup injected when a pop is shown:</p>
+
+<pre><code class="html">&lt;div class=&quot;pop north fade&quot;&gt;
+ &lt;div class=&quot;pop-arrow&quot;&gt;&lt;/div&gt;
+ &lt;div class=&quot;pop-inner&quot;&gt;
+   &lt;div class=&quot;pop-header&quot;&gt;The Western Pop&lt;/div&gt;
+   &lt;div class=&quot;pop-content&quot;&gt;
+     &lt;p&gt;A bunch of killer content&lt;/p&gt;
+   &lt;/div&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<h2>TODO:</h2>
+
+<ul>
+<li>Do we use <code>data-target</code> as an alternate <code>@container</code>?</li>
+<li>Depth swapping?</li>
+<li>Multiple pops? disable on body click?</li>
+</ul>
+
+<p></section><section class="sherpa-section sherpa-clearfix"></p>
+
 <h1>Print</h1>
 
 <p>A very basic print style sheet based off settings outlined by <a href="http://html5boilerplate.com/">HTML5
@@ -3304,12 +3751,92 @@ within your <code>config.sass</code> file or before <code>table.sass</code> is l
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
+<h1>Timeslot</h1>
+
+<p>Utility class for finding and normalizing time slots.</p>
+
+<h2>API</h2>
+
+<h3>#new</h3>
+
+<p>Create a new instance of <code>Timeslot</code>, typically used compositionally. </p>
+
+<pre><code class="coffee">#= require timeslot
+
+@timeslot = new utensil.Timeslot()
+</code></pre>
+
+<h3>#getTimeslotFromData</h3>
+
+<p>Returns an object from a hash like, array like or number like string. The object
+assumes delay style timeouts with an <code>activate</code> and <code>deactivate</code> values.</p>
+
+<pre><code class="coffee">@timeslot.getTimeslotFromData(&#39;100&#39;)
+# returns: {activate:100, deactivate:100}
+
+@timeslot.getTimeslotFromData(&#39;200&#39;, &#39;show&#39;, &#39;hide&#39;)
+# returns: {activate:200, deactivate:200, show:200, hide:200}
+
+@timeslot.getTimeslotFromData(&#39;200, 300&#39;)
+# returns: {activate:200, deactivate:300}, the first number is always assumed as `activate`
+
+@timeslot.getTimeslotFromData(&#39;{activate:400, deactivate:500}&#39;)
+# returns: {activate:400, deactivate:500}
+
+@timeslot.getTimeslotFromData(&#39;activate:600, deactivate: 700&#39;)
+# returns: {activate:600, deactivate:700}
+
+@timeslot.getTimeslotFromData(&#39;show:600, hide: 700&#39;)
+# returns: {activate:600, deactivate:700, show:600, hide:700}
+
+@timeslot.getTimeslotFromData(&#39;off:100, on: 1000&#39;)
+# returns: {activate:1000, deactivate:100, on:1000, off:100}
+</code></pre>
+
+<p>If slot names are not <code>activate</code> or <code>deactivate</code> an attempt is made to
+find a match from common terms. If this is the case, those common terms
+are returned along with the typical <code>activate</code> and <code>deactivate</code> terms.</p>
+
+<h3>#getClosestMatch</h3>
+
+<p>Attempts to find the closest match for <code>activate</code> and <code>deactivate</code>
+against a set of regular expressions.</p>
+
+<pre><code class="coffee">#= require timeslot
+
+@timeslot.getClosestMatch(&#39;on&#39;)
+# returns: &#39;activate&#39;
+
+@timeslot.getClosestMatch(&#39;hide&#39;)
+# returns: &#39;deactivate&#39;
+</code></pre>
+
+<h3>Requires</h3>
+
+<ul>
+<li><code>utensil</code></li>
+</ul>
+
+<h2>Todo</h2>
+
+<ul>
+<li>The <code>#getTimeslotFromData</code> method is pretty specific, could use a
+some love and abstraction</li>
+<li>The regular expression matchers for <code>activate</code> and <code>deactivate</code> are
+pretty basic at the moment, could use a little tuning</li>
+</ul>
+
+<p></section><section class="sherpa-section sherpa-clearfix"></p>
+
 <h1>Tip</h1>
 
 <p>Tool tip component for showing quick bits of information to a user. Tips
 are generally used on <code>hover</code> states, but can be tied to any event
-trigger. <code>Tip</code> is inspired by
-<a href="https://github.com/jaz303/tipsy">tipsy</a> and <a href="https://github.com/component/tip">component/tip</a></p>
+trigger. Positioning is defined by cardinal points.</p>
+
+<p><code>Tip</code> is structured for very simple use cases, mainly dealing with tool
+tip type behavior. Generally the <code>Pop</code> component is more robust and
+should be considered in most cases.</p>
 
 <pre><code class="sass">@import utensils/components/tip/tip
 </code></pre>
@@ -3322,19 +3849,19 @@ trigger. <code>Tip</code> is inspired by
 <div class="sherpa-showcase sherpa-clearfix"><nav>
 <ul class='nav inline'>
 <li>
-<a data-bindable='tip' data-delay='100' data-target='.sherpa-wrapper' href='#' id='north' title='The Northern Tip'>Northern Tip</a>
+<a data-bindable='tip' data-delay='100' href='#' id='north_tip' title='The Northern Tip'>Northern Tip</a>
 </li>
 <li>
-<a data-bindable='tip' data-delay='1000,2000' data-placement='south' href='#' id='south' title='The Southern Tip'>Southern Tip</a>
+<a data-bindable='tip' data-delay='500,1000' data-placement='south' href='#' id='south_tip' title='The Southern Tip'>Southern Tip</a>
 </li>
 <li>
-<a data-bindable='tip' data-placement='east' href='#' id='east' title='The Eastern Tip'>Eastern Tip</a>
+<a data-bindable='tip' data-placement='east' href='#' id='east_tip' title='The Eastern Tip'>Eastern Tip</a>
 </li>
 <li>
-<a data-bindable='tip' data-placement='west' href='#' id='west' title='The Western Tip'>Western Tip</a>
+<a data-bindable='tip' data-placement='west' href='#' id='west_tip' title='The Western Tip'>Western Tip</a>
 </li>
 <li>
-<a data-bindable='tip' data-placement='south' data-trigger='click' href='#' id='image' title="&lt;img src='/assets/snow-260x180.png'/&gt;">Image Tip (click)</a>
+<a data-bindable='tip' data-placement='north' data-trigger='click' href='#' id='image_tip' title="&lt;img src='/assets/snow-260x180.png' width=260 height=180 /&gt;">Image Tip (click)</a>
 </li>
 </ul>
 </nav>
@@ -3343,15 +3870,15 @@ trigger. <code>Tip</code> is inspired by
 <pre><code class="haml">%nav
   %ul.nav.inline
     %li
-      %a#north(data-bindable=&quot;tip&quot; data-delay=&quot;100&quot; data-target=&quot;.sherpa-wrapper&quot; title=&quot;The Northern Tip&quot; href=&quot;#&quot;) Northern Tip
+      %a#north_tip(data-bindable=&quot;tip&quot; data-delay=&quot;100&quot; title=&quot;The Northern Tip&quot; href=&quot;#&quot;) Northern Tip
     %li
-      %a#south(data-bindable=&quot;tip&quot; data-placement=&quot;south&quot; data-delay=&quot;1000,2000&quot; title=&quot;The Southern Tip&quot; href=&quot;#&quot;) Southern Tip
+      %a#south_tip(data-bindable=&quot;tip&quot; data-placement=&quot;south&quot; data-delay=&quot;500,1000&quot; title=&quot;The Southern Tip&quot; href=&quot;#&quot;) Southern Tip
     %li
-      %a#east(data-bindable=&quot;tip&quot; data-placement=&quot;east&quot; title=&quot;The Eastern Tip&quot; href=&quot;#&quot;) Eastern Tip
+      %a#east_tip(data-bindable=&quot;tip&quot; data-placement=&quot;east&quot; title=&quot;The Eastern Tip&quot; href=&quot;#&quot;) Eastern Tip
     %li
-      %a#west(data-bindable=&quot;tip&quot; data-placement=&quot;west&quot; title=&quot;The Western Tip&quot; href=&quot;#&quot;) Western Tip
+      %a#west_tip(data-bindable=&quot;tip&quot; data-placement=&quot;west&quot; title=&quot;The Western Tip&quot; href=&quot;#&quot;) Western Tip
     %li
-      %a#image(data-bindable=&quot;tip&quot; data-placement=&quot;south&quot; data-trigger=&quot;click&quot; title=&quot;&lt;img src=&#39;/assets/snow-260x180.png&#39;/&gt;&quot; href=&quot;#&quot;) Image Tip (click)
+      %a#image_tip(data-bindable=&quot;tip&quot; data-placement=&quot;north&quot; data-trigger=&quot;click&quot; title=&quot;&lt;img src=&#39;/assets/snow-260x180.png&#39; width=260 height=180 /&gt;&quot; href=&quot;#&quot;) Image Tip (click)
 </code></pre>
 
 <!-- end -->
@@ -3367,7 +3894,7 @@ trigger. <code>Tip</code> is inspired by
 </thead><tbody>
 <tr>
 <td><code>toggle</code></td>
-<td><code>in</code></td>
+<td><code>active in</code></td>
 <td>Overrides <code>Togglable&#39;s</code> default of <code>active</code></td>
 </tr>
 <tr>
@@ -3376,19 +3903,9 @@ trigger. <code>Tip</code> is inspired by
 <td>Overrides <code>Togglable&#39;s</code> default of <code>click</code>, unless it&#39;s a touch enabled device</td>
 </tr>
 <tr>
-<td><code>target</code></td>
-<td><code>body</code></td>
-<td>The element in which to append the tip markup (note this does not get the toggle classes)</td>
-</tr>
-<tr>
-<td><code>lookup</code></td>
-<td><code>closest</code></td>
-<td>Overrides <code>Togglable&#39;s</code> default behavior of <code>find</code></td>
-</tr>
-<tr>
 <td><code>title</code></td>
 <td><code>&quot;&quot;</code></td>
-<td>The content (html or text) to insert for the tip, use the actual <code>title</code> attribute</td>
+<td>The content (html or text) to insert for the tip, use the actual <code>title</code> attribute though</td>
 </tr>
 <tr>
 <td><code>placement</code></td>
@@ -3400,33 +3917,16 @@ trigger. <code>Tip</code> is inspired by
 <td><code>fade</code></td>
 <td>The base animation class to add to the tip markup</td>
 </tr>
-<tr>
-<td><code>delay</code></td>
-<td><code>0</code></td>
-<td>The amount of time in milliseconds to delay on show and hide, see notes below</td>
-</tr>
 </tbody></table>
 
-<p><em>See <code>Togglable</code> for other options</em>  </p>
-
-<p>When using the delay attribute, you can optionally pass a basic object
-with two <code>number</code> values. The values must be separated by a <code>,</code>. The
-first number is the delay for showing the tip, the second is the delay
-time for hiding the tip. The following all end up computing a delay
-object of <code>{show:1000, hide:2000}</code></p>
-
-<pre><code class="html">data-delay=&quot;1000, 2000&quot;
-data-delay=&quot;show:1000, hide:2000&quot;
-data-delay=&quot;{show:1000, hide:2000}&quot;
-data-delay=&quot;hide:1000, show:2000&quot;
-</code></pre>
+<p>See <code>Togglable</code> for other options </p>
 
 <h6>Notes</h6>
 
 <ul>
-<li><strong>Heads Up!</strong> <code>Tip</code> will override it&#39;s placement automatically if it
-determines the requested position will render the tip outside the
-viewable area.</li>
+<li><strong>Heads Up!</strong> <code>Tip</code> will override it&#39;s placement automatically through
+<code>Directional</code> if it determines the requested position will render the
+tip outside the viewport.</li>
 <li><strong>Touch it!</strong> On touch devices when using <a href="http://www.modernizr.com/">modernizr</a>, tips will change
 their trigger behavior to <code>click</code> events. If the item is a link that
 resolves, make sure to add <code>data-bubble=&quot;true&quot;</code> to the element</li>
@@ -3436,7 +3936,7 @@ resolves, make sure to add <code>data-bubble=&quot;true&quot;</code> to the elem
 
 <h3>#new</h3>
 
-<p>Create a new <code>Tip</code> instance programmatically. Normally this is
+<p>Create a new instance of <code>Tip</code> programmatically. Normally this is
 handled through <code>Bindable</code>. </p>
 
 <pre><code class="coffee">#= require tip
@@ -3447,15 +3947,15 @@ handled through <code>Bindable</code>. </p>
 
 <h3>#toggle</h3>
 
-<p>This is normally handled through events, but you can always <code>trigger</code> the
-element&#39;s toggle event</p>
+<p>Typically called through user input, but can be triggered by the
+elements toggle event.</p>
 
-<pre><code class="coffee">@el.trigger(&#39;hover&#39;)
+<pre><code class="coffee">@el.trigger(&#39;mouseenter&#39;)
 </code></pre>
 
 <h3>#activate</h3>
 
-<p>Show the tip immediately</p>
+<p>Show the tip</p>
 
 <pre><code class="coffee">@tip.activate()
 </code></pre>
@@ -3465,13 +3965,6 @@ element&#39;s toggle event</p>
 <p>Removes the tip</p>
 
 <pre><code class="coffee">@tip.deactivate()
-</code></pre>
-
-<h3>#remove</h3>
-
-<p>Removes the tip immediately</p>
-
-<pre><code class="coffee">@tip.remove()
 </code></pre>
 
 <h3>#dispose</h3>
@@ -3488,9 +3981,10 @@ element&#39;s toggle event</p>
 <li><code>bindable</code></li>
 <li><code>detect</code></li>
 <li><code>togglable</code></li>
+<li><code>directional</code></li>
 </ul>
 
-<p><code>Tip</code> is a subclass of <code>Togglable</code>.</p>
+<p><code>Tip</code> utilizes <code>Togglable</code> via composition.</p>
 
 <h2>Style Settings</h2>
 
@@ -3515,6 +4009,11 @@ within your <code>config.sass</code> file or before <code>tip.sass</code> is loa
 <td>The <code>background-color</code> of the tip and arrow</td>
 </tr>
 <tr>
+<td><code>$tip-font-size</code></td>
+<td><code>$base-font-size - 2</code></td>
+<td>The <code>font-size</code> for tips</td>
+</tr>
+<tr>
 <td><code>$tip-radii</code></td>
 <td><code>$radii</code></td>
 <td>The <code>border-radius</code> value of the tip</td>
@@ -3530,21 +4029,45 @@ within your <code>config.sass</code> file or before <code>tip.sass</code> is loa
 <td>The opacity value to apply when the tip is shown</td>
 </tr>
 <tr>
-<td><code>$zindex-tips</code></td>
-<td><code>1010</code></td>
-<td>The <code>z-index</code> value tips sit on</td>
+<td><code>$tip-arrow-bgc</code></td>
+<td><code>$tip-bgc</code></td>
+<td>The <code>background-color</code> for the arrow</td>
+</tr>
+<tr>
+<td><code>$tip-arrow-size</code></td>
+<td><code>5px</code></td>
+<td>The size of the arrow</td>
+</tr>
+<tr>
+<td><code>$tip-arrow-offset</code></td>
+<td><code>-$tip-arrow-size</code></td>
+<td>The offset for positioning the arrow</td>
 </tr>
 </tbody></table>
 
+<h6>Warning</h6>
+
+<ul>
+<li><strong>Heads Up!</strong> The configuration file needs to define the <code>$zindex-tips</code>
+value before this file is imported, this is done to keep managing
+<code>z-index</code> mappings in one place.</li>
+</ul>
+
 <h2>Injected Markup</h2>
 
-<p>This markup is injected when a tip is shown:</p>
+<p>The markup injected when a tip is shown:</p>
 
 <pre><code class="html">&lt;div class=&quot;tip north fade&quot;&gt;
  &lt;div class=&quot;tip-arrow&quot;&gt;&lt;/div&gt;
  &lt;div class=&quot;tip-inner&quot;&gt;The Northern Tip&lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
+
+<h2>Todo</h2>
+
+<ul>
+<li>Do we use <code>data-target</code> as an alternate <code>@container</code>?</li>
+</ul>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
@@ -3557,7 +4080,8 @@ within your <code>config.sass</code> file or before <code>tip.sass</code> is loa
 
 <!--~ markup/togglable.html.haml -->
 
-<div class="sherpa-showcase sherpa-clearfix"><nav>
+<div class="sherpa-showcase sherpa-clearfix"><h5 id='togglable_heading'>Heading</h5>
+<nav>
 <ul class='nav inline'>
 <li id='one'>
 <a data-bindable='togglable' href='#'>One</a>
@@ -3572,16 +4096,23 @@ within your <code>config.sass</code> file or before <code>tip.sass</code> is loa
 <a class='inline' data-bindable='togglable' data-lookup='closest' data-toggle='inline' href='.nav'>Four</a>
 </li>
 <li id='five'>
-<a data-bindable='togglable' data-bubble='true' data-lookup='closest' data-target='.nav' data-toggle='inline' href='#togglable'>Five</a>
+<a data-bindable='togglable' data-bubble='true' data-lookup='closest' data-target='.nav' href='#five'>Five</a>
 </li>
 <li id='six'>
 <a data-activate='true' data-bindable='togglable' href='#'>Six</a>
+</li>
+<li id='seven'>
+<a data-bindable='togglable' data-context='body' data-solo='true' data-toggle='fade' href='#togglable_heading'>Seven</a>
+</li>
+<li id='eight'>
+<a data-bindable='togglable' data-delay='activate: 1000, deactivate: 500' href='#'>Eight</a>
 </li>
 </ul>
 </nav>
 </div>
 
-<pre><code class="haml">%nav
+<pre><code class="haml">%h5#togglable_heading Heading
+%nav
   %ul.nav.inline
     %li#one
       %a(data-bindable=&quot;togglable&quot; href=&quot;#&quot;) One
@@ -3592,9 +4123,13 @@ within your <code>config.sass</code> file or before <code>tip.sass</code> is loa
     %li#four
       %a.inline(data-bindable=&quot;togglable&quot; href=&quot;.nav&quot; data-lookup=&quot;closest&quot; data-toggle=&quot;inline&quot;) Four
     %li#five
-      %a(data-bindable=&quot;togglable&quot; href=&quot;#togglable&quot; data-target=&quot;.nav&quot; data-lookup=&quot;closest&quot; data-toggle=&quot;inline&quot; data-bubble=&quot;true&quot;) Five
+      %a(data-bindable=&quot;togglable&quot; href=&quot;#five&quot; data-target=&quot;.nav&quot; data-lookup=&quot;closest&quot; data-bubble=&quot;true&quot;) Five
     %li#six
       %a(data-bindable=&quot;togglable&quot; href=&quot;#&quot; data-activate=&quot;true&quot;) Six
+    %li#seven
+      %a(data-bindable=&quot;togglable&quot; href=&quot;#togglable_heading&quot; data-context=&quot;body&quot; data-toggle=&quot;fade&quot; data-solo=&quot;true&quot;) Seven
+    %li#eight
+      %a(data-bindable=&quot;togglable&quot; href=&quot;#&quot; data-delay=&quot;activate: 1000, deactivate: 500&quot;) Eight
 </code></pre>
 
 <!-- end -->
@@ -3604,8 +4139,10 @@ within your <code>config.sass</code> file or before <code>tip.sass</code> is loa
 <li>Toggles the classes <code>fade</code> on <code>hover</code>, the <code>href</code> is merely referencing the element as it&#39;s target</li>
 <li>Toggles the class <code>fade</code> on <code>click</code> for only the child <code>&lt;span&gt;</code> and not the <code>&lt;link&gt;</code> element</li>
 <li>Toggles the class <code>inline</code> on <code>click</code> for both the <code>link</code> and <code>ul.nav</code>, using the <code>$.closest</code> method to find the target</li>
-<li>Same as number four except on <code>click</code> the url will change to the <code>href</code> hash to <code>#togglable</code></li>
+<li>Toggles <code>active</code> state on <code>click</code> for the link element, changes the url hash to <code>#five</code></li>
 <li>Toggles the class <code>active</code> on <code>click</code>, but is initialized with the <code>active</code> class on the element</li>
+<li>Toggles the <code>fade</code> class on the &quot;Heading&quot; element on <code>click</code> by using the <code>body</code> element as the <code>context</code> to find the target</li>
+<li>Toggles the <code>active</code> class on the link with a 1 second delay on activation and 1/2 second delay on deactivation</li>
 </ol>
 
 <h2>Options</h2>
@@ -3625,7 +4162,17 @@ within your <code>config.sass</code> file or before <code>tip.sass</code> is loa
 <tr>
 <td><code>trigger</code></td>
 <td><code>click</code></td>
-<td>The event to trigger toggle behavior</td>
+<td>The event to trigger toggle behavior [<code>click</code>, <code>hover</code>, <code>focus</code>, <code>manual</code>]</td>
+</tr>
+<tr>
+<td><code>context</code></td>
+<td><code>bindable</code></td>
+<td>The DOM node to use for lookups</td>
+</tr>
+<tr>
+<td><code>lookup</code></td>
+<td><code>find</code></td>
+<td>The <code>$</code> method to find a target or href target [<code>closest</code>, <code>siblings</code>, <code>parents</code>...]</td>
 </tr>
 <tr>
 <td><code>target</code></td>
@@ -3633,14 +4180,9 @@ within your <code>config.sass</code> file or before <code>tip.sass</code> is loa
 <td>The target element to toggle classes on (the <code>href</code> attribute can also be used)</td>
 </tr>
 <tr>
-<td><code>lookup</code></td>
-<td><code>find</code></td>
-<td>The <code>$</code> method to find a target or href target ~ [<code>closest</code>, <code>siblings</code>, <code>parents</code>...]</td>
-</tr>
-<tr>
 <td><code>solo</code></td>
 <td><code>true</code></td>
-<td>When the target is not the bindable element, classes are toggled to both the target and bindable element. Setting to false will result in classes only being applied to the target</td>
+<td>If <code>target</code> is not the <code>bindable</code> element, classes are toggled on both <code>target</code> and <code>bindable</code>. Setting to <code>true</code> will result in classes only being applied to target</td>
 </tr>
 <tr>
 <td><code>activate</code></td>
@@ -3650,58 +4192,121 @@ within your <code>config.sass</code> file or before <code>tip.sass</code> is loa
 <tr>
 <td><code>bubble</code></td>
 <td><code>false</code></td>
-<td>Controls whether an action <code>preventsDefault</code>, setting to <code>true</code> will allow normal events to fire</td>
+<td>Controls whether an action <code>preventsDefault</code>, setting to <code>true</code> will allow normal events to bubble</td>
+</tr>
+<tr>
+<td><code>delay</code></td>
+<td><code>undefined</code></td>
+<td>The amount of time in milliseconds to delay on <code>activate</code> and <code>deactivate</code>, see the <code>Timeslot</code> class for more information</td>
 </tr>
 </tbody></table>
 
-<p>Togglable finds the target based on the following rules:</p>
+<h3>Trigger Types</h3>
+
+<p>The <code>trigger</code> attribute is mapped to an object with <code>on/off</code> properties
+based on the following:</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>trigger.on =&gt; handler</th>
+<th>trigger.off =&gt; handler</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>&quot;click&quot;</td>
+<td><code>click =&gt; #toggle</code></td>
+<td><code>click =&gt; #toggle</code></td>
+</tr>
+<tr>
+<td>&quot;hover&quot;</td>
+<td><code>mouseenter =&gt; #activate</code></td>
+<td><code>mouseleave =&gt; #deactivate</code></td>
+</tr>
+<tr>
+<td>&quot;focus&quot;</td>
+<td><code>focus =&gt; #activate</code></td>
+<td><code>blur =&gt; #deactivate</code></td>
+</tr>
+<tr>
+<td>&quot;manual&quot;</td>
+<td><em>none</em></td>
+<td><em>none</em></td>
+</tr>
+</tbody></table>
+
+<p>The <code>manual</code> trigger does not add any listeners, as it&#39;s meant to be
+called programmatically from another object.</p>
+
+<p>Any other trigger types, not included in this list, map their <code>on/off</code>
+properties to the given trigger name. They will automatically call the
+<code>#toggle</code> handler.</p>
+
+<h3>Finding Targets</h3>
+
+<p><code>Togglable</code> finds the target based on the following rules:</p>
 
 <ol>
 <li>If there is a <code>target</code> attribute and it can be found in the DOM, use it</li>
-<li>Otherwise if there is NOT an <code>href</code> attribute use the bindable element</li>
-<li>Or if the <code>href</code> is <code>#this</code> or <code>#</code> use the bindable element</li>
-<li>Or if the <code>href</code> is a normal link (i.e. <code>/some-page</code>) use the bindable element</li>
-<li>Otherwise lookup the element within the <code>href</code>, if found, use it, otherwise use the bindable element</li>
+<li>Otherwise if there is NOT an <code>href</code> attribute use the <code>bindable</code> element</li>
+<li>Or if the <code>href</code> is <code>#this</code> or <code>#</code> use the <code>bindable</code> element</li>
+<li>Or if the <code>href</code> is a normal link (i.e. <code>/some-page</code>) use the <code>bindable</code> element</li>
+<li>Otherwise lookup the element within the <code>href</code>, if found, use it, otherwise use the <code>bindable</code> element</li>
+<li>If the <code>context</code> attribute is set, it will perform searches from this element, otherwise it will use the element associated with <code>bindable</code></li>
 </ol>
+
+<h3>Delays</h3>
+
+<p>When <code>delay</code> is set, the <code>#activate</code> and <code>#deactivate</code> methods are
+scoped to <code>#activateWithDelay</code> and <code>#deactivateWithDelay</code>. Classes
+utilizing <code>Togglable</code> through composition and a <code>delay</code> do not need to
+be concerned with this in their own API. Compositional classes should
+only rely on the dispatched events from their instance of <code>Togglable</code>.</p>
+
+<p>If one of the delay properties (<code>activate</code> or <code>deactivate</code>) is <code>0</code>, then
+the method for that property will not be scoped through the delay method.</p>
 
 <h2>API</h2>
 
 <h3>#new</h3>
 
-<p>Create a new instance of Togglable programatically. Normally this is
-handled through Bindable. </p>
+<p>Create a new instance of <code>Togglable</code> programatically. </p>
 
 <pre><code class="coffee">#= require togglable
 
 @el = $(&#39;#togglable&#39;)
-@togglable = new utensil.Togglable(@el, {toggle: &#39;show&#39;, trigger: &#39;hover&#39;})
+@togglable = new utensil.Togglable(@el, {toggle: &#39;fade active&#39;, trigger: &#39;hover&#39;})
 </code></pre>
 
 <h3>#toggle</h3>
 
-<p>This is normally handled through events, but you can always trigger the
-element&#39;s toggle event</p>
+<p>Typically called through user input, but can be triggered by the
+elements toggle event.</p>
 
-<pre><code class="coffee">@el.trigger(&#39;hover&#39;)
+<pre><code class="coffee">@el.trigger(&#39;click&#39;)
 </code></pre>
 
 <h3>#activate</h3>
 
-<p>Add the toggle classes to the element</p>
+<p>Add the toggle classes to the targets</p>
+
+<p>dispatches the <code>togglable:activate</code> event</p>
 
 <pre><code class="coffee">@togglable.activate()
 </code></pre>
 
 <h3>#deactivate</h3>
 
-<p>Remove the toggle classes from the element</p>
+<p>Removes the toggle classes from the targets</p>
+
+<p>dispatches the <code>togglable:deactivate</code> event</p>
 
 <pre><code class="coffee">@togglable.deactivate()
 </code></pre>
 
 <h3>#dispose</h3>
 
-<p>Remove the togglable behavior</p>
+<p>Cleans up any internal references </p>
 
 <pre><code class="coffee">@togglable.dispose()
 </code></pre>
@@ -3710,19 +4315,25 @@ element&#39;s toggle event</p>
 
 <ul>
 <li><code>utensil</code></li>
+<li><code>bindable</code></li>
+<li><code>timeslot</code></li>
 </ul>
 
-<h2>Todo</h2>
+<p>An instance of <code>Togglable</code> creates a <code>@dispatcher</code> property for
+dispatching events. Typically this is just the <code>@el</code> but is created for
+clarity in access from a compositional class.</p>
 
-<ul>
-<li>Look at passing a context object for easier searching via <code>@lookup</code></li>
-</ul>
+<pre><code class="coffee">@togglable = new utensil.Togglable(@el, @data)
+
+@toggler.dispatcher.on(&#39;togglable:activate&#39;, =&gt; @activated.apply(@, arguments))
+@toggler.dispatcher.on(&#39;togglable:deactivate&#39;, =&gt; @deactivated.apply(@, arguments))
+</code></pre>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
 <h1>Togglable Group</h1>
 
-<p>An extension of <code>Togglable</code> for adding, removing and toggling groups of related elements. These are predominantly used in navigation type systems. A togglable group can function either like radio buttons or check boxes.</p>
+<p>An extension of <code>Togglable</code> for adding, removing and toggling groups of related elements. These are predominantly used in navigation type systems. A <code>TogglableGroup</code> can function either like radio buttons or check boxes.</p>
 
 <pre><code class="html">data-bindable=&quot;togglable-group&quot;
 </code></pre>
@@ -3742,7 +4353,7 @@ element&#39;s toggle event</p>
 </li>
 </ul>
 </nav>
-<nav style='margin-top: 2em;'>
+<nav style='margin-top: 1em;'>
 <ul class='nav inline' data-behavior='checkbox' data-bindable='togglable-group' id='checks'>
 <li>
 <a href='#'>Checkbox 1</a>
@@ -3752,6 +4363,19 @@ element&#39;s toggle event</p>
 </li>
 <li>
 <a href='#'>Checkbox 3</a>
+</li>
+</ul>
+</nav>
+<nav style='margin-top: 1em;'>
+<ul class='nav inline' data-bindable='togglable-group' data-delay='activate: 500, deactivate: 500' id='radios_delay'>
+<li class='radio-li'>
+<a href='#'>Radio 1 Delay</a>
+</li>
+<li class='radio-li'>
+<a href='#'>Radio 2 Delay</a>
+</li>
+<li class='radio-li'>
+<a href='#'>Radio 3 Delay</a>
 </li>
 </ul>
 </nav>
@@ -3766,7 +4390,7 @@ element&#39;s toggle event</p>
     %li.radio-li
       %a(href=&quot;#&quot;) Radio 3
 
-%nav(style=&quot;margin-top: 2em;&quot;)
+%nav(style=&quot;margin-top: 1em;&quot;)
   %ul#checks.nav.inline(data-bindable=&quot;togglable-group&quot; data-behavior=&quot;checkbox&quot;)
     %li
       %a(href=&quot;#&quot;) Checkbox 1
@@ -3774,6 +4398,15 @@ element&#39;s toggle event</p>
       %a(href=&quot;#&quot;) Checkbox 2
     %li
       %a(href=&quot;#&quot;) Checkbox 3
+
+%nav(style=&quot;margin-top: 1em;&quot;)
+  %ul#radios_delay.nav.inline(data-bindable=&quot;togglable-group&quot; data-delay=&quot;activate: 500, deactivate: 500&quot;)
+    %li.radio-li
+      %a(href=&quot;#&quot;) Radio 1 Delay
+    %li.radio-li
+      %a(href=&quot;#&quot;) Radio 2 Delay
+    %li.radio-li
+      %a(href=&quot;#&quot;) Radio 3 Delay
 </code></pre>
 
 <!-- end -->
@@ -3804,14 +4437,13 @@ element&#39;s toggle event</p>
 </tr>
 </tbody></table>
 
-<p><em>See <code>Togglable</code> for other options</em>  </p>
+<p>See <code>Togglable</code> for remaining options </p>
 
 <h2>API</h2>
 
 <h3>#new</h3>
 
-<p>Create a new instance of <code>TogglableGroup</code> programatically. Normally this is
-handled through <code>Bindable</code>. Most setup occurs within <code>Togglable</code>. </p>
+<p>Create a new instance of <code>TogglableGroup</code> programatically. Most setup occurs within <code>Togglable</code>. </p>
 
 <pre><code class="coffee">#= require togglable_group
 
@@ -3833,41 +4465,49 @@ elements within the group.</p>
 $(@checks[1]).trigger(&#39;click&#39;)
 </code></pre>
 
-<p><em>Note: this does not call the super&#39;s <code>toggle</code> method</em></p>
+<p><em>Note: this does not call the super&#39;s <code>#toggle</code> method</em></p>
 
 <h3>#activate</h3>
 
-<p>Activate can take either an index or element as it&#39;s parameter.
+<p>Activate can take either an index or element as it&#39;s target parameter.
 Activating will add the toggle classes to the element. If behavior is
 set to <code>radio</code>, activate will remove the toggle classes from other
 elements within the group.</p>
 
+<p>dispatches the <code>togglable:activate</code> event</p>
+
 <pre><code class="coffee"># activate by index
-@radio_group.activate(1)
-@check_group.activate(1)
+@radio_group.activate(target:1)
+@check_group.activate(target:1)
 
 # activate by element
-@radio_group.activate($(@radios[1]))
-@check_group.activate($(@checks[1]).find(&#39;a&#39;))
+@radio_group.activate(target:$(@radios[1]))
+@check_group.activate(target:$(@checks[1]).find(&#39;a&#39;))
 </code></pre>
-
-<p><em>Note: this does not call the super&#39;s <code>activate</code> method</em></p>
 
 <h3>#deactivate</h3>
 
-<p>Deactivate can take either an index or element as it&#39;s parameter.
+<p>Deactivate can take either an index or element as it&#39;s target parameter.
 Deactivating will remove the toggle classes from the element.</p>
 
+<p>dispatches the <code>togglable:deactivate</code> event</p>
+
 <pre><code class="coffee"># deactivate by index
-@radio_group.deactivate(1)
-@check_group.deactivate(1)
+@radio_group.deactivate(target:1)
+@check_group.deactivate(target:1)
 
 # deactivate by element
-@radio_group.deactivate($(@radios[1]))
-@check_group.deactivate($(@checks[1]).find(&#39;a&#39;))
+@radio_group.deactivate(target:$(@radios[1]))
+@check_group.deactivate(target:$(@checks[1]).find(&#39;a&#39;))
 </code></pre>
 
-<p><em>Note: this does not call the super&#39;s <code>deactivate</code> method</em></p>
+<h3>#dispose</h3>
+
+<p>Cleans up any internal references </p>
+
+<pre><code class="coffee">@radio_group.dispose()
+@check_group.dispose()
+</code></pre>
 
 <h3>Requires</h3>
 
@@ -3879,12 +4519,32 @@ Deactivating will remove the toggle classes from the element.</p>
 
 <p><code>TogglableGroup</code> is a subclass of <code>Togglable</code>.</p>
 
+<h2>Todo</h2>
+
+<ul>
+<li>Handling the options for solo, context/lookup, target/href
+
+<ul>
+<li>We are setting the target based on a navigation system,
+but this will need to change for tabs, accordions, etc.. maybe a
+subclass or composition?</li>
+</ul></li>
+<li>Figure out the <code>@is_active</code> value
+
+<ul>
+<li>The <code>@is_active</code> value from <code>Togglable</code> is being set based
+on every click. It&#39;s not used by <code>TogglerGroup</code>, but may down the
+road. Need to figure out the best way to manage this since we are
+dealing with a group. The alternative could be that <code>@is_active</code> be
+set by the state of the <code>e.target</code>?</li>
+</ul></li>
+</ul>
+
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
 <h1>Transition</h1>
 
-<p>Contains helper classes added and removed via JavaScript for CSS
-transitions.</p>
+<p>Contains helper classes for CSS transitions.</p>
 
 <pre><code class="sass">@import utensils/components/transition/transition
 </code></pre>
@@ -3912,6 +4572,10 @@ transitions.</p>
 <tr>
 <td><code>.collapse.in</code></td>
 <td>Transitions an element to a <code>height</code> of <code>auto</code></td>
+</tr>
+<tr>
+<td><code>.transall</code></td>
+<td>A generic transition on <code>all</code> properties</td>
 </tr>
 </tbody></table>
 
@@ -3946,6 +4610,16 @@ within your <code>config.sass</code> file or before <code>transition.sass</code>
 <td><code>$collapse-timing-function</code></td>
 <td><code>$ease-in-out-quart</code></td>
 <td>Timing equation to fade the element</td>
+</tr>
+<tr>
+<td><code>$transall-duration</code></td>
+<td><code>$speed</code></td>
+<td>Duration to transition the element</td>
+</tr>
+<tr>
+<td><code>$transall-timing-function</code></td>
+<td><code>$ease-in-out-quart</code></td>
+<td>Timing equation to transition the element</td>
 </tr>
 </tbody></table>
 
