@@ -12,7 +12,6 @@ describe 'Tip', ->
     @html = $('#jasmine-fixtures')
     @html.append(extra)
 
-    # @shell_el = @html.find('#shell')
     @north_el = @html.find('#north_tip')
     @south_el = @html.find('#south_tip')
     @east_el = @html.find('#east_tip')

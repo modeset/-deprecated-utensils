@@ -50,10 +50,9 @@ See `Togglable` for other options
 
 
 ###### Notes  
-
 - **Heads Up!** `Tip` will override it's placement automatically through
   `Directional` if it determines the requested position will render the
-  tip outside the viewable area.
+  tip outside the viewport.
 - **Touch it!** On touch devices when using [modernizr](http://www.modernizr.com/), tips will change
   their trigger behavior to `click` events. If the item is a link that
   resolves, make sure to add `data-bubble="true"` to the element
