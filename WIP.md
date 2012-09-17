@@ -2,8 +2,9 @@
 # TODO
 
 ## WIP
-- Override `@container` with `data-target` for Tip and Pop?
-- Give all components a bit of scrubbing
+- There should be some sort of Togglable class that acts similar to the
+  demo (removes a bunch of classes then add more) pass a data-remove?
+
 - dropdowns.sass * (figure out how carets play into this)
 - notifications.sass *
 - modals.sass *
@@ -19,8 +20,6 @@
 - turn the dimensionizer demo to togglable
 
 ## Reminders, Tasks and Future Considerations
-- There should be some sort of Togglable class that acts similar to the
-  demo (removes a bunch of classes then add more)
 - Lists should be able to pass a single element
 - Look at making the sass files use abstract elements
 - Should we abstract focus/disabled states to a mixin?

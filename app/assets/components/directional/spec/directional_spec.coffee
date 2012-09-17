@@ -7,10 +7,10 @@ describe 'Directional', ->
     loadFixtures('directional')
     @html = $('#jasmine-fixtures')
 
-    @north_el = @html.find('#north')
-    @south_el = @html.find('#south')
-    @east_el = @html.find('#east')
-    @west_el = @html.find('#west')
+    @north_el = @html.find('#north_direc')
+    @south_el = @html.find('#south_direc')
+    @east_el = @html.find('#east_direc')
+    @west_el = @html.find('#west_direc')
 
     @north_direc = new utensil.Directional(@north_el, @html, 'north')
     @south_direc = new utensil.Directional(@south_el, @html, 'south')
@@ -19,6 +19,7 @@ describe 'Directional', ->
 
   afterEach ->
     $('.demo').remove()
+
 
   describe '#constructor', ->
     it 'constructs the class with parameters', ->

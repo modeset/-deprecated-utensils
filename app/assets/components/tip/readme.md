@@ -22,15 +22,15 @@ data-bindable="tip"
 ```haml
 %nav
   %ul.nav.inline
-    %li
+    %li<
       %a#north_tip(data-bindable="tip" data-delay="100" title="The Northern Tip" href="#") Northern Tip
-    %li
+    %li<
       %a#south_tip(data-bindable="tip" data-placement="south" data-delay="500,1000" title="The Southern Tip" href="#") Southern Tip
-    %li
+    %li<
       %a#east_tip(data-bindable="tip" data-placement="east" title="The Eastern Tip" href="#") Eastern Tip
-    %li
+    %li<
       %a#west_tip(data-bindable="tip" data-placement="west" title="The Western Tip" href="#") Western Tip
-    %li
+    %li<
       %a#image_tip(data-bindable="tip" data-placement="north" data-trigger="click" title="<img src='/assets/snow-260x180.png' width=260 height=180 />" href="#") Image Tip (click)
 ```
 <!-- end -->
@@ -53,9 +53,10 @@ See `Togglable` for other options
 - **Heads Up!** `Tip` will override it's placement automatically through
   `Directional` if it determines the requested position will render the
   tip outside the viewport.
-- **Touch it!** On touch devices when using [modernizr](http://www.modernizr.com/), tips will change
-  their trigger behavior to `click` events. If the item is a link that
-  resolves, make sure to add `data-bubble="true"` to the element
+- **Touch it!** On touch devices when using
+  [modernizr](http://www.modernizr.com/), tips will change their trigger
+  behavior to `click` events. If the item is a link that resolves, make
+  sure to add `data-bubble="true"` to the element
 
 
 ## API
@@ -115,8 +116,8 @@ within your `config.sass` file or before `tip.sass` is loaded.
 
 Variable            | Default               | Description
 -----------------   | ----------            | -------------------------------------------
-`$tip-color`        | `white`               | The text `color` of the tip
 `$tip-bgc`          | `black`               | The `background-color` of the tip and arrow
+`$tip-color`        | `white`               | The text `color` of the tip
 `$tip-font-size`    | `$base-font-size - 2` | The `font-size` for tips
 `$tip-radii`        | `$radii`              | The `border-radius` value of the tip
 `$tip-offset`       | `2px`                 | The amount to offset each tip from their target
@@ -140,7 +141,4 @@ The markup injected when a tip is shown:
  <div class="tip-inner">The Northern Tip</div>
 </div>
 ```
-
-## Todo
-- Do we use `data-target` as an alternate `@container`?
 

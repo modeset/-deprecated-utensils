@@ -18,6 +18,7 @@ describe 'Timeslot', ->
     it 'constructs the class with parameters', ->
       expect(@timeslot).toBeDefined()
 
+
   describe '#getTimeslotFromData', ->
     it 'returns 0, 0 when null or undefined', ->
       expect(@timeslot.getTimeslotFromData()).toEqual(activate:0, deactivate:0)

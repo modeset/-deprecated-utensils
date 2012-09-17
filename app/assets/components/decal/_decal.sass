@@ -1,15 +1,17 @@
 
+$decal-bgc: $inverse !default
+$decal-color: white !default
 $decal-status-list: $base-status-list !default
 $decal-radii: $radii !default
 
 .decal
-  background-color: $inverse
+  background-color: $decal-bgc
   border-radius: $decal-radii
   font-size: 85%
   font-weight: bold
   text-transform: uppercase
   padding: 0.125em 0.5em
-  color: white
+  color: $decal-color
 
   // Generate the status classes based on the list
   @if $decal-status-list != nil

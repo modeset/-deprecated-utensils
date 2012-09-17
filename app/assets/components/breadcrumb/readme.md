@@ -15,7 +15,7 @@ a divider after their content. This is configurable from the
 <!--~ markup/breadcrumb.html.haml -->
 ```haml
 %nav
-  %ol.nav.breadcrumb
+  %ol.nav.breadcrumb(data-bindable="togglable-group")
     %li<
       %a(href="#") Level 1
     %li<
@@ -33,10 +33,10 @@ within your `config.sass` file or before `breadcrumb.sass` is loaded.
 
 Variable                      | Default              | Description
 ----------------------------- | -------------------- | -------------------------------------------
+`$breadcrumb-bgc`             | `$base-bgc-active`   | The `background-color` of the breadcrumb component
 `$breadcrumb-color`           | `$base-color-active` | The text `color` for breadcrumbs (includes the active breadcrumb and divider)
 `$breadcrumb-link-color`      | `$link-color`        | The text `color` of an active breadcrumb link
 `$breadcrumb-link-hover`      | `$link-hover`        | The text `color` when a breadcrumb link is hovered
-`$breadcrumb-bgc`             | `$base-bgc-active`   | The `background-color` of the breadcrumb component
 `$breadcrumb-font-weight`     | `bold`               | The default `font-weight` for breadcrumbs
 `$breadcrumb-radii`           | `$radii`             | The `border-radius` of the breadcrumb container
 `$breadcrumb-divider-content` | `" /"`               | The content to appear after a breadcrumb link

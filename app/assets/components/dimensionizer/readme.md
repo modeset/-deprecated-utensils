@@ -56,3 +56,7 @@ Remove the `Dimensionizer` from the `DOM`
 - `utensil`
 - `detect`
 
+## Todo
+- turn the dimensionizer demo to togglable
+- should this live in a debug package outside the components?
+

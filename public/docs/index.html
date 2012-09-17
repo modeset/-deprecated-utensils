@@ -126,7 +126,7 @@ a divider after their content. This is configurable from the
 <!--~ markup/breadcrumb.html.haml -->
 
 <div class="sherpa-showcase sherpa-clearfix"><nav>
-<ol class='nav breadcrumb'>
+<ol class='nav breadcrumb' data-bindable='togglable-group'>
 <li><a href='#'>Level 1</a></li>
 <li><a href='#'>Level 2</a></li>
 <li><a href='#'>Level 3</a></li>
@@ -136,7 +136,7 @@ a divider after their content. This is configurable from the
 </div>
 
 <pre><code class="haml">%nav
-  %ol.nav.breadcrumb
+  %ol.nav.breadcrumb(data-bindable=&quot;togglable-group&quot;)
     %li&lt;
       %a(href=&quot;#&quot;) Level 1
     %li&lt;
@@ -162,6 +162,11 @@ within your <code>config.sass</code> file or before <code>breadcrumb.sass</code>
 </tr>
 </thead><tbody>
 <tr>
+<td><code>$breadcrumb-bgc</code></td>
+<td><code>$base-bgc-active</code></td>
+<td>The <code>background-color</code> of the breadcrumb component</td>
+</tr>
+<tr>
 <td><code>$breadcrumb-color</code></td>
 <td><code>$base-color-active</code></td>
 <td>The text <code>color</code> for breadcrumbs (includes the active breadcrumb and divider)</td>
@@ -175,11 +180,6 @@ within your <code>config.sass</code> file or before <code>breadcrumb.sass</code>
 <td><code>$breadcrumb-link-hover</code></td>
 <td><code>$link-hover</code></td>
 <td>The text <code>color</code> when a breadcrumb link is hovered</td>
-</tr>
-<tr>
-<td><code>$breadcrumb-bgc</code></td>
-<td><code>$base-bgc-active</code></td>
-<td>The <code>background-color</code> of the breadcrumb component</td>
 </tr>
 <tr>
 <td><code>$breadcrumb-font-weight</code></td>
@@ -670,6 +670,14 @@ the following:</p>
 modifiers for each of the elements within the <code>$base-status-list</code>. By
 default this is set to <code>false</code> so no buttons are created.</p>
 
+<h2>Todo:</h2>
+
+<ul>
+<li>This is a bit wordy here.. document how lists in sass work somewhere
+else</li>
+<li>The sass file could use a little cleaning.</li>
+</ul>
+
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
 <h1>Container</h1>
@@ -853,6 +861,12 @@ within your <code>config.sass</code> file or before <code>container-media.sass</
 </tr>
 </tbody></table>
 
+<h2>Todo</h2>
+
+<ul>
+<li>This is not the best name for this thing</li>
+</ul>
+
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
 <h1>Content Editable</h1>
@@ -944,6 +958,16 @@ within your <code>config.sass</code> file or before <code>decal.sass</code> is l
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td><code>$decal-bgc</code></td>
+<td><code>$inverse</code></td>
+<td>default</td>
+</tr>
+<tr>
+<td><code>$decal-color</code></td>
+<td><code>white</code></td>
+<td>default</td>
+</tr>
 <tr>
 <td><code>$decal-status-list</code></td>
 <td><code>$base-status-list</code></td>
@@ -1073,6 +1097,13 @@ when creating a <code>Dimensionizer</code> as the constructor&#39;s <code>data</
 <ul>
 <li><code>utensil</code></li>
 <li><code>detect</code></li>
+</ul>
+
+<h2>Todo</h2>
+
+<ul>
+<li>turn the dimensionizer demo to togglable</li>
+<li>should this live in a debug package outside the components?</li>
 </ul>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
@@ -2131,11 +2162,6 @@ within your <code>config.sass</code> file or before <code>form-controls.sass</co
 </tr>
 </thead><tbody>
 <tr>
-<td><code>$form-color</code></td>
-<td><code>$base-color</code></td>
-<td>The text <code>color</code> of form controls</td>
-</tr>
-<tr>
 <td><code>$form-bgc</code></td>
 <td><code>$base-bgc</code></td>
 <td>The <code>background-color</code> of form controls</td>
@@ -2144,6 +2170,11 @@ within your <code>config.sass</code> file or before <code>form-controls.sass</co
 <td><code>$form-border</code></td>
 <td><code>$base-border</code></td>
 <td>The <code>border-color</code> of form controls</td>
+</tr>
+<tr>
+<td><code>$form-color</code></td>
+<td><code>$base-color</code></td>
+<td>The text <code>color</code> of form controls</td>
 </tr>
 <tr>
 <td><code>$form-focus-bgc</code></td>
@@ -2710,27 +2741,21 @@ blown pagination system isn&#39;t required.</p>
       %a(href=&quot;#&quot;) &amp;larr; Prev
     %li&lt;
       %a(href=&quot;#&quot;) Next &amp;rarr;
-
 %hr
-
 %nav
   %ul.pager.pager-center
     %li&lt;
       %a(href=&quot;#&quot;) &amp;larr; Prev
     %li&lt;
       %a(href=&quot;#&quot;) Next &amp;rarr;
-
 %hr
-
 %nav
   %ul.pager.pager-right
     %li&lt;
       %a(href=&quot;#&quot;) &amp;larr; Prev
     %li.disabled&lt;
       %a(href=&quot;#&quot;) Next &amp;rarr;
-
 %hr
-
 %nav
   %ul.pager
     %li.pager-prev&lt;
@@ -2829,7 +2854,7 @@ represent pagination navigation. The list should contain the <code>.nav</code> c
 
 <!--~ markup/pagination.html.haml -->
 
-<div class="sherpa-showcase sherpa-clearfix"><nav>
+<div class="sherpa-showcase sherpa-clearfix"><nav data-bindable='togglable-group'>
 <ol class='nav pagination'>
 <li class='disabled'><a href='#'>&laquo;</a></li>
 <li><a href='#'>1</a></li>
@@ -2842,7 +2867,7 @@ represent pagination navigation. The list should contain the <code>.nav</code> c
 </ol>
 </nav>
 <hr />
-<nav class='pagination-center'>
+<nav class='pagination-center' data-bindable='togglable-group'>
 <ol class='nav pagination'>
 <li class='disabled'><a href='#'>&laquo;</a></li>
 <li><a href='#'>1</a></li>
@@ -2855,7 +2880,7 @@ represent pagination navigation. The list should contain the <code>.nav</code> c
 </ol>
 </nav>
 <hr />
-<nav class='pagination-right'>
+<nav class='pagination-right' data-bindable='togglable-group'>
 <ol class='nav pagination'>
 <li class='disabled'><a href='#'>&laquo;</a></li>
 <li><a href='#'>1</a></li>
@@ -2869,7 +2894,7 @@ represent pagination navigation. The list should contain the <code>.nav</code> c
 </nav>
 </div>
 
-<pre><code class="haml">%nav
+<pre><code class="haml">%nav(data-bindable=&quot;togglable-group&quot;)
   %ol.nav.pagination
     %li.disabled&lt;
       %a(href=&quot;#&quot;) &amp;laquo;
@@ -2888,7 +2913,7 @@ represent pagination navigation. The list should contain the <code>.nav</code> c
     %li&lt;
       %a(href=&quot;#&quot;) &amp;raquo;
 %hr
-%nav.pagination-center
+%nav.pagination-center(data-bindable=&quot;togglable-group&quot;)
   %ol.nav.pagination
     %li.disabled&lt;
       %a(href=&quot;#&quot;) &amp;laquo;
@@ -2907,7 +2932,7 @@ represent pagination navigation. The list should contain the <code>.nav</code> c
     %li&lt;
       %a(href=&quot;#&quot;) &amp;raquo;
 %hr
-%nav.pagination-right
+%nav.pagination-right(data-bindable=&quot;togglable-group&quot;)
   %ol.nav.pagination
     %li.disabled&lt;
       %a(href=&quot;#&quot;) &amp;laquo;
@@ -2942,11 +2967,6 @@ within your <code>config.sass</code> file or before <code>pagination.sass</code>
 </tr>
 </thead><tbody>
 <tr>
-<td><code>$pagination-color-active</code></td>
-<td><code>$base-color-active</code></td>
-<td>The text <code>color</code> when a pagination button is <code>active</code></td>
-</tr>
-<tr>
 <td><code>$pagination-bgc</code></td>
 <td><code>$base-bgc</code></td>
 <td>The <code>background-color</code> of a pagination button</td>
@@ -2965,6 +2985,11 @@ within your <code>config.sass</code> file or before <code>pagination.sass</code>
 <td><code>$pagination-border</code></td>
 <td><code>$base-border</code></td>
 <td>The <code>border-color</code> of a pagination button</td>
+</tr>
+<tr>
+<td><code>$pagination-color-active</code></td>
+<td><code>$base-color-active</code></td>
+<td>The text <code>color</code> when a pagination button is <code>active</code></td>
 </tr>
 <tr>
 <td><code>$pagination-disabled-color</code></td>
@@ -3010,24 +3035,12 @@ points.</p>
 
 <div class="sherpa-showcase sherpa-clearfix"><nav>
 <ul class='nav inline'>
-<li>
-<a data-bindable='pop' data-content='North is way up there, just hanging out with the Canadians.' data-delay='100' href='#' id='pop_north' title='The Northern Pop'>Northern Pop</a>
-</li>
-<li>
-<a data-bindable='pop' data-content='South is where the snow goes in the summer. You should go there.' data-delay='1000,2000' data-placement='south' href='#' id='pop_south' title='The Southern Pop'>Southern Pop</a>
-</li>
-<li>
-<a data-bindable='pop' data-content='East Coast hip-hop in the 90s is about as good as it gets.' data-placement='east' data-trigger='hover' href='#' id='pop_east' title='The Eastern Pop'>Eastern Pop</a>
-</li>
-<li>
-<a data-bindable='pop' data-content='At some point the West Coast is just going to drop into the Pacific.' data-placement='west' href='#' id='pop_west' title='&lt;h2&gt;The Western Pop&lt;/h2&gt;'>Western Pop</a>
-</li>
-<li>
-<a data-bindable='pop' data-content='Check me out, rolling with no title and all. Total chaos.' data-placement='north' href='#' id='pop_no_title'>No Title</a>
-</li>
-<li>
-<a data-bindable='pop' href='#pop_exterior_content' id='pop_selector'>Exterior Content</a>
-</li>
+<li><a data-bindable='pop' data-content='North is way up there, just hanging out with the Canadians.' data-delay='100' href='#' id='pop_north' title='The Northern Pop'>Northern Pop</a></li>
+<li><a data-bindable='pop' data-content='South is where the snow goes in the summer. You should go there.' data-delay='1000,2000' data-placement='south' href='#' id='pop_south' title='The Southern Pop'>Southern Pop</a></li>
+<li><a data-bindable='pop' data-content='East Coast hip-hop in the 90s is about as good as it gets.' data-placement='east' data-trigger='hover' href='#' id='pop_east' title='The Eastern Pop'>Eastern Pop</a></li>
+<li><a data-bindable='pop' data-content='At some point the West Coast is just going to drop into the Pacific.' data-placement='west' href='#' id='pop_west' title='&lt;h2&gt;The Western Pop&lt;/h2&gt;'>Western Pop</a></li>
+<li><a data-bindable='pop' data-content='Check me out, rolling with no title and all. Total chaos.' data-placement='north' href='#' id='pop_no_title'>No Title</a></li>
+<li><a data-bindable='pop' href='#pop_exterior_content' id='pop_selector'>Exterior Content</a></li>
 </ul>
 </nav>
 <div class='hidden' data-bubble='true' data-delay='activate: 1000, deactivate:0' data-placement='west' data-toggle='in' id='pop_exterior_content'>
@@ -3050,17 +3063,17 @@ points.</p>
 
 <pre><code class="haml">%nav
   %ul.nav.inline
-    %li
+    %li&lt;
       %a#pop_north(data-bindable=&quot;pop&quot; data-delay=&quot;100&quot; title=&quot;The Northern Pop&quot; data-content=&quot;North is way up there, just hanging out with the Canadians.&quot; href=&quot;#&quot;) Northern Pop
-    %li
+    %li&lt;
       %a#pop_south(data-bindable=&quot;pop&quot; data-placement=&quot;south&quot; data-delay=&quot;1000,2000&quot; title=&quot;The Southern Pop&quot; data-content=&quot;South is where the snow goes in the summer. You should go there.&quot;  href=&quot;#&quot;) Southern Pop
-    %li
+    %li&lt;
       %a#pop_east(data-bindable=&quot;pop&quot; data-trigger=&quot;hover&quot; data-placement=&quot;east&quot; title=&quot;The Eastern Pop&quot; data-content=&quot;East Coast hip-hop in the 90s is about as good as it gets.&quot;  href=&quot;#&quot;) Eastern Pop
-    %li
+    %li&lt;
       %a#pop_west(data-bindable=&quot;pop&quot; data-placement=&quot;west&quot; title=&quot;&lt;h2&gt;The Western Pop&lt;/h2&gt;&quot; data-content=&quot;At some point the West Coast is just going to drop into the Pacific.&quot; href=&quot;#&quot;) Western Pop
-    %li
+    %li&lt;
       %a#pop_no_title(data-bindable=&quot;pop&quot; data-placement=&quot;north&quot; data-content=&quot;Check me out, rolling with no title and all. Total chaos.&quot;  href=&quot;#&quot;) No Title
-    %li
+    %li&lt;
       %a#pop_selector(data-bindable=&quot;pop&quot; href=&quot;#pop_exterior_content&quot;) Exterior Content
 
 .hidden#pop_exterior_content(data-placement=&quot;west&quot; data-toggle=&quot;in&quot; data-delay=&quot;activate: 1000, deactivate:0&quot; data-bubble=&quot;true&quot;)
@@ -3304,12 +3317,12 @@ value before this file is imported, this is done to keep managing
 &lt;/div&gt;
 </code></pre>
 
-<h2>TODO:</h2>
+<h2>Todo:</h2>
 
 <ul>
-<li>Do we use <code>data-target</code> as an alternate <code>@container</code>?</li>
+<li>Multiple pops?</li>
 <li>Depth swapping?</li>
-<li>Multiple pops? disable on body click?</li>
+<li>disable on body click?</li>
 </ul>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
@@ -3351,7 +3364,7 @@ can be used for simple navigation as well.</p>
 </li>
 </ul>
 </nav>
-<br />
+<hr />
 <nav>
 <ul class='nav inline' data-bindable='togglable-group'>
 <li>
@@ -3375,7 +3388,7 @@ can be used for simple navigation as well.</p>
       %a(href=&quot;#&quot;) Block Link 2
     %li
       %a(href=&quot;#&quot;) Block Link 3
-%br
+%hr
 %nav
   %ul.nav.inline(data-bindable=&quot;togglable-group&quot;)
     %li
@@ -3418,14 +3431,14 @@ within your <code>config.sass</code> file or before <code>scaffold.sass</code> i
 <td>The body&#39;s <code>font-family</code></td>
 </tr>
 <tr>
-<td><code>$body-color</code></td>
-<td><code>$base-color</code></td>
-<td>The body&#39;s text <code>color</code></td>
-</tr>
-<tr>
 <td><code>$body-background</code></td>
 <td><code>$base-bgc</code></td>
 <td>The body&#39;s <code>background</code></td>
+</tr>
+<tr>
+<td><code>$body-color</code></td>
+<td><code>$base-color</code></td>
+<td>The body&#39;s text <code>color</code></td>
 </tr>
 <tr>
 <td><code>$select-color</code></td>
@@ -3453,6 +3466,12 @@ within your <code>config.sass</code> file or before <code>scaffold.sass</code> i
 <td>The <code>padding-right</code> on the <code>.nav.inline</code> element</td>
 </tr>
 </tbody></table>
+
+<h2>Todo</h2>
+
+<ul>
+<li>Enable the <code>.nav-header</code> class, might be good to have a divider too?</li>
+</ul>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
@@ -3749,6 +3768,12 @@ within your <code>config.sass</code> file or before <code>table.sass</code> is l
 <li><strong>Heads Up!</strong> Tables throughout the style guide may not contain the exact styles of the application</li>
 </ul>
 
+<h2>Todo:</h2>
+
+<ul>
+<li>Auto generate the table.</li>
+</ul>
+
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
 <h1>Timeslot</h1>
@@ -3848,36 +3873,26 @@ should be considered in most cases.</p>
 
 <div class="sherpa-showcase sherpa-clearfix"><nav>
 <ul class='nav inline'>
-<li>
-<a data-bindable='tip' data-delay='100' href='#' id='north_tip' title='The Northern Tip'>Northern Tip</a>
-</li>
-<li>
-<a data-bindable='tip' data-delay='500,1000' data-placement='south' href='#' id='south_tip' title='The Southern Tip'>Southern Tip</a>
-</li>
-<li>
-<a data-bindable='tip' data-placement='east' href='#' id='east_tip' title='The Eastern Tip'>Eastern Tip</a>
-</li>
-<li>
-<a data-bindable='tip' data-placement='west' href='#' id='west_tip' title='The Western Tip'>Western Tip</a>
-</li>
-<li>
-<a data-bindable='tip' data-placement='north' data-trigger='click' href='#' id='image_tip' title="&lt;img src='/assets/snow-260x180.png' width=260 height=180 /&gt;">Image Tip (click)</a>
-</li>
+<li><a data-bindable='tip' data-delay='100' href='#' id='north_tip' title='The Northern Tip'>Northern Tip</a></li>
+<li><a data-bindable='tip' data-delay='500,1000' data-placement='south' href='#' id='south_tip' title='The Southern Tip'>Southern Tip</a></li>
+<li><a data-bindable='tip' data-placement='east' href='#' id='east_tip' title='The Eastern Tip'>Eastern Tip</a></li>
+<li><a data-bindable='tip' data-placement='west' href='#' id='west_tip' title='The Western Tip'>Western Tip</a></li>
+<li><a data-bindable='tip' data-placement='north' data-trigger='click' href='#' id='image_tip' title="&lt;img src='/assets/snow-260x180.png' width=260 height=180 /&gt;">Image Tip (click)</a></li>
 </ul>
 </nav>
 </div>
 
 <pre><code class="haml">%nav
   %ul.nav.inline
-    %li
+    %li&lt;
       %a#north_tip(data-bindable=&quot;tip&quot; data-delay=&quot;100&quot; title=&quot;The Northern Tip&quot; href=&quot;#&quot;) Northern Tip
-    %li
+    %li&lt;
       %a#south_tip(data-bindable=&quot;tip&quot; data-placement=&quot;south&quot; data-delay=&quot;500,1000&quot; title=&quot;The Southern Tip&quot; href=&quot;#&quot;) Southern Tip
-    %li
+    %li&lt;
       %a#east_tip(data-bindable=&quot;tip&quot; data-placement=&quot;east&quot; title=&quot;The Eastern Tip&quot; href=&quot;#&quot;) Eastern Tip
-    %li
+    %li&lt;
       %a#west_tip(data-bindable=&quot;tip&quot; data-placement=&quot;west&quot; title=&quot;The Western Tip&quot; href=&quot;#&quot;) Western Tip
-    %li
+    %li&lt;
       %a#image_tip(data-bindable=&quot;tip&quot; data-placement=&quot;north&quot; data-trigger=&quot;click&quot; title=&quot;&lt;img src=&#39;/assets/snow-260x180.png&#39; width=260 height=180 /&gt;&quot; href=&quot;#&quot;) Image Tip (click)
 </code></pre>
 
@@ -3927,9 +3942,10 @@ should be considered in most cases.</p>
 <li><strong>Heads Up!</strong> <code>Tip</code> will override it&#39;s placement automatically through
 <code>Directional</code> if it determines the requested position will render the
 tip outside the viewport.</li>
-<li><strong>Touch it!</strong> On touch devices when using <a href="http://www.modernizr.com/">modernizr</a>, tips will change
-their trigger behavior to <code>click</code> events. If the item is a link that
-resolves, make sure to add <code>data-bubble=&quot;true&quot;</code> to the element</li>
+<li><strong>Touch it!</strong> On touch devices when using
+<a href="http://www.modernizr.com/">modernizr</a>, tips will change their trigger
+behavior to <code>click</code> events. If the item is a link that resolves, make
+sure to add <code>data-bubble=&quot;true&quot;</code> to the element</li>
 </ul>
 
 <h2>API</h2>
@@ -3999,14 +4015,14 @@ within your <code>config.sass</code> file or before <code>tip.sass</code> is loa
 </tr>
 </thead><tbody>
 <tr>
-<td><code>$tip-color</code></td>
-<td><code>white</code></td>
-<td>The text <code>color</code> of the tip</td>
-</tr>
-<tr>
 <td><code>$tip-bgc</code></td>
 <td><code>black</code></td>
 <td>The <code>background-color</code> of the tip and arrow</td>
+</tr>
+<tr>
+<td><code>$tip-color</code></td>
+<td><code>white</code></td>
+<td>The text <code>color</code> of the tip</td>
 </tr>
 <tr>
 <td><code>$tip-font-size</code></td>
@@ -4063,12 +4079,6 @@ value before this file is imported, this is done to keep managing
 &lt;/div&gt;
 </code></pre>
 
-<h2>Todo</h2>
-
-<ul>
-<li>Do we use <code>data-target</code> as an alternate <code>@container</code>?</li>
-</ul>
-
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
 <h1>Togglable</h1>
@@ -4083,30 +4093,14 @@ value before this file is imported, this is done to keep managing
 <div class="sherpa-showcase sherpa-clearfix"><h5 id='togglable_heading'>Heading</h5>
 <nav>
 <ul class='nav inline'>
-<li id='one'>
-<a data-bindable='togglable' href='#'>One</a>
-</li>
-<li id='two'>
-<a data-bindable='togglable' data-toggle='fade' data-trigger='hover' href='#this'>Two</a>
-</li>
-<li id='three'>
-<a data-bindable='togglable' data-solo='true' data-toggle='fade' href='#span'>Three <span id="span">Span</span></a>
-</li>
-<li id='four'>
-<a class='inline' data-bindable='togglable' data-lookup='closest' data-toggle='inline' href='.nav'>Four</a>
-</li>
-<li id='five'>
-<a data-bindable='togglable' data-bubble='true' data-lookup='closest' data-target='.nav' href='#five'>Five</a>
-</li>
-<li id='six'>
-<a data-activate='true' data-bindable='togglable' href='#'>Six</a>
-</li>
-<li id='seven'>
-<a data-bindable='togglable' data-context='body' data-solo='true' data-toggle='fade' href='#togglable_heading'>Seven</a>
-</li>
-<li id='eight'>
-<a data-bindable='togglable' data-delay='activate: 1000, deactivate: 500' href='#'>Eight</a>
-</li>
+<li id='one'><a data-bindable='togglable' href='#'>One</a></li>
+<li id='two'><a data-bindable='togglable' data-toggle='fade' data-trigger='hover' href='#this'>Two</a></li>
+<li id='three'><a data-bindable='togglable' data-solo='true' data-toggle='fade' href='#span'>Three <span id="span">Span</span></a></li>
+<li id='four'><a class='inline' data-bindable='togglable' data-lookup='closest' data-toggle='inline' href='.nav'>Four</a></li>
+<li id='five'><a data-bindable='togglable' data-bubble='true' data-lookup='closest' data-target='.nav' href='#five'>Five</a></li>
+<li id='six'><a data-activate='true' data-bindable='togglable' href='#'>Six</a></li>
+<li id='seven'><a data-bindable='togglable' data-context='body' data-solo='true' data-toggle='fade' href='#togglable_heading'>Seven</a></li>
+<li id='eight'><a data-bindable='togglable' data-delay='activate: 1000, deactivate: 500' href='#'>Eight</a></li>
 </ul>
 </nav>
 </div>
@@ -4114,21 +4108,21 @@ value before this file is imported, this is done to keep managing
 <pre><code class="haml">%h5#togglable_heading Heading
 %nav
   %ul.nav.inline
-    %li#one
+    %li#one&lt;
       %a(data-bindable=&quot;togglable&quot; href=&quot;#&quot;) One
-    %li#two
+    %li#two&lt;
       %a(data-bindable=&quot;togglable&quot; href=&quot;#this&quot; data-trigger=&quot;hover&quot; data-toggle=&quot;fade&quot;) Two
-    %li#three
+    %li#three&lt;
       %a(data-bindable=&quot;togglable&quot; href=&quot;#span&quot; data-solo=&quot;true&quot; data-toggle=&quot;fade&quot;) Three &lt;span id=&quot;span&quot;&gt;Span&lt;/span&gt;
-    %li#four
+    %li#four&lt;
       %a.inline(data-bindable=&quot;togglable&quot; href=&quot;.nav&quot; data-lookup=&quot;closest&quot; data-toggle=&quot;inline&quot;) Four
-    %li#five
+    %li#five&lt;
       %a(data-bindable=&quot;togglable&quot; href=&quot;#five&quot; data-target=&quot;.nav&quot; data-lookup=&quot;closest&quot; data-bubble=&quot;true&quot;) Five
-    %li#six
+    %li#six&lt;
       %a(data-bindable=&quot;togglable&quot; href=&quot;#&quot; data-activate=&quot;true&quot;) Six
-    %li#seven
+    %li#seven&lt;
       %a(data-bindable=&quot;togglable&quot; href=&quot;#togglable_heading&quot; data-context=&quot;body&quot; data-toggle=&quot;fade&quot; data-solo=&quot;true&quot;) Seven
-    %li#eight
+    %li#eight&lt;
       %a(data-bindable=&quot;togglable&quot; href=&quot;#&quot; data-delay=&quot;activate: 1000, deactivate: 500&quot;) Eight
 </code></pre>
 
@@ -4333,7 +4327,10 @@ clarity in access from a compositional class.</p>
 
 <h1>Togglable Group</h1>
 
-<p>An extension of <code>Togglable</code> for adding, removing and toggling groups of related elements. These are predominantly used in navigation type systems. A <code>TogglableGroup</code> can function either like radio buttons or check boxes.</p>
+<p>An extension of <code>Togglable</code> for adding, removing and toggling groups of
+related elements. These are predominantly used in navigation type
+systems. A <code>TogglableGroup</code> can function either like radio buttons or
+check boxes.</p>
 
 <pre><code class="html">data-bindable=&quot;togglable-group&quot;
 </code></pre>
@@ -4342,70 +4339,52 @@ clarity in access from a compositional class.</p>
 
 <div class="sherpa-showcase sherpa-clearfix"><nav>
 <ul class='nav inline' data-bindable='togglable-group' data-target='.radio-li' id='radios'>
-<li class='radio-li'>
-<a href='#'>Radio 1</a>
-</li>
-<li class='radio-li'>
-<a href='#'>Radio 2</a>
-</li>
-<li class='radio-li'>
-<a href='#'>Radio 3</a>
-</li>
+<li class='radio-li'><a href='#'>Radio 1</a></li>
+<li class='radio-li'><a href='#'>Radio 2</a></li>
+<li class='radio-li'><a href='#'>Radio 3</a></li>
 </ul>
 </nav>
 <nav style='margin-top: 1em;'>
 <ul class='nav inline' data-behavior='checkbox' data-bindable='togglable-group' id='checks'>
-<li>
-<a href='#'>Checkbox 1</a>
-</li>
-<li>
-<a href='#'>Checkbox 2</a>
-</li>
-<li>
-<a href='#'>Checkbox 3</a>
-</li>
+<li><a href='#'>Checkbox 1</a></li>
+<li><a href='#'>Checkbox 2</a></li>
+<li><a href='#'>Checkbox 3</a></li>
 </ul>
 </nav>
 <nav style='margin-top: 1em;'>
 <ul class='nav inline' data-bindable='togglable-group' data-delay='activate: 500, deactivate: 500' id='radios_delay'>
-<li class='radio-li'>
-<a href='#'>Radio 1 Delay</a>
-</li>
-<li class='radio-li'>
-<a href='#'>Radio 2 Delay</a>
-</li>
-<li class='radio-li'>
-<a href='#'>Radio 3 Delay</a>
-</li>
+<li class='radio-li'><a href='#'>Radio 1 Delay</a></li>
+<li class='radio-li'><a href='#'>Radio 2 Delay</a></li>
+<li class='radio-li'><a href='#'>Radio 3 Delay</a></li>
 </ul>
 </nav>
 </div>
 
 <pre><code class="haml">%nav
   %ul#radios.nav.inline(data-bindable=&quot;togglable-group&quot; data-target=&quot;.radio-li&quot;)
-    %li.radio-li
+    %li.radio-li&lt;
       %a(href=&quot;#&quot;) Radio 1
-    %li.radio-li
+    %li.radio-li&lt;
       %a(href=&quot;#&quot;) Radio 2
-    %li.radio-li
+    %li.radio-li&lt;
       %a(href=&quot;#&quot;) Radio 3
 
 %nav(style=&quot;margin-top: 1em;&quot;)
   %ul#checks.nav.inline(data-bindable=&quot;togglable-group&quot; data-behavior=&quot;checkbox&quot;)
-    %li
+    %li&lt;
       %a(href=&quot;#&quot;) Checkbox 1
-    %li
+    %li&lt;
       %a(href=&quot;#&quot;) Checkbox 2
-    %li
+    %li&lt;
       %a(href=&quot;#&quot;) Checkbox 3
 
 %nav(style=&quot;margin-top: 1em;&quot;)
   %ul#radios_delay.nav.inline(data-bindable=&quot;togglable-group&quot; data-delay=&quot;activate: 500, deactivate: 500&quot;)
-    %li.radio-li
+    %li.radio-li&lt;
       %a(href=&quot;#&quot;) Radio 1 Delay
-    %li.radio-li
+    %li.radio-li&lt;
       %a(href=&quot;#&quot;) Radio 2 Delay
-    %li.radio-li
+    %li.radio-li&lt;
       %a(href=&quot;#&quot;) Radio 3 Delay
 </code></pre>
 
@@ -4443,7 +4422,8 @@ clarity in access from a compositional class.</p>
 
 <h3>#new</h3>
 
-<p>Create a new instance of <code>TogglableGroup</code> programatically. Most setup occurs within <code>Togglable</code>. </p>
+<p>Create a new instance of <code>TogglableGroup</code> programatically. Most setup
+occurs within <code>Togglable</code>. </p>
 
 <pre><code class="coffee">#= require togglable_group
 
@@ -4627,7 +4607,8 @@ within your <code>config.sass</code> file or before <code>transition.sass</code>
 
 <h1>Typography</h1>
 
-<p>Heading, paragraph, blockquotes, code, lists, and inline typographic elements.</p>
+<p>Heading, paragraph, blockquotes, code, lists, and inline typographic
+elements.</p>
 
 <pre><code class="sass">@import utensils/components/typography/typography
 </code></pre>
@@ -4640,19 +4621,14 @@ within your <code>config.sass</code> file or before <code>transition.sass</code>
 
 <div class="sherpa-showcase sherpa-clearfix"><h1>Google hearts h1 headings, but only use one per page.</h1>
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-<br />
 <h2>Got sections? Try using h2 headings.</h2>
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-<br />
 <h3>Good things come in threes, like tacos and h3 headings.</h3>
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-<br />
 <h4>There's nothing clever to say about h4 headings.</h4>
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-<br />
 <h5>Every time you use an h5 heading, Google kills a puppy. A tiny little puppy.</h5>
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-<br />
 <h6>An h6 heading? Google just killed a litter of kittens.</h6>
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 </div>
@@ -4662,19 +4638,14 @@ within your <code>config.sass</code> file or before <code>transition.sass</code>
 
 %h1 Google hearts h1 headings, but only use one per page.
 %p=lorem
-%br
 %h2 Got sections? Try using h2 headings.
 %p=lorem
-%br
 %h3 Good things come in threes, like tacos and h3 headings.
 %p=lorem
-%br
 %h4 There&#39;s nothing clever to say about h4 headings.
 %p=lorem
-%br
 %h5 Every time you use an h5 heading, Google kills a puppy. A tiny little puppy.
 %p=lorem
-%br
 %h6 An h6 heading? Google just killed a litter of kittens.
 %p=lorem
 </code></pre>
@@ -4842,15 +4813,13 @@ git push</pre>
 <!--~ markup/typography-blockquote.html.haml -->
 
 <div class="sherpa-showcase sherpa-clearfix"><blockquote>
-<p>
-&#8220;Let me tell you what Melba Toast is packin' right here, all right. We got 4:11 Positrac outback, 750 double pumper, Edelbrock intake, bored over 30, 11 to 1 pop-up pistons, turbo-jet 390 horsepower. We're talkin' some f***in' muscle.&#8221;
-<small>David Wooderson, <cite title="link to source">Dazed &amp; Confused</cite></small>
-</p>
+<p>&#8220;Let me tell you what Melba Toast is packin' right here, all right. We got 4:11 Positrac outback, 750 double pumper, Edelbrock intake, bored over 30, 11 to 1 pop-up pistons, turbo-jet 390 horsepower. We're talkin' some f***in' muscle.&#8221;
+<small>David Wooderson, <cite title="link to source">Dazed &amp; Confused</cite></small></p>
 </blockquote>
 </div>
 
 <pre><code class="haml">%blockquote
-  %p
+  %p&lt;
     &amp;#8220;Let me tell you what Melba Toast is packin&#39; right here, all right. We got 4:11 Positrac outback, 750 double pumper, Edelbrock intake, bored over 30, 11 to 1 pop-up pistons, turbo-jet 390 horsepower. We&#39;re talkin&#39; some f***in&#39; muscle.&amp;#8221;
     &lt;small&gt;David Wooderson, &lt;cite title=&quot;link to source&quot;&gt;Dazed &amp;amp; Confused&lt;/cite&gt;&lt;/small&gt;
 </code></pre>
@@ -4860,12 +4829,14 @@ git push</pre>
 <h6>Notes</h6>
 
 <ul>
-<li><strong>Pro Tip!</strong> Utilize <code>&amp;#8220;</code> and <code>&amp;#8221;</code> for opening and closing quotes within a <code>&lt;blockquote&gt;</code> element</li>
+<li><strong>Pro Tip!</strong> Utilize <code>&amp;#8220;</code> and <code>&amp;#8221;</code> for opening and closing
+quotes within a <code>&lt;blockquote&gt;</code> element</li>
 </ul>
 
 <h3>Rules</h3>
 
-<p>Horizontal rules can utilize the class <code>.dashed</code> and <code>.dotted</code> for a different separator.</p>
+<p>Horizontal rules can utilize the class <code>.dashed</code> and <code>.dotted</code> for a
+different separator.</p>
 
 <!--~ markup/typography-rules.html.haml -->
 
@@ -4883,7 +4854,10 @@ git push</pre>
 
 <h3>Lists</h3>
 
-<p>Lists come in three varieties, unordered (<code>ul</code>), ordered (<code>ol</code>), and unstyled (<code>.unstyled-list</code>). Unstyled simply removes any list styles and left margin. By default all <code>ul</code> and <code>ol</code> elements nested under a <code>nav</code> element render the same as an <code>.unstyled-list</code> class. </p>
+<p>Lists come in three varieties, unordered (<code>ul</code>), ordered (<code>ol</code>), and
+unstyled (<code>.unstyled-list</code>). Unstyled simply removes any list styles and
+left margin. By default all <code>ul</code> and <code>ol</code> elements nested under a <code>nav</code>
+element render the same as an <code>.unstyled-list</code> class. </p>
 
 <!--~ markup/typography-lists.html.haml -->
 
@@ -5036,9 +5010,7 @@ variables.</p>
 <!--~ markup/typography-definition.html.haml -->
 
 <div class="sherpa-showcase sherpa-clearfix"><section style='width:25%; float:left; margin-right: 5%;'>
-<p>
-<strong>Definition list:</strong>
-</p>
+<p><strong>Definition list:</strong></p>
 <dl>
 <dt>Definition Term</dt>
 <dd>Definition Description Lorem ipsum dolor sit amet.</dd>
@@ -5049,9 +5021,7 @@ variables.</p>
 </dl>
 </section>
 <section style='width:60%; float:left;'>
-<p>
-<strong>Horizontal Definition list:</strong>
-</p>
+<p><strong>Horizontal Definition list:</strong></p>
 <dl class='dl-horizontal'>
 <dt>Definition Term</dt>
 <dd>Definition Description Lorem ipsum dolor sit amet.</dd>
@@ -5064,7 +5034,7 @@ variables.</p>
 </div>
 
 <pre><code class="haml">%section(style=&quot;width:25%; float:left; margin-right: 5%;&quot;)
-  %p
+  %p&lt;
     %strong Definition list:
   %dl
     %dt Definition Term
@@ -5075,7 +5045,7 @@ variables.</p>
     %dd Definition Description Lorem ipsum dolor sit amet.
 
 %section(style=&quot;width:60%; float:left;&quot;)
-  %p
+  %p&lt;
     %strong Horizontal Definition list:
   %dl.dl-horizontal
     %dt Definition Term
@@ -5090,8 +5060,8 @@ variables.</p>
 
 <h2>Style Settings</h2>
 
-<p>To override the default settings, set the variable and it&#39;s value
-within your <code>config.sass</code> file or before <code>typography.sass</code> is loaded.</p>
+<p>To override the default settings, set the variable and it&#39;s value within
+your <code>config.sass</code> file or before <code>typography.sass</code> is loaded.</p>
 
 <table><thead>
 <tr>
@@ -5100,6 +5070,11 @@ within your <code>config.sass</code> file or before <code>typography.sass</code>
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td><code>$heading-color</code></td>
+<td><code>$body-color</code></td>
+<td>The <code>color</code> of heading elements</td>
+</tr>
 <tr>
 <td><code>$heading-family</code></td>
 <td><code>$sans-family</code></td>
@@ -5114,11 +5089,6 @@ within your <code>config.sass</code> file or before <code>typography.sass</code>
 <td><code>$heading-line-height</code></td>
 <td><code>1</code></td>
 <td>The <code>line-height</code> of heading elements</td>
-</tr>
-<tr>
-<td><code>$heading-color</code></td>
-<td><code>$body-color</code></td>
-<td>The <code>color</code> of heading elements</td>
 </tr>
 <tr>
 <td><code>$h1-size</code></td>
@@ -5166,11 +5136,6 @@ within your <code>config.sass</code> file or before <code>typography.sass</code>
 <td>The text <code>color</code> for the <code>mark</code> element</td>
 </tr>
 <tr>
-<td><code>$code-color-inline</code></td>
-<td><code>$body-color</code></td>
-<td>The <code>color</code> of inline <code>code</code> elements</td>
-</tr>
-<tr>
 <td><code>$code-bgc</code></td>
 <td><code>$focus-bgc</code></td>
 <td>The <code>background-color</code> of <code>code</code> and <code>pre</code> blocks</td>
@@ -5179,6 +5144,11 @@ within your <code>config.sass</code> file or before <code>typography.sass</code>
 <td><code>$code-border</code></td>
 <td><code>$base-border</code></td>
 <td>The <code>border-color</code> of <code>code</code> and <code>pre</code> blocks</td>
+</tr>
+<tr>
+<td><code>$code-color-inline</code></td>
+<td><code>$body-color</code></td>
+<td>The <code>color</code> of inline <code>code</code> elements</td>
 </tr>
 <tr>
 <td><code>$pre-radii</code></td>
@@ -5206,7 +5176,7 @@ within your <code>config.sass</code> file or before <code>typography.sass</code>
 
 <h1>Utensil</h1>
 
-<p>The top level namespace object for the utensils library created on window.</p>
+<p>The top level <code>namespace</code> object for the utensils library created on window.</p>
 
 <h2>Usage</h2>
 
@@ -5220,7 +5190,8 @@ class utensil.ClassName
 
 <h1>Well</h1>
 
-<p>Wells are used to contain components and other various elements.</p>
+<p>Wells are used to contain components and other various elements. Works
+great with form layouts.</p>
 
 <pre><code class="sass">@import utensils/components/well/well
 </code></pre>
@@ -5248,19 +5219,14 @@ within your <code>config.sass</code> file or before <code>well.sass</code> is lo
 </tr>
 </thead><tbody>
 <tr>
-<td><code>$well-border</code></td>
-<td><code>$base-border</code></td>
-<td>The <code>border-color</code> for all wells</td>
-</tr>
-<tr>
 <td><code>$well-bgc</code></td>
 <td><code>$base-bgc</code></td>
 <td>The <code>background-color</code> for <code>.well</code></td>
 </tr>
 <tr>
-<td><code>$well-bgc-fill</code></td>
-<td><code>darken($well-bgc, 8%)</code></td>
-<td>The <code>background-color</code> for <code>.well.fill</code></td>
+<td><code>$well-border</code></td>
+<td><code>$base-border</code></td>
+<td>The <code>border-color</code> for all wells</td>
 </tr>
 <tr>
 <td><code>$well-radii</code></td>
@@ -5271,6 +5237,11 @@ within your <code>config.sass</code> file or before <code>well.sass</code> is lo
 <td><code>$well-spacing</code></td>
 <td><code>1.25em</code></td>
 <td>The <code>padding</code> and <code>margin-bottom</code> around wells</td>
+</tr>
+<tr>
+<td><code>$well-bgc-fill</code></td>
+<td><code>darken($well-bgc, 8%)</code></td>
+<td>The <code>background-color</code> for <code>.well.fill</code></td>
 </tr>
 </tbody></table>
 

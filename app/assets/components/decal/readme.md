@@ -29,6 +29,8 @@ within your `config.sass` file or before `decal.sass` is loaded.
 
 Variable             | Default             | Description
 -------------------- | ------------------- | -------------------------------------------
+`$decal-bgc`         | `$inverse`          | default
+`$decal-color`       | `white`             | default
 `$decal-status-list` | `$base-status-list` | The `list` of modifier classes to include
 `$decal-radii`       | `$radii`            | The `border-radius` of a decal
 

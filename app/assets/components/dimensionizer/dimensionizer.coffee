@@ -15,18 +15,18 @@ class utensil.Dimensionizer
     @color = if @data.color then '#000' else '#fff'
 
   initialize: ->
-    @window = $(window)
+    @win = $(window)
     $('body').append(@render())
     @dimensionizer = $('#_dimensionizer')
     @resize()
     @addListeners()
 
   addListeners: ->
-    @window.on('resize', @resize)
+    @win.on('resize', @resize)
     @dimensionizer.one('click', @remove)
 
   resize: =>
-    @dimensionizer.html(@window.width() + 'px')
+    @dimensionizer.html(@win.width() + 'px')
 
   remove: =>
     if @dimensionizer && utensil.Detect.hasTransition
@@ -36,7 +36,7 @@ class utensil.Dimensionizer
       @dispose()
 
   dispose: ->
-    @window.off('resize', @resize)
+    @win.off('resize', @resize)
     @dimensionizer.remove()
 
   render: ->

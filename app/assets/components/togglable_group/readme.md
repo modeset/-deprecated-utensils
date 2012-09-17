@@ -1,6 +1,9 @@
 
 # Togglable Group
-An extension of `Togglable` for adding, removing and toggling groups of related elements. These are predominantly used in navigation type systems. A `TogglableGroup` can function either like radio buttons or check boxes.
+An extension of `Togglable` for adding, removing and toggling groups of
+related elements. These are predominantly used in navigation type
+systems. A `TogglableGroup` can function either like radio buttons or
+check boxes.
 
 ```html
 data-bindable="togglable-group"
@@ -12,29 +15,29 @@ data-bindable="togglable-group"
 ```haml
 %nav
   %ul#radios.nav.inline(data-bindable="togglable-group" data-target=".radio-li")
-    %li.radio-li
+    %li.radio-li<
       %a(href="#") Radio 1
-    %li.radio-li
+    %li.radio-li<
       %a(href="#") Radio 2
-    %li.radio-li
+    %li.radio-li<
       %a(href="#") Radio 3
 
 %nav(style="margin-top: 1em;")
   %ul#checks.nav.inline(data-bindable="togglable-group" data-behavior="checkbox")
-    %li
+    %li<
       %a(href="#") Checkbox 1
-    %li
+    %li<
       %a(href="#") Checkbox 2
-    %li
+    %li<
       %a(href="#") Checkbox 3
 
 %nav(style="margin-top: 1em;")
   %ul#radios_delay.nav.inline(data-bindable="togglable-group" data-delay="activate: 500, deactivate: 500")
-    %li.radio-li
+    %li.radio-li<
       %a(href="#") Radio 1 Delay
-    %li.radio-li
+    %li.radio-li<
       %a(href="#") Radio 2 Delay
-    %li.radio-li
+    %li.radio-li<
       %a(href="#") Radio 3 Delay
 ```
 <!-- end -->
@@ -53,7 +56,8 @@ See `Togglable` for remaining options
 ## API
 
 ### #new
-Create a new instance of `TogglableGroup` programatically. Most setup occurs within `Togglable`. 
+Create a new instance of `TogglableGroup` programatically. Most setup
+occurs within `Togglable`. 
 
 ```coffee
 #= require togglable_group

@@ -20,27 +20,21 @@ To allow pager to float on the sides of the container, apply the
       %a(href="#") &larr; Prev
     %li<
       %a(href="#") Next &rarr;
-
 %hr
-
 %nav
   %ul.pager.pager-center
     %li<
       %a(href="#") &larr; Prev
     %li<
       %a(href="#") Next &rarr;
-
 %hr
-
 %nav
   %ul.pager.pager-right
     %li<
       %a(href="#") &larr; Prev
     %li.disabled<
       %a(href="#") Next &rarr;
-
 %hr
-
 %nav
   %ul.pager
     %li.pager-prev<

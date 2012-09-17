@@ -1,6 +1,6 @@
 
 # Utensil
-The top level namespace object for the utensils library created on window.
+The top level `namespace` object for the utensils library created on window.
 
 ## Usage
 

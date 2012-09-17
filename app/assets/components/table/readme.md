@@ -125,3 +125,6 @@ Variable               | Default                           | Description
 ###### Warnings
 - **Heads Up!** Tables throughout the style guide may not contain the exact styles of the application
 
+## Todo:
+- Auto generate the table.
+

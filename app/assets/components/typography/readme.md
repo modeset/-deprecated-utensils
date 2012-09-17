@@ -1,6 +1,7 @@
 
 # Typography
-Heading, paragraph, blockquotes, code, lists, and inline typographic elements.
+Heading, paragraph, blockquotes, code, lists, and inline typographic
+elements.
 
 ```sass
 @import utensils/components/typography/typography
@@ -18,19 +19,14 @@ Generic `h1`-`h6` headings with a paragraph element.
 
 %h1 Google hearts h1 headings, but only use one per page.
 %p=lorem
-%br
 %h2 Got sections? Try using h2 headings.
 %p=lorem
-%br
 %h3 Good things come in threes, like tacos and h3 headings.
 %p=lorem
-%br
 %h4 There's nothing clever to say about h4 headings.
 %p=lorem
-%br
 %h5 Every time you use an h5 heading, Google kills a puppy. A tiny little puppy.
 %p=lorem
-%br
 %h6 An h6 heading? Google just killed a litter of kittens.
 %p=lorem
 ```
@@ -112,17 +108,19 @@ Typically used for quoting blocks of text from another source.
 <!--~ markup/typography-blockquote.html.haml -->
 ```haml
 %blockquote
-  %p
+  %p<
     &#8220;Let me tell you what Melba Toast is packin' right here, all right. We got 4:11 Positrac outback, 750 double pumper, Edelbrock intake, bored over 30, 11 to 1 pop-up pistons, turbo-jet 390 horsepower. We're talkin' some f***in' muscle.&#8221;
     <small>David Wooderson, <cite title="link to source">Dazed &amp; Confused</cite></small>
 ```
 <!-- end -->
 
 ###### Notes
-- **Pro Tip!** Utilize `&#8220;` and `&#8221;` for opening and closing quotes within a `<blockquote>` element
+- **Pro Tip!** Utilize `&#8220;` and `&#8221;` for opening and closing
+  quotes within a `<blockquote>` element
 
 ### Rules
-Horizontal rules can utilize the class `.dashed` and `.dotted` for a different separator.
+Horizontal rules can utilize the class `.dashed` and `.dotted` for a
+different separator.
 
 ### Usage Example
 
@@ -135,7 +133,10 @@ Horizontal rules can utilize the class `.dashed` and `.dotted` for a different s
 <!-- end -->
 
 ### Lists
-Lists come in three varieties, unordered (`ul`), ordered (`ol`), and unstyled (`.unstyled-list`). Unstyled simply removes any list styles and left margin. By default all `ul` and `ol` elements nested under a `nav` element render the same as an `.unstyled-list` class. 
+Lists come in three varieties, unordered (`ul`), ordered (`ol`), and
+unstyled (`.unstyled-list`). Unstyled simply removes any list styles and
+left margin. By default all `ul` and `ol` elements nested under a `nav`
+element render the same as an `.unstyled-list` class. 
 
 ### Usage Example
 
@@ -217,7 +218,7 @@ variables.
 <!--~ markup/typography-definition.html.haml -->
 ```haml
 %section(style="width:25%; float:left; margin-right: 5%;")
-  %p
+  %p<
     %strong Definition list:
   %dl
     %dt Definition Term
@@ -228,7 +229,7 @@ variables.
     %dd Definition Description Lorem ipsum dolor sit amet.
 
 %section(style="width:60%; float:left;")
-  %p
+  %p<
     %strong Horizontal Definition list:
   %dl.dl-horizontal
     %dt Definition Term
@@ -241,15 +242,15 @@ variables.
 <!-- end -->
 
 ## Style Settings
-To override the default settings, set the variable and it's value
-within your `config.sass` file or before `typography.sass` is loaded.
+To override the default settings, set the variable and it's value within
+your `config.sass` file or before `typography.sass` is loaded.
 
 Variable                           | Default                 | Description
 ---------------------------------- | ----------------------- | -------------------------------------------
+`$heading-color`                   | `$body-color`           | The `color` of heading elements
 `$heading-family`                  | `$sans-family`          | The `font-family` of heading elements
 `$heading-font-weight`             | `bold`                  | The `font-weight` of heading elements
 `$heading-line-height`             | `1`                     | The `line-height` of heading elements
-`$heading-color`                   | `$body-color`           | The `color` of heading elements
 `$h1-size`                         | `$base-font-size + 16`  | The `font-size` of `h1` elements
 `$h2-size`                         | `$base-font-size + 10`  | The `font-size` of `h2` elements
 `$h3-size`                         | `$base-font-size + 4`   | The `font-size` of `h3` elements
@@ -259,9 +260,9 @@ Variable                           | Default                 | Description
 `$hr-border`                       | `$base-border`          | The `color` of horizontal rules
 `$mark-bgc`                        | `$yellow`               | The `background-color` of the `mark` element
 `$mark-color`                      | `#333`                  | The text `color` for the `mark` element
-`$code-color-inline`               | `$body-color`           | The `color` of inline `code` elements
 `$code-bgc`                        | `$focus-bgc`            | The `background-color` of `code` and `pre` blocks
 `$code-border`                     | `$base-border`          | The `border-color` of `code` and `pre` blocks
+`$code-color-inline`               | `$body-color`           | The `color` of inline `code` elements
 `$pre-radii`                       | `$radii`                | The `border-radius` of `pre` blocks
 `$blockquote-family`               | `$serif-family`         | The `font-family` of `blockquote` elements
 `$definition-horiz-offset`         | `$horiz-offset`         | The offset to use for `.dl-horizontal`

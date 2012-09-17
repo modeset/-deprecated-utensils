@@ -461,9 +461,9 @@ within your `config.sass` file or before `form-controls.sass` is loaded.
 
 Variable                      | Default                               | Description
 ----------------------------- | ------------------------------------- | -------------------------------------------
-`$form-color`                 | `$base-color`                         | The text `color` of form controls
 `$form-bgc`                   | `$base-bgc`                           | The `background-color` of form controls
 `$form-border`                | `$base-border`                        | The `border-color` of form controls
+`$form-color`                 | `$base-color`                         | The text `color` of form controls
 `$form-focus-bgc`             | `$focus-bgc`                          | The focus `background-color` of form controls
 `$form-focus-glow`            | `$focus-glow`                         | The focus glow of form controls
 `$form-inset-shadow`          | `inset 0 1px 1px rgba(black, 0.1)`    | The inset shadow of form controls

@@ -329,4 +329,3 @@ describe 'Togglable', ->
       expect(@closest.lookup).toEqual('closest')
       expect(@closest.target.html()).toEqual(@nav.html())
 
-
