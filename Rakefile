@@ -7,7 +7,7 @@ require File.expand_path('../lib/utensils/application', __FILE__)
 
 Utensils::Application.load_tasks
 
-task :default => :sherpa
+task :default => :document
 
 desc "Generate the documentation"
 task :sherpa do
