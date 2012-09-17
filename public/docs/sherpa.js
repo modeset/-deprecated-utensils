@@ -1,6 +1,12 @@
 
 /*global utensil */
 
+/*
+    Controls various states within the style guide
+    This whole thing is a big fat mess at the moment.
+    Don't try this at home, it will get better... promise.
+*/
+
 // Adds behavior to the sherpa documentation..
 var Sherpa = function(el) {
   this.el = el
@@ -24,6 +30,7 @@ Sherpa.prototype.initialize = function() {
   this.addListeners()
   this.usage_examples.trigger('click')
   this.popNotes()
+  this.is_jasmine_shown = false
   // this.toggleSandbox()
 };
 
@@ -53,6 +60,27 @@ Sherpa.prototype.addListeners = function() {
   this.showcases.find('[href=#]').on('click', function(e){e.preventDefault()})
 };
 
+Sherpa.prototype.addJasmine = function() {
+  var self = this
+  var frame = $('<div id="jasmine_frame"><iframe frameborder="0" seamless="true" src="/jasmine"></iframe></div>')
+  frame.appendTo(this.el)
+  frame.one('click', {self:this}, this.removeJasmine)
+  this.is_jasmine_shown = true
+};
+
+Sherpa.prototype.removeJasmine = function(e) {
+  $('#jasmine_frame').remove()
+  this.is_jasmine_shown = false
+};
+
+Sherpa.prototype.toggleJasmine = function(e) {
+  if (this.is_jasmine_shown) {
+    this.removeJasmine()
+  } else {
+    this.addJasmine()
+  }
+};
+
 // Typically handles toggling items associated with the settings menu..
 Sherpa.prototype.captureKeyStroke = function(evt) {
   var self = evt.data.self
@@ -65,6 +93,7 @@ Sherpa.prototype.captureKeyStroke = function(evt) {
   var e = 69
   var t = 84
   var x = 88
+  var j = 74
 
   if (evt.which === 63 && evt.shiftKey) {
     self.toggleSettings()
@@ -86,8 +115,10 @@ Sherpa.prototype.captureKeyStroke = function(evt) {
     self.toggleSubsectionByGrouping(self.todo_sections)
   } else if (evt.which === m && evt.shiftKey) {
     self.toggleSubsectionByGrouping(self.misc_sections)
+  } else if (evt.which === j && evt.shiftKey) {
+    self.toggleJasmine()
   // } else {
-  //   console.log(evt.which)
+    // console.log(evt.which)
   }
 };
 
@@ -97,8 +128,8 @@ Sherpa.prototype.toggleSettings = function() {
     var table = '<table><thead>'
     table += '<tr><th>Keyboard Shortcuts</th><th>&nbsp;</th></tr>'
     table += '</thead><tbody>'
-    table += '<tr><td>Toggle settings window</td><td><code>&lt;SHIFT&gt; + ?</code></td></tr>'
     table += '<tr><td>Toggle showing only h1, showcase and usage blocks</td><td><code>&lt;SHIFT&gt; + x</code></td></tr>'
+    table += '<tr><td>Toggle the Jasmine notification window</td><td><code>&lt;SHIFT&gt; + j</code></td></tr>'
     table += '<tr><td>Toggle all Section documentation</td><td><code>&lt;SHIFT&gt; + w</code></td></tr>'
     table += '<tr><td>Toggle all Usage Example blocks</td><td><code>&lt;SHIFT&gt; + e</code></td></tr>'
     table += '<tr><td>Toggle all Usage blocks</td><td><code>&lt;SHIFT&gt; + u</code></td></tr>'
@@ -107,6 +138,7 @@ Sherpa.prototype.toggleSettings = function() {
     table += '<tr><td>Toggle style documentation</td><td><code>&lt;SHIFT&gt; + s</code></td></tr>'
     table += '<tr><td>Toggle todo documentation</td><td><code>&lt;SHIFT&gt; + t</code></td></tr>'
     table += '<tr><td>Toggle misc. documentation</td><td><code>&lt;SHIFT&gt; + m</code></td></tr>'
+    table += '<tr><td>Toggle settings window</td><td><code>&lt;SHIFT&gt; + ?</code></td></tr>'
     table += '</tbody></table>'
     this.el.prepend('<div class="sherpa-settings">' + table + '</div>')
   } else {

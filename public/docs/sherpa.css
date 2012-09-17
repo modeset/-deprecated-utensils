@@ -282,3 +282,21 @@
   opacity: 0.6;
 }
 
+#jasmine_frame {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 800px;
+  height: 80px;
+  padding: 10px;
+  border-radius: 1em;
+  border: 1px solid #ccc;
+  background-color: white;
+  background-color: rgba(255,255,255,0.9);
+}
+
+#jasmine_frame  > iframe {
+  width: 800px;
+  height: 80px;
+}
+
