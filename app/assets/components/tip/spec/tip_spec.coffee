@@ -9,15 +9,15 @@ describe 'Tip', ->
             """
 
     loadFixtures('tip')
-    @html = $('#jasmine-fixtures')
-    @html.append(extra)
+    @dom = $('#jasmine-fixtures')
+    @dom.append(extra)
 
-    @north_el = @html.find('#north_tip')
-    @south_el = @html.find('#south_tip')
-    @east_el = @html.find('#east_tip')
-    @west_el = @html.find('#west_tip')
-    @image_el = @html.find('#image_tip')
-    @override_el = @html.find('#overrides')
+    @north_el = @dom.find('#north_tip')
+    @south_el = @dom.find('#south_tip')
+    @east_el = @dom.find('#east_tip')
+    @west_el = @dom.find('#west_tip')
+    @image_el = @dom.find('#image_tip')
+    @override_el = @dom.find('#overrides')
 
     @north_tip = new utensil.Tip(@north_el)
     @south_tip = new utensil.Tip(@south_el)

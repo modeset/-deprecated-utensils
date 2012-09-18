@@ -2,8 +2,8 @@
 //= require jquery
 //= require underscore
 //= require bindable
-
 //= require togglable_group
+
 //= require tip
 //= require pop
 

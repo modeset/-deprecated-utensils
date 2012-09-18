@@ -5,17 +5,17 @@ describe 'Directional', ->
 
   beforeEach ->
     loadFixtures('directional')
-    @html = $('#jasmine-fixtures')
+    @dom = $('#jasmine-fixtures')
 
-    @north_el = @html.find('#north_direc')
-    @south_el = @html.find('#south_direc')
-    @east_el = @html.find('#east_direc')
-    @west_el = @html.find('#west_direc')
+    @north_el = @dom.find('#north_direc')
+    @south_el = @dom.find('#south_direc')
+    @east_el = @dom.find('#east_direc')
+    @west_el = @dom.find('#west_direc')
 
-    @north_direc = new utensil.Directional(@north_el, @html, 'north')
-    @south_direc = new utensil.Directional(@south_el, @html, 'south')
-    @east_direc = new utensil.Directional(@east_el, @html, 'east')
-    @west_direc = new utensil.Directional(@west_el, @html, 'west')
+    @north_direc = new utensil.Directional(@north_el, @dom, 'north')
+    @south_direc = new utensil.Directional(@south_el, @dom, 'south')
+    @east_direc = new utensil.Directional(@east_el, @dom, 'east')
+    @west_direc = new utensil.Directional(@west_el, @dom, 'west')
 
   afterEach ->
     $('.demo').remove()
@@ -24,7 +24,7 @@ describe 'Directional', ->
   describe '#constructor', ->
     it 'constructs the class with parameters', ->
       expect(@north_direc.element).toEqual(@north_el)
-      expect(@north_direc.container).toEqual(@html)
+      expect(@north_direc.container).toEqual(@dom)
       expect(@north_direc.cardinal).toEqual('north')
 
     it 'returns a list of directional cardinals', ->
@@ -33,12 +33,12 @@ describe 'Directional', ->
 
   describe '#getPlacementAndConstrain', ->
     it 'wraps #getPlacementFromCardinal and #constrainToViewport methods and does not alter', ->
-      @html.css(position:'absolute', top:200, left:0)
+      @dom.css(position:'absolute', top:200, left:0)
       pos = @east_direc.getPlacementAndConstrain()
       expect(pos.cardinal).toEqual('east')
 
     it 'wraps #getPlacementFromCardinal and #constrainToViewport methods and alters', ->
-      @html.css(position:'absolute', top:200, right:0)
+      @dom.css(position:'absolute', top:200, right:0)
       pos = @east_direc.getPlacementAndConstrain()
       expect(pos.cardinal).toEqual('west')
 
@@ -74,7 +74,7 @@ describe 'Directional', ->
   # postions are sometimes awkward
   describe '#constrainToViewport', ->
     it 'repositions the item on stage when north is offscreen', ->
-      @html.css(position:'absolute', top:-20, left:'50%')
+      @dom.css(position:'absolute', top:-20, left:'50%')
       pos = @north_direc.getPlacementFromCardinal()
       suggested = @north_direc.constrainToViewport(pos)
       expect(suggested.cardinal).toEqual('south')
@@ -86,13 +86,13 @@ describe 'Directional', ->
       expect(suggested.cardinal).toEqual('north')
 
     it 'repositions the item on stage when east is offscreen', ->
-      @html.css(position:'absolute', top:0, right:0)
+      @dom.css(position:'absolute', top:0, right:0)
       pos = @east_direc.getPlacementFromCardinal()
       suggested = @east_direc.constrainToViewport(pos)
       expect(suggested.cardinal).toEqual('west')
 
     it 'repositions the item on stage when west is offscreen', ->
-      @html.css(position:'absolute', top:0, left:0)
+      @dom.css(position:'absolute', top:0, left:0)
       pos = @west_direc.getPlacementFromCardinal()
       suggested = @west_direc.constrainToViewport(pos)
       expect(suggested.cardinal).toEqual('east')
