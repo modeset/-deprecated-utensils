@@ -1,6 +1,7 @@
 
 # Togglable
-Base class for adding, removing and toggling classes on a given element.
+Base class for adding, removing and toggling classes on a given element
+and/or related elements.
 
 ```html
 data-bindable="togglable"
@@ -16,27 +17,27 @@ data-bindable="togglable"
     %li#one<
       %a(data-bindable="togglable" href="#") One
     %li#two<
-      %a(data-bindable="togglable" href="#this" data-trigger="hover" data-toggle="fade") Two
+      %a(data-bindable="togglable" data-target="this" href="#" data-trigger="hover" data-toggle="fade") Two
     %li#three<
-      %a(data-bindable="togglable" href="#span" data-solo="true" data-toggle="fade") Three <span id="span">Span</span>
+      %a(data-bindable="togglable" href="#" data-related="#span" data-related-toggle="fade") Three <span id="span">Span</span>
     %li#four<
-      %a.inline(data-bindable="togglable" href=".nav" data-lookup="closest" data-toggle="inline") Four
+      %a(data-bindable="togglable" href=".nav" data-lookup="closest" data-toggle="inline") Four
     %li#five<
-      %a(data-bindable="togglable" href="#five" data-target=".nav" data-lookup="closest" data-bubble="true") Five
+      %a(data-bindable="togglable" href="#five" data-target="#find_bang" data-bubble="true") Five <span id="find_bang">!</span>
     %li#six<
       %a(data-bindable="togglable" href="#" data-activate="true") Six
     %li#seven<
-      %a(data-bindable="togglable" href="#togglable_heading" data-context="body" data-toggle="fade" data-solo="true") Seven
+      %a(data-bindable="togglable" href="#togglable_heading" data-context="body" data-toggle="fade") Seven
     %li#eight<
       %a(data-bindable="togglable" href="#" data-delay="activate: 1000, deactivate: 500") Eight
 ```
 <!-- end -->
 
 1. Toggles the class `active` on `click`
-- Toggles the classes `fade` on `hover`, the `href` is merely referencing the element as it's target
-- Toggles the class `fade` on `click` for only the child `<span>` and not the `<link>` element
-- Toggles the class `inline` on `click` for both the `link` and `ul.nav`, using the `$.closest` method to find the target
-- Toggles `active` state on `click` for the link element, changes the url hash to `#five`
+- Toggles the classes `fade` on `hover`, the `data-attribute="this"` is merely referencing the element as it's target
+- Toggles the class `fade` on `click` for the child `<span>` and `active` on the `<link>` element
+- Toggles the class `inline` on `click` for only the `ul.nav` and not the `<link>`, using the `$.closest` method to find the target
+- Toggles `active` state on `click` for the `<span>` element only and, changes the url hash to `#five`
 - Toggles the class `active` on `click`, but is initialized with the `active` class on the element
 - Toggles the `fade` class on the "Heading" element on `click` by using the `body` element as the `context` to find the target
 - Toggles the `active` class on the link with a 1 second delay on activation and 1/2 second delay on deactivation
@@ -51,10 +52,27 @@ Attribute  | Default      | Description
 `context`  | `bindable`   | The DOM node to use for lookups
 `lookup`   | `find`       | The `$` method to find a target or href target [`closest`, `siblings`, `parents`...]
 `target`   | `bindable`   | The target element to toggle classes on (the `href` attribute can also be used)
-`solo`     | `true`       | If `target` is not the `bindable` element, classes are toggled on both `target` and `bindable`. Setting to `true` will result in classes only being applied to target
 `activate` | `false`      | If present, this will auto activate the element
 `bubble`   | `false`      | Controls whether an action `preventsDefault`, setting to `true` will allow normal events to bubble
 `delay`    | `undefined`  | The amount of time in milliseconds to delay on `activate` and `deactivate`, see the `Timeslot` class for more information
+
+
+### Related Options
+The following options can be applied if the toggling behavior needs to
+affect a secondary related element. The base requirement is the
+`related` attribute
+
+Attribute         | Default   | Description
+----------------- | --------- | -------------------------------------------
+`related`         | `null`    | The selector to perform `Togglable` actions on
+`related-classes` | `toggle`  | The class(es) to toggle when triggered on the related element
+`related-context` | `body`    | The DOM node to use for `related` selector lookup
+`related-lookup`  | `find`    | The `$` method to find the `related` selector [`closest`, `siblings`, `parents`...]
+
+###### Notes
+- **Heads Up!** when setting these in markup use `data-related-classes`,
+  when creating through an instance use `data.relatedClasses`
+
 
 ### Trigger Types
 The `trigger` attribute is mapped to an object with `on/off` properties
@@ -78,12 +96,15 @@ properties to the given trigger name. They will automatically call the
 ### Finding Targets
 `Togglable` finds the target based on the following rules:
 
-1. If there is a `target` attribute and it can be found in the DOM, use it
+1. If there is a `target` attribute and it is the string `"this"`,
+   return the `bindable` element
+- If there is a `target` attribute and it can be found in the DOM, use it
 - Otherwise if there is NOT an `href` attribute use the `bindable` element
-- Or if the `href` is `#this` or `#` use the `bindable` element
+- Or if the `href` is `#` use the `bindable` element
 - Or if the `href` is a normal link (i.e. `/some-page`) use the `bindable` element
 - Otherwise lookup the element within the `href`, if found, use it, otherwise use the `bindable` element
 - If the `context` attribute is set, it will perform searches from this element, otherwise it will use the element associated with `bindable`
+
 
 ### Delays
 When `delay` is set, the `#activate` and `#deactivate` methods are
@@ -94,6 +115,7 @@ only rely on the dispatched events from their instance of `Togglable`.
 
 If one of the delay properties (`activate` or `deactivate`) is `0`, then
 the method for that property will not be scoped through the delay method.
+
 
 ## API
 

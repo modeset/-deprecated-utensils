@@ -7,24 +7,30 @@ describe 'Togglable', ->
     extra = """
             <a id="stnd_link" href="/some-url">More</a>
             <div id="empty"></div>
+            <a id="by_target" data-target="#togglable_heading" data-lookup="siblings">By Target</a>
+            <a id="by_href" href="#togglable_heading" data-lookup="siblings">By href</a>
+            <a id="related" href="#" data-related="body" data-related-context="#jasmine-fixtures" data-related-lookup="parent">Related</a>
             """
 
     loadFixtures('togglable')
-    @html = $('#jasmine-fixtures')
-    @html.append(extra)
+    @dom = $('#jasmine-fixtures')
+    @dom.append(extra)
 
-    @nav = @html.find('.nav')
-    @one = @html.find('#one > a')
-    @two = @html.find('#two > a')
-    @three = @html.find('#three > a')
-    @four = @html.find('#four > a')
-    @five = @html.find('#five > a')
-    @six = @html.find('#six > a')
-    @seven = @html.find('#seven > a')
-    @eight = @html.find('#eight > a')
-    @link = @html.find('#stnd_link')
-    @empty = @html.find('#empty')
-    @context_el = @html.find('#context')
+    @nav = @dom.find('.nav')
+    @one = @dom.find('#one > a')
+    @two = @dom.find('#two > a')
+    @three = @dom.find('#three > a')
+    @four = @dom.find('#four > a')
+    @five = @dom.find('#five > a')
+    @six = @dom.find('#six > a')
+    @seven = @dom.find('#seven > a')
+    @eight = @dom.find('#eight > a')
+    @link = @dom.find('#stnd_link')
+    @empty = @dom.find('#empty')
+    @context_el = @dom.find('#context')
+    @by_target_el = @dom.find('#by_target')
+    @by_href_el = @dom.find('#by_href')
+    @related_el = @dom.find('#related')
 
     @defaulter = new utensil.Togglable(@one)
     @overrider = new utensil.Togglable(@two)
@@ -35,6 +41,9 @@ describe 'Togglable', ->
     @contexter = new utensil.Togglable(@seven)
     @delayer = new utensil.Togglable(@eight)
     @stnd_link = new utensil.Togglable(@link)
+    @by_target = new utensil.Togglable(@by_target_el)
+    @by_href = new utensil.Togglable(@by_href_el)
+    @related = new utensil.Togglable(@related_el)
 
 
   describe 'binding', ->
@@ -63,14 +72,11 @@ describe 'Togglable', ->
       expect(@overrider.trigger).toEqual(on:'mouseenter', off:'mouseleave')
       expect(@closest.lookup).toEqual('closest')
 
-    it 'sets the ability for dual toggles by default', ->
-      expect(@closest.dual_toggle).toEqual(true)
+    it 'sets the ability for dual toggles when there is related content', ->
+      expect(@spanner.related).not.toBeNull()
 
-    it 'does not set the ability for dual toggles if the togglable is @el', ->
-      expect(@defaulter.dual_toggle).toEqual(false)
-
-    it 'does not set dual toggle when passed as an attribute', ->
-      expect(@spanner.dual_toggle).toEqual(false)
+    it 'sets "related" to null when not found', ->
+      expect(@defaulter.related).toBeNull()
 
     it 'sets default values from a javascript class', ->
       togglable = new utensil.Togglable(@empty, {toggle: 'show', trigger: 'hover', lookup: 'closest'})
@@ -82,6 +88,20 @@ describe 'Togglable', ->
     it 'sets the correct context for lookups', ->
       expect(@contexter.context).toEqual($('body'))
       expect(@defaulter.context).toEqual(@one)
+
+
+  describe '#relatedOptions', ->
+    it 'sets the related classes the same as toggle classes', ->
+      expect(@related.related_classes).toEqual(@related.toggle_classes)
+
+    it 'sets the related context to the fixtures container', ->
+      expect(@related.related_context).toEqual($('#jasmine-fixtures'))
+
+    it 'sets the related lookup fn to siblings', ->
+      expect(@related.related_lookup).toEqual('parent')
+
+    it 'sets the related element to the togglable heading', ->
+      expect(@related.related).toBe($('body'))
 
 
   describe '#initialize', ->
@@ -108,32 +128,33 @@ describe 'Togglable', ->
       expect(@one).not.toHaveClass('active')
       expect(@defaulter.is_active).toEqual(false)
 
-    it 'toggles the custom classes from a call on both the element and target', ->
-      expect(@four).toHaveClass('inline')
+    it 'toggles the custom classes from a call on only the target and not the @el', ->
+      expect(@four).not.toHaveClass('inline')
       expect(@nav).toHaveClass('inline')
       expect(@closest.is_active).toEqual(true)
 
       @closest.toggle()
-      expect(@four).not.toHaveClass('inline')
+      expect(@four).not.toHaveClass('active')
       expect(@nav).not.toHaveClass('inline')
       expect(@closest.is_active).toEqual(false)
 
       @closest.toggle()
-      expect(@four).toHaveClass('inline')
+      expect(@four).not.toHaveClass('inline')
       expect(@nav).toHaveClass('inline')
       expect(@closest.is_active).toEqual(true)
 
-    it 'toggles only the target and not the element when specified', ->
+    it 'toggles the target with a normal "active" state and a related element with "fade"', ->
       expect(@three.find('span')).not.toHaveClass('fade')
-      expect(@three).not.toHaveClass('fade')
+      expect(@three).not.toHaveClass('active')
 
       @spanner.toggle()
       expect(@three.find('span')).toHaveClass('fade')
       expect(@three).not.toHaveClass('fade')
+      expect(@three).toHaveClass('active')
 
       @spanner.toggle()
       expect(@three.find('span')).not.toHaveClass('fade')
-      expect(@three).not.toHaveClass('fade')
+      expect(@three).not.toHaveClass('active')
 
     it 'toggles a context object searching from the body', ->
       heading = $('#togglable_heading')
@@ -266,12 +287,6 @@ describe 'Togglable', ->
       expect(tmp).not.toEqual(0)
 
 
-  describe '#setDelay', ->
-    it 'reports a togglable element has delays', ->
-      expect(@delayer.delay).toBeDefined()
-      expect(@defaulter.delay).not.toBeDefined()
-
-
   describe '#activateWithDelay', ->
     it 'activates a togglable element after a delay', ->
       # override the delay to speed up the tests.
@@ -302,30 +317,39 @@ describe 'Togglable', ->
         expect(@delayer.timeout).toBeNull()
 
 
+  describe '#setDelay', ->
+    it 'reports a togglable element has delays', ->
+      expect(@delayer.delay).toBeDefined()
+      expect(@defaulter.delay).not.toBeDefined()
+
+
   describe '#findTarget', ->
     it 'finds itself as an element when there is no href or data-target present', ->
-      expect(@defaulter.target).toEqual(@one)
+      expect(@defaulter.target).toBe(@one)
 
-    it 'returns itself when there is an "#this" target attached to the href', ->
-      expect(@overrider.target).toEqual(@two)
+    it 'returns itself when there is "this" target attached to the "data-target" attribute', ->
+      expect(@overrider.target).toBe(@two)
 
     it 'returns itself when there is a "#" target attached to the href', ->
-      expect(@active.target).toEqual(@six)
+      expect(@active.target).toBe(@six)
+
+    it 'finds the target when the href is a selector', ->
+      expect(@by_href.target).toBe(@dom.find('#togglable_heading'))
 
     it 'returns itself when there is a "normal link" target attached to the href', ->
-      expect(@stnd_link.target).toEqual(@link)
+      expect(@stnd_link.target).toBe(@link)
 
     it 'finds the parent element from a selector within the href attribute', ->
-      expect(@closest.target.html()).toEqual(@nav.html())
+      expect(@closest.target).toBe(@nav)
 
     it 'finds the parent element from a "data-target" attribute', ->
-      expect(@bubbler.target.html()).toEqual(@nav.html())
+      expect(@by_target.target).toBe(@dom.find('#togglable_heading'))
 
-    it 'uses $.find by default', ->
-      expect(@spanner.lookup).toEqual('find')
-      expect(@spanner.target.html()).toEqual(@three.find('span').html())
+    it 'uses $.find by default to search', ->
+      expect(@bubbler.lookup).toEqual('find')
+      expect(@bubbler.target).toBe(@five.find('#find_bang'))
 
     it 'uses $.closest when provided as a lookup fn', ->
       expect(@closest.lookup).toEqual('closest')
-      expect(@closest.target.html()).toEqual(@nav.html())
+      expect(@closest.target).toBe(@nav)
 

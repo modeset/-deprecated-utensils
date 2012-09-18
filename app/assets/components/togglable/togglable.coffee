@@ -7,6 +7,7 @@ class utensil.Togglable
   constructor: (@el, data) ->
     @dispatcher = @el
     @is_listening = false
+    @related = null
     @data = if data then data else @el.data()
     @options()
     @initialize()
@@ -18,9 +19,15 @@ class utensil.Togglable
     @context = if @data.context then $(@data.context) else @el
     @lookup = @data.lookup || 'find'
     @target = @findTarget()
-    @dual_toggle = @target != @el && !@data.solo
-    @is_active = @target.hasClass(@toggle_classes)
+    if @data.related then @relatedOptions()
     if @data.delay then @setDelay()
+    @is_active = @target.hasClass(@toggle_classes)
+
+  relatedOptions: ->
+    @related_classes = @data.relatedToggle || @toggle_classes
+    @related_context = if @data.relatedContext then $(@data.relatedContext) else $('body')
+    @related_lookup = @data.relatedLookup || 'find'
+    @related = @related_context[@related_lookup](@data.related)
 
   initialize: ->
     @activate(target:@data.activate) if @data.activate
@@ -78,14 +85,6 @@ class utensil.Togglable
     @is_active = false
     @dispatcher.trigger('togglable:deactivate', e)
 
-  activeState: (e) ->
-    @target.addClass(@toggle_classes)
-    @el.addClass(@toggle_classes) if @dual_toggle
-
-  deactiveState: (e) ->
-    @target.removeClass(@toggle_classes)
-    @el.removeClass(@toggle_classes) if @dual_toggle
-
   activateWithDelay: (e) ->
     @clearTimeout()
     @timeout = _.delay(( => @setActivate(e)), @delay.activate)
@@ -93,6 +92,20 @@ class utensil.Togglable
   deactivateWithDelay: (e) ->
     @clearTimeout()
     @timeout = _.delay(( => @setDeactivate(e)), @delay.deactivate)
+
+  activeState: (e) ->
+    @target.addClass(@toggle_classes)
+    if @related then @activeRelatedState()
+
+  deactiveState: (e) ->
+    @target.removeClass(@toggle_classes)
+    if @related then @deactiveRelatedState()
+
+  activeRelatedState: () ->
+    @related.addClass(@related_classes)
+
+  deactiveRelatedState: () ->
+    @related.removeClass(@related_classes)
 
   clearTimeout: ->
     clearTimeout(@timeout) if @timeout
@@ -107,13 +120,14 @@ class utensil.Togglable
   findTarget: ->
     # see if there is a specific target and it's valid
     if @data.target
+      return @el if @data.target == "this"
       target_element = @context[@lookup](@data.target)
       return target_element unless target_element.length < 1
 
     href = @el.attr('href')
 
-    # if no href, user wants @el, only a hash tag, or href is a url
-    if !href || href == "#this" || href == "#" || href.search(/\/|\?/) != -1
+    # if no href, only a hash tag, or href is a url
+    if !href || href == "#" || href.search(/\/|\?/) != -1
       return @el
 
     # else href is a selector, try and find the element
