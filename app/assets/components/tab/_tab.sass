@@ -1,0 +1,29 @@
+
+.tab
+  border-bottom: 1px solid $base-border
+
+.tab > li
+  float: left
+  margin-bottom: -1px
+
+.tab > li > a
+  border: 1px solid transparent
+  border-radius: $radii $radii 0 0
+  margin-right: 0.15em
+  padding: 0.6em 0.85em
+  &:hover
+    background-color: $base-bgc-hover
+    border-color: $base-bgc-hover $base-bgc-hover $base-border
+
+.tab > .active > a,
+.tab > .active > a:hover
+  background-color: $base-bgc
+  border: 1px solid $base-border
+  border-bottom-color: transparent
+
+// Togglable tab panes
+.tabable-content > .tab-pane
+  +visuallyhidden
+.tabable-content > .active
+  +visuallyshown
+
