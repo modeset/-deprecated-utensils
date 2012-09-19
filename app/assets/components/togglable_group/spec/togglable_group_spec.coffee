@@ -5,17 +5,24 @@ describe 'Togglable Group', ->
 
   beforeEach ->
     loadFixtures('togglable_group')
-    @html = $('#jasmine-fixtures')
+    @dom = $('#jasmine-fixtures')
 
-    @radio$ = @html.find('#radios')
-    @check$ = @html.find('#checks')
-    @delay$ = @html.find('#radios_delay')
+    @radio$ = @dom.find('#radios')
+    @check$ = @dom.find('#checks')
+    @delay$ = @dom.find('#radios_delay')
     @radio_kids = @radio$.find('li')
     @check_kids = @check$.find('li')
     @delay_kids = @delay$.find('li')
     @radio_group = new utensil.TogglableGroup(@radio$)
     @check_group = new utensil.TogglableGroup(@check$)
     @delay_group = new utensil.TogglableGroup(@delay$)
+
+    @related_radio_nav_el = @dom.find('#related_radio_nav')
+    @related_radio_content_el = @dom.find('#related_radio_content')
+    @related_check_nav_el = @dom.find('#related_check_nav')
+    @related_check_content_el = @dom.find('#related_check_content')
+    @related_radio_group = new utensil.TogglableGroup(@related_radio_nav_el)
+    @related_check_group = new utensil.TogglableGroup(@related_check_nav_el)
 
 
   describe 'binding', ->
@@ -176,6 +183,56 @@ describe 'Togglable Group', ->
       runs ->
         expect(el1).not.toHaveClass('active')
         expect(el2).toHaveClass('active')
+
+
+  describe '#activeRelatedState, #deactiveRelatedState', ->
+    it 'finds the selector based on a child of the activators "href"', ->
+      first_nav = $(@related_radio_nav_el.find('li')[0])
+      first_pane = $(@related_radio_content_el.find('article')[0])
+      element = @related_radio_group.activeRelatedState(first_nav)
+      expect(element).toBe(first_pane)
+
+    it 'finds the selector based on a child of the activators "data-target"', ->
+      second_nav = $(@related_radio_nav_el.find('li')[1])
+      second_pane = $(@related_radio_content_el.find('article')[1])
+      element = @related_radio_group.activeRelatedState(second_nav)
+      expect(element).toBe(second_pane)
+
+    it 'finds the selector based on a child of the deactivators "href"', ->
+      first_nav = $(@related_check_nav_el.find('li')[0])
+      first_pane = $(@related_check_content_el.find('article')[0])
+      element = @related_check_group.deactiveRelatedState(first_nav)
+      expect(element).toBe(first_pane)
+
+    it 'finds the selector based on a child of the deactivators "data-target"', ->
+      second_nav = $(@related_check_nav_el.find('li')[1])
+      second_pane = $(@related_check_content_el.find('article')[1])
+      element = @related_check_group.deactiveRelatedState(second_nav)
+      expect(element).toBe(second_pane)
+
+    it 'adds the active state to a related component with "radio" type behavior', ->
+      first_nav = $(@related_radio_nav_el.find('li')[0])
+      middle_nav = $(@related_radio_nav_el.find('li')[1])
+      first_pane = $(@related_radio_content_el.find('article')[0])
+      middle_pane = $(@related_radio_content_el.find('article')[1])
+
+      middle_nav.trigger('click')
+      expect(first_nav).not.toHaveClass('active')
+      expect(middle_nav).toHaveClass('active')
+      expect(first_pane).not.toHaveClass('active')
+      expect(middle_pane).toHaveClass('active')
+
+    it 'adds the active state to a related component with "checkbox" type behavior', ->
+      first_nav = $(@related_check_nav_el.find('li')[0])
+      middle_nav = $(@related_check_nav_el.find('li')[1])
+      first_pane = $(@related_check_content_el.find('article')[0])
+      middle_pane = $(@related_check_content_el.find('article')[1])
+
+      middle_nav.trigger('click')
+      expect(first_nav).toHaveClass('active')
+      expect(middle_nav).toHaveClass('active')
+      expect(first_pane).toHaveClass('active')
+      expect(middle_pane).toHaveClass('active')
 
 
   describe '@dispatcher', ->

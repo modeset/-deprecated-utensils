@@ -5,6 +5,9 @@ related elements. These are predominantly used in navigation type
 systems. A `TogglableGroup` can function either like radio buttons or
 check boxes.
 
+Adding `related` attributes to a `ToggableGroup` allows navigation
+systems to control other components such as tabs, pills and accordions.
+
 ```html
 data-bindable="togglable-group"
 ```
@@ -39,6 +42,42 @@ data-bindable="togglable-group"
       %a(href="#") Radio 2 Delay
     %li.radio-li<
       %a(href="#") Radio 3 Delay
+
+
+%nav(style="margin-top: 2em;")
+  %ul#related_radio_nav.nav.inline(data-bindable="togglable-group" data-related="#related_radio_content .tab-pane")
+    %li.active<
+      %a(href="#related_rone") Related Radio 1
+    %li<
+      %a(href="#" data-target="#related_rtwo") Related Radio 2
+    %li<
+      %a(href="#related_rthree") Related Radio 3
+
+%section#related_radio_content.tabable-content(style="margin-top:1.25em;")
+  %article.tab-pane.active#related_rone
+    %p Related radio content <span class="decal important">one</span>
+  %article.tab-pane#related_rtwo
+    %p Related radio content <span class="decal success">two</span>
+  %article.tab-pane#related_rthree
+    %p Related radio content <span class="decal danger">three</span>
+
+
+%nav(style="margin-top: 2em;")
+  %ul#related_check_nav.nav.inline(data-bindable="togglable-group" data-behavior="checkbox" data-related="#related_check_content .tab-pane")
+    %li.active<
+      %a(href="#related_cone") Related Check 1
+    %li<
+      %a(href="#" data-target="#related_ctwo") Related Check 2
+    %li<
+      %a(href="#related_cthree") Related Check 3
+
+%section#related_check_content.tabable-content(style="margin-top:1.25em;")
+  %article.tab-pane.active#related_cone
+    %p Related checkbox content <span class="decal important">one</span>
+  %article.tab-pane#related_ctwo
+    %p Related checkbox content <span class="decal success">two</span>
+  %article.tab-pane#related_cthree
+    %p Related checkbox content <span class="decal danger">three</span>
 ```
 <!-- end -->
 
@@ -132,14 +171,11 @@ Cleans up any internal references
 `TogglableGroup` is a subclass of `Togglable`.
 
 ## Todo
-- Handling the options for solo, context/lookup, target/href
-  - We are setting the target based on a navigation system,
-    but this will need to change for tabs, accordions, etc.. maybe a
-    subclass or composition?
 - Figure out the `@is_active` value
   - The `@is_active` value from `Togglable` is being set based
     on every click. It's not used by `TogglerGroup`, but may down the
     road. Need to figure out the best way to manage this since we are
     dealing with a group. The alternative could be that `@is_active` be
     set by the state of the `e.target`?
+- Clean up the fixture so it doesn't rely on tabs and is more generic
 
