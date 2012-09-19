@@ -9,7 +9,6 @@ group :assets do
   gem 'haml-rails'
   gem 'sass-rails'
   gem 'coffee-rails'
-  gem 'underscore-rails'
   gem 'uglifier'
 end
 

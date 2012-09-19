@@ -1,6 +1,5 @@
 
 //= require jquery
-//= require underscore
 //= require bindable
 //= require togglable_group
 

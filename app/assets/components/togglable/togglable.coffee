@@ -87,11 +87,11 @@ class utensil.Togglable
 
   activateWithDelay: (e) ->
     @clearTimeout()
-    @timeout = _.delay(( => @setActivate(e)), @delay.activate)
+    @timeout = setTimeout(( => @setActivate(e)), @delay.activate)
 
   deactivateWithDelay: (e) ->
     @clearTimeout()
-    @timeout = _.delay(( => @setDeactivate(e)), @delay.deactivate)
+    @timeout = setTimeout(( => @setDeactivate(e)), @delay.deactivate)
 
   activeState: (e) ->
     @target.addClass(@toggle_classes)
