@@ -35,7 +35,9 @@ class utensil.Togglable
   # PUBLIC #
 
   toggle: (e) ->
-    e?.preventDefault() unless @data.bubble
+    if !@data.bubble
+      e?.preventDefault()
+      e?.stopPropagation()
     if @is_active then @deactivate(e) else @activate(e)
 
   activate: (e) ->

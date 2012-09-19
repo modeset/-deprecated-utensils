@@ -15,7 +15,9 @@ class utensil.TogglableGroup extends utensil.Togglable
   # PUBLIC #
 
   toggle: (e) ->
-    e?.preventDefault() unless @data.bubble
+    if !@data.bubble
+      e?.preventDefault()
+      e?.stopPropagation()
     activator = $(e.target).closest(@data.target)
     if activator.hasClass(@toggle_classes) then @deactivate(e) else @activate(e)
 
