@@ -5,19 +5,19 @@
 - There should be some sort of Togglable class that acts similar to the
   demo (removes a bunch of classes then add more) pass a data-remove?
 
-- dropdowns.sass * (figure out how carets play into this)
-- notifications.sass *
-- modals.sass *
 - tabs.sass *
 - pills.sass *
-- nav-lists.sass
 - accordions.sass *
+- nav-lists.sass
+- dropdowns.sass * (figure out how carets play into this)
+- modals.sass *
+- notifications.sass *
 - progress-bars.sass *
 - carousels.sass *
 - navbars.sass *
-- tracker.coffee
 - fishnet
 - upgrades
+- debug tools
 - turn the dimensionizer demo to togglable
 
 ## Reminders, Tasks and Future Considerations
@@ -31,6 +31,7 @@
 - Turn into engine with generators
 
 ## Bugs
-- Clicking a link with an `href=#this` seems to bubble when it shouldn't
 - Weird bug on some of the button group testing around deactivation
+- checkbox togglable groups and togglable targets should have the
+  pointer when activated
 
