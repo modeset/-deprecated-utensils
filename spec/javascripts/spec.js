@@ -1,5 +1,4 @@
 //= require jquery
-//= require underscore
 
 //= require utensil/spec
 //= require bindable/spec
