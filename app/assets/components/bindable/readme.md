@@ -41,6 +41,8 @@ $ ->
 
 ## API
 
-###### Alert
-- **TODO**! Need to describe the public API
+
+## Todo
+- Need to describe the public API
+- Is there a case for multiple bindables on a single element?
 
