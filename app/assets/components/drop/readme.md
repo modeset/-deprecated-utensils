@@ -2,6 +2,14 @@
 # Drop
 Describe this
 
+```sass
+@import utensils/components/drop/drop
+```
+
+```html
+data-bindable="drop"
+```
+
 ## Usage Example
 
 <!--~ markup/drop.html.haml -->
@@ -70,4 +78,5 @@ Describe this
 
 ## Todo
 - Tests
+- Document
 

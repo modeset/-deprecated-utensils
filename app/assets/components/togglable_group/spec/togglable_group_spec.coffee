@@ -186,29 +186,29 @@ describe 'Togglable Group', ->
         expect(el2).toHaveClass('active')
 
 
-  describe '#activeRelatedState, #deactiveRelatedState', ->
+  describe '#activateRelatedState, #deactivateRelatedState', ->
     it 'finds the selector based on a child of the activators "href"', ->
       first_nav = $(@related_radio_nav_el.find('li')[0])
       first_pane = $(@related_radio_content_el.find('article')[0])
-      element = @related_radio_group.activeRelatedState(first_nav)
+      element = @related_radio_group.activateRelatedState(first_nav)
       expect(element).toBe(first_pane)
 
     it 'finds the selector based on a child of the activators "data-target"', ->
       second_nav = $(@related_radio_nav_el.find('li')[1])
       second_pane = $(@related_radio_content_el.find('article')[1])
-      element = @related_radio_group.activeRelatedState(second_nav)
+      element = @related_radio_group.activateRelatedState(second_nav)
       expect(element).toBe(second_pane)
 
     it 'finds the selector based on a child of the deactivators "href"', ->
       first_nav = $(@related_check_nav_el.find('li')[0])
       first_pane = $(@related_check_content_el.find('article')[0])
-      element = @related_check_group.deactiveRelatedState(first_nav)
+      element = @related_check_group.deactivateRelatedState(first_nav)
       expect(element).toBe(first_pane)
 
     it 'finds the selector based on a child of the deactivators "data-target"', ->
       second_nav = $(@related_check_nav_el.find('li')[1])
       second_pane = $(@related_check_content_el.find('article')[1])
-      element = @related_check_group.deactiveRelatedState(second_nav)
+      element = @related_check_group.deactivateRelatedState(second_nav)
       expect(element).toBe(second_pane)
 
     it 'adds the active state to a related component with "radio" type behavior', ->

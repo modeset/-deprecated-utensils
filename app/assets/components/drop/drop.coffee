@@ -32,7 +32,7 @@ class utensil.Drop extends utensil.Togglable
     @html.off('click', @clearMenus)
     super(e)
 
-  activeState: (e) ->
+  activateState: (e) ->
     super(e)
     position = @directional.getPlacementAndConstrain()
     if position.cardinal != @placement

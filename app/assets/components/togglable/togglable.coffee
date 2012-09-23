@@ -75,13 +75,13 @@ class utensil.Togglable
 
   setActivate: (e) ->
     @clearTimeout()
-    @activeState(e)
+    @activateState(e)
     @is_active = true
     @dispatcher.trigger('togglable:activate', e)
 
   setDeactivate: (e) ->
     @clearTimeout()
-    @deactiveState(e)
+    @deactivateState(e)
     @is_active = false
     @dispatcher.trigger('togglable:deactivate', e)
 
@@ -93,18 +93,18 @@ class utensil.Togglable
     @clearTimeout()
     @timeout = setTimeout(( => @setDeactivate(e)), @delay.deactivate)
 
-  activeState: (e) ->
+  activateState: (e) ->
     @target.addClass(@toggle_classes)
-    if @related then @activeRelatedState()
+    if @related then @activateRelatedState()
 
-  deactiveState: (e) ->
+  deactivateState: (e) ->
     @target.removeClass(@toggle_classes)
-    if @related then @deactiveRelatedState()
+    if @related then @deactivateRelatedState()
 
-  activeRelatedState: () ->
+  activateRelatedState: () ->
     @related.addClass(@related_classes)
 
-  deactiveRelatedState: () ->
+  deactivateRelatedState: () ->
     @related.removeClass(@related_classes)
 
   clearTimeout: ->

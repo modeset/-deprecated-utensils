@@ -41,26 +41,26 @@ class utensil.TogglableGroup extends utensil.Togglable
     @el.find('.highlight').removeClass('highlight')
   # ----------------------------------------------------------------------------
 
-  activeState: (e) ->
+  activateState: (e) ->
     if typeof e.target == "number"
       activator = $(@target[e.target])
     else
       activator = $(e.target).closest(@data.target)
     if @behavior == 'radio' then @target.removeClass(@toggle_classes)
     activator.addClass(@toggle_classes)
-    if @related then @activeRelatedState(activator)
+    if @related then @activateRelatedState(activator)
     return activator
 
-  deactiveState: (e) ->
+  deactivateState: (e) ->
     if typeof e.target == "number"
       deactivator = $(@target[e.target])
     else
       deactivator = $(e.target).closest(@data.target)
     deactivator.removeClass(@toggle_classes) unless @behavior == 'radio' && deactivator.hasClass(@toggle_classes)
-    if @related then @deactiveRelatedState(deactivator)
+    if @related then @deactivateRelatedState(deactivator)
     return deactivator
 
-  activeRelatedState: (activator) ->
+  activateRelatedState: (activator) ->
     selector = activator.find('[data-target]').data('target') ||
                activator.find('[href]').attr('href')
     if selector
@@ -69,7 +69,7 @@ class utensil.TogglableGroup extends utensil.Togglable
       element.addClass(@related_classes)
       return element
 
-  deactiveRelatedState: (deactivator) ->
+  deactivateRelatedState: (deactivator) ->
     selector = deactivator.find('[data-target]').data('target') ||
                deactivator.find('[href]').attr('href')
     if selector

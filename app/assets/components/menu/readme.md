@@ -19,4 +19,6 @@ Describe this
 
 ## Todo
 - Keyboard for selecting items within the menu
+- Document
+- Tests
 
