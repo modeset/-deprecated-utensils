@@ -28,20 +28,20 @@ directly in the markup.
 
 %h5(style="margin-bottom:1em; margin-top:3em;") Select to spin the caret
 %nav.radio-demo.button-group(data-bindable="togglable-group" data-target=".btn")
-  %a.btn.active(href="#" data-add="south") Caret (South)
   %a.btn(href="#" data-add="north") North
+  %a.btn.active(href="#" data-add="south") South
   %a.btn(href="#" data-add="east") East
   %a.btn(href="#" data-add="west") West
 ```
 <!-- end -->
 
-## Usage Example
-
-There is another caret modifier for `caret.caret-center` which is used
-in split drop down menus.
-
 Caret's are positioned to align with one another, most likely they will
 need some sort of offset based on the component they are paired with.
+
+###### Note
+- **Heads Up!** The class `.caret` and `.caret.south` are scoped to the
+same styles
+
 
 ## Style Settings
 To override the default settings, set the variable and it's value
