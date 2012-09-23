@@ -41,10 +41,8 @@ within your `config.sass` file or before `button-group.sass` is loaded.
 
 Variable               | Default    | Description
 ---------------------- | ---------- | -------------------------------------------
-`$button-group-radii`  | `$radii`   | Sets the `border-radius` value of the first and last elements
 `$button-group-offset` | `0.5em`    | The `margin-left` for a `.button-group + .button-group`
 
 ## Todo
 - Add vertical button groups
-- Test out with drop downs
 

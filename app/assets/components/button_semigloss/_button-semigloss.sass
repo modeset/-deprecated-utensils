@@ -42,6 +42,26 @@ $auto-generate-semigloss: false !default
     background-image: none
     outline: 0
 
+  // Deal with buttons in a group
+  .button-group &
+    border-radius: 0
+    margin-left: -1px
+  &:first-child
+    .button-group &
+      border-top-left-radius: $radii
+      border-bottom-left-radius: $radii
+  &:last-child
+    .button-group &
+      border-top-right-radius: $radii
+      border-bottom-right-radius: $radii
+  .button-group & + .drop,
+  .button-group &.drop
+    border-top-right-radius: $radii
+    border-bottom-right-radius: $radii
+    > .caret
+      margin: 0.25em 0 -0.25em
+
+
 // Override for specific color types (notice the slight difference in percentages)
 @mixin semigloss-button-modifier($bgc, $color:#fff, $hover-percent:10%, $active-percent:12.5%, $border-percent:15%)
   background-color: $bgc
