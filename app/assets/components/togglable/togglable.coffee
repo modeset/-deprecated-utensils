@@ -5,7 +5,6 @@
 
 class utensil.Togglable
   constructor: (@el, data) ->
-    @dispatcher = @el
     @is_listening = false
     @related = null
     @data = if data then data else @el.data()
@@ -19,6 +18,7 @@ class utensil.Togglable
     @context = if @data.context then $(@data.context) else @el
     @lookup = @data.lookup || 'find'
     @target = @findTarget()
+    @dispatcher = @el
     if @data.related then @relatedOptions()
     if @data.delay then @setDelay()
     @is_active = @target.hasClass(@toggle_classes)
@@ -35,9 +35,7 @@ class utensil.Togglable
   # PUBLIC #
 
   toggle: (e) ->
-    if !@data.bubble
-      e?.preventDefault()
-      e?.stopPropagation()
+    e?.preventDefault() unless @data.bubble
     if @is_active then @deactivate(e) else @activate(e)
 
   activate: (e) ->

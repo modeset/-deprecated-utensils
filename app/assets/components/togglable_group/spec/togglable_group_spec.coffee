@@ -33,6 +33,7 @@ describe 'Togglable Group', ->
   describe '#options', ->
     it 'sets the data.target attribute', ->
       expect(@radio_group.data.target).toEqual('.radio-li')
+      # expect(@check_group.data.target).toEqual('li:not(.drop)')
       expect(@check_group.data.target).toEqual('li')
 
 
@@ -237,7 +238,8 @@ describe 'Togglable Group', ->
 
   describe '@dispatcher', ->
     it 'uses the base elements @el as the @dispatcher', ->
-      expect(@check_group.dispatcher).toEqual(@check$)
+      expect(@check_group.dispatcher).toBe(@check$)
+      expect(@radio_group.dispatcher).toBe(@radio$)
 
     it 'dispatches a Togglers togglable:activate event through TogglableGroup', ->
       tmp = 0

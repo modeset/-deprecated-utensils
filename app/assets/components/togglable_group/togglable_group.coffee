@@ -8,6 +8,7 @@ class utensil.TogglableGroup extends utensil.Togglable
     super(@el, data)
 
   options: ->
+    # @data.target = 'li:not(.drop)' unless @data.target
     @data.target = 'li' unless @data.target
     @behavior = @data.behavior || 'radio'
     super()
@@ -15,13 +16,30 @@ class utensil.TogglableGroup extends utensil.Togglable
   # PUBLIC #
 
   toggle: (e) ->
-    if !@data.bubble
-      e?.preventDefault()
-      e?.stopPropagation()
+    e?.preventDefault() unless @data.bubble
     activator = $(e.target).closest(@data.target)
     if activator.hasClass(@toggle_classes) then @deactivate(e) else @activate(e)
 
   # PROTECTED #
+
+  setActivate: (e) ->
+    super(e)
+    @deactivateHighlightState(e)
+    @activateHighlightState(e)
+
+  # ----------------------------------------------------------------------------
+  # TODO Needs to be tested.. should this move up to Togglable?
+  activateHighlightState: (e) ->
+    activator = $(e.target).closest(@data.target)
+    parental = activator.closest('.nav')
+    if parental.length > 0 then kids = parental.children() else return null
+    if kids.length > 0 && kids.hasClass('active')
+      parental.parent('li').addClass('highlight')
+
+  # TODO Needs to be tested.. should this move up to Togglable?
+  deactivateHighlightState: (e) ->
+    @el.find('.highlight').removeClass('highlight')
+  # ----------------------------------------------------------------------------
 
   activeState: (e) ->
     if typeof e.target == "number"
