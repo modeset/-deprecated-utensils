@@ -10,16 +10,23 @@
   border: 1px solid transparent
   border-radius: $radii $radii 0 0
   margin-right: 0.15em
-  padding: 0.6em 0.85em
+  padding: 0.5em 0.8em
   &:hover
     background-color: $base-bgc-hover
-    border-color: $base-bgc-hover $base-bgc-hover $base-border
+    border-color: $base-bgc-hover
+    border-bottom-color: $base-border
 
 .tab > .active > a,
-.tab > .active > a:hover
+.tab > .active > a:hover,
+.tab > .highlight > a
   background-color: $base-bgc
   border: 1px solid $base-border
-  border-bottom-color: transparent
+  border-bottom-color: $base-bgc
+
+.tab > .highlight > a:hover
+  background-color: $base-bgc-hover
+  border: 1px solid $base-border
+  border-bottom-color: $base-bgc-hover
 
 // Togglable tab panes
 .tabable-content > .tab-pane

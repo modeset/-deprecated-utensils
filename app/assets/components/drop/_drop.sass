@@ -1,0 +1,40 @@
+
+.drop
+  position: relative
+
+.drop .caret
+  margin: 0.25em 0 -0.25em 0.25em
+
+.drop:hover .caret,
+.drop.open .caret
+  border-top-color: $link-hover
+
+.drop .menu,
+.drop + .menu
+  +visuallyhidden
+
+.drop.open .menu,
+.drop.open + .menu
+  +visuallyshown
+  border: 1px solid $base-border
+  display: block
+  position: absolute
+  top: 100%
+  left: 0
+  margin-top: -1px
+  min-width: 160px
+  z-index: $zindex-drop
+  clip: inherit
+  &.north
+    top: auto
+    bottom: 100%
+    margin-top: 0
+    margin-bottom: -1px
+  &.east
+    left: auto
+    right: 100%
+    margin-right: -1px
+  &.west
+    left: 100%
+    margin-left: -4px
+

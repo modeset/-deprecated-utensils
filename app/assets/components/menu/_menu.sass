@@ -1,0 +1,30 @@
+
+.menu
+  background-clip: padding-box
+  background-color: $base-bgc
+  border: 1px solid $base-border
+  border-radius: $radii
+
+.menu li > a
+  border-bottom: 1px solid $base-border
+  padding: 0.5em 0.8em
+  display: block
+  clear: both
+  white-space: nowrap
+
+.menu li:first-child > a
+  border-top-left-radius: $radii
+  border-top-right-radius: $radii
+
+.menu li:last-child > a
+  border-bottom: none
+  border-bottom-left-radius: $radii
+  border-bottom-right-radius: $radii
+
+.menu li > a:hover,
+.menu li > a:active,
+.menu .active > a,
+.menu .active > a:hover,
+.menu .active > a:active
+  background-color: $base-bgc-active
+
