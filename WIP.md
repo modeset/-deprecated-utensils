@@ -2,7 +2,6 @@
 # TODO
 
 ## WIP
-- dropdowns.sass *
 - Clean up the sub nav states in TogglableGroup
 - Should it be visually.shown/visually.hide
 - menu.sass * (flush this out some more)
@@ -15,8 +14,8 @@
 - modals.sass *
 - notifications.sass *
 - progress-bars.sass *
-- carousels.sass *
 - navbars.sass *
+- carousels.sass *
 - view layout templates
 - document mixins
 - document polyfills

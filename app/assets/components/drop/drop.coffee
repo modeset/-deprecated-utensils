@@ -35,8 +35,7 @@ class utensil.Drop extends utensil.Togglable
   activateState: (e) ->
     super(e)
     position = @directional.getPlacementAndConstrain()
-    if position.cardinal != @placement
-      @menu.removeClass(@cardinals).addClass(position.cardinal)
+    @menu.removeClass(@cardinals).addClass(position.cardinal)
 
   clearMenus: (e) =>
     if @is_active then @deactivate(e)

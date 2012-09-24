@@ -4,7 +4,7 @@
 %nav
   %ul.nav.inline
     %li.drop(data-bindable="drop")<
-      %a(href="#") Drop nav 1 <span class="caret"></span>
+      %a(href="#") Drop Normal <span class="caret"></span>
       %ul.nav.menu(data-bindable="togglable-group")
         %li<
           %a(href="#") Subnav 1-1
@@ -12,8 +12,8 @@
           %a(href="#") Subnav 1-2
         %li<
           %a(href="#") Subnav 1-3
-    %li.drop(data-bindable="drop")<
-      %a(href="#") Drop nav 2 <span class="caret"></span>
+    %li.drop(data-bindable="drop" data-placement="north")<
+      %a(href="#") Drop North <span class="caret"></span>
       %ul.nav.menu(data-bindable="togglable-group")
         %li<
           %a(href="#") Subnav 2-1
@@ -28,9 +28,9 @@
 %section.button-toolbar
   %nav.button-group
     %ul.nav
-      %li.drop(data-bindable="drop")<
-        %a(href="#") Drop <span class="caret"></span>
-        %ul.nav.menu
+      %li.drop(data-bindable="drop" data-trigger="hover")<
+        %a(href="#") Drop Hover <span class="caret"></span>
+        %ul.nav.menu(data-bindable="togglable-group")
           %li<
             %a(href="#") Subnav 1
           %li<
@@ -39,7 +39,7 @@
             %a(href="#") Subnav 3
 
   %nav.button-group(data-bindable="togglable-group")
-    %a.btn.drop(href="#" data-bindable="drop") Drop 2 <span class="caret"></span>
+    %a.btn.drop(href="#" data-bindable="drop") Drop Button <span class="caret"></span>
     %ul.menu
       %li<
         %a(href="#") Drop 2 Subnav 1
@@ -50,8 +50,8 @@
 
   %nav.button-group
     %button.btn Action
-    %button.btn.drop(data-bindable="drop") <span class="caret"></span>
-    %ul.menu(data-bindable="togglable-group")
+    %button.btn.drop(data-bindable="drop" data-placement="east" data-related="#menu_split" data-related-toggle="in" data-delay="500") <span class="caret"></span>
+    %ul.menu#menu_split.fade(data-bindable="togglable-group")
       %li<
         %a(href="#") Drop 2 Subnav 1
       %li<
