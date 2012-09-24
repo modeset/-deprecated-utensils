@@ -11,7 +11,7 @@ data-bindable="togglable"
 
 <!--~ markup/togglable.html.haml -->
 ```haml
-%h5#togglable_heading Heading
+%h5.fade.in#togglable_heading Heading
 %nav
   %ul.nav.inline
     %li#one<
@@ -19,7 +19,7 @@ data-bindable="togglable"
     %li#two<
       %a(data-bindable="togglable" data-target="this" href="#" data-trigger="hover" data-toggle="fade") Two
     %li#three<
-      %a(data-bindable="togglable" href="#" data-related="#span" data-related-toggle="fade") Three <span id="span">Span</span>
+      %a(data-bindable="togglable" href="#" data-related="#span" data-related-toggle="in") Three <span id="span" class="fade in">Span</span>
     %li#four<
       %a(data-bindable="togglable" href=".nav" data-lookup="closest" data-toggle="inline") Four
     %li#five<
@@ -27,7 +27,7 @@ data-bindable="togglable"
     %li#six<
       %a(data-bindable="togglable" href="#" data-activate="true") Six
     %li#seven<
-      %a(data-bindable="togglable" href="#togglable_heading" data-context="body" data-toggle="fade") Seven
+      %a(data-bindable="togglable" href="#togglable_heading" data-context="body" data-toggle="in") Seven
     %li#eight<
       %a(data-bindable="togglable" href="#" data-delay="activate: 1000, deactivate: 500") Eight
 ```
@@ -35,11 +35,11 @@ data-bindable="togglable"
 
 1. Toggles the class `active` on `click`
 - Toggles the classes `fade` on `hover`, the `data-attribute="this"` is merely referencing the element as it's target
-- Toggles the class `fade` on `click` for the child `<span>` and `active` on the `<link>` element
+- Toggles the class `in` on `click` for the child `<span>` and `active` on the `<link>` element
 - Toggles the class `inline` on `click` for only the `ul.nav` and not the `<link>`, using the `$.closest` method to find the target
 - Toggles `active` state on `click` for the `<span>` element only and, changes the url hash to `#five`
 - Toggles the class `active` on `click`, but is initialized with the `active` class on the element
-- Toggles the `fade` class on the "Heading" element on `click` by using the `body` element as the `context` to find the target
+- Toggles the `in` class on the "Heading" element on `click` by using the `body` element as the `context` to find the target
 - Toggles the `active` class on the link with a 1 second delay on activation and 1/2 second delay on deactivation
 
 

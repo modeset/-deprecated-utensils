@@ -1,5 +1,5 @@
 
-%h5#togglable_heading Heading
+%h5.fade.in#togglable_heading Heading
 %nav
   %ul.nav.inline
     %li#one<
@@ -7,7 +7,7 @@
     %li#two<
       %a(data-bindable="togglable" data-target="this" href="#" data-trigger="hover" data-toggle="fade") Two
     %li#three<
-      %a(data-bindable="togglable" href="#" data-related="#span" data-related-toggle="fade") Three <span id="span">Span</span>
+      %a(data-bindable="togglable" href="#" data-related="#span" data-related-toggle="in") Three <span id="span" class="fade in">Span</span>
     %li#four<
       %a(data-bindable="togglable" href=".nav" data-lookup="closest" data-toggle="inline") Four
     %li#five<
@@ -15,7 +15,7 @@
     %li#six<
       %a(data-bindable="togglable" href="#" data-activate="true") Six
     %li#seven<
-      %a(data-bindable="togglable" href="#togglable_heading" data-context="body" data-toggle="fade") Seven
+      %a(data-bindable="togglable" href="#togglable_heading" data-context="body" data-toggle="in") Seven
     %li#eight<
       %a(data-bindable="togglable" href="#" data-delay="activate: 1000, deactivate: 500") Eight
 

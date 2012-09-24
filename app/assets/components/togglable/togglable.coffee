@@ -102,10 +102,16 @@ class utensil.Togglable
     if @related then @deactivateRelatedState()
 
   activateRelatedState: () ->
-    @related.addClass(@related_classes)
+    if @related.hasClass(@related_classes)
+      @related.removeClass(@related_classes)
+    else
+      @related.addClass(@related_classes)
 
   deactivateRelatedState: () ->
-    @related.removeClass(@related_classes)
+    if @related.hasClass(@related_classes)
+      @related.removeClass(@related_classes)
+    else
+      @related.addClass(@related_classes)
 
   clearTimeout: ->
     clearTimeout(@timeout) if @timeout

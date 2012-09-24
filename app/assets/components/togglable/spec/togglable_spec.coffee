@@ -143,28 +143,28 @@ describe 'Togglable', ->
       expect(@nav).toHaveClass('inline')
       expect(@closest.is_active).toEqual(true)
 
-    it 'toggles the target with a normal "active" state and a related element with "fade"', ->
-      expect(@three.find('span')).not.toHaveClass('fade')
+    it 'toggles the target with a normal "active" state and a related element with "in"', ->
+      expect(@three.find('span')).toHaveClass('in')
       expect(@three).not.toHaveClass('active')
 
       @spanner.toggle()
-      expect(@three.find('span')).toHaveClass('fade')
-      expect(@three).not.toHaveClass('fade')
+      expect(@three.find('span')).not.toHaveClass('in')
+      expect(@three).not.toHaveClass('in')
       expect(@three).toHaveClass('active')
 
       @spanner.toggle()
-      expect(@three.find('span')).not.toHaveClass('fade')
+      expect(@three.find('span')).toHaveClass('in')
       expect(@three).not.toHaveClass('active')
 
     it 'toggles a context object searching from the body', ->
       heading = $('#togglable_heading')
-      expect(heading).not.toHaveClass('fade')
+      expect(heading).toHaveClass('in')
 
       @contexter.toggle()
-      expect(heading).toHaveClass('fade')
+      expect(heading).not.toHaveClass('in')
 
       @contexter.toggle()
-      expect(heading).not.toHaveClass('fade')
+      expect(heading).toHaveClass('in')
 
 
   describe '#activate', ->
