@@ -47,8 +47,10 @@ same styles
 To override the default settings, set the variable and it's value
 within your `config.sass` file or before `caret.sass` is loaded.
 
-Variable       | Default       | Description
--------------- | ------------- | -------------------------------------------
-`$caret-size`  | `6px`         | The `border-width` (size) of the caret
-`$caret-color` | `$link-color` | The base `border-color` of the caret
+Variable              | Default        | Description
+--------------------- | -------------  | -------------------------------------------
+`$caret-size`         | `6px`          | The `border-width` (size) of the caret
+`$caret-color`        | `$link-color`  | The base `border-color` of the caret
+`$caret-color-hover`  | `$link-hover`  | The base `border-color` of the caret when hovered
+`$caret-color-active` | `$link-active` | The base `border-color` of the caret when active
 

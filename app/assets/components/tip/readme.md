@@ -127,7 +127,7 @@ Variable            | Default               | Description
 `$tip-arrow-offset` | `-$tip-arrow-size`    | The offset for positioning the arrow
 
 ###### Warning
-- **Heads Up!** The configuration file needs to define the `$zindex-tips`
+- **Heads Up!** The configuration file needs to define the `$zindex-tip`
 value before this file is imported, this is done to keep managing
 `z-index` mappings in one place.
 

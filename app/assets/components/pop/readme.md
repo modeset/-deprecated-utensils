@@ -158,7 +158,7 @@ Variable                  | Default                | Description
 
 
 ###### Warning
-- **Heads Up!** The configuration file needs to define the `$zindex-pops`
+- **Heads Up!** The configuration file needs to define the `$zindex-pop`
 value before this file is imported, this is done to keep managing
 `z-index` mappings in one place.
 
