@@ -2954,12 +2954,21 @@ and styles.</p>
 
 <h1>Menu</h1>
 
-<p>Describe this</p>
+<p>The menu component is a simple list of navigation elements, which are
+typically used within the <code>Drop</code> component.</p>
+
+<p><code>Menu</code> is an extension of <code>TogglableGroup</code>.</p>
+
+<pre><code class="sass">@import utensils/components/menu/menu
+</code></pre>
+
+<pre><code class="html">data-bindable=&quot;menu&quot;
+</code></pre>
 
 <!--~ markup/menu.html.haml -->
 
 <div class="sherpa-showcase sherpa-clearfix"><nav>
-<ul class='nav menu' data-bindable='togglable-group'>
+<ul class='nav menu' data-bindable='menu'>
 <li><a href='#'>Menu item 1</a></li>
 <li class='active'><a href='#'>Menu item 2</a></li>
 <li><a href='#'>Menu item 3</a></li>
@@ -2968,7 +2977,7 @@ and styles.</p>
 </div>
 
 <pre><code class="haml">%nav
-  %ul.nav.menu(data-bindable=&quot;togglable-group&quot;)
+  %ul.nav.menu(data-bindable=&quot;menu&quot;)
     %li&lt;
       %a(href=&quot;#&quot;) Menu item 1
     %li.active&lt;
@@ -2979,13 +2988,161 @@ and styles.</p>
 
 <!-- end -->
 
-<h2>Todo</h2>
+<h2>Options</h2>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>keyboard</code></td>
+<td><code>false</code></td>
+<td>Whether the menu is navigable via the <code>up</code> and <code>down</code> arrow keys</td>
+</tr>
+</tbody></table>
+
+<p>See <code>TogglableGroup</code> for other options </p>
+
+<h6>Notes</h6>
 
 <ul>
-<li>Keyboard for selecting items within the menu</li>
-<li>Document</li>
-<li>Tests</li>
+<li><strong>Heads Up!</strong> Setting the keyboard value hijacks the <code>up</code> and <code>down</code>
+arrows, this is primarily used by <code>Drop</code> when there is only a single
+menu in the viewport at a time.</li>
 </ul>
+
+<h2>API</h2>
+
+<h3>#new</h3>
+
+<p>Create a new instance of <code>Menu</code> programmatically. Normally this is
+handled through <code>Bindable</code> or via <code>Drop</code>.</p>
+
+<pre><code class="coffee">#= require menu
+
+@el = $(&#39;#menu&#39;)
+@menu = new utensil.Menu(@el, {keyboard: true})
+</code></pre>
+
+<h3>#toggle</h3>
+
+<p>Typically called through user input, but can be triggered by the
+elements toggle event.</p>
+
+<pre><code class="coffee">@el.trigger(&#39;click&#39;)
+</code></pre>
+
+<h3>#activate</h3>
+
+<p>Activate can take either an index or element as it&#39;s target parameter.
+Activating will add the toggle classes to the element. Activate will
+remove the toggle classes from other elements within the group.</p>
+
+<pre><code class="coffee"># activate by index
+@menu.activate(target:1)
+
+# activate by element
+@menu.activate(target:@el.find(&#39;li:last-child&#39;))
+</code></pre>
+
+<h3>#deactivate</h3>
+
+<p>Deactivate can take either an index or element as it&#39;s target parameter.
+Deactivating will remove the toggle classes from the element.</p>
+
+<pre><code class="coffee"># deactivate by index
+@menu.deactivate(target:1)
+
+# deactivate by element
+@menu.deactivate(target:@el.find(&#39;li:last-child&#39;))
+</code></pre>
+
+<h3>#next</h3>
+
+<p>Select the next menu item in the list (stops at the bottom)</p>
+
+<pre><code class="coffee">@menu.next()
+</code></pre>
+
+<h3>#prev</h3>
+
+<p>Select the previous menu item in the list (stops at the top)</p>
+
+<pre><code class="coffee">@menu.prev()
+</code></pre>
+
+<h3>#activateKeys</h3>
+
+<p>Enables navigation through key listeners for <code>up</code> and <code>down</code> arrows</p>
+
+<pre><code class="coffee">@menu.activateKeys()
+</code></pre>
+
+<h3>#deactivateKeys</h3>
+
+<p>Disables navigation through key listeners for <code>up</code> and <code>down</code> arrows</p>
+
+<pre><code class="coffee">@menu.deactivateKeys()
+</code></pre>
+
+<h3>#dispose</h3>
+
+<p>Cleans up any internal references and key listeners</p>
+
+<pre><code class="coffee">@menu.dispose()
+</code></pre>
+
+<h3>Requires</h3>
+
+<ul>
+<li><code>utensil</code></li>
+<li><code>bindable</code></li>
+<li><code>togglable_group</code></li>
+</ul>
+
+<p><code>Menu</code> utilizes <code>TogglableGroup</code> via extension.</p>
+
+<h2>Style Settings</h2>
+
+<p>To override the default settings, set the variable and it&#39;s value within
+your <code>config.sass</code> file or before <code>drop.sass</code> is loaded.</p>
+
+<table><thead>
+<tr>
+<th>Variable</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>$menu-bgc</code></td>
+<td><code>$base-bgc</code></td>
+<td>The <code>background-color</code> of the menu component</td>
+</tr>
+<tr>
+<td><code>$menu-bgc-hover</code></td>
+<td><code>$base-bgc-hover</code></td>
+<td>The <code>background-color</code> of the menu link when hovered</td>
+</tr>
+<tr>
+<td><code>$menu-bgc-active</code></td>
+<td><code>$base-bgc-active</code></td>
+<td>The <code>background-color</code> of the menu link when active</td>
+</tr>
+<tr>
+<td><code>$menu-border</code></td>
+<td><code>$base-border</code></td>
+<td>The <code>border-color</code> of the menu component and dividers for link elements</td>
+</tr>
+<tr>
+<td><code>$menu-radii</code></td>
+<td><code>$radii</code></td>
+<td>The <code>border-radius</code> of the menu component</td>
+</tr>
+</tbody></table>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
@@ -5067,6 +5224,7 @@ dealing with a group. The alternative could be that <code>@is_active</code> be
 set by the state of the <code>e.target</code>?</li>
 </ul></li>
 <li>Clean up the fixture so it doesn&#39;t rely on tabs and is more generic</li>
+<li>Should we keep and index of who is selected (see the <code>Menu</code> component)</li>
 </ul>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>

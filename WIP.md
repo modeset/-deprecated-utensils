@@ -2,9 +2,11 @@
 # TODO
 
 ## WIP
+- add key binding to drop's menu
 - Clean up the sub nav states in TogglableGroup
-- Should it be visually.shown/visually.hide
-- menu.sass * (flush this out some more)
+- Should it be visually.shown/visually.hide?
+- rebuild scoping in all files
+- make sure events are namespaced (`.` for native and `:` for custom)
 - tabs.sass *
 - stacked tabs
 - pills.sass *
@@ -28,13 +30,17 @@
 - There should be some sort of Togglable class that acts similar to the
   demo (removes a bunch of classes then add more) pass a data-remove?
 - Should we abstract focus/disabled states to a mixin?
-- Rename components to utensils?
+- Rename components subdirectory to utensils?
 - Convert media queries
 - Move the debug tools outside of this project
 - Turn into engine with generators
 - Really test out the order of sass files and where there are issues
 - Look at all Todo items within each component
-- Better tools for documentation
+- Better tools for documentation (generation, behavior, and styles)
+- Do tip and popover extend Togglable instead of using composition?
+- Would it be better to use underscore for most things or stick with `$`?
+- Check for disabled states on some components and disable interactions
+  if true
 
 ## Bugs
 - Weird bug on some of the button group clicking around deactivation

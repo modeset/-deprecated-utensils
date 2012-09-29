@@ -178,4 +178,5 @@ Cleans up any internal references
     dealing with a group. The alternative could be that `@is_active` be
     set by the state of the `e.target`?
 - Clean up the fixture so it doesn't rely on tabs and is more generic
+- Should we keep and index of who is selected (see the `Menu` component)
 
