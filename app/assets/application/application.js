@@ -3,6 +3,7 @@
 //= require bindable
 //= require togglable_group
 
+//= require menu
 //= require drop
 //= require tip
 //= require pop

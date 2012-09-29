@@ -8,6 +8,7 @@
 //= require directional/spec
 //= require timeslot/spec
 
+//= require menu/spec
 //= require drop/spec
 //= require tip/spec
 //= require pop/spec
