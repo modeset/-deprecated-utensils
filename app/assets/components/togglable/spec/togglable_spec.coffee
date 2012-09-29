@@ -323,6 +323,17 @@ describe 'Togglable', ->
       expect(@defaulter.delay).not.toBeDefined()
 
 
+  describe '#classify', ->
+    it 'turns a string of single class name into actual an class string for lookups', ->
+      expect(@defaulter.classify('active')).toEqual('.active')
+
+    it 'turns a string of multiple class name into actual class strings for lookups', ->
+      expect(@defaulter.classify('active in')).toEqual('.active .in')
+
+    it 'turns a string of multiple class name into actual class strings for lookups from a malformed string', ->
+      expect(@defaulter.classify('active   in')).toEqual('.active .in')
+
+
   describe '#findTarget', ->
     it 'finds itself as an element when there is no href or data-target present', ->
       expect(@defaulter.target).toBe(@one)
