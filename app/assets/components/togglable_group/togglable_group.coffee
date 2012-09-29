@@ -27,20 +27,6 @@ class utensil.TogglableGroup extends utensil.Togglable
     @deactivateHighlightState(e)
     @activateHighlightState(e)
 
-  # ----------------------------------------------------------------------------
-  # TODO Needs to be tested.. should this move up to Togglable?
-  activateHighlightState: (e) ->
-    activator = $(e.target).closest(@data.target)
-    parental = activator.closest('.nav')
-    if parental.length > 0 then kids = parental.children() else return null
-    if kids.length > 0 && kids.hasClass('active')
-      parental.parent('li').addClass('highlight')
-
-  # TODO Needs to be tested.. should this move up to Togglable?
-  deactivateHighlightState: (e) ->
-    @el.find('.highlight').removeClass('highlight')
-  # ----------------------------------------------------------------------------
-
   activateState: (e) ->
     if typeof e.target == "number"
       activator = $(@target[e.target])
@@ -76,6 +62,20 @@ class utensil.TogglableGroup extends utensil.Togglable
       element = $(selector)
       element.removeClass(@related_classes) unless @behavior == 'radio' && element.hasClass(@related_classes)
       return element
+
+  # ----------------------------------------------------------------------------
+  # TODO Needs to be tested.. should this move up to Togglable?
+  activateHighlightState: (e) ->
+    activator = $(e.target).closest(@data.target)
+    parental = activator.closest('.nav')
+    if parental.length > 0 then kids = parental.children() else return null
+    if kids.length > 0 && kids.hasClass('active')
+      parental.parent('li').addClass('highlight')
+
+  # TODO Needs to be tested.. should this move up to Togglable?
+  deactivateHighlightState: (e) ->
+    @el.find('.highlight').removeClass('highlight')
+  # ----------------------------------------------------------------------------
 
 Bindable.register('togglable-group', utensil.TogglableGroup)
 
