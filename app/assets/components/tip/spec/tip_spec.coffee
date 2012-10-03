@@ -28,6 +28,7 @@ describe 'Tip', ->
 
   afterEach ->
     $('.tip').remove()
+    $('html').removeClass('touch')
 
 
   describe 'binding', ->
