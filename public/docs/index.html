@@ -1206,9 +1206,7 @@ system.</p>
 than a <code>display: none|block</code> to allow screen readers to still discover
 the inner content.</p>
 
-<p>Drop is an extension of <code>Togglable</code>.</p>
-
-<p>Drop requires the <code>menu</code> component.</p>
+<p>Drop requires the <code>menu</code> component for styles.</p>
 
 <pre><code class="sass">@import utensils/components/drop/drop
 </code></pre>
@@ -1247,24 +1245,39 @@ the inner content.</p>
 </ul></li>
 </ul>
 </nav>
-<nav class='button-group' data-bindable='togglable-group'>
+<nav class='button-group'>
 <a class='btn drop' data-bindable='drop' href='#'>Drop Button <span class="caret"></span></a>
-<ul class='menu'>
+<ul class='nav menu' data-bindable='togglable-group'>
 <li><a href='#'>Drop 2 Subnav 1</a></li>
 <li><a href='#'>Drop 2 Subnav 2</a></li>
 <li><a href='#'>Drop 2 Subnav 3</a></li>
 </ul>
 </nav>
 <nav class='button-group'>
-<button class='btn'>Action</button>
-<button class='btn drop' data-bindable='drop' data-delay='500' data-placement='east' data-related-toggle='in' data-related='#menu_split'><span class="caret"></span></button>
-<ul class='menu fade' data-bindable='togglable-group' id='menu_split'>
+<a class='btn'>Action</a>
+<a class='btn drop' data-bindable='drop' data-delay='500' data-placement='east' data-related-toggle='in' data-related='#menu_split'><span class="caret"></span></a>
+<ul class='nav menu fade' data-bindable='togglable-group' id='menu_split'>
 <li><a href='#'>Drop 2 Subnav 1</a></li>
 <li><a href='#'>Drop 2 Subnav 2</a></li>
 <li><a href='#'>Drop 2 Subnav 3</a></li>
 </ul>
 </nav>
 </section>
+<h5 style='margin-bottom:1em; margin-top:2em;'>Drops in Group</h5>
+<nav id='drop_group_demo'>
+<ul class='nav inline' data-bindable='togglable-group'>
+<li><a href='#'>Group One</a></li>
+<li><a href='#'>Group Two</a></li>
+<li class='drop' data-bindable='drop' data-group='.inline'>
+<a href='#'>Drop <span class="caret"></span></a>
+<ul class='nav menu'>
+<li><a href='#'>Group Four</a></li>
+<li><a href='#'>Group Five</a></li>
+<li><a href='#'>Group Six</a></li>
+</ul>
+</li>
+</ul>
+</nav>
 </div>
 
 <pre><code class="haml">%h5(style=&quot;margin-bottom:1em;&quot;) Drops in Navigation
@@ -1306,9 +1319,9 @@ the inner content.</p>
           %li&lt;
             %a(href=&quot;#&quot;) Subnav 3
 
-  %nav.button-group(data-bindable=&quot;togglable-group&quot;)
+  %nav.button-group
     %a.btn.drop(href=&quot;#&quot; data-bindable=&quot;drop&quot;) Drop Button &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
-    %ul.menu
+    %ul.nav.menu(data-bindable=&quot;togglable-group&quot;)
       %li&lt;
         %a(href=&quot;#&quot;) Drop 2 Subnav 1
       %li&lt;
@@ -1317,15 +1330,33 @@ the inner content.</p>
         %a(href=&quot;#&quot;) Drop 2 Subnav 3
 
   %nav.button-group
-    %button.btn Action
-    %button.btn.drop(data-bindable=&quot;drop&quot; data-placement=&quot;east&quot; data-related=&quot;#menu_split&quot; data-related-toggle=&quot;in&quot; data-delay=&quot;500&quot;) &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
-    %ul.menu#menu_split.fade(data-bindable=&quot;togglable-group&quot;)
+    %a.btn Action
+    %a.btn.drop(data-bindable=&quot;drop&quot; data-placement=&quot;east&quot; data-related=&quot;#menu_split&quot; data-related-toggle=&quot;in&quot; data-delay=&quot;500&quot;) &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
+    %ul.nav.menu#menu_split.fade(data-bindable=&quot;togglable-group&quot;)
       %li&lt;
         %a(href=&quot;#&quot;) Drop 2 Subnav 1
       %li&lt;
         %a(href=&quot;#&quot;) Drop 2 Subnav 2
       %li&lt;
         %a(href=&quot;#&quot;) Drop 2 Subnav 3
+
+%h5(style=&quot;margin-bottom:1em; margin-top:2em;&quot;) Drops in Group
+
+%nav#drop_group_demo
+  %ul.nav.inline(data-bindable=&quot;togglable-group&quot;)
+    %li&lt;
+      %a(href=&quot;#&quot;) Group One
+    %li&lt;
+      %a(href=&quot;#&quot;) Group Two
+    %li.drop(data-bindable=&quot;drop&quot; data-group=&quot;.inline&quot;)
+      %a(href=&quot;#&quot;) Drop &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
+      %ul.nav.menu
+        %li&lt;
+          %a(href=&quot;#&quot;) Group Four
+        %li&lt;
+          %a(href=&quot;#&quot;) Group Five
+        %li&lt;
+          %a(href=&quot;#&quot;) Group Six
 </code></pre>
 
 <!-- end -->
@@ -1341,13 +1372,18 @@ the inner content.</p>
 </thead><tbody>
 <tr>
 <td><code>toggle</code></td>
-<td><code>open active</code></td>
+<td><code>active active</code></td>
 <td>Overrides <code>Togglable&#39;s</code> default of <code>active</code></td>
 </tr>
 <tr>
 <td><code>placement</code></td>
 <td><code>south</code></td>
 <td>Where to position the drop menu in relation to the element: <code>north</code>, <code>south</code>, <code>east</code>, <code>west</code></td>
+</tr>
+<tr>
+<td><code>keyboard</code></td>
+<td><code>true</code></td>
+<td>Utilize some basic key commands for controlling the menu</td>
 </tr>
 </tbody></table>
 
@@ -1412,7 +1448,7 @@ elements toggle event.</p>
 <li><code>directional</code></li>
 </ul>
 
-<p><code>Drop</code> utilizes <code>Togglable</code> via extension.</p>
+<p><code>Drop</code> utilizes <code>Togglable</code> via composition.</p>
 
 <h2>Style Settings</h2>
 
@@ -1447,11 +1483,18 @@ value before this file is imported, this is done to keep managing
 <h2>Todo</h2>
 
 <ul>
+<li>Clicking on another item, html or drop should deactivate existing menu items</li>
+<li>Clicking on the drop within a group needs to stopPropagation (see tab)</li>
 <li>Exit animations do not occur since the <code>.visuallyhidden</code> class is
 applied at the same time a transition occurs. Not sure if this should
 be added in here or through an extension of <code>Drop</code>?</li>
-<li>Once we have <code>menu</code> flushed out, we&#39;ll most likely need to instantiate
-it&#39;s behavior from within <code>Drop</code>, currently this is an unknown</li>
+</ul>
+
+<h6>Alert</h6>
+
+<ul>
+<li><strong>Heads Up!</strong> Drop is not yet feature complete, it&#39;s missing some core
+functionality at the moment.</li>
 </ul>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
@@ -2957,18 +3000,13 @@ and styles.</p>
 <p>The menu component is a simple list of navigation elements, which are
 typically used within the <code>Drop</code> component.</p>
 
-<p><code>Menu</code> is an extension of <code>TogglableGroup</code>.</p>
-
 <pre><code class="sass">@import utensils/components/menu/menu
-</code></pre>
-
-<pre><code class="html">data-bindable=&quot;menu&quot;
 </code></pre>
 
 <!--~ markup/menu.html.haml -->
 
 <div class="sherpa-showcase sherpa-clearfix"><nav>
-<ul class='nav menu' data-bindable='menu'>
+<ul class='nav menu' data-bindable='togglable-group'>
 <li><a href='#'>Menu item 1</a></li>
 <li class='active'><a href='#'>Menu item 2</a></li>
 <li><a href='#'>Menu item 3</a></li>
@@ -2977,7 +3015,7 @@ typically used within the <code>Drop</code> component.</p>
 </div>
 
 <pre><code class="haml">%nav
-  %ul.nav.menu(data-bindable=&quot;menu&quot;)
+  %ul.nav.menu(data-bindable=&quot;togglable-group&quot;)
     %li&lt;
       %a(href=&quot;#&quot;) Menu item 1
     %li.active&lt;
@@ -2988,127 +3026,10 @@ typically used within the <code>Drop</code> component.</p>
 
 <!-- end -->
 
-<h2>Options</h2>
-
-<table><thead>
-<tr>
-<th>Attribute</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>keyboard</code></td>
-<td><code>false</code></td>
-<td>Whether the menu is navigable via the <code>up</code> and <code>down</code> arrow keys</td>
-</tr>
-</tbody></table>
-
-<p>See <code>TogglableGroup</code> for other options </p>
-
-<h6>Notes</h6>
-
-<ul>
-<li><strong>Heads Up!</strong> Setting the keyboard value hijacks the <code>up</code> and <code>down</code>
-arrows, this is primarily used by <code>Drop</code> when there is only a single
-menu in the viewport at a time.</li>
-</ul>
-
-<h2>API</h2>
-
-<h3>#new</h3>
-
-<p>Create a new instance of <code>Menu</code> programmatically. Normally this is
-handled through <code>Bindable</code> or via <code>Drop</code>.</p>
-
-<pre><code class="coffee">#= require menu
-
-@el = $(&#39;#menu&#39;)
-@menu = new utensil.Menu(@el, {keyboard: true})
-</code></pre>
-
-<h3>#toggle</h3>
-
-<p>Typically called through user input, but can be triggered by the
-elements toggle event.</p>
-
-<pre><code class="coffee">@el.trigger(&#39;click&#39;)
-</code></pre>
-
-<h3>#activate</h3>
-
-<p>Activate can take either an index or element as it&#39;s target parameter.
-Activating will add the toggle classes to the element. Activate will
-remove the toggle classes from other elements within the group.</p>
-
-<pre><code class="coffee"># activate by index
-@menu.activate(target:1)
-
-# activate by element
-@menu.activate(target:@el.find(&#39;li:last-child&#39;))
-</code></pre>
-
-<h3>#deactivate</h3>
-
-<p>Deactivate can take either an index or element as it&#39;s target parameter.
-Deactivating will remove the toggle classes from the element.</p>
-
-<pre><code class="coffee"># deactivate by index
-@menu.deactivate(target:1)
-
-# deactivate by element
-@menu.deactivate(target:@el.find(&#39;li:last-child&#39;))
-</code></pre>
-
-<h3>#next</h3>
-
-<p>Select the next menu item in the list (stops at the bottom)</p>
-
-<pre><code class="coffee">@menu.next()
-</code></pre>
-
-<h3>#prev</h3>
-
-<p>Select the previous menu item in the list (stops at the top)</p>
-
-<pre><code class="coffee">@menu.prev()
-</code></pre>
-
-<h3>#activateKeys</h3>
-
-<p>Enables navigation through key listeners for <code>up</code> and <code>down</code> arrows</p>
-
-<pre><code class="coffee">@menu.activateKeys()
-</code></pre>
-
-<h3>#deactivateKeys</h3>
-
-<p>Disables navigation through key listeners for <code>up</code> and <code>down</code> arrows</p>
-
-<pre><code class="coffee">@menu.deactivateKeys()
-</code></pre>
-
-<h3>#dispose</h3>
-
-<p>Cleans up any internal references and key listeners</p>
-
-<pre><code class="coffee">@menu.dispose()
-</code></pre>
-
-<h3>Requires</h3>
-
-<ul>
-<li><code>utensil</code></li>
-<li><code>bindable</code></li>
-<li><code>togglable_group</code></li>
-</ul>
-
-<p><code>Menu</code> utilizes <code>TogglableGroup</code> via extension.</p>
-
 <h2>Style Settings</h2>
 
 <p>To override the default settings, set the variable and it&#39;s value within
-your <code>config.sass</code> file or before <code>drop.sass</code> is loaded.</p>
+your <code>config.sass</code> file or before <code>menu.sass</code> is loaded.</p>
 
 <table><thead>
 <tr>
@@ -3990,7 +3911,7 @@ within your <code>config.sass</code> file or before <code>scaffold.sass</code> i
 <li class='active'><a href='#tab_one'>Tab One</a></li>
 <li><a data-target='#tab_two' href='#'>Tab Two</a></li>
 <li><a href='#tab_three'>Tab Three</a></li>
-<li class='drop' data-bindable='drop'>
+<li class='drop' data-bindable='drop' data-group='.tab'>
 <a href='#'>Drop <span class="caret"></span></a>
 <ul class='nav menu'>
 <li><a href='#tab_four'>Tab Four</a></li>
@@ -4031,7 +3952,7 @@ within your <code>config.sass</code> file or before <code>scaffold.sass</code> i
     %li&lt;
       %a(href=&quot;#tab_three&quot;) Tab Three
 
-    %li.drop(data-bindable=&quot;drop&quot;)
+    %li.drop(data-bindable=&quot;drop&quot; data-group=&quot;.tab&quot;)
       %a(href=&quot;#&quot;) Drop &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
       %ul.nav.menu
         %li&lt;
