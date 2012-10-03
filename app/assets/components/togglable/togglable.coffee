@@ -123,9 +123,6 @@ class utensil.Togglable
     @activate = @activateWithDelay unless @delay.activate == 0
     @deactivate = @deactivateWithDelay unless @delay.deactivate == 0
 
-  classify: (group) ->
-    return "." + group.replace(/\s+/g, ' .')
-
   findTarget: ->
     # see if there is a specific target and it's valid..
     if @data.target
