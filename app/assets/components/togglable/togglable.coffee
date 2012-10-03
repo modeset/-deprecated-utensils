@@ -127,7 +127,7 @@ class utensil.Togglable
     return "." + group.replace(/\s+/g, ' .')
 
   findTarget: ->
-    # see if there is a specific target and it's valid
+    # see if there is a specific target and it's valid..
     if @data.target
       return @el if @data.target == "this"
       target_element = @context[@lookup](@data.target)
@@ -135,16 +135,16 @@ class utensil.Togglable
 
     href = @el.attr('href')
 
-    # if no href, only a hash tag, or href is a url
+    # if no href, only a hash tag, or href is a url..
     if !href || href == "#" || href.search(/\/|\?/) != -1
       return @el
 
-    # else href is a selector, try and find the element
+    # else href is a selector, try and find the element..
     else
       href_element = @context[@lookup](href)
       return href_element unless href_element.length < 1
 
-    # the default fall through
+    # the default fall through.
     return @el
 
 Bindable.register('togglable', utensil.Togglable)
