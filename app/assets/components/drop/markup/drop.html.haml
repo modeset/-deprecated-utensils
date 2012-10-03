@@ -38,9 +38,9 @@
           %li<
             %a(href="#") Subnav 3
 
-  %nav.button-group(data-bindable="togglable-group")
+  %nav.button-group
     %a.btn.drop(href="#" data-bindable="drop") Drop Button <span class="caret"></span>
-    %ul.menu
+    %ul.nav.menu(data-bindable="togglable-group")
       %li<
         %a(href="#") Drop 2 Subnav 1
       %li<
@@ -49,13 +49,31 @@
         %a(href="#") Drop 2 Subnav 3
 
   %nav.button-group
-    %button.btn Action
-    %button.btn.drop(data-bindable="drop" data-placement="east" data-related="#menu_split" data-related-toggle="in" data-delay="500") <span class="caret"></span>
-    %ul.menu#menu_split.fade(data-bindable="togglable-group")
+    %a.btn Action
+    %a.btn.drop(data-bindable="drop" data-placement="east" data-related="#menu_split" data-related-toggle="in" data-delay="500") <span class="caret"></span>
+    %ul.nav.menu#menu_split.fade(data-bindable="togglable-group")
       %li<
         %a(href="#") Drop 2 Subnav 1
       %li<
         %a(href="#") Drop 2 Subnav 2
       %li<
         %a(href="#") Drop 2 Subnav 3
+
+%h5(style="margin-bottom:1em; margin-top:2em;") Drops in Group
+
+%nav#drop_group_demo
+  %ul.nav.inline(data-bindable="togglable-group")
+    %li<
+      %a(href="#") Group One
+    %li<
+      %a(href="#") Group Two
+    %li.drop(data-bindable="drop" data-group=".inline")
+      %a(href="#") Drop <span class="caret"></span>
+      %ul.nav.menu
+        %li<
+          %a(href="#") Group Four
+        %li<
+          %a(href="#") Group Five
+        %li<
+          %a(href="#") Group Six
 

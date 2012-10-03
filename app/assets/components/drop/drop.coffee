@@ -4,50 +4,107 @@
 #= require togglable
 #= require directional
 
-class utensil.Drop extends utensil.Togglable
+class utensil.Drop
   constructor: (@el, data) ->
-    super(@el, data)
+    @html = $('html')
+    @data = if data then data else @el.data()
+    @options()
+    @initialize()
+    @addListeners()
+    @activate() if @data.activate
 
   options: ->
-    @html = $('html')
-    @data.toggle = 'open active'
+    # override togglable defaults
+    @toggle_classes = @data.toggle || 'active open'
+    @data.toggle = @toggle_classes
+    @data.target = @el unless @data.target
+
+    # drop options
+    @use_keyboard = if @data.keyboard == false || @html.hasClass('touch') then false else true
     @placement = @data.placement || 'south'
-    super()
+    @select_classes = @data.select || 'selected'
 
   initialize: ->
+    @is_sibling = false
+    @toggler = new utensil.Togglable(@el, @data)
+    @toggler.stop_propagation = true
+    @target = @toggler.target
     @menu = @findMenu()
+    @menu_items = @menu.find('li')
     @directional = new utensil.Directional(@menu, @el, @placement)
     @cardinals = @directional.getCardinals()
-    super()
+    @group = @findGroup() if @data.group
+
+  # PUBLIC #
+
+  toggle: (e) ->
+    @toggler.toggle(e)
+
+  activate: (e) ->
+    @toggler.activate(e)
+
+  deactivate: (e) ->
+    @toggler.deactivate(e)
+
+  dispose: ->
+    @deactivate()
+    @removeListeners()
+    @toggler.dispose()
+    @toggler = null
 
   # PROTECTED #
 
-  setActivate: (e) ->
-    e?.stopPropagation()
-    @html.on('click', @clearMenus)
-    super(e)
+  addListeners: ->
+    @toggler.dispatcher.on('togglable:activate', => @activated arguments...)
+    @toggler.dispatcher.on('togglable:deactivate', => @deactivated arguments...)
+    @group.on('togglable:activate', => @toggleSelectionFromGroup arguments...) if @group
+    @menu_items.on('click.drop.menu', => @deactivate arguments...) if @is_sibling
 
-  setDeactivate: (e) =>
-    if $(e.target).parents('.menu').length <= 0 then e.stopPropagation()
-    @html.off('click', @clearMenus)
-    super(e)
+  removeListeners: ->
+    @toggler.dispatcher.off('togglable:activate')
+    @toggler.dispatcher.off('togglable:deactivate')
+    @group.off('togglable:activate') if @group
+    @menu_items.off('click.drop.menu') if @is_sibling
 
-  activateState: (e) ->
-    super(e)
+  activated: (e) ->
     position = @directional.getPlacementAndConstrain()
     @menu.removeClass(@cardinals).addClass(position.cardinal)
+    @html.on('keydown.menu', => @keyed arguments...) if @use_keyboard
+    # @html.on('click.drop.html', => @deactivate arguments...)
+    @el.focus()
 
-  clearMenus: (e) =>
-    if @is_active then @deactivate(e)
+  deactivated: (e) ->
+    @html.off('keydown.menu') if @use_keyboard
+    # @html.off('click.drop.html')
+
+  toggleSelectionFromGroup: (e) ->
+    if @menu_items.hasClass('active')
+      @target.addClass(@select_classes)
+    else
+      @target.removeClass(@select_classes)
+
+  keyed: (e) ->
+    return if (!/(27)/.test(e.keyCode))
+    e?.preventDefault()
+    e?.stopPropagation()
+
+    if e.keyCode == 27
+      @deactivate(e)
 
   findMenu: ->
     child = @target.find('.menu')
-    if child.length > 0 then return child
+    if child.length > 0 then return child.first()
 
     sibling = @target.next('.menu')
-    if sibling.length > 0 then return sibling
+    if sibling.length > 0
+      @is_sibling = true
+      return sibling.first()
 
     return null
 
-Bindable.register 'drop', utensil.Drop
+  findGroup: ->
+    group = @menu.closest(@data.group).first()
+    if group.length > 0 then return group else return null
+
+Bindable.register('drop', utensil.Drop)
 

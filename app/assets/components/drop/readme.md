@@ -7,9 +7,7 @@ Drop's utilize a `visuallyhidden` and `visuallyshown` technique rather
 than a `display: none|block` to allow screen readers to still discover
 the inner content.
 
-Drop is an extension of `Togglable`.
-
-Drop requires the `menu` component.
+Drop requires the `menu` component for styles.
 
 ```sass
 @import utensils/components/drop/drop
@@ -62,9 +60,9 @@ data-bindable="drop"
           %li<
             %a(href="#") Subnav 3
 
-  %nav.button-group(data-bindable="togglable-group")
+  %nav.button-group
     %a.btn.drop(href="#" data-bindable="drop") Drop Button <span class="caret"></span>
-    %ul.menu
+    %ul.nav.menu(data-bindable="togglable-group")
       %li<
         %a(href="#") Drop 2 Subnav 1
       %li<
@@ -73,24 +71,43 @@ data-bindable="drop"
         %a(href="#") Drop 2 Subnav 3
 
   %nav.button-group
-    %button.btn Action
-    %button.btn.drop(data-bindable="drop" data-placement="east" data-related="#menu_split" data-related-toggle="in" data-delay="500") <span class="caret"></span>
-    %ul.menu#menu_split.fade(data-bindable="togglable-group")
+    %a.btn Action
+    %a.btn.drop(data-bindable="drop" data-placement="east" data-related="#menu_split" data-related-toggle="in" data-delay="500") <span class="caret"></span>
+    %ul.nav.menu#menu_split.fade(data-bindable="togglable-group")
       %li<
         %a(href="#") Drop 2 Subnav 1
       %li<
         %a(href="#") Drop 2 Subnav 2
       %li<
         %a(href="#") Drop 2 Subnav 3
+
+%h5(style="margin-bottom:1em; margin-top:2em;") Drops in Group
+
+%nav#drop_group_demo
+  %ul.nav.inline(data-bindable="togglable-group")
+    %li<
+      %a(href="#") Group One
+    %li<
+      %a(href="#") Group Two
+    %li.drop(data-bindable="drop" data-group=".inline")
+      %a(href="#") Drop <span class="caret"></span>
+      %ul.nav.menu
+        %li<
+          %a(href="#") Group Four
+        %li<
+          %a(href="#") Group Five
+        %li<
+          %a(href="#") Group Six
 ```
 <!-- end -->
 
 ## Options
 
-Attribute   | Default       | Description
------------ | ------------- | -------------------------------------------
-`toggle`    | `open active` | Overrides `Togglable's` default of `active`
-`placement` | `south`       | Where to position the drop menu in relation to the element: `north`, `south`, `east`, `west`
+Attribute   | Default         | Description
+----------- | --------------- | -------------------------------------------
+`toggle`    | `active active` | Overrides `Togglable's` default of `active`
+`placement` | `south`         | Where to position the drop menu in relation to the element: `north`, `south`, `east`, `west`
+`keyboard`  | `true`          | Utilize some basic key commands for controlling the menu
 
 See `Togglable` for other options 
 
@@ -147,7 +164,7 @@ Remove the drop behavior
 - `togglable`
 - `directional`
 
-`Drop` utilizes `Togglable` via extension.
+`Drop` utilizes `Togglable` via composition.
 
 ## Style Settings
 To override the default settings, set the variable and it's value within
@@ -166,9 +183,13 @@ value before this file is imported, this is done to keep managing
 `z-index` mappings in one place.
 
 ## Todo
+- Clicking on another item, html or drop should deactivate existing menu items
+- Clicking on the drop within a group needs to stopPropagation (see tab)
 - Exit animations do not occur since the `.visuallyhidden` class is
   applied at the same time a transition occurs. Not sure if this should
   be added in here or through an extension of `Drop`?
-- Once we have `menu` flushed out, we'll most likely need to instantiate
-  it's behavior from within `Drop`, currently this is an unknown
+
+###### Alert
+- **Heads Up!** Drop is not yet feature complete, it's missing some core
+  functionality at the moment.
 

@@ -15,7 +15,7 @@ Describe this
     %li<
       %a(href="#tab_three") Tab Three
 
-    %li.drop(data-bindable="drop")
+    %li.drop(data-bindable="drop" data-group=".tab")
       %a(href="#") Drop <span class="caret"></span>
       %ul.nav.menu
         %li<
