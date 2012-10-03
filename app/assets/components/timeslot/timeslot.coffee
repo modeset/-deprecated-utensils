@@ -4,8 +4,8 @@
 class utensil.Timeslot
 
   constructor: () ->
-    @active_key_types = /^active|^show|^on|^in|^start|^first|^enable/
-    @deactive_key_types = /^deactive|^hid|^off|^out|^end|^last|^disable|^fade/
+    @active_key_types = /^active|^show|^on|^in|^start|^first|^enable|^open/
+    @deactive_key_types = /^deactive|^hid|^off|^out|^end|^last|^disable|^fade|^close/
 
   getTimeslotFromData: (delay, active_key="activate", deactive_key="deactivate") ->
     data = {}
