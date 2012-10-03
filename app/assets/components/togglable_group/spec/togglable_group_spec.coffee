@@ -33,7 +33,6 @@ describe 'Togglable Group', ->
   describe '#options', ->
     it 'sets the data.target attribute', ->
       expect(@radio_group.data.target).toEqual('.radio-li')
-      # expect(@check_group.data.target).toEqual('li:not(.drop)')
       expect(@check_group.data.target).toEqual('li')
 
 
