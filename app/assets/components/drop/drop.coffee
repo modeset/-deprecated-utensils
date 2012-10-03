@@ -69,12 +69,12 @@ class utensil.Drop
   activated: (e) ->
     position = @directional.getPlacementAndConstrain()
     @menu.removeClass(@cardinals).addClass(position.cardinal)
-    @html.on('keydown.menu', => @keyed arguments...) if @use_keyboard
+    @html.on('keydown.drop.menu', => @keyed arguments...) if @use_keyboard
     # @html.on('click.drop.html', => @deactivate arguments...)
     @el.focus()
 
   deactivated: (e) ->
-    @html.off('keydown.menu') if @use_keyboard
+    @html.off('keydown.drop.menu') if @use_keyboard
     # @html.off('click.drop.html')
 
   toggleSelectionFromGroup: (e) ->

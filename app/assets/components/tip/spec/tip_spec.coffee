@@ -39,7 +39,7 @@ describe 'Tip', ->
   describe '#options', ->
     it 'sets up tip toggler options', ->
       expect(@north_tip.toggler.toggle_classes).toEqual('active in')
-      expect(@south_tip.toggler.trigger).toEqual(on:'mouseenter', off:'mouseleave')
+      expect(@south_tip.toggler.trigger).toEqual(on:'mouseenter.togglable', off:'mouseleave.togglable')
 
     it 'sets up tip options', ->
       expect(@south_tip.effect).toEqual('fade')
@@ -47,7 +47,7 @@ describe 'Tip', ->
 
     it 'overrides tip toggler default options', ->
       expect(@override_tip.toggler.toggle_classes).toEqual('active')
-      expect(@override_tip.toggler.trigger).toEqual(on:'click', off:'click')
+      expect(@override_tip.toggler.trigger).toEqual(on:'click.togglable', off:'click.togglable')
 
     it 'overrides tip default options', ->
       expect(@override_tip.toggle_classes).toEqual('active')
@@ -61,7 +61,7 @@ describe 'Tip', ->
       expect(@override_tip.title).toEqual('The Overrides Tip')
 
     it 'sets the toggle type to trigger if the html element has the class "touch"', ->
-      expect(@override_tip.toggler.trigger).toEqual(on:'click', off:'click')
+      expect(@override_tip.toggler.trigger).toEqual(on:'click.togglable', off:'click.togglable')
 
 
   describe '#initialize', ->

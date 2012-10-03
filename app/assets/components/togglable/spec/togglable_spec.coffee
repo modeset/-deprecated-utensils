@@ -64,12 +64,12 @@ describe 'Togglable', ->
   describe '#options', ->
     it 'sets default options', ->
       expect(@defaulter.toggle_classes).toEqual('active')
-      expect(@defaulter.trigger).toEqual(on:'click', off:'click')
+      expect(@defaulter.trigger).toEqual(on:'click.togglable', off:'click.togglable')
       expect(@defaulter.lookup).toEqual('find')
 
     it 'overrides default options', ->
       expect(@overrider.toggle_classes).toEqual('fade')
-      expect(@overrider.trigger).toEqual(on:'mouseenter', off:'mouseleave')
+      expect(@overrider.trigger).toEqual(on:'mouseenter.togglable', off:'mouseleave.togglable')
       expect(@closest.lookup).toEqual('closest')
 
     it 'sets the ability for dual toggles when there is related content', ->
@@ -81,7 +81,7 @@ describe 'Togglable', ->
     it 'sets default values from a javascript class', ->
       togglable = new utensil.Togglable(@empty, {toggle: 'show', trigger: 'hover', lookup: 'closest'})
       expect(togglable.toggle_classes).toEqual('show')
-      expect(togglable.trigger).toEqual(on:'mouseenter', off:'mouseleave')
+      expect(togglable.trigger).toEqual(on:'mouseenter.togglable', off:'mouseleave.togglable')
       expect(togglable.lookup).toEqual('closest')
       expect(togglable.target).toEqual(@empty)
 
@@ -256,15 +256,15 @@ describe 'Togglable', ->
   describe '#setTriggerEventTypes', ->
     it 'sets different event types for on and off from hover', ->
       type = @defaulter.setTriggerEventTypes('hover')
-      expect(type).toEqual(on:'mouseenter', off:'mouseleave')
+      expect(type).toEqual(on:'mouseenter.togglable', off:'mouseleave.togglable')
 
     it 'sets different event types for on and off from focus', ->
       type = @defaulter.setTriggerEventTypes('focus')
-      expect(type).toEqual(on:'focus', off:'blur')
+      expect(type).toEqual(on:'focus.togglable', off:'blur.togglable')
 
     it 'sets the same event types for on and off from click', ->
       type = @defaulter.setTriggerEventTypes('click')
-      expect(type).toEqual(on:'click', off:'click')
+      expect(type).toEqual(on:'click.togglable', off:'click.togglable')
 
     it 'sets the same event types for on and off from manual', ->
       type = @defaulter.setTriggerEventTypes('manual')

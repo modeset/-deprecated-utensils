@@ -67,11 +67,13 @@ class utensil.Togglable
 
   setTriggerEventTypes: (trigger) ->
     if trigger == 'hover'
-      return on:'mouseenter', off:'mouseleave'
+      return on:'mouseenter.togglable', off:'mouseleave.togglable'
     else if trigger == 'focus'
-      return on:'focus', off:'blur'
-    else
+      return on:'focus.togglable', off:'blur.togglable'
+    else if trigger == 'manual'
       return on:trigger, off:trigger
+    else
+      return on:"#{trigger}.togglable", off:"#{trigger}.togglable"
 
   setActivate: (e) ->
     @clearTimeout()

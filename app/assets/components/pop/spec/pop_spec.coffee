@@ -56,7 +56,7 @@ describe 'Pop', ->
   describe '#options', ->
     it 'sets up pop toggler options', ->
       expect(@north_pop.toggler.toggle_classes).toEqual('active in')
-      expect(@north_pop.toggler.trigger).toEqual(on:'click', off:'click')
+      expect(@north_pop.toggler.trigger).toEqual(on:'click.togglable', off:'click.togglable')
 
     it 'sets up pop options', ->
       expect(@north_pop.effect).toEqual('fade')
@@ -64,8 +64,8 @@ describe 'Pop', ->
 
     it 'overrides pop toggler default options', ->
       expect(@override_pop.toggler.toggle_classes).toEqual('active')
-      expect(@east_pop.toggler.trigger).toEqual(on:'mouseenter', off:'mouseleave')
-      expect(@override_pop.toggler.trigger).toEqual(on:'focus', off:'blur')
+      expect(@east_pop.toggler.trigger).toEqual(on:'mouseenter.togglable', off:'mouseleave.togglable')
+      expect(@override_pop.toggler.trigger).toEqual(on:'focus.togglable', off:'blur.togglable')
 
     it 'overrides pop default options', ->
       expect(@override_pop.toggle_classes).toEqual('active')
