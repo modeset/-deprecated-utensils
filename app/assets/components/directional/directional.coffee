@@ -13,7 +13,7 @@ class utensil.Directional
   setCardinal: (@cardinal) ->
   getCardinals: -> @cardinals
 
-  getPlacementAndConstrain: () ->
+  getPlacementAndConstrain: ->
     default_position = @getPlacementFromCardinal()
     return @constrainToViewport(default_position)
 

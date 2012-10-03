@@ -52,10 +52,10 @@ class utensil.Togglable
 
   addListeners: ->
     if @trigger.on == @trigger.off
-      @dispatcher.on(@trigger.on, => @toggle.apply(@, arguments))
+      @dispatcher.on(@trigger.on, => @toggle arguments...)
     else
-      @dispatcher.on(@trigger.on, => @activate.apply(@, arguments))
-      @dispatcher.on(@trigger.off, => @deactivate.apply(@, arguments))
+      @dispatcher.on(@trigger.on, => @activate arguments...)
+      @dispatcher.on(@trigger.off, => @deactivate arguments...)
     @is_listening = true
 
   removeListeners: ->

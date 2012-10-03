@@ -1,6 +1,7 @@
 
 #= require utensil
 #= require detect
+
 class utensil.Dimensionizer
   constructor: (data) ->
     @data = if data then data else {}
@@ -22,21 +23,21 @@ class utensil.Dimensionizer
     @addListeners()
 
   addListeners: ->
-    @win.on('resize', @resize)
-    @dimensionizer.one('click', @remove)
+    @win.on('resize.dimensionizer', => @resize arguments...)
+    @dimensionizer.one('click.dimensionizer', => @remove arguments...)
 
-  resize: =>
+  resize: ->
     @dimensionizer.html(@win.width() + 'px')
 
-  remove: =>
+  remove: ->
     if @dimensionizer && utensil.Detect.hasTransition
-      @dimensionizer.one(utensil.Detect.transition.end, => @dispose())
+      @dimensionizer.one(utensil.Detect.transition.end, => @dispose arguments...)
       @dimensionizer.removeClass('in')
     else
       @dispose()
 
   dispose: ->
-    @win.off('resize', @resize)
+    @win.off('resize.dimensionizer')
     @dimensionizer.remove()
 
   render: ->

@@ -52,8 +52,8 @@ class utensil.Tip
   # PROTECTED #
 
   addListeners: ->
-    @toggler.dispatcher.on('togglable:activate', => @activated.apply(@, arguments))
-    @toggler.dispatcher.on('togglable:deactivate', => @deactivated.apply(@, arguments))
+    @toggler.dispatcher.on('togglable:activate', => @activated arguments...)
+    @toggler.dispatcher.on('togglable:deactivate', => @deactivated arguments...)
 
   removeListeners: ->
     @toggler.dispatcher.off('togglable:activate')

@@ -55,8 +55,8 @@ class utensil.Pop
   # PROTECTED #
 
   addListeners: ->
-    @toggler.dispatcher.on('togglable:activate', => @activated.apply(@, arguments))
-    @toggler.dispatcher.on('togglable:deactivate', => @deactivated.apply(@, arguments))
+    @toggler.dispatcher.on('togglable:activate', => @activated arguments...)
+    @toggler.dispatcher.on('togglable:deactivate', => @deactivated arguments...)
 
   removeListeners: ->
     @toggler.dispatcher.off('togglable:activate')
@@ -78,7 +78,7 @@ class utensil.Pop
 
   deactivated: (e) ->
     if @pop && utensil.Detect.hasTransition
-      @pop.one(utensil.Detect.transition.end, => @remove())
+      @pop.one(utensil.Detect.transition.end, => @remove arguments...)
       @pop.removeClass(@toggle_classes)
     else
       @remove()
