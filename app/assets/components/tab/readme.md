@@ -26,7 +26,7 @@ and `href` attributes pointing to the related targets panel.
       %a(href="#tab_three") Tab Three
 
     %li.drop(data-bindable="drop" data-group=".tab")
-      %a(href="#") Drop <span class="caret"></span>
+      %a(href="#") Tab Drop <span class="caret"></span>
       %ul.nav.menu
         %li<
           %a(href="#tab_four") Tab Four

@@ -7,6 +7,9 @@ $pill-radii: $radii !default
   float: left
   margin-right: 0.15em
 
+.pill > li:last-child
+  margin-right: 0
+
 .pill > li > a
   border-radius: $pill-radii
   padding: 0.5em 0.8em
@@ -14,13 +17,13 @@ $pill-radii: $radii !default
 .pill > li > a:hover
   background-color: $pill-bgc-hover
 
-.pill .active > a,
-.pill .active > a:hover
+.pill > .active > a,
+.pill > .active > a:hover
   background-color: $pill-bgc-active
 
-.pill .selected > a
+.pill > .selected > a
   background-color: $pill-bgc-active
 
-.pill .selected > a:hover
+.pill > .selected > a:hover
   background-color: $pill-bgc-hover
 

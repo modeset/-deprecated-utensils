@@ -10,12 +10,15 @@ $tab-radii: $radii !default
 
 .tab > li
   float: left
+  margin-right: 0.15em
   margin-bottom: -1px
+
+.tab > li:last-child
+  margin-right: 0
 
 .tab > li > a
   border: 1px solid transparent
   border-radius: $tab-radii $tab-radii 0 0
-  margin-right: 0.15em
   padding: 0.5em 0.8em
 
 .tab > li > a:hover
