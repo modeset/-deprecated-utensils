@@ -24,10 +24,12 @@ $pager-disabled-bgc: $disabled-bgc !default
   border: 1px solid $pager-border
   border-radius: 1em
   padding: 0.5em 0.8em
-  &:hover
-    background-color: $pager-bgc-hover
-  &:active
-    background-color: $pager-bgc-active
+
+.pager a:hover
+  background-color: $pager-bgc-hover
+
+.pager a:active
+  background-color: $pager-bgc-active
 
 .pager .disabled a,
 .pager .disabled a:hover

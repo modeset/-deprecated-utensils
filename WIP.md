@@ -2,18 +2,12 @@
 # TODO
 
 ## WIP
-- rebuild scoping in all files
-- make sure events are namespaced (`.` for native and `:` for custom)
-- change detect to support
-- move classify to utility method (might be able to kill it entirely)
-
-- tabs.sass *
 - stacked tabs
-- pills.sass *
 - stacked pills
+- create a separate class for tabable-content
 - nav-lists.sass
-- add correct focus states around components
 - accordions.sass *
+- add correct focus states around components
 - modals.sass *
 - notifications.sass *
 - progress-bars.sass *
@@ -29,8 +23,9 @@
 ## Reminders, Tasks and Future Considerations
 - Lists should be able to pass a single element
 - Look at making the sass files use abstract elements (placeholders)
-- Should we abstract focus/disabled states to a mixin?
 - Align all focus states
+- Should we abstract focus/disabled states to a mixin?
+- Should there be a selected state for all the coloring?
 - Rename components subdirectory to utensils?
 - Convert media queries
 - Move the debug tools outside of this project
@@ -50,6 +45,7 @@
 - Do tip and popover, drop extend Togglable instead of using composition?
 - There should be some sort of Togglable class that acts similar to the
   demo (removes a bunch of classes then add more) pass a data-remove?
+- Should ToggleableGroup support data-bindables for tab, pill, etc..
 
 ## Bugs
 - Weird bug on some of the button group clicking around deactivation

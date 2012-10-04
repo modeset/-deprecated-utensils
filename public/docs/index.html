@@ -48,6 +48,7 @@
 <li><a href='#normalize'>Normalize</a></li>
 <li><a href='#pager'>Pager</a></li>
 <li><a href='#pagination'>Pagination</a></li>
+<li><a href='#pill'>Pill</a></li>
 <li><a href='#polyfill'>Polyfill</a></li>
 <li><a href='#pop'>Pop</a></li>
 <li><a href='#print'>Print</a></li>
@@ -3429,6 +3430,126 @@ within your <code>config.sass</code> file or before <code>pagination.sass</code>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
+<h1>Pill</h1>
+
+<p>Pills are similar to tabs, and follow the same markup structure as other
+navigation elements. Pills like other navigation elements require the
+<code>.nav</code> class for layout. Add <code>.nav .pills</code> to a <code>ul</code> or <code>ol</code> element.</p>
+
+<p>To utilize a drop dead simple version of hiding and showing content, add
+the <code>data-bindable=&quot;togglable-group&quot;</code> along with a <code>data-related</code> target
+and <code>href</code> attributes pointing to the related targets panel.</p>
+
+<pre><code class="sass">@import utensils/components/pill/pill
+</code></pre>
+
+<!--~ markup/pill.html.haml -->
+
+<div class="sherpa-showcase sherpa-clearfix"><nav id='pill_demo'>
+<ul class='nav pill' data-bindable='togglable-group' data-related='#pill_content .tab-pane'>
+<li class='active'><a href='#pill_one'>Pill One</a></li>
+<li><a data-target='#pill_two' href='#'>Pill Two</a></li>
+<li><a href='#pill_three'>Pill Three</a></li>
+<li class='drop' data-bindable='drop' data-group='.pill'>
+<a href='#'>Pill <span class="caret"></span></a>
+<ul class='nav menu'>
+<li><a href='#pill_four'>Pill Four</a></li>
+<li><a href='#pill_five'>Pill Five</a></li>
+<li><a href='#pill_six'>Pill Six</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+<section class='tabable-content' id='pill_content' style='margin-top:1.25em;'>
+<article class='tab-pane active' id='pill_one'>
+<p>Pill content <span class="decal important">one</span></p>
+</article>
+<article class='tab-pane' id='pill_two'>
+<p>Pill content <span class="decal success">two</span></p>
+</article>
+<article class='tab-pane' id='pill_three'>
+<p>Pill content <span class="decal danger">three</span></p>
+</article>
+<article class='tab-pane' id='pill_four'>
+<p>Pill sub content <span class="decal warning">four</span></p>
+</article>
+<article class='tab-pane' id='pill_five'>
+<p>Pill sub content <span class="decal inverse">five</span></p>
+</article>
+<article class='tab-pane' id='pill_six'>
+<p>Pill sub content <span class="decal important">six</span></p>
+</article>
+</section>
+</div>
+
+<pre><code class="haml">%nav#pill_demo
+  %ul.nav.pill(data-bindable=&quot;togglable-group&quot; data-related=&quot;#pill_content .tab-pane&quot;)
+    %li.active&lt;
+      %a(href=&quot;#pill_one&quot;) Pill One
+    %li&lt;
+      %a(href=&quot;#&quot; data-target=&quot;#pill_two&quot;) Pill Two
+    %li&lt;
+      %a(href=&quot;#pill_three&quot;) Pill Three
+
+    %li.drop(data-bindable=&quot;drop&quot; data-group=&quot;.pill&quot;)
+      %a(href=&quot;#&quot;) Pill &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
+      %ul.nav.menu
+        %li&lt;
+          %a(href=&quot;#pill_four&quot;) Pill Four
+        %li&lt;
+          %a(href=&quot;#pill_five&quot;) Pill Five
+        %li&lt;
+          %a(href=&quot;#pill_six&quot;) Pill Six
+
+%section#pill_content.tabable-content(style=&quot;margin-top:1.25em;&quot;)
+  %article.tab-pane.active#pill_one
+    %p Pill content &lt;span class=&quot;decal important&quot;&gt;one&lt;/span&gt;
+  %article.tab-pane#pill_two
+    %p Pill content &lt;span class=&quot;decal success&quot;&gt;two&lt;/span&gt;
+  %article.tab-pane#pill_three
+    %p Pill content &lt;span class=&quot;decal danger&quot;&gt;three&lt;/span&gt;
+
+  %article.tab-pane#pill_four
+    %p Pill sub content &lt;span class=&quot;decal warning&quot;&gt;four&lt;/span&gt;
+  %article.tab-pane#pill_five
+    %p Pill sub content &lt;span class=&quot;decal inverse&quot;&gt;five&lt;/span&gt;
+  %article.tab-pane#pill_six
+    %p Pill sub content &lt;span class=&quot;decal important&quot;&gt;six&lt;/span&gt;
+</code></pre>
+
+<!-- end -->
+
+<h2>Style Settings</h2>
+
+<p>To override the default settings, set the variable and it&#39;s value
+within your <code>config.sass</code> file or before <code>pill.sass</code> is loaded.</p>
+
+<table><thead>
+<tr>
+<th>Variable</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>$pill-bgc-hover</code></td>
+<td><code>$base-bgc-hover</code></td>
+<td>The <code>background-color</code> of the pill component when hovered</td>
+</tr>
+<tr>
+<td><code>$pill-bgc-active</code></td>
+<td><code>$base-bgc-active</code></td>
+<td>The <code>background-color</code> of the pill component when active</td>
+</tr>
+<tr>
+<td><code>$pill-radii</code></td>
+<td><code>$radii</code></td>
+<td>The <code>border-radius</code> of the pill link</td>
+</tr>
+</tbody></table>
+
+<p></section><section class="sherpa-section sherpa-clearfix"></p>
+
 <h1>Polyfills</h1>
 
 <p>Describe this</p>
@@ -3902,7 +4023,16 @@ within your <code>config.sass</code> file or before <code>scaffold.sass</code> i
 
 <h1>Tab</h1>
 
-<p>Describe this</p>
+<p>Tabs follow the same markup structure as other navigation elements. Tabs
+like other navigation elements require the <code>.nav</code> class for layout. Add
+<code>.nav .tabs</code> to a <code>ul</code> or <code>ol</code> element.</p>
+
+<p>To utilize a drop dead simple version of hiding and showing content, add
+the <code>data-bindable=&quot;togglable-group&quot;</code> along with a <code>data-related</code> target
+and <code>href</code> attributes pointing to the related targets panel.</p>
+
+<pre><code class="sass">@import utensils/components/tab/tab
+</code></pre>
 
 <!--~ markup/tab.html.haml -->
 
@@ -3980,12 +4110,39 @@ within your <code>config.sass</code> file or before <code>scaffold.sass</code> i
 
 <!-- end -->
 
-<h2>Todo</h2>
+<h2>Style Settings</h2>
 
-<ul>
-<li>Document</li>
-<li>Create a tabable class as a nice wrapper?</li>
-</ul>
+<p>To override the default settings, set the variable and it&#39;s value
+within your <code>config.sass</code> file or before <code>tab.sass</code> is loaded.</p>
+
+<table><thead>
+<tr>
+<th>Variable</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>$tab-bgc</code></td>
+<td><code>$base-bgc</code></td>
+<td>The <code>background-color</code> of the tab component</td>
+</tr>
+<tr>
+<td><code>$tab-bgc-hover</code></td>
+<td><code>$base-bgc-hover</code></td>
+<td>The <code>background-color</code> of a tab element when hovered</td>
+</tr>
+<tr>
+<td><code>$tab-border</code></td>
+<td><code>$base-border</code></td>
+<td>The <code>border-color</code> of the tab component</td>
+</tr>
+<tr>
+<td><code>$tab-radii</code></td>
+<td><code>$radii</code></td>
+<td>The <code>border-radius</code> of the tab component</td>
+</tr>
+</tbody></table>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
