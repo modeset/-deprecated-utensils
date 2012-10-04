@@ -1,0 +1,26 @@
+
+$pill-bgc-hover: $base-bgc-hover !default
+$pill-bgc-active: $base-bgc-active !default
+$pill-radii: $radii !default
+
+.pill > li
+  float: left
+  margin-right: 0.15em
+
+.pill > li > a
+  border-radius: $pill-radii
+  padding: 0.5em 0.8em
+
+.pill > li > a:hover
+  background-color: $pill-bgc-hover
+
+.pill .active > a,
+.pill .active > a:hover
+  background-color: $pill-bgc-active
+
+.pill .selected > a
+  background-color: $pill-bgc-active
+
+.pill .selected > a:hover
+  background-color: $pill-bgc-hover
+
