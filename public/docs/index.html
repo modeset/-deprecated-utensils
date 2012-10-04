@@ -49,11 +49,13 @@
 <li><a href='#pager'>Pager</a></li>
 <li><a href='#pagination'>Pagination</a></li>
 <li><a href='#pill'>Pill</a></li>
+<li><a href='#pill_stacked'>Pill stacked</a></li>
 <li><a href='#polyfill'>Polyfill</a></li>
 <li><a href='#pop'>Pop</a></li>
 <li><a href='#print'>Print</a></li>
 <li><a href='#scaffold'>Scaffold</a></li>
 <li><a href='#tab'>Tab</a></li>
+<li><a href='#tab_stacked'>Tab stacked</a></li>
 <li><a href='#table'>Table</a></li>
 <li><a href='#timeslot'>Timeslot</a></li>
 <li><a href='#tip'>Tip</a></li>
@@ -3434,7 +3436,7 @@ within your <code>config.sass</code> file or before <code>pagination.sass</code>
 
 <p>Pills are similar to tabs, and follow the same markup structure as other
 navigation elements. Pills like other navigation elements require the
-<code>.nav</code> class for layout. Add <code>.nav .pills</code> to a <code>ul</code> or <code>ol</code> element.</p>
+<code>.nav</code> class for layout. Add <code>.nav .pill</code> to a <code>ul</code> or <code>ol</code> element.</p>
 
 <p>To utilize a drop dead simple version of hiding and showing content, add
 the <code>data-bindable=&quot;togglable-group&quot;</code> along with a <code>data-related</code> target
@@ -3451,7 +3453,7 @@ and <code>href</code> attributes pointing to the related targets panel.</p>
 <li><a data-target='#pill_two' href='#'>Pill Two</a></li>
 <li><a href='#pill_three'>Pill Three</a></li>
 <li class='drop' data-bindable='drop' data-group='.pill'>
-<a href='#'>Pill <span class="caret"></span></a>
+<a href='#'>Pill Drop <span class="caret"></span></a>
 <ul class='nav menu'>
 <li><a href='#pill_four'>Pill Four</a></li>
 <li><a href='#pill_five'>Pill Five</a></li>
@@ -3492,7 +3494,7 @@ and <code>href</code> attributes pointing to the related targets panel.</p>
       %a(href=&quot;#pill_three&quot;) Pill Three
 
     %li.drop(data-bindable=&quot;drop&quot; data-group=&quot;.pill&quot;)
-      %a(href=&quot;#&quot;) Pill &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
+      %a(href=&quot;#&quot;) Pill Drop &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
       %ul.nav.menu
         %li&lt;
           %a(href=&quot;#pill_four&quot;) Pill Four
@@ -3547,6 +3549,98 @@ within your <code>config.sass</code> file or before <code>pill.sass</code> is lo
 <td>The <code>border-radius</code> of the pill link</td>
 </tr>
 </tbody></table>
+
+<p></section><section class="sherpa-section sherpa-clearfix"></p>
+
+<h1>Pill Stacked</h1>
+
+<p>Stack pills by adding the class <code>.stacked</code> to the <code>.pill</code> element.</p>
+
+<p>Stacked pills require the <code>pill</code> component.</p>
+
+<pre><code class="sass">@import utensils/components/pill/pill
+@import utensils/components/pill_stacked/pill_stacked
+</code></pre>
+
+<!--~ markup/pill-stacked.html.haml -->
+
+<div class="sherpa-showcase sherpa-clearfix"><nav id='pill_stacked_demo'>
+<ul class='nav pill stacked' data-bindable='togglable-group' data-related='#pill_stacked_content .tab-pane'>
+<li class='active'><a href='#pill_stacked_one'>Pill One</a></li>
+<li><a data-target='#pill_stacked_two' href='#'>Pill Two</a></li>
+<li><a href='#pill_stacked_three'>Pill Three</a></li>
+<li class='drop' data-bindable='drop' data-group='.pill'>
+<a href='#'>Pill Drop <span class="caret"></span></a>
+<ul class='nav menu'>
+<li><a href='#pill_stacked_four'>Pill Four</a></li>
+<li><a href='#pill_stacked_five'>Pill Five</a></li>
+<li><a href='#pill_stacked_six'>Pill Six</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+<section class='tabable-content' id='pill_stacked_content' style='margin-top:1.25em;'>
+<article class='tab-pane active' id='pill_stacked_one'>
+<p>Pill content <span class="decal important">one</span></p>
+</article>
+<article class='tab-pane' id='pill_stacked_two'>
+<p>Pill content <span class="decal success">two</span></p>
+</article>
+<article class='tab-pane' id='pill_stacked_three'>
+<p>Pill content <span class="decal danger">three</span></p>
+</article>
+<article class='tab-pane' id='pill_stacked_four'>
+<p>Pill sub content <span class="decal warning">four</span></p>
+</article>
+<article class='tab-pane' id='pill_stacked_five'>
+<p>Pill sub content <span class="decal inverse">five</span></p>
+</article>
+<article class='tab-pane' id='pill_stacked_six'>
+<p>Pill sub content <span class="decal important">six</span></p>
+</article>
+</section>
+</div>
+
+<pre><code class="haml">%nav#pill_stacked_demo
+  %ul.nav.pill.stacked(data-bindable=&quot;togglable-group&quot; data-related=&quot;#pill_stacked_content .tab-pane&quot;)
+    %li.active&lt;
+      %a(href=&quot;#pill_stacked_one&quot;) Pill One
+    %li&lt;
+      %a(href=&quot;#&quot; data-target=&quot;#pill_stacked_two&quot;) Pill Two
+    %li&lt;
+      %a(href=&quot;#pill_stacked_three&quot;) Pill Three
+
+    %li.drop(data-bindable=&quot;drop&quot; data-group=&quot;.pill&quot;)
+      %a(href=&quot;#&quot;) Pill Drop &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
+      %ul.nav.menu
+        %li&lt;
+          %a(href=&quot;#pill_stacked_four&quot;) Pill Four
+        %li&lt;
+          %a(href=&quot;#pill_stacked_five&quot;) Pill Five
+        %li&lt;
+          %a(href=&quot;#pill_stacked_six&quot;) Pill Six
+
+%section#pill_stacked_content.tabable-content(style=&quot;margin-top:1.25em;&quot;)
+  %article.tab-pane.active#pill_stacked_one
+    %p Pill content &lt;span class=&quot;decal important&quot;&gt;one&lt;/span&gt;
+  %article.tab-pane#pill_stacked_two
+    %p Pill content &lt;span class=&quot;decal success&quot;&gt;two&lt;/span&gt;
+  %article.tab-pane#pill_stacked_three
+    %p Pill content &lt;span class=&quot;decal danger&quot;&gt;three&lt;/span&gt;
+
+  %article.tab-pane#pill_stacked_four
+    %p Pill sub content &lt;span class=&quot;decal warning&quot;&gt;four&lt;/span&gt;
+  %article.tab-pane#pill_stacked_five
+    %p Pill sub content &lt;span class=&quot;decal inverse&quot;&gt;five&lt;/span&gt;
+  %article.tab-pane#pill_stacked_six
+    %p Pill sub content &lt;span class=&quot;decal important&quot;&gt;six&lt;/span&gt;
+</code></pre>
+
+<!-- end -->
+
+<h2>Style Settings</h2>
+
+<p>All style settings are inherited from <code>pill.sass</code>.</p>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
@@ -4025,7 +4119,7 @@ within your <code>config.sass</code> file or before <code>scaffold.sass</code> i
 
 <p>Tabs follow the same markup structure as other navigation elements. Tabs
 like other navigation elements require the <code>.nav</code> class for layout. Add
-<code>.nav .tabs</code> to a <code>ul</code> or <code>ol</code> element.</p>
+<code>.nav .tab</code> to a <code>ul</code> or <code>ol</code> element.</p>
 
 <p>To utilize a drop dead simple version of hiding and showing content, add
 the <code>data-bindable=&quot;togglable-group&quot;</code> along with a <code>data-related</code> target
@@ -4042,7 +4136,7 @@ and <code>href</code> attributes pointing to the related targets panel.</p>
 <li><a data-target='#tab_two' href='#'>Tab Two</a></li>
 <li><a href='#tab_three'>Tab Three</a></li>
 <li class='drop' data-bindable='drop' data-group='.tab'>
-<a href='#'>Drop <span class="caret"></span></a>
+<a href='#'>Tab Drop <span class="caret"></span></a>
 <ul class='nav menu'>
 <li><a href='#tab_four'>Tab Four</a></li>
 <li><a href='#tab_five'>Tab Five</a></li>
@@ -4083,7 +4177,7 @@ and <code>href</code> attributes pointing to the related targets panel.</p>
       %a(href=&quot;#tab_three&quot;) Tab Three
 
     %li.drop(data-bindable=&quot;drop&quot; data-group=&quot;.tab&quot;)
-      %a(href=&quot;#&quot;) Drop &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
+      %a(href=&quot;#&quot;) Tab Drop &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
       %ul.nav.menu
         %li&lt;
           %a(href=&quot;#tab_four&quot;) Tab Four
@@ -4133,6 +4227,11 @@ within your <code>config.sass</code> file or before <code>tab.sass</code> is loa
 <td>The <code>background-color</code> of a tab element when hovered</td>
 </tr>
 <tr>
+<td><code>$tab-bgc-active</code></td>
+<td><code>$base-bgc-active</code></td>
+<td>The <code>background-color</code> of a tab element when active</td>
+</tr>
+<tr>
 <td><code>$tab-border</code></td>
 <td><code>$base-border</code></td>
 <td>The <code>border-color</code> of the tab component</td>
@@ -4143,6 +4242,98 @@ within your <code>config.sass</code> file or before <code>tab.sass</code> is loa
 <td>The <code>border-radius</code> of the tab component</td>
 </tr>
 </tbody></table>
+
+<p></section><section class="sherpa-section sherpa-clearfix"></p>
+
+<h1>Tab Stacked</h1>
+
+<p>Stack tabs by adding the class <code>.stacked</code> to the <code>.tab</code> element.</p>
+
+<p>Stacked tabs require the <code>tab</code> component.</p>
+
+<pre><code class="sass">@import utensils/components/tab/tab
+@import utensils/components/tab_stacked/tab_stacked
+</code></pre>
+
+<!--~ markup/tab-stacked.html.haml -->
+
+<div class="sherpa-showcase sherpa-clearfix"><nav id='tab_stacked_demo'>
+<ul class='nav tab stacked' data-bindable='togglable-group' data-related='#tab_stacked_content .tab-pane'>
+<li class='active'><a href='#tab_stacked_one'>Tab One</a></li>
+<li><a data-target='#tab_stacked_two' href='#'>Tab Two</a></li>
+<li><a href='#tab_stacked_three'>Tab Three</a></li>
+<li class='drop' data-bindable='drop' data-group='.tab'>
+<a href='#'>Tab Drop <span class="caret"></span></a>
+<ul class='nav menu'>
+<li><a href='#tab_stacked_four'>Tab Four</a></li>
+<li><a href='#tab_stacked_five'>Tab Five</a></li>
+<li><a href='#tab_stacked_six'>Tab Six</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+<section class='tabable-content' id='tab_stacked_content' style='margin-top:1.25em;'>
+<article class='tab-pane active' id='tab_stacked_one'>
+<p>Tab content <span class="decal important">one</span></p>
+</article>
+<article class='tab-pane' id='tab_stacked_two'>
+<p>Tab content <span class="decal success">two</span></p>
+</article>
+<article class='tab-pane' id='tab_stacked_three'>
+<p>Tab content <span class="decal danger">three</span></p>
+</article>
+<article class='tab-pane' id='tab_stacked_four'>
+<p>Tab sub content <span class="decal warning">four</span></p>
+</article>
+<article class='tab-pane' id='tab_stacked_five'>
+<p>Tab sub content <span class="decal inverse">five</span></p>
+</article>
+<article class='tab-pane' id='tab_stacked_six'>
+<p>Tab sub content <span class="decal important">six</span></p>
+</article>
+</section>
+</div>
+
+<pre><code class="haml">%nav#tab_stacked_demo
+  %ul.nav.tab.stacked(data-bindable=&quot;togglable-group&quot; data-related=&quot;#tab_stacked_content .tab-pane&quot;)
+    %li.active&lt;
+      %a(href=&quot;#tab_stacked_one&quot;) Tab One
+    %li&lt;
+      %a(href=&quot;#&quot; data-target=&quot;#tab_stacked_two&quot;) Tab Two
+    %li&lt;
+      %a(href=&quot;#tab_stacked_three&quot;) Tab Three
+
+    %li.drop(data-bindable=&quot;drop&quot; data-group=&quot;.tab&quot;)
+      %a(href=&quot;#&quot;) Tab Drop &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
+      %ul.nav.menu
+        %li&lt;
+          %a(href=&quot;#tab_stacked_four&quot;) Tab Four
+        %li&lt;
+          %a(href=&quot;#tab_stacked_five&quot;) Tab Five
+        %li&lt;
+          %a(href=&quot;#tab_stacked_six&quot;) Tab Six
+
+%section#tab_stacked_content.tabable-content(style=&quot;margin-top:1.25em;&quot;)
+  %article.tab-pane.active#tab_stacked_one
+    %p Tab content &lt;span class=&quot;decal important&quot;&gt;one&lt;/span&gt;
+  %article.tab-pane#tab_stacked_two
+    %p Tab content &lt;span class=&quot;decal success&quot;&gt;two&lt;/span&gt;
+  %article.tab-pane#tab_stacked_three
+    %p Tab content &lt;span class=&quot;decal danger&quot;&gt;three&lt;/span&gt;
+
+  %article.tab-pane#tab_stacked_four
+    %p Tab sub content &lt;span class=&quot;decal warning&quot;&gt;four&lt;/span&gt;
+  %article.tab-pane#tab_stacked_five
+    %p Tab sub content &lt;span class=&quot;decal inverse&quot;&gt;five&lt;/span&gt;
+  %article.tab-pane#tab_stacked_six
+    %p Tab sub content &lt;span class=&quot;decal important&quot;&gt;six&lt;/span&gt;
+</code></pre>
+
+<!-- end -->
+
+<h2>Style Settings</h2>
+
+<p>All style settings are inherited from <code>tab.sass</code>.</p>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 

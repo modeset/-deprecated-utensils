@@ -2,8 +2,6 @@
 # TODO
 
 ## WIP
-- stacked tabs
-- stacked pills
 - create a separate class for tabable-content
 - nav-lists.sass
 - accordions.sass *
