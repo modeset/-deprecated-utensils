@@ -1,12 +1,14 @@
 
 # Scaffold
-Sets up main scaffolding elements for `html`, `body`, selections, links and navigation.
+Sets up core scaffolding elements for `html`, `body`, selections, links and navigation.
 
 ```sass
 @import utensils/components/scaffold/scaffold
 ```
 
-## Usage Example
+## Navs
+
+### Usage Example
 
 The base `.nav` is the building block for navigation structures and components
 (tabs, pills, breadcrumbs, pagination and navigation lists). The `.nav` class
@@ -14,15 +16,19 @@ can be used for simple navigation as well.
 
 <!--~ markup/scaffold-nav.html.haml -->
 ```haml
-%nav
+%nav.well
   %ul.nav(data-bindable="togglable-group")
+    %li.nav-header Nav Header
     %li
       %a(href="#") Block Link 1
     %li.active
       %a(href="#") Block Link 2
     %li
       %a(href="#") Block Link 3
-%hr
+    %li.nav-divider
+    %li.nav-header Nav Header
+    %li
+      %a(href="#") Block Link 4
 %nav
   %ul.nav.inline(data-bindable="togglable-group")
     %li
@@ -37,8 +43,14 @@ can be used for simple navigation as well.
 ###### Warnings
 - **Heads Up!** All navigation components depend on the `.nav` class being attached to the container element
 
-###### Notes
-- **Pro Tip!** For convenience, add the `inline` class to the `.nav` element to display the base nav inline
+For convenience, add the `inline` class to the `.nav` element to display the base nav inline.
+
+Utilize the `.nav-header` and `.nav-divider` for building simple navigation lists.
+
+## Togglable Panels
+Togglable panels are typically used by `Tab` and `Pill` for showing and
+hiding related content. See `TogglableGroup` for usage.
+
 
 ## Style Settings
 To override the default settings, set the variable and it's value
@@ -54,8 +66,7 @@ Variable                    | Default                    | Description
 `$tap-highlight`            | `$link-color`              | The `tap-highlight-color` for touch devices
 `$nav-inline-padding-left`  | `0.5em`                    | The `padding-left` on the `.nav.inline` element
 `$nav-inline-padding-right` | `$nav-inline-padding-left` | The `padding-right` on the `.nav.inline` element
-
-
-## Todo
-- Enable the `.nav-header` class, might be good to have a divider too?
+`$nav-header-color`         | `$body-color`              | The `color` of the navigation header
+`$nav-header-font-weight`   | `bold`                     | The `font-weigh` of the navigation header
+`$nav-divider`              | `$base-border`             | The `border-color` of the navigation divider
 

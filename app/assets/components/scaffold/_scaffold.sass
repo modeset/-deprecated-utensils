@@ -7,6 +7,9 @@ $select-bgc: $primary !default
 $tap-highlight: $link-color !default
 $nav-inline-padding-left: 0.5em !default
 $nav-inline-padding-right: $nav-inline-padding-left !default
+$nav-header-color: $body-color !default
+$nav-header-font-weight: bold !default
+$nav-divider: $base-border !default
 
 // Top level elements
 html
@@ -85,24 +88,28 @@ a:link
 .nav[data-behavior="checkbox"] > .active > a:hover
   cursor: pointer
 
+// Assets
+.nav-header
+  display: block
+  color: $nav-header-color
+  font-weight: $nav-header-font-weight
+
+.nav li + .nav-header
+  margin-top: 1em
+
+.nav-divider
+  border-top: 1px solid $nav-divider
+  display: block
+  margin: 1em 0
+  height: 1px
+
+.nav-header + .nav-divider
+  margin-top: 0
+
 
 // Togglable panes
 .togglable-content > .togglable-pane
   +visuallyhidden
 .togglable-content > .active
   +visuallyshown
-
-// TODO: Figure this cat out
-// Headers within a Nav
-// .nav .nav-header
-  // display: block
-  // color: $component_normal
-  // font-size: 0.75em
-  // font-weight: bold
-  // text-transform: uppercase
-  // text-shadow: $text_drop_lite
-  // padding: 0.4em 1em
-
-// .nav li + .nav-header
-  // margin-top: 1em
 
