@@ -17,7 +17,7 @@ and `href` attributes pointing to the related targets panel.
 <!--~ markup/pill.html.haml -->
 ```haml
 %nav#pill_demo
-  %ul.nav.pill(data-bindable="togglable-group" data-related="#pill_content .tab-pane")
+  %ul.nav.pill(data-bindable="togglable-group" data-related="#pill_content .togglable-pane")
     %li.active<
       %a(href="#pill_one") Pill One
     %li<
@@ -35,19 +35,19 @@ and `href` attributes pointing to the related targets panel.
         %li<
           %a(href="#pill_six") Pill Six
 
-%section#pill_content.tabable-content(style="margin-top:1.25em;")
-  %article.tab-pane.active#pill_one
+%section#pill_content.togglable-content(style="margin-top:1.25em;")
+  %article.togglable-pane.active#pill_one
     %p Pill content <span class="decal important">one</span>
-  %article.tab-pane#pill_two
+  %article.togglable-pane#pill_two
     %p Pill content <span class="decal success">two</span>
-  %article.tab-pane#pill_three
+  %article.togglable-pane#pill_three
     %p Pill content <span class="decal danger">three</span>
 
-  %article.tab-pane#pill_four
+  %article.togglable-pane#pill_four
     %p Pill sub content <span class="decal warning">four</span>
-  %article.tab-pane#pill_five
+  %article.togglable-pane#pill_five
     %p Pill sub content <span class="decal inverse">five</span>
-  %article.tab-pane#pill_six
+  %article.togglable-pane#pill_six
     %p Pill sub content <span class="decal important">six</span>
 ```
 <!-- end -->

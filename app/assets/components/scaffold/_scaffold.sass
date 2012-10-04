@@ -85,6 +85,13 @@ a:link
 .nav[data-behavior="checkbox"] > .active > a:hover
   cursor: pointer
 
+
+// Togglable panes
+.togglable-content > .togglable-pane
+  +visuallyhidden
+.togglable-content > .active
+  +visuallyshown
+
 // TODO: Figure this cat out
 // Headers within a Nav
 // .nav .nav-header

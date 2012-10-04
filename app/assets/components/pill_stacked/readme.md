@@ -14,7 +14,7 @@ Stacked pills require the `pill` component.
 <!--~ markup/pill-stacked.html.haml -->
 ```haml
 %nav#pill_stacked_demo
-  %ul.nav.pill.stacked(data-bindable="togglable-group" data-related="#pill_stacked_content .tab-pane")
+  %ul.nav.pill.stacked(data-bindable="togglable-group" data-related="#pill_stacked_content .togglable-pane")
     %li.active<
       %a(href="#pill_stacked_one") Pill One
     %li<
@@ -32,19 +32,19 @@ Stacked pills require the `pill` component.
         %li<
           %a(href="#pill_stacked_six") Pill Six
 
-%section#pill_stacked_content.tabable-content(style="margin-top:1.25em;")
-  %article.tab-pane.active#pill_stacked_one
+%section#pill_stacked_content.togglable-content(style="margin-top:1.25em;")
+  %article.togglable-pane.active#pill_stacked_one
     %p Pill content <span class="decal important">one</span>
-  %article.tab-pane#pill_stacked_two
+  %article.togglable-pane#pill_stacked_two
     %p Pill content <span class="decal success">two</span>
-  %article.tab-pane#pill_stacked_three
+  %article.togglable-pane#pill_stacked_three
     %p Pill content <span class="decal danger">three</span>
 
-  %article.tab-pane#pill_stacked_four
+  %article.togglable-pane#pill_stacked_four
     %p Pill sub content <span class="decal warning">four</span>
-  %article.tab-pane#pill_stacked_five
+  %article.togglable-pane#pill_stacked_five
     %p Pill sub content <span class="decal inverse">five</span>
-  %article.tab-pane#pill_stacked_six
+  %article.togglable-pane#pill_stacked_six
     %p Pill sub content <span class="decal important">six</span>
 ```
 <!-- end -->

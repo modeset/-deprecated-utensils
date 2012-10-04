@@ -3448,7 +3448,7 @@ and <code>href</code> attributes pointing to the related targets panel.</p>
 <!--~ markup/pill.html.haml -->
 
 <div class="sherpa-showcase sherpa-clearfix"><nav id='pill_demo'>
-<ul class='nav pill' data-bindable='togglable-group' data-related='#pill_content .tab-pane'>
+<ul class='nav pill' data-bindable='togglable-group' data-related='#pill_content .togglable-pane'>
 <li class='active'><a href='#pill_one'>Pill One</a></li>
 <li><a data-target='#pill_two' href='#'>Pill Two</a></li>
 <li><a href='#pill_three'>Pill Three</a></li>
@@ -3462,30 +3462,30 @@ and <code>href</code> attributes pointing to the related targets panel.</p>
 </li>
 </ul>
 </nav>
-<section class='tabable-content' id='pill_content' style='margin-top:1.25em;'>
-<article class='tab-pane active' id='pill_one'>
+<section class='togglable-content' id='pill_content' style='margin-top:1.25em;'>
+<article class='togglable-pane active' id='pill_one'>
 <p>Pill content <span class="decal important">one</span></p>
 </article>
-<article class='tab-pane' id='pill_two'>
+<article class='togglable-pane' id='pill_two'>
 <p>Pill content <span class="decal success">two</span></p>
 </article>
-<article class='tab-pane' id='pill_three'>
+<article class='togglable-pane' id='pill_three'>
 <p>Pill content <span class="decal danger">three</span></p>
 </article>
-<article class='tab-pane' id='pill_four'>
+<article class='togglable-pane' id='pill_four'>
 <p>Pill sub content <span class="decal warning">four</span></p>
 </article>
-<article class='tab-pane' id='pill_five'>
+<article class='togglable-pane' id='pill_five'>
 <p>Pill sub content <span class="decal inverse">five</span></p>
 </article>
-<article class='tab-pane' id='pill_six'>
+<article class='togglable-pane' id='pill_six'>
 <p>Pill sub content <span class="decal important">six</span></p>
 </article>
 </section>
 </div>
 
 <pre><code class="haml">%nav#pill_demo
-  %ul.nav.pill(data-bindable=&quot;togglable-group&quot; data-related=&quot;#pill_content .tab-pane&quot;)
+  %ul.nav.pill(data-bindable=&quot;togglable-group&quot; data-related=&quot;#pill_content .togglable-pane&quot;)
     %li.active&lt;
       %a(href=&quot;#pill_one&quot;) Pill One
     %li&lt;
@@ -3503,19 +3503,19 @@ and <code>href</code> attributes pointing to the related targets panel.</p>
         %li&lt;
           %a(href=&quot;#pill_six&quot;) Pill Six
 
-%section#pill_content.tabable-content(style=&quot;margin-top:1.25em;&quot;)
-  %article.tab-pane.active#pill_one
+%section#pill_content.togglable-content(style=&quot;margin-top:1.25em;&quot;)
+  %article.togglable-pane.active#pill_one
     %p Pill content &lt;span class=&quot;decal important&quot;&gt;one&lt;/span&gt;
-  %article.tab-pane#pill_two
+  %article.togglable-pane#pill_two
     %p Pill content &lt;span class=&quot;decal success&quot;&gt;two&lt;/span&gt;
-  %article.tab-pane#pill_three
+  %article.togglable-pane#pill_three
     %p Pill content &lt;span class=&quot;decal danger&quot;&gt;three&lt;/span&gt;
 
-  %article.tab-pane#pill_four
+  %article.togglable-pane#pill_four
     %p Pill sub content &lt;span class=&quot;decal warning&quot;&gt;four&lt;/span&gt;
-  %article.tab-pane#pill_five
+  %article.togglable-pane#pill_five
     %p Pill sub content &lt;span class=&quot;decal inverse&quot;&gt;five&lt;/span&gt;
-  %article.tab-pane#pill_six
+  %article.togglable-pane#pill_six
     %p Pill sub content &lt;span class=&quot;decal important&quot;&gt;six&lt;/span&gt;
 </code></pre>
 
@@ -3565,7 +3565,7 @@ within your <code>config.sass</code> file or before <code>pill.sass</code> is lo
 <!--~ markup/pill-stacked.html.haml -->
 
 <div class="sherpa-showcase sherpa-clearfix"><nav id='pill_stacked_demo'>
-<ul class='nav pill stacked' data-bindable='togglable-group' data-related='#pill_stacked_content .tab-pane'>
+<ul class='nav pill stacked' data-bindable='togglable-group' data-related='#pill_stacked_content .togglable-pane'>
 <li class='active'><a href='#pill_stacked_one'>Pill One</a></li>
 <li><a data-target='#pill_stacked_two' href='#'>Pill Two</a></li>
 <li><a href='#pill_stacked_three'>Pill Three</a></li>
@@ -3579,30 +3579,30 @@ within your <code>config.sass</code> file or before <code>pill.sass</code> is lo
 </li>
 </ul>
 </nav>
-<section class='tabable-content' id='pill_stacked_content' style='margin-top:1.25em;'>
-<article class='tab-pane active' id='pill_stacked_one'>
+<section class='togglable-content' id='pill_stacked_content' style='margin-top:1.25em;'>
+<article class='togglable-pane active' id='pill_stacked_one'>
 <p>Pill content <span class="decal important">one</span></p>
 </article>
-<article class='tab-pane' id='pill_stacked_two'>
+<article class='togglable-pane' id='pill_stacked_two'>
 <p>Pill content <span class="decal success">two</span></p>
 </article>
-<article class='tab-pane' id='pill_stacked_three'>
+<article class='togglable-pane' id='pill_stacked_three'>
 <p>Pill content <span class="decal danger">three</span></p>
 </article>
-<article class='tab-pane' id='pill_stacked_four'>
+<article class='togglable-pane' id='pill_stacked_four'>
 <p>Pill sub content <span class="decal warning">four</span></p>
 </article>
-<article class='tab-pane' id='pill_stacked_five'>
+<article class='togglable-pane' id='pill_stacked_five'>
 <p>Pill sub content <span class="decal inverse">five</span></p>
 </article>
-<article class='tab-pane' id='pill_stacked_six'>
+<article class='togglable-pane' id='pill_stacked_six'>
 <p>Pill sub content <span class="decal important">six</span></p>
 </article>
 </section>
 </div>
 
 <pre><code class="haml">%nav#pill_stacked_demo
-  %ul.nav.pill.stacked(data-bindable=&quot;togglable-group&quot; data-related=&quot;#pill_stacked_content .tab-pane&quot;)
+  %ul.nav.pill.stacked(data-bindable=&quot;togglable-group&quot; data-related=&quot;#pill_stacked_content .togglable-pane&quot;)
     %li.active&lt;
       %a(href=&quot;#pill_stacked_one&quot;) Pill One
     %li&lt;
@@ -3620,19 +3620,19 @@ within your <code>config.sass</code> file or before <code>pill.sass</code> is lo
         %li&lt;
           %a(href=&quot;#pill_stacked_six&quot;) Pill Six
 
-%section#pill_stacked_content.tabable-content(style=&quot;margin-top:1.25em;&quot;)
-  %article.tab-pane.active#pill_stacked_one
+%section#pill_stacked_content.togglable-content(style=&quot;margin-top:1.25em;&quot;)
+  %article.togglable-pane.active#pill_stacked_one
     %p Pill content &lt;span class=&quot;decal important&quot;&gt;one&lt;/span&gt;
-  %article.tab-pane#pill_stacked_two
+  %article.togglable-pane#pill_stacked_two
     %p Pill content &lt;span class=&quot;decal success&quot;&gt;two&lt;/span&gt;
-  %article.tab-pane#pill_stacked_three
+  %article.togglable-pane#pill_stacked_three
     %p Pill content &lt;span class=&quot;decal danger&quot;&gt;three&lt;/span&gt;
 
-  %article.tab-pane#pill_stacked_four
+  %article.togglable-pane#pill_stacked_four
     %p Pill sub content &lt;span class=&quot;decal warning&quot;&gt;four&lt;/span&gt;
-  %article.tab-pane#pill_stacked_five
+  %article.togglable-pane#pill_stacked_five
     %p Pill sub content &lt;span class=&quot;decal inverse&quot;&gt;five&lt;/span&gt;
-  %article.tab-pane#pill_stacked_six
+  %article.togglable-pane#pill_stacked_six
     %p Pill sub content &lt;span class=&quot;decal important&quot;&gt;six&lt;/span&gt;
 </code></pre>
 
@@ -4131,7 +4131,7 @@ and <code>href</code> attributes pointing to the related targets panel.</p>
 <!--~ markup/tab.html.haml -->
 
 <div class="sherpa-showcase sherpa-clearfix"><nav id='tab_demo'>
-<ul class='nav tab' data-bindable='togglable-group' data-related='#tab_content .tab-pane'>
+<ul class='nav tab' data-bindable='togglable-group' data-related='#tab_content .togglable-pane'>
 <li class='active'><a href='#tab_one'>Tab One</a></li>
 <li><a data-target='#tab_two' href='#'>Tab Two</a></li>
 <li><a href='#tab_three'>Tab Three</a></li>
@@ -4145,30 +4145,30 @@ and <code>href</code> attributes pointing to the related targets panel.</p>
 </li>
 </ul>
 </nav>
-<section class='tabable-content' id='tab_content' style='margin-top:1.25em;'>
-<article class='tab-pane active' id='tab_one'>
+<section class='togglable-content' id='tab_content' style='margin-top:1.25em;'>
+<article class='togglable-pane active' id='tab_one'>
 <p>Tab content <span class="decal important">one</span></p>
 </article>
-<article class='tab-pane' id='tab_two'>
+<article class='togglable-pane' id='tab_two'>
 <p>Tab content <span class="decal success">two</span></p>
 </article>
-<article class='tab-pane' id='tab_three'>
+<article class='togglable-pane' id='tab_three'>
 <p>Tab content <span class="decal danger">three</span></p>
 </article>
-<article class='tab-pane' id='tab_four'>
+<article class='togglable-pane' id='tab_four'>
 <p>Tab sub content <span class="decal warning">four</span></p>
 </article>
-<article class='tab-pane' id='tab_five'>
+<article class='togglable-pane' id='tab_five'>
 <p>Tab sub content <span class="decal inverse">five</span></p>
 </article>
-<article class='tab-pane' id='tab_six'>
+<article class='togglable-pane' id='tab_six'>
 <p>Tab sub content <span class="decal important">six</span></p>
 </article>
 </section>
 </div>
 
 <pre><code class="haml">%nav#tab_demo
-  %ul.nav.tab(data-bindable=&quot;togglable-group&quot; data-related=&quot;#tab_content .tab-pane&quot;)
+  %ul.nav.tab(data-bindable=&quot;togglable-group&quot; data-related=&quot;#tab_content .togglable-pane&quot;)
     %li.active&lt;
       %a(href=&quot;#tab_one&quot;) Tab One
     %li&lt;
@@ -4186,19 +4186,19 @@ and <code>href</code> attributes pointing to the related targets panel.</p>
         %li&lt;
           %a(href=&quot;#tab_six&quot;) Tab Six
 
-%section#tab_content.tabable-content(style=&quot;margin-top:1.25em;&quot;)
-  %article.tab-pane.active#tab_one
+%section#tab_content.togglable-content(style=&quot;margin-top:1.25em;&quot;)
+  %article.togglable-pane.active#tab_one
     %p Tab content &lt;span class=&quot;decal important&quot;&gt;one&lt;/span&gt;
-  %article.tab-pane#tab_two
+  %article.togglable-pane#tab_two
     %p Tab content &lt;span class=&quot;decal success&quot;&gt;two&lt;/span&gt;
-  %article.tab-pane#tab_three
+  %article.togglable-pane#tab_three
     %p Tab content &lt;span class=&quot;decal danger&quot;&gt;three&lt;/span&gt;
 
-  %article.tab-pane#tab_four
+  %article.togglable-pane#tab_four
     %p Tab sub content &lt;span class=&quot;decal warning&quot;&gt;four&lt;/span&gt;
-  %article.tab-pane#tab_five
+  %article.togglable-pane#tab_five
     %p Tab sub content &lt;span class=&quot;decal inverse&quot;&gt;five&lt;/span&gt;
-  %article.tab-pane#tab_six
+  %article.togglable-pane#tab_six
     %p Tab sub content &lt;span class=&quot;decal important&quot;&gt;six&lt;/span&gt;
 </code></pre>
 
@@ -4258,7 +4258,7 @@ within your <code>config.sass</code> file or before <code>tab.sass</code> is loa
 <!--~ markup/tab-stacked.html.haml -->
 
 <div class="sherpa-showcase sherpa-clearfix"><nav id='tab_stacked_demo'>
-<ul class='nav tab stacked' data-bindable='togglable-group' data-related='#tab_stacked_content .tab-pane'>
+<ul class='nav tab stacked' data-bindable='togglable-group' data-related='#tab_stacked_content .togglable-pane'>
 <li class='active'><a href='#tab_stacked_one'>Tab One</a></li>
 <li><a data-target='#tab_stacked_two' href='#'>Tab Two</a></li>
 <li><a href='#tab_stacked_three'>Tab Three</a></li>
@@ -4272,30 +4272,30 @@ within your <code>config.sass</code> file or before <code>tab.sass</code> is loa
 </li>
 </ul>
 </nav>
-<section class='tabable-content' id='tab_stacked_content' style='margin-top:1.25em;'>
-<article class='tab-pane active' id='tab_stacked_one'>
+<section class='togglable-content' id='tab_stacked_content' style='margin-top:1.25em;'>
+<article class='togglable-pane active' id='tab_stacked_one'>
 <p>Tab content <span class="decal important">one</span></p>
 </article>
-<article class='tab-pane' id='tab_stacked_two'>
+<article class='togglable-pane' id='tab_stacked_two'>
 <p>Tab content <span class="decal success">two</span></p>
 </article>
-<article class='tab-pane' id='tab_stacked_three'>
+<article class='togglable-pane' id='tab_stacked_three'>
 <p>Tab content <span class="decal danger">three</span></p>
 </article>
-<article class='tab-pane' id='tab_stacked_four'>
+<article class='togglable-pane' id='tab_stacked_four'>
 <p>Tab sub content <span class="decal warning">four</span></p>
 </article>
-<article class='tab-pane' id='tab_stacked_five'>
+<article class='togglable-pane' id='tab_stacked_five'>
 <p>Tab sub content <span class="decal inverse">five</span></p>
 </article>
-<article class='tab-pane' id='tab_stacked_six'>
+<article class='togglable-pane' id='tab_stacked_six'>
 <p>Tab sub content <span class="decal important">six</span></p>
 </article>
 </section>
 </div>
 
 <pre><code class="haml">%nav#tab_stacked_demo
-  %ul.nav.tab.stacked(data-bindable=&quot;togglable-group&quot; data-related=&quot;#tab_stacked_content .tab-pane&quot;)
+  %ul.nav.tab.stacked(data-bindable=&quot;togglable-group&quot; data-related=&quot;#tab_stacked_content .togglable-pane&quot;)
     %li.active&lt;
       %a(href=&quot;#tab_stacked_one&quot;) Tab One
     %li&lt;
@@ -4313,19 +4313,19 @@ within your <code>config.sass</code> file or before <code>tab.sass</code> is loa
         %li&lt;
           %a(href=&quot;#tab_stacked_six&quot;) Tab Six
 
-%section#tab_stacked_content.tabable-content(style=&quot;margin-top:1.25em;&quot;)
-  %article.tab-pane.active#tab_stacked_one
+%section#tab_stacked_content.togglable-content(style=&quot;margin-top:1.25em;&quot;)
+  %article.togglable-pane.active#tab_stacked_one
     %p Tab content &lt;span class=&quot;decal important&quot;&gt;one&lt;/span&gt;
-  %article.tab-pane#tab_stacked_two
+  %article.togglable-pane#tab_stacked_two
     %p Tab content &lt;span class=&quot;decal success&quot;&gt;two&lt;/span&gt;
-  %article.tab-pane#tab_stacked_three
+  %article.togglable-pane#tab_stacked_three
     %p Tab content &lt;span class=&quot;decal danger&quot;&gt;three&lt;/span&gt;
 
-  %article.tab-pane#tab_stacked_four
+  %article.togglable-pane#tab_stacked_four
     %p Tab sub content &lt;span class=&quot;decal warning&quot;&gt;four&lt;/span&gt;
-  %article.tab-pane#tab_stacked_five
+  %article.togglable-pane#tab_stacked_five
     %p Tab sub content &lt;span class=&quot;decal inverse&quot;&gt;five&lt;/span&gt;
-  %article.tab-pane#tab_stacked_six
+  %article.togglable-pane#tab_stacked_six
     %p Tab sub content &lt;span class=&quot;decal important&quot;&gt;six&lt;/span&gt;
 </code></pre>
 
@@ -5267,39 +5267,39 @@ systems to control other components such as tabs, pills and accordions.</p>
 </nav>
 <hr />
 <nav style='margin-top: 2em;'>
-<ul class='nav inline' data-bindable='togglable-group' data-related='#related_radio_content .tab-pane' id='related_radio_nav'>
+<ul class='nav inline' data-bindable='togglable-group' data-related='#related_radio_content .togglable-pane' id='related_radio_nav'>
 <li class='active'><a href='#related_rone'>Related Radio 1</a></li>
 <li><a data-target='#related_rtwo' href='#'>Related Radio 2</a></li>
 <li><a href='#related_rthree'>Related Radio 3</a></li>
 </ul>
 </nav>
-<section class='tabable-content' id='related_radio_content' style='margin-top:1.25em;'>
-<article class='tab-pane active' id='related_rone'>
+<section class='togglable-content' id='related_radio_content' style='margin-top:1.25em;'>
+<article class='togglable-pane active' id='related_rone'>
 <p>Related radio content <span class="decal important">one</span></p>
 </article>
-<article class='tab-pane' id='related_rtwo'>
+<article class='togglable-pane' id='related_rtwo'>
 <p>Related radio content <span class="decal success">two</span></p>
 </article>
-<article class='tab-pane' id='related_rthree'>
+<article class='togglable-pane' id='related_rthree'>
 <p>Related radio content <span class="decal danger">three</span></p>
 </article>
 </section>
 <hr />
 <nav style='margin-top: 2em;'>
-<ul class='nav inline' data-behavior='checkbox' data-bindable='togglable-group' data-related='#related_check_content .tab-pane' id='related_check_nav'>
+<ul class='nav inline' data-behavior='checkbox' data-bindable='togglable-group' data-related='#related_check_content .togglable-pane' id='related_check_nav'>
 <li class='active'><a href='#related_cone'>Related Check 1</a></li>
 <li><a data-target='#related_ctwo' href='#'>Related Check 2</a></li>
 <li><a href='#related_cthree'>Related Check 3</a></li>
 </ul>
 </nav>
-<section class='tabable-content' id='related_check_content' style='margin-top:1.25em;'>
-<article class='tab-pane active' id='related_cone'>
+<section class='togglable-content' id='related_check_content' style='margin-top:1.25em;'>
+<article class='togglable-pane active' id='related_cone'>
 <p>Related checkbox content <span class="decal important">one</span></p>
 </article>
-<article class='tab-pane' id='related_ctwo'>
+<article class='togglable-pane' id='related_ctwo'>
 <p>Related checkbox content <span class="decal success">two</span></p>
 </article>
-<article class='tab-pane' id='related_cthree'>
+<article class='togglable-pane' id='related_cthree'>
 <p>Related checkbox content <span class="decal danger">three</span></p>
 </article>
 </section>
@@ -5334,7 +5334,7 @@ systems to control other components such as tabs, pills and accordions.</p>
 
 %hr
 %nav(style=&quot;margin-top: 2em;&quot;)
-  %ul#related_radio_nav.nav.inline(data-bindable=&quot;togglable-group&quot; data-related=&quot;#related_radio_content .tab-pane&quot;)
+  %ul#related_radio_nav.nav.inline(data-bindable=&quot;togglable-group&quot; data-related=&quot;#related_radio_content .togglable-pane&quot;)
     %li.active&lt;
       %a(href=&quot;#related_rone&quot;) Related Radio 1
     %li&lt;
@@ -5342,17 +5342,17 @@ systems to control other components such as tabs, pills and accordions.</p>
     %li&lt;
       %a(href=&quot;#related_rthree&quot;) Related Radio 3
 
-%section#related_radio_content.tabable-content(style=&quot;margin-top:1.25em;&quot;)
-  %article.tab-pane.active#related_rone
+%section#related_radio_content.togglable-content(style=&quot;margin-top:1.25em;&quot;)
+  %article.togglable-pane.active#related_rone
     %p Related radio content &lt;span class=&quot;decal important&quot;&gt;one&lt;/span&gt;
-  %article.tab-pane#related_rtwo
+  %article.togglable-pane#related_rtwo
     %p Related radio content &lt;span class=&quot;decal success&quot;&gt;two&lt;/span&gt;
-  %article.tab-pane#related_rthree
+  %article.togglable-pane#related_rthree
     %p Related radio content &lt;span class=&quot;decal danger&quot;&gt;three&lt;/span&gt;
 
 %hr
 %nav(style=&quot;margin-top: 2em;&quot;)
-  %ul#related_check_nav.nav.inline(data-bindable=&quot;togglable-group&quot; data-behavior=&quot;checkbox&quot; data-related=&quot;#related_check_content .tab-pane&quot;)
+  %ul#related_check_nav.nav.inline(data-bindable=&quot;togglable-group&quot; data-behavior=&quot;checkbox&quot; data-related=&quot;#related_check_content .togglable-pane&quot;)
     %li.active&lt;
       %a(href=&quot;#related_cone&quot;) Related Check 1
     %li&lt;
@@ -5360,12 +5360,12 @@ systems to control other components such as tabs, pills and accordions.</p>
     %li&lt;
       %a(href=&quot;#related_cthree&quot;) Related Check 3
 
-%section#related_check_content.tabable-content(style=&quot;margin-top:1.25em;&quot;)
-  %article.tab-pane.active#related_cone
+%section#related_check_content.togglable-content(style=&quot;margin-top:1.25em;&quot;)
+  %article.togglable-pane.active#related_cone
     %p Related checkbox content &lt;span class=&quot;decal important&quot;&gt;one&lt;/span&gt;
-  %article.tab-pane#related_ctwo
+  %article.togglable-pane#related_ctwo
     %p Related checkbox content &lt;span class=&quot;decal success&quot;&gt;two&lt;/span&gt;
-  %article.tab-pane#related_cthree
+  %article.togglable-pane#related_cthree
     %p Related checkbox content &lt;span class=&quot;decal danger&quot;&gt;three&lt;/span&gt;
 </code></pre>
 

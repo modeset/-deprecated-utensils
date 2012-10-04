@@ -14,7 +14,7 @@ Stacked tabs require the `tab` component.
 <!--~ markup/tab-stacked.html.haml -->
 ```haml
 %nav#tab_stacked_demo
-  %ul.nav.tab.stacked(data-bindable="togglable-group" data-related="#tab_stacked_content .tab-pane")
+  %ul.nav.tab.stacked(data-bindable="togglable-group" data-related="#tab_stacked_content .togglable-pane")
     %li.active<
       %a(href="#tab_stacked_one") Tab One
     %li<
@@ -32,19 +32,19 @@ Stacked tabs require the `tab` component.
         %li<
           %a(href="#tab_stacked_six") Tab Six
 
-%section#tab_stacked_content.tabable-content(style="margin-top:1.25em;")
-  %article.tab-pane.active#tab_stacked_one
+%section#tab_stacked_content.togglable-content(style="margin-top:1.25em;")
+  %article.togglable-pane.active#tab_stacked_one
     %p Tab content <span class="decal important">one</span>
-  %article.tab-pane#tab_stacked_two
+  %article.togglable-pane#tab_stacked_two
     %p Tab content <span class="decal success">two</span>
-  %article.tab-pane#tab_stacked_three
+  %article.togglable-pane#tab_stacked_three
     %p Tab content <span class="decal danger">three</span>
 
-  %article.tab-pane#tab_stacked_four
+  %article.togglable-pane#tab_stacked_four
     %p Tab sub content <span class="decal warning">four</span>
-  %article.tab-pane#tab_stacked_five
+  %article.togglable-pane#tab_stacked_five
     %p Tab sub content <span class="decal inverse">five</span>
-  %article.tab-pane#tab_stacked_six
+  %article.togglable-pane#tab_stacked_six
     %p Tab sub content <span class="decal important">six</span>
 ```
 <!-- end -->

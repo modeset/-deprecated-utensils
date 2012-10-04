@@ -17,7 +17,7 @@ and `href` attributes pointing to the related targets panel.
 <!--~ markup/tab.html.haml -->
 ```haml
 %nav#tab_demo
-  %ul.nav.tab(data-bindable="togglable-group" data-related="#tab_content .tab-pane")
+  %ul.nav.tab(data-bindable="togglable-group" data-related="#tab_content .togglable-pane")
     %li.active<
       %a(href="#tab_one") Tab One
     %li<
@@ -35,19 +35,19 @@ and `href` attributes pointing to the related targets panel.
         %li<
           %a(href="#tab_six") Tab Six
 
-%section#tab_content.tabable-content(style="margin-top:1.25em;")
-  %article.tab-pane.active#tab_one
+%section#tab_content.togglable-content(style="margin-top:1.25em;")
+  %article.togglable-pane.active#tab_one
     %p Tab content <span class="decal important">one</span>
-  %article.tab-pane#tab_two
+  %article.togglable-pane#tab_two
     %p Tab content <span class="decal success">two</span>
-  %article.tab-pane#tab_three
+  %article.togglable-pane#tab_three
     %p Tab content <span class="decal danger">three</span>
 
-  %article.tab-pane#tab_four
+  %article.togglable-pane#tab_four
     %p Tab sub content <span class="decal warning">four</span>
-  %article.tab-pane#tab_five
+  %article.togglable-pane#tab_five
     %p Tab sub content <span class="decal inverse">five</span>
-  %article.tab-pane#tab_six
+  %article.togglable-pane#tab_six
     %p Tab sub content <span class="decal important">six</span>
 ```
 <!-- end -->

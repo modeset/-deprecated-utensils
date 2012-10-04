@@ -2,7 +2,6 @@
 # TODO
 
 ## WIP
-- create a separate class for tabable-content
 - nav-lists.sass
 - accordions.sass *
 - add correct focus states around components

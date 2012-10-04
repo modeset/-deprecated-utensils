@@ -45,7 +45,7 @@ data-bindable="togglable-group"
 
 %hr
 %nav(style="margin-top: 2em;")
-  %ul#related_radio_nav.nav.inline(data-bindable="togglable-group" data-related="#related_radio_content .tab-pane")
+  %ul#related_radio_nav.nav.inline(data-bindable="togglable-group" data-related="#related_radio_content .togglable-pane")
     %li.active<
       %a(href="#related_rone") Related Radio 1
     %li<
@@ -53,17 +53,17 @@ data-bindable="togglable-group"
     %li<
       %a(href="#related_rthree") Related Radio 3
 
-%section#related_radio_content.tabable-content(style="margin-top:1.25em;")
-  %article.tab-pane.active#related_rone
+%section#related_radio_content.togglable-content(style="margin-top:1.25em;")
+  %article.togglable-pane.active#related_rone
     %p Related radio content <span class="decal important">one</span>
-  %article.tab-pane#related_rtwo
+  %article.togglable-pane#related_rtwo
     %p Related radio content <span class="decal success">two</span>
-  %article.tab-pane#related_rthree
+  %article.togglable-pane#related_rthree
     %p Related radio content <span class="decal danger">three</span>
 
 %hr
 %nav(style="margin-top: 2em;")
-  %ul#related_check_nav.nav.inline(data-bindable="togglable-group" data-behavior="checkbox" data-related="#related_check_content .tab-pane")
+  %ul#related_check_nav.nav.inline(data-bindable="togglable-group" data-behavior="checkbox" data-related="#related_check_content .togglable-pane")
     %li.active<
       %a(href="#related_cone") Related Check 1
     %li<
@@ -71,12 +71,12 @@ data-bindable="togglable-group"
     %li<
       %a(href="#related_cthree") Related Check 3
 
-%section#related_check_content.tabable-content(style="margin-top:1.25em;")
-  %article.tab-pane.active#related_cone
+%section#related_check_content.togglable-content(style="margin-top:1.25em;")
+  %article.togglable-pane.active#related_cone
     %p Related checkbox content <span class="decal important">one</span>
-  %article.tab-pane#related_ctwo
+  %article.togglable-pane#related_ctwo
     %p Related checkbox content <span class="decal success">two</span>
-  %article.tab-pane#related_cthree
+  %article.togglable-pane#related_cthree
     %p Related checkbox content <span class="decal danger">three</span>
 ```
 <!-- end -->
