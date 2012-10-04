@@ -1,0 +1,39 @@
+
+.tab.stacked
+  border-bottom: 0
+
+.tab.stacked > li
+  float: none
+
+.tab.stacked > li > a
+  border: 1px solid $tab-border
+  border-radius: 0
+  margin-right: 0
+
+.tab.stacked > li > a:hover
+  z-index: 2
+
+.tab.stacked > li:first-child > a
+  border-radius: $tab-radii $tab-radii 0 0
+.tab.stacked > li:last-child > a
+  border-radius: 0 0 $tab-radii $tab-radii
+
+.tab.stacked > .active > a,
+.tab.stacked > .active > a:hover,
+.tab.stacked > .selected > a
+  background-color: $tab-bgc-active
+  border-bottom-color: $tab-border
+
+.tab.stacked > .selected > a:hover
+  background-color: $tab-bgc-hover
+  border-bottom-color: $tab-border
+
+// With a Drop
+.tab.stacked .caret
+  float: right
+  margin-top: 0.5em
+
+.tab.stacked .drop.open .menu,
+.tab.stacked .drop.open + .menu
+  width: 100%
+
