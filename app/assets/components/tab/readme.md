@@ -1,6 +1,16 @@
 
 # Tab
-Describe this
+Tabs follow the same markup structure as other navigation elements. Tabs
+like other navigation elements require the `.nav` class for layout. Add
+`.nav .tabs` to a `ul` or `ol` element.
+
+To utilize a drop dead simple version of hiding and showing content, add
+the `data-bindable="togglable-group"` along with a `data-related` target
+and `href` attributes pointing to the related targets panel.
+
+```sass
+@import utensils/components/tab/tab
+```
 
 ## Usage Example
 
@@ -42,7 +52,14 @@ Describe this
 ```
 <!-- end -->
 
-## Todo
-- Document
-- Create a tabable class as a nice wrapper?
+## Style Settings
+To override the default settings, set the variable and it's value
+within your `config.sass` file or before `tab.sass` is loaded.
+
+Variable         | Default           | Description
+---------------- | ----------------- | -------------------------------------------
+`$tab-bgc`       | `$base-bgc`       | The `background-color` of the tab component
+`$tab-bgc-hover` | `$base-bgc-hover` | The `background-color` of a tab element when hovered
+`$tab-border`    | `$base-border`    | The `border-color` of the tab component
+`$tab-radii`     | `$radii`          | The `border-radius` of the tab component
 

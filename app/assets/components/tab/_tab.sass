@@ -1,6 +1,11 @@
 
+$tab-bgc: $base-bgc !default
+$tab-bgc-hover: $base-bgc-hover !default
+$tab-border: $base-border !default
+$tab-radii: $radii !default
+
 .tab
-  border-bottom: 1px solid $base-border
+  border-bottom: 1px solid $tab-border
 
 .tab > li
   float: left
@@ -8,26 +13,28 @@
 
 .tab > li > a
   border: 1px solid transparent
-  border-radius: $radii $radii 0 0
+  border-radius: $tab-radii $tab-radii 0 0
   margin-right: 0.15em
   padding: 0.5em 0.8em
-  &:hover
-    background-color: $base-bgc-hover
-    border-color: $base-bgc-hover
-    border-bottom-color: $base-border
 
-.tab > .active > a,
-.tab > .active > a:hover,
-.tab > .selected > a
-  background-color: $base-bgc
-  border: 1px solid $base-border
-  border-bottom-color: $base-bgc
+.tab > li > a:hover
+  background-color: $tab-bgc-hover
+  border-color: $tab-bgc-hover
+  border-bottom-color: $tab-border
 
-.tab > .selected > a:hover
-  background-color: $base-bgc-hover
-  border: 1px solid $base-border
-  border-bottom-color: $base-bgc-hover
+.tab .active > a,
+.tab .active > a:hover,
+.tab .selected > a
+  background-color: $tab-bgc
+  border: 1px solid $tab-border
+  border-bottom-color: $tab-bgc
 
+.tab .selected > a:hover
+  background-color: $tab-bgc-hover
+  border: 1px solid $tab-border
+  border-bottom-color: $tab-bgc-hover
+
+// Todo: Move out of here...
 // Togglable tab panes
 .tabable-content > .tab-pane
   +visuallyhidden
