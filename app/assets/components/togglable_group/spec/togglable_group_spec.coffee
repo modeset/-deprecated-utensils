@@ -68,6 +68,30 @@ describe 'Togglable Group', ->
       expect($(@check_kids[2])).toHaveClass('active')
       expect($(@check_kids[1])).toHaveClass('active')
 
+    it 'does not deactivate a radio group unless an actual target is triggered', ->
+      $(@radio_kids[1]).find('a').click()
+      expect($(@radio_kids[1])).toHaveClass('active')
+      @radio$.click()
+      expect($(@radio_kids[1])).toHaveClass('active')
+
+    it 'does not deactivate a check group unless an actual target is triggered', ->
+      $(@check_kids[1]).find('a').click()
+      expect($(@check_kids[1])).toHaveClass('active')
+      @check$.click()
+      expect($(@check_kids[1])).toHaveClass('active')
+
+    it 'does not deactivate a radio group if triggered by a list without an a tag', ->
+      $(@radio_kids[1]).find('a').click()
+      expect($(@radio_kids[1])).toHaveClass('active')
+      @radio$.find('.not-link').click()
+      expect($(@radio_kids[1])).toHaveClass('active')
+
+    it 'does not deactivate a check group if triggered by a list without an a tag', ->
+      $(@check_kids[1]).find('a').click()
+      expect($(@check_kids[1])).toHaveClass('active')
+      @check$.find('.not-link').click()
+      expect($(@check_kids[1])).toHaveClass('active')
+
 
   describe '#activate', ->
     it 'activates a radio group element from an index', ->

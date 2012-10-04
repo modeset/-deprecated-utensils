@@ -24,6 +24,7 @@ data-bindable="togglable-group"
       %a(href="#") Radio 2
     %li.radio-li<
       %a(href="#") Radio 3
+    %li.not-link Not a link
 %hr
 %nav(style="margin-top: 1em;")
   %ul#checks.nav.inline(data-bindable="togglable-group" data-behavior="checkbox")
@@ -33,6 +34,7 @@ data-bindable="togglable-group"
       %a(href="#") Checkbox 2
     %li<
       %a(href="#") Checkbox 3
+    %li.not-link Not a link
 %hr
 %nav(style="margin-top: 1em;")
   %ul#radios_delay.nav.inline(data-bindable="togglable-group" data-delay="activate: 500, deactivate: 500")

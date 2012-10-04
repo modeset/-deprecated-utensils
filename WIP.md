@@ -2,7 +2,6 @@
 # TODO
 
 ## WIP
-- nav-lists.sass
 - accordions.sass *
 - add correct focus states around components
 - modals.sass *
@@ -43,9 +42,6 @@
 - There should be some sort of Togglable class that acts similar to the
   demo (removes a bunch of classes then add more) pass a data-remove?
 - Should ToggleableGroup support data-bindables for tab, pill, etc..
-
-## Bugs
-- Weird bug on some of the button group clicking around deactivation
 
 ## Vendor stuff
 - Add a script for installing jQuery, underscore, respond.js and

@@ -3980,10 +3980,12 @@ the <code>@media print</code> query.</p>
 
 <h1>Scaffold</h1>
 
-<p>Sets up main scaffolding elements for <code>html</code>, <code>body</code>, selections, links and navigation.</p>
+<p>Sets up core scaffolding elements for <code>html</code>, <code>body</code>, selections, links and navigation.</p>
 
 <pre><code class="sass">@import utensils/components/scaffold/scaffold
 </code></pre>
+
+<h2>Navs</h2>
 
 <p>The base <code>.nav</code> is the building block for navigation structures and components
 (tabs, pills, breadcrumbs, pagination and navigation lists). The <code>.nav</code> class
@@ -3991,8 +3993,9 @@ can be used for simple navigation as well.</p>
 
 <!--~ markup/scaffold-nav.html.haml -->
 
-<div class="sherpa-showcase sherpa-clearfix"><nav>
+<div class="sherpa-showcase sherpa-clearfix"><nav class='well'>
 <ul class='nav' data-bindable='togglable-group'>
+<li class='nav-header'>Nav Header</li>
 <li>
 <a href='#'>Block Link 1</a>
 </li>
@@ -4002,9 +4005,13 @@ can be used for simple navigation as well.</p>
 <li>
 <a href='#'>Block Link 3</a>
 </li>
+<li class='nav-divider'></li>
+<li class='nav-header'>Nav Header</li>
+<li>
+<a href='#'>Block Link 4</a>
+</li>
 </ul>
 </nav>
-<hr />
 <nav>
 <ul class='nav inline' data-bindable='togglable-group'>
 <li>
@@ -4020,15 +4027,19 @@ can be used for simple navigation as well.</p>
 </nav>
 </div>
 
-<pre><code class="haml">%nav
+<pre><code class="haml">%nav.well
   %ul.nav(data-bindable=&quot;togglable-group&quot;)
+    %li.nav-header Nav Header
     %li
       %a(href=&quot;#&quot;) Block Link 1
     %li.active
       %a(href=&quot;#&quot;) Block Link 2
     %li
       %a(href=&quot;#&quot;) Block Link 3
-%hr
+    %li.nav-divider
+    %li.nav-header Nav Header
+    %li
+      %a(href=&quot;#&quot;) Block Link 4
 %nav
   %ul.nav.inline(data-bindable=&quot;togglable-group&quot;)
     %li
@@ -4047,11 +4058,14 @@ can be used for simple navigation as well.</p>
 <li><strong>Heads Up!</strong> All navigation components depend on the <code>.nav</code> class being attached to the container element</li>
 </ul>
 
-<h6>Notes</h6>
+<p>For convenience, add the <code>inline</code> class to the <code>.nav</code> element to display the base nav inline.</p>
 
-<ul>
-<li><strong>Pro Tip!</strong> For convenience, add the <code>inline</code> class to the <code>.nav</code> element to display the base nav inline</li>
-</ul>
+<p>Utilize the <code>.nav-header</code> and <code>.nav-divider</code> for building simple navigation lists.</p>
+
+<h2>Togglable Panels</h2>
+
+<p>Togglable panels are typically used by <code>Tab</code> and <code>Pill</code> for showing and
+hiding related content. See <code>TogglableGroup</code> for usage.</p>
 
 <h2>Style Settings</h2>
 
@@ -4105,13 +4119,22 @@ within your <code>config.sass</code> file or before <code>scaffold.sass</code> i
 <td><code>$nav-inline-padding-left</code></td>
 <td>The <code>padding-right</code> on the <code>.nav.inline</code> element</td>
 </tr>
+<tr>
+<td><code>$nav-header-color</code></td>
+<td><code>$body-color</code></td>
+<td>The <code>color</code> of the navigation header</td>
+</tr>
+<tr>
+<td><code>$nav-header-font-weight</code></td>
+<td><code>bold</code></td>
+<td>The <code>font-weigh</code> of the navigation header</td>
+</tr>
+<tr>
+<td><code>$nav-divider</code></td>
+<td><code>$base-border</code></td>
+<td>The <code>border-color</code> of the navigation divider</td>
+</tr>
 </tbody></table>
-
-<h2>Todo</h2>
-
-<ul>
-<li>Enable the <code>.nav-header</code> class, might be good to have a divider too?</li>
-</ul>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
@@ -5247,6 +5270,7 @@ systems to control other components such as tabs, pills and accordions.</p>
 <li class='radio-li'><a href='#'>Radio 1</a></li>
 <li class='radio-li'><a href='#'>Radio 2</a></li>
 <li class='radio-li'><a href='#'>Radio 3</a></li>
+<li class='not-link'>Not a link</li>
 </ul>
 </nav>
 <hr />
@@ -5255,6 +5279,7 @@ systems to control other components such as tabs, pills and accordions.</p>
 <li><a href='#'>Checkbox 1</a></li>
 <li><a href='#'>Checkbox 2</a></li>
 <li><a href='#'>Checkbox 3</a></li>
+<li class='not-link'>Not a link</li>
 </ul>
 </nav>
 <hr />
@@ -5313,6 +5338,7 @@ systems to control other components such as tabs, pills and accordions.</p>
       %a(href=&quot;#&quot;) Radio 2
     %li.radio-li&lt;
       %a(href=&quot;#&quot;) Radio 3
+    %li.not-link Not a link
 %hr
 %nav(style=&quot;margin-top: 1em;&quot;)
   %ul#checks.nav.inline(data-bindable=&quot;togglable-group&quot; data-behavior=&quot;checkbox&quot;)
@@ -5322,6 +5348,7 @@ systems to control other components such as tabs, pills and accordions.</p>
       %a(href=&quot;#&quot;) Checkbox 2
     %li&lt;
       %a(href=&quot;#&quot;) Checkbox 3
+    %li.not-link Not a link
 %hr
 %nav(style=&quot;margin-top: 1em;&quot;)
   %ul#radios_delay.nav.inline(data-bindable=&quot;togglable-group&quot; data-delay=&quot;activate: 500, deactivate: 500&quot;)
