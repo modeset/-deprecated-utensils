@@ -2,16 +2,22 @@
 
 //= require utensil/spec
 //= require bindable/spec
-//= require detect/spec
-//= require togglable/spec
-//= require togglable_group/spec
-//= require directional/spec
+//= require triggerable/spec
 //= require timeslot/spec
+//= require detect/spec
 
-//= require drop/spec
-//= require tip/spec
-//= require pop/spec
+//= require toggle/spec
+//= require toggle_group/spec
 
+// require togglable/spec
+// require togglable_group/spec
+// require collapsible/spec
+
+// require drop/spec
+// require tip/spec
+// require pop/spec
+
+//= require directional/spec
 //= require dimensionizer/spec
 
 //= require_tree ./

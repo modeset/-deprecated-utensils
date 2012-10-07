@@ -1,6 +1,11 @@
 
 //= require jquery
 //= require bindable
+//= require triggerable
+//= require toggle
+//= require toggle_group
+
+//= require togglable
 //= require togglable_group
 
 //= require drop
