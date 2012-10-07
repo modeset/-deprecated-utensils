@@ -1,8 +1,8 @@
 
 #= require utensil
 #= require bindable
+#= require triggerable
 #= require detect
-#= require togglable
 #= require directional
 
 class utensil.Tip
@@ -14,63 +14,58 @@ class utensil.Tip
     @activate() if @data.activate
 
   options: ->
-    # override togglable defaults
-    @toggle_classes = @data.toggle || 'active in'
-    @data.toggle = @toggle_classes
-    @data.trigger = 'hover' unless @data.trigger || $('html').hasClass('touch')
-
-    # tip options
-    @placement = @data.placement || 'north'
-    @title = @el.attr('title') || @data.title || ''
-    @effect = @data.effect || 'fade'
+    @data.namespace = @data.namespace || 'tip'
+    @data.trigger = @data.trigger || 'hover' unless $('html').hasClass('touch')
+    @data.toggle = @data.toggle || 'active in'
+    @data.placement = @data.placement || 'north'
+    @data.title = @data.title || @el.attr('title') || ''
+    @data.effect = @data.effect || 'fade'
 
   initialize: ->
     @tip = null
     @container = $('body')
-    @toggler = new utensil.Togglable(@el, @data)
+    @namespace = @data.namespace
+    @toggle_classes = @data.toggle
+    @placement = @data.placement
+    @title = @data.title
+    @effect = @data.effect
+
+    @triggerable = new utensil.Triggerable(@el, @data)
     @directional = new utensil.Directional(null, @el, @placement)
     @cardinals = @directional.getCardinals()
     @el.attr('title', '')
 
-  # PUBLIC #
+# PUBLIC #
 
   toggle: ->
-    @toggler.toggle()
+    @triggerable.toggle(target: @el)
 
   activate: ->
-    @toggler.activate()
+    @triggerable.activate(target: @el)
 
   deactivate: ->
-    @toggler.deactivate()
+    @triggerable.deactivate(target: @el)
 
   dispose: ->
     @removeListeners()
-    @toggler.dispose()
-    @toggler = null
+    @triggerable.dispose()
+    @triggerable = null
     @remove()
 
-  # PROTECTED #
+# PROTECTED #
 
   addListeners: ->
-    @toggler.dispatcher.on('togglable:activate', => @activated arguments...)
-    @toggler.dispatcher.on('togglable:deactivate', => @deactivated arguments...)
+    @triggerable.dispatcher.on('triggerable:activate', => @activated arguments...)
+    @triggerable.dispatcher.on('triggerable:deactivate', => @deactivated arguments...)
 
   removeListeners: ->
-    @toggler.dispatcher.off('togglable:activate')
-    @toggler.dispatcher.off('togglable:deactivate')
+    @triggerable.dispatcher.off('triggerable:activate')
+    @triggerable.dispatcher.off('triggerable:deactivate')
 
   activated: (e) ->
     @remove()
-    @addToViewport()
-
-  addToViewport: ->
-    @tip = $(@render())
-    @tip.appendTo(@container)
-    @directional.setElement(@tip)
-    position = @directional.getPlacementAndConstrain()
-    @tip.removeClass(@cardinals).addClass(position.cardinal)
-    @tip.css({top: position.top, left: position.left})
-    @tip.addClass(@toggle_classes)
+    @add()
+    @el.trigger("#{@namespace}:activated", @el)
 
   deactivated: (e) ->
     if @tip && utensil.Detect.hasTransition
@@ -78,6 +73,16 @@ class utensil.Tip
       @tip.removeClass(@toggle_classes)
     else
       @remove()
+    @el.trigger("#{@namespace}:deactivated", @el)
+
+  add: ->
+    @tip = $(@render())
+    @tip.appendTo(@container)
+    @directional.setElement(@tip)
+    position = @directional.getPlacementAndConstrain()
+    @tip.removeClass(@cardinals).addClass(position.cardinal)
+    @tip.css({top: position.top, left: position.left})
+    @tip.addClass(@toggle_classes)
 
   remove: ->
     if @tip
