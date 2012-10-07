@@ -65,14 +65,16 @@ class utensil.Tip
   activated: (e) ->
     @remove()
     @add()
+    @el.addClass('selected')
     @el.trigger("#{@namespace}:activated", @el)
 
   deactivated: (e) ->
     if @tip && utensil.Detect.hasTransition
-      @tip.one(utensil.Detect.transition.end, => @remove())
+      @tip.one(utensil.Detect.transition.end, => @remove arguments...)
       @tip.removeClass(@toggle_classes)
     else
       @remove()
+    @el.removeClass('selected')
     @el.trigger("#{@namespace}:deactivated", @el)
 
   add: ->

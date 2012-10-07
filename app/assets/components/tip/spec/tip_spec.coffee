@@ -102,7 +102,6 @@ describe 'Tip', ->
     it 'overrides the default toggle classes', ->
       expect(@override_tip.toggle_classes).toEqual('active')
 
-
     it 'sets the default placement to "north"', ->
       expect(@north_tip.placement).toEqual('north')
 
@@ -134,6 +133,10 @@ describe 'Tip', ->
       expect(@north_el.attr('title')).toEqual('')
       expect(@south_el.attr('title')).toEqual('')
 
+    it 'uses Triggerables trigger types', ->
+      expect(@east_tip.triggerable.trigger_type).toEqual(on:'mouseenter.tip', off:'mouseleave.tip')
+      expect(@override_tip.triggerable.trigger_type).toEqual(on:'click.tip', off:'click.tip')
+
 
   describe '#toggle', ->
     it 'calls through #toggle on the "Triggerable" instance', ->
@@ -150,6 +153,7 @@ describe 'Tip', ->
       # override the delay to speed up the tests.
       @north_tip.triggerable.delay.activate = 50
       @north_tip.triggerable.delay.deactivate = 50
+
       runs ->
         @north_el.trigger('mouseover')
       waits 100
@@ -208,6 +212,7 @@ describe 'Tip', ->
       @north_tip.activated()
       tip = $('.tip').first()
       expect(tip).toHaveClass('fade')
+      expect(@north_el).toHaveClass('selected')
 
 
   describe '#deactivated', ->
@@ -216,6 +221,7 @@ describe 'Tip', ->
       @north_tip.deactivated()
       tip = $('.tip').first()
       expect(tip).not.toHaveClass('in')
+      expect(@north_el).not.toHaveClass('selected')
 
 
   describe '#add', ->
