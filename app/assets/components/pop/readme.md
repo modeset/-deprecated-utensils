@@ -25,13 +25,13 @@ data-bindable="pop"
     %li<
       %a#pop_north(data-bindable="pop" data-delay="100" title="The Northern Pop" data-content="North is way up there, just hanging out with the Canadians." href="#") Northern Pop
     %li<
-      %a#pop_south(data-bindable="pop" data-placement="south" data-delay="1000,2000" title="The Southern Pop" data-content="South is where the snow goes in the summer. You should go there."  href="#") Southern Pop
+      %a#pop_south(data-bindable="pop" data-placement="south" data-delay="1000,2000" title="The Southern Pop" data-content="South is where the snow goes in the summer. You should go there." href="#") Southern Pop
     %li<
-      %a#pop_east(data-bindable="pop" data-trigger="hover" data-placement="east" title="The Eastern Pop" data-content="East Coast hip-hop in the 90s is about as good as it gets."  href="#") Eastern Pop
+      %a#pop_east(data-bindable="pop" data-trigger="hover" data-placement="east" title="The Eastern Pop" data-content="East Coast hip-hop in the 90s is about as good as it gets." href="#") Eastern Pop
     %li<
       %a#pop_west(data-bindable="pop" data-placement="west" title="<h2>The Western Pop</h2>" data-content="At some point the West Coast is just going to drop into the Pacific." href="#") Western Pop
     %li<
-      %a#pop_no_title(data-bindable="pop" data-placement="north" data-content="Check me out, rolling with no title and all. Total chaos."  href="#") No Title
+      %a#pop_no_title(data-bindable="pop" data-placement="north" data-content="Check me out, rolling with no title and all. Total chaos." href="#") No Title
     %li<
       %a#pop_selector(data-bindable="pop" href="#pop_exterior_content") Exterior Content
 

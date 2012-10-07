@@ -14,7 +14,7 @@
 // require collapsible/spec
 
 // require drop/spec
-// require pop/spec
+//= require pop/spec
 //= require tip/spec
 
 //= require directional/spec

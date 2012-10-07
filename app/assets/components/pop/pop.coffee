@@ -1,73 +1,89 @@
 
 #= require utensil
 #= require bindable
+#= require triggerable
 #= require detect
-#= require togglable
 #= require directional
 
 class utensil.Pop
   constructor: (@el, data) ->
     @is_tip_like = if @el.data('content') then true else false
     @data = if data then data else @findData()
+
     @options()
     @initialize()
     @addListeners()
     @activate() if @data.activate
 
   options: ->
-    # override togglable defaults
-    @toggle_classes = @data.toggle || 'active in'
-    @data.toggle = @toggle_classes
-    @data.target = @el unless @data.target
-
-    # pop options
-    @placement = @data.placement || 'north'
-    @title = @el.attr('title') || @data.title || ''
-    @content = @data.content || ''
-    @effect = @data.effect || 'fade'
+    @data.namespace = @data.namespace || 'pop'
+    @data.trigger = @data.trigger || 'click'
+    @data.toggle = @data.toggle || 'active in'
+    @data.placement = @data.placement || 'north'
+    @data.title = @data.title || @el.attr('title') || ''
+    @data.content = @data.content || ''
+    @data.effect = @data.effect || 'fade'
 
   initialize: ->
     @pop = null
     @cached_markup = null
     @container = $('body')
-    @toggler = new utensil.Togglable(@el, @data)
+    @namespace = @data.namespace
+    @toggle_classes = @data.toggle
+    @placement = @data.placement
+    @title = @data.title
+    @content = @data.content
+    @effect = @data.effect
+
+    @triggerable = new utensil.Triggerable(@el, @data)
     @directional = new utensil.Directional(null, @el, @placement)
     @cardinals = @directional.getCardinals()
     @el.attr('title', '')
 
-  # PUBLIC #
+# PUBLIC #
 
   toggle: ->
-    @toggler.toggle()
+    @triggerable.toggle(target: @el)
 
   activate: ->
-    @toggler.activate()
+    @triggerable.activate(target: @el)
 
   deactivate: ->
-    @toggler.deactivate()
+    @triggerable.deactivate(target: @el)
 
   dispose: ->
     @removeListeners()
-    @toggler.dispose()
-    @toggler = null
+    @triggerable.dispose()
+    @triggerable = null
     @remove()
 
-  # PROTECTED #
+# PROTECTED #
 
   addListeners: ->
-    @toggler.dispatcher.on('togglable:activate', => @activated arguments...)
-    @toggler.dispatcher.on('togglable:deactivate', => @deactivated arguments...)
+    @triggerable.dispatcher.on('triggerable:activate', => @activated arguments...)
+    @triggerable.dispatcher.on('triggerable:deactivate', => @deactivated arguments...)
 
   removeListeners: ->
-    @toggler.dispatcher.off('togglable:activate')
-    @toggler.dispatcher.off('togglable:deactivate')
+    @triggerable.dispatcher.off('triggerable:activate')
+    @triggerable.dispatcher.off('triggerable:deactivate')
 
   activated: (e) ->
     @remove()
     @cached_markup = @findMarkup() unless @cached_markup
-    @addToViewport()
+    @add()
+    @el.addClass('selected')
+    @el.trigger("#{@namespace}:activated", @el)
 
-  addToViewport: ->
+  deactivated: (e) ->
+    if @pop && utensil.Detect.hasTransition
+      @pop.one(utensil.Detect.transition.end, => @remove arguments...)
+      @pop.removeClass(@toggle_classes)
+    else
+      @remove()
+    @el.removeClass('selected')
+    @el.trigger("#{@namespace}:deactivated", @el)
+
+  add: ->
     @pop = @cached_markup
     @pop.appendTo(@container)
     @directional.setElement(@pop)
@@ -76,36 +92,10 @@ class utensil.Pop
     @pop.css({top: position.top, left: position.left})
     @pop.addClass(@toggle_classes)
 
-  deactivated: (e) ->
-    if @pop && utensil.Detect.hasTransition
-      @pop.one(utensil.Detect.transition.end, => @remove arguments...)
-      @pop.removeClass(@toggle_classes)
-    else
-      @remove()
-
   remove: ->
     if @pop
       @pop.remove()
       @pop = null
-
-  findData: ->
-    if @is_tip_like
-      return @el.data()
-    target = @el.attr('href') || @el.data('target')
-    return $(target).data()
-
-  findMarkup: ->
-    pop_markup =  ''
-    if @is_tip_like
-      pop_markup = $(@render())
-      if @title == ''
-        pop_markup.find('.pop-header').remove()
-        pop_markup.addClass('pop-no-header')
-    else
-      target = $(@el.attr('href'))
-      pop_markup = $(target.html())
-      target.remove()
-    return pop_markup
 
   render: ->
     html = """
@@ -120,6 +110,27 @@ class utensil.Pop
            </div>
            """
     return html
+
+# INTERNAL #
+
+  findData: ->
+    if @is_tip_like
+      return @el.data()
+    target = @el.data('target') || @el.attr('href')
+    return $(target).data()
+
+  findMarkup: ->
+    pop_markup =  ''
+    if @is_tip_like
+      pop_markup = $(@render())
+      if @title == ''
+        pop_markup.find('.pop-header').remove()
+        pop_markup.addClass('pop-no-header')
+    else
+      target = $(@el.data('target') || @el.attr('href'))
+      pop_markup = $(target.html())
+      target.remove()
+    return pop_markup
 
 Bindable.register('pop', utensil.Pop)
 
