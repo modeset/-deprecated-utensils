@@ -1,5 +1,5 @@
-
 //= require jquery
+
 //= require bindable
 //= require triggerable
 //= require toggle
@@ -8,6 +8,7 @@
 //= require togglable
 //= require togglable_group
 
+//= require collapsible
 //= require drop
 //= require tip
 //= require pop

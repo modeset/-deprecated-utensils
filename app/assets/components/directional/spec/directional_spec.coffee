@@ -19,6 +19,7 @@ describe 'Directional', ->
 
   afterEach ->
     $('.demo').remove()
+    @dom.css(position:'static', top:"auto", left:"auto", bottom:"auto", right:"auto")
 
 
   describe '#constructor', ->
@@ -80,7 +81,7 @@ describe 'Directional', ->
       expect(suggested.cardinal).toEqual('south')
 
     it 'repositions the item on stage when south is offscreen', ->
-      @dom.css(position:'absolute', bottom:0, left:'50%')
+      @south_el.css(position:'absolute', bottom:0, left:'50%')
       pos = @south_direc.getPlacementFromCardinal()
       suggested = @south_direc.constrainToViewport(pos)
       expect(suggested.cardinal).toEqual('north')
