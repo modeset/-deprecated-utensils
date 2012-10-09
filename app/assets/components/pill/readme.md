@@ -26,7 +26,7 @@ and `href` attributes pointing to the related targets panel.
       %a(href="#pill_three") Pill Three
 
     %li.drop(data-bindable="drop" data-group=".pill")
-      %a(href="#") Pill Drop <span class="caret"></span>
+      %a.drop-toggle(href="#") Pill Drop <span class="caret"></span>
       %ul.nav.menu
         %li<
           %a(href="#pill_four") Pill Four

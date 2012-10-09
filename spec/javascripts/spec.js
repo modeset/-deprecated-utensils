@@ -9,7 +9,7 @@
 //= require toggle/spec
 //= require toggle_group/spec
 
-// require drop/spec
+//= require drop/spec
 //= require pop/spec
 //= require tip/spec
 

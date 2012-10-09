@@ -1,49 +1,57 @@
 
-# TODO
+# Todo
 
 ## WIP
-- collapsible *
+- test stopPropagation
+- add auto activate to ToggleGroup
+- ToggleGroup handle selected for children?
+- rework tab/pill
+- remove Togglable/TogglableGroup
+- button group
+- document Triggerable
+- document Toggle
+- document ToggleGroup
+- document all reworked utensils
+- lazy load lookups to speed up initialization
+- collapse *
 - accordions.sass *
-- add correct focus states around components
+- focus and selected states around all utensils
 - modals.sass *
 - notifications.sass *
 - progress-bars.sass *
 - navbars.sass *
 - carousels.sass *
 - document mixins
+- finish all utensil Todo lists
 - view layout templates
+- ARIA roles for templates/fixtures
+- media queries
+- universal style sheet
 - upgrades
-- finish drop
+- listing of needed utensils
 - fishnet
 
 ## Reminders, Tasks and Future Considerations
-- Lists should be able to pass a single element
+- Style lists should be able to pass a single element
 - Look at making the sass files use abstract elements (placeholders)
-- Align all focus states
-- Should there be a selected state for all the coloring?
-- Rename components subdirectory to utensils?
-- Convert media queries
-- Move the debug tools outside of this project
-- Turn into engine with generators
 - Really test out the order of sass files and where there are issues
-- Look at all Todo items within each component
-- Better tools for documentation (generation, behavior, and styles)
-- Check for disabled states on components and disable interactions if
-  true
 - Should it be visually.shown/visually.hide? (how is this working on
   focus states?)
-- standardize file naming structure
+- Check for disabled states on components and disable interactions if
+  true
 
-## Togglables
-- Make Togglable lighter weight
-- Is this overly complex for what we need it to be?
-- Do tip and popover, drop extend Togglable instead of using composition?
-- There should be some sort of Togglable class that acts similar to the
-  demo (removes a bunch of classes then add more) pass a data-remove?
+## Repository
+- Standardize file naming structure
+- Rename components subdirectory to utensils?
+- Move the debug tools outside of this project
+- Turn into engine with generators
+- Better tools for documentation (generation, behavior, and styles)
+- Add a script for curling vendor libraries (non-gems)
+
+## Triggerables
+- Make Toggle lighter weight
 - Create wrappers around tab, pill, accordions etc. to minimize the
   required data-attributes 
-
-## Vendor stuff
-- Add a script for curling jQuery, underscore, respond.js and
-  modernizr
+- There should be some sort of Toggle class that acts similar to the
+  demo (removes a bunch of classes then add more) pass a data-remove?
 

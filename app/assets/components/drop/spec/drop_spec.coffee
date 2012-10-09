@@ -1,222 +1,278 @@
 
 #= require drop
+#= require directional
 
 describe 'Drop', ->
 
   beforeEach ->
-    # extra = """
-            # """
+    @event = null
+    @element = null
+    @noop = (e, element) ->
+      @event = e
+      @element = $(element)
+
+    extra = """
+            <a class="drop" id="auto_activated" data-activate="true">Auto Activated</a>
+            <ul class="menu"><li><a href="#"</li></ul>
+            """
 
     loadFixtures('drop')
     @dom = $('#jasmine-fixtures')
-    # @dom.append(extra)
+    @dom.append(extra)
 
-    @base_el = @dom.find('.nav').first().find('.drop:nth-child(1)')
-    @north_el = @dom.find('.nav').first().find('.drop:nth-child(2)')
-    @hover_el = @dom.find('.button-toolbar .button-group:nth-child(1) .drop')
-    @btn_el = @dom.find('.button-toolbar .button-group:nth-child(2) .drop')
-    @split_el = @dom.find('.button-toolbar .button-group:nth-child(3) .drop')
-    @group_container = @dom.find('#drop_group_demo > .nav')
-    @group_el = @group_container.find('.drop')
+    @default_el = @dom.find('#drop_nav_demo .drop:nth-child(1)')
+    @north_el = @dom.find('#drop_nav_demo .drop:nth-child(2)')
+    @west_el = @dom.find('#drop_nav_demo .drop:nth-child(3)')
+    @button_el = @dom.find('#drop_button_demo .drop')
+    @split_el = @dom.find('#drop_split_demo .drop')
+    @delay_el = @dom.find('#drop_delay_demo .drop')
 
-    @base_drop = new utensil.Drop(@base_el)
+    @default_drop = new utensil.Drop(@default_el)
     @north_drop = new utensil.Drop(@north_el)
-    @hover_drop = new utensil.Drop(@hover_el)
-    @btn_drop = new utensil.Drop(@btn_el)
+    @west_drop = new utensil.Drop(@west_el)
+    @button_drop = new utensil.Drop(@button_el)
     @split_drop = new utensil.Drop(@split_el)
-    @group_drop = new utensil.Drop(@group_el)
+    @delay_drop = new utensil.Drop(@delay_el)
+
 
   describe 'binding', ->
     it 'is registered in bindable', ->
       expect(Bindable.getClass('drop')).toEqual(utensil.Drop)
 
 
+  describe '#constructor', ->
+    it 'sets up a data object', ->
+      expect(@default_drop.data).toBeDefined()
+
+    it 'auto activates an element from a data attribute', ->
+      auto_el = @dom.find("#auto_activated")
+      auto_drop = new utensil.Drop(auto_el)
+      expect(auto_el).toHaveClass('active')
+
+
   describe '#options', ->
-    it 'sets the states for togglable to active open', ->
-      expect(@base_drop.toggle_classes).toEqual('active open')
+    it 'sets default namespace', ->
+      expect(@default_drop.data.namespace).toEqual('drop')
 
-    it 'defaults placement to "south"', ->
-      expect(@base_drop.placement).toEqual('south')
+    it 'sets the default data.trigger state to "click"', ->
+      expect(@default_drop.data.trigger).toEqual('click')
 
-    it 'overrides placement to "north"', ->
-      expect(@north_drop.placement).toEqual('north')
+    it 'sets the default data.toggle classes to "active in"', ->
+      expect(@default_drop.data.toggle).toEqual('active open')
 
-    it 'overrides the selected classes used in a group', ->
-      simple = new utensil.Drop(@dom, {select:'highlight'})
-      expect(simple.select_classes).toEqual('highlight')
+    it 'overrides the default data.toggle classes', ->
+      expect(@north_drop.data.toggle).toEqual('active open hello')
 
-    it 'uses the keyboard for navigation by default', ->
-      expect(@base_drop.use_keyboard).toEqual(true)
+    it 'sets the default data.placement to "south"', ->
+      expect(@default_drop.data.placement).toEqual('south')
 
-    it 'disables the keyboard when html has the touch', ->
-      $('html').addClass('touch')
-      simple = new utensil.Drop(@dom)
-      expect(simple.use_keyboard).toEqual(false)
-      $('html').removeClass('touch')
+    it 'overrides the default data.placement', ->
+      expect(@north_drop.data.placement).toEqual('north')
 
-    it 'disables the keyboard when instantiated with a data attribute', ->
-      simple = new utensil.Drop(@dom, keyboard:false)
-      expect(simple.use_keyboard).toEqual(false)
+    it 'sets the default data.keyboard to "true"', ->
+      expect(@default_drop.data.keyboard).toEqual(true)
+
+    it 'overrides the default data.keyboard', ->
+      expect(@north_drop.data.keyboard).toEqual(false)
 
 
   describe '#initialize', ->
-    it 'creates an instance of Togglable', ->
-      expect(@base_drop.toggler instanceof utensil.Togglable).toEqual(true)
+    it 'has a reference to the html node', ->
+      expect(@default_drop.html).toEqual($('html'))
 
-    it 'finds the menu element when it is a child of .drop from #findMenu', ->
-      expect(@base_drop.menu).toBe(@base_el.find('.menu'))
+    it 'finds a reference to the link when the drop-toggle is a child of .drop', ->
+      expect(@default_drop.dispatcher).toBe(@default_el.find('.drop-toggle').first())
 
-    it 'finds the menu element when it is a sibling of .drop from #findMenu', ->
-      expect(@btn_drop.menu).toBe(@btn_el.next('.menu'))
+    it 'finds a reference to the link when the drop-toggle is .drop', ->
+      expect(@button_drop.dispatcher).toBe(@button_el)
 
-    it 'finds the menu list', ->
-      expect(@base_drop.menu_items).toBe(@base_el.find('.menu li'))
+    it 'finds a reference to the menu when the drop-toggle is a child of .drop', ->
+      expect(@default_drop.menu).toBe(@default_el.find('.menu').first())
 
-    it 'sets the group to undefined if no group is specified from #findGroup', ->
-      expect(@base_drop.group).toBeUndefined()
+    it 'finds a reference to the menu when the drop-toggle is .drop', ->
+      expect(@button_drop.menu).toBe(@button_el.next())
 
-    it 'sets the group when the data-group attribute is defined from #findGroup', ->
-      expect(@group_drop.group).toBe(@group_container)
+    it 'sets default namespace', ->
+      expect(@west_drop.namespace).toEqual('drop')
 
-    it 'creates an instance of Directional for positioning', ->
-      expect(@base_drop.directional instanceof utensil.Directional).toEqual(true)
+    it 'sets the default toggle_classes to "active in"', ->
+      expect(@default_drop.toggle_classes).toEqual('active open')
+
+    it 'overrides the default toggle_classes', ->
+      expect(@north_drop.toggle_classes).toEqual('active open hello')
+
+    it 'sets the default placement to "south"', ->
+      expect(@default_drop.placement).toEqual('south')
+
+    it 'overrides the default placement', ->
+      expect(@west_drop.placement).toEqual('west')
+
+    it 'sets the default keyboard to "true"', ->
+      expect(@default_drop.keyboard).toEqual(true)
+
+    it 'overrides the default keyboard', ->
+      expect(@north_drop.keyboard).toEqual(false)
+
+    it 'shuts down the keyboard if the device is touch enabled', ->
+      $('html').addClass('touch')
+      touch_drop = new utensil.Drop(@dom)
+      expect(touch_drop.keyboard).toBeUndefined()
+      $('html').removeClass('touch')
+
+    it 'creates an instance of "Triggerable"', ->
+      expect(@north_drop.triggerable instanceof utensil.Triggerable).toEqual(true)
+
+    it 'sets the instance of "Triggerable" to stop propagation', ->
+      expect(@north_drop.triggerable.stop_propagation).toEqual(true)
+
+    it 'creates an instance of "Directional"', ->
+      expect(@north_drop.directional instanceof utensil.Directional).toEqual(true)
+
+    it 'memoizes the cardinals from "Directional"', ->
+      expect(@north_drop.cardinals).toEqual(new utensil.Directional().getCardinals())
+
+    it 'uses Triggerables trigger types', ->
+      expect(@north_drop.triggerable.trigger_type).toEqual(on:'click.drop', off:'click.drop')
 
 
   describe '#toggle', ->
-    it 'shows the drop menu when triggered in a child setting', ->
-      link = @base_el.find('> a')
-      link.click()
-      expect(@base_el).toHaveClass('active open')
+    it 'calls through #toggle on the "Triggerable" instance from a link', ->
+      spyEvent = spyOn(@default_drop.triggerable, 'toggle')
+      @default_el.find('.drop-toggle').click()
+      expect(spyEvent).toHaveBeenCalled()
 
-    it 'shows the drop menu when triggered in a sibling setting', ->
-      btn_menu = @btn_el.next('.menu')
-      @btn_el.click()
-      expect(@btn_el).toHaveClass('active open')
-      expect(btn_menu).toBeVisible()
+    it 'calls through #toggle on the "Triggerable" instance from a button drop', ->
+      spyEvent = spyOn(@button_drop.triggerable, 'toggle')
+      @button_el.click()
+      expect(spyEvent).toHaveBeenCalled()
 
-    it 'shows the drop menu when triggered through a hover', ->
-      link = @hover_el.find('> a')
-      link.trigger('mouseenter')
-      expect(@hover_el).toHaveClass('active open')
+    it 'toggles a drop from a child link elements action', ->
+      @default_el.find('.drop-toggle').click()
+      expect(@default_el).toHaveClass('active open')
+      @default_el.find('.drop-toggle').click()
+      expect(@default_el).not.toHaveClass('active open')
 
-    it 'hides the drop menu when the drop link is triggered in a child setting', ->
-      link = @base_el.find('> a')
-      link.click()
-      expect(@base_el).toHaveClass('active open')
-      link.click()
-      expect(@base_el).not.toHaveClass('active open')
+    it 'toggles a drop from a sibling button elements action', ->
+      @button_el.click()
+      expect(@button_el).toHaveClass('active open')
+      @button_el.click()
+      expect(@button_el).not.toHaveClass('active open')
 
-    it 'hides the drop menu when the drop link is triggered in a sibling setting', ->
-      btn_menu = @btn_el.next('.menu')
-      @btn_el.click()
-      expect(@btn_el).toHaveClass('active open')
-      @btn_el.click()
-      expect(@btn_el).not.toHaveClass('active open')
+    it 'toggles a drop on an elements action after a delay', ->
+      # override the delay to speed up the tests.
+      @delay_drop.triggerable.delay.activate = 50
+      @delay_drop.triggerable.delay.deactivate = 50
 
-    it 'hides the drop menu when a child element in the .menu is selected', ->
-      base_menu = @base_el.find('.menu')
-      @base_el.click()
-      expect(@base_el).toHaveClass('active open')
-      base_menu.find('a').first().click()
-      expect(@base_el).not.toHaveClass('active open')
+      runs ->
+        @delay_el.trigger('click')
+        expect(@delay_el).not.toHaveClass('active open')
+      waits 50
+      runs ->
+        expect(@delay_el).toHaveClass('active open')
+      waits 50
+      runs ->
+        @delay_el.trigger('click')
+      waits 50
+      runs ->
+        expect(@delay_el).not.toHaveClass('active open')
 
-    it 'hides the drop menu when a sibling element in the .menu is selected', ->
-      btn_menu = @btn_el.next('.menu')
-      @btn_el.click()
-      expect(@btn_el).toHaveClass('active open')
-      btn_menu.find('a').first().click()
-      expect(@btn_el).not.toHaveClass('active open')
 
-    # This is the right test but currently pending the correct behavior
-    xit 'hides the drop menu when an outside object is triggered', ->
-      btn_menu = @btn_el.next('.menu')
-      @btn_el.click()
-      expect(@btn_el).toHaveClass('active open')
+  describe '#activate', ->
+    it 'activates a drop', ->
+      @default_drop.activate()
+      expect(@default_el).toHaveClass('active open')
+
+
+  describe '#deactivate', ->
+    it 'deactivates a drop', ->
+      @default_drop.activate()
+      expect(@default_el).toHaveClass('active open')
+      @default_drop.deactivate()
+      expect(@default_el).not.toHaveClass('active open')
+
+    it 'deactivates a drop when clicking on an exterior element', ->
+      @button_el.click()
+      expect(@button_el).toHaveClass('active open')
       $('html').click()
-      expect(@btn_el).not.toHaveClass('active open')
+      expect(@button_el).not.toHaveClass('active open')
 
-    it 'hides the drop menu when triggered through a hover', ->
-      link = @hover_el.find('> a')
-      link.trigger('mouseenter')
-      expect(@hover_el).toHaveClass('active open')
-      link.trigger('mouseleave')
-      expect(@hover_el).not.toHaveClass('active open')
+    it 'deactivates a drop when clicking on a menu element', ->
+      @default_el.find('.drop-toggle').click()
+      expect(@default_el).toHaveClass('active open')
+      @default_el.find('.menu > li:first-child > a').click()
+      expect(@default_el).not.toHaveClass('active open')
 
 
   describe '#dispose', ->
-    it 'cleans up its own mess', ->
-      spyEvent = spyOn(@group_drop, 'removeListeners')
-      @group_drop.dispose()
+    it 'deactivates the drop before cleaning up', ->
+      spyEvent = spyOn(@split_drop, 'deactivate')
+      @split_el.click()
+      @split_drop.dispose()
       expect(spyEvent).toHaveBeenCalled()
 
-    it 'cleans up toggler', ->
-      @group_drop.dispose()
-      expect(@group_drop.toggler).toBeNull()
+    it 'removes listeners when disposed', ->
+      spyEvent = spyOn(@west_drop, 'removeListeners')
+      @west_drop.dispose()
+      expect(spyEvent).toHaveBeenCalled()
+
+    it 'gets rid of triggerable', ->
+      @west_drop.dispose()
+      expect(@west_drop.triggerable).toBeNull()
+
+    it 'does not respond to any further events', ->
+      spyEvent = spyOn(@west_drop, 'activate')
+      @west_drop.dispose()
+      @west_el.click()
+      expect(spyEvent).not.toHaveBeenCalled()
 
 
   describe '#activated', ->
+    it 'removes any existing drops before activating itself', ->
+      @button_el.click()
+      expect(@button_el).toHaveClass('active open')
+      @north_el.find('.drop-toggle').click()
+      expect(@north_el).toHaveClass('active open')
+      expect(@button_el).not.toHaveClass('active open')
+
     it 'changes placement based on position and screen real estate', ->
       @north_el.css(position:'absolute', top:0)
-      @north_el.click()
+      @north_el.find('.drop-toggle').click()
       expect(@north_drop.menu).toHaveClass('south')
 
 
-  # This needs to be implemented
-  xdescribe '#deactivated', ->
+  describe '#deactivated', ->
+    it 'stops listening to document triggers', ->
+      @button_el.click()
+      expect(@button_el).toHaveClass('active open')
+      @button_el.click()
+      expect(@button_el).not.toHaveClass('active open')
+
+      spyEvent = spyOn(@button_drop, 'clear')
+      $('html').click()
+      expect(spyEvent).not.toHaveBeenCalled()
 
 
-  # Dual test here on related states to speed up specs overall
-  describe '#activateWithDelay, #activateRelatedState', ->
-    it 'activates the drop with a delay', ->
-      # override the delay to speed up the tests.
-      @split_drop.toggler.delay.activate = 50
-      @split_drop.toggler.delay.deactivate = 50
-      menu = @dom.find('#menu_split')
-      runs ->
-        @split_el.trigger('click')
-      waits 100
-      runs ->
-        expect(@split_el).toHaveClass('active open')
-        expect(@split_drop.toggler.timeout).toBeNull()
-        expect(menu).toHaveClass('in')
-
-
-  # Dual test here on related states to speed up specs overall
-  describe '#deactivateWithDelay, #deactivateRelatedState', ->
-    it 'deactivates a drop after a delay', ->
-      # override the delay to speed up the tests.
-      @split_drop.toggler.delay.activate = 50
-      @split_drop.toggler.delay.deactivate = 50
-      menu = @dom.find('#menu_split')
-
-      @split_drop.toggler.setActivate()
-      expect(@split_el).toHaveClass('active open')
-      runs ->
-        @split_el.trigger('click')
-      waits 100
-      runs ->
-        expect(@split_el).not.toHaveClass('active open')
-        expect(@split_drop.toggler.timeout).toBeNull()
-        expect(menu).not.toHaveClass('in')
-
-
-  describe '#toggleSelectionFromGroup', ->
-    it 'sets the selected state when a child of the toggle is active', ->
-      first = @group_el.find('.menu > li:first-child')
-      @group_drop.activate()
-      expect(@group_el).toHaveClass('open')
-      first.addClass('active')
-      # normally triggered by a TogglableGroup
-      @group_drop.toggleSelectionFromGroup()
-      @group_drop.deactivate()
-      expect(@group_el).toHaveClass(@group_drop.select_classes)
+  describe '#clear', ->
+    it 'clears away any menus', ->
+      spyEvent = spyOn(@button_drop, 'clear')
+      @button_el.click()
+      expect(@button_el).toHaveClass('active open')
+      $('html').click()
+      expect(spyEvent).toHaveBeenCalled()
 
 
   describe '#keyed', ->
-    noop = ->
     it 'deactivates the drop menu when the escape key is triggered', ->
-      @group_el.find('> a').click()
-      expect(@group_el).toHaveClass('open')
-      @group_drop.keyed(keyCode:27, preventDefault:noop, stopPropagation:noop)
-      expect(@group_el).not.toHaveClass('open')
+      @split_el.click()
+      expect(@split_el).toHaveClass('active open')
+      @split_drop.keyed(keyCode:27, preventDefault:@noop, stopPropagation:@noop)
+      expect(@split_el).not.toHaveClass('active open')
+
+
+  describe '#findDispacher', ->
+    it 'finds a reference to the link when the drop-toggle is a child of .drop', ->
+      expect(@default_drop.dispatcher).toBe(@default_el.find('.drop-toggle').first())
+
+    it 'finds a reference to the link when the drop-toggle is .drop', ->
+      expect(@button_drop.dispatcher).toBe(@button_el)
 

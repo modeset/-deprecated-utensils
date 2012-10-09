@@ -15,6 +15,7 @@ class utensil.Triggerable
 
   initialize: ->
     @dispatcher = @el
+    @stop_propagation = false
     @namespace = @data.namespace
     @trigger_type = @setTriggerEventTypes(@data.trigger)
     @setDelay() if @data.delay
@@ -24,6 +25,7 @@ class utensil.Triggerable
 
   toggle: (e) ->
     e?.preventDefault() unless @data.bubble
+    e?.stopPropagation() if @stop_propagation
     if @is_active then @setDeactivate(e) else @setActivate(e)
 
   activate: (e) ->
