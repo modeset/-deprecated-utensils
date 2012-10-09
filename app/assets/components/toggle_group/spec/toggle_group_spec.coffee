@@ -35,6 +35,17 @@ describe 'ToggleGroup', ->
     it 'sets up a data object', ->
       expect(@radio.data).toBeDefined()
 
+    it 'activates an element on initialization from a number', ->
+      togglable = new utensil.ToggleGroup(@radios_el, {activate: 1})
+      expect(@radios_el.find('li:nth-child(2)')).toHaveClass('active')
+
+    it 'activates an element on initialization from an id', ->
+      li = @radios_el.find('li:nth-child(2)')
+      li.attr('id', 'blah')
+      togglable = new utensil.ToggleGroup(@radios_el, {activate: '#blah'})
+      expect(li).toHaveClass('active')
+      li.removeAttr('id')
+
 
   describe '#options', ->
     it 'sets default namespace', ->
@@ -134,6 +145,13 @@ describe 'ToggleGroup', ->
       runs ->
         expect(activated).toHaveClass('active on')
 
+    it 'activates an element from a string', ->
+      li = @radios_el.find('li:nth-child(2)')
+      li.attr('id', 'blah')
+      @radio.activate('#blah')
+      expect(li).toHaveClass('active')
+      li.removeAttr('id')
+
 
   describe '#deactivate', ->
     it 'deactivates the item based on a passed index', ->
@@ -171,6 +189,15 @@ describe 'ToggleGroup', ->
       @check.deactivate(2)
       expect(li1).not.toHaveClass('active')
       expect(li2).not.toHaveClass('active')
+
+    it 'deactivates an element from a string', ->
+      li = @checks_el.find('li:first-child')
+      li.attr('id', 'blah')
+      @check.activate(li)
+      expect(li).toHaveClass('active')
+      @check.deactivate('#blah')
+      expect(li).not.toHaveClass('active')
+      li.removeAttr('id')
 
 
   describe '#dispose', ->

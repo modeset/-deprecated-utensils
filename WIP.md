@@ -2,12 +2,10 @@
 # Todo
 
 ## WIP
-- test stopPropagation
-- add auto activate to ToggleGroup
 - ToggleGroup handle selected for children?
 - rework tab/pill
-- remove Togglable/TogglableGroup
 - button group
+- remove Togglable/TogglableGroup
 - document Triggerable
 - document Toggle
 - document ToggleGroup

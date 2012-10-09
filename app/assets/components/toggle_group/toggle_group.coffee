@@ -9,6 +9,7 @@ class utensil.ToggleGroup
     @options()
     @initialize()
     @addListeners()
+    @activate(@data.activate) if @data.activate
 
   options: ->
     @data.namespace = @data.namespace || 'toggle_group'
@@ -29,6 +30,8 @@ class utensil.ToggleGroup
   activate: (item) ->
     if typeof item == "number"
       activator = @targets.eq(item).find('> a')
+    else if typeof item == "string"
+      activator = $(item).find('> a')
     else
       activator = item.find('> a')
     activator.trigger(@triggerable.trigger_type.on)
@@ -36,6 +39,8 @@ class utensil.ToggleGroup
   deactivate: (item) ->
     if typeof item == "number"
       deactivator = @targets.eq(item).find('> a')
+    else if typeof item == "string"
+      deactivator = $(item).find('> a')
     else
       deactivator = item.find('> a')
     deactivator.trigger(@triggerable.trigger_type.off)
