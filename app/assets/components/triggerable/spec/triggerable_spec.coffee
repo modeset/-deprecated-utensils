@@ -57,6 +57,9 @@ describe 'Triggerable', ->
     it 'sets up a dispatcher property on the check group', ->
       expect(@check.dispatcher).toEqual(@checks_el)
 
+    it 'does not stop propagation by default', ->
+      expect(@radio.stop_propagation).toEqual(false)
+
     it 'sets default namespace', ->
       expect(@defaulter.namespace).toEqual('triggerable')
 
