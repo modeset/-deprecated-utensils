@@ -9,6 +9,7 @@ class utensil.Toggle
     @options()
     @initialize()
     @addListeners()
+    @activate() if @data.activate
 
   options: ->
     @data.namespace = @data.namespace || 'toggle'

@@ -17,20 +17,26 @@ describe 'Toggle', ->
     @hover_el = @dom.find('#toggle_2')
     @focus_el = @dom.find('#toggle_3')
     @delay_el = @dom.find('#toggle_4')
+    @auto_el = @dom.find('#toggle_5')
 
     @defaulter = new utensil.Toggle(@defaulter_el)
     @hoverer = new utensil.Toggle(@hover_el)
     @focuser = new utensil.Toggle(@focus_el)
     @delayer = new utensil.Toggle(@delay_el)
+    @auto = new utensil.Toggle(@auto_el)
 
 
   describe 'binding', ->
     it 'is registered in bindable', ->
       expect(Bindable.getClass('toggle')).toEqual(utensil.Toggle)
 
+
   describe '#constructor', ->
     it 'sets up a data object', ->
       expect(@defaulter.data).toBeDefined()
+
+    it 'auto activates an element from a data attribute', ->
+      expect(@auto_el).toHaveClass('active')
 
   describe '#options', ->
     it 'sets default namespace', ->
@@ -149,7 +155,7 @@ describe 'Toggle', ->
       runs ->
         @delay_el.click()
         expect(@delay_el).not.toHaveClass('active')
-      waits 100
+      waits 50
       runs ->
         expect(@delay_el).toHaveClass('active')
 
@@ -189,7 +195,7 @@ describe 'Toggle', ->
       runs ->
         @delay_el.click()
         expect(@delay_el).toHaveClass('active')
-      waits 100
+      waits 50
       runs ->
         expect(@delay_el).not.toHaveClass('active')
 
