@@ -270,7 +270,7 @@ describe 'Triggerable', ->
       runs ->
         @delay_el.click()
         expect(spyEvent).not.toHaveBeenCalled()
-      waits 100
+      waits 50
       runs ->
         expect(spyEvent).toHaveBeenCalled()
         expect(@delayer.timeout).toBeNull()
@@ -288,7 +288,7 @@ describe 'Triggerable', ->
       runs ->
         @delay_el.click()
         expect(spyEvent).not.toHaveBeenCalled()
-      waits 100
+      waits 50
       runs ->
         expect(spyEvent).toHaveBeenCalled()
         expect(@delayer.timeout).toBeNull()

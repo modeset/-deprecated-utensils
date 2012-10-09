@@ -156,14 +156,14 @@ describe 'Tip', ->
 
       runs ->
         @north_el.trigger('mouseover')
-      waits 100
+      waits 50
       runs ->
         tip = $('.tip').first()
         expect(tip).toHaveClass('fade')
-      waits 100
+      waits 50
       runs ->
         @north_el.trigger('mouseout')
-      waits 100
+      waits 50
       runs ->
         tip = $('.tip').first()
         expect(tip).not.toHaveClass('in')

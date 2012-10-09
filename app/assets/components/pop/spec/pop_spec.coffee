@@ -63,7 +63,6 @@ describe 'Pop', ->
 
 
   describe '#options', ->
-
     it 'sets default namespace', ->
       expect(@north_pop.data.namespace).toEqual('pop')
 
@@ -165,7 +164,7 @@ describe 'Pop', ->
       expect(spyEvent).toHaveBeenCalled()
 
     it 'shows a pop from an elements action', ->
-      @west_el.trigger('click')
+      @west_el.click()
       pop = $('.pop').first()
       expect(pop).toHaveClass('fade')
 
@@ -176,14 +175,14 @@ describe 'Pop', ->
 
       runs ->
         @north_el.trigger('click')
-      waits 100
+      waits 50
       runs ->
         pop = $('.pop').first()
         expect(pop).toHaveClass('fade')
-      waits 100
+      waits 50
       runs ->
         @north_el.trigger('click')
-      waits 150
+      waits 50
       runs ->
         pop = $('.pop').first()
         expect(pop).not.toHaveClass('in')
@@ -217,7 +216,7 @@ describe 'Pop', ->
     it 'does not respond to any further events', ->
       spyEvent = spyOn(@west_pop, 'activate')
       @west_pop.dispose()
-      @west_el.trigger('click')
+      @west_el.click()
       expect(spyEvent).not.toHaveBeenCalled()
 
     it 'removes the pop when disposed', ->
@@ -251,7 +250,7 @@ describe 'Pop', ->
       expect(@ext_pop.cached_markup.find('.pop-header').text()).toContain(('Exterior content'))
 
 
-  xdescribe '#deactivated', ->
+  describe '#deactivated', ->
     it 'deactivates a pop immediately even though it has a delay', ->
       @north_pop.activated()
       @north_pop.deactivated()

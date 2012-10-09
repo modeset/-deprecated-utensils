@@ -130,7 +130,7 @@ describe 'ToggleGroup', ->
       runs ->
         activated.find('a').click()
         expect(activated).not.toHaveClass('active on')
-      waits 100
+      waits 50
       runs ->
         expect(activated).toHaveClass('active on')
 
