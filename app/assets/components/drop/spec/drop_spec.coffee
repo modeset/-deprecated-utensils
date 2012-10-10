@@ -202,6 +202,14 @@ describe 'Drop', ->
       @default_el.find('.menu > li:first-child > a').click()
       expect(@default_el).not.toHaveClass('active open')
 
+    it 'adds the selected class if a child in menu has the active class', ->
+      menu_li = @button_drop.menu.find('li:first-child')
+      @button_el.click()
+      menu_li.addClass('active')
+      expect(menu_li).toHaveClass('active')
+      $('html').click()
+      expect(@button_el).toHaveClass('selected')
+
 
   describe '#dispose', ->
     it 'deactivates the drop before cleaning up', ->

@@ -9,6 +9,7 @@
 //= require togglable_group
 
 //= require collapsible
+//= require tab
 //= require drop
 //= require tip
 //= require pop

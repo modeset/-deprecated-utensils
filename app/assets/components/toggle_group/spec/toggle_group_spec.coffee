@@ -73,7 +73,7 @@ describe 'ToggleGroup', ->
       expect(@check.data.target).toEqual('li')
 
     it 'defaults to the ".group-ignore" class for ignoring elements actions', ->
-      expect(@radio.data.ignore).toEqual('.group-ignore')
+      expect(@radio.data.ignore).toEqual('.group-ignore,.drop')
 
     it 'overrides ignore class via a data attribute', ->
       expect(@check.data.ignore).toEqual('.text-ignore')

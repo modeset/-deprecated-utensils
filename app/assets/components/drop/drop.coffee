@@ -69,7 +69,8 @@ class utensil.Drop
     @dispatcher.focus()
 
   deactivated: (e) ->
-    @el.removeClass(@toggle_classes)
+    @el.removeClass("#{@toggle_classes} selected")
+    @el.addClass('selected') if @menu.find('.active').length > 0
     @removeDocumentListener()
 
   addDocumentListener: ->

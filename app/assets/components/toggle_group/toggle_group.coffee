@@ -16,7 +16,7 @@ class utensil.ToggleGroup
     @data.toggle = @data.toggle || 'active'
     @data.behavior = @data.behavior || 'radio'
     @data.target = @data.target || 'li'
-    @data.ignore = @data.ignore || '.group-ignore'
+    @data.ignore = @data.ignore || '.group-ignore,.drop'
 
   initialize: ->
     @namespace = @data.namespace
@@ -64,7 +64,9 @@ class utensil.ToggleGroup
     return if @behavior == 'radio' && element.hasClass(@toggle_classes)
     if @behavior == 'radio' then @radio(element) else @checkbox(element)
 
+  # TODO: This could use some optimization
   radio: (element) ->
+    @el.find('.selected').removeClass('selected')
     @targets.removeClass(@toggle_classes)
     element.addClass(@toggle_classes)
     @el.trigger("#{@namespace}:triggered", element)

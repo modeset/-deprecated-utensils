@@ -10,6 +10,7 @@
 //= require toggle_group/spec
 
 //= require drop/spec
+//= require tab/spec
 //= require pop/spec
 //= require tip/spec
 

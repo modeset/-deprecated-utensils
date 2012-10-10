@@ -2,7 +2,7 @@
 # Todo
 
 ## WIP
-- ToggleGroup handle selected for children?
+- Toggle/ToggleGroup should have accessors to event types
 - rework tab/pill
 - button group
 - remove Togglable/TogglableGroup
@@ -10,7 +10,9 @@
 - document Toggle
 - document ToggleGroup
 - document all reworked utensils
+- namespace all events with utensil to avoid collisions
 - lazy load lookups to speed up initialization
+- find tab content from related or siblings (see todo items)
 - collapse *
 - accordions.sass *
 - focus and selected states around all utensils

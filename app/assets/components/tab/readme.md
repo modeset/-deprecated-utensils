@@ -17,7 +17,7 @@ and `href` attributes pointing to the related targets panel.
 <!--~ markup/tab.html.haml -->
 ```haml
 %nav#tab_demo
-  %ul.nav.tab(data-bindable="togglable-group" data-related="#tab_content .togglable-pane")
+  %ul.nav.tab(data-bindable="tab" data-related="#tab_content .togglable-pane")
     %li.active<
       %a(href="#tab_one") Tab One
     %li<
@@ -25,7 +25,7 @@ and `href` attributes pointing to the related targets panel.
     %li<
       %a(href="#tab_three") Tab Three
 
-    %li.drop(data-bindable="drop" data-group=".tab")
+    %li.drop(data-bindable="drop")
       %a.drop-toggle(href="#") Tab Drop <span class="caret"></span>
       %ul.nav.menu
         %li<
