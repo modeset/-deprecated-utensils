@@ -1,6 +1,6 @@
 
 %nav#pill_demo
-  %ul.nav.pill(data-bindable="togglable-group" data-related="#pill_content .togglable-pane")
+  %ul.nav.pill(data-bindable="tab" data-related="#pill_content")
     %li.active<
       %a(href="#pill_one") Pill One
     %li<
@@ -8,7 +8,7 @@
     %li<
       %a(href="#pill_three") Pill Three
 
-    %li.drop(data-bindable="drop" data-group=".pill")
+    %li.drop(data-bindable="drop")
       %a.drop-toggle(href="#") Pill Drop <span class="caret"></span>
       %ul.nav.menu
         %li<
@@ -18,18 +18,18 @@
         %li<
           %a(href="#pill_six") Pill Six
 
-%section#pill_content.togglable-content(style="margin-top:1.25em;")
-  %article.togglable-pane.active#pill_one
+%section#pill_content.tab-content(style="margin-top:1.25em;")
+  %article.tab-pane.active#pill_one
     %p Pill content <span class="decal important">one</span>
-  %article.togglable-pane#pill_two
+  %article.tab-pane#pill_two
     %p Pill content <span class="decal success">two</span>
-  %article.togglable-pane#pill_three
+  %article.tab-pane#pill_three
     %p Pill content <span class="decal danger">three</span>
 
-  %article.togglable-pane#pill_four
+  %article.tab-pane#pill_four
     %p Pill sub content <span class="decal warning">four</span>
-  %article.togglable-pane#pill_five
+  %article.tab-pane#pill_five
     %p Pill sub content <span class="decal inverse">five</span>
-  %article.togglable-pane#pill_six
+  %article.tab-pane#pill_six
     %p Pill sub content <span class="decal important">six</span>
 

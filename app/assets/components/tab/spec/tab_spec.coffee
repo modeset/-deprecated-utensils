@@ -45,7 +45,7 @@ describe 'Tab', ->
       expect(@tab.data.namespace).toEqual('tab')
 
     it 'sets default data.related', ->
-      expect(@tab.data.related).toEqual('#tab_content .togglable-pane')
+      expect(@tab.data.related).toEqual('#tab_content')
 
     it 'sets the default data.toggle state to "active"', ->
       expect(@tab.data.toggle).toEqual('active')
@@ -59,7 +59,7 @@ describe 'Tab', ->
       expect(@tab.namespace).toEqual('tab')
 
     it 'sets default related', ->
-      expect(@tab.related).toEqual('#tab_content .togglable-pane')
+      expect(@tab.related).toEqual('#tab_content')
 
     it 'sets the default toggle_classes state to "active"', ->
       expect(@tab.toggle_classes).toEqual('active')
