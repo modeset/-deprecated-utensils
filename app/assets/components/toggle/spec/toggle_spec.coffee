@@ -28,7 +28,7 @@ describe 'Toggle', ->
 
   describe 'binding', ->
     it 'is registered in bindable', ->
-      expect(Bindable.getClass('toggle')).toEqual(utensil.Toggle)
+      expect(utensil.Bindable.getClass('toggle')).toEqual(utensil.Toggle)
 
 
   describe '#constructor', ->

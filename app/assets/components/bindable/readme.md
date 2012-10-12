@@ -7,8 +7,6 @@ within a registry and instantiates their respective classes.
 Classes registering with `Bindable` are passed the existing element
 converted to a `$` object.
 
-`Bindable` is stored as a global object on `window`.
-
 
 ## Usage
 As a class making use of the `Bindable` registry:
@@ -20,7 +18,7 @@ class utensil.MockClass
   # make some magic
 
 # register with Bindable
-Bindable.register('mocker', utensil.MockClass)
+utensil.Bindable.register('mocker', utensil.MockClass)
 ```
 
 As markup instantiating a class that is registered with `Bindable`:
@@ -35,12 +33,14 @@ bootstrap file)
 ```coffee
 #= require bindable
 $ ->
-  new Bindable().bindAll()
+  new utensil.Bindable().bindAll()
 ```
 
 
 ## API
 
+### Requires
+- `utensil`
 
 ## Todo
 - Need to describe the public API

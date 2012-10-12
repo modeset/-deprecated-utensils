@@ -1,5 +1,7 @@
 
-class window.Bindable
+#= require utensil
+
+class utensil.Bindable
   constructor: (context=$('body'), @dataKey='bindable')->
     @bindables = $("[data-#{@dataKey}]", context)
     @instanceKey = "#{@dataKey}-instance"

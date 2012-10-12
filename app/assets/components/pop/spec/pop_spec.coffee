@@ -41,7 +41,7 @@ describe 'Pop', ->
 
   describe 'binding', ->
     it 'is registered in bindable', ->
-      expect(Bindable.getClass('pop')).toEqual(utensil.Pop)
+      expect(utensil.Bindable.getClass('pop')).toEqual(utensil.Pop)
 
 
   describe '#constructor', ->

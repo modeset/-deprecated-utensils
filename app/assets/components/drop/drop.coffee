@@ -97,5 +97,5 @@ class utensil.Drop
     child = @el.find('.drop-toggle')
     if child.length > 0 then return child.first() else return @el
 
-Bindable.register('drop', utensil.Drop)
+utensil.Bindable.register('drop', utensil.Drop)
 

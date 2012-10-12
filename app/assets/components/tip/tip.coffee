@@ -100,5 +100,5 @@ class utensil.Tip
            """
     return html
 
-Bindable.register('tip', utensil.Tip)
+utensil.Bindable.register('tip', utensil.Tip)
 

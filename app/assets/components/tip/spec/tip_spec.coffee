@@ -36,7 +36,7 @@ describe 'Tip', ->
 
   describe 'binding', ->
     it 'is registered in bindable', ->
-      expect(Bindable.getClass('tip')).toEqual(utensil.Tip)
+      expect(utensil.Bindable.getClass('tip')).toEqual(utensil.Tip)
 
 
   describe '#constructor', ->

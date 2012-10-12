@@ -132,5 +132,5 @@ class utensil.Pop
       target.remove()
     return pop_markup
 
-Bindable.register('pop', utensil.Pop)
+utensil.Bindable.register('pop', utensil.Pop)
 

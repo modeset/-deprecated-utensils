@@ -2,8 +2,6 @@
 # Todo
 
 ## WIP
-- namespace all events with utensil to avoid collisions
-- bindable should be a utensil
 - lazy load lookups to speed up initialization
   - ToggleGroup: @targets
   - Drop: menu
@@ -39,6 +37,7 @@
   true
 - There should be some sort of Toggle class that acts similar to the
   demo (removes a bunch of classes then add more) pass a data-remove?
+- Should events have more of a namespace to avoid collisions?
 
 ## Repository
 - Standardize file naming structure

@@ -78,5 +78,5 @@ class utensil.ToggleGroup
   findTargets: ->
     return @el.find("#{@data.target}:not(#{@data.ignore})")
 
-Bindable.register('toggle-group', utensil.ToggleGroup)
+utensil.Bindable.register('toggle-group', utensil.ToggleGroup)
 

@@ -25,7 +25,7 @@ describe 'ToggleButtonGroup', ->
 
   describe 'binding', ->
     it 'is registered in bindable', ->
-      expect(Bindable.getClass('toggle-group')).toEqual(utensil.ToggleGroup)
+      expect(utensil.Bindable.getClass('toggle-group')).toEqual(utensil.ToggleGroup)
 
 
   describe '#constructor', ->

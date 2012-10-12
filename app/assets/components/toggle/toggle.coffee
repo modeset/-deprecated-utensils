@@ -54,5 +54,5 @@ class utensil.Toggle
     @el.removeClass(@toggle_classes)
     @el.trigger("#{@namespace}:deactivated", @el)
 
-Bindable.register('toggle', utensil.Toggle)
+utensil.Bindable.register('toggle', utensil.Toggle)
 

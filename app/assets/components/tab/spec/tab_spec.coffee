@@ -21,7 +21,7 @@ describe 'Tab', ->
 
   describe 'binding', ->
     it 'is registered in bindable', ->
-      expect(Bindable.getClass('tab')).toEqual(utensil.Tab)
+      expect(utensil.Bindable.getClass('tab')).toEqual(utensil.Tab)
 
 
   describe '#constructor', ->

@@ -37,7 +37,7 @@ describe 'Drop', ->
 
   describe 'binding', ->
     it 'is registered in bindable', ->
-      expect(Bindable.getClass('drop')).toEqual(utensil.Drop)
+      expect(utensil.Bindable.getClass('drop')).toEqual(utensil.Drop)
 
 
   describe '#constructor', ->

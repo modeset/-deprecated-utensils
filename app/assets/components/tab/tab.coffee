@@ -66,5 +66,5 @@ class utensil.Tab
     else
       return @el.parent().next()
 
-Bindable.register('tab', utensil.Tab)
+utensil.Bindable.register('tab', utensil.Tab)
 

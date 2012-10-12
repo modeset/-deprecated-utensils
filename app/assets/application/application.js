@@ -17,6 +17,6 @@
 
 // Lets get this party started..
 $(function() {
-  window._binder = new Bindable().bindAll();
+  utensil._binder = new utensil.Bindable().bindAll();
 });
 
