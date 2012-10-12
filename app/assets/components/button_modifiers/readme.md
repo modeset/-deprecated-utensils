@@ -20,11 +20,11 @@ type, sizing, or positioning.
 
 %h5(style="margin-bottom:1em; margin-top:3em;") Select to view states
 %section.button-toolbar
-  %nav.check-demo.button-group(data-bindable="togglable-group" data-behavior="checkbox" data-target=".btn")
+  %nav.check-demo.button-group(data-bindable="toggle-group" data-behavior="checkbox" data-target=".btn")
     %a.btn(href="#" data-toggle="btn-block") Block
     %a.btn(href="#" data-toggle="btn-transition") Transition
 
-  %nav.radio-demo.button-group(data-bindable="togglable-group" data-target=".btn")
+  %nav.radio-demo.button-group(data-bindable="toggle-group" data-target=".btn")
     %a.btn.active(href="#" data-add="") Normal
     %a.btn(href="#" data-add="btn-xsmall") XS
     %a.btn(href="#" data-add="btn-small") Small

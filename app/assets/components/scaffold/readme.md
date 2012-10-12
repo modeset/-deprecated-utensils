@@ -17,7 +17,7 @@ can be used for simple navigation as well.
 <!--~ markup/scaffold-nav.html.haml -->
 ```haml
 %nav.well
-  %ul.nav(data-bindable="togglable-group")
+  %ul.nav(data-bindable="toggle-group")
     %li.nav-header Nav Header
     %li
       %a(href="#") Block Link 1
@@ -30,7 +30,7 @@ can be used for simple navigation as well.
     %li
       %a(href="#") Block Link 4
 %nav
-  %ul.nav.inline(data-bindable="togglable-group")
+  %ul.nav.inline(data-bindable="toggle-group")
     %li
       %a(href="#") Inline Link 1
     %li.active
@@ -47,9 +47,9 @@ For convenience, add the `inline` class to the `.nav` element to display the bas
 
 Utilize the `.nav-header` and `.nav-divider` for building simple navigation lists.
 
-## Togglable Panels
-Togglable panels are typically used by `Tab` and `Pill` for showing and
-hiding related content. See `TogglableGroup` for usage.
+## Tab Panels
+Tab panels are typically used by `Tab` and `Pill` for showing and
+hiding related content. See `Tab` for usage.
 
 
 ## Style Settings

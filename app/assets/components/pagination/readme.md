@@ -11,7 +11,7 @@ represent pagination navigation. The list should contain the `.nav` class.
 
 <!--~ markup/pagination.html.haml -->
 ```haml
-%nav(data-bindable="togglable-group")
+%nav(data-bindable="toggle-group")
   %ol.nav.pagination
     %li.disabled<
       %a(href="#") &laquo;
@@ -30,7 +30,7 @@ represent pagination navigation. The list should contain the `.nav` class.
     %li<
       %a(href="#") &raquo;
 %hr
-%nav.pagination-center(data-bindable="togglable-group")
+%nav.pagination-center(data-bindable="toggle-group")
   %ol.nav.pagination
     %li.disabled<
       %a(href="#") &laquo;
@@ -49,7 +49,7 @@ represent pagination navigation. The list should contain the `.nav` class.
     %li<
       %a(href="#") &raquo;
 %hr
-%nav.pagination-right(data-bindable="togglable-group")
+%nav.pagination-right(data-bindable="toggle-group")
   %ol.nav.pagination
     %li.disabled<
       %a(href="#") &laquo;

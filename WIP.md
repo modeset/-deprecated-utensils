@@ -2,23 +2,28 @@
 # Todo
 
 ## WIP
-- Toggle/ToggleGroup should have accessors to event types
-- rework tab/pill
 - button group
+- update fixtures
 - remove Togglable/TogglableGroup
 - document Triggerable
 - document Toggle
 - document ToggleGroup
 - document all reworked utensils
 - namespace all events with utensil to avoid collisions
+- bindable should be a utensil
 - lazy load lookups to speed up initialization
-- find tab content from related or siblings (see todo items)
+  - ToggleGroup: @targets
+  - Drop: menu
+  - Tab: Storing selectors (can this be done in ToggleGroup too?), regex
+  - Pop data lookup, container, cache render
+  - Tip: container, cache render
+  - Dimensionizer ?
 - collapse *
 - accordions.sass *
 - focus and selected states around all utensils
-- modals.sass *
 - notifications.sass *
 - progress-bars.sass *
+- modals.sass *
 - navbars.sass *
 - carousels.sass *
 - document mixins
