@@ -172,7 +172,7 @@ describe 'ToggleGroup', ->
       li = @radios_el.find('li:nth-child(2)')
       @radio.activate(1)
       expect(li).toHaveClass('active')
-      @radio.activate(1)
+      @radio.deactivate(1)
       expect(li).toHaveClass('active')
 
     it 'deactivates the item based on a passed index performing like a check group', ->

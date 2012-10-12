@@ -4,6 +4,7 @@
 //= require triggerable
 //= require toggle
 //= require toggle_group
+//= require toggle_button_group
 
 //= require togglable
 //= require togglable_group
