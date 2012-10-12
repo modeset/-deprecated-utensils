@@ -84,8 +84,11 @@ a:link
 .nav > .dropdown.active > a:hover
   cursor: pointer
 
-.nav[data-behavior="checkbox"] > .active > a,
-.nav[data-behavior="checkbox"] > .active > a:hover
+// Checkbox groups do not
+[data-behavior="checkbox"] .active > a,
+[data-behavior="checkbox"] .active > a:hover
+[data-behavior="checkbox"] .active,
+[data-behavior="checkbox"] .active:hover
   cursor: pointer
 
 // Assets
