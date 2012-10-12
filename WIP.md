@@ -2,13 +2,6 @@
 # Todo
 
 ## WIP
-- lazy load lookups to speed up initialization
-  - ToggleGroup: @targets
-  - Drop: menu
-  - Tab: Storing selectors (can this be done in ToggleGroup too?), regex
-  - Pop data lookup, container, cache render
-  - Tip: container, cache render
-  - Dimensionizer ?
 - collapse *
 - accordions.sass *
 - focus and selected states around all utensils
@@ -38,6 +31,7 @@
 - There should be some sort of Toggle class that acts similar to the
   demo (removes a bunch of classes then add more) pass a data-remove?
 - Should events have more of a namespace to avoid collisions?
+- Try and speed up more of the lookups and cache where possible
 
 ## Repository
 - Standardize file naming structure

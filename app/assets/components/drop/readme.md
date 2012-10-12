@@ -105,6 +105,8 @@ See `Triggerable` for other options
 - **Heads Up!** `Drop` will override it's placement automatically
   through `Directional` if it determines the requested position will
   render the `menu` outside the viewport.
+- **Heads Up!** The `Drop` link needs to have the class `.drop-toggle`
+  to help speed up lookups.
 
 ## API
 
