@@ -10,7 +10,6 @@ elements. These are predominantly used in navigation type systems. A
 data-bindable="toggle-group"
 ```
 
-
 ## Usage Example
 
 <!--~ markup/toggle_group.html.haml -->

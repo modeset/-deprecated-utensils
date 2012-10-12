@@ -2,10 +2,6 @@
 # Todo
 
 ## WIP
-- document Triggerable
-- document Toggle
-- document ToggleGroup
-- document ToggleButtonGroup
 - document all reworked utensils
 - namespace all events with utensil to avoid collisions
 - bindable should be a utensil
@@ -23,7 +19,6 @@
 - progress-bars.sass *
 - modals.sass *
 - navbars.sass *
-- carousels.sass *
 - document mixins
 - finish all utensil Todo lists
 - view layout templates
@@ -31,6 +26,7 @@
 - media queries
 - universal style sheet
 - upgrades
+- carousels.sass *
 - listing of needed utensils
 - fishnet
 

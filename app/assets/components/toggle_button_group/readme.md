@@ -1,6 +1,15 @@
 
 # Toggle Button Group
-Describe this
+Base class for adding, removing and toggling classes on a button group
+of elements. These are predominantly used in button group type systems.
+A `ToggleButtonGroup` can function either like radio buttons or check
+boxes.
+
+`ToggleButtonGroup` is an extension of `ToggleGroup`.
+
+```html
+data-bindable="toggle-button-group"
+```
 
 ## Usage Example
 
@@ -27,4 +36,85 @@ Describe this
   %a.btn(href="#") Right
 ```
 <!-- end -->
+
+## Options
+
+Attribute   | Default               | Description
+----------- | --------------------- | -------------------------------------------
+`namespace` | `toggle_button_group` | The namespace to use for dispatching events
+`target`    | `a,button`            | The identifier for looking up child elements to operate on.
+
+See `TogglableGroup` and `Triggerable` for more options.
+
+
+## API
+
+### #new
+Create a new instance of `ToggleButtonGroup` programatically, typically
+this is instantiated through `Bindable`
+
+```coffee
+#= require toggle_button_group
+
+@radios = $('#radios')
+@checks = $('#checks')
+
+@radio_group = new utensil.ToggleButtonGroup(radios, {behavior: 'radio'})
+@check_group = new utensil.ToggleButtonGroup(checks, {behavior: 'checkbox'})
+```
+
+### #activate
+Activate can take either an index or element as it's target parameter.
+Activating will add the toggle classes to the element. If behavior is
+set to `radio`, activate will remove the toggle classes from other
+elements within the group.
+
+##### dispatches:
+- `toggle_button_group:activated`
+
+```coffee
+# activate by index
+@radio_group.activate(1)
+@check_group.activate(1)
+
+# activate by element
+@radio_group.activate($(@radios[1]))
+@check_group.activate($(@checks[1]))
+```
+
+### #deactivate
+Deactivate can take either an index or element as it's target parameter.
+Deactivating will remove the toggle classes from the element.
+
+##### dispatches:
+- `toggle_button_group:deactivated`
+
+```coffee
+# deactivate by index
+@radio_group.deactivate(1)
+@check_group.deactivate(1)
+
+# deactivate by element
+@radio_group.deactivate($(@radios[1]))
+@check_group.deactivate($(@checks[1]))
+```
+
+### #dispose
+Cleans up any internal references 
+
+```coffee
+@radio_group.dispose()
+@check_group.dispose()
+```
+
+### Requires
+- `utensil`
+- `bindable`
+- `toggle_group`
+
+Any events dispatched from `ToggleButtonGroup` contain the `event`
+property as the first parameter and the `activator/deactivator` as the
+second parameter. This is done to ensure scope is transferred correctly
+and for a quicker lookup from the class utilizing a `ToggleButtonGroup`
+instance.
 
