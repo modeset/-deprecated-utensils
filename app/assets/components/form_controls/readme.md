@@ -210,15 +210,12 @@ Description elements describe or act as helpers around their controls.
 %form
   %fieldset
     %legend I am Legend
-
     .control-group
       %label.control-label(for="fcd_text1") Label<abbr title="Required">*</abbr>
       .controls
         %input#fcd_text1(type="text" placeholder="text")
         %p.hint-block The hint block for the control element
-
     %hr
-
     .control-group
       %label.control-label(for="fcd_text2") Label<abbr title="Required">*</abbr>
       .controls
@@ -330,14 +327,14 @@ Form structures typically consist of:
 <!--~ markup/form-controls-structure.html.haml -->
 ```haml
 %section#demo_form.button-toolbar(style="margin-bottom:1em;")
-  %nav.button-group(data-bindable="toggle-group" data-target=".btn" data-remove="form-vertical form-horizontal")
+  %nav.button-group(data-bindable="toggle-button-group" data-remove="form-vertical form-horizontal")
     %button.btn.active(href="#" data-add="") Default
     %button.btn(href="#" data-add="form-horizontal") Horizontal
-  %nav.button-group(data-bindable="toggle-group" data-target=".btn" data-remove="well fill")
+  %nav.button-group(data-bindable="toggle-button-group" data-remove="well fill")
     %button.btn.active(href="#" data-add="") None
     %button.btn(href="#" data-add="well") Well
     %button.btn(href="#" data-add="well fill") Well Fill
-  %nav.button-group(data-bindable="toggle-group" data-target=".btn" data-remove="disabled error success")
+  %nav.button-group(data-bindable="toggle-button-group" data-remove="disabled error success")
     %button.btn.active(href="#" data-add="") Normal
     %button.btn(href="#" data-add="disabled") Disabled
     %button.btn(href="#" data-add="success") Success

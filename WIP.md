@@ -2,12 +2,11 @@
 # Todo
 
 ## WIP
-- button group
-- update fixtures
 - remove Togglable/TogglableGroup
 - document Triggerable
 - document Toggle
 - document ToggleGroup
+- document ToggleButtonGroup
 - document all reworked utensils
 - namespace all events with utensil to avoid collisions
 - bindable should be a utensil
