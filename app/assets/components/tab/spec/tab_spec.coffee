@@ -70,6 +70,12 @@ describe 'Tab', ->
     it 'creates an instance of "ToggleGroup"', ->
       expect(@tab.toggler instanceof utensil.ToggleGroup).toEqual(true)
 
+    it 'defaults @container to be null', ->
+      expect(@tab.container).toBeNull()
+
+    it 'creates a classified version of the related classes string', ->
+      expect(@tab.related_classified).toEqual('.active')
+
 
   describe '#activate', ->
     it 'activates a tab on a click', ->
@@ -174,8 +180,43 @@ describe 'Tab', ->
       expect(spyEvent).not.toHaveBeenCalled()
 
 
-  # TODO: Need to handle the related classes and optimize the lookups
-  xdescribe '#triggered', ->
-    it 'finds the tabable content from a sibling when no reference is passed', ->
+  describe '#triggered', ->
+    it 'changes the state on both the tab and tab content', ->
+      li1 = @tab_el.find('> li:nth-child(1)')
+      li2 = @tab_el.find('> li:nth-child(2)')
+      pane1 = @tab_content.find('#tab_one')
+      pane2 = @tab_content.find('#tab_two')
 
+      li1.find('a').click()
+      expect(li1).toHaveClass('active')
+      expect(li2).not.toHaveClass('active')
+      expect(pane1).toHaveClass('active')
+      expect(pane2).not.toHaveClass('active')
+
+      li2.find('a').click()
+      expect(li1).not.toHaveClass('active')
+      expect(li2).toHaveClass('active')
+      expect(pane1).not.toHaveClass('active')
+      expect(pane2).toHaveClass('active')
+
+
+  describe '#findContainer', ->
+    it 'finds the tabable content when a related container is passed', ->
+      li = @tab_el.find('> li:nth-child(2)')
+      li.find('> a').click()
+      expect(@tab.container).toEqual($('#tab_content'))
+
+    it 'finds the tabable content from a sibling when no reference is passed', ->
+      @tab.related = null
+      @tab.container = null
+      li = @tab_el.find('> li:nth-child(2)')
+      li.find('> a').click()
+      expect(@tab.container).toBe($('#tab_content'))
+
+    it 'finds the tabable content when a related container is passed but up the DOM level', ->
+      @tab.related = '#jasmine-fixtures'
+      @tab.container = null
+      li = @tab_el.find('> li:nth-child(2)')
+      li.find('> a').click()
+      expect(@tab.container).toBe(@dom)
 

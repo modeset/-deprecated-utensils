@@ -19,10 +19,12 @@ class utensil.Tab
 
   initialize: ->
     @namespace = @data.namespace
-    @related = @data.related                # Need to perform a lookup
+    @related = @data.related
     @toggle_classes = @data.toggle
     @related_classes = @data.relatedToggle
     @toggler = new utensil.ToggleGroup(@el, @data)
+    @container = null
+    @related_classified = "." + @related_classes.replace(/\s+/g, ' .')
 
 # PUBLIC #
 
@@ -40,22 +42,29 @@ class utensil.Tab
 # PROTECTED #
 
   addListeners: ->
-    @el.on('tab:triggered', => @triggered arguments...)
+    @el.on("#{@namespace}:triggered", => @triggered arguments...)
 
   removeListeners: ->
-    @el.off('tab:triggered')
+    @el.off("#{@namespace}:triggered")
 
-  # This is a really slow lookup ATM, need to search once and optimize
-  # Also, we need to use a lookup if data-related is passed
+  # This is a really slow lookup ATM, need to search once and store
   triggered: (e, link) ->
-    container = @el.parent().next()
+    @container = @findContainer()
     selector = $(link).find('[data-target]').data('target') ||
                $(link).find('[href]').attr('href')
 
     element = $(selector)
     if element.length > 0
-      container.find('.active').removeClass('active')
-      element.addClass('active')
+      @container.find(@related_classified).removeClass(@related_classes)
+      element.addClass(@related_classes)
+
+  findContainer: ->
+    return @container if @container
+    if @related
+      container = @el.parent().find(@related)
+      if container.length > 0 then return container else return $(@related)
+    else
+      return @el.parent().next()
 
 Bindable.register('tab', utensil.Tab)
 
