@@ -9,7 +9,6 @@ class utensil.Pop
   constructor: (@el, data) ->
     @is_tip_like = if @el.data('content') then true else false
     @data = if data then data else @findData()
-
     @options()
     @initialize()
     @addListeners()
@@ -27,7 +26,7 @@ class utensil.Pop
   initialize: ->
     @pop = null
     @cached_markup = null
-    @container = $('body')
+    @container = null
     @namespace = @data.namespace
     @toggle_classes = @data.toggle
     @placement = @data.placement
@@ -69,7 +68,7 @@ class utensil.Pop
 
   activated: (e) ->
     @remove()
-    @cached_markup = @findMarkup() unless @cached_markup
+    @cached_markup = @cached_markup || @findMarkup()
     @add()
     @el.addClass('selected')
     @el.trigger("#{@namespace}:activated", @el)
@@ -85,6 +84,7 @@ class utensil.Pop
 
   add: ->
     @pop = @cached_markup
+    @container = @container || $('body')
     @pop.appendTo(@container)
     @directional.setElement(@pop)
     position = @directional.getPlacementAndConstrain()

@@ -22,8 +22,9 @@ class utensil.Tab
     @related = @data.related
     @toggle_classes = @data.toggle
     @related_classes = @data.relatedToggle
-    @toggler = new utensil.ToggleGroup(@el, @data)
     @container = null
+    @panes = {}
+    @toggler = new utensil.ToggleGroup(@el, @data)
     @related_classified = "." + @related_classes.replace(/\s+/g, ' .')
 
 # PUBLIC #
@@ -47,16 +48,21 @@ class utensil.Tab
   removeListeners: ->
     @el.off("#{@namespace}:triggered")
 
-  # This is a really slow lookup ATM, need to search once and store
   triggered: (e, link) ->
     @container = @findContainer()
     selector = $(link).find('[data-target]').data('target') ||
                $(link).find('[href]').attr('href')
 
-    element = $(selector)
+    element = @getTabablePane(selector)
     if element.length > 0
       @container.find(@related_classified).removeClass(@related_classes)
       element.addClass(@related_classes)
+
+  getTabablePane: (selector) ->
+    if !@panes[selector]
+      pane = $(selector)
+      @panes[selector] = pane
+    return @panes[selector]
 
   findContainer: ->
     return @container if @container

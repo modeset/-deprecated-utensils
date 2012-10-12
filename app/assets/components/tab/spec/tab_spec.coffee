@@ -199,6 +199,17 @@ describe 'Tab', ->
       expect(pane1).not.toHaveClass('active')
       expect(pane2).toHaveClass('active')
 
+  describe '#getTabablePane', ->
+    it 'caches a selectors pane once clicked', ->
+      li1 = @tab_el.find('> li:nth-child(2)')
+      li2 = @tab_el.find('> li:nth-child(3)')
+      pane1 = @tab_content.find('#tab_two')
+      pane2 = @tab_content.find('#tab_three')
+
+      li1.find('a').click()
+      expect(@tab.panes['#tab_two']).toBe(pane1)
+      li2.find('a').click()
+      expect(@tab.panes['#tab_three']).toBe(pane2)
 
   describe '#findContainer', ->
     it 'finds the tabable content when a related container is passed', ->

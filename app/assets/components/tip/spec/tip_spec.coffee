@@ -84,8 +84,8 @@ describe 'Tip', ->
     it 'instantiates a class properties with null values', ->
       expect(@north_tip.tip).toBeNull()
 
-    it 'sets the default container to body', ->
-      expect(@north_tip.container).toEqual($('body'))
+    it 'sets the default container to null', ->
+      expect(@north_tip.container).toBeNull()
 
     it 'overrides the data.trigger state to "click" if the device is touch enabled', ->
       $('html').addClass('touch')
@@ -225,6 +225,10 @@ describe 'Tip', ->
 
 
   describe '#add', ->
+    it 'sets the default container to body', ->
+      @north_tip.activated()
+      expect(@north_tip.container).toEqual($('body'))
+
     it 'adds a tip to the viewport', ->
       expect($('.tip').length).toEqual(0)
       @east_el.trigger('mouseover')

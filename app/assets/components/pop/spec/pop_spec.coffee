@@ -105,8 +105,8 @@ describe 'Pop', ->
       expect(@north_pop.pop).toBeNull()
       expect(@north_pop.cached_markup).toBeNull()
 
-    it 'sets the default container to body', ->
-      expect(@north_pop.container).toEqual($('body'))
+    it 'sets the default container to null', ->
+      expect(@north_pop.container).toBeNull()
 
     it 'sets default namespace', ->
       expect(@east_pop.namespace).toEqual('pop')
@@ -260,6 +260,10 @@ describe 'Pop', ->
 
 
   describe '#add', ->
+    it 'sets the default container to body', ->
+      @north_pop.activated()
+      expect(@north_pop.container).toEqual($('body'))
+
     it 'adds a pop to the viewport', ->
       $('.pop').remove()
       expect($('.pop').length).toEqual(0)

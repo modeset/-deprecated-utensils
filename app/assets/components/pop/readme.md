@@ -184,4 +184,5 @@ The markup injected when a pop is shown:
 - Multiple pops?
 - Depth swapping?
 - disable on body click?
+- could use some more optimizations around lazy loading
 

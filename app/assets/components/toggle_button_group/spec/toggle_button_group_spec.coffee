@@ -69,8 +69,8 @@ describe 'ToggleButtonGroup', ->
       expect(@radio.namespace).toEqual('toggle_button_group')
 
     it 'has target elements for a group to work on', ->
-      expect(@radio.targets.length).toBeGreaterThan(1)
-      expect(@check.targets.length).toBeGreaterThan(1)
+      expect(@radio.targets).toBeNull()
+      expect(@check.targets).toBeNull()
 
 
   describe '#activate', ->
@@ -213,9 +213,13 @@ describe 'ToggleButtonGroup', ->
 
   describe '#findTargets', ->
     it 'finds the targets when passed via a data attribute', ->
+      expect(@check.targets).toBeNull()
+      @check_link.click()
       expect(@check.targets.length).toEqual(4)
       expect(@check.targets).toHaveClass('btn')
 
     it 'finds the elements by default when no target is passed', ->
+      expect(@radio.targets).toBeNull()
+      @radio_link.click()
       expect(@radio.targets.length).toEqual(7)
 

@@ -23,7 +23,8 @@ class utensil.Tip
 
   initialize: ->
     @tip = null
-    @container = $('body')
+    @container = null
+    @cached_markup = null
     @namespace = @data.namespace
     @toggle_classes = @data.toggle
     @placement = @data.placement
@@ -78,7 +79,9 @@ class utensil.Tip
     @el.trigger("#{@namespace}:deactivated", @el)
 
   add: ->
-    @tip = $(@render())
+    @cached_markup = @cached_markup || $(@render())
+    @tip = @cached_markup
+    @container = @container || $('body')
     @tip.appendTo(@container)
     @directional.setElement(@tip)
     position = @directional.getPlacementAndConstrain()

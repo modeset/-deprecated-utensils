@@ -98,10 +98,10 @@ describe 'ToggleGroup', ->
     it 'overrides the default radio behavior to "checkbox"', ->
       expect(@check.behavior).toEqual('checkbox')
 
-    it 'has target elements for a group to work on', ->
-      expect(@radio.targets.length).toBeGreaterThan(1)
-      expect(@check.targets.length).toBeGreaterThan(1)
-      expect(@delay.targets.length).toBeGreaterThan(1)
+    it 'defaults the target to null for lazy lookups', ->
+      expect(@radio.targets).toBeNull()
+      expect(@check.targets).toBeNull()
+      expect(@delay.targets).toBeNull()
 
     it 'creates an instance of "Triggerable"', ->
       expect(@radio.triggerable instanceof utensil.Triggerable).toEqual(true)
@@ -275,15 +275,23 @@ describe 'ToggleGroup', ->
 
   describe '#findTargets', ->
     it 'finds the targets when passed via a data attribute', ->
+      expect(@radio.targets).toBeNull()
+      @radio_link.click()
       expect(@radio.targets.length).toEqual(3)
       expect(@radio.targets).toHaveClass('radio-li')
 
     it 'finds the li elements by default when no target is passed', ->
+      expect(@check.targets).toBeNull()
+      @check_link.click()
       expect(@check.targets.length).toEqual(3)
 
     it 'ignores targets via a data attribute when the markup contains a ".group-ignore" class', ->
+      expect(@radio.targets).toBeNull()
+      @radio_link.click()
       expect(@radio.targets).not.toHaveClass('group-ignore')
 
     it 'ignores targets when the markup contains a ".group-ignore" class through the default li search', ->
+      expect(@check.targets).toBeNull()
+      @check_link.click()
       expect(@check.targets).not.toHaveClass('group-ignore')
 

@@ -22,14 +22,14 @@ class utensil.ToggleGroup
     @namespace = @data.namespace
     @toggle_classes = @data.toggle
     @behavior = @data.behavior
-    @targets = @findTargets()
+    @targets = null
     @triggerable = new utensil.Triggerable(@el, @data)
 
 # PUBLIC #
 
   activate: (item) ->
     if typeof item == "number"
-      activator = @targets.eq(item).find('> a')
+      activator = @findTargets().eq(item).find('> a')
     else if typeof item == "string"
       activator = $(item).find('> a')
     else
@@ -38,7 +38,7 @@ class utensil.ToggleGroup
 
   deactivate: (item) ->
     if typeof item == "number"
-      deactivator = @targets.eq(item).find('> a')
+      deactivator = @findTargets().eq(item).find('> a')
     else if typeof item == "string"
       deactivator = $(item).find('> a')
     else
@@ -59,15 +59,14 @@ class utensil.ToggleGroup
     @triggerable.dispatcher.off('triggerable:trigger')
 
   triggered: (e, link) ->
-    element = @targets.find(link).parent('li')
+    element = @findTargets().find(link).parent('li')
     return if element.length <= 0
     return if @behavior == 'radio' && element.hasClass(@toggle_classes)
     if @behavior == 'radio' then @radio(element) else @checkbox(element)
 
-  # TODO: This could use some optimization
   radio: (element) ->
     @el.find('.selected').removeClass('selected')
-    @targets.removeClass(@toggle_classes)
+    @findTargets().removeClass(@toggle_classes)
     element.addClass(@toggle_classes)
     @el.trigger("#{@namespace}:triggered", element)
 
@@ -76,7 +75,9 @@ class utensil.ToggleGroup
     @el.trigger("#{@namespace}:triggered", element)
 
   findTargets: ->
-    return @el.find("#{@data.target}:not(#{@data.ignore})")
+    return @targets if @targets
+    @targets = @el.find("#{@data.target}:not(#{@data.ignore})")
+    return @targets
 
 utensil.Bindable.register('toggle-group', utensil.ToggleGroup)
 

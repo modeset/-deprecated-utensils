@@ -16,7 +16,7 @@ class utensil.ToggleButtonGroup extends utensil.ToggleGroup
 
   activate: (item) ->
     if typeof item == "number"
-      activator = @targets.eq(item)
+      activator = @findTargets().eq(item)
     else if typeof item == "string"
       activator = $(item)
     else
@@ -25,7 +25,7 @@ class utensil.ToggleButtonGroup extends utensil.ToggleGroup
 
   deactivate: (item) ->
     if typeof item == "number"
-      deactivator = @targets.eq(item)
+      deactivator = @findTargets().eq(item)
     else if typeof item == "string"
       deactivator = $(item)
     else
@@ -35,6 +35,7 @@ class utensil.ToggleButtonGroup extends utensil.ToggleGroup
 # PROTECTED OVERRIDES #
 
   triggered: (e, link) ->
+    @findTargets()
     element = $(link)
     return if element.length <= 0
     return if @behavior == 'radio' && element.hasClass(@toggle_classes)
