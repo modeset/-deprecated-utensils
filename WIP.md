@@ -2,7 +2,6 @@
 # Todo
 
 ## WIP
-- remove Togglable/TogglableGroup
 - document Triggerable
 - document Toggle
 - document ToggleGroup
@@ -43,6 +42,8 @@
   focus states?)
 - Check for disabled states on components and disable interactions if
   true
+- There should be some sort of Toggle class that acts similar to the
+  demo (removes a bunch of classes then add more) pass a data-remove?
 
 ## Repository
 - Standardize file naming structure
@@ -51,11 +52,4 @@
 - Turn into engine with generators
 - Better tools for documentation (generation, behavior, and styles)
 - Add a script for curling vendor libraries (non-gems)
-
-## Triggerables
-- Make Toggle lighter weight
-- Create wrappers around tab, pill, accordions etc. to minimize the
-  required data-attributes 
-- There should be some sort of Toggle class that acts similar to the
-  demo (removes a bunch of classes then add more) pass a data-remove?
 
