@@ -94,11 +94,12 @@ data-bindable="drop"
 
 Attribute   | Default         | Description
 ----------- | --------------- | -------------------------------------------
-`toggle`    | `active active` | Overrides `Togglable's` default of `active`
+`namespace` | `drop`          | The namespace to use for dispatching events
+`toggle`    | `active open`   | Overrides `Triggerable's` default of `active`
 `placement` | `south`         | Where to position the drop menu in relation to the element: `north`, `south`, `east`, `west`
 `keyboard`  | `true`          | Utilize some basic key commands for controlling the menu
 
-See `Togglable` for other options 
+See `Triggerable` for other options 
 
 ###### Notes  
 - **Heads Up!** `Drop` will override it's placement automatically
@@ -150,10 +151,10 @@ Remove the drop behavior
 ### Requires
 - `utensil`
 - `bindable`
-- `togglable`
+- `triggerable`
 - `directional`
 
-`Drop` utilizes `Togglable` via composition.
+`Drop` utilizes `Triggerable` via composition.
 
 ## Style Settings
 To override the default settings, set the variable and it's value within
@@ -172,13 +173,7 @@ value before this file is imported, this is done to keep managing
 `z-index` mappings in one place.
 
 ## Todo
-- Clicking on another item, html or drop should deactivate existing menu items
-- Clicking on the drop within a group needs to stopPropagation (see tab)
 - Exit animations do not occur since the `.visuallyhidden` class is
   applied at the same time a transition occurs. Not sure if this should
   be added in here or through an extension of `Drop`?
-
-###### Alert
-- **Heads Up!** Drop is not yet feature complete, it's missing some core
-  functionality at the moment.
 

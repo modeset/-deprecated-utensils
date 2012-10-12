@@ -5,8 +5,10 @@ navigation elements. Pills like other navigation elements require the
 `.nav` class for layout. Add `.nav .pill` to a `ul` or `ol` element.
 
 To utilize a drop dead simple version of hiding and showing content, add
-the `data-bindable="togglable-group"` along with a `data-related` target
-and `href` attributes pointing to the related targets panel.
+the `data-bindable="tab"` along with an `href` attributes pointing to
+the related targets panel.
+
+See `Tab` for more information.
 
 ```sass
 @import utensils/components/pill/pill

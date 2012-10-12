@@ -40,13 +40,14 @@ data-bindable="tip"
 
 Attribute   | Default     | Description
 ----------- | ----------- | -------------------------------------------
-`toggle`    | `active in` | Overrides `Togglable's` default of `active`
-`trigger`   | `hover`     | Overrides `Togglable's` default of `click`, unless it's a touch enabled device
+`namespace` | `tip`       | The namespace to use for dispatching events
+`toggle`    | `active in` | Overrides `Triggerable's` default of `active`
+`trigger`   | `hover`     | Overrides `Triggerable's` default of `click`, unless it's a touch enabled device
 `title`     | `""`        | The content (html or text) to insert for the tip, use the actual `title` attribute though
 `placement` | `north`     | Where to position the tip in relation to the element: `north`, `south`, `east`, `west`
 `effect`    | `fade`      | The base animation class to add to the tip markup
 
-See `Togglable` for other options 
+See `Triggerable` for other options 
 
 
 ###### Notes  
@@ -104,11 +105,11 @@ Remove the tip behavior
 ### Requires
 - `utensil`
 - `bindable`
+- `triggerable`
 - `detect`
-- `togglable`
 - `directional`
 
-`Tip` utilizes `Togglable` via composition.
+`Tip` utilizes `Triggerable` via composition.
 
 ## Style Settings
 To override the default settings, set the variable and it's value

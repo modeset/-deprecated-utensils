@@ -50,19 +50,20 @@ data-bindable="pop"
 
 Attribute   | Default     | Description
 ----------- | ----------- | -------------------------------------------
-`toggle`    | `active in` | Overrides `Togglable's` default of `active`
+`namespace` | `pop`       | The namespace to use for dispatching events
+`toggle`    | `active in` | Overrides `Triggerable's` default of `active`
 `trigger`   | `click`     | The event to trigger toggle behavior [`click`, `hover`, `focus`, `manual`]
-`title`     | `""`        | The title (html or text) to insert for the header when "_is tip like_"
-`content`   | `""`        | The content (html or text) to insert for the body when "_is tip like_"
+`title`     | `""`        | The title (html or text) to insert for the header when "is tip like"
+`content`   | `""`        | The content (html or text) to insert for the body when "is tip like"
 `placement` | `north`     | Where to position the pop in relation to the element: `north`, `south`, `east`, `west`
 `effect`    | `fade`      | The base animation class to add to the tip markup
 `href`      | _none_      | Optional DOM element `id` for the contents and `data-attributes` to use for the contents of the `Pop` 
 
-Referencing "_is tip like_" means the contents of the `Pop` reside within
-the `data` attributes of the link. When a `Pop` "_is not tip like_", it
+Referencing "is tip like" means the contents of the `Pop` reside within
+the `data` attributes of the link. When a `Pop` "is not tip like", it
 references a `hidden` DOM element.
 
-See `Togglable` for other options 
+See `Triggerable` for other options 
 
 ###### Notes  
 - **Heads Up!** `Pop` will override it's placement automatically through
@@ -130,11 +131,11 @@ Remove the pop behavior
 ### Requires
 - `utensil`
 - `bindable`
+- `triggerable`
 - `detect`
-- `togglable`
 - `directional`
 
-`Pop` utilizes `Togglable` via composition.
+`Pop` utilizes `Triggerable` via composition.
 
 
 ## Style Settings

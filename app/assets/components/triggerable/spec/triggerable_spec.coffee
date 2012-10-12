@@ -178,7 +178,7 @@ describe 'Triggerable', ->
       @defaulter_el.click()
       expect(spyEvent).not.toHaveBeenCalled()
 
-    it 'removes any timeouts for delay togglables', ->
+    it 'removes any timeouts for delay triggerables', ->
       @delayer.dispose()
       expect(@delayer.timeout).toBeNull()
 

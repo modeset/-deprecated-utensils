@@ -44,7 +44,7 @@ Attribute   | Default               | Description
 `namespace` | `toggle_button_group` | The namespace to use for dispatching events
 `target`    | `a,button`            | The identifier for looking up child elements to operate on.
 
-See `TogglableGroup` and `Triggerable` for more options.
+See `ToggleGroup` and `Triggerable` for more options.
 
 
 ## API

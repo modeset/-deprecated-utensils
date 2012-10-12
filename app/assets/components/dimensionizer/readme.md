@@ -57,6 +57,6 @@ Remove the `Dimensionizer` from the `DOM`
 - `detect`
 
 ## Todo
-- turn the dimensionizer demo to togglable
+- turn the dimensionizer demo button to a toggle button
 - should this live in a debug package outside the components?
 

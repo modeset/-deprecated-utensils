@@ -2,7 +2,6 @@
 # Todo
 
 ## WIP
-- document all reworked utensils
 - namespace all events with utensil to avoid collisions
 - bindable should be a utensil
 - lazy load lookups to speed up initialization
