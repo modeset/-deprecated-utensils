@@ -23,11 +23,13 @@
           <li class="sherpa-nav-header">Documentation</li>
         </ul>
         <ul class="sherpa-anchor-nav sherpa-nav-list">
-          <li><a href='#bindable'>Bindable</a></li>
+          <li><a href='#accordion'>Accordion</a></li>
+<li><a href='#bindable'>Bindable</a></li>
 <li><a href='#breadcrumb'>Breadcrumb</a></li>
 <li><a href='#button_group'>Button group</a></li>
 <li><a href='#button_modifiers'>Button modifiers</a></li>
 <li><a href='#button_semigloss'>Button semigloss</a></li>
+<li><a href='#collapse'>Collapse</a></li>
 <li><a href='#container'>Container</a></li>
 <li><a href='#container_media'>Container media</a></li>
 <li><a href='#content_editable'>Content editable</a></li>
@@ -59,9 +61,11 @@
 <li><a href='#table'>Table</a></li>
 <li><a href='#timeslot'>Timeslot</a></li>
 <li><a href='#tip'>Tip</a></li>
-<li><a href='#togglable'>Togglable</a></li>
-<li><a href='#togglable_group'>Togglable group</a></li>
+<li><a href='#toggle'>Toggle</a></li>
+<li><a href='#toggle_button_group'>Toggle button group</a></li>
+<li><a href='#toggle_group'>Toggle group</a></li>
 <li><a href='#transition'>Transition</a></li>
+<li><a href='#triggerable'>Triggerable</a></li>
 <li><a href='#typography'>Typography</a></li>
 <li><a href='#utensil'>Utensil</a></li>
 <li><a href='#well'>Well</a></li>
@@ -73,6 +77,143 @@
     <section class="sherpa-wrapper sherpa-container sherpa-clearfix">
       <p><section class="sherpa-section sherpa-clearfix"></p>
 
+<h1>Accordion</h1>
+
+<p>Base styles for rendering accordion elements. Accordions can be used
+with either the <code>Toggle</code>, <code>ToggleGroup</code> or <code>Collapse</code> behaviors.</p>
+
+<pre><code class="sass">@import utensils/components/collapse/collapse
+@import utensils/components/accordion/accordion
+</code></pre>
+
+<!--~ markup/accordion.html.haml -->
+
+<div class="sherpa-showcase sherpa-clearfix"><section class='accordion-group'>
+<a class='accordion-toggle' data-bindable='toggle' href='#accordion_single'>Single Accordion Element</a>
+<section class='collapse' id='accordion_single'>
+<article class='accordion-inner'>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</article>
+</section>
+</section>
+<hr />
+<nav style='margin-top:1em;'>
+<ul data-bindable='toggle-group' id='accordion_radio'>
+<li class='accordion-group'>
+<a class='accordion-toggle' href='#accordion_radio_1'>Accordion Radio 1</a>
+<section class='collapse' id='accordion_radio_1'>
+<article class='accordion-inner'>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</article>
+</section>
+</li>
+<li class='accordion-group'>
+<a class='accordion-toggle' href='#accordion_radio_2'>Accordion Radio 2</a>
+<section class='collapse' id='accordion_radio_2'>
+<article class='accordion-inner'>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</article>
+</section>
+</li>
+<li class='accordion-group'>
+<a class='accordion-toggle' href='#accordion_radio_3'>Accordion Radio 3</a>
+<section class='collapse' id='accordion_radio_3'>
+<article class='accordion-inner'>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</article>
+</section>
+</li>
+</ul>
+</nav>
+<hr />
+<nav style='margin-top:1em;'>
+<ul data-behavior='checkbox' data-bindable='collapse' data-type='group' id='accordion_checkbox'>
+<li class='accordion-group'>
+<a class='accordion-toggle' href='#accordion_check_1'>Accordion Check 1 with Collapse</a>
+<section class='collapse' id='accordion_check_1'>
+<article class='accordion-inner'>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</article>
+</section>
+</li>
+<li class='accordion-group'>
+<a class='accordion-toggle' href='#accordion_check_2'>Accordion Check 2 with Collapse</a>
+<section class='collapse' id='accordion_check_2'>
+<article class='accordion-inner'>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</article>
+</section>
+</li>
+<li class='accordion-group'>
+<a class='accordion-toggle' href='#accordion_check_3'>Accordion Check 3 with Collapse</a>
+<section class='collapse' id='accordion_check_3'>
+<article class='accordion-inner'>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</article>
+</section>
+</li>
+</ul>
+</nav>
+</div>
+
+<pre><code class="haml">:ruby
+  @lorem = &quot;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&quot;
+
+%section.accordion-group
+  %a.accordion-toggle(data-bindable=&quot;toggle&quot; href=&quot;#accordion_single&quot;) Single Accordion Element
+  %section.collapse#accordion_single
+    %article.accordion-inner
+      %p=@lorem
+
+%hr
+%nav(style=&quot;margin-top:1em;&quot;)
+  %ul#accordion_radio(data-bindable=&quot;toggle-group&quot;)
+    -(1..3).each do |i|
+      %li.accordion-group
+        %a.accordion-toggle(href=&quot;#accordion_radio_#{i}&quot;) Accordion Radio #{i}
+        %section.collapse(id=&quot;accordion_radio_#{i}&quot;)
+          %article.accordion-inner
+            %p=@lorem
+
+%hr
+%nav(style=&quot;margin-top:1em;&quot;)
+  %ul#accordion_checkbox(data-bindable=&quot;collapse&quot; data-type=&quot;group&quot; data-behavior=&quot;checkbox&quot;)
+    -(1..3).each do |i|
+      %li.accordion-group
+        %a.accordion-toggle(href=&quot;#accordion_check_#{i}&quot;) Accordion Check #{i} with Collapse
+        %section.collapse(id=&quot;accordion_check_#{i}&quot;)
+          %article.accordion-inner
+            %p=@lorem
+</code></pre>
+
+<!-- end -->
+
+<h2>Style Settings</h2>
+
+<p>To override the default settings, set the variable and it&#39;s value
+within your <code>config.sass</code> file or before <code>accordion.sass</code> is loaded.</p>
+
+<table><thead>
+<tr>
+<th>Variable</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>$accordion-border</code></td>
+<td><code>$base-border</code></td>
+<td>The <code>border-color</code> of the accordion component</td>
+</tr>
+<tr>
+<td><code>$accordion-radii</code></td>
+<td><code>$radii</code></td>
+<td>The <code>border-radius</code> of the accordion component</td>
+</tr>
+</tbody></table>
+
+<p></section><section class="sherpa-section sherpa-clearfix"></p>
+
 <h1>Bindable</h1>
 
 <p>Light weight dependency injection for client side components. Looks for
@@ -81,8 +222,6 @@ within a registry and instantiates their respective classes.</p>
 
 <p>Classes registering with <code>Bindable</code> are passed the existing element
 converted to a <code>$</code> object.</p>
-
-<p><code>Bindable</code> is stored as a global object on <code>window</code>.</p>
 
 <h2>Usage</h2>
 
@@ -94,7 +233,7 @@ class utensil.MockClass
   # make some magic
 
 # register with Bindable
-Bindable.register(&#39;mocker&#39;, utensil.MockClass)
+utensil.Bindable.register(&#39;mocker&#39;, utensil.MockClass)
 </code></pre>
 
 <p>As markup instantiating a class that is registered with <code>Bindable</code>:</p>
@@ -107,10 +246,16 @@ bootstrap file)</p>
 
 <pre><code class="coffee">#= require bindable
 $ -&gt;
-  new Bindable().bindAll()
+  new utensil.Bindable().bindAll()
 </code></pre>
 
 <h2>API</h2>
+
+<h3>Requires</h3>
+
+<ul>
+<li><code>utensil</code></li>
+</ul>
 
 <h2>Todo</h2>
 
@@ -135,7 +280,7 @@ a divider after their content. This is configurable from the
 <!--~ markup/breadcrumb.html.haml -->
 
 <div class="sherpa-showcase sherpa-clearfix"><nav>
-<ol class='nav breadcrumb' data-bindable='togglable-group'>
+<ol class='nav breadcrumb' data-bindable='toggle-group'>
 <li><a href='#'>Level 1</a></li>
 <li><a href='#'>Level 2</a></li>
 <li><a href='#'>Level 3</a></li>
@@ -145,7 +290,7 @@ a divider after their content. This is configurable from the
 </div>
 
 <pre><code class="haml">%nav
-  %ol.nav.breadcrumb(data-bindable=&quot;togglable-group&quot;)
+  %ol.nav.breadcrumb(data-bindable=&quot;toggle-group&quot;)
     %li&lt;
       %a(href=&quot;#&quot;) Level 1
     %li&lt;
@@ -225,7 +370,7 @@ elements under a <code>.button-toolbar</code> container to form a navigation sys
 <!--~ markup/button-group.html.haml -->
 
 <div class="sherpa-showcase sherpa-clearfix"><h5 style='margin-bottom:1em;'>Button Toolbar (radio)</h5>
-<section class='button-toolbar' data-bindable='togglable-group' data-target='.btn'>
+<section class='button-toolbar' data-bindable='toggle-button-group'>
 <nav class='button-group'>
 <button class='btn' href='#'>1</button>
 <button class='btn' href='#'>2</button>
@@ -241,7 +386,7 @@ elements under a <code>.button-toolbar</code> container to form a navigation sys
 </nav>
 </section>
 <h5 style='margin-top:3em; margin-bottom:1em;'>Button Group (checkbox)</h5>
-<nav class='button-group' data-behavior='checkbox' data-bindable='togglable-group' data-target='.btn'>
+<nav class='button-group' data-behavior='checkbox' data-bindable='toggle-button-group'>
 <a class='btn' href='#'>Left</a>
 <a class='btn active' href='#'>Middle 1</a>
 <a class='btn' href='#'>Middle 2</a>
@@ -250,7 +395,7 @@ elements under a <code>.button-toolbar</code> container to form a navigation sys
 </div>
 
 <pre><code class="haml">%h5(style=&quot;margin-bottom:1em;&quot;) Button Toolbar (radio)
-%section.button-toolbar(data-bindable=&quot;togglable-group&quot; data-target=&quot;.btn&quot;)
+%section.button-toolbar(data-bindable=&quot;toggle-button-group&quot;)
   %nav.button-group
     %button.btn(href=&quot;#&quot;) 1
     %button.btn(href=&quot;#&quot;) 2
@@ -263,7 +408,7 @@ elements under a <code>.button-toolbar</code> container to form a navigation sys
     %button.btn(href=&quot;#&quot;) 7
 
 %h5(style=&quot;margin-top:3em; margin-bottom:1em;&quot;) Button Group (checkbox)
-%nav.button-group(data-bindable=&quot;togglable-group&quot; data-behavior=&quot;checkbox&quot; data-target=&quot;.btn&quot;)
+%nav.button-group(data-bindable=&quot;toggle-button-group&quot; data-behavior=&quot;checkbox&quot;)
   %a.btn(href=&quot;#&quot;) Left
   %a.btn.active(href=&quot;#&quot;) Middle 1
   %a.btn(href=&quot;#&quot;) Middle 2
@@ -275,7 +420,7 @@ elements under a <code>.button-toolbar</code> container to form a navigation sys
 <h6>Notes</h6>
 
 <ul>
-<li><strong>Pro Tip!</strong> Button groups and tool bars play great with the <code>TogglableGroup</code> behavior</li>
+<li><strong>Pro Tip!</strong> Button groups and tool bars play great with the <code>ToggleButtonGroup</code> behavior</li>
 </ul>
 
 <h2>Style Settings</h2>
@@ -324,11 +469,11 @@ type, sizing, or positioning.</p>
 </section>
 <h5 style='margin-bottom:1em; margin-top:3em;'>Select to view states</h5>
 <section class='button-toolbar'>
-<nav class='check-demo button-group' data-behavior='checkbox' data-bindable='togglable-group' data-target='.btn'>
+<nav class='check-demo button-group' data-behavior='checkbox' data-bindable='toggle-button-group'>
 <a class='btn' data-toggle='btn-block' href='#'>Block</a>
 <a class='btn' data-toggle='btn-transition' href='#'>Transition</a>
 </nav>
-<nav class='radio-demo button-group' data-bindable='togglable-group' data-target='.btn'>
+<nav class='radio-demo button-group' data-bindable='toggle-button-group'>
 <a class='btn active' data-add='' href='#'>Normal</a>
 <a class='btn' data-add='btn-xsmall' href='#'>XS</a>
 <a class='btn' data-add='btn-small' href='#'>Small</a>
@@ -346,11 +491,11 @@ type, sizing, or positioning.</p>
 
 %h5(style=&quot;margin-bottom:1em; margin-top:3em;&quot;) Select to view states
 %section.button-toolbar
-  %nav.check-demo.button-group(data-bindable=&quot;togglable-group&quot; data-behavior=&quot;checkbox&quot; data-target=&quot;.btn&quot;)
+  %nav.check-demo.button-group(data-bindable=&quot;toggle-button-group&quot; data-behavior=&quot;checkbox&quot;)
     %a.btn(href=&quot;#&quot; data-toggle=&quot;btn-block&quot;) Block
     %a.btn(href=&quot;#&quot; data-toggle=&quot;btn-transition&quot;) Transition
 
-  %nav.radio-demo.button-group(data-bindable=&quot;togglable-group&quot; data-target=&quot;.btn&quot;)
+  %nav.radio-demo.button-group(data-bindable=&quot;toggle-button-group&quot;)
     %a.btn.active(href=&quot;#&quot; data-add=&quot;&quot;) Normal
     %a.btn(href=&quot;#&quot; data-add=&quot;btn-xsmall&quot;) XS
     %a.btn(href=&quot;#&quot; data-add=&quot;btn-small&quot;) Small
@@ -462,7 +607,7 @@ are added to the style sheet unless told to do so.</p>
 <button class='btn primary'>Primary</button>
 </section>
 <h5 style='margin-bottom:1em; margin-top:3em;'>Select to view states</h5>
-<nav class='radio-demo button-group' data-bindable='togglable-group' data-target='.btn'>
+<nav class='radio-demo button-group' data-bindable='toggle-button-group'>
 <a class='btn active' data-add='' href='#'>Normal</a>
 <a class='btn' data-add='active' href='#'>Active</a>
 <a class='btn' data-add='error' href='#'>Error</a>
@@ -482,7 +627,7 @@ are added to the style sheet unless told to do so.</p>
   %button.btn.primary Primary
 
 %h5(style=&quot;margin-bottom:1em; margin-top:3em;&quot;) Select to view states
-%nav.radio-demo.button-group(data-bindable=&quot;togglable-group&quot; data-target=&quot;.btn&quot;)
+%nav.radio-demo.button-group(data-bindable=&quot;toggle-button-group&quot;)
   %a.btn.active(href=&quot;#&quot; data-add=&quot;&quot;) Normal
   %a.btn(href=&quot;#&quot; data-add=&quot;active&quot;) Active
   %a.btn(href=&quot;#&quot; data-add=&quot;error&quot;) Error
@@ -679,6 +824,349 @@ default this is set to <code>false</code> so no buttons are created.</p>
 <li>This is a bit wordy here.. document how lists in sass work somewhere
 else</li>
 <li>The sass file could use a little cleaning.</li>
+</ul>
+
+<p></section><section class="sherpa-section sherpa-clearfix"></p>
+
+<h1>Collapse</h1>
+
+<p>Allows toggling of collapsible elements associated with a link or a
+navigation system such as an accordion group. </p>
+
+<p>Collapse utilizes either <code>Toggle</code> or <code>ToggleGroup</code> through composition.</p>
+
+<pre><code class="sass">@import utensils/components/collapse/collapse
+</code></pre>
+
+<pre><code class="html">data-bindable=&quot;collapse&quot;
+</code></pre>
+
+<!--~ markup/collapse.html.haml -->
+
+<div class="sherpa-showcase sherpa-clearfix"><a data-bindable='collapse' href='#collapse_height'>Single Collapse</a>
+<section class='collapse' id='collapse_height'>
+<article>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</article>
+</section>
+<a data-activate='true' data-bindable='collapse' data-target='#collapse_auto' href='#'>Single Auto Shown</a>
+<section class='collapse in' id='collapse_auto'>
+<article>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</article>
+</section>
+<hr />
+<nav style='margin-top: 1em;'>
+<ul data-activate='0' data-bindable='collapse' data-type='group' id='collapse_radio'>
+<li>
+<a href='#collapse_radio_1'>Radio Collapse 1</a>
+<section class='collapse' id='collapse_radio_1'>
+<article>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</article>
+</section>
+</li>
+<li>
+<a href='#collapse_radio_2'>Radio Collapse 2</a>
+<section class='collapse' id='collapse_radio_2'>
+<article>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</article>
+</section>
+</li>
+<li>
+<a href='#collapse_radio_3'>Radio Collapse 3</a>
+<section class='collapse' id='collapse_radio_3'>
+<article>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</article>
+</section>
+</li>
+</ul>
+</nav>
+<hr />
+<nav style='margin-top: 1em;'>
+<ul data-behavior='checkbox' data-bindable='collapse' data-type='group' id='collapse_checkbox'>
+<li>
+<a data-target='#collapse_check_1' href='#'>Checkbox Collapse 1</a>
+<section class='collapse' id='collapse_check_1'>
+<article>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</article>
+</section>
+</li>
+<li>
+<a data-target='#collapse_check_2' href='#'>Checkbox Collapse 2</a>
+<section class='collapse' id='collapse_check_2'>
+<article>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</article>
+</section>
+</li>
+<li>
+<a data-target='#collapse_check_3' href='#'>Checkbox Collapse 3</a>
+<section class='collapse' id='collapse_check_3'>
+<article>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</article>
+</section>
+</li>
+</ul>
+</nav>
+<hr />
+<nav style='margin-top: 1em;'>
+<ul data-behavior='checkbox' data-bindable='collapse' data-type='group' id='collapse_external'>
+<li>
+<a href='#collapse_external_1'>External Checkbox Collapse 1</a>
+</li>
+<li>
+<a href='#collapse_external_2'>External Checkbox Collapse 2</a>
+</li>
+<li>
+<a href='#collapse_external_3'>External Checkbox Collapse 3</a>
+</li>
+</ul>
+<section class='collapse' id='collapse_external_1'>
+<article>
+<p><strong>Collapse External Pane 1</strong></p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</article>
+</section>
+<section class='collapse' id='collapse_external_2'>
+<article>
+<p><strong>Collapse External Pane 2</strong></p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</article>
+</section>
+<section class='collapse' id='collapse_external_3'>
+<article>
+<p><strong>Collapse External Pane 3</strong></p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</article>
+</section>
+</nav>
+</div>
+
+<pre><code class="haml">:ruby
+  @lorem = &quot;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&quot;
+
+%a(data-bindable=&quot;collapse&quot; href=&quot;#collapse_height&quot;) Single Collapse
+%section.collapse#collapse_height
+  %article
+    -(1..3).each do |i|
+      %p=@lorem
+
+%a(data-bindable=&quot;collapse&quot; data-target=&quot;#collapse_auto&quot; href=&quot;#&quot; data-activate=&quot;true&quot;) Single Auto Shown
+%section.collapse.in#collapse_auto
+  %article
+    %p=@lorem
+
+
+%hr
+%nav(style=&quot;margin-top: 1em;&quot;)
+  %ul#collapse_radio(data-bindable=&quot;collapse&quot; data-type=&quot;group&quot; data-activate=&quot;0&quot;)
+    -(1..3).each do |i|
+      %li
+        %a(href=&quot;#collapse_radio_#{i}&quot;) Radio Collapse #{i}
+        %section.collapse(id=&quot;collapse_radio_#{i}&quot;)
+          %article
+            %p=@lorem
+
+%hr
+%nav(style=&quot;margin-top: 1em;&quot;)
+  %ul#collapse_checkbox(data-bindable=&quot;collapse&quot; data-type=&quot;group&quot; data-behavior=&quot;checkbox&quot;)
+    -(1..3).each do |i|
+      %li
+        %a(href=&quot;#&quot; data-target=&quot;#collapse_check_#{i}&quot;) Checkbox Collapse #{i}
+        %section.collapse(id=&quot;collapse_check_#{i}&quot;)
+          %article
+            %p=@lorem
+
+%hr
+%nav(style=&quot;margin-top: 1em;&quot;)
+  %ul#collapse_external(data-bindable=&quot;collapse&quot; data-type=&quot;group&quot; data-behavior=&quot;checkbox&quot;)
+    -(1..3).each do |i|
+      %li
+        %a(href=&quot;#collapse_external_#{i}&quot;) External Checkbox Collapse #{i}
+
+  -(1..3).each do |i|
+    %section.collapse(id=&quot;collapse_external_#{i}&quot;)
+      %article
+        %p&lt;
+          %strong Collapse External Pane #{i}
+        %p=@lorem
+</code></pre>
+
+<!-- end -->
+
+<h2>Options</h2>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>namespace</code></td>
+<td><code>collapse</code></td>
+<td>The namespace to use for dispatching events</td>
+</tr>
+<tr>
+<td><code>dimension</code></td>
+<td><code>height</code></td>
+<td>The property to collapse on</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td><code>single</code></td>
+<td>For multiple collapsible elements, pass <code>group</code> as the value</td>
+</tr>
+</tbody></table>
+
+<p>See <code>Toggle</code> or <code>ToggleGroup</code> for more options.</p>
+
+<p>If <code>type</code> is set to single (the default), <code>Collapse</code> will instantiate an
+instance of <code>Toggle</code> for managing the links state. If <code>type</code> is set to
+<code>group</code>, the <code>ToggleGroup</code> behavior is used.</p>
+
+<h2>API</h2>
+
+<h3>#new</h3>
+
+<p>Create a new instance of <code>Collapse</code> programatically, typically this
+is instantiated through <code>Bindable</code></p>
+
+<pre><code class="coffee">#= require collapse
+
+@collapse_el = $(&#39;#single&#39;)
+@group_el = $(&#39;#group_el&#39;)
+
+@collapse = new utensil.Tab(@collapse_el)
+@collapse_group = new utensil.Tab(@group_el)
+</code></pre>
+
+<h3>#activate</h3>
+
+<p>Activate can take either an index, element or string as it&#39;s target
+parameter if the <code>type</code> is set to <code>group</code>. Otherwise, no parameter is
+required.</p>
+
+<h5>dispatches:</h5>
+
+<ul>
+<li><code>collapse:activated</code></li>
+</ul>
+
+<pre><code class="coffee"># activate on a non-group collapse 
+@collapse.activate()
+
+# activate by index on a group
+@collapse_group.activate(1)
+
+# activate by element on a group
+@collapse_group.activate(@group_el.find(&#39;li:nth-child(2)&#39;))
+</code></pre>
+
+<h3>#deactivate</h3>
+
+<p>Deactivate can take either an index, element or string as it&#39;s target
+parameter if the <code>type</code> is set to <code>group</code>. Otherwise, no parameter is
+required.</p>
+
+<h5>dispatches:</h5>
+
+<ul>
+<li><code>collapse:deactivated</code></li>
+</ul>
+
+<pre><code class="coffee"># deactivate on a non-group collapse 
+@collapse.deactivate()
+
+# deactivate by index on a group
+@collapse_group.deactivate(1)
+
+# deactivate by element on a group
+@collapse_group.deactivate(@group_el.find(&#39;li:nth-child(2)&#39;))
+</code></pre>
+
+<h3>#dispose</h3>
+
+<p>Cleans up any internal references </p>
+
+<pre><code class="coffee">@collapse.dispose()
+@collapse_group.dispose()
+</code></pre>
+
+<p>When a panel (the target with <code>.collapse</code>) is activated or deactivated
+it dispatches events around it&#39;s state.</p>
+
+<table><thead>
+<tr>
+<th>Event</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>collapse:show</code></td>
+<td>The start event before the transition occurs and the element is hidden</td>
+</tr>
+<tr>
+<td><code>collapse:shown</code></td>
+<td>After the transition occurs and the element is showing</td>
+</tr>
+<tr>
+<td><code>collapse:hide</code></td>
+<td>The start event before the transition occurs and the element is showing</td>
+</tr>
+<tr>
+<td><code>collapse:hidden</code></td>
+<td>After the transition occurs and the element is hidden</td>
+</tr>
+</tbody></table>
+
+<h3>Requires</h3>
+
+<ul>
+<li><code>utensil</code></li>
+<li><code>bindable</code></li>
+<li><code>detect</code></li>
+<li><code>toggle</code></li>
+<li><code>toggle_group</code></li>
+</ul>
+
+<h2>Style Settings</h2>
+
+<p>To override the default settings, set the variable and it&#39;s value
+within your <code>config.sass</code> file or before <code>collapse.sass</code> is loaded.</p>
+
+<table><thead>
+<tr>
+<th>Variable</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>$collapse-duration</code></td>
+<td><code>$speed</code></td>
+<td>Duration to collapse or expand the element</td>
+</tr>
+<tr>
+<td><code>$collapse-timing-function</code></td>
+<td><code>$ease-in-out-quart</code></td>
+<td>Timing equation to fade the element</td>
+</tr>
+</tbody></table>
+
+<h2>Todo</h2>
+
+<ul>
+<li>Should be able to collapse around the <code>width</code> property</li>
+<li>A few opportunities to speed up and cache lookups</li>
 </ul>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
@@ -1105,7 +1593,7 @@ when creating a <code>Dimensionizer</code> as the constructor&#39;s <code>data</
 <h2>Todo</h2>
 
 <ul>
-<li>turn the dimensionizer demo to togglable</li>
+<li>turn the dimensionizer demo button to a toggle button</li>
 <li>should this live in a debug package outside the components?</li>
 </ul>
 
@@ -1221,145 +1709,124 @@ the inner content.</p>
 
 <div class="sherpa-showcase sherpa-clearfix"><h5 style='margin-bottom:1em;'>Drops in Navigation</h5>
 <nav>
-<ul class='nav inline'>
-<li class='drop' data-bindable='drop'><a href='#'>Drop Normal <span class="caret"></span></a>
-<ul class='nav menu' data-bindable='togglable-group'>
-<li><a href='#'>Subnav 1-1</a></li>
-<li><a href='#'>Subnav 1-2</a></li>
-<li><a href='#'>Subnav 1-3</a></li>
+<ul class='nav inline' id='drop_nav_demo'>
+<li class='drop' data-bindable='drop'><a class='drop-toggle' href='#'>Drop Normal <span class="caret"></span></a>
+<ul class='nav menu' data-bindable='toggle-group'>
+<li><a href='#'>Subnav 1</a></li>
+<li><a href='#'>Subnav 2</a></li>
+<li><a href='#'>Subnav 3</a></li>
 </ul></li>
-<li class='drop' data-bindable='drop' data-placement='north'><a href='#'>Drop North <span class="caret"></span></a>
-<ul class='nav menu' data-bindable='togglable-group'>
-<li><a href='#'>Subnav 2-1</a></li>
-<li><a href='#'>Subnav 2-2</a></li>
-<li><a href='#'>Subnav 2-3</a></li>
+<li class='drop' data-bindable='drop' data-keyboard='false' data-placement='north' data-toggle='active open hello'><a class='drop-toggle' href='#'>Drop North <span class="caret"></span></a>
+<ul class='nav menu' data-bindable='toggle-group'>
+<li><a href='#'>Subnav 1</a></li>
+<li><a href='#'>Subnav 2</a></li>
+<li><a href='#'>Subnav 3</a></li>
 </ul></li>
-</ul>
-</nav>
-<h5 style='margin-bottom:1em; margin-top:2em;'>Drops in Button Toolbar</h5>
-<section class='button-toolbar'>
-<nav class='button-group'>
-<ul class='nav'>
-<li class='drop' data-bindable='drop' data-trigger='hover'><a href='#'>Drop Hover <span class="caret"></span></a>
-<ul class='nav menu' data-bindable='togglable-group'>
+<li class='drop' data-bindable='drop' data-placement='west'><a class='drop-toggle' href='#'>Drop West <span class="caret"></span></a>
+<ul class='nav menu' data-bindable='toggle-group'>
 <li><a href='#'>Subnav 1</a></li>
 <li><a href='#'>Subnav 2</a></li>
 <li><a href='#'>Subnav 3</a></li>
 </ul></li>
 </ul>
 </nav>
-<nav class='button-group'>
+<h5 style='margin-bottom:1em; margin-top:2em;'>Drops in Button Toolbar</h5>
+<section class='button-toolbar'>
+<nav class='button-group' id='drop_button_demo'>
 <a class='btn drop' data-bindable='drop' href='#'>Drop Button <span class="caret"></span></a>
-<ul class='nav menu' data-bindable='togglable-group'>
-<li><a href='#'>Drop 2 Subnav 1</a></li>
-<li><a href='#'>Drop 2 Subnav 2</a></li>
-<li><a href='#'>Drop 2 Subnav 3</a></li>
+<ul class='nav menu' data-bindable='toggle-group'>
+<li><a href='#'>Subnav 1</a></li>
+<li><a href='#'>Subnav 2</a></li>
+<li><a href='#'>Subnav 3</a></li>
 </ul>
 </nav>
-<nav class='button-group'>
+<nav class='button-group' id='drop_split_demo'>
 <a class='btn'>Action</a>
-<a class='btn drop' data-bindable='drop' data-delay='500' data-placement='east' data-related-toggle='in' data-related='#menu_split'><span class="caret"></span></a>
-<ul class='nav menu fade' data-bindable='togglable-group' id='menu_split'>
-<li><a href='#'>Drop 2 Subnav 1</a></li>
-<li><a href='#'>Drop 2 Subnav 2</a></li>
-<li><a href='#'>Drop 2 Subnav 3</a></li>
+<a class='btn drop' data-bindable='drop'><span class="caret"></span></a>
+<ul class='nav menu' data-bindable='toggle-group'>
+<li><a href='#'>Subnav 1</a></li>
+<li><a href='#'>Subnav 2</a></li>
+<li><a href='#'>Subnav 3</a></li>
+</ul>
+</nav>
+<nav class='button-group' id='drop_delay_demo'>
+<a class='btn'>Action</a>
+<a class='btn drop' data-bindable='drop' data-delay='500' data-placement='east'><span class="caret"></span></a>
+<ul class='nav menu' data-bindable='toggle-group'>
+<li><a href='#'>Subnav 1</a></li>
+<li><a href='#'>Subnav 2</a></li>
+<li><a href='#'>Subnav 3</a></li>
 </ul>
 </nav>
 </section>
-<h5 style='margin-bottom:1em; margin-top:2em;'>Drops in Group</h5>
-<nav id='drop_group_demo'>
-<ul class='nav inline' data-bindable='togglable-group'>
-<li><a href='#'>Group One</a></li>
-<li><a href='#'>Group Two</a></li>
-<li class='drop' data-bindable='drop' data-group='.inline'>
-<a href='#'>Drop <span class="caret"></span></a>
-<ul class='nav menu'>
-<li><a href='#'>Group Four</a></li>
-<li><a href='#'>Group Five</a></li>
-<li><a href='#'>Group Six</a></li>
-</ul>
-</li>
-</ul>
-</nav>
 </div>
 
 <pre><code class="haml">%h5(style=&quot;margin-bottom:1em;&quot;) Drops in Navigation
-
 %nav
-  %ul.nav.inline
+  %ul.nav.inline#drop_nav_demo
     %li.drop(data-bindable=&quot;drop&quot;)&lt;
-      %a(href=&quot;#&quot;) Drop Normal &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
-      %ul.nav.menu(data-bindable=&quot;togglable-group&quot;)
+      %a.drop-toggle(href=&quot;#&quot;) Drop Normal &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
+      %ul.nav.menu(data-bindable=&quot;toggle-group&quot;)
         %li&lt;
-          %a(href=&quot;#&quot;) Subnav 1-1
+          %a(href=&quot;#&quot;) Subnav 1
         %li&lt;
-          %a(href=&quot;#&quot;) Subnav 1-2
+          %a(href=&quot;#&quot;) Subnav 2
         %li&lt;
-          %a(href=&quot;#&quot;) Subnav 1-3
-    %li.drop(data-bindable=&quot;drop&quot; data-placement=&quot;north&quot;)&lt;
-      %a(href=&quot;#&quot;) Drop North &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
-      %ul.nav.menu(data-bindable=&quot;togglable-group&quot;)
-        %li&lt;
-          %a(href=&quot;#&quot;) Subnav 2-1
-        %li&lt;
-          %a(href=&quot;#&quot;) Subnav 2-2
-        %li&lt;
-          %a(href=&quot;#&quot;) Subnav 2-3
+          %a(href=&quot;#&quot;) Subnav 3
 
+    %li.drop(data-bindable=&quot;drop&quot; data-placement=&quot;north&quot; data-toggle=&quot;active open hello&quot; data-keyboard=&quot;false&quot;)&lt;
+      %a.drop-toggle(href=&quot;#&quot;) Drop North &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
+      %ul.nav.menu(data-bindable=&quot;toggle-group&quot;)
+        %li&lt;
+          %a(href=&quot;#&quot;) Subnav 1
+        %li&lt;
+          %a(href=&quot;#&quot;) Subnav 2
+        %li&lt;
+          %a(href=&quot;#&quot;) Subnav 3
+
+    %li.drop(data-bindable=&quot;drop&quot; data-placement=&quot;west&quot;)&lt;
+      %a.drop-toggle(href=&quot;#&quot;) Drop West &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
+      %ul.nav.menu(data-bindable=&quot;toggle-group&quot;)
+        %li&lt;
+          %a(href=&quot;#&quot;) Subnav 1
+        %li&lt;
+          %a(href=&quot;#&quot;) Subnav 2
+        %li&lt;
+          %a(href=&quot;#&quot;) Subnav 3
 
 %h5(style=&quot;margin-bottom:1em; margin-top:2em;&quot;) Drops in Button Toolbar
-
 %section.button-toolbar
-  %nav.button-group
-    %ul.nav
-      %li.drop(data-bindable=&quot;drop&quot; data-trigger=&quot;hover&quot;)&lt;
-        %a(href=&quot;#&quot;) Drop Hover &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
-        %ul.nav.menu(data-bindable=&quot;togglable-group&quot;)
-          %li&lt;
-            %a(href=&quot;#&quot;) Subnav 1
-          %li&lt;
-            %a(href=&quot;#&quot;) Subnav 2
-          %li&lt;
-            %a(href=&quot;#&quot;) Subnav 3
-
-  %nav.button-group
+  %nav.button-group#drop_button_demo
     %a.btn.drop(href=&quot;#&quot; data-bindable=&quot;drop&quot;) Drop Button &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
-    %ul.nav.menu(data-bindable=&quot;togglable-group&quot;)
+    %ul.nav.menu(data-bindable=&quot;toggle-group&quot;)
       %li&lt;
-        %a(href=&quot;#&quot;) Drop 2 Subnav 1
+        %a(href=&quot;#&quot;) Subnav 1
       %li&lt;
-        %a(href=&quot;#&quot;) Drop 2 Subnav 2
+        %a(href=&quot;#&quot;) Subnav 2
       %li&lt;
-        %a(href=&quot;#&quot;) Drop 2 Subnav 3
+        %a(href=&quot;#&quot;) Subnav 3
 
-  %nav.button-group
+  %nav.button-group#drop_split_demo
     %a.btn Action
-    %a.btn.drop(data-bindable=&quot;drop&quot; data-placement=&quot;east&quot; data-related=&quot;#menu_split&quot; data-related-toggle=&quot;in&quot; data-delay=&quot;500&quot;) &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
-    %ul.nav.menu#menu_split.fade(data-bindable=&quot;togglable-group&quot;)
+    %a.btn.drop(data-bindable=&quot;drop&quot;) &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
+    %ul.nav.menu(data-bindable=&quot;toggle-group&quot;)
       %li&lt;
-        %a(href=&quot;#&quot;) Drop 2 Subnav 1
+        %a(href=&quot;#&quot;) Subnav 1
       %li&lt;
-        %a(href=&quot;#&quot;) Drop 2 Subnav 2
+        %a(href=&quot;#&quot;) Subnav 2
       %li&lt;
-        %a(href=&quot;#&quot;) Drop 2 Subnav 3
+        %a(href=&quot;#&quot;) Subnav 3
 
-%h5(style=&quot;margin-bottom:1em; margin-top:2em;&quot;) Drops in Group
-
-%nav#drop_group_demo
-  %ul.nav.inline(data-bindable=&quot;togglable-group&quot;)
-    %li&lt;
-      %a(href=&quot;#&quot;) Group One
-    %li&lt;
-      %a(href=&quot;#&quot;) Group Two
-    %li.drop(data-bindable=&quot;drop&quot; data-group=&quot;.inline&quot;)
-      %a(href=&quot;#&quot;) Drop &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
-      %ul.nav.menu
-        %li&lt;
-          %a(href=&quot;#&quot;) Group Four
-        %li&lt;
-          %a(href=&quot;#&quot;) Group Five
-        %li&lt;
-          %a(href=&quot;#&quot;) Group Six
+  %nav.button-group#drop_delay_demo
+    %a.btn Action
+    %a.btn.drop(data-bindable=&quot;drop&quot; data-placement=&quot;east&quot; data-delay=&quot;500&quot;) &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
+    %ul.nav.menu(data-bindable=&quot;toggle-group&quot;)
+      %li&lt;
+        %a(href=&quot;#&quot;) Subnav 1
+      %li&lt;
+        %a(href=&quot;#&quot;) Subnav 2
+      %li&lt;
+        %a(href=&quot;#&quot;) Subnav 3
 </code></pre>
 
 <!-- end -->
@@ -1374,9 +1841,14 @@ the inner content.</p>
 </tr>
 </thead><tbody>
 <tr>
+<td><code>namespace</code></td>
+<td><code>drop</code></td>
+<td>The namespace to use for dispatching events</td>
+</tr>
+<tr>
 <td><code>toggle</code></td>
-<td><code>active active</code></td>
-<td>Overrides <code>Togglable&#39;s</code> default of <code>active</code></td>
+<td><code>active open</code></td>
+<td>Overrides <code>Triggerable&#39;s</code> default of <code>active</code></td>
 </tr>
 <tr>
 <td><code>placement</code></td>
@@ -1390,7 +1862,7 @@ the inner content.</p>
 </tr>
 </tbody></table>
 
-<p>See <code>Togglable</code> for other options </p>
+<p>See <code>Triggerable</code> for other options </p>
 
 <h6>Notes</h6>
 
@@ -1398,6 +1870,8 @@ the inner content.</p>
 <li><strong>Heads Up!</strong> <code>Drop</code> will override it&#39;s placement automatically
 through <code>Directional</code> if it determines the requested position will
 render the <code>menu</code> outside the viewport.</li>
+<li><strong>Heads Up!</strong> The <code>Drop</code> link needs to have the class <code>.drop-toggle</code>
+to help speed up lookups.</li>
 </ul>
 
 <h2>API</h2>
@@ -1447,11 +1921,11 @@ elements toggle event.</p>
 <ul>
 <li><code>utensil</code></li>
 <li><code>bindable</code></li>
-<li><code>togglable</code></li>
+<li><code>triggerable</code></li>
 <li><code>directional</code></li>
 </ul>
 
-<p><code>Drop</code> utilizes <code>Togglable</code> via composition.</p>
+<p><code>Drop</code> utilizes <code>Triggerable</code> via composition.</p>
 
 <h2>Style Settings</h2>
 
@@ -1486,18 +1960,9 @@ value before this file is imported, this is done to keep managing
 <h2>Todo</h2>
 
 <ul>
-<li>Clicking on another item, html or drop should deactivate existing menu items</li>
-<li>Clicking on the drop within a group needs to stopPropagation (see tab)</li>
 <li>Exit animations do not occur since the <code>.visuallyhidden</code> class is
 applied at the same time a transition occurs. Not sure if this should
 be added in here or through an extension of <code>Drop</code>?</li>
-</ul>
-
-<h6>Alert</h6>
-
-<ul>
-<li><strong>Heads Up!</strong> Drop is not yet feature complete, it&#39;s missing some core
-functionality at the moment.</li>
 </ul>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
@@ -1525,58 +1990,43 @@ paired with one of the form layout components.</p>
 <input placeholder='text' type='text' />
 </div>
 
-<p></div></p>
-
+<p></div>
 <div class='control-group'>
 <div class='controls'>
 <input placeholder='name@example.com' type='email' />
 </div>
-
-<p></div></p>
-
+</div>
 <div class='control-group'>
 <div class='controls'>
 <input placeholder='password' type='password' />
 </div>
-
-<p></div></p>
-
+</div>
 <div class='control-group'>
 <div class='controls'>
 <input placeholder='www.example.com' type='url' />
 </div>
-
-<p></div></p>
-
+</div>
 <div class='control-group'>
 <div class='controls'>
 <input placeholder='303-867-5309' type='tel' />
 </div>
-
-<p></div></p>
-
+</div>
 <div class='control-group'>
 <div class='controls'>
 <input placeholder='search' type='search' />
 </div>
-
-<p></div></p>
-
+</div>
 <div class='control-group'>
 <div class='controls'>
 <input placeholder='date' type='date' />
 </div>
-
-<p></div></p>
-
+</div>
 <div class='control-group'>
 <div class='controls'>
 <input max='10' min='0' placeholder='number' type='number' />
 </div>
-
-<p></div>
-</fieldset></p>
-
+</div>
+</fieldset>
 <fieldset class='sherpa-split-push'>
 <legend>Less common input controls</legend>
 <div class='control-group'>
@@ -1626,8 +2076,7 @@ paired with one of the form layout components.</p>
 </div>
 </div>
 </fieldset>
-
-<p></form>
+</form>
 </div></p>
 
 <pre><code class="haml">%form.sherpa-clearfix
@@ -1782,8 +2231,7 @@ other text input controls. These types of inputs require the
 </select>
 </div>
 
-<p></div></p>
-
+<p></div>
 <div class='control-group'>
 <label class='control-label' for='fcsm_select'>Multiple Select</label>
 <div class='controls'>
@@ -1795,8 +2243,7 @@ other text input controls. These types of inputs require the
 <option value='5'>Five</option>
 </select>
 </div>
-
-<p></div>
+</div>
 </fieldset>
 </form>
 </div></p>
@@ -1848,8 +2295,7 @@ zero to many options.</p>
 </label>
 </div>
 
-<p></div></p>
-
+<p></div>
 <div class='control-group'>
 <label class='control-label'><h5>Radio Inline</h5></label>
 <div class='controls'>
@@ -1860,10 +2306,8 @@ zero to many options.</p>
 <input id='fc_radio2-2' name='fc[radios2]' type='radio' value='false'>No, to inline radios</input>
 </label>
 </div>
-
-<p></div>
-<legend>Checkbox Controls</legend></p>
-
+</div>
+<legend>Checkbox Controls</legend>
 <div class='control-group'>
 <label class='control-label'><h5>Checkbox</h5></label>
 <div class='controls'>
@@ -1874,9 +2318,7 @@ zero to many options.</p>
 <input checked='checked' id='fc_check1-2' type='checkbox' value='1'>Premises, checked.</input>
 </label>
 </div>
-
-<p></div></p>
-
+</div>
 <div class='control-group'>
 <label class='control-label'><h5>Checkbox Inline</h5></label>
 <div class='controls'>
@@ -1887,8 +2329,7 @@ zero to many options.</p>
 <input checked='checked' id='fc_check2-2' type='checkbox' value='1'>Premises inline, checked.</input>
 </label>
 </div>
-
-<p></div>
+</div>
 </fieldset>
 </form>
 </div></p>
@@ -1952,18 +2393,15 @@ zero to many options.</p>
 <p class='hint-block'>The hint block for the control element</p>
 </div>
 
-<p></div></p>
-
+<p></div>
 <hr />
-
 <div class='control-group'>
 <label class='control-label' for='fcd_text2'>Label<abbr title="Required">*</abbr></label>
 <div class='controls'>
 <input id='fcd_text2' placeholder='text' type='text' />
 <p class='hint-inline'>The inline hint for the control element</p>
 </div>
-
-<p></div>
+</div>
 </fieldset>
 </form>
 </div></p>
@@ -1971,15 +2409,12 @@ zero to many options.</p>
 <pre><code class="haml">%form
   %fieldset
     %legend I am Legend
-
     .control-group
       %label.control-label(for=&quot;fcd_text1&quot;) Label&lt;abbr title=&quot;Required&quot;&gt;*&lt;/abbr&gt;
       .controls
         %input#fcd_text1(type=&quot;text&quot; placeholder=&quot;text&quot;)
         %p.hint-block The hint block for the control element
-
     %hr
-
     .control-group
       %label.control-label(for=&quot;fcd_text2&quot;) Label&lt;abbr title=&quot;Required&quot;&gt;*&lt;/abbr&gt;
       .controls
@@ -2052,15 +2487,13 @@ user.</p>
 <p class='hint-inline'>Hurry up!</p>
 </div>
 
-<p></div></p>
-
+<p></div>
 <div class='control-group'>
 <label class='control-label' for='fcu_textarea'>Uneditable field<abbr title="Fill out entire form first">!</abbr></label>
 <div class='controls'>
-<textarea class='uneditable-field' disabled='disabled' id='fcu_textarea' placeholder='Enter the textarea...' rows='8'>Can't touch this either</textarea>
+<textarea class='uneditable-field' disabled='disabled' id='fcu_textarea' placeholder='Enter the textarea...' rows='8'>Can&#39;t touch this either</textarea>
 </div>
-
-<p></div>
+</div>
 </fieldset>
 </form>
 </div></p>
@@ -2162,16 +2595,16 @@ or other descriptive helpers</li>
 <!--~ markup/form-controls-structure.html.haml -->
 
 <div class="sherpa-showcase sherpa-clearfix"><section class='button-toolbar' id='demo_form' style='margin-bottom:1em;'>
-<nav class='button-group' data-bindable='togglable-group' data-remove='form-vertical form-horizontal' data-target='.btn'>
+<nav class='button-group' data-bindable='toggle-button-group' data-remove='form-vertical form-horizontal'>
 <button class='btn active' data-add='' href='#'>Default</button>
 <button class='btn' data-add='form-horizontal' href='#'>Horizontal</button>
 </nav>
-<nav class='button-group' data-bindable='togglable-group' data-remove='well fill' data-target='.btn'>
+<nav class='button-group' data-bindable='toggle-button-group' data-remove='well fill'>
 <button class='btn active' data-add='' href='#'>None</button>
 <button class='btn' data-add='well' href='#'>Well</button>
 <button class='btn' data-add='well fill' href='#'>Well Fill</button>
 </nav>
-<nav class='button-group' data-bindable='togglable-group' data-remove='disabled error success' data-target='.btn'>
+<nav class='button-group' data-bindable='toggle-button-group' data-remove='disabled error success'>
 <button class='btn active' data-add='' href='#'>Normal</button>
 <button class='btn' data-add='disabled' href='#'>Disabled</button>
 <button class='btn' data-add='success' href='#'>Success</button>
@@ -2190,8 +2623,7 @@ or other descriptive helpers</li>
 <p class='hint-block'>First and last name</p>
 </div>
 
-<p></div></p>
-
+<p></div>
 <div class='control-group'>
 <label class='control-label' for='fcs_email'>Email:<abbr title="Required">*</abbr></label>
 <div class='controls'>
@@ -2199,11 +2631,9 @@ or other descriptive helpers</li>
 <p class='hint-inline'>No AOL accounts!</p>
 <p class='hint-inline error-msg'>That failed terribly</p>
 <p class='hint-inline success-msg'>Gold stars all around</p>
-<p class='hint-block'>We won't share it</p>
+<p class='hint-block'>We won&#39;t share it</p>
 </div>
-
-<p></div></p>
-
+</div>
 <div class='control-group'>
 <label class='control-label' for='fcs_file'>File Browser:</label>
 <div class='controls'>
@@ -2211,9 +2641,7 @@ or other descriptive helpers</li>
 <p class='hint-inline error-msg'>That failed terribly</p>
 <p class='hint-inline success-msg'>Gold stars all around</p>
 </div>
-
-<p></div></p>
-
+</div>
 <div class='control-group'>
 <label class='control-label' for='fcs_textarea'>Textarea:</label>
 <div class='controls'>
@@ -2221,9 +2649,7 @@ or other descriptive helpers</li>
 <p class='hint-inline error-msg'>That failed terribly</p>
 <p class='hint-inline success-msg'>Gold stars all around</p>
 </div>
-
-<p></div></p>
-
+</div>
 <div class='control-group'>
 <label class='control-label' for='fcs_uneditable'><abbr title="Fill out entire form first">Uneditable field:</abbr></label>
 <div class='controls'>
@@ -2232,10 +2658,8 @@ or other descriptive helpers</li>
 <p class='hint-inline error-msg'>That failed terribly</p>
 <p class='hint-inline success-msg'>Gold stars all around</p>
 </div>
-
-<p></div>
-</fieldset></p>
-
+</div>
+</fieldset>
 <fieldset>
 <legend>Make a choice</legend>
 <div class='control-group'>
@@ -2318,19 +2742,18 @@ or other descriptive helpers</li>
 <input class='btn standard' type='reset' value='Cancel' />
 </div>
 </fieldset>
-
-<p></form>
+</form>
 </div></p>
 
 <pre><code class="haml">%section#demo_form.button-toolbar(style=&quot;margin-bottom:1em;&quot;)
-  %nav.button-group(data-bindable=&quot;togglable-group&quot; data-target=&quot;.btn&quot; data-remove=&quot;form-vertical form-horizontal&quot;)
+  %nav.button-group(data-bindable=&quot;toggle-button-group&quot; data-remove=&quot;form-vertical form-horizontal&quot;)
     %button.btn.active(href=&quot;#&quot; data-add=&quot;&quot;) Default
     %button.btn(href=&quot;#&quot; data-add=&quot;form-horizontal&quot;) Horizontal
-  %nav.button-group(data-bindable=&quot;togglable-group&quot; data-target=&quot;.btn&quot; data-remove=&quot;well fill&quot;)
+  %nav.button-group(data-bindable=&quot;toggle-button-group&quot; data-remove=&quot;well fill&quot;)
     %button.btn.active(href=&quot;#&quot; data-add=&quot;&quot;) None
     %button.btn(href=&quot;#&quot; data-add=&quot;well&quot;) Well
     %button.btn(href=&quot;#&quot; data-add=&quot;well fill&quot;) Well Fill
-  %nav.button-group(data-bindable=&quot;togglable-group&quot; data-target=&quot;.btn&quot; data-remove=&quot;disabled error success&quot;)
+  %nav.button-group(data-bindable=&quot;toggle-button-group&quot; data-remove=&quot;disabled error success&quot;)
     %button.btn.active(href=&quot;#&quot; data-add=&quot;&quot;) Normal
     %button.btn(href=&quot;#&quot; data-add=&quot;disabled&quot;) Disabled
     %button.btn(href=&quot;#&quot; data-add=&quot;success&quot;) Success
@@ -2777,7 +3200,7 @@ directly in the markup.</p>
 </ul>
 </nav>
 <h5 style='margin-bottom:1em; margin-top:3em;'>Select to spin the caret</h5>
-<nav class='radio-demo button-group' data-bindable='togglable-group' data-target='.btn'>
+<nav class='radio-demo button-group' data-bindable='toggle-button-group'>
 <a class='btn' data-add='north' href='#'>North</a>
 <a class='btn active' data-add='south' href='#'>South</a>
 <a class='btn' data-add='east' href='#'>East</a>
@@ -2799,7 +3222,7 @@ directly in the markup.</p>
       %span.caret.transall#test_caret
 
 %h5(style=&quot;margin-bottom:1em; margin-top:3em;&quot;) Select to spin the caret
-%nav.radio-demo.button-group(data-bindable=&quot;togglable-group&quot; data-target=&quot;.btn&quot;)
+%nav.radio-demo.button-group(data-bindable=&quot;toggle-button-group&quot;)
   %a.btn(href=&quot;#&quot; data-add=&quot;north&quot;) North
   %a.btn.active(href=&quot;#&quot; data-add=&quot;south&quot;) South
   %a.btn(href=&quot;#&quot; data-add=&quot;east&quot;) East
@@ -3009,7 +3432,7 @@ typically used within the <code>Drop</code> component.</p>
 <!--~ markup/menu.html.haml -->
 
 <div class="sherpa-showcase sherpa-clearfix"><nav>
-<ul class='nav menu' data-bindable='togglable-group'>
+<ul class='nav menu' data-bindable='toggle-group'>
 <li><a href='#'>Menu item 1</a></li>
 <li class='active'><a href='#'>Menu item 2</a></li>
 <li><a href='#'>Menu item 3</a></li>
@@ -3018,7 +3441,7 @@ typically used within the <code>Drop</code> component.</p>
 </div>
 
 <pre><code class="haml">%nav
-  %ul.nav.menu(data-bindable=&quot;togglable-group&quot;)
+  %ul.nav.menu(data-bindable=&quot;toggle-group&quot;)
     %li&lt;
       %a(href=&quot;#&quot;) Menu item 1
     %li.active&lt;
@@ -3264,7 +3687,7 @@ represent pagination navigation. The list should contain the <code>.nav</code> c
 
 <!--~ markup/pagination.html.haml -->
 
-<div class="sherpa-showcase sherpa-clearfix"><nav data-bindable='togglable-group'>
+<div class="sherpa-showcase sherpa-clearfix"><nav data-bindable='toggle-group'>
 <ol class='nav pagination'>
 <li class='disabled'><a href='#'>&laquo;</a></li>
 <li><a href='#'>1</a></li>
@@ -3277,7 +3700,7 @@ represent pagination navigation. The list should contain the <code>.nav</code> c
 </ol>
 </nav>
 <hr />
-<nav class='pagination-center' data-bindable='togglable-group'>
+<nav class='pagination-center' data-bindable='toggle-group'>
 <ol class='nav pagination'>
 <li class='disabled'><a href='#'>&laquo;</a></li>
 <li><a href='#'>1</a></li>
@@ -3290,7 +3713,7 @@ represent pagination navigation. The list should contain the <code>.nav</code> c
 </ol>
 </nav>
 <hr />
-<nav class='pagination-right' data-bindable='togglable-group'>
+<nav class='pagination-right' data-bindable='toggle-group'>
 <ol class='nav pagination'>
 <li class='disabled'><a href='#'>&laquo;</a></li>
 <li><a href='#'>1</a></li>
@@ -3304,7 +3727,7 @@ represent pagination navigation. The list should contain the <code>.nav</code> c
 </nav>
 </div>
 
-<pre><code class="haml">%nav(data-bindable=&quot;togglable-group&quot;)
+<pre><code class="haml">%nav(data-bindable=&quot;toggle-group&quot;)
   %ol.nav.pagination
     %li.disabled&lt;
       %a(href=&quot;#&quot;) &amp;laquo;
@@ -3323,7 +3746,7 @@ represent pagination navigation. The list should contain the <code>.nav</code> c
     %li&lt;
       %a(href=&quot;#&quot;) &amp;raquo;
 %hr
-%nav.pagination-center(data-bindable=&quot;togglable-group&quot;)
+%nav.pagination-center(data-bindable=&quot;toggle-group&quot;)
   %ol.nav.pagination
     %li.disabled&lt;
       %a(href=&quot;#&quot;) &amp;laquo;
@@ -3342,7 +3765,7 @@ represent pagination navigation. The list should contain the <code>.nav</code> c
     %li&lt;
       %a(href=&quot;#&quot;) &amp;raquo;
 %hr
-%nav.pagination-right(data-bindable=&quot;togglable-group&quot;)
+%nav.pagination-right(data-bindable=&quot;toggle-group&quot;)
   %ol.nav.pagination
     %li.disabled&lt;
       %a(href=&quot;#&quot;) &amp;laquo;
@@ -3439,8 +3862,10 @@ navigation elements. Pills like other navigation elements require the
 <code>.nav</code> class for layout. Add <code>.nav .pill</code> to a <code>ul</code> or <code>ol</code> element.</p>
 
 <p>To utilize a drop dead simple version of hiding and showing content, add
-the <code>data-bindable=&quot;togglable-group&quot;</code> along with a <code>data-related</code> target
-and <code>href</code> attributes pointing to the related targets panel.</p>
+the <code>data-bindable=&quot;tab&quot;</code> along with an <code>href</code> attributes pointing to
+the related targets panel.</p>
+
+<p>See <code>Tab</code> for more information.</p>
 
 <pre><code class="sass">@import utensils/components/pill/pill
 </code></pre>
@@ -3448,12 +3873,12 @@ and <code>href</code> attributes pointing to the related targets panel.</p>
 <!--~ markup/pill.html.haml -->
 
 <div class="sherpa-showcase sherpa-clearfix"><nav id='pill_demo'>
-<ul class='nav pill' data-bindable='togglable-group' data-related='#pill_content .togglable-pane'>
+<ul class='nav pill' data-bindable='tab' data-related='#pill_content'>
 <li class='active'><a href='#pill_one'>Pill One</a></li>
 <li><a data-target='#pill_two' href='#'>Pill Two</a></li>
 <li><a href='#pill_three'>Pill Three</a></li>
-<li class='drop' data-bindable='drop' data-group='.pill'>
-<a href='#'>Pill Drop <span class="caret"></span></a>
+<li class='drop' data-bindable='drop'>
+<a class='drop-toggle' href='#'>Pill Drop <span class="caret"></span></a>
 <ul class='nav menu'>
 <li><a href='#pill_four'>Pill Four</a></li>
 <li><a href='#pill_five'>Pill Five</a></li>
@@ -3462,30 +3887,30 @@ and <code>href</code> attributes pointing to the related targets panel.</p>
 </li>
 </ul>
 </nav>
-<section class='togglable-content' id='pill_content' style='margin-top:1.25em;'>
-<article class='togglable-pane active' id='pill_one'>
+<section class='tab-content' id='pill_content' style='margin-top:1.25em;'>
+<article class='tab-pane active' id='pill_one'>
 <p>Pill content <span class="decal important">one</span></p>
 </article>
-<article class='togglable-pane' id='pill_two'>
+<article class='tab-pane' id='pill_two'>
 <p>Pill content <span class="decal success">two</span></p>
 </article>
-<article class='togglable-pane' id='pill_three'>
+<article class='tab-pane' id='pill_three'>
 <p>Pill content <span class="decal danger">three</span></p>
 </article>
-<article class='togglable-pane' id='pill_four'>
+<article class='tab-pane' id='pill_four'>
 <p>Pill sub content <span class="decal warning">four</span></p>
 </article>
-<article class='togglable-pane' id='pill_five'>
+<article class='tab-pane' id='pill_five'>
 <p>Pill sub content <span class="decal inverse">five</span></p>
 </article>
-<article class='togglable-pane' id='pill_six'>
+<article class='tab-pane' id='pill_six'>
 <p>Pill sub content <span class="decal important">six</span></p>
 </article>
 </section>
 </div>
 
 <pre><code class="haml">%nav#pill_demo
-  %ul.nav.pill(data-bindable=&quot;togglable-group&quot; data-related=&quot;#pill_content .togglable-pane&quot;)
+  %ul.nav.pill(data-bindable=&quot;tab&quot; data-related=&quot;#pill_content&quot;)
     %li.active&lt;
       %a(href=&quot;#pill_one&quot;) Pill One
     %li&lt;
@@ -3493,8 +3918,8 @@ and <code>href</code> attributes pointing to the related targets panel.</p>
     %li&lt;
       %a(href=&quot;#pill_three&quot;) Pill Three
 
-    %li.drop(data-bindable=&quot;drop&quot; data-group=&quot;.pill&quot;)
-      %a(href=&quot;#&quot;) Pill Drop &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
+    %li.drop(data-bindable=&quot;drop&quot;)
+      %a.drop-toggle(href=&quot;#&quot;) Pill Drop &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
       %ul.nav.menu
         %li&lt;
           %a(href=&quot;#pill_four&quot;) Pill Four
@@ -3503,19 +3928,19 @@ and <code>href</code> attributes pointing to the related targets panel.</p>
         %li&lt;
           %a(href=&quot;#pill_six&quot;) Pill Six
 
-%section#pill_content.togglable-content(style=&quot;margin-top:1.25em;&quot;)
-  %article.togglable-pane.active#pill_one
+%section#pill_content.tab-content(style=&quot;margin-top:1.25em;&quot;)
+  %article.tab-pane.active#pill_one
     %p Pill content &lt;span class=&quot;decal important&quot;&gt;one&lt;/span&gt;
-  %article.togglable-pane#pill_two
+  %article.tab-pane#pill_two
     %p Pill content &lt;span class=&quot;decal success&quot;&gt;two&lt;/span&gt;
-  %article.togglable-pane#pill_three
+  %article.tab-pane#pill_three
     %p Pill content &lt;span class=&quot;decal danger&quot;&gt;three&lt;/span&gt;
 
-  %article.togglable-pane#pill_four
+  %article.tab-pane#pill_four
     %p Pill sub content &lt;span class=&quot;decal warning&quot;&gt;four&lt;/span&gt;
-  %article.togglable-pane#pill_five
+  %article.tab-pane#pill_five
     %p Pill sub content &lt;span class=&quot;decal inverse&quot;&gt;five&lt;/span&gt;
-  %article.togglable-pane#pill_six
+  %article.tab-pane#pill_six
     %p Pill sub content &lt;span class=&quot;decal important&quot;&gt;six&lt;/span&gt;
 </code></pre>
 
@@ -3565,12 +3990,12 @@ within your <code>config.sass</code> file or before <code>pill.sass</code> is lo
 <!--~ markup/pill-stacked.html.haml -->
 
 <div class="sherpa-showcase sherpa-clearfix"><nav id='pill_stacked_demo'>
-<ul class='nav pill stacked' data-bindable='togglable-group' data-related='#pill_stacked_content .togglable-pane'>
+<ul class='nav pill stacked' data-bindable='tab' data-related='#pill_stacked_content'>
 <li class='active'><a href='#pill_stacked_one'>Pill One</a></li>
 <li><a data-target='#pill_stacked_two' href='#'>Pill Two</a></li>
 <li><a href='#pill_stacked_three'>Pill Three</a></li>
-<li class='drop' data-bindable='drop' data-group='.pill'>
-<a href='#'>Pill Drop <span class="caret"></span></a>
+<li class='drop' data-bindable='drop'>
+<a class='drop-toggle' href='#'>Pill Drop <span class="caret"></span></a>
 <ul class='nav menu'>
 <li><a href='#pill_stacked_four'>Pill Four</a></li>
 <li><a href='#pill_stacked_five'>Pill Five</a></li>
@@ -3579,30 +4004,30 @@ within your <code>config.sass</code> file or before <code>pill.sass</code> is lo
 </li>
 </ul>
 </nav>
-<section class='togglable-content' id='pill_stacked_content' style='margin-top:1.25em;'>
-<article class='togglable-pane active' id='pill_stacked_one'>
+<section class='tab-content' id='pill_stacked_content' style='margin-top:1.25em;'>
+<article class='tab-pane active' id='pill_stacked_one'>
 <p>Pill content <span class="decal important">one</span></p>
 </article>
-<article class='togglable-pane' id='pill_stacked_two'>
+<article class='tab-pane' id='pill_stacked_two'>
 <p>Pill content <span class="decal success">two</span></p>
 </article>
-<article class='togglable-pane' id='pill_stacked_three'>
+<article class='tab-pane' id='pill_stacked_three'>
 <p>Pill content <span class="decal danger">three</span></p>
 </article>
-<article class='togglable-pane' id='pill_stacked_four'>
+<article class='tab-pane' id='pill_stacked_four'>
 <p>Pill sub content <span class="decal warning">four</span></p>
 </article>
-<article class='togglable-pane' id='pill_stacked_five'>
+<article class='tab-pane' id='pill_stacked_five'>
 <p>Pill sub content <span class="decal inverse">five</span></p>
 </article>
-<article class='togglable-pane' id='pill_stacked_six'>
+<article class='tab-pane' id='pill_stacked_six'>
 <p>Pill sub content <span class="decal important">six</span></p>
 </article>
 </section>
 </div>
 
 <pre><code class="haml">%nav#pill_stacked_demo
-  %ul.nav.pill.stacked(data-bindable=&quot;togglable-group&quot; data-related=&quot;#pill_stacked_content .togglable-pane&quot;)
+  %ul.nav.pill.stacked(data-bindable=&quot;tab&quot; data-related=&quot;#pill_stacked_content&quot;)
     %li.active&lt;
       %a(href=&quot;#pill_stacked_one&quot;) Pill One
     %li&lt;
@@ -3610,8 +4035,8 @@ within your <code>config.sass</code> file or before <code>pill.sass</code> is lo
     %li&lt;
       %a(href=&quot;#pill_stacked_three&quot;) Pill Three
 
-    %li.drop(data-bindable=&quot;drop&quot; data-group=&quot;.pill&quot;)
-      %a(href=&quot;#&quot;) Pill Drop &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
+    %li.drop(data-bindable=&quot;drop&quot;)
+      %a.drop-toggle(href=&quot;#&quot;) Pill Drop &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
       %ul.nav.menu
         %li&lt;
           %a(href=&quot;#pill_stacked_four&quot;) Pill Four
@@ -3620,19 +4045,19 @@ within your <code>config.sass</code> file or before <code>pill.sass</code> is lo
         %li&lt;
           %a(href=&quot;#pill_stacked_six&quot;) Pill Six
 
-%section#pill_stacked_content.togglable-content(style=&quot;margin-top:1.25em;&quot;)
-  %article.togglable-pane.active#pill_stacked_one
+%section#pill_stacked_content.tab-content(style=&quot;margin-top:1.25em;&quot;)
+  %article.tab-pane.active#pill_stacked_one
     %p Pill content &lt;span class=&quot;decal important&quot;&gt;one&lt;/span&gt;
-  %article.togglable-pane#pill_stacked_two
+  %article.tab-pane#pill_stacked_two
     %p Pill content &lt;span class=&quot;decal success&quot;&gt;two&lt;/span&gt;
-  %article.togglable-pane#pill_stacked_three
+  %article.tab-pane#pill_stacked_three
     %p Pill content &lt;span class=&quot;decal danger&quot;&gt;three&lt;/span&gt;
 
-  %article.togglable-pane#pill_stacked_four
+  %article.tab-pane#pill_stacked_four
     %p Pill sub content &lt;span class=&quot;decal warning&quot;&gt;four&lt;/span&gt;
-  %article.togglable-pane#pill_stacked_five
+  %article.tab-pane#pill_stacked_five
     %p Pill sub content &lt;span class=&quot;decal inverse&quot;&gt;five&lt;/span&gt;
-  %article.togglable-pane#pill_stacked_six
+  %article.tab-pane#pill_stacked_six
     %p Pill sub content &lt;span class=&quot;decal important&quot;&gt;six&lt;/span&gt;
 </code></pre>
 
@@ -3644,15 +4069,135 @@ within your <code>config.sass</code> file or before <code>pill.sass</code> is lo
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
-<h1>Polyfills</h1>
+<h1>Polyfill</h1>
 
-<p>Describe this</p>
+<p>Most projects benefit greatly from using a library like
+<a href="http://compass-style.org/">Compass</a> or
+<a href="http://thoughtbot.com/bourbon/">Bourbon</a>. Utensils is not designed to
+replace these libraries, but rather sit on top of them. There may be
+times when using one of these libraries isn&#39;t an option, so Utensils
+provides a few simple polyfill mixins in it&#39;s place.</p>
 
-<h2>Todo</h2>
+<p>If a project uses Compass or Bourbon, make sure not to import these
+polyfills.</p>
+
+<pre><code class="sass">@import utensils/components/polyfill/polyfills
+</code></pre>
+
+<h2>Functions</h2>
+
+<p>Internal functions used by polyfills.</p>
+
+<h3>Combine</h3>
+
+<p>A function to combine and normalize multiple parameters (supports up to
+9), used by <code>transition</code>, <code>box-shadow</code> and <code>background-image</code>.</p>
+
+<h5>Arguments</h5>
 
 <ul>
-<li>Pull the docs from the files into this readme</li>
+<li><code>$value-1</code> The first property to combine</li>
+<li><code>$value-2(-9)</code> Remaining properties to combine (defaults to <code>false</code>)</li>
+<li><code>@return</code> The combined values for translation into the mixin</li>
 </ul>
+
+<h6>Warning</h6>
+
+<ul>
+<li><strong>Warning!</strong> The combine function for mixin values only accepts 9
+values, this is inline with the Bourbon library (Compass supports 10!)</li>
+</ul>
+
+<pre><code class="sass">$full: combine($transition-1, $transition-2, $transition-3)
+</code></pre>
+
+<h2>Background Image</h2>
+
+<p>Draws a background image to an element, mainly used for gradients
+(supports up to 9 background image parameters) This does not support the
+old webkit linear gradient.</p>
+
+<h5>Arguments</h5>
+
+<ul>
+<li><code>$bgi-n</code> The background image properties to apply</li>
+</ul>
+
+<pre><code class="sass">.element
+  +background-image(linear-gradient(#ff00ff, #000), url(&quot;/images/asset.png&quot;))
+</code></pre>
+
+<h2>Box Shadow</h2>
+
+<p>Draws an outer or inset shadow around an element (supports up to 9
+shadow parameters)</p>
+
+<h5>Arguments</h5>
+
+<ul>
+<li><code>$shadow-n</code> The normal or inset shadow properties to apply</li>
+</ul>
+
+<pre><code class="sass">.element
+  +box-shadow(inset 0 1px 1px rgba(0, 0, 0, 0.1), -1px -1px 5px 1px black)
+</code></pre>
+
+<h2>Box Sizing</h2>
+
+<p>Changes the box model used for calculating an elements width and height</p>
+
+<h5>Arguments</h5>
+
+<ul>
+<li><code>$type:border-box</code> Options: <code>content-box | border-box | inherit</code></li>
+</ul>
+
+<pre><code class="sass">.column
+  +box-sizing(border-box)
+</code></pre>
+
+<h2>Opacity</h2>
+
+<p>Provides cross browser opacity, values are between <code>0-1</code>.</p>
+
+<h5>Arguments</h5>
+
+<ul>
+<li><code>$alpha:1</code></li>
+</ul>
+
+<pre><code class="sass">.element
+  +opacity(0.5)
+</code></pre>
+
+<h2>Transition</h2>
+
+<p>Adds vendor prefixes for transitions (supports up to 9 transition
+parameters)</p>
+
+<h5>Arguments</h5>
+
+<ul>
+<li><code>$transition-n</code> The transition values to apply.</li>
+</ul>
+
+<pre><code class="sass">.element
+  +transition(height $speed $ease-in-out-quart, color $speed)
+</code></pre>
+
+<h2>User Select</h2>
+
+<p>Define whether an element is selectable (only controls the appearance).</p>
+
+<h5>Arguments</h5>
+
+<ul>
+<li><code>$type:none</code> Options: <code>none | auto | text</code></li>
+</ul>
+
+<pre><code class="sass">.cant-touch-this
+  +user-select(none)
+</code></pre>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
@@ -3686,7 +4231,6 @@ points.</p>
 <div class='hidden' data-bubble='true' data-delay='activate: 1000, deactivate:0' data-placement='west' data-toggle='in' id='pop_exterior_content'>
 <div class='pop fade'>
 <div class='pop-arrow'></div>
-
 <div class='pop-inner'>
 <div class='pop-header'>
 <h3>Exterior content</h3>
@@ -3706,13 +4250,13 @@ points.</p>
     %li&lt;
       %a#pop_north(data-bindable=&quot;pop&quot; data-delay=&quot;100&quot; title=&quot;The Northern Pop&quot; data-content=&quot;North is way up there, just hanging out with the Canadians.&quot; href=&quot;#&quot;) Northern Pop
     %li&lt;
-      %a#pop_south(data-bindable=&quot;pop&quot; data-placement=&quot;south&quot; data-delay=&quot;1000,2000&quot; title=&quot;The Southern Pop&quot; data-content=&quot;South is where the snow goes in the summer. You should go there.&quot;  href=&quot;#&quot;) Southern Pop
+      %a#pop_south(data-bindable=&quot;pop&quot; data-placement=&quot;south&quot; data-delay=&quot;1000,2000&quot; title=&quot;The Southern Pop&quot; data-content=&quot;South is where the snow goes in the summer. You should go there.&quot; href=&quot;#&quot;) Southern Pop
     %li&lt;
-      %a#pop_east(data-bindable=&quot;pop&quot; data-trigger=&quot;hover&quot; data-placement=&quot;east&quot; title=&quot;The Eastern Pop&quot; data-content=&quot;East Coast hip-hop in the 90s is about as good as it gets.&quot;  href=&quot;#&quot;) Eastern Pop
+      %a#pop_east(data-bindable=&quot;pop&quot; data-trigger=&quot;hover&quot; data-placement=&quot;east&quot; title=&quot;The Eastern Pop&quot; data-content=&quot;East Coast hip-hop in the 90s is about as good as it gets.&quot; href=&quot;#&quot;) Eastern Pop
     %li&lt;
       %a#pop_west(data-bindable=&quot;pop&quot; data-placement=&quot;west&quot; title=&quot;&lt;h2&gt;The Western Pop&lt;/h2&gt;&quot; data-content=&quot;At some point the West Coast is just going to drop into the Pacific.&quot; href=&quot;#&quot;) Western Pop
     %li&lt;
-      %a#pop_no_title(data-bindable=&quot;pop&quot; data-placement=&quot;north&quot; data-content=&quot;Check me out, rolling with no title and all. Total chaos.&quot;  href=&quot;#&quot;) No Title
+      %a#pop_no_title(data-bindable=&quot;pop&quot; data-placement=&quot;north&quot; data-content=&quot;Check me out, rolling with no title and all. Total chaos.&quot; href=&quot;#&quot;) No Title
     %li&lt;
       %a#pop_selector(data-bindable=&quot;pop&quot; href=&quot;#pop_exterior_content&quot;) Exterior Content
 
@@ -3738,9 +4282,14 @@ points.</p>
 </tr>
 </thead><tbody>
 <tr>
+<td><code>namespace</code></td>
+<td><code>pop</code></td>
+<td>The namespace to use for dispatching events</td>
+</tr>
+<tr>
 <td><code>toggle</code></td>
 <td><code>active in</code></td>
-<td>Overrides <code>Togglable&#39;s</code> default of <code>active</code></td>
+<td>Overrides <code>Triggerable&#39;s</code> default of <code>active</code></td>
 </tr>
 <tr>
 <td><code>trigger</code></td>
@@ -3750,12 +4299,12 @@ points.</p>
 <tr>
 <td><code>title</code></td>
 <td><code>&quot;&quot;</code></td>
-<td>The title (html or text) to insert for the header when &quot;<em>is tip like</em>&quot;</td>
+<td>The title (html or text) to insert for the header when &quot;is tip like&quot;</td>
 </tr>
 <tr>
 <td><code>content</code></td>
 <td><code>&quot;&quot;</code></td>
-<td>The content (html or text) to insert for the body when &quot;<em>is tip like</em>&quot;</td>
+<td>The content (html or text) to insert for the body when &quot;is tip like&quot;</td>
 </tr>
 <tr>
 <td><code>placement</code></td>
@@ -3774,11 +4323,11 @@ points.</p>
 </tr>
 </tbody></table>
 
-<p>Referencing &quot;<em>is tip like</em>&quot; means the contents of the <code>Pop</code> reside within
-the <code>data</code> attributes of the link. When a <code>Pop</code> &quot;<em>is not tip like</em>&quot;, it
+<p>Referencing &quot;is tip like&quot; means the contents of the <code>Pop</code> reside within
+the <code>data</code> attributes of the link. When a <code>Pop</code> &quot;is not tip like&quot;, it
 references a <code>hidden</code> DOM element.</p>
 
-<p>See <code>Togglable</code> for other options </p>
+<p>See <code>Triggerable</code> for other options </p>
 
 <h6>Notes</h6>
 
@@ -3853,12 +4402,12 @@ elements toggle event.</p>
 <ul>
 <li><code>utensil</code></li>
 <li><code>bindable</code></li>
+<li><code>triggerable</code></li>
 <li><code>detect</code></li>
-<li><code>togglable</code></li>
 <li><code>directional</code></li>
 </ul>
 
-<p><code>Pop</code> utilizes <code>Togglable</code> via composition.</p>
+<p><code>Pop</code> utilizes <code>Triggerable</code> via composition.</p>
 
 <h2>Style Settings</h2>
 
@@ -3963,6 +4512,7 @@ value before this file is imported, this is done to keep managing
 <li>Multiple pops?</li>
 <li>Depth swapping?</li>
 <li>disable on body click?</li>
+<li>could use some more optimizations around lazy loading</li>
 </ul>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
@@ -3994,7 +4544,7 @@ can be used for simple navigation as well.</p>
 <!--~ markup/scaffold-nav.html.haml -->
 
 <div class="sherpa-showcase sherpa-clearfix"><nav class='well'>
-<ul class='nav' data-bindable='togglable-group'>
+<ul class='nav' data-bindable='toggle-group'>
 <li class='nav-header'>Nav Header</li>
 <li>
 <a href='#'>Block Link 1</a>
@@ -4013,7 +4563,7 @@ can be used for simple navigation as well.</p>
 </ul>
 </nav>
 <nav>
-<ul class='nav inline' data-bindable='togglable-group'>
+<ul class='nav inline' data-bindable='toggle-group'>
 <li>
 <a href='#'>Inline Link 1</a>
 </li>
@@ -4028,7 +4578,7 @@ can be used for simple navigation as well.</p>
 </div>
 
 <pre><code class="haml">%nav.well
-  %ul.nav(data-bindable=&quot;togglable-group&quot;)
+  %ul.nav(data-bindable=&quot;toggle-group&quot;)
     %li.nav-header Nav Header
     %li
       %a(href=&quot;#&quot;) Block Link 1
@@ -4041,7 +4591,7 @@ can be used for simple navigation as well.</p>
     %li
       %a(href=&quot;#&quot;) Block Link 4
 %nav
-  %ul.nav.inline(data-bindable=&quot;togglable-group&quot;)
+  %ul.nav.inline(data-bindable=&quot;toggle-group&quot;)
     %li
       %a(href=&quot;#&quot;) Inline Link 1
     %li.active
@@ -4062,10 +4612,10 @@ can be used for simple navigation as well.</p>
 
 <p>Utilize the <code>.nav-header</code> and <code>.nav-divider</code> for building simple navigation lists.</p>
 
-<h2>Togglable Panels</h2>
+<h2>Tab Panels</h2>
 
-<p>Togglable panels are typically used by <code>Tab</code> and <code>Pill</code> for showing and
-hiding related content. See <code>TogglableGroup</code> for usage.</p>
+<p>Tab panels are typically used by <code>Tab</code> and <code>Pill</code> for showing and
+hiding related content. See <code>Tab</code> for usage.</p>
 
 <h2>Style Settings</h2>
 
@@ -4145,21 +4695,24 @@ like other navigation elements require the <code>.nav</code> class for layout. A
 <code>.nav .tab</code> to a <code>ul</code> or <code>ol</code> element.</p>
 
 <p>To utilize a drop dead simple version of hiding and showing content, add
-the <code>data-bindable=&quot;togglable-group&quot;</code> along with a <code>data-related</code> target
-and <code>href</code> attributes pointing to the related targets panel.</p>
+the <code>data-bindable=&quot;tab&quot;</code> along with an <code>href</code> attributes pointing to
+the related targets panel.</p>
 
 <pre><code class="sass">@import utensils/components/tab/tab
+</code></pre>
+
+<pre><code class="html">data-bindable=&quot;tab&quot;
 </code></pre>
 
 <!--~ markup/tab.html.haml -->
 
 <div class="sherpa-showcase sherpa-clearfix"><nav id='tab_demo'>
-<ul class='nav tab' data-bindable='togglable-group' data-related='#tab_content .togglable-pane'>
+<ul class='nav tab' data-bindable='tab' data-related='#tab_content'>
 <li class='active'><a href='#tab_one'>Tab One</a></li>
 <li><a data-target='#tab_two' href='#'>Tab Two</a></li>
 <li><a href='#tab_three'>Tab Three</a></li>
-<li class='drop' data-bindable='drop' data-group='.tab'>
-<a href='#'>Tab Drop <span class="caret"></span></a>
+<li class='drop' data-bindable='drop'>
+<a class='drop-toggle' href='#'>Tab Drop <span class="caret"></span></a>
 <ul class='nav menu'>
 <li><a href='#tab_four'>Tab Four</a></li>
 <li><a href='#tab_five'>Tab Five</a></li>
@@ -4168,30 +4721,30 @@ and <code>href</code> attributes pointing to the related targets panel.</p>
 </li>
 </ul>
 </nav>
-<section class='togglable-content' id='tab_content' style='margin-top:1.25em;'>
-<article class='togglable-pane active' id='tab_one'>
+<section class='tab-content' id='tab_content' style='margin-top:1.25em;'>
+<article class='tab-pane active' id='tab_one'>
 <p>Tab content <span class="decal important">one</span></p>
 </article>
-<article class='togglable-pane' id='tab_two'>
+<article class='tab-pane' id='tab_two'>
 <p>Tab content <span class="decal success">two</span></p>
 </article>
-<article class='togglable-pane' id='tab_three'>
+<article class='tab-pane' id='tab_three'>
 <p>Tab content <span class="decal danger">three</span></p>
 </article>
-<article class='togglable-pane' id='tab_four'>
+<article class='tab-pane' id='tab_four'>
 <p>Tab sub content <span class="decal warning">four</span></p>
 </article>
-<article class='togglable-pane' id='tab_five'>
+<article class='tab-pane' id='tab_five'>
 <p>Tab sub content <span class="decal inverse">five</span></p>
 </article>
-<article class='togglable-pane' id='tab_six'>
+<article class='tab-pane' id='tab_six'>
 <p>Tab sub content <span class="decal important">six</span></p>
 </article>
 </section>
 </div>
 
 <pre><code class="haml">%nav#tab_demo
-  %ul.nav.tab(data-bindable=&quot;togglable-group&quot; data-related=&quot;#tab_content .togglable-pane&quot;)
+  %ul.nav.tab(data-bindable=&quot;tab&quot; data-related=&quot;#tab_content&quot;)
     %li.active&lt;
       %a(href=&quot;#tab_one&quot;) Tab One
     %li&lt;
@@ -4199,8 +4752,8 @@ and <code>href</code> attributes pointing to the related targets panel.</p>
     %li&lt;
       %a(href=&quot;#tab_three&quot;) Tab Three
 
-    %li.drop(data-bindable=&quot;drop&quot; data-group=&quot;.tab&quot;)
-      %a(href=&quot;#&quot;) Tab Drop &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
+    %li.drop(data-bindable=&quot;drop&quot;)
+      %a.drop-toggle(href=&quot;#&quot;) Tab Drop &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
       %ul.nav.menu
         %li&lt;
           %a(href=&quot;#tab_four&quot;) Tab Four
@@ -4209,23 +4762,119 @@ and <code>href</code> attributes pointing to the related targets panel.</p>
         %li&lt;
           %a(href=&quot;#tab_six&quot;) Tab Six
 
-%section#tab_content.togglable-content(style=&quot;margin-top:1.25em;&quot;)
-  %article.togglable-pane.active#tab_one
+%section#tab_content.tab-content(style=&quot;margin-top:1.25em;&quot;)
+  %article.tab-pane.active#tab_one
     %p Tab content &lt;span class=&quot;decal important&quot;&gt;one&lt;/span&gt;
-  %article.togglable-pane#tab_two
+  %article.tab-pane#tab_two
     %p Tab content &lt;span class=&quot;decal success&quot;&gt;two&lt;/span&gt;
-  %article.togglable-pane#tab_three
+  %article.tab-pane#tab_three
     %p Tab content &lt;span class=&quot;decal danger&quot;&gt;three&lt;/span&gt;
 
-  %article.togglable-pane#tab_four
+  %article.tab-pane#tab_four
     %p Tab sub content &lt;span class=&quot;decal warning&quot;&gt;four&lt;/span&gt;
-  %article.togglable-pane#tab_five
+  %article.tab-pane#tab_five
     %p Tab sub content &lt;span class=&quot;decal inverse&quot;&gt;five&lt;/span&gt;
-  %article.togglable-pane#tab_six
+  %article.tab-pane#tab_six
     %p Tab sub content &lt;span class=&quot;decal important&quot;&gt;six&lt;/span&gt;
 </code></pre>
 
 <!-- end -->
+
+<h2>Options</h2>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>namespace</code></td>
+<td><code>tab</code></td>
+<td>The namespace to use for dispatching events</td>
+</tr>
+<tr>
+<td><code>related</code></td>
+<td><code>null</code></td>
+<td>The selector container with tabable content</td>
+</tr>
+<tr>
+<td><code>related-toggle</code></td>
+<td><code>toggle</code></td>
+<td>The class(es) to toggle when triggered on the related element</td>
+</tr>
+</tbody></table>
+
+<p>See <code>ToggleGroup</code> for more options.</p>
+
+<h2>API</h2>
+
+<h3>#new</h3>
+
+<p>Create a new instance of <code>Tab</code> programatically, typically this
+is instantiated through <code>Bindable</code></p>
+
+<pre><code class="coffee">#= require tab
+
+@tab_el = $(&#39;#tab&#39;)
+
+@tab = new utensil.Tab(@tab_el)
+</code></pre>
+
+<h3>#activate</h3>
+
+<p>Activate can take either an index or element as it&#39;s target parameter.
+Activating will add the toggle classes to the element. Activate will
+remove the toggle classes from other elements within the group.</p>
+
+<h5>dispatches:</h5>
+
+<ul>
+<li><code>tab:activated</code></li>
+</ul>
+
+<pre><code class="coffee"># activate by index
+@tab.activate(1)
+
+# activate by element
+@tab.activate(@tab_el.find(&#39;li:nth-child(2)&#39;))
+</code></pre>
+
+<h3>#deactivate</h3>
+
+<p>Deactivate can take either an index or element as it&#39;s target parameter.
+Deactivating will remove the toggle classes from the element.</p>
+
+<h5>dispatches:</h5>
+
+<ul>
+<li><code>tab:deactivated</code></li>
+</ul>
+
+<pre><code class="coffee"># deactivate by index
+@tab.deactivate(1)
+
+# deactivate by element
+@tab.deactivate(@tab_el.find(&#39;li:nth-child(2)&#39;))
+</code></pre>
+
+<h3>#dispose</h3>
+
+<p>Cleans up any internal references </p>
+
+<pre><code class="coffee">@tab.dispose()
+</code></pre>
+
+<h3>Requires</h3>
+
+<ul>
+<li><code>utensil</code></li>
+<li><code>bindable</code></li>
+<li><code>toggle_group</code></li>
+</ul>
+
+<p><code>Tab</code> utilizes <code>ToggleGroup</code> via composition.</p>
 
 <h2>Style Settings</h2>
 
@@ -4281,12 +4930,12 @@ within your <code>config.sass</code> file or before <code>tab.sass</code> is loa
 <!--~ markup/tab-stacked.html.haml -->
 
 <div class="sherpa-showcase sherpa-clearfix"><nav id='tab_stacked_demo'>
-<ul class='nav tab stacked' data-bindable='togglable-group' data-related='#tab_stacked_content .togglable-pane'>
+<ul class='nav tab stacked' data-bindable='tab' data-related='#tab_stacked_content'>
 <li class='active'><a href='#tab_stacked_one'>Tab One</a></li>
 <li><a data-target='#tab_stacked_two' href='#'>Tab Two</a></li>
 <li><a href='#tab_stacked_three'>Tab Three</a></li>
-<li class='drop' data-bindable='drop' data-group='.tab'>
-<a href='#'>Tab Drop <span class="caret"></span></a>
+<li class='drop' data-bindable='drop'>
+<a class='drop-toggle' href='#'>Tab Drop <span class="caret"></span></a>
 <ul class='nav menu'>
 <li><a href='#tab_stacked_four'>Tab Four</a></li>
 <li><a href='#tab_stacked_five'>Tab Five</a></li>
@@ -4295,30 +4944,30 @@ within your <code>config.sass</code> file or before <code>tab.sass</code> is loa
 </li>
 </ul>
 </nav>
-<section class='togglable-content' id='tab_stacked_content' style='margin-top:1.25em;'>
-<article class='togglable-pane active' id='tab_stacked_one'>
+<section class='tab-content' id='tab_stacked_content' style='margin-top:1.25em;'>
+<article class='tab-pane active' id='tab_stacked_one'>
 <p>Tab content <span class="decal important">one</span></p>
 </article>
-<article class='togglable-pane' id='tab_stacked_two'>
+<article class='tab-pane' id='tab_stacked_two'>
 <p>Tab content <span class="decal success">two</span></p>
 </article>
-<article class='togglable-pane' id='tab_stacked_three'>
+<article class='tab-pane' id='tab_stacked_three'>
 <p>Tab content <span class="decal danger">three</span></p>
 </article>
-<article class='togglable-pane' id='tab_stacked_four'>
+<article class='tab-pane' id='tab_stacked_four'>
 <p>Tab sub content <span class="decal warning">four</span></p>
 </article>
-<article class='togglable-pane' id='tab_stacked_five'>
+<article class='tab-pane' id='tab_stacked_five'>
 <p>Tab sub content <span class="decal inverse">five</span></p>
 </article>
-<article class='togglable-pane' id='tab_stacked_six'>
+<article class='tab-pane' id='tab_stacked_six'>
 <p>Tab sub content <span class="decal important">six</span></p>
 </article>
 </section>
 </div>
 
 <pre><code class="haml">%nav#tab_stacked_demo
-  %ul.nav.tab.stacked(data-bindable=&quot;togglable-group&quot; data-related=&quot;#tab_stacked_content .togglable-pane&quot;)
+  %ul.nav.tab.stacked(data-bindable=&quot;tab&quot; data-related=&quot;#tab_stacked_content&quot;)
     %li.active&lt;
       %a(href=&quot;#tab_stacked_one&quot;) Tab One
     %li&lt;
@@ -4326,8 +4975,8 @@ within your <code>config.sass</code> file or before <code>tab.sass</code> is loa
     %li&lt;
       %a(href=&quot;#tab_stacked_three&quot;) Tab Three
 
-    %li.drop(data-bindable=&quot;drop&quot; data-group=&quot;.tab&quot;)
-      %a(href=&quot;#&quot;) Tab Drop &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
+    %li.drop(data-bindable=&quot;drop&quot;)
+      %a.drop-toggle(href=&quot;#&quot;) Tab Drop &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
       %ul.nav.menu
         %li&lt;
           %a(href=&quot;#tab_stacked_four&quot;) Tab Four
@@ -4336,19 +4985,19 @@ within your <code>config.sass</code> file or before <code>tab.sass</code> is loa
         %li&lt;
           %a(href=&quot;#tab_stacked_six&quot;) Tab Six
 
-%section#tab_stacked_content.togglable-content(style=&quot;margin-top:1.25em;&quot;)
-  %article.togglable-pane.active#tab_stacked_one
+%section#tab_stacked_content.tab-content(style=&quot;margin-top:1.25em;&quot;)
+  %article.tab-pane.active#tab_stacked_one
     %p Tab content &lt;span class=&quot;decal important&quot;&gt;one&lt;/span&gt;
-  %article.togglable-pane#tab_stacked_two
+  %article.tab-pane#tab_stacked_two
     %p Tab content &lt;span class=&quot;decal success&quot;&gt;two&lt;/span&gt;
-  %article.togglable-pane#tab_stacked_three
+  %article.tab-pane#tab_stacked_three
     %p Tab content &lt;span class=&quot;decal danger&quot;&gt;three&lt;/span&gt;
 
-  %article.togglable-pane#tab_stacked_four
+  %article.tab-pane#tab_stacked_four
     %p Tab sub content &lt;span class=&quot;decal warning&quot;&gt;four&lt;/span&gt;
-  %article.togglable-pane#tab_stacked_five
+  %article.tab-pane#tab_stacked_five
     %p Tab sub content &lt;span class=&quot;decal inverse&quot;&gt;five&lt;/span&gt;
-  %article.togglable-pane#tab_stacked_six
+  %article.tab-pane#tab_stacked_six
     %p Tab sub content &lt;span class=&quot;decal important&quot;&gt;six&lt;/span&gt;
 </code></pre>
 
@@ -4445,7 +5094,7 @@ By combining any of the following classes, the table can be given a different lo
 </tbody>
 </table>
 <h5 style='margin-bottom:1em; margin-top:3em;'>Select to toggle table classes</h5>
-<nav class='check-demo button-group' data-behavior='checkbox' data-bindable='togglable-group' data-target='.btn'>
+<nav class='check-demo button-group' data-behavior='checkbox' data-bindable='toggle-button-group'>
 <a class='btn' data-toggle='table-box' href='#'>Box</a>
 <a class='btn' data-toggle='table-vborder' href='#'>Vertical Border</a>
 <a class='btn' data-toggle='table-condensed' href='#'>Condensed</a>
@@ -4515,7 +5164,7 @@ By combining any of the following classes, the table can be given a different lo
 
 
 %h5(style=&quot;margin-bottom:1em; margin-top:3em;&quot;) Select to toggle table classes
-%nav.check-demo.button-group(data-bindable=&quot;togglable-group&quot; data-behavior=&quot;checkbox&quot; data-target=&quot;.btn&quot;)
+%nav.check-demo.button-group(data-bindable=&quot;toggle-button-group&quot; data-behavior=&quot;checkbox&quot;)
   %a.btn(href=&quot;#&quot; data-toggle=&quot;table-box&quot;) Box
   %a.btn(href=&quot;#&quot; data-toggle=&quot;table-vborder&quot;) Vertical Border
   %a.btn(href=&quot;#&quot; data-toggle=&quot;table-condensed&quot;) Condensed
@@ -4793,14 +5442,19 @@ should be considered in most cases.</p>
 </tr>
 </thead><tbody>
 <tr>
+<td><code>namespace</code></td>
+<td><code>tip</code></td>
+<td>The namespace to use for dispatching events</td>
+</tr>
+<tr>
 <td><code>toggle</code></td>
 <td><code>active in</code></td>
-<td>Overrides <code>Togglable&#39;s</code> default of <code>active</code></td>
+<td>Overrides <code>Triggerable&#39;s</code> default of <code>active</code></td>
 </tr>
 <tr>
 <td><code>trigger</code></td>
 <td><code>hover</code></td>
-<td>Overrides <code>Togglable&#39;s</code> default of <code>click</code>, unless it&#39;s a touch enabled device</td>
+<td>Overrides <code>Triggerable&#39;s</code> default of <code>click</code>, unless it&#39;s a touch enabled device</td>
 </tr>
 <tr>
 <td><code>title</code></td>
@@ -4819,7 +5473,7 @@ should be considered in most cases.</p>
 </tr>
 </tbody></table>
 
-<p>See <code>Togglable</code> for other options </p>
+<p>See <code>Triggerable</code> for other options </p>
 
 <h6>Notes</h6>
 
@@ -4880,12 +5534,12 @@ elements toggle event.</p>
 <ul>
 <li><code>utensil</code></li>
 <li><code>bindable</code></li>
+<li><code>triggerable</code></li>
 <li><code>detect</code></li>
-<li><code>togglable</code></li>
 <li><code>directional</code></li>
 </ul>
 
-<p><code>Tip</code> utilizes <code>Togglable</code> via composition.</p>
+<p><code>Tip</code> utilizes <code>Triggerable</code> via composition.</p>
 
 <h2>Style Settings</h2>
 
@@ -4966,64 +5620,36 @@ value before this file is imported, this is done to keep managing
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
-<h1>Togglable</h1>
+<h1>Toggle</h1>
 
-<p>Base class for adding, removing and toggling classes on a given element
-and/or related elements.</p>
+<p>Base class for adding, removing and toggling classes on a single
+element.</p>
 
-<pre><code class="html">data-bindable=&quot;togglable&quot;
+<p><code>Toggle</code> utilizes <code>Triggerable</code> through composition.</p>
+
+<pre><code class="html">data-bindable=&quot;toggle&quot;
 </code></pre>
 
-<!--~ markup/togglable.html.haml -->
+<!--~ markup/toggle.html.haml -->
 
-<div class="sherpa-showcase sherpa-clearfix"><h5 class='fade in' id='togglable_heading'>Heading</h5>
-<nav>
-<ul class='nav inline'>
-<li id='one'><a data-bindable='togglable' href='#'>One</a></li>
-<li id='two'><a data-bindable='togglable' data-target='this' data-toggle='fade' data-trigger='hover' href='#'>Two</a></li>
-<li id='three'><a data-bindable='togglable' data-related-toggle='in' data-related='#span' href='#'>Three <span id="span" class="fade in">Span</span></a></li>
-<li id='four'><a data-bindable='togglable' data-lookup='closest' data-toggle='inline' href='.nav'>Four</a></li>
-<li id='five'><a data-bindable='togglable' data-bubble='true' data-target='#find_bang' href='#five'>Five <span id="find_bang">!</span></a></li>
-<li id='six'><a data-activate='true' data-bindable='togglable' href='#'>Six</a></li>
-<li id='seven'><a data-bindable='togglable' data-context='body' data-toggle='in' href='#togglable_heading'>Seven</a></li>
-<li id='eight'><a data-bindable='togglable' data-delay='activate: 1000, deactivate: 500' href='#'>Eight</a></li>
-</ul>
+<div class="sherpa-showcase sherpa-clearfix"><nav>
+<a class='btn' data-bindable='toggle' href='#' id='toggle_1'>Toggle Default</a>
+<a class='btn' data-bindable='toggle' data-namespace='hoverable' data-toggle='active on' data-trigger='hover' href='#' id='toggle_2'>Toggle Hover</a>
+<a class='btn' data-bindable='toggle' data-namespace='focusable' data-trigger='focus' href='#' id='toggle_3'>Toggle Focus</a>
+<a class='btn' data-bindable='toggle' data-delay='500, 500' href='#' id='toggle_4'>Toggle Delay</a>
+<a class='btn' data-activate='true' data-bindable='toggle' href='#' id='toggle_5'>Toggle Auto Activate</a>
 </nav>
 </div>
 
-<pre><code class="haml">%h5.fade.in#togglable_heading Heading
-%nav
-  %ul.nav.inline
-    %li#one&lt;
-      %a(data-bindable=&quot;togglable&quot; href=&quot;#&quot;) One
-    %li#two&lt;
-      %a(data-bindable=&quot;togglable&quot; data-target=&quot;this&quot; href=&quot;#&quot; data-trigger=&quot;hover&quot; data-toggle=&quot;fade&quot;) Two
-    %li#three&lt;
-      %a(data-bindable=&quot;togglable&quot; href=&quot;#&quot; data-related=&quot;#span&quot; data-related-toggle=&quot;in&quot;) Three &lt;span id=&quot;span&quot; class=&quot;fade in&quot;&gt;Span&lt;/span&gt;
-    %li#four&lt;
-      %a(data-bindable=&quot;togglable&quot; href=&quot;.nav&quot; data-lookup=&quot;closest&quot; data-toggle=&quot;inline&quot;) Four
-    %li#five&lt;
-      %a(data-bindable=&quot;togglable&quot; href=&quot;#five&quot; data-target=&quot;#find_bang&quot; data-bubble=&quot;true&quot;) Five &lt;span id=&quot;find_bang&quot;&gt;!&lt;/span&gt;
-    %li#six&lt;
-      %a(data-bindable=&quot;togglable&quot; href=&quot;#&quot; data-activate=&quot;true&quot;) Six
-    %li#seven&lt;
-      %a(data-bindable=&quot;togglable&quot; href=&quot;#togglable_heading&quot; data-context=&quot;body&quot; data-toggle=&quot;in&quot;) Seven
-    %li#eight&lt;
-      %a(data-bindable=&quot;togglable&quot; href=&quot;#&quot; data-delay=&quot;activate: 1000, deactivate: 500&quot;) Eight
+<pre><code class="haml">%nav
+  %a.btn#toggle_1(href=&quot;#&quot; data-bindable=&quot;toggle&quot;) Toggle Default
+  %a.btn#toggle_2(href=&quot;#&quot; data-bindable=&quot;toggle&quot; data-namespace=&quot;hoverable&quot; data-trigger=&quot;hover&quot; data-toggle=&quot;active on&quot;) Toggle Hover
+  %a.btn#toggle_3(href=&quot;#&quot; data-bindable=&quot;toggle&quot; data-namespace=&quot;focusable&quot; data-trigger=&quot;focus&quot;) Toggle Focus
+  %a.btn#toggle_4(href=&quot;#&quot; data-bindable=&quot;toggle&quot; data-delay=&quot;500, 500&quot;) Toggle Delay
+  %a.btn#toggle_5(href=&quot;#&quot; data-bindable=&quot;toggle&quot; data-activate=&quot;true&quot;) Toggle Auto Activate
 </code></pre>
 
 <!-- end -->
-
-<ol>
-<li>Toggles the class <code>active</code> on <code>click</code></li>
-<li>Toggles the classes <code>fade</code> on <code>hover</code>, the <code>data-attribute=&quot;this&quot;</code> is merely referencing the element as it&#39;s target</li>
-<li>Toggles the class <code>in</code> on <code>click</code> for the child <code>&lt;span&gt;</code> and <code>active</code> on the <code>&lt;link&gt;</code> element</li>
-<li>Toggles the class <code>inline</code> on <code>click</code> for only the <code>ul.nav</code> and not the <code>&lt;link&gt;</code>, using the <code>$.closest</code> method to find the target</li>
-<li>Toggles <code>active</code> state on <code>click</code> for the <code>&lt;span&gt;</code> element only and, changes the url hash to <code>#five</code></li>
-<li>Toggles the class <code>active</code> on <code>click</code>, but is initialized with the <code>active</code> class on the element</li>
-<li>Toggles the <code>in</code> class on the &quot;Heading&quot; element on <code>click</code> by using the <code>body</code> element as the <code>context</code> to find the target</li>
-<li>Toggles the <code>active</code> class on the link with a 1 second delay on activation and 1/2 second delay on deactivation</li>
-</ol>
 
 <h2>Options</h2>
 
@@ -5035,166 +5661,35 @@ and/or related elements.</p>
 </tr>
 </thead><tbody>
 <tr>
+<td><code>namespace</code></td>
+<td><code>toggle</code></td>
+<td>The namespace to use for dispatching events</td>
+</tr>
+<tr>
 <td><code>toggle</code></td>
 <td><code>active</code></td>
 <td>The class(es) to toggle when triggered</td>
-</tr>
-<tr>
-<td><code>trigger</code></td>
-<td><code>click</code></td>
-<td>The event to trigger toggle behavior [<code>click</code>, <code>hover</code>, <code>focus</code>, <code>manual</code>]</td>
-</tr>
-<tr>
-<td><code>context</code></td>
-<td><code>bindable</code></td>
-<td>The DOM node to use for lookups</td>
-</tr>
-<tr>
-<td><code>lookup</code></td>
-<td><code>find</code></td>
-<td>The <code>$</code> method to find a target or href target [<code>closest</code>, <code>siblings</code>, <code>parents</code>...]</td>
-</tr>
-<tr>
-<td><code>target</code></td>
-<td><code>bindable</code></td>
-<td>The target element to toggle classes on (the <code>href</code> attribute can also be used)</td>
 </tr>
 <tr>
 <td><code>activate</code></td>
 <td><code>false</code></td>
 <td>If present, this will auto activate the element</td>
 </tr>
-<tr>
-<td><code>bubble</code></td>
-<td><code>false</code></td>
-<td>Controls whether an action <code>preventsDefault</code>, setting to <code>true</code> will allow normal events to bubble</td>
-</tr>
-<tr>
-<td><code>delay</code></td>
-<td><code>undefined</code></td>
-<td>The amount of time in milliseconds to delay on <code>activate</code> and <code>deactivate</code>, see the <code>Timeslot</code> class for more information</td>
-</tr>
 </tbody></table>
 
-<h3>Related Options</h3>
-
-<p>The following options can be applied if the toggling behavior needs to
-affect a secondary related element. The base requirement is the
-<code>related</code> attribute</p>
-
-<table><thead>
-<tr>
-<th>Attribute</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>related</code></td>
-<td><code>null</code></td>
-<td>The selector to perform <code>Togglable</code> actions on</td>
-</tr>
-<tr>
-<td><code>related-classes</code></td>
-<td><code>toggle</code></td>
-<td>The class(es) to toggle when triggered on the related element</td>
-</tr>
-<tr>
-<td><code>related-context</code></td>
-<td><code>body</code></td>
-<td>The DOM node to use for <code>related</code> selector lookup</td>
-</tr>
-<tr>
-<td><code>related-lookup</code></td>
-<td><code>find</code></td>
-<td>The <code>$</code> method to find the <code>related</code> selector [<code>closest</code>, <code>siblings</code>, <code>parents</code>...]</td>
-</tr>
-</tbody></table>
-
-<h6>Notes</h6>
-
-<ul>
-<li><strong>Heads Up!</strong> when setting these in markup use <code>data-related-classes</code>,
-when creating through an instance use <code>data.relatedClasses</code></li>
-</ul>
-
-<h3>Trigger Types</h3>
-
-<p>The <code>trigger</code> attribute is mapped to an object with <code>on/off</code> properties
-based on the following:</p>
-
-<table><thead>
-<tr>
-<th>Attribute</th>
-<th>trigger.on =&gt; handler</th>
-<th>trigger.off =&gt; handler</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>&quot;click&quot;</td>
-<td><code>click =&gt; #toggle</code></td>
-<td><code>click =&gt; #toggle</code></td>
-</tr>
-<tr>
-<td>&quot;hover&quot;</td>
-<td><code>mouseenter =&gt; #activate</code></td>
-<td><code>mouseleave =&gt; #deactivate</code></td>
-</tr>
-<tr>
-<td>&quot;focus&quot;</td>
-<td><code>focus =&gt; #activate</code></td>
-<td><code>blur =&gt; #deactivate</code></td>
-</tr>
-<tr>
-<td>&quot;manual&quot;</td>
-<td><em>none</em></td>
-<td><em>none</em></td>
-</tr>
-</tbody></table>
-
-<p>The <code>manual</code> trigger does not add any listeners, as it&#39;s meant to be
-called programmatically from another object.</p>
-
-<p>Any other trigger types, not included in this list, map their <code>on/off</code>
-properties to the given trigger name. They will automatically call the
-<code>#toggle</code> handler.</p>
-
-<h3>Finding Targets</h3>
-
-<p><code>Togglable</code> finds the target based on the following rules:</p>
-
-<ol>
-<li>If there is a <code>target</code> attribute and it is the string <code>&quot;this&quot;</code>,
-return the <code>bindable</code> element</li>
-<li>If there is a <code>target</code> attribute and it can be found in the DOM, use it</li>
-<li>Otherwise if there is NOT an <code>href</code> attribute use the <code>bindable</code> element</li>
-<li>Or if the <code>href</code> is <code>#</code> use the <code>bindable</code> element</li>
-<li>Or if the <code>href</code> is a normal link (i.e. <code>/some-page</code>) use the <code>bindable</code> element</li>
-<li>Otherwise lookup the element within the <code>href</code>, if found, use it, otherwise use the <code>bindable</code> element</li>
-<li>If the <code>context</code> attribute is set, it will perform searches from this element, otherwise it will use the element associated with <code>bindable</code></li>
-</ol>
-
-<h3>Delays</h3>
-
-<p>When <code>delay</code> is set, the <code>#activate</code> and <code>#deactivate</code> methods are
-scoped to <code>#activateWithDelay</code> and <code>#deactivateWithDelay</code>. Classes
-utilizing <code>Togglable</code> through composition and a <code>delay</code> do not need to
-be concerned with this in their own API. Compositional classes should
-only rely on the dispatched events from their instance of <code>Togglable</code>.</p>
-
-<p>If one of the delay properties (<code>activate</code> or <code>deactivate</code>) is <code>0</code>, then
-the method for that property will not be scoped through the delay method.</p>
+<p>See <code>Triggerable</code> for more options.</p>
 
 <h2>API</h2>
 
 <h3>#new</h3>
 
-<p>Create a new instance of <code>Togglable</code> programatically. </p>
+<p>Create a new instance of <code>Toggle</code> programatically, typically this is
+instantiated through <code>Bindable</code></p>
 
-<pre><code class="coffee">#= require togglable
+<pre><code class="coffee">#= require toggle
 
-@el = $(&#39;#togglable&#39;)
-@togglable = new utensil.Togglable(@el, {toggle: &#39;fade active&#39;, trigger: &#39;hover&#39;})
+@el = $(&#39;#toggle&#39;)
+@toggle = new utensil.Toggle(@el, {toggle: &#39;fade active&#39;, trigger: &#39;hover&#39;})
 </code></pre>
 
 <h3>#toggle</h3>
@@ -5209,25 +5704,33 @@ elements toggle event.</p>
 
 <p>Add the toggle classes to the targets</p>
 
-<p>dispatches the <code>togglable:activate</code> event</p>
+<h5>dispatches:</h5>
 
-<pre><code class="coffee">@togglable.activate()
+<ul>
+<li><code>toggle:activated</code></li>
+</ul>
+
+<pre><code class="coffee">@toggle.activate()
 </code></pre>
 
 <h3>#deactivate</h3>
 
 <p>Removes the toggle classes from the targets</p>
 
-<p>dispatches the <code>togglable:deactivate</code> event</p>
+<h5>dispatches:</h5>
 
-<pre><code class="coffee">@togglable.deactivate()
+<ul>
+<li><code>toggle:deactivated</code></li>
+</ul>
+
+<pre><code class="coffee">@toggle.deactivate()
 </code></pre>
 
 <h3>#dispose</h3>
 
 <p>Cleans up any internal references </p>
 
-<pre><code class="coffee">@togglable.dispose()
+<pre><code class="coffee">@toggle.dispose()
 </code></pre>
 
 <h3>Requires</h3>
@@ -5235,165 +5738,74 @@ elements toggle event.</p>
 <ul>
 <li><code>utensil</code></li>
 <li><code>bindable</code></li>
-<li><code>timeslot</code></li>
+<li><code>triggerable</code></li>
 </ul>
 
-<p>An instance of <code>Togglable</code> creates a <code>@dispatcher</code> property for
-dispatching events. Typically this is just the <code>@el</code> but is created for
-clarity in access from a compositional class.</p>
-
-<pre><code class="coffee">@togglable = new utensil.Togglable(@el, @data)
-
-@toggler.dispatcher.on(&#39;togglable:activate&#39;, =&gt; @activated.apply(@, arguments))
-@toggler.dispatcher.on(&#39;togglable:deactivate&#39;, =&gt; @deactivated.apply(@, arguments))
-</code></pre>
+<p>Any events dispatched from <code>Toggle</code> contain the <code>event</code> property as the
+first parameter and the <code>@el</code> as the second parameter. This is done to
+ensure scope is transferred correctly and for a quicker lookup from the
+class utilizing a <code>Toggle</code> instance.</p>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
-<h1>Togglable Group</h1>
+<h1>Toggle Button Group</h1>
 
-<p>An extension of <code>Togglable</code> for adding, removing and toggling groups of
-related elements. These are predominantly used in navigation type
-systems. A <code>TogglableGroup</code> can function either like radio buttons or
-check boxes.</p>
+<p>Base class for adding, removing and toggling classes on a button group
+of elements. These are predominantly used in button group type systems.
+A <code>ToggleButtonGroup</code> can function either like radio buttons or check
+boxes.</p>
 
-<p>Adding <code>related</code> attributes to a <code>ToggableGroup</code> allows navigation
-systems to control other components such as tabs, pills and accordions.</p>
+<p><code>ToggleButtonGroup</code> is an extension of <code>ToggleGroup</code>.</p>
 
-<pre><code class="html">data-bindable=&quot;togglable-group&quot;
+<pre><code class="html">data-bindable=&quot;toggle-button-group&quot;
 </code></pre>
 
-<!--~ markup/togglable_group.html.haml -->
+<!--~ markup/toggle_button_group.html.haml -->
 
-<div class="sherpa-showcase sherpa-clearfix"><nav>
-<ul class='nav inline' data-bindable='togglable-group' data-target='.radio-li' id='radios'>
-<li class='radio-li'><a href='#'>Radio 1</a></li>
-<li class='radio-li'><a href='#'>Radio 2</a></li>
-<li class='radio-li'><a href='#'>Radio 3</a></li>
-<li class='not-link'>Not a link</li>
-</ul>
+<div class="sherpa-showcase sherpa-clearfix"><h5 style='margin-bottom:1em;'>Button Toolbar (radio)</h5>
+<section class='button-toolbar' data-bindable='toggle-button-group' id='toggle_button_group_radios'>
+<nav class='button-group'>
+<button class='btn' href='#'>1</button>
+<button class='btn' href='#'>2</button>
+<button class='btn' href='#'>3</button>
 </nav>
-<hr />
-<nav style='margin-top: 1em;'>
-<ul class='nav inline' data-behavior='checkbox' data-bindable='togglable-group' id='checks'>
-<li><a href='#'>Checkbox 1</a></li>
-<li><a href='#'>Checkbox 2</a></li>
-<li><a href='#'>Checkbox 3</a></li>
-<li class='not-link'>Not a link</li>
-</ul>
+<nav class='button-group'>
+<button class='btn active' href='#'>4</button>
 </nav>
-<hr />
-<nav style='margin-top: 1em;'>
-<ul class='nav inline' data-bindable='togglable-group' data-delay='activate: 500, deactivate: 500' id='radios_delay'>
-<li class='radio-li'><a href='#'>Radio 1 Delay</a></li>
-<li class='radio-li'><a href='#'>Radio 2 Delay</a></li>
-<li class='radio-li'><a href='#'>Radio 3 Delay</a></li>
-</ul>
+<nav class='button-group'>
+<button class='btn' href='#'>5</button>
+<button class='btn' href='#'>6</button>
+<button class='btn' href='#'>7</button>
 </nav>
-<hr />
-<nav style='margin-top: 2em;'>
-<ul class='nav inline' data-bindable='togglable-group' data-related='#related_radio_content .togglable-pane' id='related_radio_nav'>
-<li class='active'><a href='#related_rone'>Related Radio 1</a></li>
-<li><a data-target='#related_rtwo' href='#'>Related Radio 2</a></li>
-<li><a href='#related_rthree'>Related Radio 3</a></li>
-</ul>
-</nav>
-<section class='togglable-content' id='related_radio_content' style='margin-top:1.25em;'>
-<article class='togglable-pane active' id='related_rone'>
-<p>Related radio content <span class="decal important">one</span></p>
-</article>
-<article class='togglable-pane' id='related_rtwo'>
-<p>Related radio content <span class="decal success">two</span></p>
-</article>
-<article class='togglable-pane' id='related_rthree'>
-<p>Related radio content <span class="decal danger">three</span></p>
-</article>
 </section>
-<hr />
-<nav style='margin-top: 2em;'>
-<ul class='nav inline' data-behavior='checkbox' data-bindable='togglable-group' data-related='#related_check_content .togglable-pane' id='related_check_nav'>
-<li class='active'><a href='#related_cone'>Related Check 1</a></li>
-<li><a data-target='#related_ctwo' href='#'>Related Check 2</a></li>
-<li><a href='#related_cthree'>Related Check 3</a></li>
-</ul>
+<h5 style='margin-top:3em; margin-bottom:1em;'>Button Group (checkbox)</h5>
+<nav class='button-group' data-behavior='checkbox' data-bindable='toggle-button-group' data-target='.btn' id='toggle_button_group_checks'>
+<a class='btn' href='#'>Left</a>
+<a class='btn active' href='#'>Middle 1</a>
+<a class='btn' href='#'>Middle 2</a>
+<a class='btn' href='#'>Right</a>
 </nav>
-<section class='togglable-content' id='related_check_content' style='margin-top:1.25em;'>
-<article class='togglable-pane active' id='related_cone'>
-<p>Related checkbox content <span class="decal important">one</span></p>
-</article>
-<article class='togglable-pane' id='related_ctwo'>
-<p>Related checkbox content <span class="decal success">two</span></p>
-</article>
-<article class='togglable-pane' id='related_cthree'>
-<p>Related checkbox content <span class="decal danger">three</span></p>
-</article>
-</section>
 </div>
 
-<pre><code class="haml">%nav
-  %ul#radios.nav.inline(data-bindable=&quot;togglable-group&quot; data-target=&quot;.radio-li&quot;)
-    %li.radio-li&lt;
-      %a(href=&quot;#&quot;) Radio 1
-    %li.radio-li&lt;
-      %a(href=&quot;#&quot;) Radio 2
-    %li.radio-li&lt;
-      %a(href=&quot;#&quot;) Radio 3
-    %li.not-link Not a link
-%hr
-%nav(style=&quot;margin-top: 1em;&quot;)
-  %ul#checks.nav.inline(data-bindable=&quot;togglable-group&quot; data-behavior=&quot;checkbox&quot;)
-    %li&lt;
-      %a(href=&quot;#&quot;) Checkbox 1
-    %li&lt;
-      %a(href=&quot;#&quot;) Checkbox 2
-    %li&lt;
-      %a(href=&quot;#&quot;) Checkbox 3
-    %li.not-link Not a link
-%hr
-%nav(style=&quot;margin-top: 1em;&quot;)
-  %ul#radios_delay.nav.inline(data-bindable=&quot;togglable-group&quot; data-delay=&quot;activate: 500, deactivate: 500&quot;)
-    %li.radio-li&lt;
-      %a(href=&quot;#&quot;) Radio 1 Delay
-    %li.radio-li&lt;
-      %a(href=&quot;#&quot;) Radio 2 Delay
-    %li.radio-li&lt;
-      %a(href=&quot;#&quot;) Radio 3 Delay
+<pre><code class="haml">%h5(style=&quot;margin-bottom:1em;&quot;) Button Toolbar (radio)
+%section#toggle_button_group_radios.button-toolbar(data-bindable=&quot;toggle-button-group&quot;)
+  %nav.button-group
+    %button.btn(href=&quot;#&quot;) 1
+    %button.btn(href=&quot;#&quot;) 2
+    %button.btn(href=&quot;#&quot;) 3
+  %nav.button-group
+    %button.btn.active(href=&quot;#&quot;) 4
+  %nav.button-group
+    %button.btn(href=&quot;#&quot;) 5
+    %button.btn(href=&quot;#&quot;) 6
+    %button.btn(href=&quot;#&quot;) 7
 
-%hr
-%nav(style=&quot;margin-top: 2em;&quot;)
-  %ul#related_radio_nav.nav.inline(data-bindable=&quot;togglable-group&quot; data-related=&quot;#related_radio_content .togglable-pane&quot;)
-    %li.active&lt;
-      %a(href=&quot;#related_rone&quot;) Related Radio 1
-    %li&lt;
-      %a(href=&quot;#&quot; data-target=&quot;#related_rtwo&quot;) Related Radio 2
-    %li&lt;
-      %a(href=&quot;#related_rthree&quot;) Related Radio 3
-
-%section#related_radio_content.togglable-content(style=&quot;margin-top:1.25em;&quot;)
-  %article.togglable-pane.active#related_rone
-    %p Related radio content &lt;span class=&quot;decal important&quot;&gt;one&lt;/span&gt;
-  %article.togglable-pane#related_rtwo
-    %p Related radio content &lt;span class=&quot;decal success&quot;&gt;two&lt;/span&gt;
-  %article.togglable-pane#related_rthree
-    %p Related radio content &lt;span class=&quot;decal danger&quot;&gt;three&lt;/span&gt;
-
-%hr
-%nav(style=&quot;margin-top: 2em;&quot;)
-  %ul#related_check_nav.nav.inline(data-bindable=&quot;togglable-group&quot; data-behavior=&quot;checkbox&quot; data-related=&quot;#related_check_content .togglable-pane&quot;)
-    %li.active&lt;
-      %a(href=&quot;#related_cone&quot;) Related Check 1
-    %li&lt;
-      %a(href=&quot;#&quot; data-target=&quot;#related_ctwo&quot;) Related Check 2
-    %li&lt;
-      %a(href=&quot;#related_cthree&quot;) Related Check 3
-
-%section#related_check_content.togglable-content(style=&quot;margin-top:1.25em;&quot;)
-  %article.togglable-pane.active#related_cone
-    %p Related checkbox content &lt;span class=&quot;decal important&quot;&gt;one&lt;/span&gt;
-  %article.togglable-pane#related_ctwo
-    %p Related checkbox content &lt;span class=&quot;decal success&quot;&gt;two&lt;/span&gt;
-  %article.togglable-pane#related_cthree
-    %p Related checkbox content &lt;span class=&quot;decal danger&quot;&gt;three&lt;/span&gt;
+%h5(style=&quot;margin-top:3em; margin-bottom:1em;&quot;) Button Group (checkbox)
+%nav#toggle_button_group_checks.button-group(data-bindable=&quot;toggle-button-group&quot; data-behavior=&quot;checkbox&quot; data-target=&quot;.btn&quot;)
+  %a.btn(href=&quot;#&quot;) Left
+  %a.btn.active(href=&quot;#&quot;) Middle 1
+  %a.btn(href=&quot;#&quot;) Middle 2
+  %a.btn(href=&quot;#&quot;) Right
 </code></pre>
 
 <!-- end -->
@@ -5408,52 +5820,34 @@ systems to control other components such as tabs, pills and accordions.</p>
 </tr>
 </thead><tbody>
 <tr>
+<td><code>namespace</code></td>
+<td><code>toggle_button_group</code></td>
+<td>The namespace to use for dispatching events</td>
+</tr>
+<tr>
 <td><code>target</code></td>
-<td><code>li</code></td>
+<td><code>a,button</code></td>
 <td>The identifier for looking up child elements to operate on.</td>
-</tr>
-<tr>
-<td><code>behavior</code></td>
-<td><code>radio</code></td>
-<td>Set to <code>radio</code> for radio style toggling or <code>checkbox</code> for check box style toggling</td>
-</tr>
-<tr>
-<td><code>activate</code></td>
-<td><code>element</code> or <code>index</code></td>
-<td>If present, this will auto activate the element or index item on initialization</td>
 </tr>
 </tbody></table>
 
-<p>See <code>Togglable</code> for remaining options </p>
+<p>See <code>ToggleGroup</code> and <code>Triggerable</code> for more options.</p>
 
 <h2>API</h2>
 
 <h3>#new</h3>
 
-<p>Create a new instance of <code>TogglableGroup</code> programatically. Most setup
-occurs within <code>Togglable</code>. </p>
+<p>Create a new instance of <code>ToggleButtonGroup</code> programatically, typically
+this is instantiated through <code>Bindable</code></p>
 
-<pre><code class="coffee">#= require togglable_group
+<pre><code class="coffee">#= require toggle_button_group
 
 @radios = $(&#39;#radios&#39;)
 @checks = $(&#39;#checks&#39;)
 
-@radio_group = new utensil.TogglableGroup(radios, {behavior: &#39;radio&#39;})
-@check_group = new utensil.TogglableGroup(checks, {behavior: &#39;checkbox&#39;})
+@radio_group = new utensil.ToggleButtonGroup(radios, {behavior: &#39;radio&#39;})
+@check_group = new utensil.ToggleButtonGroup(checks, {behavior: &#39;checkbox&#39;})
 </code></pre>
-
-<h3>#toggle</h3>
-
-<p>This is normally handled through events, but you can always trigger the
-element&#39;s toggle event. Toggling changes the state on the current triggered
-element, if the group has <code>radio</code> behavior, it will deactivate all other
-elements within the group.</p>
-
-<pre><code class="coffee">$(@radios[1]).trigger(&#39;click&#39;)
-$(@checks[1]).trigger(&#39;click&#39;)
-</code></pre>
-
-<p><em>Note: this does not call the super&#39;s <code>#toggle</code> method</em></p>
 
 <h3>#activate</h3>
 
@@ -5462,15 +5856,19 @@ Activating will add the toggle classes to the element. If behavior is
 set to <code>radio</code>, activate will remove the toggle classes from other
 elements within the group.</p>
 
-<p>dispatches the <code>togglable:activate</code> event</p>
+<h5>dispatches:</h5>
+
+<ul>
+<li><code>toggle_button_group:activated</code></li>
+</ul>
 
 <pre><code class="coffee"># activate by index
-@radio_group.activate(target:1)
-@check_group.activate(target:1)
+@radio_group.activate(1)
+@check_group.activate(1)
 
 # activate by element
-@radio_group.activate(target:$(@radios[1]))
-@check_group.activate(target:$(@checks[1]).find(&#39;a&#39;))
+@radio_group.activate($(@radios[1]))
+@check_group.activate($(@checks[1]))
 </code></pre>
 
 <h3>#deactivate</h3>
@@ -5478,15 +5876,19 @@ elements within the group.</p>
 <p>Deactivate can take either an index or element as it&#39;s target parameter.
 Deactivating will remove the toggle classes from the element.</p>
 
-<p>dispatches the <code>togglable:deactivate</code> event</p>
+<h5>dispatches:</h5>
+
+<ul>
+<li><code>toggle_button_group:deactivated</code></li>
+</ul>
 
 <pre><code class="coffee"># deactivate by index
-@radio_group.deactivate(target:1)
-@check_group.deactivate(target:1)
+@radio_group.deactivate(1)
+@check_group.deactivate(1)
 
 # deactivate by element
-@radio_group.deactivate(target:$(@radios[1]))
-@check_group.deactivate(target:$(@checks[1]).find(&#39;a&#39;))
+@radio_group.deactivate($(@radios[1]))
+@check_group.deactivate($(@checks[1]))
 </code></pre>
 
 <h3>#dispose</h3>
@@ -5500,28 +5902,216 @@ Deactivating will remove the toggle classes from the element.</p>
 <h3>Requires</h3>
 
 <ul>
-<li>utensil</li>
-<li>bindable</li>
-<li>togglable</li>
+<li><code>utensil</code></li>
+<li><code>bindable</code></li>
+<li><code>toggle_group</code></li>
 </ul>
 
-<p><code>TogglableGroup</code> is a subclass of <code>Togglable</code>.</p>
+<p>Any events dispatched from <code>ToggleButtonGroup</code> contain the <code>event</code>
+property as the first parameter and the <code>activator/deactivator</code> as the
+second parameter. This is done to ensure scope is transferred correctly
+and for a quicker lookup from the class utilizing a <code>ToggleButtonGroup</code>
+instance.</p>
 
-<h2>Todo</h2>
+<p></section><section class="sherpa-section sherpa-clearfix"></p>
 
-<ul>
-<li>Figure out the <code>@is_active</code> value
+<h1>Toggle Group</h1>
 
-<ul>
-<li>The <code>@is_active</code> value from <code>Togglable</code> is being set based
-on every click. It&#39;s not used by <code>TogglerGroup</code>, but may down the
-road. Need to figure out the best way to manage this since we are
-dealing with a group. The alternative could be that <code>@is_active</code> be
-set by the state of the <code>e.target</code>?</li>
-</ul></li>
-<li>Clean up the fixture so it doesn&#39;t rely on tabs and is more generic</li>
-<li>Should we keep and index of who is selected (see the <code>Menu</code> component)</li>
+<p>Base class for adding, removing and toggling classes on a group of
+elements. These are predominantly used in navigation type systems. A
+<code>ToggleGroup</code> can function either like radio buttons or check boxes.</p>
+
+<p><code>ToggleGroup</code> utilizes <code>Triggerable</code> through composition.</p>
+
+<pre><code class="html">data-bindable=&quot;toggle-group&quot;
+</code></pre>
+
+<!--~ markup/toggle_group.html.haml -->
+
+<div class="sherpa-showcase sherpa-clearfix"><nav>
+<ul class='nav inline' data-bindable='toggle-group' data-target='.radio-li' id='toggle_group_radios'>
+<li class='radio-li'><a href='#'>Radio 1</a></li>
+<li class='radio-li'><a href='#'>Radio 2</a></li>
+<li class='radio-li'><a href='#'>Radio 3</a></li>
+<li class='radio-li group-ignore'>Not a link</li>
 </ul>
+</nav>
+<hr />
+<nav style='margin-top: 1em;'>
+<ul class='nav inline' data-behavior='checkbox' data-bindable='toggle-group' data-ignore='.text-ignore' id='toggle_group_checks'>
+<li><a href='#'>Checkbox 1</a></li>
+<li><a href='#'>Checkbox 2</a></li>
+<li><a href='#'>Checkbox 3</a></li>
+<li class='text-ignore'>Not a link</li>
+</ul>
+</nav>
+<hr />
+<nav style='margin-top: 1em;'>
+<ul class='nav inline' data-bindable='toggle-group' data-delay='500, 500' data-namespace='toggle_delay' data-toggle='active on' id='toggle_group_delay'>
+<li><a href='#'>Radio Delay 1</a></li>
+<li><a href='#'>Radio Delay 2</a></li>
+<li><a href='#'>Radio Delay 3</a></li>
+<li class='group-ignore'>Not a link</li>
+</ul>
+</nav>
+</div>
+
+<pre><code class="haml">%nav
+  %ul#toggle_group_radios.nav.inline(data-bindable=&quot;toggle-group&quot; data-target=&quot;.radio-li&quot;)
+    %li.radio-li&lt;
+      %a(href=&quot;#&quot;) Radio 1
+    %li.radio-li&lt;
+      %a(href=&quot;#&quot;) Radio 2
+    %li.radio-li&lt;
+      %a(href=&quot;#&quot;) Radio 3
+    %li.radio-li.group-ignore Not a link
+
+%hr
+%nav(style=&quot;margin-top: 1em;&quot;)
+  %ul#toggle_group_checks.nav.inline(data-bindable=&quot;toggle-group&quot; data-behavior=&quot;checkbox&quot; data-ignore=&quot;.text-ignore&quot;)
+    %li&lt;
+      %a(href=&quot;#&quot;) Checkbox 1
+    %li&lt;
+      %a(href=&quot;#&quot;) Checkbox 2
+    %li&lt;
+      %a(href=&quot;#&quot;) Checkbox 3
+    %li.text-ignore Not a link
+
+%hr
+%nav(style=&quot;margin-top: 1em;&quot;)
+  %ul#toggle_group_delay.nav.inline(data-bindable=&quot;toggle-group&quot; data-delay=&quot;500, 500&quot; data-toggle=&quot;active on&quot; data-namespace=&quot;toggle_delay&quot;)
+    %li&lt;
+      %a(href=&quot;#&quot;) Radio Delay 1
+    %li&lt;
+      %a(href=&quot;#&quot;) Radio Delay 2
+    %li&lt;
+      %a(href=&quot;#&quot;) Radio Delay 3
+    %li.group-ignore Not a link
+</code></pre>
+
+<!-- end -->
+
+<h2>Options</h2>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>namespace</code></td>
+<td><code>toggle_group</code></td>
+<td>The namespace to use for dispatching events</td>
+</tr>
+<tr>
+<td><code>toggle</code></td>
+<td><code>active</code></td>
+<td>The class(es) to toggle when triggered</td>
+</tr>
+<tr>
+<td><code>behavior</code></td>
+<td><code>radio</code></td>
+<td>Set to <code>radio</code> for radio style toggling or <code>checkbox</code> for check box style toggling</td>
+</tr>
+<tr>
+<td><code>target</code></td>
+<td><code>li</code></td>
+<td>The identifier for looking up child elements to operate on.</td>
+</tr>
+<tr>
+<td><code>activate</code></td>
+<td><code>false</code></td>
+<td>If present, this will auto activate the element</td>
+</tr>
+<tr>
+<td><code>ignore</code></td>
+<td><code>.group-ignore,.drop</code></td>
+<td>Elements in the stack to ignore trigger events from</td>
+</tr>
+</tbody></table>
+
+<p>See <code>Triggerable</code> for more options.</p>
+
+<h2>API</h2>
+
+<h3>#new</h3>
+
+<p>Create a new instance of <code>ToggleGroup</code> programatically, typically this
+is instantiated through <code>Bindable</code></p>
+
+<pre><code class="coffee">#= require toggle_group
+
+@radios = $(&#39;#radios&#39;)
+@checks = $(&#39;#checks&#39;)
+
+@radio_group = new utensil.ToggleGroup(radios, {behavior: &#39;radio&#39;})
+@check_group = new utensil.ToggleGroup(checks, {behavior: &#39;checkbox&#39;})
+</code></pre>
+
+<h3>#activate</h3>
+
+<p>Activate can take either an index or element as it&#39;s target parameter.
+Activating will add the toggle classes to the element. If behavior is
+set to <code>radio</code>, activate will remove the toggle classes from other
+elements within the group.</p>
+
+<h5>dispatches:</h5>
+
+<ul>
+<li><code>toggle_group:activated</code></li>
+</ul>
+
+<pre><code class="coffee"># activate by index
+@radio_group.activate(1)
+@check_group.activate(1)
+
+# activate by element
+@radio_group.activate($(@radios[1]))
+@check_group.activate($(@checks[1]).find(&#39;a&#39;))
+</code></pre>
+
+<h3>#deactivate</h3>
+
+<p>Deactivate can take either an index or element as it&#39;s target parameter.
+Deactivating will remove the toggle classes from the element.</p>
+
+<h5>dispatches:</h5>
+
+<ul>
+<li><code>toggle_group:deactivated</code></li>
+</ul>
+
+<pre><code class="coffee"># deactivate by index
+@radio_group.deactivate(1)
+@check_group.deactivate(1)
+
+# deactivate by element
+@radio_group.deactivate($(@radios[1]))
+@check_group.deactivate($(@checks[1]).find(&#39;a&#39;))
+</code></pre>
+
+<h3>#dispose</h3>
+
+<p>Cleans up any internal references </p>
+
+<pre><code class="coffee">@radio_group.dispose()
+@check_group.dispose()
+</code></pre>
+
+<h3>Requires</h3>
+
+<ul>
+<li><code>utensil</code></li>
+<li><code>bindable</code></li>
+<li><code>triggerable</code></li>
+</ul>
+
+<p>Any events dispatched from <code>ToggleGroup</code> contain the <code>event</code> property as
+the first parameter and the <code>activator/deactivator</code> as the second
+parameter. This is done to ensure scope is transferred correctly and for
+a quicker lookup from the class utilizing a <code>ToggleGroup</code> instance.</p>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
@@ -5605,6 +6195,217 @@ within your <code>config.sass</code> file or before <code>transition.sass</code>
 <td>Timing equation to transition the element</td>
 </tr>
 </tbody></table>
+
+<p></section><section class="sherpa-section sherpa-clearfix"></p>
+
+<h1>Triggerable</h1>
+
+<p>Base class for handling and dispatching user interactions. <code>Triggerable</code>
+is used via composition by most components that trigger some sort of
+stateful change.</p>
+
+<p><code>Triggerable</code> is not a <code>Bindable</code> class and needs to be instantiated via
+a class instance.</p>
+
+<h2>Usage</h2>
+
+<p>As a class making use of a <code>Triggerable</code> instance through composition:</p>
+
+<pre><code class="coffee">#= require triggerable
+class utensil.MockClass
+  constructor: (@el, @data) -&gt;
+    @triggerable = new utensil.Triggerable(@el, @data)
+    @triggerable.dispatcher.on(&#39;triggerable:activate&#39;, =&gt; @activated arguments...)
+    @triggerable.dispatcher.on(&#39;triggerable:deactivate&#39;, =&gt; @deactivated arguments...)
+
+  toggle: -&gt;
+    @triggerable.toggle(target: @el)
+
+  activate: -&gt;
+    @triggerable.activate(target: @el)
+
+  deactivate: -&gt;
+    @triggerable.deactivate(target: @el)
+
+  dispose: -&gt;
+    @removeListeners()
+    @triggerable.dispose()
+    @triggerable = null
+
+  activated: (e) -&gt;
+    # activate some stuff
+
+  deactivated: (e) -&gt;
+    # deactivate some stuff
+</code></pre>
+
+<h2>Options</h2>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>namespace</code></td>
+<td><code>triggerable</code></td>
+<td>The namespace to use for dispatching events</td>
+</tr>
+<tr>
+<td><code>trigger</code></td>
+<td><code>click</code></td>
+<td>The event to trigger toggle behavior [<code>click</code>, <code>hover</code>, <code>focus</code>, <code>manual</code>]</td>
+</tr>
+<tr>
+<td><code>bubble</code></td>
+<td><code>false</code></td>
+<td>Controls whether an action <code>preventsDefault</code>, setting to <code>true</code> will allow normal events to bubble</td>
+</tr>
+<tr>
+<td><code>delay</code></td>
+<td><code>undefined</code></td>
+<td>The amount of time in milliseconds to delay on <code>activate</code> and <code>deactivate</code>, see the <code>Timeslot</code> class for more information</td>
+</tr>
+</tbody></table>
+
+<p>Options are typically passed up through the class instance utilizing
+<code>Triggerable</code>.</p>
+
+<h3>Trigger Types</h3>
+
+<p>The <code>trigger</code> attribute is mapped to an object with <code>on/off</code> properties
+based on the following:</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>trigger.on =&gt; handler</th>
+<th>trigger.off =&gt; handler</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>&quot;click&quot;</td>
+<td><code>click =&gt; #toggle</code></td>
+<td><code>click =&gt; #toggle</code></td>
+</tr>
+<tr>
+<td>&quot;hover&quot;</td>
+<td><code>mouseenter =&gt; #activate</code></td>
+<td><code>mouseleave =&gt; #deactivate</code></td>
+</tr>
+<tr>
+<td>&quot;focus&quot;</td>
+<td><code>focus =&gt; #activate</code></td>
+<td><code>blur =&gt; #deactivate</code></td>
+</tr>
+<tr>
+<td>&quot;manual&quot;</td>
+<td><em>none</em></td>
+<td><em>none</em></td>
+</tr>
+</tbody></table>
+
+<p>The <code>manual</code> trigger does not add any listeners, as it&#39;s meant to be
+called programmatically from another object.</p>
+
+<p>Any other trigger types, not included in this list, map their <code>on/off</code>
+properties to the given trigger name. They will automatically call the
+<code>#toggle</code> handler.</p>
+
+<h3>Delays</h3>
+
+<p>When <code>delay</code> is set, the <code>#activate</code> and <code>#deactivate</code> methods are
+scoped to <code>#activateWithDelay</code> and <code>#deactivateWithDelay</code>. Classes
+utilizing <code>Triggerable</code> through composition and a <code>delay</code> do not need to
+be concerned with this in their own API. Compositional classes should
+only rely on the dispatched events from their instance of <code>Triggerable</code>.</p>
+
+<p>If one of the delay properties (<code>activate</code> or <code>deactivate</code>) is <code>0</code>, then
+the method for that property will not be scoped through the delay
+method.</p>
+
+<h2>API</h2>
+
+<h3>#new</h3>
+
+<p>Create a new instance of <code>Triggerable</code> programatically. </p>
+
+<pre><code class="coffee">#= require triggerable
+
+@triggerable = new utensil.Triggerable(@el, @data)
+</code></pre>
+
+<h3>#toggle</h3>
+
+<p>Typically called through user input, but can be triggered by the
+elements toggle event.</p>
+
+<pre><code class="coffee">@triggerable.toggle(target: @el)
+</code></pre>
+
+<h3>#activate</h3>
+
+<p>Activate a <code>Triggerable</code> instance</p>
+
+<h5>dispatches:</h5>
+
+<ul>
+<li><code>triggerable:trigger</code></li>
+<li><code>triggerable:activate</code></li>
+</ul>
+
+<pre><code class="coffee">@triggerable.activate(target: @el)
+</code></pre>
+
+<h3>#deactivate</h3>
+
+<p>Deactivate a <code>Triggerable</code> instance</p>
+
+<h5>dispatches:</h5>
+
+<ul>
+<li><code>triggerable:trigger</code></li>
+<li><code>triggerable:deactivate</code></li>
+</ul>
+
+<pre><code class="coffee">@triggerable.deactivate(target: @el)
+</code></pre>
+
+<h3>#dispose</h3>
+
+<p>Cleans up any internal references </p>
+
+<pre><code class="coffee">@triggerable.dispose()
+@triggerable = null
+</code></pre>
+
+<h3>Requires</h3>
+
+<ul>
+<li><code>utensil</code></li>
+<li><code>timeslot</code></li>
+</ul>
+
+<p>An instance of <code>Triggerable</code> creates a <code>@dispatcher</code> property for
+dispatching events. Typically this is just the <code>@el</code> but is created for
+clarity in access from a compositional class.</p>
+
+<p>Any events dispatched from <code>Triggerable</code> contain the <code>event</code> property as
+the first parameter and the <code>event.target</code> as the second parameter. This
+is done to ensure scope is transferred correctly and for a quicker
+lookup from the class utilizing a <code>Triggerable</code> instance.</p>
+
+<p>By default, <code>Triggerable</code> allows an <code>event</code> to propagate. This can be
+shut down by calling on the instance: <code>@triggerable.stop_propagation =
+true</code></p>
+
+<h2>Todo</h2>
+
+<ul>
+<li>Can <code>Triggerable</code> handle delays around CSS animations?</li>
+</ul>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 

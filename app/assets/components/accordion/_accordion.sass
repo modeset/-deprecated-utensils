@@ -1,0 +1,26 @@
+
+$accordion-border: $base-border !default
+$accordion-radii: $radii !default
+
+.accordion-group
+  border: 1px solid $accordion-border
+  border-radius: $accordion-radii
+  margin-bottom: 0.15em
+
+.accordion-group:last-child
+  margin-bottom: 0
+
+.accordion-toggle
+  display: block
+  padding: 0.5em 0.8em
+
+// The body the collapsed content (must be nested in a `.collapse` container)
+.accordion-inner
+  border-top: 1px solid $accordion-border
+  padding: 0.5em 0.8em
+
+// For accordions not using the `Collapse` behavior
+.accordion-toggle.active[data-bindable="toggle"] + .collapse,
+[data-bindable="toggle-group"] .accordion-group.active .collapse
+  height: auto
+

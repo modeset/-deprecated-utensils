@@ -2,8 +2,8 @@
 # Todo
 
 ## WIP
-- accordions.sass *
 - focus and selected states around all utensils
+- abstract the common values for padding and margins
 - notifications.sass *
 - progress-bars.sass *
 - modals.sass *
