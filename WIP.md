@@ -2,17 +2,17 @@
 # Todo
 
 ## WIP
-- focus and selected states around all utensils
-- notifications.sass *
 - progress-bars.sass *
+- notifications.sass *
 - modals.sass *
 - navbars.sass *
 - document mixins
+- manage focus states around all utensils
 - finish all utensil Todo lists
 - view layout templates
 - ARIA roles for templates/fixtures
 - media queries
-- universal style sheet
+- dinosaurs style sheet
 - upgrades
 - carousels.sass *
 - listing of needed utensils

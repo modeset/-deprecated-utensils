@@ -58,9 +58,10 @@ See `Tab` for more information.
 To override the default settings, set the variable and it's value
 within your `config.sass` file or before `pill.sass` is loaded.
 
-Variable           | Default            | Description
------------------- | ------------------ | -------------------------------------------
-`$pill-bgc-hover`  | `$base-bgc-hover`  | The `background-color` of the pill component when hovered
-`$pill-bgc-active` | `$base-bgc-active` | The `background-color` of the pill component when active
-`$pill-radii`      | `$radii`           | The `border-radius` of the pill link
+Variable             | Default            | Description
+-------------------- | ------------------ | -------------------------------------------
+`$pill-bgc-hover`    | `$base-bgc-hover`  | The `background-color` of the pill component when hovered
+`$pill-bgc-active`   | `$base-bgc-active` | The `background-color` of the pill component when active
+`$pill-bgc-selected` | `$base-bgc-active` | The `background-color` of the pill component when selected
+`$pill-radii`        | `$radii`           | The `border-radius` of the pill link
 
