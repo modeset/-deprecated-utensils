@@ -4,7 +4,7 @@
 $auto-generate-semigloss: false !default
 
 // The base mixin for creating a semigloss button
-@mixin semigloss-button($bgc, $color:#fff, $hover-percent:10%, $active-percent:15%, $border-percent:30%, $padding:0.5em 0.8em, $radii:$radii)
+@mixin semigloss-button($bgc, $color:#fff, $hover-percent:10%, $active-percent:15%, $border-percent:30%, $padding:$base-padding, $radii:$radii)
   background-color: $bgc
   +background-image(linear-gradient(rgba(255,255,255,0.2), rgba(0,0,0,0.05)))
   +box-shadow(inset 0 1px 4px rgba(white, 0.5))

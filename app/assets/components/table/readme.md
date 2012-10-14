@@ -119,7 +119,7 @@ Variable               | Default                           | Description
 `$table-thead-bgc`     | `darken($table-bgc, 12%)`         | The `background-color` of the `thead` element in `.table-thead`
 `$table-tfoot-bgc`     | `darken($table-bgc, 5%) `         | The `background-color` of the `tfoot` element in `.table-tfoot`
 `$table-padding-lr`    | `0.5em`                           | The `padding-left`, `padding-right` value for `th` and `td`
-`$table-padding-tb`    | `1em`                             | The `padding-top`, `padding-bottom` value for `th` and `td` (divided by 2 for `table-condensed`)
+`$table-padding-tb`    | `0.8em`                           | The `padding-top`, `padding-bottom` value for `th` and `td` (divided by 2 for `table-condensed`)
 `$table-status-list`   | `nil`                             | The `list` of modifier classes to include for `tr` cell statuses
 
 ###### Warnings

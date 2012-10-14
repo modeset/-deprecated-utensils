@@ -56,7 +56,7 @@ Parameter          | Default          | Description
 `$hover-percent`   | `10%`            | The percentage to darken the `background-color` on hover
 `$active-percent`  | `15%`            | The percentage to darken the `background-color` on press and `.active`
 `$border-percent`  | `30%`            | The percentage to darken the `border-color` against `$bg`
-`$padding`         | `0.5em 0.8em`    | The `padding` within the button
+`$padding`         | `$base-padding`  | The `padding` within the button
 `$radii`           | `$radii`         | The button's `border-radius`
 
 ```sass

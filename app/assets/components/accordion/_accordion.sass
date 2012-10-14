@@ -12,12 +12,12 @@ $accordion-radii: $radii !default
 
 .accordion-toggle
   display: block
-  padding: 0.5em 0.8em
+  padding: $base-padding
 
 // The body the collapsed content (must be nested in a `.collapse` container)
 .accordion-inner
   border-top: 1px solid $accordion-border
-  padding: 0.5em 0.8em
+  padding: $base-padding
 
 // For accordions not using the `Collapse` behavior
 .accordion-toggle.active[data-bindable="toggle"] + .collapse,
