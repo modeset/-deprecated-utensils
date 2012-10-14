@@ -40,6 +40,7 @@ class utensil.ToggleButtonGroup extends utensil.ToggleGroup
     return if element.length <= 0
     return if @behavior == 'radio' && element.hasClass(@toggle_classes)
     if @behavior == 'radio' then @radio(element) else @checkbox(element)
+    @el.trigger("#{@namespace}:triggered", element)
 
 utensil.Bindable.register('toggle-button-group', utensil.ToggleButtonGroup)
 

@@ -63,16 +63,15 @@ class utensil.ToggleGroup
     return if element.length <= 0
     return if @behavior == 'radio' && element.hasClass(@toggle_classes)
     if @behavior == 'radio' then @radio(element) else @checkbox(element)
+    @el.trigger("#{@namespace}:triggered", element)
 
   radio: (element) ->
     @el.find('.selected').removeClass('selected')
     @findTargets().removeClass(@toggle_classes)
     element.addClass(@toggle_classes)
-    @el.trigger("#{@namespace}:triggered", element)
 
   checkbox: (element) ->
     element.toggleClass(@toggle_classes)
-    @el.trigger("#{@namespace}:triggered", element)
 
   findTargets: ->
     return @targets if @targets
