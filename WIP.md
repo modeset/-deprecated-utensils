@@ -2,7 +2,6 @@
 # Todo
 
 ## WIP
-- collapse *
 - accordions.sass *
 - focus and selected states around all utensils
 - notifications.sass *
@@ -31,7 +30,7 @@
 - There should be some sort of Toggle class that acts similar to the
   demo (removes a bunch of classes then add more) pass a data-remove?
 - Should events have more of a namespace to avoid collisions?
-- Try and speed up more of the lookups and cache where possible
+- Try and lazy load more of the lookups and cache where possible
 
 ## Repository
 - Standardize file naming structure

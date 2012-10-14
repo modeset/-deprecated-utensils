@@ -11,6 +11,7 @@
 //= require toggle_button_group/spec
 
 //= require drop/spec
+//= require collapse/spec
 //= require tab/spec
 //= require pop/spec
 //= require tip/spec

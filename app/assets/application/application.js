@@ -6,9 +6,9 @@
 //= require toggle_group
 //= require toggle_button_group
 
-//= require collapsible
-//= require tab
 //= require drop
+//= require collapse
+//= require tab
 //= require tip
 //= require pop
 

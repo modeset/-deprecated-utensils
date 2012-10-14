@@ -1,8 +1,6 @@
 
 $fade-duration: $speed !default
 $fade-timing-function: linear !default
-$collapse-duration: $speed !default
-$collapse-timing-function: $ease-in-out-quart !default
 $transall-duration: $speed !default
 $transall-timing-function: $ease-in-out-quart !default
 
@@ -12,16 +10,6 @@ $transall-timing-function: $ease-in-out-quart !default
   +opacity(0)
   &.in
     +opacity(1)
-
-.collapse
-  +transition(height $collapse-duration $collapse-timing-function)
-  +hardware-accelerate
-  position: relative
-  overflow: hidden
-  height: 0
-  &.in
-    height: auto
-
 
 .transall
   +transition(all $transall-duration $transall-timing-function)

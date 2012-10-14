@@ -1,0 +1,50 @@
+
+:ruby
+  @lorem = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+
+%a(data-bindable="collapse" href="#collapse_height") Single Collapse
+%section.collapse#collapse_height
+  %article
+    -(1..3).each do |i|
+      %p=@lorem
+
+%a(data-bindable="collapse" data-target="#collapse_auto" href="#" data-activate="true") Single Auto Shown
+%section.collapse.in#collapse_auto
+  %article
+    %p=@lorem
+
+
+%hr
+%nav(style="margin-top: 1em;")
+  %ul#collapse_radio(data-bindable="collapse" data-type="group" data-activate="0")
+    -(1..3).each do |i|
+      %li
+        %a(href="#collapse_radio_#{i}") Radio Collapse #{i}
+        %section.collapse(id="collapse_radio_#{i}")
+          %article
+            %p=@lorem
+
+%hr
+%nav(style="margin-top: 1em;")
+  %ul#collapse_checkbox(data-bindable="collapse" data-type="group" data-behavior="checkbox")
+    -(1..3).each do |i|
+      %li
+        %a(href="#" data-target="#collapse_check_#{i}") Checkbox Collapse #{i}
+        %section.collapse(id="collapse_check_#{i}")
+          %article
+            %p=@lorem
+
+%hr
+%nav(style="margin-top: 1em;")
+  %ul#collapse_external(data-bindable="collapse" data-type="group" data-behavior="checkbox")
+    -(1..3).each do |i|
+      %li
+        %a(href="#collapse_external_#{i}") External Checkbox Collapse #{i}
+
+  -(1..3).each do |i|
+    %section.collapse(id="collapse_external_#{i}")
+      %article
+        %p<
+          %strong Collapse External Pane #{i}
+        %p=@lorem
+
