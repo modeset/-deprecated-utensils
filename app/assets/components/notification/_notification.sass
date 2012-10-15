@@ -1,0 +1,41 @@
+
+@mixin notification-coloring($color)
+  background-color: lighten($color, 40%)
+  border-color: lighten($color, 20%)
+  color: $color
+
+.notification
+  +notification-coloring(darken($info, 15%))
+  border-width: 1px
+  border-style: solid
+  border-radius: $radii
+  text-shadow: $small-drop-lite
+  position: relative
+  padding: 0.8em
+  margin: 1em 0
+
+.notification > p
+  margin: 0
+
+.notification a
+  text-decoration: underline
+
+.notification .close
+  position: absolute
+  text-decoration: none
+  top: 0.5em
+  right: 0.5em
+
+
+.notification.important
+  +notification-coloring($important)
+
+.notification.success
+  +notification-coloring($success)
+
+.notification.warning
+  +notification-coloring(darken($warning, 15%))
+
+.notification.danger
+  +notification-coloring($danger)
+

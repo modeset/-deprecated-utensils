@@ -48,6 +48,7 @@
 <li><a href='#menu'>Menu</a></li>
 <li><a href='#mixin'>Mixin</a></li>
 <li><a href='#normalize'>Normalize</a></li>
+<li><a href='#notification'>Notification</a></li>
 <li><a href='#pager'>Pager</a></li>
 <li><a href='#pagination'>Pagination</a></li>
 <li><a href='#pill'>Pill</a></li>
@@ -3524,6 +3525,74 @@ and inserts them directly into your style sheet.</p>
 
 <pre><code class="sass">@import utensils/components/normalize/normalize
 </code></pre>
+
+<p></section><section class="sherpa-section sherpa-clearfix"></p>
+
+<h1>Notification</h1>
+
+<p>Describe this.</p>
+
+<!--~ markup/notification.html.haml -->
+
+<div class="sherpa-showcase sherpa-clearfix"><div class='notification fade in'>
+<p><strong>Default!</strong> This is the default notification</p>
+<a class='close' data-bindable='dismiss' href='#'>&times;</a>
+</div>
+
+<div class='notification important fade in' id='notification_important'>
+<p><strong>Important!</strong> This is the important notification</p>
+<a class='close' data-bindable='dismiss' data-target='#notification_important' href='#'>&times;</a>
+</div>
+
+<div class='notification success fade in' id='notification_success'>
+<p><strong>Success!</strong> This is the success notification</p>
+<a class='close' data-bindable='dismiss' href='#notification_success'>&times;</a>
+</div>
+
+<div class='notification warning fade in'>
+<p><strong>Warning!</strong> This is the warning notification</p>
+<a class='close' data-bindable='dismiss' href='#'>&times;</a>
+</div>
+
+<div class='notification danger fade in'>
+<p><strong>Danger!</strong> This is the danger notification</p>
+<a class='close' data-bindable='dismiss' href='#'>&times;</a>
+</div>
+
+<p></div></p>
+
+<pre><code class="haml">.notification.fade.in
+  %p &lt;strong&gt;Default!&lt;/strong&gt; This is the default notification
+  %a.close(href=&quot;#&quot; data-bindable=&quot;dismiss&quot;) &amp;times;
+
+.notification.important.fade.in#notification_important
+  %p &lt;strong&gt;Important!&lt;/strong&gt; This is the important notification
+  %a.close(href=&quot;#&quot; data-bindable=&quot;dismiss&quot; data-target=&quot;#notification_important&quot;) &amp;times;
+
+.notification.success.fade.in#notification_success
+  %p &lt;strong&gt;Success!&lt;/strong&gt; This is the success notification
+  %a.close(href=&quot;#notification_success&quot; data-bindable=&quot;dismiss&quot;) &amp;times;
+
+.notification.warning.fade.in
+  %p &lt;strong&gt;Warning!&lt;/strong&gt; This is the warning notification
+  %a.close(href=&quot;#&quot; data-bindable=&quot;dismiss&quot;) &amp;times;
+
+.notification.danger.fade.in
+  %p &lt;strong&gt;Danger!&lt;/strong&gt; This is the danger notification
+  %a.close(href=&quot;#&quot; data-bindable=&quot;dismiss&quot;) &amp;times;
+</code></pre>
+
+<!-- end -->
+
+<h2>Todo</h2>
+
+<ul>
+<li>Write behavior for closing the alert</li>
+<li>Finish working the style modifiers with lists</li>
+<li>Figure out what to do with the mixin</li>
+<li>Styles for block notifications</li>
+<li>How to handle flash messages?</li>
+</ul>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 

@@ -2,8 +2,8 @@
 # Todo
 
 ## WIP
-- progress-bars.sass *
 - notifications.sass *
+- refactor pop to only allow data-attributes on the `@el`
 - modals.sass *
 - navbars.sass *
 - document mixins
@@ -11,9 +11,9 @@
 - finish all utensil Todo lists
 - view layout templates
 - ARIA roles for templates/fixtures
+- upgrades
 - media queries
 - dinosaurs style sheet
-- upgrades
 - carousels.sass *
 - listing of needed utensils
 - fishnet
