@@ -1,0 +1,30 @@
+
+$progress-bgc: darken($base-bgc, 5%) !default
+$progress-border: $base-border !default
+$progress-radii: $radii !default
+$progress-height: 1.25em !default
+$progress-speed: $speed !default
+$progress-bar-bgc: $info !default
+
+.progress
+  border: 1px solid $progress-border
+  background-color: $progress-bgc
+  border-radius: $progress-radii
+  overflow: hidden
+  height: $progress-height
+  margin: $progress-height 0
+
+.progress .bar
+  +box-sizing(border-box)
+  +transition(width $progress-speed)
+  background-color: $progress-bar-bgc
+  width: 0
+  height: $progress-height
+
+@if $progress-list != nil
+  @each $_status in $progress-list
+    $_class_name: nth($_status,1)
+    $_color_value: nth($_status,2)
+    .progress.#{$_class_name} .bar
+      background-color: $_color_value
+

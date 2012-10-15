@@ -55,6 +55,7 @@
 <li><a href='#polyfill'>Polyfill</a></li>
 <li><a href='#pop'>Pop</a></li>
 <li><a href='#print'>Print</a></li>
+<li><a href='#progress'>Progress</a></li>
 <li><a href='#scaffold'>Scaffold</a></li>
 <li><a href='#tab'>Tab</a></li>
 <li><a href='#tab_stacked'>Tab stacked</a></li>
@@ -1045,8 +1046,8 @@ is instantiated through <code>Bindable</code></p>
 @collapse_el = $(&#39;#single&#39;)
 @group_el = $(&#39;#group_el&#39;)
 
-@collapse = new utensil.Tab(@collapse_el)
-@collapse_group = new utensil.Tab(@group_el)
+@collapse = new utensil.Collapse(@collapse_el)
+@collapse_group = new utensil.Collapse(@group_el)
 </code></pre>
 
 <h3>#activate</h3>
@@ -4530,6 +4531,175 @@ the <code>@media print</code> query.</p>
 
 <pre><code class="sass">@import utensils/components/print/print
 </code></pre>
+
+<p></section><section class="sherpa-section sherpa-clearfix"></p>
+
+<h1>Progress</h1>
+
+<p>Styles and simple behavior for progress indicator bars.</p>
+
+<pre><code class="sass">@import utensils/components/progress/progress
+</code></pre>
+
+<!--~ markup/progress.html.haml -->
+
+<div class="sherpa-showcase sherpa-clearfix"><div class='progress'>
+<div class='bar' style='width:60%'></div>
+</div>
+
+<div class='progress important' data-initial='80'>
+<div class='bar'></div>
+</div>
+
+<div class='progress success'>
+<div class='bar' style='width:60%'></div>
+</div>
+
+<div class='progress warning'>
+<div class='bar' style='width:60%'></div>
+</div>
+
+<div class='progress danger'>
+<div class='bar' style='width:60%'></div>
+</div>
+
+<p></div></p>
+
+<pre><code class="haml">.progress
+  .bar(style=&quot;width:60%&quot;)
+
+.progress.important(data-initial=&quot;80&quot;)
+  .bar
+
+.progress.success
+  .bar(style=&quot;width:60%&quot;)
+
+.progress.warning
+  .bar(style=&quot;width:60%&quot;)
+
+.progress.danger
+  .bar(style=&quot;width:60%&quot;)
+</code></pre>
+
+<!-- end -->
+
+<h6>Note</h6>
+
+<ul>
+<li><strong>Pro Tip!</strong> Click on one of the progress bars and it will animate to
+a random number between <code>0-100</code></li>
+</ul>
+
+<h2>Options</h2>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>initial</code></td>
+<td><code>undefined</code></td>
+<td>A numerical value to set the bar at</td>
+</tr>
+</tbody></table>
+
+<h2>API</h2>
+
+<h3>#new</h3>
+
+<p><code>Progress</code> is typically used by a class instance</p>
+
+<pre><code class="coffee">#= require progress
+
+@progress_el = $(&#39;#progress&#39;)
+
+@progress = new utensil.Progress(@progress_el)
+</code></pre>
+
+<h3>#set</h3>
+
+<p>Set the width of the progress bar from a percentage value</p>
+
+<pre><code class="coffee">@progress.set(50)
+</code></pre>
+
+<h3>#get</h3>
+
+<p>Get the width of the progress bar from a percentage value</p>
+
+<pre><code class="coffee">current = @progress.get()
+</code></pre>
+
+<h3>#reset</h3>
+
+<p>Reset the width of the progress bar back to <code>0</code></p>
+
+<pre><code class="coffee">@progress.reset()
+</code></pre>
+
+<h3>#complete</h3>
+
+<p>Set the width of the progress bar to <code>100</code></p>
+
+<pre><code class="coffee">@progress.complete()
+</code></pre>
+
+<h3>Requires</h3>
+
+<ul>
+<li><code>utensil</code></li>
+</ul>
+
+<h2>Style Settings</h2>
+
+<p>To override the default settings, set the variable and it&#39;s value
+within your <code>config.sass</code> file or before <code>progress.sass</code> is loaded.</p>
+
+<table><thead>
+<tr>
+<th>Variable</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>$progress-bgc</code></td>
+<td><code>darken($base-bgc,</code> 5%)</td>
+<td>The <code>background-color</code> of the progress container</td>
+</tr>
+<tr>
+<td><code>$progress-border</code></td>
+<td><code>$base-border</code></td>
+<td>The <code>border-color</code> of the progress container</td>
+</tr>
+<tr>
+<td><code>$progress-radii</code></td>
+<td><code>$radii</code></td>
+<td>The <code>border-radius</code> of the progress component</td>
+</tr>
+<tr>
+<td><code>$progress-height</code></td>
+<td><code>1.25em</code></td>
+<td>The <code>height</code> of the progress container and bar</td>
+</tr>
+<tr>
+<td><code>$progress-speed</code></td>
+<td><code>$speed</code></td>
+<td>The <code>duration</code> when animating a bars progress</td>
+</tr>
+<tr>
+<td><code>$progress-bar-bgc</code></td>
+<td><code>$info</code></td>
+<td>The <code>background-color</code> of the default bar</td>
+</tr>
+</tbody></table>
+
+<p>Progress bars rely on a <code>$progress-list</code> for generating various status
+colors related to bars. This list is typically defined in the
+<code>config.sass</code> file.</p>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 

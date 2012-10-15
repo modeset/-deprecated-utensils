@@ -11,6 +11,7 @@
 //= require tab
 //= require tip
 //= require pop
+//= require progress
 
 // :: Debuggers ::
 //= require dimensionizer

@@ -30,6 +30,7 @@ Sherpa.prototype.initialize = function() {
   this.addListeners()
   this.usage_examples.trigger('click')
   this.popNotes()
+  this.initialProgress()
   this.is_jasmine_shown = false
   // this.toggleSandbox()
 };
@@ -58,6 +59,7 @@ Sherpa.prototype.addListeners = function() {
   $(window).keypress({self: this}, this.captureKeyStroke)
   $('#dimensionizer_demo').on('click', {self: this}, this.activateDimensionizer)
   this.showcases.find('[href=#]').on('click', function(e){e.preventDefault()})
+  $('.progress').on('click', {self: this}, this.demoProgress)
 };
 
 Sherpa.prototype.addJasmine = function() {
@@ -296,6 +298,21 @@ Sherpa.prototype.popNotes = function() {
 Sherpa.prototype.activateDimensionizer = function(e) {
   e.preventDefault()
   var dimensionizer = new utensil.Dimensionizer()
+};
+
+Sherpa.prototype.initialProgress = function() {
+  var pb = this.el.find('.progress.important').first()
+  setTimeout(function() {
+    var progress = new utensil.Progress(pb)
+  }, 1000)
+};
+
+Sherpa.prototype.demoProgress = function(e) {
+  var self = e.data.self
+  var target = $(e.target)
+  var pb = target.hasClass('progress') ? target : target.closest('.progress')
+  var progress = new utensil.Progress(pb)
+  progress.set(Math.floor(Math.random() * 101))
 };
 
 // Demos using radio groups..

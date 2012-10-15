@@ -15,6 +15,7 @@
 //= require tab/spec
 //= require pop/spec
 //= require tip/spec
+//= require progress/spec
 
 //= require dimensionizer/spec
 
