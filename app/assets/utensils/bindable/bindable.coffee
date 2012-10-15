@@ -9,6 +9,7 @@ class utensils.Bindable
 
   bindAll: ->
     @bind(el) for el in @bindables
+    @
 
 
   getRefs: ->
@@ -30,7 +31,7 @@ class utensils.Bindable
     el = $(el)
     key = el.data(dataKey)
     if _class = @constructor.getClass(key)
-      el.data( @instanceKey, new _class(el) )
+      el.data( @instanceKey, new _class(el) ) unless el.data(@instanceKey)
     else
       console?.error "Bindable for key: #{key} not found in Bindable.registry for instance", el
 
@@ -43,4 +44,5 @@ class utensils.Bindable
     @registry ?= {}
     @registry[key] = { class: klass }
     return null
+
 
