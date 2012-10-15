@@ -94,8 +94,8 @@ is instantiated through `Bindable`
 @collapse_el = $('#single')
 @group_el = $('#group_el')
 
-@collapse = new utensil.Tab(@collapse_el)
-@collapse_group = new utensil.Tab(@group_el)
+@collapse = new utensil.Collapse(@collapse_el)
+@collapse_group = new utensil.Collapse(@group_el)
 ```
 
 ### #activate
