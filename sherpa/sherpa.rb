@@ -20,7 +20,7 @@ module Sherpa
       @stache_layout = File.read(File.join("./sherpa/", "layout.mustache"))
 
       # manifest = Dir["./app/assets/**/*.md"]
-      manifest = Dir["./app/assets/components/**/*.md"]
+      manifest = Dir["./app/assets/utensils/**/*.md"]
       aside = get_navigation(manifest)
       lines = cat_manifest(manifest)
       marked = carpet_bag(lines)

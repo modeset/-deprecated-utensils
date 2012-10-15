@@ -1,5 +1,5 @@
 
-/*global utensil */
+/*global utensils */
 
 /*
     Controls various states within the style guide
@@ -297,13 +297,13 @@ Sherpa.prototype.popNotes = function() {
 // Activate the dimensionizer tool..
 Sherpa.prototype.activateDimensionizer = function(e) {
   e.preventDefault()
-  var dimensionizer = new utensil.Dimensionizer()
+  var dimensionizer = new utensils.Dimensionizer()
 };
 
 Sherpa.prototype.initialProgress = function() {
   var pb = this.el.find('.progress.important').first()
   setTimeout(function() {
-    var progress = new utensil.Progress(pb)
+    var progress = new utensils.Progress(pb)
   }, 1000)
 };
 
@@ -311,7 +311,7 @@ Sherpa.prototype.demoProgress = function(e) {
   var self = e.data.self
   var target = $(e.target)
   var pb = target.hasClass('progress') ? target : target.closest('.progress')
-  var progress = new utensil.Progress(pb)
+  var progress = new utensils.Progress(pb)
   progress.set(Math.floor(Math.random() * 101))
 };
 

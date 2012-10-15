@@ -1,24 +1,24 @@
 //= require jquery
 
-//= require utensil/spec
-//= require directional/spec
-//= require bindable/spec
-//= require detect/spec
-//= require timeslot/spec
-//= require triggerable/spec
-//= require toggle/spec
-//= require toggle_group/spec
-//= require toggle_button_group/spec
+//= require utensils/utensils/spec
+//= require utensils/directional/spec
+//= require utensils/bindable/spec
+//= require utensils/detect/spec
+//= require utensils/timeslot/spec
+//= require utensils/triggerable/spec
+//= require utensils/toggle/spec
+//= require utensils/toggle_group/spec
+//= require utensils/toggle_button_group/spec
 
-//= require dismiss/spec
-//= require drop/spec
-//= require collapse/spec
-//= require tab/spec
-//= require pop/spec
-//= require tip/spec
-//= require progress/spec
+//= require utensils/dismiss/spec
+//= require utensils/drop/spec
+//= require utensils/collapse/spec
+//= require utensils/tab/spec
+//= require utensils/pop/spec
+//= require utensils/tip/spec
+//= require utensils/progress/spec
 
-//= require dimensionizer/spec
+//= require utensils/dimensionizer/spec
 
 //= require_tree ./
 

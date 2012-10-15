@@ -37,6 +37,7 @@
 <li><a href='#detect'>Detect</a></li>
 <li><a href='#dimensionizer'>Dimensionizer</a></li>
 <li><a href='#directional'>Directional</a></li>
+<li><a href='#dismiss'>Dismiss</a></li>
 <li><a href='#drop'>Drop</a></li>
 <li><a href='#form_controls'>Form controls</a></li>
 <li><a href='#form_horizontal'>Form horizontal</a></li>
@@ -69,7 +70,7 @@
 <li><a href='#transition'>Transition</a></li>
 <li><a href='#triggerable'>Triggerable</a></li>
 <li><a href='#typography'>Typography</a></li>
-<li><a href='#utensil'>Utensil</a></li>
+<li><a href='#utensils'>Utensils</a></li>
 <li><a href='#well'>Well</a></li>
 
         </ul>
@@ -230,12 +231,12 @@ converted to a <code>$</code> object.</p>
 <p>As a class making use of the <code>Bindable</code> registry:</p>
 
 <pre><code class="coffee">#= require bindable
-class utensil.MockClass
+class utensils.MockClass
   constructor: (@el) -&gt;
   # make some magic
 
 # register with Bindable
-utensil.Bindable.register(&#39;mocker&#39;, utensil.MockClass)
+utensils.Bindable.register(&#39;mocker&#39;, utensil.MockClass)
 </code></pre>
 
 <p>As markup instantiating a class that is registered with <code>Bindable</code>:</p>
@@ -248,7 +249,7 @@ bootstrap file)</p>
 
 <pre><code class="coffee">#= require bindable
 $ -&gt;
-  new utensil.Bindable().bindAll()
+  new utensils.Bindable().bindAll()
 </code></pre>
 
 <h2>API</h2>
@@ -256,7 +257,7 @@ $ -&gt;
 <h3>Requires</h3>
 
 <ul>
-<li><code>utensil</code></li>
+<li><code>utensils</code></li>
 </ul>
 
 <h2>Todo</h2>
@@ -1047,8 +1048,8 @@ is instantiated through <code>Bindable</code></p>
 @collapse_el = $(&#39;#single&#39;)
 @group_el = $(&#39;#group_el&#39;)
 
-@collapse = new utensil.Collapse(@collapse_el)
-@collapse_group = new utensil.Collapse(@group_el)
+@collapse = new utensils.Collapse(@collapse_el)
+@collapse_group = new utensils.Collapse(@group_el)
 </code></pre>
 
 <h3>#activate</h3>
@@ -1133,7 +1134,7 @@ it dispatches events around it&#39;s state.</p>
 <h3>Requires</h3>
 
 <ul>
-<li><code>utensil</code></li>
+<li><code>utensils</code></li>
 <li><code>bindable</code></li>
 <li><code>detect</code></li>
 <li><code>toggle</code></li>
@@ -1486,20 +1487,20 @@ properties, normalizing event names, and other useful detection.</p>
 
 <p>Get the transition event name for the current browser for use in css transitions</p>
 
-<pre><code class="coffee">@tranny_event = utensil.Detect.transition.end
+<pre><code class="coffee">@tranny_event = utensils.Detect.transition.end
 </code></pre>
 
 <h3>#hasTransition</h3>
 
 <p>Boolean value based on the browsers support for transitions</p>
 
-<pre><code class="coffee">$(el).on(utensil.Detect.transition.end, @onDone) if utensil.Detect.hasTransition
+<pre><code class="coffee">$(el).on(utensils.Detect.transition.end, @onDone) if utensil.Detect.hasTransition
 </code></pre>
 
 <h3>Requires</h3>
 
 <ul>
-<li><code>utensil</code></li>
+<li><code>utensils</code></li>
 </ul>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
@@ -1572,10 +1573,10 @@ when creating a <code>Dimensionizer</code> as the constructor&#39;s <code>data</
 
 <pre><code class="coffee">#= require dimensionizer
 
-@dimensionizer = new utensil.Dimensionizer()
+@dimensionizer = new utensils.Dimensionizer()
 
 # Or with options
-@dimensionizer = new utensil.Dimensionizer({pos_x:&#39;left&#39;, &#39;pos_y:&#39;bottom&#39;, offset:&#39;10&#39;, color:&#39;light&#39;})
+@dimensionizer = new utensils.Dimensionizer({pos_x:&#39;left&#39;, &#39;pos_y:&#39;bottom&#39;, offset:&#39;10&#39;, color:&#39;light&#39;})
 </code></pre>
 
 <h3>#dispose</h3>
@@ -1588,7 +1589,7 @@ when creating a <code>Dimensionizer</code> as the constructor&#39;s <code>data</
 <h3>Requires</h3>
 
 <ul>
-<li><code>utensil</code></li>
+<li><code>utensils</code></li>
 <li><code>detect</code></li>
 </ul>
 
@@ -1616,7 +1617,7 @@ an element measured against it&#39;s container.</p>
 
 <pre><code class="coffee">#= require directional
 
-@directional = new utensil.Directional(@element, @container, &#39;north&#39;)
+@directional = new utensils.Directional(@element, @container, &#39;north&#39;)
 </code></pre>
 
 <h3>#setElement</h3>
@@ -1685,8 +1686,30 @@ on_screen = @directional.constrainToViewport(position)
 <h3>Requires</h3>
 
 <ul>
-<li><code>utensil</code></li>
+<li><code>utensils</code></li>
 </ul>
+
+<p></section><section class="sherpa-section sherpa-clearfix"></p>
+
+<h1>Dismiss</h1>
+
+<p>Describe this</p>
+
+<!--~ markup/dismiss.html.haml -->
+
+<div class="sherpa-showcase sherpa-clearfix"><div class='notification fade in'>
+<p><strong>Default!</strong> This is the default notification</p>
+<a class='close' data-bindable='dismiss' href='#'>&times;</a>
+</div>
+
+<p></div></p>
+
+<pre><code class="haml">.notification.fade.in
+  %p &lt;strong&gt;Default!&lt;/strong&gt; This is the default notification
+  %a.close(href=&quot;#&quot; data-bindable=&quot;dismiss&quot;) &amp;times;
+</code></pre>
+
+<!-- end -->
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
@@ -1886,7 +1909,7 @@ handled through <code>Bindable</code>. </p>
 <pre><code class="coffee">#= require drop
 
 @el = $(&#39;#drop&#39;)
-@drop = new utensil.Drop(@el, {placement: &#39;west&#39;})
+@drop = new utensils.Drop(@el, {placement: &#39;west&#39;})
 </code></pre>
 
 <h3>#toggle</h3>
@@ -1921,7 +1944,7 @@ elements toggle event.</p>
 <h3>Requires</h3>
 
 <ul>
-<li><code>utensil</code></li>
+<li><code>utensils</code></li>
 <li><code>bindable</code></li>
 <li><code>triggerable</code></li>
 <li><code>directional</code></li>
@@ -5063,7 +5086,7 @@ is instantiated through <code>Bindable</code></p>
 
 @tab_el = $(&#39;#tab&#39;)
 
-@tab = new utensil.Tab(@tab_el)
+@tab = new utensils.Tab(@tab_el)
 </code></pre>
 
 <h3>#activate</h3>
@@ -5113,7 +5136,7 @@ Deactivating will remove the toggle classes from the element.</p>
 <h3>Requires</h3>
 
 <ul>
-<li><code>utensil</code></li>
+<li><code>utensils</code></li>
 <li><code>bindable</code></li>
 <li><code>toggle_group</code></li>
 </ul>
@@ -5741,7 +5764,7 @@ handled through <code>Bindable</code>. </p>
 <pre><code class="coffee">#= require tip
 
 @el = $(&#39;#tip&#39;)
-@tip = new utensil.Tip(@el, {delay:&#39;show:1000, hide:2000&#39;})
+@tip = new utensils.Tip(@el, {delay:&#39;show:1000, hide:2000&#39;})
 </code></pre>
 
 <h3>#toggle</h3>
@@ -5776,7 +5799,7 @@ elements toggle event.</p>
 <h3>Requires</h3>
 
 <ul>
-<li><code>utensil</code></li>
+<li><code>utensils</code></li>
 <li><code>bindable</code></li>
 <li><code>triggerable</code></li>
 <li><code>detect</code></li>
@@ -5933,7 +5956,7 @@ instantiated through <code>Bindable</code></p>
 <pre><code class="coffee">#= require toggle
 
 @el = $(&#39;#toggle&#39;)
-@toggle = new utensil.Toggle(@el, {toggle: &#39;fade active&#39;, trigger: &#39;hover&#39;})
+@toggle = new utensils.Toggle(@el, {toggle: &#39;fade active&#39;, trigger: &#39;hover&#39;})
 </code></pre>
 
 <h3>#toggle</h3>
@@ -5980,7 +6003,7 @@ elements toggle event.</p>
 <h3>Requires</h3>
 
 <ul>
-<li><code>utensil</code></li>
+<li><code>utensils</code></li>
 <li><code>bindable</code></li>
 <li><code>triggerable</code></li>
 </ul>
@@ -7222,15 +7245,15 @@ your <code>config.sass</code> file or before <code>typography.sass</code> is loa
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
-<h1>Utensil</h1>
+<h1>Utensils</h1>
 
 <p>The top level <code>namespace</code> object for the utensils library created on window.</p>
 
 <h2>Usage</h2>
 
-<pre><code class="coffee">#= require utensil
+<pre><code class="coffee">#= require utensils
 
-class utensil.ClassName
+class utensils.ClassName
   # class definition..
 </code></pre>
 
