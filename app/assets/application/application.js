@@ -5,6 +5,7 @@
 //= require toggle
 //= require toggle_group
 //= require toggle_button_group
+//= require dismiss
 
 //= require drop
 //= require collapse

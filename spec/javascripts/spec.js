@@ -10,6 +10,7 @@
 //= require toggle_group/spec
 //= require toggle_button_group/spec
 
+//= require dismiss/spec
 //= require drop/spec
 //= require collapse/spec
 //= require tab/spec
