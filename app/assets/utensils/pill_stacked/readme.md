@@ -5,8 +5,8 @@ Stack pills by adding the class `.stacked` to the `.pill` element.
 Stacked pills require the `pill` component.
 
 ```sass
-@import utensils/components/pill/pill
-@import utensils/components/pill_stacked/pill_stacked
+@import utensils/pill/pill
+@import utensils/pill_stacked/pill_stacked
 ```
 
 ## Usage Example

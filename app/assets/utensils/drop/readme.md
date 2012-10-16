@@ -10,7 +10,7 @@ the inner content.
 Drop requires the `menu` component for styles.
 
 ```sass
-@import utensils/components/drop/drop
+@import utensils/drop/drop
 ```
 
 ```html
@@ -151,10 +151,10 @@ Remove the drop behavior
 ```
 
 ### Requires
-- `utensils`
-- `bindable`
-- `triggerable`
-- `directional`
+- `utensils/utensils`
+- `utensils/bindable`
+- `utensils/triggerable`
+- `utensils/directional`
 
 `Drop` utilizes `Triggerable` via composition.
 

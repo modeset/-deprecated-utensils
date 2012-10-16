@@ -82,9 +82,9 @@ Cleans up any internal references
 ```
 
 ### Requires
-- `utensils`
-- `bindable`
-- `triggerable`
+- `utensils/utensils`
+- `utensils/bindable`
+- `utensils/triggerable`
 
 Any events dispatched from `Toggle` contain the `event` property as the
 first parameter and the `@el` as the second parameter. This is done to

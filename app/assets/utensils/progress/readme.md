@@ -3,7 +3,7 @@
 Styles and simple behavior for progress indicator bars.
 
 ```sass
-@import utensils/components/progress/progress
+@import utensils/progress/progress
 ```
 
 
@@ -51,7 +51,7 @@ Attribute        | Default     | Description
 
 @progress_el = $('#progress')
 
-@progress = new utensil.Progress(@progress_el)
+@progress = new utensils.Progress(@progress_el)
 ```
 
 ### #set
@@ -83,7 +83,7 @@ Set the width of the progress bar to `100`
 ```
 
 ### Requires
-- `utensil`
+- `utensils/utensils`
 
 
 ## Style Settings

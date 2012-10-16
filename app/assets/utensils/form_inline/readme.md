@@ -4,7 +4,7 @@ Utilize the `.form-inline` class on the `form` element to create a simple
 inline form. Supports control labels as well.
 
 ```sass
-@import utensils/components/form_inline/form-inline
+@import utensils/form_inline/form-inline
 ```
 
 ## Usage Example

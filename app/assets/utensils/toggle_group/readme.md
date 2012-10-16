@@ -73,8 +73,8 @@ is instantiated through `Bindable`
 @radios = $('#radios')
 @checks = $('#checks')
 
-@radio_group = new utensil.ToggleGroup(radios, {behavior: 'radio'})
-@check_group = new utensil.ToggleGroup(checks, {behavior: 'checkbox'})
+@radio_group = new utensils.ToggleGroup(radios, {behavior: 'radio'})
+@check_group = new utensils.ToggleGroup(checks, {behavior: 'checkbox'})
 ```
 
 ### #activate
@@ -122,9 +122,9 @@ Cleans up any internal references
 ```
 
 ### Requires
-- `utensil`
-- `bindable`
-- `triggerable`
+- `utensils/utensils`
+- `utensils/bindable`
+- `utensils/triggerable`
 
 Any events dispatched from `ToggleGroup` contain the `event` property as
 the first parameter and the `activator/deactivator` as the second

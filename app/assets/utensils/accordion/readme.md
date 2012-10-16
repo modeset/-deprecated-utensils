@@ -4,8 +4,8 @@ Base styles for rendering accordion elements. Accordions can be used
 with either the `Toggle`, `ToggleGroup` or `Collapse` behaviors.
 
 ```sass
-@import utensils/components/collapse/collapse
-@import utensils/components/accordion/accordion
+@import utensils/collapse/collapse
+@import utensils/accordion/accordion
 ```
 
 ## Usage Example

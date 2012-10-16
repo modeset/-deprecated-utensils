@@ -6,7 +6,7 @@ navigation system such as an accordion group.
 Collapse utilizes either `Toggle` or `ToggleGroup` through composition.
 
 ```sass
-@import utensils/components/collapse/collapse
+@import utensils/collapse/collapse
 ```
 
 ```html
@@ -156,11 +156,11 @@ Event             | Description
 
 
 ### Requires
-- `utensils`
-- `bindable`
-- `detect`
-- `toggle`
-- `toggle_group`
+- `utensils/utensils`
+- `utensils/bindable`
+- `utensils/detect`
+- `utensils/toggle`
+- `utensils/toggle_group`
 
 
 ## Style Settings

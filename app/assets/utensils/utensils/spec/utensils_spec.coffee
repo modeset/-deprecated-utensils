@@ -1,5 +1,6 @@
 
 #= require utensils/utensils
+
 describe 'Utensils', ->
 
   describe 'namespace', ->

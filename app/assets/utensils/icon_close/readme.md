@@ -3,7 +3,7 @@
 Use the close icon to dismiss modals, notifications and other elements.
 
 ```sass
-@import utensils/components/icon_close/close
+@import utensils/icon_close/close
 ```
 
 ## Usage Example

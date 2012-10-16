@@ -1,5 +1,6 @@
 
 #= require utensils/detect
+
 describe 'Detect', ->
 
   describe 'transition', ->

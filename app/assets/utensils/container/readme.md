@@ -8,7 +8,7 @@ There are a few modifiers which can be applied to the default container
 to affect how it displays contained elements.
 
 ```sass
-@import utensils/components/container/container
+@import utensils/container/container
 ```
 
 ## Usage

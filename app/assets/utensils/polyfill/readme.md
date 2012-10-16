@@ -11,7 +11,7 @@ If a project uses Compass or Bourbon, make sure not to import these
 polyfills.
 
 ```sass
-@import utensils/components/polyfill/polyfills
+@import utensils/polyfill/polyfills
 ```
 
 ## Functions

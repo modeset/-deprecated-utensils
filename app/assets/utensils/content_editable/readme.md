@@ -4,7 +4,7 @@ Apply the attribute `contenteditable="true"` to a given element,
 allows the user to change it's contents.
 
 ```sass
-@import utensils/components/content_editable/content-editable
+@import utensils/content_editable/content-editable
 ```
 
 ## Usage Examples

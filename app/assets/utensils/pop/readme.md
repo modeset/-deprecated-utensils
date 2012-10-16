@@ -9,7 +9,7 @@ points.
 
 
 ```sass
-@import utensils/components/pop/pop
+@import utensils/pop/pop
 ```
 
 ```html
@@ -96,7 +96,7 @@ handled through `Bindable`.
 #= require pop
 
 @el = $('#pop')
-@pop = new utensil.Pop(@el, {target:'#pop_exterior_content'})
+@pop = new utensils.Pop(@el, {target:'#pop_exterior_content'})
 ```
 
 ### #toggle
@@ -129,11 +129,11 @@ Remove the pop behavior
 ```
 
 ### Requires
-- `utensil`
-- `bindable`
-- `triggerable`
-- `detect`
-- `directional`
+- `utesnils/utensils`
+- `utesnils/bindable`
+- `utesnils/triggerable`
+- `utesnils/detect`
+- `utesnils/directional`
 
 `Pop` utilizes `Triggerable` via composition.
 

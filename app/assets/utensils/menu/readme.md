@@ -4,7 +4,7 @@ The menu component is a simple list of navigation elements, which are
 typically used within the `Drop` component.
 
 ```sass
-@import utensils/components/menu/menu
+@import utensils/menu/menu
 ```
 
 ## Usage Example

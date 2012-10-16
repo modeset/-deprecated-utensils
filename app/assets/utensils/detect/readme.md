@@ -15,9 +15,9 @@ Get the transition event name for the current browser for use in css transitions
 Boolean value based on the browsers support for transitions
 
 ```coffee
-$(el).on(utensils.Detect.transition.end, @onDone) if utensil.Detect.hasTransition
+$(el).on(utensils.Detect.transition.end, @onDone) if utensils.Detect.hasTransition
 ```
 
 ### Requires
-- `utensils`
+- `utensils/utensils`
 

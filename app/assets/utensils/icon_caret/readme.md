@@ -6,7 +6,7 @@ used for `:before` and `:after` pseudo elements and carets are embedded
 directly in the markup.
 
 ```sass
-@import utensils/components/icon_caret/caret
+@import utensils/icon_caret/caret
 ```
 
 ## Usage Example

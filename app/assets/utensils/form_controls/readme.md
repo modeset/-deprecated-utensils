@@ -5,7 +5,7 @@ states, and basic structure for containers. Form controls are typically
 paired with one of the form layout components.
 
 ```sass
-@import utensils/components/form_controls/form-controls
+@import utensils/form_controls/form-controls
 ```
 
 ## Text based input controls

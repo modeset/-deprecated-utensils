@@ -3,7 +3,7 @@
 Contains helper classes for CSS transitions.
 
 ```sass
-@import utensils/components/transition/transition
+@import utensils/transition/transition
 ```
 
 ## Usage

@@ -12,13 +12,14 @@ converted to a `$` object.
 As a class making use of the `Bindable` registry:
 
 ```coffee
-#= require bindable
+#= require utensils/bindable
+
 class utensils.MockClass
   constructor: (@el) ->
   # make some magic
 
 # register with Bindable
-utensils.Bindable.register('mocker', utensil.MockClass)
+utensils.Bindable.register('mocker', utensils.MockClass)
 ```
 
 As markup instantiating a class that is registered with `Bindable`:
@@ -40,7 +41,7 @@ $ ->
 ## API
 
 ### Requires
-- `utensils`
+- `utensils/utensils`
 
 ## Todo
 - Need to describe the public API

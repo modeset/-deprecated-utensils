@@ -6,7 +6,7 @@ default layout, it only requires the class `.form-horizontal` on the
 `form` element.
 
 ```sass
-@import utensils/components/form_horizontal/form-horizontal
+@import utensils/form_horizontal/form-horizontal
 ```
 
 ###### Notes

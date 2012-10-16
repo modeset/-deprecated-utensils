@@ -7,7 +7,7 @@ a divider after their content. This is configurable from the
 `.nav` class.
 
 ```sass
-@import utensils/components/breadcrumb/breadcrumb
+@import utensils/breadcrumb/breadcrumb
 ```
 
 ## Usage Example

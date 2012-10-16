@@ -5,8 +5,8 @@ Stack tabs by adding the class `.stacked` to the `.tab` element.
 Stacked tabs require the `tab` component.
 
 ```sass
-@import utensils/components/tab/tab
-@import utensils/components/tab_stacked/tab_stacked
+@import utensils/tab/tab
+@import utensils/tab_stacked/tab_stacked
 ```
 
 ## Usage Example

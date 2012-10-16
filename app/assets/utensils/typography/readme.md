@@ -4,7 +4,7 @@ Heading, paragraph, blockquotes, code, lists, and inline typographic
 elements.
 
 ```sass
-@import utensils/components/typography/typography
+@import utensils/typography/typography
 ```
 
 ### Headings and body copy

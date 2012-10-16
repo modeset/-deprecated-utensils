@@ -4,7 +4,7 @@ Apply the `.pagination` class to the `ol` or `ul` element to
 represent pagination navigation. The list should contain the `.nav` class.
 
 ```sass
-@import utensils/components/pagination/pagination
+@import utensils/pagination/pagination
 ```
 
 ## Usage Example

@@ -9,7 +9,7 @@ the `data-bindable="tab"` along with an `href` attributes pointing to
 the related targets panel.
 
 ```sass
-@import utensils/components/tab/tab
+@import utensils/tab/tab
 ```
 
 ```html
@@ -119,9 +119,9 @@ Cleans up any internal references
 ```
 
 ### Requires
-- `utensils`
-- `bindable`
-- `toggle_group`
+- `utensils/utensils`
+- `utensils/bindable`
+- `utensils/toggle_group`
 
 `Tab` utilizes `ToggleGroup` via composition.
 

@@ -1,5 +1,6 @@
 
 #= require utensils/dimensionizer
+
 describe 'Dimensionizer', ->
 
   afterEach ->

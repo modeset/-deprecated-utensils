@@ -11,7 +11,7 @@ Create a new instance of `Timeslot`, typically used compositionally.
 ```coffee
 #= require timeslot
 
-@timeslot = new utensil.Timeslot()
+@timeslot = new utensils.Timeslot()
 ```
 
 ### #getTimeslotFromData
@@ -61,7 +61,7 @@ against a set of regular expressions.
 ```
 
 ### Requires
-- `utensil`
+- `utensils/utensils`
 
 
 ## Todo

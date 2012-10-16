@@ -11,10 +11,11 @@ a class instance.
 As a class making use of a `Triggerable` instance through composition:
 
 ```coffee
-#= require triggerable
-class utensil.MockClass
+#= require utensils/triggerable
+
+class utensils.MockClass
   constructor: (@el, @data) ->
-    @triggerable = new utensil.Triggerable(@el, @data)
+    @triggerable = new utensils.Triggerable(@el, @data)
     @triggerable.dispatcher.on('triggerable:activate', => @activated arguments...)
     @triggerable.dispatcher.on('triggerable:deactivate', => @deactivated arguments...)
 
@@ -90,7 +91,7 @@ Create a new instance of `Triggerable` programatically.
 ```coffee
 #= require triggerable
 
-@triggerable = new utensil.Triggerable(@el, @data)
+@triggerable = new utensils.Triggerable(@el, @data)
 ```
 
 ### #toggle
@@ -132,8 +133,8 @@ Cleans up any internal references
 ```
 
 ### Requires
-- `utensil`
-- `timeslot`
+- `utensils/utensil`
+- `utensils/timeslot`
 
 An instance of `Triggerable` creates a `@dispatcher` property for
 dispatching events. Typically this is just the `@el` but is created for

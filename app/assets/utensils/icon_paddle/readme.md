@@ -8,7 +8,7 @@ Paddles should be extended by a component class for exact positioning
 and styles.
 
 ```sass
-@import utensils/components/icon_paddle/paddle
+@import utensils/icon_paddle/paddle
 ```
 
 ## Usage Example

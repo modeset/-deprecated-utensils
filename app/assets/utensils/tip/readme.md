@@ -9,7 +9,7 @@ tip type behavior. Generally the `Pop` component is more robust and
 should be considered in most cases.
 
 ```sass
-@import utensils/components/tip/tip
+@import utensils/tip/tip
 ```
 
 ```html
@@ -103,11 +103,11 @@ Remove the tip behavior
 ```
 
 ### Requires
-- `utensils`
-- `bindable`
-- `triggerable`
-- `detect`
-- `directional`
+- `utensils/utensils`
+- `utensils/bindable`
+- `utensils/triggerable`
+- `utensils/detect`
+- `utensils/directional`
 
 `Tip` utilizes `Triggerable` via composition.
 

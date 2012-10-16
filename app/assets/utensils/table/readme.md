@@ -4,7 +4,7 @@ Building tables is additive around the classes applied to the top level `<table>
 By combining any of the following classes, the table can be given a different look and feel.
 
 ```sass
-@import utensils/components/table/table
+@import utensils/table/table
 ```
 
 ## Usage Example

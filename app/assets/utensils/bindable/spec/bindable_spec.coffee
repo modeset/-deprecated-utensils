@@ -1,5 +1,6 @@
 
 #= require utensils/bindable
+
 class MockClass
   constructor: ->
     @state = 'instantiated'

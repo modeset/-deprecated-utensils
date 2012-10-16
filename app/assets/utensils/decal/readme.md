@@ -8,7 +8,7 @@ It's recommended to pass a `$decal-status-list` of needed
 modifiers to limit the output of generated classes.
 
 ```sass
-@import utensils/components/decal/decal
+@import utensils/decal/decal
 ```
 
 ## Usage Example

@@ -11,7 +11,7 @@ the related targets panel.
 See `Tab` for more information.
 
 ```sass
-@import utensils/components/pill/pill
+@import utensils/pill/pill
 ```
 
 ## Usage Example

@@ -4,7 +4,7 @@ A semi-glossy button created via various mixins. By default, no classes
 are added to the style sheet unless told to do so.
 
 ```sass
-@import utensils/components/button_semigloss/button-semigloss
+@import utensils/button_semigloss/button-semigloss
 ```
 
 ## Usage Examples

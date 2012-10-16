@@ -4,7 +4,7 @@ Wells are used to contain components and other various elements. Works
 great with form layouts.
 
 ```sass
-@import utensils/components/well/well
+@import utensils/well/well
 ```
 
 ## Usage Example

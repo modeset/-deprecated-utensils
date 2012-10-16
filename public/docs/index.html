@@ -85,8 +85,8 @@
 <p>Base styles for rendering accordion elements. Accordions can be used
 with either the <code>Toggle</code>, <code>ToggleGroup</code> or <code>Collapse</code> behaviors.</p>
 
-<pre><code class="sass">@import utensils/components/collapse/collapse
-@import utensils/components/accordion/accordion
+<pre><code class="sass">@import utensils/collapse/collapse
+@import utensils/accordion/accordion
 </code></pre>
 
 <!--~ markup/accordion.html.haml -->
@@ -230,13 +230,14 @@ converted to a <code>$</code> object.</p>
 
 <p>As a class making use of the <code>Bindable</code> registry:</p>
 
-<pre><code class="coffee">#= require bindable
+<pre><code class="coffee">#= require utensils/bindable
+
 class utensils.MockClass
   constructor: (@el) -&gt;
   # make some magic
 
 # register with Bindable
-utensils.Bindable.register(&#39;mocker&#39;, utensil.MockClass)
+utensils.Bindable.register(&#39;mocker&#39;, utensils.MockClass)
 </code></pre>
 
 <p>As markup instantiating a class that is registered with <code>Bindable</code>:</p>
@@ -257,7 +258,7 @@ $ -&gt;
 <h3>Requires</h3>
 
 <ul>
-<li><code>utensils</code></li>
+<li><code>utensils/utensils</code></li>
 </ul>
 
 <h2>Todo</h2>
@@ -277,7 +278,7 @@ a divider after their content. This is configurable from the
 <code>$breadcrumb-divider-content</code> variable. The list should contain the
 <code>.nav</code> class.</p>
 
-<pre><code class="sass">@import utensils/components/breadcrumb/breadcrumb
+<pre><code class="sass">@import utensils/breadcrumb/breadcrumb
 </code></pre>
 
 <!--~ markup/breadcrumb.html.haml -->
@@ -459,7 +460,7 @@ within your <code>config.sass</code> file or before <code>button-group.sass</cod
 of their base class,  to adjust various aspects around a button&#39;s display
 type, sizing, or positioning.</p>
 
-<pre><code class="sass">@import utensils/components/button_modifiers/button-modifiers
+<pre><code class="sass">@import utensils/button_modifiers/button-modifiers
 </code></pre>
 
 <!--~ markup/button-modifiers.html.haml -->
@@ -593,7 +594,7 @@ within your <code>config.sass</code> file or before <code>button-modifiers.sass<
 <p>A semi-glossy button created via various mixins. By default, no classes
 are added to the style sheet unless told to do so.</p>
 
-<pre><code class="sass">@import utensils/components/button_semigloss/button-semigloss
+<pre><code class="sass">@import utensils/button_semigloss/button-semigloss
 </code></pre>
 
 <!--~ markup/button-semigloss.html.haml -->
@@ -838,7 +839,7 @@ navigation system such as an accordion group. </p>
 
 <p>Collapse utilizes either <code>Toggle</code> or <code>ToggleGroup</code> through composition.</p>
 
-<pre><code class="sass">@import utensils/components/collapse/collapse
+<pre><code class="sass">@import utensils/collapse/collapse
 </code></pre>
 
 <pre><code class="html">data-bindable=&quot;collapse&quot;
@@ -1134,11 +1135,11 @@ it dispatches events around it&#39;s state.</p>
 <h3>Requires</h3>
 
 <ul>
-<li><code>utensils</code></li>
-<li><code>bindable</code></li>
-<li><code>detect</code></li>
-<li><code>toggle</code></li>
-<li><code>toggle_group</code></li>
+<li><code>utensils/utensils</code></li>
+<li><code>utensils/bindable</code></li>
+<li><code>utensils/detect</code></li>
+<li><code>utensils/toggle</code></li>
+<li><code>utensils/toggle_group</code></li>
 </ul>
 
 <h2>Style Settings</h2>
@@ -1183,7 +1184,7 @@ to clear any floats from interior elements.</p>
 <p>There are a few modifiers which can be applied to the default container
 to affect how it displays contained elements.</p>
 
-<pre><code class="sass">@import utensils/components/container/container
+<pre><code class="sass">@import utensils/container/container
 </code></pre>
 
 <h2>Usage</h2>
@@ -1368,7 +1369,7 @@ within your <code>config.sass</code> file or before <code>container-media.sass</
 <p>Apply the attribute <code>contenteditable=&quot;true&quot;</code> to a given element,
 allows the user to change it&#39;s contents.</p>
 
-<pre><code class="sass">@import utensils/components/content_editable/content-editable
+<pre><code class="sass">@import utensils/content_editable/content-editable
 </code></pre>
 
 <div class="sherpa-showcase sherpa-clearfix"><h2 contenteditable='true'>Edit Title</h2>
@@ -1419,7 +1420,7 @@ equivalent to the <code>$inverse</code> status color.</p>
 <p>It&#39;s recommended to pass a <code>$decal-status-list</code> of needed
 modifiers to limit the output of generated classes.</p>
 
-<pre><code class="sass">@import utensils/components/decal/decal
+<pre><code class="sass">@import utensils/decal/decal
 </code></pre>
 
 <div class="sherpa-showcase sherpa-clearfix"><span class='decal'>Default</span>
@@ -1494,13 +1495,13 @@ properties, normalizing event names, and other useful detection.</p>
 
 <p>Boolean value based on the browsers support for transitions</p>
 
-<pre><code class="coffee">$(el).on(utensils.Detect.transition.end, @onDone) if utensil.Detect.hasTransition
+<pre><code class="coffee">$(el).on(utensils.Detect.transition.end, @onDone) if utensils.Detect.hasTransition
 </code></pre>
 
 <h3>Requires</h3>
 
 <ul>
-<li><code>utensils</code></li>
+<li><code>utensils/utensils</code></li>
 </ul>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
@@ -1589,8 +1590,8 @@ when creating a <code>Dimensionizer</code> as the constructor&#39;s <code>data</
 <h3>Requires</h3>
 
 <ul>
-<li><code>utensils</code></li>
-<li><code>detect</code></li>
+<li><code>utensils/utensils</code></li>
+<li><code>utensils/detect</code></li>
 </ul>
 
 <h2>Todo</h2>
@@ -1686,7 +1687,7 @@ on_screen = @directional.constrainToViewport(position)
 <h3>Requires</h3>
 
 <ul>
-<li><code>utensils</code></li>
+<li><code>utensils/utensils</code></li>
 </ul>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
@@ -1724,7 +1725,7 @@ the inner content.</p>
 
 <p>Drop requires the <code>menu</code> component for styles.</p>
 
-<pre><code class="sass">@import utensils/components/drop/drop
+<pre><code class="sass">@import utensils/drop/drop
 </code></pre>
 
 <pre><code class="html">data-bindable=&quot;drop&quot;
@@ -1944,10 +1945,10 @@ elements toggle event.</p>
 <h3>Requires</h3>
 
 <ul>
-<li><code>utensils</code></li>
-<li><code>bindable</code></li>
-<li><code>triggerable</code></li>
-<li><code>directional</code></li>
+<li><code>utensils/utensils</code></li>
+<li><code>utensils/bindable</code></li>
+<li><code>utensils/triggerable</code></li>
+<li><code>utensils/directional</code></li>
 </ul>
 
 <p><code>Drop</code> utilizes <code>Triggerable</code> via composition.</p>
@@ -1998,7 +1999,7 @@ be added in here or through an extension of <code>Drop</code>?</li>
 states, and basic structure for containers. Form controls are typically
 paired with one of the form layout components.</p>
 
-<pre><code class="sass">@import utensils/components/form_controls/form-controls
+<pre><code class="sass">@import utensils/form_controls/form-controls
 </code></pre>
 
 <h2>Text based input controls</h2>
@@ -3067,7 +3068,7 @@ the left side of the form. The markup structure remains the same as the
 default layout, it only requires the class <code>.form-horizontal</code> on the
 <code>form</code> element.</p>
 
-<pre><code class="sass">@import utensils/components/form_horizontal/form-horizontal
+<pre><code class="sass">@import utensils/form_horizontal/form-horizontal
 </code></pre>
 
 <h6>Notes</h6>
@@ -3114,7 +3115,7 @@ within your <code>config.sass</code> file or before <code>form-horizontal.sass</
 <p>Utilize the <code>.form-inline</code> class on the <code>form</code> element to create a simple
 inline form. Supports control labels as well.</p>
 
-<pre><code class="sass">@import utensils/components/form_inline/form-inline
+<pre><code class="sass">@import utensils/form_inline/form-inline
 </code></pre>
 
 <!--~ markup/form-inline.html.haml -->
@@ -3167,7 +3168,7 @@ search form. Supports hints and control labels as well.</p>
 properties of the <code>.search-query</code> class. Any input buttons used will
 inherit the top and bottom <code>padding</code> of the input element.</p>
 
-<pre><code class="sass">@import utensils/components/form_search/form-search
+<pre><code class="sass">@import utensils/form_search/form-search
 </code></pre>
 
 <!--~ markup/form-search.html.haml -->
@@ -3200,7 +3201,7 @@ Carets are similar to the <code>+arrow</code> mixin, where in the <code>+arrow</
 used for <code>:before</code> and <code>:after</code> pseudo elements and carets are embedded
 directly in the markup.</p>
 
-<pre><code class="sass">@import utensils/components/icon_caret/caret
+<pre><code class="sass">@import utensils/icon_caret/caret
 </code></pre>
 
 <!--~ markup/caret.html.haml -->
@@ -3306,7 +3307,7 @@ within your <code>config.sass</code> file or before <code>caret.sass</code> is l
 
 <p>Use the close icon to dismiss modals, notifications and other elements.</p>
 
-<pre><code class="sass">@import utensils/components/icon_close/close
+<pre><code class="sass">@import utensils/icon_close/close
 </code></pre>
 
 <!--~ markup/close.html.haml -->
@@ -3396,7 +3397,7 @@ an element that is positioned relatively.</p>
 <p>Paddles should be extended by a component class for exact positioning
 and styles.</p>
 
-<pre><code class="sass">@import utensils/components/icon_paddle/paddle
+<pre><code class="sass">@import utensils/icon_paddle/paddle
 </code></pre>
 
 <!--~ markup/paddle.html.haml -->
@@ -3451,7 +3452,7 @@ and styles.</p>
 <p>The menu component is a simple list of navigation elements, which are
 typically used within the <code>Drop</code> component.</p>
 
-<pre><code class="sass">@import utensils/components/menu/menu
+<pre><code class="sass">@import utensils/menu/menu
 </code></pre>
 
 <!--~ markup/menu.html.haml -->
@@ -3546,7 +3547,7 @@ more consistently and in line with modern standards.</p>
 specific styles are imported. This module operates on top level elements
 and inserts them directly into your style sheet.</p>
 
-<pre><code class="sass">@import utensils/components/normalize/normalize
+<pre><code class="sass">@import utensils/normalize/normalize
 </code></pre>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
@@ -3627,7 +3628,7 @@ blown pagination system isn&#39;t required.</p>
 <p>To allow pager to float on the sides of the container, apply the
 <code>.prev</code> and <code>.next</code> classes to the containing pager <code>li</code> element.</p>
 
-<pre><code class="sass">@import utensils/components/pager/pager
+<pre><code class="sass">@import utensils/pager/pager
 </code></pre>
 
 <!--~ markup/pager.html.haml -->
@@ -3775,7 +3776,7 @@ within your <code>config.sass</code> file or before <code>pager.sass</code> is l
 <p>Apply the <code>.pagination</code> class to the <code>ol</code> or <code>ul</code> element to
 represent pagination navigation. The list should contain the <code>.nav</code> class.</p>
 
-<pre><code class="sass">@import utensils/components/pagination/pagination
+<pre><code class="sass">@import utensils/pagination/pagination
 </code></pre>
 
 <!--~ markup/pagination.html.haml -->
@@ -3960,7 +3961,7 @@ the related targets panel.</p>
 
 <p>See <code>Tab</code> for more information.</p>
 
-<pre><code class="sass">@import utensils/components/pill/pill
+<pre><code class="sass">@import utensils/pill/pill
 </code></pre>
 
 <!--~ markup/pill.html.haml -->
@@ -4081,8 +4082,8 @@ within your <code>config.sass</code> file or before <code>pill.sass</code> is lo
 
 <p>Stacked pills require the <code>pill</code> component.</p>
 
-<pre><code class="sass">@import utensils/components/pill/pill
-@import utensils/components/pill_stacked/pill_stacked
+<pre><code class="sass">@import utensils/pill/pill
+@import utensils/pill_stacked/pill_stacked
 </code></pre>
 
 <!--~ markup/pill-stacked.html.haml -->
@@ -4179,7 +4180,7 @@ provides a few simple polyfill mixins in it&#39;s place.</p>
 <p>If a project uses Compass or Bourbon, make sure not to import these
 polyfills.</p>
 
-<pre><code class="sass">@import utensils/components/polyfill/polyfills
+<pre><code class="sass">@import utensils/polyfill/polyfills
 </code></pre>
 
 <h2>Functions</h2>
@@ -4308,7 +4309,7 @@ triggered through a <code>click</code> event. They can be assembled via
 inject into a <code>Pop</code> container. Positioning is defined by cardinal
 points.</p>
 
-<pre><code class="sass">@import utensils/components/pop/pop
+<pre><code class="sass">@import utensils/pop/pop
 </code></pre>
 
 <pre><code class="html">data-bindable=&quot;pop&quot;
@@ -4463,7 +4464,7 @@ handled through <code>Bindable</code>. </p>
 <pre><code class="coffee">#= require pop
 
 @el = $(&#39;#pop&#39;)
-@pop = new utensil.Pop(@el, {target:&#39;#pop_exterior_content&#39;})
+@pop = new utensils.Pop(@el, {target:&#39;#pop_exterior_content&#39;})
 </code></pre>
 
 <h3>#toggle</h3>
@@ -4498,11 +4499,11 @@ elements toggle event.</p>
 <h3>Requires</h3>
 
 <ul>
-<li><code>utensil</code></li>
-<li><code>bindable</code></li>
-<li><code>triggerable</code></li>
-<li><code>detect</code></li>
-<li><code>directional</code></li>
+<li><code>utesnils/utensils</code></li>
+<li><code>utesnils/bindable</code></li>
+<li><code>utesnils/triggerable</code></li>
+<li><code>utesnils/detect</code></li>
+<li><code>utesnils/directional</code></li>
 </ul>
 
 <p><code>Pop</code> utilizes <code>Triggerable</code> via composition.</p>
@@ -4621,7 +4622,7 @@ value before this file is imported, this is done to keep managing
 Boilerplate</a>. Styles are associated with
 the <code>@media print</code> query.</p>
 
-<pre><code class="sass">@import utensils/components/print/print
+<pre><code class="sass">@import utensils/print/print
 </code></pre>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
@@ -4630,7 +4631,7 @@ the <code>@media print</code> query.</p>
 
 <p>Styles and simple behavior for progress indicator bars.</p>
 
-<pre><code class="sass">@import utensils/components/progress/progress
+<pre><code class="sass">@import utensils/progress/progress
 </code></pre>
 
 <!--~ markup/progress.html.haml -->
@@ -4708,7 +4709,7 @@ a random number between <code>0-100</code></li>
 
 @progress_el = $(&#39;#progress&#39;)
 
-@progress = new utensil.Progress(@progress_el)
+@progress = new utensils.Progress(@progress_el)
 </code></pre>
 
 <h3>#set</h3>
@@ -4742,7 +4743,7 @@ a random number between <code>0-100</code></li>
 <h3>Requires</h3>
 
 <ul>
-<li><code>utensil</code></li>
+<li><code>utensils/utensils</code></li>
 </ul>
 
 <h2>Style Settings</h2>
@@ -4799,7 +4800,7 @@ colors related to bars. This list is typically defined in the
 
 <p>Sets up core scaffolding elements for <code>html</code>, <code>body</code>, selections, links and navigation.</p>
 
-<pre><code class="sass">@import utensils/components/scaffold/scaffold
+<pre><code class="sass">@import utensils/scaffold/scaffold
 </code></pre>
 
 <h2>Navs</h2>
@@ -4965,7 +4966,7 @@ like other navigation elements require the <code>.nav</code> class for layout. A
 the <code>data-bindable=&quot;tab&quot;</code> along with an <code>href</code> attributes pointing to
 the related targets panel.</p>
 
-<pre><code class="sass">@import utensils/components/tab/tab
+<pre><code class="sass">@import utensils/tab/tab
 </code></pre>
 
 <pre><code class="html">data-bindable=&quot;tab&quot;
@@ -5136,9 +5137,9 @@ Deactivating will remove the toggle classes from the element.</p>
 <h3>Requires</h3>
 
 <ul>
-<li><code>utensils</code></li>
-<li><code>bindable</code></li>
-<li><code>toggle_group</code></li>
+<li><code>utensils/utensils</code></li>
+<li><code>utensils/bindable</code></li>
+<li><code>utensils/toggle_group</code></li>
 </ul>
 
 <p><code>Tab</code> utilizes <code>ToggleGroup</code> via composition.</p>
@@ -5190,8 +5191,8 @@ within your <code>config.sass</code> file or before <code>tab.sass</code> is loa
 
 <p>Stacked tabs require the <code>tab</code> component.</p>
 
-<pre><code class="sass">@import utensils/components/tab/tab
-@import utensils/components/tab_stacked/tab_stacked
+<pre><code class="sass">@import utensils/tab/tab
+@import utensils/tab_stacked/tab_stacked
 </code></pre>
 
 <!--~ markup/tab-stacked.html.haml -->
@@ -5281,7 +5282,7 @@ within your <code>config.sass</code> file or before <code>tab.sass</code> is loa
 <p>Building tables is additive around the classes applied to the top level <code>&lt;table&gt;</code> element.
 By combining any of the following classes, the table can be given a different look and feel.</p>
 
-<pre><code class="sass">@import utensils/components/table/table
+<pre><code class="sass">@import utensils/table/table
 </code></pre>
 
 <!--~ markup/table.html.haml -->
@@ -5589,7 +5590,7 @@ within your <code>config.sass</code> file or before <code>table.sass</code> is l
 
 <pre><code class="coffee">#= require timeslot
 
-@timeslot = new utensil.Timeslot()
+@timeslot = new utensils.Timeslot()
 </code></pre>
 
 <h3>#getTimeslotFromData</h3>
@@ -5640,7 +5641,7 @@ against a set of regular expressions.</p>
 <h3>Requires</h3>
 
 <ul>
-<li><code>utensil</code></li>
+<li><code>utensils/utensils</code></li>
 </ul>
 
 <h2>Todo</h2>
@@ -5664,7 +5665,7 @@ trigger. Positioning is defined by cardinal points.</p>
 tip type behavior. Generally the <code>Pop</code> component is more robust and
 should be considered in most cases.</p>
 
-<pre><code class="sass">@import utensils/components/tip/tip
+<pre><code class="sass">@import utensils/tip/tip
 </code></pre>
 
 <pre><code class="html">data-bindable=&quot;tip&quot;
@@ -5799,11 +5800,11 @@ elements toggle event.</p>
 <h3>Requires</h3>
 
 <ul>
-<li><code>utensils</code></li>
-<li><code>bindable</code></li>
-<li><code>triggerable</code></li>
-<li><code>detect</code></li>
-<li><code>directional</code></li>
+<li><code>utensils/utensils</code></li>
+<li><code>utensils/bindable</code></li>
+<li><code>utensils/triggerable</code></li>
+<li><code>utensils/detect</code></li>
+<li><code>utensils/directional</code></li>
 </ul>
 
 <p><code>Tip</code> utilizes <code>Triggerable</code> via composition.</p>
@@ -6003,9 +6004,9 @@ elements toggle event.</p>
 <h3>Requires</h3>
 
 <ul>
-<li><code>utensils</code></li>
-<li><code>bindable</code></li>
-<li><code>triggerable</code></li>
+<li><code>utensils/utensils</code></li>
+<li><code>utensils/bindable</code></li>
+<li><code>utensils/triggerable</code></li>
 </ul>
 
 <p>Any events dispatched from <code>Toggle</code> contain the <code>event</code> property as the
@@ -6112,8 +6113,8 @@ this is instantiated through <code>Bindable</code></p>
 @radios = $(&#39;#radios&#39;)
 @checks = $(&#39;#checks&#39;)
 
-@radio_group = new utensil.ToggleButtonGroup(radios, {behavior: &#39;radio&#39;})
-@check_group = new utensil.ToggleButtonGroup(checks, {behavior: &#39;checkbox&#39;})
+@radio_group = new utensils.ToggleButtonGroup(radios, {behavior: &#39;radio&#39;})
+@check_group = new utensils.ToggleButtonGroup(checks, {behavior: &#39;checkbox&#39;})
 </code></pre>
 
 <h3>#activate</h3>
@@ -6169,9 +6170,9 @@ Deactivating will remove the toggle classes from the element.</p>
 <h3>Requires</h3>
 
 <ul>
-<li><code>utensil</code></li>
-<li><code>bindable</code></li>
-<li><code>toggle_group</code></li>
+<li><code>utensils/utensils</code></li>
+<li><code>utensils/bindable</code></li>
+<li><code>utensils/toggle_group</code></li>
 </ul>
 
 <p>Any events dispatched from <code>ToggleButtonGroup</code> contain the <code>event</code>
@@ -6313,8 +6314,8 @@ is instantiated through <code>Bindable</code></p>
 @radios = $(&#39;#radios&#39;)
 @checks = $(&#39;#checks&#39;)
 
-@radio_group = new utensil.ToggleGroup(radios, {behavior: &#39;radio&#39;})
-@check_group = new utensil.ToggleGroup(checks, {behavior: &#39;checkbox&#39;})
+@radio_group = new utensils.ToggleGroup(radios, {behavior: &#39;radio&#39;})
+@check_group = new utensils.ToggleGroup(checks, {behavior: &#39;checkbox&#39;})
 </code></pre>
 
 <h3>#activate</h3>
@@ -6370,9 +6371,9 @@ Deactivating will remove the toggle classes from the element.</p>
 <h3>Requires</h3>
 
 <ul>
-<li><code>utensil</code></li>
-<li><code>bindable</code></li>
-<li><code>triggerable</code></li>
+<li><code>utensils/utensils</code></li>
+<li><code>utensils/bindable</code></li>
+<li><code>utensils/triggerable</code></li>
 </ul>
 
 <p>Any events dispatched from <code>ToggleGroup</code> contain the <code>event</code> property as
@@ -6386,7 +6387,7 @@ a quicker lookup from the class utilizing a <code>ToggleGroup</code> instance.</
 
 <p>Contains helper classes for CSS transitions.</p>
 
-<pre><code class="sass">@import utensils/components/transition/transition
+<pre><code class="sass">@import utensils/transition/transition
 </code></pre>
 
 <h2>Usage</h2>
@@ -6478,10 +6479,11 @@ a class instance.</p>
 
 <p>As a class making use of a <code>Triggerable</code> instance through composition:</p>
 
-<pre><code class="coffee">#= require triggerable
-class utensil.MockClass
+<pre><code class="coffee">#= require utensils/triggerable
+
+class utensils.MockClass
   constructor: (@el, @data) -&gt;
-    @triggerable = new utensil.Triggerable(@el, @data)
+    @triggerable = new utensils.Triggerable(@el, @data)
     @triggerable.dispatcher.on(&#39;triggerable:activate&#39;, =&gt; @activated arguments...)
     @triggerable.dispatcher.on(&#39;triggerable:deactivate&#39;, =&gt; @deactivated arguments...)
 
@@ -6601,7 +6603,7 @@ method.</p>
 
 <pre><code class="coffee">#= require triggerable
 
-@triggerable = new utensil.Triggerable(@el, @data)
+@triggerable = new utensils.Triggerable(@el, @data)
 </code></pre>
 
 <h3>#toggle</h3>
@@ -6651,8 +6653,8 @@ elements toggle event.</p>
 <h3>Requires</h3>
 
 <ul>
-<li><code>utensil</code></li>
-<li><code>timeslot</code></li>
+<li><code>utensils/utensil</code></li>
+<li><code>utensils/timeslot</code></li>
 </ul>
 
 <p>An instance of <code>Triggerable</code> creates a <code>@dispatcher</code> property for
@@ -6681,7 +6683,7 @@ true</code></p>
 <p>Heading, paragraph, blockquotes, code, lists, and inline typographic
 elements.</p>
 
-<pre><code class="sass">@import utensils/components/typography/typography
+<pre><code class="sass">@import utensils/typography/typography
 </code></pre>
 
 <h3>Headings and body copy</h3>
@@ -7251,7 +7253,7 @@ your <code>config.sass</code> file or before <code>typography.sass</code> is loa
 
 <h2>Usage</h2>
 
-<pre><code class="coffee">#= require utensils
+<pre><code class="coffee">#= require utensils/utensils
 
 class utensils.ClassName
   # class definition..
@@ -7264,7 +7266,7 @@ class utensils.ClassName
 <p>Wells are used to contain components and other various elements. Works
 great with form layouts.</p>
 
-<pre><code class="sass">@import utensils/components/well/well
+<pre><code class="sass">@import utensils/well/well
 </code></pre>
 
 <div class="sherpa-showcase sherpa-clearfix"><div class='well'><code>.well</code></div>

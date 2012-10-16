@@ -53,8 +53,8 @@ Remove the `Dimensionizer` from the `DOM`
 ```
 
 ### Requires
-- `utensils`
-- `detect`
+- `utensils/utensils`
+- `utensils/detect`
 
 ## Todo
 - turn the dimensionizer demo button to a toggle button

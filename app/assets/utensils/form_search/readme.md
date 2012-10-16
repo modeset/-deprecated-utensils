@@ -8,7 +8,7 @@ properties of the `.search-query` class. Any input buttons used will
 inherit the top and bottom `padding` of the input element.
 
 ```sass
-@import utensils/components/form_search/form-search
+@import utensils/form_search/form-search
 ```
 
 ## Usage Example

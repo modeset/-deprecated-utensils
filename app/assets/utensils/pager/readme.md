@@ -7,7 +7,7 @@ To allow pager to float on the sides of the container, apply the
 `.prev` and `.next` classes to the containing pager `li` element.
 
 ```sass
-@import utensils/components/pager/pager
+@import utensils/pager/pager
 ```
 
 ## Usage Example
