@@ -1,0 +1,10 @@
+@mixin float-fill($spacerW, $float)
+  +box-sizing(border-box)
+  float: $float
+  width: 100%
+  @if $float == right
+    padding: 0 $spacerW 0 0
+    margin: 0 (-$spacerW) 0 0
+  @else
+    padding: 0 0 0 $spacerW
+    margin: 0 0 0 (-$spacerW)
