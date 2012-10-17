@@ -2,9 +2,15 @@
 $accordion-border: $base-border !default
 $accordion-radii: $radii !default
 
+.accordion
+  +clearfixer
+  list-style: none
+  margin-left: 0
+
 .accordion-group
   border: 1px solid $accordion-border
   border-radius: $accordion-radii
+  margin-left: 0
   margin-bottom: 0.15em
 
 .accordion-group:last-child
