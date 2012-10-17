@@ -12,6 +12,7 @@ class utensils.Collapse
     @initialize()
     @addListeners()
     @activate(@data.activate) if @data.activate || typeof @data.activate == 'number'
+    @multi() if @data.multipleActivate && @type == 'group' && @behavior != 'radio'
 
   options: ->
     @data.namespace = 'collapse'
@@ -41,6 +42,12 @@ class utensils.Collapse
     @removeListeners()
     @toggler.dispose()
     @toggler = null
+
+  multi: ->
+    targets = @toggler.setTargets()
+    for target in targets
+      $target = $(target)
+      @activate($target) if $target.data('activate') == true
 
 # PROTECTED #
 
@@ -101,7 +108,7 @@ class utensils.Collapse
     @target = if @data.target then $(@data.target) else $(@el.attr('href'))
 
   setGroupTarget: (activator) ->
-    link = activator.find('> a')
+    link = activator.find('> a,> button')
     selector = link.data('target') || link.attr('href')
     target = activator.find(selector)
     @target = if target.length > 0 then target else $(selector)

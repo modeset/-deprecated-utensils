@@ -100,10 +100,12 @@ with either the <code>Toggle</code>, <code>ToggleGroup</code> or <code>Collapse<
 </section>
 </section>
 <hr />
-<nav style='margin-top:1em;'>
-<ul data-bindable='toggle-group' id='accordion_radio'>
+<ul class='accordion' data-bindable='toggle-group' id='accordion_radio' style='margin-top:1em;'>
 <li class='accordion-group'>
-<a class='accordion-toggle' href='#accordion_radio_1'>Accordion Radio 1</a>
+<a class='accordion-toggle' href='#accordion_radio_1'>
+<span>Accordion Radio 1</span>
+<span>&darr;</span>
+</a>
 <section class='collapse' id='accordion_radio_1'>
 <article class='accordion-inner'>
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
@@ -111,7 +113,10 @@ with either the <code>Toggle</code>, <code>ToggleGroup</code> or <code>Collapse<
 </section>
 </li>
 <li class='accordion-group'>
-<a class='accordion-toggle' href='#accordion_radio_2'>Accordion Radio 2</a>
+<a class='accordion-toggle' href='#accordion_radio_2'>
+<span>Accordion Radio 2</span>
+<span>&darr;</span>
+</a>
 <section class='collapse' id='accordion_radio_2'>
 <article class='accordion-inner'>
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
@@ -119,7 +124,10 @@ with either the <code>Toggle</code>, <code>ToggleGroup</code> or <code>Collapse<
 </section>
 </li>
 <li class='accordion-group'>
-<a class='accordion-toggle' href='#accordion_radio_3'>Accordion Radio 3</a>
+<a class='accordion-toggle' href='#accordion_radio_3'>
+<span>Accordion Radio 3</span>
+<span>&darr;</span>
+</a>
 <section class='collapse' id='accordion_radio_3'>
 <article class='accordion-inner'>
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
@@ -127,10 +135,8 @@ with either the <code>Toggle</code>, <code>ToggleGroup</code> or <code>Collapse<
 </section>
 </li>
 </ul>
-</nav>
 <hr />
-<nav style='margin-top:1em;'>
-<ul data-behavior='checkbox' data-bindable='collapse' data-type='group' id='accordion_checkbox'>
+<ul class='accordion' data-behavior='checkbox' data-bindable='collapse' data-type='group' id='accordion_checkbox' style='margin-top:1em;'>
 <li class='accordion-group'>
 <a class='accordion-toggle' href='#accordion_check_1'>Accordion Check 1 with Collapse</a>
 <section class='collapse' id='accordion_check_1'>
@@ -156,7 +162,6 @@ with either the <code>Toggle</code>, <code>ToggleGroup</code> or <code>Collapse<
 </section>
 </li>
 </ul>
-</nav>
 </div>
 
 <pre><code class="haml">:ruby
@@ -169,24 +174,24 @@ with either the <code>Toggle</code>, <code>ToggleGroup</code> or <code>Collapse<
       %p=@lorem
 
 %hr
-%nav(style=&quot;margin-top:1em;&quot;)
-  %ul#accordion_radio(data-bindable=&quot;toggle-group&quot;)
-    -(1..3).each do |i|
-      %li.accordion-group
-        %a.accordion-toggle(href=&quot;#accordion_radio_#{i}&quot;) Accordion Radio #{i}
-        %section.collapse(id=&quot;accordion_radio_#{i}&quot;)
-          %article.accordion-inner
-            %p=@lorem
+%ul.accordion#accordion_radio(data-bindable=&quot;toggle-group&quot; style=&quot;margin-top:1em;&quot;)
+  -(1..3).each do |i|
+    %li.accordion-group
+      %a.accordion-toggle(href=&quot;#accordion_radio_#{i}&quot;)
+        %span Accordion Radio #{i}
+        %span &amp;darr;
+      %section.collapse(id=&quot;accordion_radio_#{i}&quot;)
+        %article.accordion-inner
+          %p=@lorem
 
 %hr
-%nav(style=&quot;margin-top:1em;&quot;)
-  %ul#accordion_checkbox(data-bindable=&quot;collapse&quot; data-type=&quot;group&quot; data-behavior=&quot;checkbox&quot;)
-    -(1..3).each do |i|
-      %li.accordion-group
-        %a.accordion-toggle(href=&quot;#accordion_check_#{i}&quot;) Accordion Check #{i} with Collapse
-        %section.collapse(id=&quot;accordion_check_#{i}&quot;)
-          %article.accordion-inner
-            %p=@lorem
+%ul.accordion#accordion_checkbox(data-bindable=&quot;collapse&quot; data-type=&quot;group&quot; data-behavior=&quot;checkbox&quot; style=&quot;margin-top:1em;&quot;)
+  -(1..3).each do |i|
+    %li.accordion-group
+      %a.accordion-toggle(href=&quot;#accordion_check_#{i}&quot;) Accordion Check #{i} with Collapse
+      %section.collapse(id=&quot;accordion_check_#{i}&quot;)
+        %article.accordion-inner
+          %p=@lorem
 </code></pre>
 
 <!-- end -->
@@ -1029,6 +1034,11 @@ navigation system such as an accordion group. </p>
 <td><code>single</code></td>
 <td>For multiple collapsible elements, pass <code>group</code> as the value</td>
 </tr>
+<tr>
+<td><code>multiple-activate</code></td>
+<td><code>undefined</code></td>
+<td>Searches the <code>.accordion-group</code> or <code>li</code> for the <code>activate</code> attribute and auto activates that item</td>
+</tr>
 </tbody></table>
 
 <p>See <code>Toggle</code> or <code>ToggleGroup</code> for more options.</p>
@@ -1171,6 +1181,8 @@ within your <code>config.sass</code> file or before <code>collapse.sass</code> i
 <ul>
 <li>Should be able to collapse around the <code>width</code> property</li>
 <li>A few opportunities to speed up and cache lookups</li>
+<li>The multi method should be moved to TogglerGroup... need to figure out
+the best way to handle this though from instances using composition.</li>
 </ul>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>

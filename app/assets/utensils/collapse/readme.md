@@ -70,11 +70,12 @@ data-bindable="collapse"
 
 ## Options
 
-Attribute   | Default         | Description
------------ | --------------- | -------------------------------------------
-`namespace` | `collapse`      | The namespace to use for dispatching events
-`dimension` | `height`        | The property to collapse on
-`type`      | `single`        | For multiple collapsible elements, pass `group` as the value
+Attribute           | Default         | Description
+------------------- | --------------- | -------------------------------------------
+`namespace`         | `collapse`      | The namespace to use for dispatching events
+`dimension`         | `height`        | The property to collapse on
+`type`              | `single`        | For multiple collapsible elements, pass `group` as the value
+`multiple-activate` | `undefined`     | Searches the `.accordion-group` or `li` for the `activate` attribute and auto activates that item
 
 See `Toggle` or `ToggleGroup` for more options.
 
@@ -176,4 +177,6 @@ Variable                    | Default              | Description
 ## Todo
 - Should be able to collapse around the `width` property
 - A few opportunities to speed up and cache lookups
+- The multi method should be moved to TogglerGroup... need to figure out
+  the best way to handle this though from instances using composition.
 

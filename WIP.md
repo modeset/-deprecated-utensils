@@ -2,7 +2,8 @@
 # Todo
 
 ## WIP
-- notifications.sass *
+- dismiss *
+- notifications.sass
 - refactor pop to only allow data-attributes on the `@el`
 - modals.sass *
 - navbars.sass *
