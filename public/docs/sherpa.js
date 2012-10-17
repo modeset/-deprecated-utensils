@@ -60,6 +60,8 @@ Sherpa.prototype.addListeners = function() {
   $('#dimensionizer_demo').on('click', {self: this}, this.activateDimensionizer)
   this.showcases.find('[href=#]').on('click', function(e){e.preventDefault()})
   $('.progress').on('click', {self: this}, this.demoProgress)
+  this.el.find('#demo_flash_message nav:first-child .btn').on('click', {self: this}, this.flashDemo)
+  this.el.find('#demo_flash_message nav:last-child .btn').on('click', {self: this}, this.addFlashMessage)
 };
 
 Sherpa.prototype.addJasmine = function() {
@@ -367,6 +369,24 @@ Sherpa.prototype.formDemo = function(e) {
   } else {
     form.removeClass(remove_classes).addClass(add_classes)
   }
+};
+
+Sherpa.prototype.flashDemo = function(e) {
+  e.preventDefault()
+  var fm = $('#flash_message_demo')
+  var link = $(e.target)
+  var target = link.closest('nav')
+  var remove_classes = target.data('remove')
+  fm.removeClass(remove_classes).addClass(link.data('add'))
+};
+
+Sherpa.prototype.addFlashMessage = function(e) {
+  e.preventDefault()
+  var fm = $('#flash_message_demo')
+  var modifier = $(e.target).data('type')
+  var notification = $('<li class="notification fade in '+ modifier +'"><p>This is a message</p><a class="close"  href="#">&times;</a></li>')
+  notification.appendTo(fm)
+  var notify = new utensils.Dismiss(notification, {autoDismiss: 2000})
 };
 
 // Bring the magic..

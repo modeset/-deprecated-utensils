@@ -39,6 +39,7 @@
 <li><a href='#directional'>Directional</a></li>
 <li><a href='#dismiss'>Dismiss</a></li>
 <li><a href='#drop'>Drop</a></li>
+<li><a href='#flash_message'>Flash message</a></li>
 <li><a href='#form_controls'>Form controls</a></li>
 <li><a href='#form_horizontal'>Form horizontal</a></li>
 <li><a href='#form_inline'>Form inline</a></li>
@@ -1808,6 +1809,10 @@ on_screen = @directional.constrainToViewport(position)
 <p>This whole thing should fade out,
 <a data-bindable='dismiss' data-parents='#dismiss_cya' href='#'>when you click this link</a></p>
 </section>
+<div class='notification fade in' id='dismiss_auto'>
+<p><strong>Notification!</strong> This auto dismisses after a period of time</p>
+<a class='close' data-auto-dismiss='5000' data-bindable='dismiss' href='#'>&times;</a>
+</div>
 </div></p>
 
 <pre><code class="haml">.notification.fade.in
@@ -1833,6 +1838,10 @@ on_screen = @directional.constrainToViewport(position)
   %p&lt;
     This whole thing should fade out,
     %a(href=&quot;#&quot; data-bindable=&quot;dismiss&quot; data-parents=&quot;#dismiss_cya&quot;) when you click this link
+
+.notification.fade.in#dismiss_auto
+  %p &lt;strong&gt;Notification!&lt;/strong&gt; This auto dismisses after a period of time
+  %a.close(href=&quot;#&quot; data-bindable=&quot;dismiss&quot; data-auto-dismiss=&quot;5000&quot;) &amp;times;
 </code></pre>
 
 <!-- end -->
@@ -2193,6 +2202,58 @@ value before this file is imported, this is done to keep managing
 <li>Exit animations do not occur since the <code>.visuallyhidden</code> class is
 applied at the same time a transition occurs. Not sure if this should
 be added in here or through an extension of <code>Drop</code>?</li>
+</ul>
+
+<p></section><section class="sherpa-section sherpa-clearfix"></p>
+
+<h1>Flash Message</h1>
+
+<p>Describe this.</p>
+
+<!--~ markup/flash_message.html.haml -->
+
+<div class="sherpa-showcase sherpa-clearfix"><section class='button-toolbar' id='demo_flash_message'>
+<nav class='button-group' data-bindable='toggle-button-group' data-remove='top bottom middle top-left top-center top-right'>
+<button class='btn active' data-add='' href='#'>Default (Top)</button>
+<button class='btn' data-add='top-left' href='#'>Top Left</button>
+<button class='btn' data-add='top-center' href='#'>Top Center</button>
+<button class='btn' data-add='top-right' href='#'>Top Right</button>
+<button class='btn' data-add='middle' href='#'>Middle</button>
+<button class='btn' data-add='bottom' href='#'>Bottom</button>
+</nav>
+<nav class='button-group'>
+<button class='btn' data-type='' href='#'>Add Default (Info)</button>
+<button class='btn' data-type='important' href='#'>Add Important</button>
+<button class='btn' data-type='success' href='#'>Add Success</button>
+<button class='btn' data-type='warning' href='#'>Add Warning</button>
+<button class='btn' data-type='danger' href='#'>Add Danger</button>
+</nav>
+</section>
+</div>
+
+<pre><code class="haml">%section#demo_flash_message.button-toolbar
+  %nav.button-group(data-bindable=&quot;toggle-button-group&quot; data-remove=&quot;top bottom middle top-left top-center top-right&quot;)
+    %button.btn.active(href=&quot;#&quot; data-add=&quot;&quot;) Default (Top)
+    %button.btn(href=&quot;#&quot; data-add=&quot;top-left&quot;) Top Left
+    %button.btn(href=&quot;#&quot; data-add=&quot;top-center&quot;) Top Center
+    %button.btn(href=&quot;#&quot; data-add=&quot;top-right&quot;) Top Right
+    %button.btn(href=&quot;#&quot; data-add=&quot;middle&quot;) Middle
+    %button.btn(href=&quot;#&quot; data-add=&quot;bottom&quot;) Bottom
+
+  %nav.button-group
+    %button.btn(href=&quot;#&quot; data-type=&quot;&quot;) Add Default (Info)
+    %button.btn(href=&quot;#&quot; data-type=&quot;important&quot;) Add Important
+    %button.btn(href=&quot;#&quot; data-type=&quot;success&quot;) Add Success
+    %button.btn(href=&quot;#&quot; data-type=&quot;warning&quot;) Add Warning
+    %button.btn(href=&quot;#&quot; data-type=&quot;danger&quot;) Add Danger
+</code></pre>
+
+<!-- end -->
+
+<h2>Todo</h2>
+
+<ul>
+<li>Document this</li>
 </ul>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
@@ -7526,6 +7587,7 @@ within your <code>config.sass</code> file or before <code>well.sass</code> is lo
 
     <footer class="sherpa-footer sherpa-container sherpa-clearfix">
     </footer>
+    <ul id="flash_message_demo" class="flash-message"></ul>
     <script src="/assets/application.js"></script>
     <script src="/docs/sherpa.js"></script>
   </body>

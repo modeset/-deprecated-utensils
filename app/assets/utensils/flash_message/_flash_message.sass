@@ -1,0 +1,53 @@
+
+.flash-message,
+.flash-message.top
+  margin: 0
+  list-style: none
+  position: fixed
+  top: 0
+  right: 0
+  left: 0
+  z-index: $zindex-flash-message
+
+.flash-message.bottom
+  top: auto
+  bottom: 0
+
+.flash-message.top-left,
+.flash-message.top-center,
+.flash-message.top-right
+  top: 1.5em
+
+.flash-message.top-left,
+.flash-message.top-center,
+.flash-message.middle
+  right: auto
+
+.flash-message.top-left,
+.flash-message.top-right
+  width: 25%
+
+.flash-message.top-left
+  left: 1.5em
+
+.flash-message.top-center,
+.flash-message.middle
+  left: 25%
+  width: 50%
+
+.flash-message.middle
+  top: 45%
+
+.flash-message.top-right
+  left: auto
+  right: 1.5em
+
+// Override some of the settings for full screen messages
+.flash-message .notification
+  margin-top: 0
+  margin-bottom: 1em
+
+.flash-message.top > .notification,
+.flash-message.bottom > .notification
+  border-radius: 0
+
