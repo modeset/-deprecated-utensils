@@ -77,18 +77,24 @@ a:link
   padding-left: 0
 
 
-// Active states for navs get a default cursor
-.nav > .active > a,
-.nav > .active > a:hover
+// Active states get a default cursor
+.active > a,
+.active > a:hover,
+.active > button,
+.active > button:hover
   cursor: default
-.nav > .dropdown.active > a:hover
-  cursor: pointer
 
 // Checkbox groups do not
 [data-behavior="checkbox"] .active > a,
 [data-behavior="checkbox"] .active > a:hover,
-[data-behavior="checkbox"] .active,
-[data-behavior="checkbox"] .active:hover
+[data-behavior="checkbox"] .active > button,
+[data-behavior="checkbox"] .active > button:hover,
+[data-behavior="checkbox"] a.active,
+[data-behavior="checkbox"] a.active:hover,
+[data-behavior="checkbox"] button.active,
+[data-behavior="checkbox"] button.active:hover,
+.drop.active > a,
+.drop.active > button
   cursor: pointer
 
 // Assets
