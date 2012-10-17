@@ -33,6 +33,10 @@ data-bindable="dismiss"
   %p<
     This whole thing should fade out,
     %a(href="#" data-bindable="dismiss" data-parents="#dismiss_cya") when you click this link
+
+.notification.fade.in#dismiss_auto
+  %p <strong>Notification!</strong> This auto dismisses after a period of time
+  %a.close(href="#" data-bindable="dismiss" data-auto-dismiss="5000") &times;
 ```
 <!-- end -->
 

@@ -10,6 +10,7 @@ class utensils.Dismiss
     @options()
     @initialize()
     @addListeners()
+    @autoDismiss(parseInt(@data.autoDismiss, 10)) if @data.autoDismiss
 
   options: ->
     @data.namespace = @data.namespace || 'dismiss'
@@ -19,11 +20,13 @@ class utensils.Dismiss
     @namespace = @data.namespace
     @parent_classes = @data.parents
     @target = null
+    @timeout = null
     @triggerable = new utensils.Triggerable(@el, @data)
 
 # PUBLIC #
 
   remove: ->
+    @clearTimeout() if @timeout
     @setTarget() unless @target
     @target.trigger("#{@namespace}:dismiss")
     if utensils.Detect.hasTransition && @target.hasClass('in')
@@ -33,12 +36,14 @@ class utensils.Dismiss
       @removeTarget()
 
   removeTarget: ->
+    @clearTimeout() if @timeout
     @setTarget() unless @target
     @target.trigger("#{@namespace}:dismissed")
     @target.remove()
     @dispose()
 
   dispose: ->
+    @clearTimeout() if @timeout
     @removeListeners()
     @triggerable.dispose()
     @triggerable = null
@@ -54,6 +59,13 @@ class utensils.Dismiss
   deactivated: (e) ->
     e?.preventDefault()
     @remove()
+
+  autoDismiss: (time) ->
+    @timeout = setTimeout(( => @remove()), time)
+
+  clearTimeout: ->
+    clearTimeout(@timeout)
+    @timeout = null
 
   setTarget: ->
     element = if @data.target then $(@data.target) else $(@el.attr('href'))

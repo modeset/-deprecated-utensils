@@ -36,6 +36,11 @@ describe 'Dismiss', ->
     @custom_link = @custom_el.find('a')
     @custom = new utensils.Dismiss(@custom_link)
 
+    @auto_el = @dom.find('#dismiss_auto')
+    @auto_link = @auto_el.find('a')
+    @auto = new utensils.Dismiss(@auto_link)
+
+
   describe 'binding', ->
     it 'is registered in bindable', ->
       expect(utensils.Bindable.getClass('dismiss')).toEqual(utensils.Dismiss)
@@ -44,6 +49,9 @@ describe 'Dismiss', ->
   describe '#constructor', ->
     it 'sets up a data object', ->
       expect(@alert.data).toBeDefined()
+
+    it 'auto dismisses a dismissable object when it has the auto-dismiss attribute', ->
+      expect(@auto.data.autoDismiss).toEqual(5000)
 
 
   describe '#options', ->
