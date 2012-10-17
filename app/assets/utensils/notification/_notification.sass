@@ -1,4 +1,6 @@
 
+$notification-list: nil !default
+
 @mixin notification-coloring($color)
   background-color: lighten($color, 40%)
   border-color: lighten($color, 20%)
@@ -27,15 +29,11 @@
   right: 0.5em
 
 
-.notification.important
-  +notification-coloring($important)
-
-.notification.success
-  +notification-coloring($success)
-
-.notification.warning
-  +notification-coloring(darken($warning, 15%))
-
-.notification.danger
-  +notification-coloring($danger)
+// Add modifiers from a list
+@if $notification-list != nil
+  @each $_status in $notification-list
+    $_class_name: nth($_status,1)
+    $_color_value: nth($_status,2)
+    .notification.#{$_class_name}
+      +notification-coloring($_color_value)
 

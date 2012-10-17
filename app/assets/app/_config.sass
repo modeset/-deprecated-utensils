@@ -140,8 +140,9 @@ $zindex-flash-message: 1060
 // Component overrides
 // -----------------------------------------------------------------------------
 $code-color-inline: $red
-$decal-status-list: join($base-level-list, $info-list $primary-list)
-$table-status-list: $base-level-list
+$decal-list: join($base-level-list, $info-list $primary-list)
+$table-list: $important-list, $success-list, warning darken($warning, 25%), $danger-list
+$notification-list: $important-list, $success-list, warning darken($warning, 25%), $danger-list
 $progress-list: $base-level-list
 
 

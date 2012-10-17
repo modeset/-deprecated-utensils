@@ -29,9 +29,8 @@ Describe this.
 <!-- end -->
 
 ## Todo
-- Write behavior for closing the alert
-- Finish working the style modifiers with lists
-- Figure out what to do with the mixin
+- Figure out what to do with the mixin, can this be reused?
 - Styles for block notifications
 - How to handle flash messages?
+- Document
 
