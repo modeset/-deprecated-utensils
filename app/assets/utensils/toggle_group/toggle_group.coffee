@@ -64,7 +64,7 @@ class utensils.ToggleGroup
 
   triggered: (e, link) ->
     @setTargets() unless @targets
-    element = @targets.find(link).closest('li')
+    element = @targets.find(link).closest('a, button').parent(@data.target)
     return if element.length <= 0
     return if @behavior == 'radio' && element.hasClass(@toggle_classes)
     if @behavior == 'radio' then @radio(element) else @checkbox(element)
