@@ -33,9 +33,9 @@ data-bindable="pop"
     %li<
       %a#pop_no_title(data-bindable="pop" data-placement="north" data-content="Check me out, rolling with no title and all. Total chaos." href="#") No Title
     %li<
-      %a#pop_selector(data-bindable="pop" href="#pop_exterior_content") Exterior Content
+      %a#pop_selector(data-bindable="pop" href="#pop_exterior_content" data-placement="west" data-toggle="in" data-delay="1000,0" data-bubble="true") Exterior Content
 
-.hidden#pop_exterior_content(data-placement="west" data-toggle="in" data-delay="activate: 1000, deactivate:0" data-bubble="true")
+.hidden#pop_exterior_content
   .pop.fade
     .pop-arrow
     .pop-inner
@@ -184,5 +184,4 @@ The markup injected when a pop is shown:
 - Multiple pops?
 - Depth swapping?
 - disable on body click?
-- could use some more optimizations around lazy loading
 

@@ -4336,10 +4336,10 @@ points.</p>
 <li><a data-bindable='pop' data-content='East Coast hip-hop in the 90s is about as good as it gets.' data-placement='east' data-trigger='hover' href='#' id='pop_east' title='The Eastern Pop'>Eastern Pop</a></li>
 <li><a data-bindable='pop' data-content='At some point the West Coast is just going to drop into the Pacific.' data-placement='west' href='#' id='pop_west' title='&lt;h2&gt;The Western Pop&lt;/h2&gt;'>Western Pop</a></li>
 <li><a data-bindable='pop' data-content='Check me out, rolling with no title and all. Total chaos.' data-placement='north' href='#' id='pop_no_title'>No Title</a></li>
-<li><a data-bindable='pop' href='#pop_exterior_content' id='pop_selector'>Exterior Content</a></li>
+<li><a data-bindable='pop' data-bubble='true' data-delay='1000,0' data-placement='west' data-toggle='in' href='#pop_exterior_content' id='pop_selector'>Exterior Content</a></li>
 </ul>
 </nav>
-<div class='hidden' data-bubble='true' data-delay='activate: 1000, deactivate:0' data-placement='west' data-toggle='in' id='pop_exterior_content'>
+<div class='hidden' id='pop_exterior_content'>
 <div class='pop fade'>
 <div class='pop-arrow'></div>
 <div class='pop-inner'>
@@ -4369,9 +4369,9 @@ points.</p>
     %li&lt;
       %a#pop_no_title(data-bindable=&quot;pop&quot; data-placement=&quot;north&quot; data-content=&quot;Check me out, rolling with no title and all. Total chaos.&quot; href=&quot;#&quot;) No Title
     %li&lt;
-      %a#pop_selector(data-bindable=&quot;pop&quot; href=&quot;#pop_exterior_content&quot;) Exterior Content
+      %a#pop_selector(data-bindable=&quot;pop&quot; href=&quot;#pop_exterior_content&quot; data-placement=&quot;west&quot; data-toggle=&quot;in&quot; data-delay=&quot;1000,0&quot; data-bubble=&quot;true&quot;) Exterior Content
 
-.hidden#pop_exterior_content(data-placement=&quot;west&quot; data-toggle=&quot;in&quot; data-delay=&quot;activate: 1000, deactivate:0&quot; data-bubble=&quot;true&quot;)
+.hidden#pop_exterior_content
   .pop.fade
     .pop-arrow
     .pop-inner

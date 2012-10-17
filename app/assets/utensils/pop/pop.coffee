@@ -8,7 +8,7 @@
 class utensils.Pop
   constructor: (@el, data) ->
     @is_tip_like = if @el.data('content') then true else false
-    @data = if data then data else @findData()
+    @data = if data then data else @el.data()
     @options()
     @initialize()
     @addListeners()
@@ -112,12 +112,6 @@ class utensils.Pop
     return html
 
 # INTERNAL #
-
-  findData: ->
-    if @is_tip_like
-      return @el.data()
-    target = @el.data('target') || @el.attr('href')
-    return $(target).data()
 
   findMarkup: ->
     pop_markup =  ''

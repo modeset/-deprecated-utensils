@@ -290,15 +290,6 @@ describe 'Pop', ->
       expect(west_render).toContain('The Western Pop')
 
 
-  describe '#findData', ->
-    it 'finds data on the @el when its tip like', ->
-      expect(@west_pop.data.content).toEqual(@west_el.data('content'))
-
-    it 'finds data on the external element when its not tip like', ->
-      expect(@ext_pop.data.placement).toEqual(@ext_content.data('placement'))
-      expect(@ext_pop.data.bubble).toEqual(@ext_content.data('bubble'))
-
-
   describe '#findMarkup', ->
     it 'uses the internal render string when the pop is tip like', ->
       spyEvent = spyOn(@west_pop, 'render')
