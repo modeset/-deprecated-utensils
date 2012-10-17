@@ -211,7 +211,7 @@ describe 'ToggleButtonGroup', ->
       expect(@element).toBe(@check_link)
 
 
-  describe '#findTargets', ->
+  describe '#setTargets', ->
     it 'finds the targets when passed via a data attribute', ->
       expect(@check.targets).toBeNull()
       @check_link.click()

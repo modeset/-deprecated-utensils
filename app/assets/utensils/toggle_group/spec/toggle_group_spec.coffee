@@ -273,7 +273,7 @@ describe 'ToggleGroup', ->
       expect(@element).toBe(@check_link.closest('li'))
 
 
-  describe '#findTargets', ->
+  describe '#setTargets', ->
     it 'finds the targets when passed via a data attribute', ->
       expect(@radio.targets).toBeNull()
       @radio_link.click()

@@ -15,18 +15,20 @@ class utensils.ToggleButtonGroup extends utensils.ToggleGroup
 # PUBLIC OVERRIDES #
 
   activate: (item) ->
-    if typeof item == "number"
-      activator = @findTargets().eq(item)
-    else if typeof item == "string"
+    if typeof item == 'number'
+      @setTargets() unless @targets
+      activator = @targets.eq(item)
+    else if typeof item == 'string'
       activator = $(item)
     else
       activator = item
     activator.trigger(@triggerable.trigger_type.on)
 
   deactivate: (item) ->
-    if typeof item == "number"
-      deactivator = @findTargets().eq(item)
-    else if typeof item == "string"
+    if typeof item == 'number'
+      @setTargets() unless @targets
+      deactivator = @targets.eq(item)
+    else if typeof item == 'string'
       deactivator = $(item)
     else
       deactivator = item
@@ -35,7 +37,7 @@ class utensils.ToggleButtonGroup extends utensils.ToggleGroup
 # PROTECTED OVERRIDES #
 
   triggered: (e, link) ->
-    @findTargets()
+    @setTargets() unless @targets
     element = $(link)
     return if element.length <= 0
     return if @behavior == 'radio' && element.hasClass(@toggle_classes)

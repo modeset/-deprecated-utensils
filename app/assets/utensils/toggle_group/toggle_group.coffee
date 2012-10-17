@@ -28,21 +28,25 @@ class utensils.ToggleGroup
 # PUBLIC #
 
   activate: (item) ->
-    if typeof item == "number"
-      activator = @findTargets().eq(item).find('> a')
-    else if typeof item == "string"
-      activator = $(item).find('> a')
+    selector = '> a,> button'
+    if typeof item == 'number'
+      @setTargets() unless @targets
+      activator = @targets.eq(item).find(selector)
+    else if typeof item == 'string'
+      activator = $(item).find(selector)
     else
-      activator = item.find('> a')
+      activator = item.find(selector)
     activator.trigger(@triggerable.trigger_type.on)
 
   deactivate: (item) ->
-    if typeof item == "number"
-      deactivator = @findTargets().eq(item).find('> a')
-    else if typeof item == "string"
-      deactivator = $(item).find('> a')
+    selector = '> a,button'
+    if typeof item == 'number'
+      @setTargets() unless @targets
+      deactivator = @targets.eq(item).find(selector)
+    else if typeof item == 'string'
+      deactivator = $(item).find(selector)
     else
-      deactivator = item.find('> a')
+      deactivator = item.find(selector)
     deactivator.trigger(@triggerable.trigger_type.off)
 
   dispose: ->
@@ -59,24 +63,24 @@ class utensils.ToggleGroup
     @triggerable.dispatcher.off('triggerable:trigger')
 
   triggered: (e, link) ->
-    element = @findTargets().find(link).parent('li')
+    @setTargets() unless @targets
+    element = @targets.find(link).closest('li')
     return if element.length <= 0
     return if @behavior == 'radio' && element.hasClass(@toggle_classes)
     if @behavior == 'radio' then @radio(element) else @checkbox(element)
     @el.trigger("#{@namespace}:triggered", element)
 
   radio: (element) ->
+    @setTargets() unless @targets
     @el.find('.selected').removeClass('selected')
-    @findTargets().removeClass(@toggle_classes)
+    @targets.removeClass(@toggle_classes)
     element.addClass(@toggle_classes)
 
   checkbox: (element) ->
     element.toggleClass(@toggle_classes)
 
-  findTargets: ->
-    return @targets if @targets
+  setTargets: ->
     @targets = @el.find("#{@data.target}:not(#{@data.ignore})")
-    return @targets
 
 utensils.Bindable.register('toggle-group', utensils.ToggleGroup)
 
