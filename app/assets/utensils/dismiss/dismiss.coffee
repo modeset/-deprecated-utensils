@@ -11,9 +11,11 @@ class utensils.Dismiss
 
   options: ->
     @data.namespace = @data.namespace || 'dismiss'
+    @data.parents = @data.parents || '.notification, .dismiss'
 
   initialize: ->
     @namespace = @data.namespace
+    @parent_classes = @data.parents
     @target = null
 
 # PUBLIC #
@@ -44,15 +46,12 @@ class utensils.Dismiss
   setTarget: ->
     element = if @data.target then $(@data.target) else $(@el.attr('href'))
     return @target = element if element.length
-    parent = @el.parent()
-    return @target = parent if parent.hasClass('notification')
+    parent = @el.parents(@parent_classes)
+    return @target = parent if parent.length
     return @target = @el
 
 utensils.Bindable.register 'dismiss', utensils.Dismiss
 
 # Todo:
 # - Should this use Triggerable so we can tap into delay?
-# - Create a separate fixture and test all possibilities
-# - Abstract the "notification" on the parent, this might need to be a list
-# - The "notification" should also be allowed to be passed in
 

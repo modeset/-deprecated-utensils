@@ -1711,15 +1711,57 @@ on_screen = @directional.constrainToViewport(position)
 <!--~ markup/dismiss.html.haml -->
 
 <div class="sherpa-showcase sherpa-clearfix"><div class='notification fade in'>
-<p><strong>Default!</strong> This is the default notification</p>
+<p><strong>Notification!</strong> This is the default notification</p>
 <a class='close' data-bindable='dismiss' href='#'>&times;</a>
 </div>
 
-<p></div></p>
+<div class='notification fade in' id='dismiss_href'>
+<p><strong>Notifcation Href!</strong> This is the default notification</p>
+<a class='close' data-bindable='dismiss' href='#dismiss_href'>&times;</a>
+</div>
+
+<div class='notification fade in' id='dismiss_target'>
+<p><strong>Notifcation Target!</strong> With a delay</p>
+<a class='close' data-bindable='dismiss' data-delay='500' data-target='#dismiss_target' href='#'>&times;</a>
+</div>
+
+<div class='notification fade in' id='dismiss_nested'>
+<p><strong>Notifcation Nested!</strong> This is the default notification</p>
+<p>
+<a class='close' data-bindable='dismiss' href='#'>&times;</a>
+</p>
+</div>
+
+<p><a data-bindable='dismiss' href='#' id='dismiss_alone'>Close Me</a>
+<section class='fade in' id='dismiss_cya'>
+<p>This whole thing should fade out,
+<a data-bindable='dismiss' data-parents='#dismiss_cya' href='#'>when you click this link</a></p>
+</section>
+</div></p>
 
 <pre><code class="haml">.notification.fade.in
-  %p &lt;strong&gt;Default!&lt;/strong&gt; This is the default notification
+  %p &lt;strong&gt;Notification!&lt;/strong&gt; This is the default notification
   %a.close(href=&quot;#&quot; data-bindable=&quot;dismiss&quot;) &amp;times;
+
+.notification.fade.in#dismiss_href
+  %p &lt;strong&gt;Notifcation Href!&lt;/strong&gt; This is the default notification
+  %a.close(href=&quot;#dismiss_href&quot; data-bindable=&quot;dismiss&quot;) &amp;times;
+
+.notification.fade.in#dismiss_target
+  %p &lt;strong&gt;Notifcation Target!&lt;/strong&gt; With a delay
+  %a.close(href=&quot;#&quot; data-target=&quot;#dismiss_target&quot; data-bindable=&quot;dismiss&quot; data-delay=&quot;500&quot;) &amp;times;
+
+.notification.fade.in#dismiss_nested
+  %p &lt;strong&gt;Notifcation Nested!&lt;/strong&gt; This is the default notification
+  %p
+    %a.close(href=&quot;#&quot; data-bindable=&quot;dismiss&quot;) &amp;times;
+
+%a#dismiss_alone(href=&quot;#&quot; data-bindable=&quot;dismiss&quot;) Close Me
+
+%section#dismiss_cya.fade.in
+  %p&lt;
+    This whole thing should fade out,
+    %a(href=&quot;#&quot; data-bindable=&quot;dismiss&quot; data-parents=&quot;#dismiss_cya&quot;) when you click this link
 </code></pre>
 
 <!-- end -->
@@ -4623,7 +4665,6 @@ value before this file is imported, this is done to keep managing
 <li>Multiple pops?</li>
 <li>Depth swapping?</li>
 <li>disable on body click?</li>
-<li>could use some more optimizations around lazy loading</li>
 </ul>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
