@@ -40,6 +40,20 @@ with either the `Toggle`, `ToggleGroup` or `Collapse` behaviors.
       %section.collapse(id="accordion_check_#{i}")
         %article.accordion-inner
           %p=@lorem
+
+
+%hr
+%ul.accordion#accordion_complex(data-bindable="collapse" data-type="group" data-behavior="checkbox" style="margin-top:1em;")
+  -(1..3).each do |i|
+    %li.accordion-group
+      %a.accordion-toggle(href="#accordion_complex_#{i}") Accordion Complicated #{i} with Collapse
+      %section.collapse(id="accordion_complex_#{i}")
+        %article.accordion-inner
+          %ul
+            %li
+              %p=@lorem
+            %li
+              %p=@lorem
 ```
 <!-- end -->
 

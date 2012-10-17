@@ -162,6 +162,54 @@ with either the <code>Toggle</code>, <code>ToggleGroup</code> or <code>Collapse<
 </section>
 </li>
 </ul>
+<hr />
+<ul class='accordion' data-behavior='checkbox' data-bindable='collapse' data-type='group' id='accordion_complex' style='margin-top:1em;'>
+<li class='accordion-group'>
+<a class='accordion-toggle' href='#accordion_complex_1'>Accordion Complicated 1 with Collapse</a>
+<section class='collapse' id='accordion_complex_1'>
+<article class='accordion-inner'>
+<ul>
+<li>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</li>
+<li>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</li>
+</ul>
+</article>
+</section>
+</li>
+<li class='accordion-group'>
+<a class='accordion-toggle' href='#accordion_complex_2'>Accordion Complicated 2 with Collapse</a>
+<section class='collapse' id='accordion_complex_2'>
+<article class='accordion-inner'>
+<ul>
+<li>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</li>
+<li>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</li>
+</ul>
+</article>
+</section>
+</li>
+<li class='accordion-group'>
+<a class='accordion-toggle' href='#accordion_complex_3'>Accordion Complicated 3 with Collapse</a>
+<section class='collapse' id='accordion_complex_3'>
+<article class='accordion-inner'>
+<ul>
+<li>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</li>
+<li>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</li>
+</ul>
+</article>
+</section>
+</li>
+</ul>
 </div>
 
 <pre><code class="haml">:ruby
@@ -192,6 +240,20 @@ with either the <code>Toggle</code>, <code>ToggleGroup</code> or <code>Collapse<
       %section.collapse(id=&quot;accordion_check_#{i}&quot;)
         %article.accordion-inner
           %p=@lorem
+
+
+%hr
+%ul.accordion#accordion_complex(data-bindable=&quot;collapse&quot; data-type=&quot;group&quot; data-behavior=&quot;checkbox&quot; style=&quot;margin-top:1em;&quot;)
+  -(1..3).each do |i|
+    %li.accordion-group
+      %a.accordion-toggle(href=&quot;#accordion_complex_#{i}&quot;) Accordion Complicated #{i} with Collapse
+      %section.collapse(id=&quot;accordion_complex_#{i}&quot;)
+        %article.accordion-inner
+          %ul
+            %li
+              %p=@lorem
+            %li
+              %p=@lorem
 </code></pre>
 
 <!-- end -->
