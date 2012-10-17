@@ -1706,7 +1706,10 @@ on_screen = @directional.constrainToViewport(position)
 
 <h1>Dismiss</h1>
 
-<p>Describe this</p>
+<p>Remove an element from the DOM.</p>
+
+<pre><code class="html">data-bindable=&quot;dismiss&quot;
+</code></pre>
 
 <!--~ markup/dismiss.html.haml -->
 
@@ -1722,7 +1725,7 @@ on_screen = @directional.constrainToViewport(position)
 
 <div class='notification fade in' id='dismiss_target'>
 <p><strong>Notifcation Target!</strong> With a delay</p>
-<a class='close' data-bindable='dismiss' data-delay='500' data-target='#dismiss_target' href='#'>&times;</a>
+<a class='close' data-bindable='dismiss' data-delay='2000' data-target='#dismiss_target' href='#'>&times;</a>
 </div>
 
 <div class='notification fade in' id='dismiss_nested'>
@@ -1749,7 +1752,7 @@ on_screen = @directional.constrainToViewport(position)
 
 .notification.fade.in#dismiss_target
   %p &lt;strong&gt;Notifcation Target!&lt;/strong&gt; With a delay
-  %a.close(href=&quot;#&quot; data-target=&quot;#dismiss_target&quot; data-bindable=&quot;dismiss&quot; data-delay=&quot;500&quot;) &amp;times;
+  %a.close(href=&quot;#&quot; data-target=&quot;#dismiss_target&quot; data-bindable=&quot;dismiss&quot; data-delay=&quot;2000&quot;) &amp;times;
 
 .notification.fade.in#dismiss_nested
   %p &lt;strong&gt;Notifcation Nested!&lt;/strong&gt; This is the default notification
@@ -1765,6 +1768,85 @@ on_screen = @directional.constrainToViewport(position)
 </code></pre>
 
 <!-- end -->
+
+<h2>Options</h2>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>namespace</code></td>
+<td><code>dismiss</code></td>
+<td>The namespace to use for dispatching events</td>
+</tr>
+<tr>
+<td><code>parents</code></td>
+<td><code>.notification,.dismiss</code></td>
+<td>The default classes to search for if an <code>href</code> or <code>target</code> is not defined</td>
+</tr>
+</tbody></table>
+
+<p>See <code>Triggerable</code> for other options </p>
+
+<h6>Notes</h6>
+
+<ul>
+<li><strong>Pro Tip!</strong> If the target element has the class <code>in</code> it will remove
+this class first and wait for the transition to finish</li>
+</ul>
+
+<h2>API</h2>
+
+<h3>#new</h3>
+
+<p>Create a new instance of <code>Dismiss</code> programmatically. Normally this is
+handled through <code>Bindable</code>. </p>
+
+<pre><code class="coffee">#= require dismiss
+
+@el = $(&#39;#dismiss&#39;)
+@dismiss = new utensils.Dismiss(@el, {target: @el.find(&#39;.notification&#39;)})
+</code></pre>
+
+<h3>#remove</h3>
+
+<p>Removes the element from the DOM, if the <code>in</code> class is on the target, it
+will animate out and call <code>#removeTarget</code>.</p>
+
+<h5>dispatches:</h5>
+
+<ul>
+<li><code>dismiss:dismiss</code></li>
+</ul>
+
+<h3>#removeTarget</h3>
+
+<p>Removes the element from the DOM immediately.</p>
+
+<h5>dispatches:</h5>
+
+<ul>
+<li><code>dismiss:dismissed</code></li>
+</ul>
+
+<h3>#dispose</h3>
+
+<p>Cleans up all listeners, but does not remove the element from the DOM.</p>
+
+<h3>Requires</h3>
+
+<ul>
+<li><code>utesnils/utensils</code></li>
+<li><code>utesnils/bindable</code></li>
+<li><code>utesnils/triggerable</code></li>
+<li><code>utesnils/detect</code></li>
+</ul>
+
+<p><code>Dismiss</code> utilizes <code>Triggerable</code> via composition.</p>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 

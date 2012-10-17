@@ -2,10 +2,9 @@
 # Todo
 
 ## WIP
-- dismiss *
 - notifications.sass
-- modals.sass *
 - navbars.sass *
+- modals.sass *
 - document mixins
 - manage focus states around all utensils
 - finish all utensil Todo lists

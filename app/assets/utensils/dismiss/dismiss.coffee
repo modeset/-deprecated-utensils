@@ -1,5 +1,7 @@
 
 #= require utensils/utensils
+#= require utensils/bindable
+#= require utensils/triggerable
 #= require utensils/detect
 
 class utensils.Dismiss
@@ -17,6 +19,7 @@ class utensils.Dismiss
     @namespace = @data.namespace
     @parent_classes = @data.parents
     @target = null
+    @triggerable = new utensils.Triggerable(@el, @data)
 
 # PUBLIC #
 
@@ -33,11 +36,20 @@ class utensils.Dismiss
     @setTarget() unless @target
     @target.trigger("#{@namespace}:dismissed")
     @target.remove()
+    @dispose()
+
+  dispose: ->
+    @removeListeners()
+    @triggerable.dispose()
+    @triggerable = null
 
 # PROTECTED #
 
   addListeners: ->
-    @el.one("click.#{@namespace}", => @deactivated arguments...)
+    @triggerable.dispatcher.on("triggerable:trigger", => @deactivated arguments...)
+
+  removeListeners: ->
+    @triggerable.dispatcher.off("triggerable:trigger")
 
   deactivated: (e) ->
     e?.preventDefault()
@@ -51,7 +63,4 @@ class utensils.Dismiss
     return @target = @el
 
 utensils.Bindable.register 'dismiss', utensils.Dismiss
-
-# Todo:
-# - Should this use Triggerable so we can tap into delay?
 

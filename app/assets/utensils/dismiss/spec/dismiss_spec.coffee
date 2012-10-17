@@ -67,6 +67,9 @@ describe 'Dismiss', ->
     it 'overrides parent_classes', ->
       expect(@custom.parent_classes).toEqual('#dismiss_cya')
 
+    it 'creates an instance of "Triggerable"', ->
+      expect(@alert.triggerable instanceof utensils.Triggerable).toEqual(true)
+
 
   describe '#remove', ->
     it 'triggers a "dismiss" event', ->
@@ -92,11 +95,36 @@ describe 'Dismiss', ->
       expect(spyEvent).toHaveBeenCalled()
 
 
+  describe '#dispose', ->
+    it 'removes listeners when disposed', ->
+      spyEvent = spyOn(@alert, 'removeListeners')
+      @alert.dispose()
+      expect(spyEvent).toHaveBeenCalled()
+
+    it 'gets rid of triggerable', ->
+      @alert.dispose()
+      expect(@alert.triggerable).toBeNull()
+
+    it 'does not respond to any further events', ->
+      spyEvent = spyOn(@alert, 'deactivated')
+      @alert.dispose()
+      @alert_link.click()
+      expect(spyEvent).not.toHaveBeenCalled()
+
+
   describe '#addListeners', ->
     it 'adds a listener for "click" event for an alert', ->
       spyEvent = spyOn(@alert, 'deactivated')
       @alert_link.click()
       expect(spyEvent).toHaveBeenCalled()
+
+
+  describe '#removeListeners', ->
+    it 'removes a listener for "click" event for an alert', ->
+      spyEvent = spyOn(@alert, 'deactivated')
+      @alert.removeListeners()
+      @alert_link.click()
+      expect(spyEvent).not.toHaveBeenCalled()
 
 
   describe '#deactivated', ->
