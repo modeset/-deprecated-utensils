@@ -3,16 +3,17 @@
 
 ## WIP
 - notifications.sass
-- navbars.sass *
-- modals.sass *
+- flash message
+- navbar.sass
+- modal.sass *
 - document mixins
 - manage focus states around all utensils
 - finish all utensil Todo lists
+- dinosaurs style sheet
 - view layout templates
 - ARIA roles for templates/fixtures
 - upgrades
 - media queries
-- dinosaurs style sheet
 - carousels.sass *
 - listing of needed utensils
 - fishnet
@@ -35,7 +36,6 @@
 
 ## Repository
 - Standardize file naming structure
-- Rename components subdirectory to utensils?
 - Move the debug tools outside of this project
 - Turn into engine with generators
 - Better tools for documentation (generation, behavior, and styles)

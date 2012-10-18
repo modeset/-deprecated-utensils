@@ -6,6 +6,9 @@ Describe this.
 
 <!--~ markup/notification.html.haml -->
 ```haml
+:ruby
+  @lorem = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+
 .notification.fade.in
   %p <strong>Default!</strong> This is the default notification
   %a.close(href="#" data-bindable="dismiss") &times;
@@ -25,12 +28,27 @@ Describe this.
 .notification.danger.fade.in
   %p <strong>Danger!</strong> This is the danger notification
   %a.close(href="#" data-bindable="dismiss") &times;
+
+.notification.success.fade.in
+  %header.notify-header
+    %h4.notify-heading Block Notification
+  %section.notify-content
+    %p= @lorem
+  %footer.notify-footer
+    %button.btn.success Action
+    %button.btn.danger Cancel
+  %a.close(href="#" data-bindable="dismiss") &times;
+
+.notification.danger.fade.in
+  %section.notify-content
+    %p <strong>Yikes! This doesn't have a header and the footer is on the right!</strong> #{@lorem}
+  %footer.notify-footer.notify-right
+    %button.btn.success Action
+    %button.btn.danger Cancel
+  %a.close(href="#" data-bindable="dismiss") &times;
 ```
 <!-- end -->
 
 ## Todo
-- Figure out what to do with the mixin, can this be reused?
-- Styles for block notifications
-- How to handle flash messages?
 - Document
 

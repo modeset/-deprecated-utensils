@@ -1809,10 +1809,6 @@ on_screen = @directional.constrainToViewport(position)
 <p>This whole thing should fade out,
 <a data-bindable='dismiss' data-parents='#dismiss_cya' href='#'>when you click this link</a></p>
 </section>
-<div class='notification fade in' id='dismiss_auto'>
-<p><strong>Notification!</strong> This auto dismisses after a period of time</p>
-<a class='close' data-auto-dismiss='5000' data-bindable='dismiss' href='#'>&times;</a>
-</div>
 </div></p>
 
 <pre><code class="haml">.notification.fade.in
@@ -1838,10 +1834,6 @@ on_screen = @directional.constrainToViewport(position)
   %p&lt;
     This whole thing should fade out,
     %a(href=&quot;#&quot; data-bindable=&quot;dismiss&quot; data-parents=&quot;#dismiss_cya&quot;) when you click this link
-
-.notification.fade.in#dismiss_auto
-  %p &lt;strong&gt;Notification!&lt;/strong&gt; This auto dismisses after a period of time
-  %a.close(href=&quot;#&quot; data-bindable=&quot;dismiss&quot; data-auto-dismiss=&quot;5000&quot;) &amp;times;
 </code></pre>
 
 <!-- end -->
@@ -1864,6 +1856,11 @@ on_screen = @directional.constrainToViewport(position)
 <td><code>parents</code></td>
 <td><code>.notification,.dismiss</code></td>
 <td>The default classes to search for if an <code>href</code> or <code>target</code> is not defined</td>
+</tr>
+<tr>
+<td><code>auto-dismiss</code></td>
+<td><code>undefined</code></td>
+<td>Pass the time in milliseconds and the element will automatically remove itself from the DOM.</td>
 </tr>
 </tbody></table>
 
@@ -2214,7 +2211,7 @@ be added in here or through an extension of <code>Drop</code>?</li>
 
 <div class="sherpa-showcase sherpa-clearfix"><section class='button-toolbar' id='demo_flash_message'>
 <nav class='button-group' data-bindable='toggle-button-group' data-remove='top bottom middle top-left top-center top-right'>
-<button class='btn active' data-add='' href='#'>Default (Top)</button>
+<button class='btn active' data-add='top' href='#'>Default (Top)</button>
 <button class='btn' data-add='top-left' href='#'>Top Left</button>
 <button class='btn' data-add='top-center' href='#'>Top Center</button>
 <button class='btn' data-add='top-right' href='#'>Top Right</button>
@@ -2233,7 +2230,7 @@ be added in here or through an extension of <code>Drop</code>?</li>
 
 <pre><code class="haml">%section#demo_flash_message.button-toolbar
   %nav.button-group(data-bindable=&quot;toggle-button-group&quot; data-remove=&quot;top bottom middle top-left top-center top-right&quot;)
-    %button.btn.active(href=&quot;#&quot; data-add=&quot;&quot;) Default (Top)
+    %button.btn.active(href=&quot;#&quot; data-add=&quot;top&quot;) Default (Top)
     %button.btn(href=&quot;#&quot; data-add=&quot;top-left&quot;) Top Left
     %button.btn(href=&quot;#&quot; data-add=&quot;top-center&quot;) Top Center
     %button.btn(href=&quot;#&quot; data-add=&quot;top-right&quot;) Top Right
@@ -3848,9 +3845,37 @@ and inserts them directly into your style sheet.</p>
 <a class='close' data-bindable='dismiss' href='#'>&times;</a>
 </div>
 
+<div class='notification success fade in'>
+<header class='notify-header'>
+<h4 class='notify-heading'>Block Notification</h4>
+</header>
+<section class='notify-content'>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</section>
+<footer class='notify-footer'>
+<button class='btn success'>Action</button>
+<button class='btn danger'>Cancel</button>
+</footer>
+<a class='close' data-bindable='dismiss' href='#'>&times;</a>
+</div>
+
+<div class='notification danger fade in'>
+<section class='notify-content'>
+<p><strong>Yikes! This doesn't have a header and the footer is on the right!</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</section>
+<footer class='notify-footer notify-right'>
+<button class='btn success'>Action</button>
+<button class='btn danger'>Cancel</button>
+</footer>
+<a class='close' data-bindable='dismiss' href='#'>&times;</a>
+</div>
+
 <p></div></p>
 
-<pre><code class="haml">.notification.fade.in
+<pre><code class="haml">:ruby
+  @lorem = &quot;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.&quot;
+
+.notification.fade.in
   %p &lt;strong&gt;Default!&lt;/strong&gt; This is the default notification
   %a.close(href=&quot;#&quot; data-bindable=&quot;dismiss&quot;) &amp;times;
 
@@ -3869,6 +3894,24 @@ and inserts them directly into your style sheet.</p>
 .notification.danger.fade.in
   %p &lt;strong&gt;Danger!&lt;/strong&gt; This is the danger notification
   %a.close(href=&quot;#&quot; data-bindable=&quot;dismiss&quot;) &amp;times;
+
+.notification.success.fade.in
+  %header.notify-header
+    %h4.notify-heading Block Notification
+  %section.notify-content
+    %p= @lorem
+  %footer.notify-footer
+    %button.btn.success Action
+    %button.btn.danger Cancel
+  %a.close(href=&quot;#&quot; data-bindable=&quot;dismiss&quot;) &amp;times;
+
+.notification.danger.fade.in
+  %section.notify-content
+    %p &lt;strong&gt;Yikes! This doesn&#39;t have a header and the footer is on the right!&lt;/strong&gt; #{@lorem}
+  %footer.notify-footer.notify-right
+    %button.btn.success Action
+    %button.btn.danger Cancel
+  %a.close(href=&quot;#&quot; data-bindable=&quot;dismiss&quot;) &amp;times;
 </code></pre>
 
 <!-- end -->
@@ -3876,9 +3919,7 @@ and inserts them directly into your style sheet.</p>
 <h2>Todo</h2>
 
 <ul>
-<li>Figure out what to do with the mixin, can this be reused?</li>
 <li>Styles for block notifications</li>
-<li>How to handle flash messages?</li>
 <li>Document</li>
 </ul>
 

@@ -1,13 +1,15 @@
 
 $notification-list: nil !default
 
-@mixin notification-coloring($color)
+@mixin _notification-coloring($color)
   background-color: lighten($color, 40%)
   border-color: lighten($color, 20%)
   color: $color
+  .notify-heading
+    color: $color
 
 .notification
-  +notification-coloring(darken($info, 15%))
+  +_notification-coloring(darken($info, 15%))
   border-width: 1px
   border-style: solid
   border-radius: $radii
@@ -28,6 +30,23 @@ $notification-list: nil !default
   top: 0.5em
   right: 0.5em
 
+.notification .notify-header,
+.notification .notify-content,
+.notification .notify-footer
+  padding-right: 1.2em
+
+.notification .notify-header
+  margin-bottom: 0.5em
+
+.notification .notify-footer
+  margin-top: 1.25em
+
+.notification .notify-heading
+  +font-size(20)
+
+.notification .notify-right
+  text-align: right
+
 
 // Add modifiers from a list
 @if $notification-list != nil
@@ -35,5 +54,5 @@ $notification-list: nil !default
     $_class_name: nth($_status,1)
     $_color_value: nth($_status,2)
     .notification.#{$_class_name}
-      +notification-coloring($_color_value)
+      +_notification-coloring($_color_value)
 
