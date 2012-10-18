@@ -8,6 +8,7 @@
 //= require utensils/toggle_button_group
 //= require utensils/dismiss
 
+//= require utensils/carousel
 //= require utensils/drop
 //= require utensils/collapse
 //= require utensils/tab

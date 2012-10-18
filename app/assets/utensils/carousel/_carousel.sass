@@ -1,0 +1,59 @@
+
+.carousel
+  +box-sizing(border-box)
+  +clearfixer
+  overflow: hidden
+  width: 100%
+  height: 300px
+  position: relative
+
+.carousel-inner
+  position: relative
+  float: left
+  width: 100%
+
+.carousel-controls
+  position: absolute
+  top: 0
+  left: 0
+  z-index: 1
+  width: 100%
+  height: 100%
+
+.carousel-controls .indication
+  +clearfixer
+  position: absolute
+  left: 50%
+  bottom: 0
+  z-index: 1
+
+.carousel-controls .indication li
+  float: left
+
+.carousel-controls .paddle-icon
+  z-index 2
+
+.carousel-status
+  position: absolute
+  top: 0
+  left: 0
+  z-index: 2
+
+.carousel .carousel-panel
+  +box-sizing(border-box)
+  float: left
+
+.carousel-figure
+  +box-sizing(border-box)
+
+.carousel-caption
+  +box-sizing(border-box)
+  +clearfixer
+
+.carousel[data-bindable="carousel"] .carousel-panel
+  width: auto
+  position: absolute
+
+.carousel img
+  display: block
+  

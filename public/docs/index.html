@@ -30,6 +30,7 @@
 <li><a href='#button_modifiers'>Button modifiers</a></li>
 <li><a href='#button_semigloss'>Button semigloss</a></li>
 <li><a href='#canvas_util'>Canvas util</a></li>
+<li><a href='#carousel'>Carousel</a></li>
 <li><a href='#collapse'>Collapse</a></li>
 <li><a href='#container'>Container</a></li>
 <li><a href='#container_media'>Container media</a></li>
@@ -911,6 +912,58 @@ else</li>
 <h1>CanvasUtil</h1>
 
 <p>A set of <code>&lt;canvas&gt;</code> helper methods and constants</section><section class="sherpa-section sherpa-clearfix"></p>
+
+<h1>Carousel</h1>
+
+<p>The base carousel.</p>
+
+<!--~ markup/carousel.html.haml -->
+
+<div class="sherpa-showcase sherpa-clearfix"><section class='carousel' data-active-class='in' data-autoplay='false' data-bindable='carousel' data-cycles='1' data-duration='2' data-keyboard='true'>
+<nav class='carousel-controls fade in'>
+<a class='paddle-icon west' href='#prev'>&larr;</a>
+<a class='paddle-icon east' href='#next'>&rarr;</a>
+<ul class='nav indication'></ul>
+</nav>
+<section class='carousel-inner'>
+<article class='carousel-panel fade'>
+<figure class='carousel-figure'>
+<img alt='image' src='/assets/fpo/carousel-1.gif' />
+<figcaption class='carousel-caption'></figcaption>
+</figure>
+</article>
+<article class='carousel-panel fade'>
+<figure class='carousel-figure'>
+<img alt='image' src='/assets/fpo/carousel-2.gif' />
+<figcaption class='carousel-caption'></figcaption>
+</figure>
+</article>
+<article class='carousel-panel fade'>
+<figure class='carousel-figure'>
+<img alt='image' src='/assets/fpo/carousel-3.gif' />
+<figcaption class='carousel-caption'></figcaption>
+</figure>
+</article>
+</section>
+</section>
+</div>
+
+<pre><code class="haml">%section.carousel(data-bindable=&quot;carousel&quot; data-autoplay=&quot;false&quot; data-cycles=&quot;1&quot; data-duration=&quot;2&quot; data-active-class=&quot;in&quot; data-keyboard=&quot;true&quot;)
+  %nav.carousel-controls.fade.in
+    %a.paddle-icon.west(href=&quot;#prev&quot;) &amp;larr;
+    %a.paddle-icon.east(href=&quot;#next&quot;) &amp;rarr;
+    %ul.nav.indication
+  %section.carousel-inner
+    - (1..3).each do |i|
+      %article.carousel-panel(class=&quot;fade&quot;)
+        %figure.carousel-figure
+          %img(src=&quot;/assets/fpo/carousel-#{i}.gif&quot; alt=&quot;image&quot;)
+          %figcaption.carousel-caption
+</code></pre>
+
+<!-- end -->
+
+<p></section><section class="sherpa-section sherpa-clearfix"></p>
 
 <h1>Collapse</h1>
 
