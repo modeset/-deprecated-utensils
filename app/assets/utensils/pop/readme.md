@@ -129,11 +129,11 @@ Remove the pop behavior
 ```
 
 ### Requires
-- `utesnils/utensils`
-- `utesnils/bindable`
-- `utesnils/triggerable`
-- `utesnils/detect`
-- `utesnils/directional`
+- `utensils/utensils`
+- `utensils/bindable`
+- `utensils/triggerable`
+- `utensils/detect`
+- `utensils/directional`
 
 `Pop` utilizes `Triggerable` via composition.
 
