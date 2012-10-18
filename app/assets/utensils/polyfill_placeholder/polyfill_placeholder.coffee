@@ -1,5 +1,6 @@
 
 #= require utensils/utensils
+#= require utensils/bindable
 
 # ## HTML5 placeholder feature fallback
 class utensils.PolyfillPlaceholder
