@@ -1,0 +1,32 @@
+$slider-control-bgc: darken($base-bgc, 5%) !default
+$slider-control-border: $base-border !default
+$slider-progress-bgc: $info !default
+$slider-handle-bgc: darken($slider-progress-bgc, 10%) !default
+$slider-radii: $radii !default
+$slider-height: 1.25em !default
+$slider-handle-width: 0.5em !default
+
+
+.slider-control
+  position: relative
+  overflow: hidden
+  height: $slider-height
+  width: 100%
+  background-color: $slider-control-bgc
+  border: 1px solid $slider-control-border
+  border-radius: $slider-radii
+
+.slider-progress
+  position: absolute
+  height: 100%
+  width: 0
+  background-color: $slider-progress-bgc
+  border-top-left-radius: $slider-radii
+  border-bottom-left-radius: $slider-radii
+
+.slider-handle
+  position: absolute
+  height: 100%
+  width: $slider-handle-width
+  background-color: $slider-handle-bgc
+  border-radius: $slider-radii

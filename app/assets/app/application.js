@@ -14,6 +14,7 @@
 //= require utensils/tip
 //= require utensils/pop
 //= require utensils/progress
+//= require utensils/slider
 
 // :: Debuggers ::
 //= require utensils/dimensionizer

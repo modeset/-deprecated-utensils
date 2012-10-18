@@ -33,6 +33,7 @@
 <li><a href='#container'>Container</a></li>
 <li><a href='#container_media'>Container media</a></li>
 <li><a href='#content_editable'>Content editable</a></li>
+<li><a href='#cursor_hand'>Cursor hand</a></li>
 <li><a href='#decal'>Decal</a></li>
 <li><a href='#detect'>Detect</a></li>
 <li><a href='#dimensionizer'>Dimensionizer</a></li>
@@ -47,6 +48,7 @@
 <li><a href='#icon_caret'>Icon caret</a></li>
 <li><a href='#icon_close'>Icon close</a></li>
 <li><a href='#icon_paddle'>Icon paddle</a></li>
+<li><a href='#math_util'>Math util</a></li>
 <li><a href='#menu'>Menu</a></li>
 <li><a href='#mixin'>Mixin</a></li>
 <li><a href='#normalize'>Normalize</a></li>
@@ -60,6 +62,7 @@
 <li><a href='#print'>Print</a></li>
 <li><a href='#progress'>Progress</a></li>
 <li><a href='#scaffold'>Scaffold</a></li>
+<li><a href='#slider'>Slider</a></li>
 <li><a href='#tab'>Tab</a></li>
 <li><a href='#tab_stacked'>Tab stacked</a></li>
 <li><a href='#table'>Table</a></li>
@@ -68,6 +71,7 @@
 <li><a href='#toggle'>Toggle</a></li>
 <li><a href='#toggle_button_group'>Toggle button group</a></li>
 <li><a href='#toggle_group'>Toggle group</a></li>
+<li><a href='#touch_tracker'>Touch tracker</a></li>
 <li><a href='#transition'>Transition</a></li>
 <li><a href='#triggerable'>Triggerable</a></li>
 <li><a href='#typography'>Typography</a></li>
@@ -1481,6 +1485,59 @@ within your <code>config.sass</code> file or before <code>content-editable.sass<
 <td><code>$editable-focus-glow</code></td>
 <td><code>$focus-glow</code></td>
 <td>The glow while the region is focused</td>
+</tr>
+</tbody></table>
+
+<p></section><section class="sherpa-section sherpa-clearfix"></p>
+
+<h1>Cursor Hand</h1>
+
+<p>The CursorHand .js/css combination provides a nice cross-browser way to have a hand-grab cursor, a-la Google Maps&#39; interface.</p>
+
+<p>By default, CursorHand will add or remove a class on the <code>&lt;body&gt;</code> element when the cursor state needs to change. An optional 
+html element can be passed in to the CursorHand constructor, which would toggle the class instead, in case of css scoping needs.</p>
+
+<pre><code class="sass">@import utensils/cursor_hand/cursor_hand
+</code></pre>
+
+<h2>API</h2>
+
+<p>Typically cursor hand is required via a class that needs it, i.e. Carousel, Slider, TouchScroller, etc..</p>
+
+<h3>#new</h3>
+
+<pre><code class="coffee">#= require cursor_hand
+
+cursor = new utensils.CursorHand()
+</code></pre>
+
+<h3>Requires</h3>
+
+<ul>
+<li><code>utensils/utensils</code></li>
+</ul>
+
+<h2>Style Settings</h2>
+
+<p>To override the default settings, set the variable and it&#39;s value
+within your <code>config.sass</code> file or before <code>cursor_hand.sass</code> is loaded.</p>
+
+<table><thead>
+<tr>
+<th>Variable</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>$cursor-open-hand-path</code></td>
+<td><code>&quot;/assets/cursors/openhand.cur&quot;</code></td>
+<td>The default path to find the open hand cursor</td>
+</tr>
+<tr>
+<td><code>$cursor-closed-hand-path</code></td>
+<td><code>&quot;/assets/cursors/closedhand.cur&quot;</code></td>
+<td>The default path to find the closed hand cursor</td>
 </tr>
 </tbody></table>
 
@@ -3707,12 +3764,19 @@ and styles.</p>
 </tr>
 </tbody></table>
 
-<p></section><section class="sherpa-section sherpa-clearfix"></p>
+<p></section><section class="sherpa-section sherpa-clearfix"># MathUtil
+A collection of utility math functions</p>
 
-<h1>Menu</h1>
+<h2>Todo:</h2>
 
-<p>The menu component is a simple list of navigation elements, which are
-typically used within the <code>Drop</code> component.</p>
+<ul>
+<li>Import all MathUtil methods</li>
+<li>Port specs from ModeSet.js</li>
+<li>Document this</section><section class="sherpa-section sherpa-clearfix">
+# Menu
+The menu component is a simple list of navigation elements, which are
+typically used within the <code>Drop</code> component.</li>
+</ul>
 
 <pre><code class="sass">@import utensils/menu/menu
 </code></pre>
@@ -3919,7 +3983,6 @@ and inserts them directly into your style sheet.</p>
 <h2>Todo</h2>
 
 <ul>
-<li>Styles for block notifications</li>
 <li>Document</li>
 </ul>
 
@@ -4804,11 +4867,11 @@ elements toggle event.</p>
 <h3>Requires</h3>
 
 <ul>
-<li><code>utesnils/utensils</code></li>
-<li><code>utesnils/bindable</code></li>
-<li><code>utesnils/triggerable</code></li>
-<li><code>utesnils/detect</code></li>
-<li><code>utesnils/directional</code></li>
+<li><code>utensils/utensils</code></li>
+<li><code>utensils/bindable</code></li>
+<li><code>utensils/triggerable</code></li>
+<li><code>utensils/detect</code></li>
+<li><code>utensils/directional</code></li>
 </ul>
 
 <p><code>Pop</code> utilizes <code>Triggerable</code> via composition.</p>
@@ -5260,11 +5323,37 @@ within your <code>config.sass</code> file or before <code>scaffold.sass</code> i
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
-<h1>Tab</h1>
+<h1>Slider</h1>
 
-<p>Tabs follow the same markup structure as other navigation elements. Tabs
+<p>Describe this</p>
+
+<!--~ markup/slider.html.haml -->
+
+<div class="sherpa-showcase sherpa-clearfix"><div class='slider-control' data-initial-value='500' data-max='1000' data-min='0' id='slider_control'>
+<div class='slider-progress'></div>
+<div class='slider-handle'></div>
+</div>
+
+<p></div></p>
+
+<pre><code class="haml">.slider-control#slider_control(data-initial-value=&quot;500&quot; data-min=&quot;0&quot; data-max=&quot;1000&quot;)
+  .slider-progress
+  .slider-handle
+</code></pre>
+
+<!-- end -->
+
+<h2>Todo</h2>
+
+<ul>
+<li>Document this</li>
+<li>Add specs
+</section><section class="sherpa-section sherpa-clearfix">
+# Tab
+Tabs follow the same markup structure as other navigation elements. Tabs
 like other navigation elements require the <code>.nav</code> class for layout. Add
-<code>.nav .tab</code> to a <code>ul</code> or <code>ol</code> element.</p>
+<code>.nav .tab</code> to a <code>ul</code> or <code>ol</code> element.</li>
+</ul>
 
 <p>To utilize a drop dead simple version of hiding and showing content, add
 the <code>data-bindable=&quot;tab&quot;</code> along with an <code>href</code> attributes pointing to
@@ -6687,9 +6776,37 @@ a quicker lookup from the class utilizing a <code>ToggleGroup</code> instance.</
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
-<h1>Transition</h1>
+<h1>MouseAndTouchTracker</h1>
 
-<p>Contains helper classes for CSS transitions.</p>
+<p>This class normalizes mouse and touch events to help with the creation of draggable/scrollable interfaces
+that work across browsers and devices.</p>
+
+<h2>API</h2>
+
+<p>Typically MouseAndTouchTracker is required via a class that needs it, i.e. Slider, TouchScroller, etc..</p>
+
+<h3>#new</h3>
+
+<pre><code class="coffee">#= require touch_tracker
+
+touchTracker = new utensils.MouseAndTouchTracker()
+</code></pre>
+
+<h3>Requires</h3>
+
+<ul>
+<li><code>utensils/utensils</code></li>
+</ul>
+
+<h2>Todo</h2>
+
+<ul>
+<li>document this</li>
+<li>add specs
+</section><section class="sherpa-section sherpa-clearfix">
+# Transition
+Contains helper classes for CSS transitions.</li>
+</ul>
 
 <pre><code class="sass">@import utensils/transition/transition
 </code></pre>

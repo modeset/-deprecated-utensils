@@ -31,6 +31,7 @@ Sherpa.prototype.initialize = function() {
   this.usage_examples.trigger('click')
   this.popNotes()
   this.initialProgress()
+  this.sliderDemo();
   this.is_jasmine_shown = false
   // this.toggleSandbox()
 };
@@ -387,6 +388,15 @@ Sherpa.prototype.addFlashMessage = function(e) {
   var notification = $('<li class="notification fade in '+ modifier +'"><p>This is a message</p><a class="close"  href="#">&times;</a></li>')
   notification.appendTo(fm)
   var notify = new utensils.Dismiss(notification, {autoDismiss: 2000})
+};
+
+Sherpa.prototype.sliderDemo = function() {
+  var sliderEl = $('#slider_control'),
+      sliderProgress = sliderEl.find('.slider-progress'),
+      sliderHandle = sliderEl.find('.slider-handle');
+  var slider = new utensils.Slider( sliderEl[0], sliderHandle[0], sliderProgress[0], function(value){
+    sliderProgress.html(Math.round(value));
+  });
 };
 
 // Bring the magic..
