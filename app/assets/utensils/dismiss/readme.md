@@ -33,20 +33,17 @@ data-bindable="dismiss"
   %p<
     This whole thing should fade out,
     %a(href="#" data-bindable="dismiss" data-parents="#dismiss_cya") when you click this link
-
-.notification.fade.in#dismiss_auto
-  %p <strong>Notification!</strong> This auto dismisses after a period of time
-  %a.close(href="#" data-bindable="dismiss" data-auto-dismiss="5000") &times;
 ```
 <!-- end -->
 
 
 ## Options
 
-Attribute   | Default                  | Description
------------ | ------------------------ | -------------------------------------------
-`namespace` | `dismiss`                | The namespace to use for dispatching events
-`parents`   | `.notification,.dismiss` | The default classes to search for if an `href` or `target` is not defined
+Attribute      | Default                  | Description
+-------------- | ------------------------ | -------------------------------------------
+`namespace`    | `dismiss`                | The namespace to use for dispatching events
+`parents`      | `.notification,.dismiss` | The default classes to search for if an `href` or `target` is not defined
+`auto-dismiss` | `undefined`              | Pass the time in milliseconds and the element will automatically remove itself from the DOM.
 
 See `Triggerable` for other options 
 

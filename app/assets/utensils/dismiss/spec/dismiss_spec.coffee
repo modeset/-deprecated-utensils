@@ -10,8 +10,16 @@ describe 'Dismiss', ->
       @event = e
       @element = $(element)
 
+    extra = """
+            <div id="dismiss_auto" class="notification fade in">
+              <p>This is a dismissed notification</p>
+              <a class="close" data-auto-dismiss="5000" href="#">&times;</a>
+            </div>
+            """
+
     loadFixtures('dismiss')
     @dom = $('#jasmine-fixtures')
+    @dom.append(extra)
 
     @alert_el = @dom.find('.notification:first-child')
     @alert_link = @alert_el.find('> .close')
