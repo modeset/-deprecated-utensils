@@ -1,4 +1,4 @@
-//= require ./_math_util
+//= require utensils/math_util/_math_util
 
 utensils.MathUtil.getPercentWithinRange = function( bottomRange, topRange, valueInRange ) {
   // normalize values to work positively from zero
