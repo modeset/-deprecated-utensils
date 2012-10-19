@@ -3950,7 +3950,12 @@ and inserts them directly into your style sheet.</p>
 
 <h1>Notification</h1>
 
-<p>Describe this.</p>
+<p>UI pattern for displaying messaging information in a notification.</p>
+
+<p>Add the <code>Dismiss</code> behavior for allowing the notification to be closed.</p>
+
+<pre><code class="sass">@import utensils/notification/notification
+</code></pre>
 
 <!--~ markup/notification.html.haml -->
 
@@ -4050,11 +4055,39 @@ and inserts them directly into your style sheet.</p>
 
 <!-- end -->
 
-<h2>Todo</h2>
+<h2>Style Settings</h2>
 
-<ul>
-<li>Document</li>
-</ul>
+<p>To override the default settings, set the variable and it&#39;s value within
+your <code>config.sass</code> file or before <code>notification.sass</code> is loaded.</p>
+
+<table><thead>
+<tr>
+<th>Variable</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>$notification-color</code></td>
+<td><code>$info</code></td>
+<td>The base <code>color</code> for generic notifications</td>
+</tr>
+<tr>
+<td><code>$notification-radii</code></td>
+<td><code>$radii</code></td>
+<td>The <code>border-radius</code> to use on notifications</td>
+</tr>
+<tr>
+<td><code>$notification-shadow</code></td>
+<td><code>$small-drop-lite</code></td>
+<td>The <code>drop-shadow</code> for use on text items</td>
+</tr>
+<tr>
+<td><code>$notification-list</code></td>
+<td><code>nil</code></td>
+<td>The <code>list</code> of modifier notifcations (success, important, danger)</td>
+</tr>
+</tbody></table>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
@@ -5421,13 +5454,16 @@ within your <code>config.sass</code> file or before <code>scaffold.sass</code> i
 
 <ul>
 <li>Document this</li>
-<li>Add specs
-</section><section class="sherpa-section sherpa-clearfix">
-# Tab
-Tabs follow the same markup structure as other navigation elements. Tabs
-like other navigation elements require the <code>.nav</code> class for layout. Add
-<code>.nav .tab</code> to a <code>ul</code> or <code>ol</code> element.</li>
+<li>Add specs</li>
 </ul>
+
+<p></section><section class="sherpa-section sherpa-clearfix"></p>
+
+<h1>Tab</h1>
+
+<p>Tabs follow the same markup structure as other navigation elements. Tabs
+like other navigation elements require the <code>.nav</code> class for layout. Add
+<code>.nav .tab</code> to a <code>ul</code> or <code>ol</code> element.</p>
 
 <p>To utilize a drop dead simple version of hiding and showing content, add
 the <code>data-bindable=&quot;tab&quot;</code> along with an <code>href</code> attributes pointing to

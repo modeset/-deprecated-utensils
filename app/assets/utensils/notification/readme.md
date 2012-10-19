@@ -1,6 +1,12 @@
 
 # Notification
-Describe this.
+UI pattern for displaying messaging information in a notification.
+
+Add the `Dismiss` behavior for allowing the notification to be closed.
+
+```sass
+@import utensils/notification/notification
+```
 
 ## Usage Example
 
@@ -49,6 +55,14 @@ Describe this.
 ```
 <!-- end -->
 
-## Todo
-- Document
+## Style Settings
+To override the default settings, set the variable and it's value within
+your `config.sass` file or before `notification.sass` is loaded.
+
+Variable               | Default            | Description
+---------------------- | ------------------ | -------------------------------------------
+`$notification-color`  | `$info`            | The base `color` for generic notifications
+`$notification-radii`  | `$radii`           | The `border-radius` to use on notifications
+`$notification-shadow` | `$small-drop-lite` | The `drop-shadow` for use on text items
+`$notification-list`   | `nil`              | The `list` of modifier notifcations (success, important, danger)
 

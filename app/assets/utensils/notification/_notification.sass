@@ -1,4 +1,7 @@
 
+$notification-color: $info !default
+$notification-radii: $radii !default
+$notification-shadow: $small-drop-lite !default
 $notification-list: nil !default
 
 @mixin _notification-coloring($color)
@@ -9,11 +12,11 @@ $notification-list: nil !default
     color: $color
 
 .notification
-  +_notification-coloring(darken($info, 15%))
+  +_notification-coloring(darken($notification-color, 15%))
   border-width: 1px
   border-style: solid
-  border-radius: $radii
-  text-shadow: $small-drop-lite
+  border-radius: $notification-radii
+  text-shadow: $notification-shadow
   position: relative
   padding: 0.8em
   margin: 1em 0

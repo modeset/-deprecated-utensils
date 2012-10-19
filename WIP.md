@@ -2,7 +2,6 @@
 # Todo
 
 ## WIP
-- notifications.sass
 - flash message
 - navbar.sass
 - modal.sass *
