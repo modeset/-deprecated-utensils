@@ -11,17 +11,16 @@ utensils.Slider = function( el, handleEl, progressEl, updatedCallback ) {
       _callback = updatedCallback || function(){},
       _touching = false,
       _touchTracker = null,
-      _cursor = new utensils.CursorHand(),
-      _value = -1;
+      _cursor = new utensils.CursorHand();
   var _slideLength = 0,
       _valueMin = parseFloat(_el.getAttribute('data-min')) || 0,
       _valueMax = parseFloat(_el.getAttribute('data-max')) || 1,
-      _valueInit = parseFloat(_el.getAttribute('data-initial-value')) || 0.5;
+      _value = parseFloat(_el.getAttribute('data-initial-value')) || 0.5;
 
   var init = function() {
     _touchTracker = new utensils.MouseAndTouchTracker( _el, createTouchCallback(), false, 'img div' );
     recalculateDimensions();
-    setValue( _valueInit );
+    setValue( _value );
   };
 
   var recalculateDimensions = function() {
@@ -38,7 +37,7 @@ utensils.Slider = function( el, handleEl, progressEl, updatedCallback ) {
     if( _progress ) _progress.style.width = (handleX + getInnerWidth( _handle )/2) + 'px';
     // store value
     var sliderPercent = utensils.MathUtil.getPercentWithinRange( 0, _slideLength, handleX );
-    _value = _valueMin + sliderPercent * ( _valueMax - _valueMin );
+    if( _slideLength != 0 ) _value = _valueMin + sliderPercent * ( _valueMax - _valueMin );
     _callback( _value );
   };
 
