@@ -74,11 +74,9 @@ utensils.CursorHand.setCursorFromTouchTrackerState = function( touchTracker, cur
       else cursor.setDefault();
       break;
     case utensils.MouseAndTouchTracker.state_enter :
-      console.log('state_enter: ', touchTracker.is_touching);
       if( !touchTracker.is_touching ) cursor.setHand();
       break;
     case utensils.MouseAndTouchTracker.state_leave :
-      console.log('state_leave: ', touchTracker.is_touching);
       if(touchTracker.is_touching) cursor.setGrabHand();
       else cursor.setDefault();
       break;
