@@ -24,21 +24,25 @@ utensils.Slider = function( el, handleEl, progressEl, updatedCallback ) {
   };
 
   var recalculateDimensions = function() {
-    var percentVal = utensils.MathUtil.getPercentWithinRange( _valueMin, _valueMax, _value );
     _slideLength = getInnerWidth( _el ) - getInnerWidth( _handle );
-    updateValueFromHandlePos( percentVal * _slideLength );
+    if( _slideLength > 0 ) {
+      var percentVal = utensils.MathUtil.getPercentWithinRange( _valueMin, _valueMax, _value );
+      updateValueFromHandlePos( percentVal * _slideLength );
+    }
   };
 
   var updateValueFromHandlePos = function( handleX ) {
     // move handle
-    if( handleX < 0 ) handleX = 0;
-    if( handleX > _slideLength ) handleX = _slideLength;
-    _handle.style.left = handleX + 'px';
-    if( _progress ) _progress.style.width = (handleX + getInnerWidth( _handle )/2) + 'px';
-    // store value
-    var sliderPercent = utensils.MathUtil.getPercentWithinRange( 0, _slideLength, handleX );
-    if( _slideLength != 0 ) _value = _valueMin + sliderPercent * ( _valueMax - _valueMin );
-    _callback( _value );
+    if( _slideLength > 0 ) {
+      if( handleX < 0 ) handleX = 0;
+      if( handleX > _slideLength ) handleX = _slideLength;
+      _handle.style.left = handleX + 'px';
+      if( _progress ) _progress.style.width = (handleX + getInnerWidth( _handle )/2) + 'px';
+      // store value
+      var sliderPercent = utensils.MathUtil.getPercentWithinRange( 0, _slideLength, handleX );
+      _value = _valueMin + sliderPercent * ( _valueMax - _valueMin );
+      _callback( _value );
+    }
   };
 
   var value = function() {
@@ -46,8 +50,11 @@ utensils.Slider = function( el, handleEl, progressEl, updatedCallback ) {
   };
 
   var setValue = function( value ) {
-    var valPercent = utensils.MathUtil.getPercentWithinRange( _valueMin, _valueMax, value );
-    setValueFromPercent( valPercent );
+    _value = value;
+    if( _slideLength > 0 ) {
+      var valPercent = utensils.MathUtil.getPercentWithinRange( _valueMin, _valueMax, value );
+      setValueFromPercent( valPercent );
+    }
   };
 
   var setValueFromPercent = function( percent ) {
