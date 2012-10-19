@@ -1,10 +1,12 @@
 $slider-control-bgc: darken($base-bgc, 5%) !default
 $slider-control-border: $base-border !default
 $slider-progress-bgc: $info !default
+$slider-track-bgc: lighten($slider-progress-bgc, 10%) !default
 $slider-handle-bgc: darken($slider-progress-bgc, 10%) !default
 $slider-radii: $radii !default
 $slider-height: 1.25em !default
 $slider-handle-width: 0.5em !default
+$slider-track-height: 2px !default
 
 
 .slider-control
@@ -16,16 +18,29 @@ $slider-handle-width: 0.5em !default
   border: 1px solid $slider-control-border
   border-radius: $slider-radii
 
-.slider-progress
+
+.slider-track,
+.slider-progress,
+.slider-handle
   position: absolute
-  height: 100%
+
+.slider-track,
+.slider-progress
+  height: $slider-track-height
+  margin-top: -($slider-track-height / 2)
+  top: 50%
+
+.slider-track
+  width: 100%
+  background-color: $slider-track-bgc
+
+.slider-progress
   width: 0
   background-color: $slider-progress-bgc
   border-top-left-radius: $slider-radii
   border-bottom-left-radius: $slider-radii
 
 .slider-handle
-  position: absolute
   height: 100%
   width: $slider-handle-width
   background-color: $slider-handle-bgc

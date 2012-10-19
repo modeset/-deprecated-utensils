@@ -3746,7 +3746,7 @@ within your <code>config.sass</code> file or before <code>close.sass</code> is l
 </tr>
 <tr>
 <td><code>$close-color</code></td>
-<td><code>$black</code></td>
+<td><code>black</code></td>
 <td>The default color of the <code>.close</code> element</td>
 </tr>
 <tr>
@@ -5437,6 +5437,7 @@ within your <code>config.sass</code> file or before <code>scaffold.sass</code> i
 <!--~ markup/slider.html.haml -->
 
 <div class="sherpa-showcase sherpa-clearfix"><div class='slider-control' data-initial-value='500' data-max='1000' data-min='0' id='slider_control'>
+<div class='slider-track'></div>
 <div class='slider-progress'></div>
 <div class='slider-handle'></div>
 </div>
@@ -5444,6 +5445,7 @@ within your <code>config.sass</code> file or before <code>scaffold.sass</code> i
 <p></div></p>
 
 <pre><code class="haml">.slider-control#slider_control(data-initial-value=&quot;500&quot; data-min=&quot;0&quot; data-max=&quot;1000&quot;)
+  .slider-track
   .slider-progress
   .slider-handle
 </code></pre>

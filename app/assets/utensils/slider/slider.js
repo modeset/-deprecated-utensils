@@ -26,7 +26,7 @@ utensils.Slider = function( el, handleEl, progressEl, updatedCallback ) {
 
   var recalculateDimensions = function() {
     var percentVal = utensils.MathUtil.getPercentWithinRange( _valueMin, _valueMax, _value );
-    _slideLength = _el.offsetWidth - _handle.offsetWidth;
+    _slideLength = getInnerWidth( _el ) - getInnerWidth( _handle );
     updateValueFromHandlePos( percentVal * _slideLength );
   };
 
@@ -35,7 +35,7 @@ utensils.Slider = function( el, handleEl, progressEl, updatedCallback ) {
     if( handleX < 0 ) handleX = 0;
     if( handleX > _slideLength ) handleX = _slideLength;
     _handle.style.left = handleX + 'px';
-    if( _progress ) _progress.style.width = (handleX + _handle.offsetWidth/2) + 'px';
+    if( _progress ) _progress.style.width = (handleX + getInnerWidth( _handle )/2) + 'px';
     // store value
     var sliderPercent = utensils.MathUtil.getPercentWithinRange( 0, _slideLength, handleX );
     _value = _valueMin + sliderPercent * ( _valueMax - _valueMin );
@@ -73,6 +73,9 @@ utensils.Slider = function( el, handleEl, progressEl, updatedCallback ) {
     }
   };
 
+  var getInnerWidth = function( el ) {
+    return Math.min( el.clientWidth, el.offsetWidth );
+  };
 
   init();
 
