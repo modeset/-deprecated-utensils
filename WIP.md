@@ -2,7 +2,6 @@
 # Todo
 
 ## WIP
-- flash message
 - navbar.sass
 - modal.sass *
 - document mixins
