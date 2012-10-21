@@ -3959,6 +3959,163 @@ your <code>config.sass</code> file or before <code>menu.sass</code> is loaded.</
 
 <h1>Navbar</h1>
 
+<p>Contains the basic structure for creating application or page level
+navigation systems. A combination of styles and layout for supporting
+various components with navigation, search forms and drop downs.</p>
+
+<pre><code class="sass">@import utensils/navbar/navbar
+</code></pre>
+
+<!--~ markup/navbar.html.haml -->
+
+<div class="sherpa-showcase sherpa-clearfix"><div class='navbar'>
+<div class='navbar-inner'>
+<div class='container'>
+<a class='brand' href='#'>Brand</a>
+<nav class='nav-collapse' id='navbar_collapse'>
+<ul class='nav' data-bindable='toggle-group'>
+<li><a href='#'>Link 1</a></li>
+<li class='active'><a href='#'>Link 2</a></li>
+<li><a href='#'>Link 3</a></li>
+<li><a href='#'>Link 4</a></li>
+<li class='drop' data-bindable='drop'><a class='drop-toggle' href='#'>Drop <span class="caret"></span></a>
+<ul class='nav menu'>
+<li><a href='#'>Subnav 1</a></li>
+<li><a href='#'>Subnav 2</a></li>
+<li><a href='#'>Subnav 3</a></li>
+</ul></li>
+</ul>
+<section class='pull-right'>
+<form class='form-search'>
+<div class='control-group'>
+<div class='controls'>
+<input class='search-query' placeholder='search' type='search' />
+</div>
+
+<p></div>
+</form>
+<ul class='nav'>
+<li><a href='#'>Another Link</a></li>
+<li class='drop' data-bindable='drop'><a class='drop-toggle' href='#'>Settings <span class="caret"></span></a>
+<ul class='nav menu'>
+<li><a href='#'>Subnav 1</a></li>
+<li><a href='#'>Subnav 2</a></li>
+</ul></li>
+</ul>
+</section>
+</nav>
+</div>
+</div>
+</div>
+</div></p>
+
+<pre><code class="haml">.navbar
+  .navbar-inner
+    .container
+      -# %button.btn.info.btn-navbar(data-bindable=&quot;collapse&quot; data-target=&quot;#navbar_collapse&quot;)
+        -# %span.icon-bar
+        -# %span.icon-bar
+        -# %span.icon-bar
+      %a.brand(href=&quot;#&quot;) Brand
+      %nav.nav-collapse#navbar_collapse
+        %ul.nav(data-bindable=&quot;toggle-group&quot;)
+          %li&lt;
+            %a(href=&quot;#&quot;) Link 1
+          %li.active&lt;
+            %a(href=&quot;#&quot;) Link 2
+          %li&lt;
+            %a(href=&quot;#&quot;) Link 3
+          %li&lt;
+            %a(href=&quot;#&quot;) Link 4
+          %li.drop(data-bindable=&quot;drop&quot;)&lt;
+            %a.drop-toggle(href=&quot;#&quot;) Drop &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
+            %ul.nav.menu
+              %li&lt;
+                %a(href=&quot;#&quot;) Subnav 1
+              %li&lt;
+                %a(href=&quot;#&quot;) Subnav 2
+              %li&lt;
+                %a(href=&quot;#&quot;) Subnav 3
+
+        %section.pull-right
+          %form.form-search
+            .control-group
+              .controls
+                %input.search-query(type=&quot;search&quot; placeholder=&quot;search&quot;)
+          %ul.nav
+            %li&lt;
+              %a(href=&quot;#&quot;) Another Link
+            %li.drop(data-bindable=&quot;drop&quot;)&lt;
+              %a.drop-toggle(href=&quot;#&quot;) Settings &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
+              %ul.nav.menu
+                %li&lt;
+                  %a(href=&quot;#&quot;) Subnav 1
+                %li&lt;
+                  %a(href=&quot;#&quot;) Subnav 2
+</code></pre>
+
+<!-- end -->
+
+<h2>Navbar Types</h2>
+
+<p>By adding modifier classes on the <code>.navbar</code> element can change how a
+navbar displays.</p>
+
+<table><thead>
+<tr>
+<th>Class</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>.navbar</code></td>
+<td>The basic navbar constrained to the width of the site container</td>
+</tr>
+<tr>
+<td><code>.navbar.navbar-static</code></td>
+<td>A primary navbar who&#39;s background extends the width of the browser</td>
+</tr>
+<tr>
+<td><code>.navbar.navbar-fixed</code></td>
+<td>A primary navbar who&#39;s background extends the width of the browser and remains fixed to the top of the viewport</td>
+</tr>
+</tbody></table>
+
+<h2>Responsive Navbar</h2>
+
+<p>Need to implement this</p>
+
+<h2>Style Settings</h2>
+
+<p>To override the default settings, set the variable and it&#39;s value within
+your <code>config.sass</code> file or before <code>navbar.sass</code> is loaded.</p>
+
+<table><thead>
+<tr>
+<th>Variable</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>$navbar-bgc</code></td>
+<td><code>$base-bgc-active</code></td>
+<td>The <code>background-color</code> of the navbar component</td>
+</tr>
+<tr>
+<td><code>$navbar-link-bgc-active</code></td>
+<td><code>darken($navbar-bgc,</code> 5%)</td>
+<td>The <code>background-color</code> a navbar link when active</td>
+</tr>
+</tbody></table>
+
+<h2>Todo</h2>
+
+<ul>
+<li>Add media queries</li>
+<li>Add collapsible button and behavior</li>
+</ul>
+
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
 <h1>Normalize</h1>

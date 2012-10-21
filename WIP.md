@@ -2,7 +2,6 @@
 # Todo
 
 ## WIP
-- navbar.sass
 - modal.sass *
 - document mixins
 - manage focus states around all utensils

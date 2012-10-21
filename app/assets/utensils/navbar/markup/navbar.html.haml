@@ -1,0 +1,45 @@
+
+.navbar
+  .navbar-inner
+    .container
+      -# %button.btn.info.btn-navbar(data-bindable="collapse" data-target="#navbar_collapse")
+        -# %span.icon-bar
+        -# %span.icon-bar
+        -# %span.icon-bar
+      %a.brand(href="#") Brand
+      %nav.nav-collapse#navbar_collapse
+        %ul.nav(data-bindable="toggle-group")
+          %li<
+            %a(href="#") Link 1
+          %li.active<
+            %a(href="#") Link 2
+          %li<
+            %a(href="#") Link 3
+          %li<
+            %a(href="#") Link 4
+          %li.drop(data-bindable="drop")<
+            %a.drop-toggle(href="#") Drop <span class="caret"></span>
+            %ul.nav.menu
+              %li<
+                %a(href="#") Subnav 1
+              %li<
+                %a(href="#") Subnav 2
+              %li<
+                %a(href="#") Subnav 3
+
+        %section.pull-right
+          %form.form-search
+            .control-group
+              .controls
+                %input.search-query(type="search" placeholder="search")
+          %ul.nav
+            %li<
+              %a(href="#") Another Link
+            %li.drop(data-bindable="drop")<
+              %a.drop-toggle(href="#") Settings <span class="caret"></span>
+              %ul.nav.menu
+                %li<
+                  %a(href="#") Subnav 1
+                %li<
+                  %a(href="#") Subnav 2
+
