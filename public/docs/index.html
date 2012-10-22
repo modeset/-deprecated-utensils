@@ -55,6 +55,7 @@
 <li><a href='#math_util'>Math util</a></li>
 <li><a href='#menu'>Menu</a></li>
 <li><a href='#mixin'>Mixin</a></li>
+<li><a href='#modal'>Modal</a></li>
 <li><a href='#navbar'>Navbar</a></li>
 <li><a href='#normalize'>Normalize</a></li>
 <li><a href='#notification'>Notification</a></li>
@@ -3953,6 +3954,58 @@ your <code>config.sass</code> file or before <code>menu.sass</code> is loaded.</
 
 <ul>
 <li>Pull the docs from the files into this readme</li>
+</ul>
+
+<p></section><section class="sherpa-section sherpa-clearfix"></p>
+
+<h1>Modal</h1>
+
+<p>Describe this</p>
+
+<!--~ markup/modal.html.haml -->
+
+<div class="sherpa-showcase sherpa-clearfix"><button class='btn' data-bindable='modal' data-keyboard='true' href='#modal_href'>Launch Modal</button>
+<div class='modal fade' id='modal_href'>
+<div class='notification success fade in'>
+<header class='notify-header'>
+<h4 class='notify-heading'>Modal Notification</h4>
+</header>
+<section class='notify-content'>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</section>
+<footer class='notify-footer'>
+<button class='btn success'>Action</button>
+<button class='btn danger' data-dismiss='modal'>Cancel</button>
+</footer>
+<a class='close' data-dismiss='modal' href='#'>&times;</a>
+</div>
+
+<p></div>
+</div></p>
+
+<pre><code class="haml">:ruby
+  @lorem = &quot;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.&quot;
+
+%button.btn(data-bindable=&quot;modal&quot; href=&quot;#modal_href&quot; data-keyboard=&quot;true&quot;) Launch Modal
+
+.modal.fade#modal_href
+  .notification.success.fade.in
+    %header.notify-header
+      %h4.notify-heading Modal Notification
+    %section.notify-content
+      %p= @lorem
+    %footer.notify-footer
+      %button.btn.success Action
+      %button.btn.danger(data-dismiss=&quot;modal&quot;) Cancel
+    %a.close(href=&quot;#&quot; data-dismiss=&quot;modal&quot;) &amp;times;
+</code></pre>
+
+<!-- end -->
+
+<h2>Todo</h2>
+
+<ul>
+<li>Build this</li>
 </ul>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>

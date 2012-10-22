@@ -17,6 +17,7 @@
 //= require utensils/pop/spec
 //= require utensils/tip/spec
 //= require utensils/progress/spec
+//= require utensils/modal/spec
 
 //= require utensils/dimensionizer/spec
 

@@ -2,16 +2,16 @@
 # Todo
 
 ## WIP
-- modal.sass *
+- modal *
 - document mixins
 - manage focus states around all utensils
-- finish all utensil Todo lists
-- dinosaurs style sheet
 - view layout templates
 - ARIA roles for templates/fixtures
-- upgrades
+- cleanup Todo lists
 - media queries
-- carousels.sass *
+- dinosaurs style sheet
+- upgrades
+- carousels *
 - listing of needed utensils
 - fishnet
 
