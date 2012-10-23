@@ -1,6 +1,6 @@
-#= utensils/utensils
-#= utensils/bindable
-#= utensils/detect
+#= require utensils/utensils
+#= require utensils/bindable
+#= require utensils/detect
 
 class utensils.Carousel
   constructor:(el) ->
