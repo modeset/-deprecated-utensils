@@ -55,6 +55,8 @@
 <li><a href='#math_util'>Math util</a></li>
 <li><a href='#menu'>Menu</a></li>
 <li><a href='#mixin'>Mixin</a></li>
+<li><a href='#modal'>Modal</a></li>
+<li><a href='#navbar'>Navbar</a></li>
 <li><a href='#normalize'>Normalize</a></li>
 <li><a href='#notification'>Notification</a></li>
 <li><a href='#pager'>Pager</a></li>
@@ -911,7 +913,9 @@ else</li>
 
 <h1>CanvasUtil</h1>
 
-<p>A set of <code>&lt;canvas&gt;</code> helper methods and constants</section><section class="sherpa-section sherpa-clearfix"></p>
+<p>A set of <code>&lt;canvas&gt;</code> helper methods and constants</p>
+
+<p></section><section class="sherpa-section sherpa-clearfix"></p>
 
 <h1>Carousel</h1>
 
@@ -2323,11 +2327,12 @@ be added in here or through an extension of <code>Drop</code>?</li>
 
 <h1>Flash Message</h1>
 
-<p>Describe this.</p>
+<p>A top level container to house notifications and messages targeted to
+the user.</p>
 
 <!--~ markup/flash_message.html.haml -->
 
-<div class="sherpa-showcase sherpa-clearfix"><section class='button-toolbar' id='demo_flash_message'>
+<div class="sherpa-showcase sherpa-clearfix"><section id='demo_flash_message'>
 <nav class='button-group' data-bindable='toggle-button-group' data-remove='top bottom middle top-left top-center top-right'>
 <button class='btn active' data-add='top' href='#'>Default (Top)</button>
 <button class='btn' data-add='top-left' href='#'>Top Left</button>
@@ -2336,7 +2341,7 @@ be added in here or through an extension of <code>Drop</code>?</li>
 <button class='btn' data-add='middle' href='#'>Middle</button>
 <button class='btn' data-add='bottom' href='#'>Bottom</button>
 </nav>
-<nav class='button-group'>
+<nav class='button-group' style='margin:2em 0 0;'>
 <button class='btn' data-type='' href='#'>Add Default (Info)</button>
 <button class='btn' data-type='important' href='#'>Add Important</button>
 <button class='btn' data-type='success' href='#'>Add Success</button>
@@ -2346,7 +2351,7 @@ be added in here or through an extension of <code>Drop</code>?</li>
 </section>
 </div>
 
-<pre><code class="haml">%section#demo_flash_message.button-toolbar
+<pre><code class="haml">%section#demo_flash_message
   %nav.button-group(data-bindable=&quot;toggle-button-group&quot; data-remove=&quot;top bottom middle top-left top-center top-right&quot;)
     %button.btn.active(href=&quot;#&quot; data-add=&quot;top&quot;) Default (Top)
     %button.btn(href=&quot;#&quot; data-add=&quot;top-left&quot;) Top Left
@@ -2355,7 +2360,7 @@ be added in here or through an extension of <code>Drop</code>?</li>
     %button.btn(href=&quot;#&quot; data-add=&quot;middle&quot;) Middle
     %button.btn(href=&quot;#&quot; data-add=&quot;bottom&quot;) Bottom
 
-  %nav.button-group
+  %nav.button-group(style=&quot;margin:2em 0 0;&quot;)
     %button.btn(href=&quot;#&quot; data-type=&quot;&quot;) Add Default (Info)
     %button.btn(href=&quot;#&quot; data-type=&quot;important&quot;) Add Important
     %button.btn(href=&quot;#&quot; data-type=&quot;success&quot;) Add Success
@@ -2365,10 +2370,24 @@ be added in here or through an extension of <code>Drop</code>?</li>
 
 <!-- end -->
 
-<h2>Todo</h2>
+<p>Flash notifications enhance the <code>.notification</code> component by allowing
+them to appear fixed above all other elements on the page. Wrap the
+notifications within a <code>#flash_messages.flash-messages</code> container at the
+root of the body.</p>
+
+<p>Adding different positional classes to the <code>.flash-messages</code> container
+will allow them to appear in different quadrants of the viewport.</p>
+
+<h2>Style Settings</h2>
+
+<p>There are no style settings to override for flash messaging.</p>
+
+<h6>Warning</h6>
 
 <ul>
-<li>Document this</li>
+<li><strong>Heads Up!</strong> The configuration file needs to define the
+<code>$zindex-flash-message</code> value before this file is imported, this is
+done to keep managing <code>z-index</code> mappings in one place.</li>
 </ul>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
@@ -3829,24 +3848,36 @@ and styles.</p>
 
 <h1>ImageCrop</h1>
 
-<p>An object that keeps track of an image&#39;s original size, it&#39;s container&#39;s size, and 
-gives you the ability to set different crop modes on the image.</section><section class="sherpa-section sherpa-clearfix"></p>
+<p>An object that keeps track of an image&#39;s original size, it&#39;s container&#39;s
+size, and gives you the ability to set different crop modes on the
+image.</p>
+
+<p></section><section class="sherpa-section sherpa-clearfix"></p>
 
 <h1>ImageUtil</h1>
 
-<p>A collection of image loading and resizing helper methods</section><section class="sherpa-section sherpa-clearfix"># MathUtil
-A collection of utility math functions</p>
+<p>A collection of image loading and resizing helper methods</p>
+
+<p></section><section class="sherpa-section sherpa-clearfix"></p>
+
+<h1>MathUtil</h1>
+
+<p>A collection of utility math functions</p>
 
 <h2>Todo:</h2>
 
 <ul>
 <li>Import all MathUtil methods</li>
 <li>Port specs from ModeSet.js</li>
-<li>Document this</section><section class="sherpa-section sherpa-clearfix">
-# Menu
-The menu component is a simple list of navigation elements, which are
-typically used within the <code>Drop</code> component.</li>
+<li>Document this</li>
 </ul>
+
+<p></section><section class="sherpa-section sherpa-clearfix"></p>
+
+<h1>Menu</h1>
+
+<p>The menu component is a simple list of navigation elements, which are
+typically used within the <code>Drop</code> component.</p>
 
 <pre><code class="sass">@import utensils/menu/menu
 </code></pre>
@@ -3923,6 +3954,219 @@ your <code>config.sass</code> file or before <code>menu.sass</code> is loaded.</
 
 <ul>
 <li>Pull the docs from the files into this readme</li>
+</ul>
+
+<p></section><section class="sherpa-section sherpa-clearfix"></p>
+
+<h1>Modal</h1>
+
+<p>Describe this</p>
+
+<!--~ markup/modal.html.haml -->
+
+<div class="sherpa-showcase sherpa-clearfix"><button class='btn' data-bindable='modal' data-keyboard='true' href='#modal_href'>Launch Modal</button>
+<div class='modal fade' id='modal_href'>
+<div class='notification success fade in'>
+<header class='notify-header'>
+<h4 class='notify-heading'>Modal Notification</h4>
+</header>
+<section class='notify-content'>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</section>
+<footer class='notify-footer'>
+<button class='btn success'>Action</button>
+<button class='btn danger' data-dismiss='modal'>Cancel</button>
+</footer>
+<a class='close' data-dismiss='modal' href='#'>&times;</a>
+</div>
+
+<p></div>
+</div></p>
+
+<pre><code class="haml">:ruby
+  @lorem = &quot;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.&quot;
+
+%button.btn(data-bindable=&quot;modal&quot; href=&quot;#modal_href&quot; data-keyboard=&quot;true&quot;) Launch Modal
+
+.modal.fade#modal_href
+  .notification.success.fade.in
+    %header.notify-header
+      %h4.notify-heading Modal Notification
+    %section.notify-content
+      %p= @lorem
+    %footer.notify-footer
+      %button.btn.success Action
+      %button.btn.danger(data-dismiss=&quot;modal&quot;) Cancel
+    %a.close(href=&quot;#&quot; data-dismiss=&quot;modal&quot;) &amp;times;
+</code></pre>
+
+<!-- end -->
+
+<h2>Todo</h2>
+
+<ul>
+<li>Build this</li>
+</ul>
+
+<p></section><section class="sherpa-section sherpa-clearfix"></p>
+
+<h1>Navbar</h1>
+
+<p>Contains the basic structure for creating application or page level
+navigation systems. A combination of styles and layout for supporting
+various components with navigation, search forms and drop downs.</p>
+
+<pre><code class="sass">@import utensils/navbar/navbar
+</code></pre>
+
+<!--~ markup/navbar.html.haml -->
+
+<div class="sherpa-showcase sherpa-clearfix"><div class='navbar'>
+<div class='navbar-inner'>
+<div class='container'>
+<a class='brand' href='#'>Brand</a>
+<nav class='nav-collapse' id='navbar_collapse'>
+<ul class='nav' data-bindable='toggle-group'>
+<li><a href='#'>Link 1</a></li>
+<li class='active'><a href='#'>Link 2</a></li>
+<li><a href='#'>Link 3</a></li>
+<li><a href='#'>Link 4</a></li>
+<li class='drop' data-bindable='drop'><a class='drop-toggle' href='#'>Drop <span class="caret"></span></a>
+<ul class='nav menu'>
+<li><a href='#'>Subnav 1</a></li>
+<li><a href='#'>Subnav 2</a></li>
+<li><a href='#'>Subnav 3</a></li>
+</ul></li>
+</ul>
+<section class='pull-right'>
+<form class='form-search'>
+<div class='control-group'>
+<div class='controls'>
+<input class='search-query' placeholder='search' type='search' />
+</div>
+
+<p></div>
+</form>
+<ul class='nav'>
+<li><a href='#'>Another Link</a></li>
+<li class='drop' data-bindable='drop'><a class='drop-toggle' href='#'>Settings <span class="caret"></span></a>
+<ul class='nav menu'>
+<li><a href='#'>Subnav 1</a></li>
+<li><a href='#'>Subnav 2</a></li>
+</ul></li>
+</ul>
+</section>
+</nav>
+</div>
+</div>
+</div>
+</div></p>
+
+<pre><code class="haml">.navbar
+  .navbar-inner
+    .container
+      -# %button.btn.info.btn-navbar(data-bindable=&quot;collapse&quot; data-target=&quot;#navbar_collapse&quot;)
+        -# %span.icon-bar
+        -# %span.icon-bar
+        -# %span.icon-bar
+      %a.brand(href=&quot;#&quot;) Brand
+      %nav.nav-collapse#navbar_collapse
+        %ul.nav(data-bindable=&quot;toggle-group&quot;)
+          %li&lt;
+            %a(href=&quot;#&quot;) Link 1
+          %li.active&lt;
+            %a(href=&quot;#&quot;) Link 2
+          %li&lt;
+            %a(href=&quot;#&quot;) Link 3
+          %li&lt;
+            %a(href=&quot;#&quot;) Link 4
+          %li.drop(data-bindable=&quot;drop&quot;)&lt;
+            %a.drop-toggle(href=&quot;#&quot;) Drop &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
+            %ul.nav.menu
+              %li&lt;
+                %a(href=&quot;#&quot;) Subnav 1
+              %li&lt;
+                %a(href=&quot;#&quot;) Subnav 2
+              %li&lt;
+                %a(href=&quot;#&quot;) Subnav 3
+
+        %section.pull-right
+          %form.form-search
+            .control-group
+              .controls
+                %input.search-query(type=&quot;search&quot; placeholder=&quot;search&quot;)
+          %ul.nav
+            %li&lt;
+              %a(href=&quot;#&quot;) Another Link
+            %li.drop(data-bindable=&quot;drop&quot;)&lt;
+              %a.drop-toggle(href=&quot;#&quot;) Settings &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
+              %ul.nav.menu
+                %li&lt;
+                  %a(href=&quot;#&quot;) Subnav 1
+                %li&lt;
+                  %a(href=&quot;#&quot;) Subnav 2
+</code></pre>
+
+<!-- end -->
+
+<h2>Navbar Types</h2>
+
+<p>By adding modifier classes on the <code>.navbar</code> element can change how a
+navbar displays.</p>
+
+<table><thead>
+<tr>
+<th>Class</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>.navbar</code></td>
+<td>The basic navbar constrained to the width of the site container</td>
+</tr>
+<tr>
+<td><code>.navbar.navbar-static</code></td>
+<td>A primary navbar who&#39;s background extends the width of the browser</td>
+</tr>
+<tr>
+<td><code>.navbar.navbar-fixed</code></td>
+<td>A primary navbar who&#39;s background extends the width of the browser and remains fixed to the top of the viewport</td>
+</tr>
+</tbody></table>
+
+<h2>Responsive Navbar</h2>
+
+<p>Need to implement this</p>
+
+<h2>Style Settings</h2>
+
+<p>To override the default settings, set the variable and it&#39;s value within
+your <code>config.sass</code> file or before <code>navbar.sass</code> is loaded.</p>
+
+<table><thead>
+<tr>
+<th>Variable</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>$navbar-bgc</code></td>
+<td><code>$base-bgc-active</code></td>
+<td>The <code>background-color</code> of the navbar component</td>
+</tr>
+<tr>
+<td><code>$navbar-link-bgc-active</code></td>
+<td><code>darken($navbar-bgc,</code> 5%)</td>
+<td>The <code>background-color</code> a navbar link when active</td>
+</tr>
+</tbody></table>
+
+<h2>Todo</h2>
+
+<ul>
+<li>Add media queries</li>
+<li>Add collapsible button and behavior</li>
 </ul>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
@@ -4054,6 +4298,15 @@ and inserts them directly into your style sheet.</p>
 </code></pre>
 
 <!-- end -->
+
+<h3>Block Notifications</h3>
+
+<p>Block notifications are similar to the base notification, in fact
+nothing needs to change on the outer container. Just add a
+<code>.notify-header</code>, <code>.notify-content</code> and/or <code>.notify-footer</code> to the
+internal markup to provide more information around the notification. To
+align one of these containers to the right, simply add the modifier
+class <code>.notify-right</code>.</p>
 
 <h2>Style Settings</h2>
 
@@ -6914,11 +7167,14 @@ touchTracker = new utensils.MouseAndTouchTracker()
 
 <ul>
 <li>document this</li>
-<li>add specs
-</section><section class="sherpa-section sherpa-clearfix">
-# Transition
-Contains helper classes for CSS transitions.</li>
+<li>add specs</li>
 </ul>
+
+<p></section><section class="sherpa-section sherpa-clearfix"></p>
+
+<h1>Transition</h1>
+
+<p>Contains helper classes for CSS transitions.</p>
 
 <pre><code class="sass">@import utensils/transition/transition
 </code></pre>
@@ -7857,7 +8113,7 @@ within your <code>config.sass</code> file or before <code>well.sass</code> is lo
 
     <footer class="sherpa-footer sherpa-container sherpa-clearfix">
     </footer>
-    <ul id="flash_message_demo" class="flash-message"></ul>
+    <ul id="flash_message_demo" class="flash-message top"></ul>
     <script src="/assets/application.js"></script>
     <script src="/docs/sherpa.js"></script>
   </body>

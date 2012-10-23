@@ -7,10 +7,11 @@
 //= require utensils/toggle_group
 //= require utensils/toggle_button_group
 //= require utensils/dismiss
+//= require utensils/collapse
 
 //= require utensils/carousel
+//= require utensils/modal
 //= require utensils/drop
-//= require utensils/collapse
 //= require utensils/tab
 //= require utensils/tip
 //= require utensils/pop

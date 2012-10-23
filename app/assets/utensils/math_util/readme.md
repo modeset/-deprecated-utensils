@@ -1,3 +1,4 @@
+
 # MathUtil
 A collection of utility math functions
 
@@ -5,3 +6,4 @@ A collection of utility math functions
 - Import all MathUtil methods
 - Port specs from ModeSet.js
 - Document this
+

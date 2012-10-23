@@ -55,6 +55,15 @@ Add the `Dismiss` behavior for allowing the notification to be closed.
 ```
 <!-- end -->
 
+### Block Notifications
+Block notifications are similar to the base notification, in fact
+nothing needs to change on the outer container. Just add a
+`.notify-header`, `.notify-content` and/or `.notify-footer` to the
+internal markup to provide more information around the notification. To
+align one of these containers to the right, simply add the modifier
+class `.notify-right`.
+
+
 ## Style Settings
 To override the default settings, set the variable and it's value within
 your `config.sass` file or before `notification.sass` is loaded.
