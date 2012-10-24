@@ -3960,7 +3960,21 @@ your <code>config.sass</code> file or before <code>menu.sass</code> is loaded.</
 
 <h1>Modal</h1>
 
-<p>Describe this</p>
+<p>Base styles and behaviors for displaying elements within a modal window.
+Modals automatically create a backdrop which blocks user interaction
+from other elements while the modal is shown. Modals can be disengaged
+by including buttons with the <code>data-dismiss=&quot;modal&quot;</code> attribute, clicking
+on the backdrop or triggering the <code>escape</code> key.</p>
+
+<p>Styles are not included for the contents of a modal (rather just the
+modal and backdrop itself). This is better suited for other components
+or custom layouts within the application.</p>
+
+<pre><code class="sass">@import utensils/modal/modal
+</code></pre>
+
+<pre><code class="html">data-bindable=&quot;modal&quot;
+</code></pre>
 
 <!--~ markup/modal.html.haml -->
 
@@ -3974,8 +3988,8 @@ your <code>config.sass</code> file or before <code>menu.sass</code> is loaded.</
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 </section>
 <footer class='notify-footer'>
-<button class='btn success'>Action</button>
-<button class='btn danger' data-dismiss='modal'>Cancel</button>
+<button class='btn success' type='button'>Action</button>
+<button class='btn danger' data-dismiss='modal' type='button'>Cancel</button>
 </footer>
 <a class='close' data-dismiss='modal' href='#'>&times;</a>
 </div>
@@ -3995,17 +4009,170 @@ your <code>config.sass</code> file or before <code>menu.sass</code> is loaded.</
     %section.notify-content
       %p= @lorem
     %footer.notify-footer
-      %button.btn.success Action
-      %button.btn.danger(data-dismiss=&quot;modal&quot;) Cancel
+      %button.btn.success(type=&quot;button&quot;) Action
+      %button.btn.danger(type=&quot;button&quot; data-dismiss=&quot;modal&quot;) Cancel
     %a.close(href=&quot;#&quot; data-dismiss=&quot;modal&quot;) &amp;times;
 </code></pre>
 
 <!-- end -->
 
+<h2>Options</h2>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>namespace</code></td>
+<td><code>modal</code></td>
+<td>The namespace to use for dispatching events</td>
+</tr>
+<tr>
+<td><code>keyboard</code></td>
+<td><code>true</code></td>
+<td>Whether to allow the <code>escape</code> key to close the modal</td>
+</tr>
+<tr>
+<td><code>activate</code></td>
+<td><code>undefined</code></td>
+<td>Allows the modal to activate on load</td>
+</tr>
+<tr>
+<td><code>href</code></td>
+<td><em>none</em></td>
+<td>DOM element <code>id</code> for the contents of the <code>Modal</code></td>
+</tr>
+</tbody></table>
+
+<p>See <code>Triggerable</code> for other options </p>
+
+<h3>Referencing DOM elements</h3>
+
+<p>The <code>modal</code> trigger element needs to reference an element within the DOM
+via an <code>id</code>. The target element can live either as the <code>href</code> or
+<code>target</code> attribute. By default, any elements with the <code>.modal</code> class are
+set to <code>display:none</code>. </p>
+
+<h2>API</h2>
+
+<h3>#new</h3>
+
+<p>Create a new instance of <code>Modal</code> programmatically. Normally this is
+handled through <code>Bindable</code>. </p>
+
+<pre><code class="coffee">#= require modal
+
+@el = $(&#39;#modal&#39;)
+@modal = new utensils.Modal(@el, {target:&#39;#my_modal&#39;})
+</code></pre>
+
+<h3>#toggle</h3>
+
+<p>Typically called through user input, but can be triggered by the
+elements toggle event.</p>
+
+<pre><code class="coffee">@el.trigger(&#39;click&#39;)
+</code></pre>
+
+<h3>#activate</h3>
+
+<p>Show the modal</p>
+
+<pre><code class="coffee">@modal.activate()
+</code></pre>
+
+<h3>#deactivate</h3>
+
+<p>Removes the modal</p>
+
+<pre><code class="coffee">@modal.deactivate()
+</code></pre>
+
+<h3>#dispose</h3>
+
+<p>Remove the modal behavior</p>
+
+<pre><code class="coffee">@modal.dispose()
+</code></pre>
+
+<h3>Requires</h3>
+
+<ul>
+<li><code>utensils/utensils</code></li>
+<li><code>utensils/bindable</code></li>
+<li><code>utensils/triggerable</code></li>
+<li><code>utensils/detect</code></li>
+</ul>
+
+<p><code>Modal</code> utilizes <code>Triggerable</code> via composition.</p>
+
+<h2>Style Settings</h2>
+
+<p>To override the default settings, set the variable and it&#39;s value
+within your <code>config.sass</code> file or before <code>modal.sass</code> is loaded.</p>
+
+<table><thead>
+<tr>
+<th>Variable</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>$modal-bgc</code></td>
+<td><code>$base-bgc</code></td>
+<td>The <code>background-color</code> of the <code>.modal-backdrop</code></td>
+</tr>
+<tr>
+<td><code>$modal-opacity-in</code></td>
+<td><code>0.8</code></td>
+<td>The <code>opacity</code> value of the <code>.modal-backdrop</code></td>
+</tr>
+<tr>
+<td><code>$modal-width</code></td>
+<td><code>($base-width - 200) * 1px</code></td>
+<td>The <code>width</code> of the modal</td>
+</tr>
+<tr>
+<td><code>$modal-height</code></td>
+<td><code>round($modal-width * (9 / 16))</code></td>
+<td>The <code>max-height</code> of the modal</td>
+</tr>
+<tr>
+<td><code>$modal-offset-top</code></td>
+<td><code>round($modal-height * 0.5)</code></td>
+<td>The <code>margin-top</code> of the modal</td>
+</tr>
+<tr>
+<td><code>$modal-offset-left</code></td>
+<td><code>round($modal-width * 0.5)</code></td>
+<td>The <code>margin-left</code> of the modal</td>
+</tr>
+</tbody></table>
+
+<p>Modal sizing is setup in a 16:9 ratio and centered within the browser
+based of the <code>$base-width</code> of the site. Specific media queries should be
+setup to handle various sizing based on the device&#39;s viewport.</p>
+
+<h6>Warning</h6>
+
+<ul>
+<li><strong>Heads Up!</strong> The configuration file needs to define the
+<code>$zindex-modal</code> and <code>$zindex-modal-backdrop</code> values before this file is
+imported, this is done to keep managing <code>z-index</code> mappings in one
+place.</li>
+</ul>
+
 <h2>Todo</h2>
 
 <ul>
-<li>Build this</li>
+<li>Add remote URL behavior</li>
+<li>Focus states within a modal?</li>
+<li>Add base media queries</li>
+<li>Document scrolling behavior for mega content?</li>
 </ul>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>

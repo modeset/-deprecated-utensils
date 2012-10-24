@@ -1,6 +1,13 @@
 
+$modal-bgc: $base-bgc !default
+$modal-opacity-in: 0.8 !default
+$modal-width: ($base-width - 200) * 1px !default
+$modal-height: round($modal-width * (9 / 16)) !default
+$modal-offset-top: round($modal-height * 0.5) !default
+$modal-offset-left: round($modal-width * 0.5) !default
+
 .modal-backdrop
-  background-color: $base-bgc
+  background-color: $modal-bgc
   position: fixed
   top: 0
   left: 0
@@ -9,12 +16,10 @@
   z-index: $zindex-modal-backdrop
   &.fade
     +opacity(0)
-    &.in
-      +opacity(0.8)
 
 .modal-backdrop,
 .modal-backdrop.fade.in
-  +opacity(0.8)
+  +opacity($modal-opacity-in)
 
 .modal
   +box-sizing(border-box)
@@ -23,8 +28,8 @@
   position: fixed
   top: 50%
   left: 50%
-  width: 560px
-  max-height: 500px
-  margin: -250px 0 0 -280px
+  width: $modal-width
+  max-height: $modal-height
+  margin: (-$modal-offset-top) 0 0 (-$modal-offset-left)
   z-index: $zindex-modal
 

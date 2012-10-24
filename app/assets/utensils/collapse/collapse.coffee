@@ -91,10 +91,10 @@ class utensils.Collapse
     return this
 
   transition: (method, start_event, complete_event) ->
-    that = this
+    self = this
     complete = ->
-      that.reset() if start_event == 'show'
-      that.target.trigger("#{that.namespace}:#{complete_event}")
+      self.reset() if start_event == 'show'
+      self.target.trigger("#{self.namespace}:#{complete_event}")
 
     @target.trigger("#{@namespace}:#{start_event}")
     @target[method] 'in'

@@ -2,15 +2,14 @@
 # Todo
 
 ## WIP
-- modal *
-- document mixins
-- manage focus states around all utensils
 - view layout templates
-- ARIA roles for templates/fixtures
-- cleanup Todo lists
-- media queries
 - dinosaurs style sheet
 - upgrades
+- ARIA roles for templates/fixtures
+- document mixins
+- manage focus states around all utensils
+- cleanup Todo lists
+- media queries
 - carousels *
 - listing of needed utensils
 - fishnet

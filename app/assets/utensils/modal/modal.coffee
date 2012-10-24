@@ -1,6 +1,7 @@
 
 #= require utensils/utensils
 #= require utensils/bindable
+#= require utensils/triggerable
 #= require utensils/detect
 
 class utensils.Modal
@@ -9,84 +10,65 @@ class utensils.Modal
     @options()
     @initialize()
     @addListeners()
+    @activate() if @data.activate
 
   options: ->
     @data.namespace = @data.namespace || 'modal'
+    @data.keyboard = @data.keyboard || true
 
   initialize: ->
+    @is_active = false
     @namespace = @data.namespace
-    @keyboard = true
+    @keyboard = @data.keyboard
     @markup = null
     @dismissers = null
+    @triggerable = new utensils.Triggerable(@el, @data)
 
 # PUBLIC #
 
-  activate: (e) ->
-    e?.preventDefault()
-    @addBackdrop()
-    @html = @html || $('html')
-    @html.on("keydown.close_modal.#{@namespace}", => @keyed arguments...) if @keyboard
-    # @addModal()
+  activate: ->
+    @triggerable.activate(target: @el)
 
-  deactivate: (e) ->
-    e?.preventDefault()
+  deactivate: ->
+    @removeDocumentListeners()
     @removeModal()
-    # @removeBackdrop()
+    @is_active = false
 
   dispose: ->
-    @html.off("keydown.close_modal.#{@namespace}") if @keyboard
-    @deactivate()
     @removeListeners()
+    @deactivate() if @is_active
+    @triggerable.dispose()
+    @triggerable = null
 
 # PROTECTED #
 
   addListeners: ->
-    @el.on("click.#{@namespace}", => @activate arguments...)
+    @triggerable.dispatcher.on("triggerable:trigger", => @activated arguments...)
 
   removeListeners: ->
-    @el.off("click.#{@namespace}")
+    @triggerable.dispatcher.off("triggerable:trigger")
 
-  addModal: ->
-    @markup = @markup || @findMarkup()
-    @markup.css(display: 'block')
-    @markup[0].offsetWidth
-    @markup.addClass('in')
-    @dismissers = @dismissers ||  @markup.find('[data-dismiss]')
-    @dismissers.on("click.close_modal.#{@namespace}", => @deactivate arguments...)
+  activated: (e) ->
+    @addBackdrop()
+    @addDocumentListeners()
+    @is_active = true
 
-  addBackdrop: ->
-    @container = @container || $('body')
-    @backdrop = @renderBackdrop()
-    @backdrop.appendTo(@container)
-    @backdrop[0].offsetWidth
+  addDocumentListeners: ->
+    @html = @html || $('html')
+    @html.on("keydown.close_modal.#{@namespace}", => @keyed arguments...) if @keyboard
     @backdrop.on("click.close_modal.#{@namespace}", => @deactivate arguments...)
 
-    if utensils.Detect.hasTransition
-      @backdrop.one(utensils.Detect.transition.end, => @addModal arguments...)
-    else
-      @addModal()
-    @backdrop.addClass('in')
-
-  removeModal: ->
-    @dismissers.off("click.close_modal.#{@namespace}")
-    if utensils.Detect.hasTransition
-      @markup.one(utensils.Detect.transition.end, => @removeBackdrop arguments...)
-    else
-      @removeBackdrop()
-    @markup.removeClass('in')
-
-  removeBackdrop: ->
-    @markup.css(display: 'none')
+  removeDocumentListeners: ->
+    @html = @html || $('html')
+    @html.off("keydown.close_modal.#{@namespace}") if @keyboard
     @backdrop.off("click.close_modal.#{@namespace}")
 
-    if utensils.Detect.hasTransition
-      @backdrop.one(utensils.Detect.transition.end, => @cleanup arguments...)
-    else
-      @cleanup()
-    @backdrop.removeClass('in')
+  addDismissListeners: ->
+    @dismissers = @dismissers ||  @markup.find('[data-dismiss]')
+    @dismissers.on("click.close_modal.#{@namespace}", => @deactivate arguments...) if @dismissers.length
 
-  cleanup: ->
-    @backdrop.remove()
+  removeDismissListeners: ->
+    @dismissers.off("click.close_modal.#{@namespace}") if @dismissers.length
 
   keyed: (e) ->
     return if (!/(27)/.test(e.keyCode))
@@ -94,8 +76,43 @@ class utensils.Modal
     e?.stopPropagation()
     if e.keyCode == 27 then return @deactivate()
 
+  transition: (element, method, fn) ->
+    @setTransitions() unless @tranny_defined
+    if @has_tranny then element.one(@tranny_end, fn) else fn()
+    element[method]('in')
+
+  addBackdrop: ->
+    @container = @container || $('body')
+    @backdrop = @backdrop || @renderBackdrop()
+    @backdrop.appendTo(@container)
+    @backdrop[0].offsetWidth
+    @transition(@backdrop, 'addClass', => @addModal arguments...)
+
+  addModal: ->
+    @markup = @markup || @findMarkup()
+    @markup.css(display: 'block')
+    @markup[0].offsetWidth
+    @markup.addClass('in')
+    @addDismissListeners()
+
+  removeModal: ->
+    @removeDismissListeners()
+    @transition(@markup, 'removeClass', => @removeBackdrop arguments...)
+
+  removeBackdrop: ->
+    @markup.css(display: 'none')
+    @transition(@backdrop, 'removeClass', => @cleanupBackdrop arguments...)
+
+  cleanupBackdrop: ->
+    @backdrop.remove()
+
+  setTransitions: ->
+    @has_tranny = utensils.Detect.hasTransition
+    @tranny_end = utensils.Detect.transition.end
+    @tranny_defined = true
+
   findMarkup: ->
-    return $(@el.attr('href'))
+    return if @data.target then $(@data.target) else $(@el.attr('href'))
 
   renderBackdrop: ->
     html = """
@@ -104,12 +121,4 @@ class utensils.Modal
     return $(html)
 
 utensils.Bindable.register('modal', utensils.Modal)
-
-# Todo:
-# - Is there always a backdrop (maybe just not visually)?
-# - Clean this up
-# - Test this
-# - Better caching (renderBackdrop..)
-# - Add auto activate
-# - Do we need to create tab focus?
 
