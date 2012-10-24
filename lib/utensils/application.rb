@@ -18,7 +18,6 @@ module Utensils
     config.assets.enabled                    = true
     config.assets.version                    = '1.0'
     config.assets.paths                      << 'app/assets'
-    config.assets.paths                      << 'app/assets/app'
     config.assets.compile                    = true
     config.serve_static_assets               = true
     config.assets.prefix                     = 'assets'
