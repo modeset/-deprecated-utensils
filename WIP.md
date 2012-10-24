@@ -2,7 +2,6 @@
 # Todo
 
 ## WIP
-- Add some nice FPO images
 - Dinosaurs style sheet
 - Polyfill js (start curling scripts)
 - Dinosaurs js

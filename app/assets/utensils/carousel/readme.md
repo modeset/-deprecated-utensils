@@ -12,10 +12,10 @@ The base carousel.
     %a.paddle-icon.east(href="#next") &rarr;
     %ul.nav.indication
   %section.carousel-inner
-    - (1..3).each do |i|
+    - (1..4).each do |i|
       %article.carousel-panel(class="fade")
         %figure.carousel-figure
-          %img(src="/assets/fpo/carousel-#{i}.gif" alt="image")
+          %img(src="/assets/fpo/fpo-600x400-#{i}.jpg" alt="image")
           %figcaption.carousel-caption
 ```
 <!-- end -->

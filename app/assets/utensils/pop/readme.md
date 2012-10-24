@@ -42,7 +42,7 @@ data-bindable="pop"
       .pop-header
         %h3 Exterior content
       .pop-content(style="width: 260px; height:180px;")
-        %img(src="/assets/snow-260x180.png")
+        %img(src="/assets/fpo/snow-260x180.png")
 ```
 <!-- end -->
 

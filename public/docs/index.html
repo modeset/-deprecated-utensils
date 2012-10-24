@@ -932,19 +932,25 @@ else</li>
 <section class='carousel-inner'>
 <article class='carousel-panel fade'>
 <figure class='carousel-figure'>
-<img alt='image' src='/assets/fpo/carousel-1.gif' />
+<img alt='image' src='/assets/fpo/fpo-600x400-1.jpg' />
 <figcaption class='carousel-caption'></figcaption>
 </figure>
 </article>
 <article class='carousel-panel fade'>
 <figure class='carousel-figure'>
-<img alt='image' src='/assets/fpo/carousel-2.gif' />
+<img alt='image' src='/assets/fpo/fpo-600x400-2.jpg' />
 <figcaption class='carousel-caption'></figcaption>
 </figure>
 </article>
 <article class='carousel-panel fade'>
 <figure class='carousel-figure'>
-<img alt='image' src='/assets/fpo/carousel-3.gif' />
+<img alt='image' src='/assets/fpo/fpo-600x400-3.jpg' />
+<figcaption class='carousel-caption'></figcaption>
+</figure>
+</article>
+<article class='carousel-panel fade'>
+<figure class='carousel-figure'>
+<img alt='image' src='/assets/fpo/fpo-600x400-4.jpg' />
 <figcaption class='carousel-caption'></figcaption>
 </figure>
 </article>
@@ -958,10 +964,10 @@ else</li>
     %a.paddle-icon.east(href=&quot;#next&quot;) &amp;rarr;
     %ul.nav.indication
   %section.carousel-inner
-    - (1..3).each do |i|
+    - (1..4).each do |i|
       %article.carousel-panel(class=&quot;fade&quot;)
         %figure.carousel-figure
-          %img(src=&quot;/assets/fpo/carousel-#{i}.gif&quot; alt=&quot;image&quot;)
+          %img(src=&quot;/assets/fpo/fpo-600x400-#{i}.jpg&quot; alt=&quot;image&quot;)
           %figcaption.carousel-caption
 </code></pre>
 
@@ -1399,7 +1405,7 @@ container for this reason.</p>
 <div class="sherpa-showcase sherpa-clearfix"><ul class='media-container'>
 <li style='width:25%'>
 <figure class='media-item'>
-<img src='/assets/snow-260x180.png' />
+<img src='/assets/fpo/snow-260x180.png' />
 <figcaption class='media-caption'>
 <h3>Media Item</h3>
 <p>This is some caption copy with the footer aligned to the left.</p>
@@ -1411,13 +1417,13 @@ container for this reason.</p>
 </li>
 <li style='width:25%'>
 <a class='media-item' href='#'>
-<img src='/assets/snow-260x180.png' />
+<img src='/assets/fpo/snow-260x180.png' />
 </a>
 </li>
 <li style='width:25%'>
 <figure class='media-item'>
 <a class='media-item' href='#'>
-<img src='/assets/snow-260x180.png' />
+<img src='/assets/fpo/snow-260x180.png' />
 </a>
 <figcaption class='media-caption'>
 <h3>Media Item</h3>
@@ -1430,7 +1436,7 @@ container for this reason.</p>
 </li>
 <li style='width:25%'>
 <figure class='media-item'>
-<img src='/assets/snow-260x180.png' />
+<img src='/assets/fpo/snow-260x180.png' />
 </figure>
 </li>
 </ul>
@@ -1439,7 +1445,7 @@ container for this reason.</p>
 <pre><code class="haml">%ul.media-container
   %li(style=&quot;width:25%&quot;)
     %figure.media-item
-      %img(src=&quot;/assets/snow-260x180.png&quot;)
+      %img(src=&quot;/assets/fpo/snow-260x180.png&quot;)
       %figcaption.media-caption
         %h3 Media Item
         %p This is some caption copy with the footer aligned to the left.
@@ -1447,11 +1453,11 @@ container for this reason.</p>
           %button.btn Action
   %li(style=&quot;width:25%&quot;)
     %a.media-item(href=&quot;#&quot;)
-      %img(src=&quot;/assets/snow-260x180.png&quot;)
+      %img(src=&quot;/assets/fpo/snow-260x180.png&quot;)
   %li(style=&quot;width:25%&quot;)
     %figure.media-item
       %a.media-item(href=&quot;#&quot;)
-        %img(src=&quot;/assets/snow-260x180.png&quot;)
+        %img(src=&quot;/assets/fpo/snow-260x180.png&quot;)
       %figcaption.media-caption
         %h3 Media Item
         %p This is some caption copy with the footer aligned to the right.
@@ -1459,7 +1465,7 @@ container for this reason.</p>
           %button.btn Action
   %li(style=&quot;width:25%&quot;)
     %figure.media-item
-      %img(src=&quot;/assets/snow-260x180.png&quot;)
+      %img(src=&quot;/assets/fpo/snow-260x180.png&quot;)
 </code></pre>
 
 <!-- end -->
@@ -5231,7 +5237,7 @@ points.</p>
 </div>
 
 <div class='pop-content' style='width: 260px; height:180px;'>
-<img src='/assets/snow-260x180.png' />
+<img src='/assets/fpo/snow-260x180.png' />
 </div>
 
 <p></div>
@@ -5261,7 +5267,7 @@ points.</p>
       .pop-header
         %h3 Exterior content
       .pop-content(style=&quot;width: 260px; height:180px;&quot;)
-        %img(src=&quot;/assets/snow-260x180.png&quot;)
+        %img(src=&quot;/assets/fpo/snow-260x180.png&quot;)
 </code></pre>
 
 <!-- end -->
@@ -6604,7 +6610,7 @@ should be considered in most cases.</p>
 <li><a data-bindable='tip' data-delay='500,1000' data-placement='south' href='#' id='south_tip' title='The Southern Tip'>Southern Tip</a></li>
 <li><a data-bindable='tip' data-placement='east' href='#' id='east_tip' title='The Eastern Tip'>Eastern Tip</a></li>
 <li><a data-bindable='tip' data-placement='west' href='#' id='west_tip' title='The Western Tip'>Western Tip</a></li>
-<li><a data-bindable='tip' data-placement='north' data-trigger='click' href='#' id='image_tip' title="&lt;img src='/assets/snow-260x180.png' width=260 height=180 /&gt;">Image Tip (click)</a></li>
+<li><a data-bindable='tip' data-placement='north' data-trigger='click' href='#' id='image_tip' title="&lt;img src='/assets/fpo/snow-260x180.png' width=260 height=180 /&gt;">Image Tip (click)</a></li>
 </ul>
 </nav>
 </div>
@@ -6620,7 +6626,7 @@ should be considered in most cases.</p>
     %li&lt;
       %a#west_tip(data-bindable=&quot;tip&quot; data-placement=&quot;west&quot; title=&quot;The Western Tip&quot; href=&quot;#&quot;) Western Tip
     %li&lt;
-      %a#image_tip(data-bindable=&quot;tip&quot; data-placement=&quot;north&quot; data-trigger=&quot;click&quot; title=&quot;&lt;img src=&#39;/assets/snow-260x180.png&#39; width=260 height=180 /&gt;&quot; href=&quot;#&quot;) Image Tip (click)
+      %a#image_tip(data-bindable=&quot;tip&quot; data-placement=&quot;north&quot; data-trigger=&quot;click&quot; title=&quot;&lt;img src=&#39;/assets/fpo/snow-260x180.png&#39; width=260 height=180 /&gt;&quot; href=&quot;#&quot;) Image Tip (click)
 </code></pre>
 
 <!-- end -->

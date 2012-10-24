@@ -17,7 +17,7 @@ container for this reason.
 %ul.media-container
   %li(style="width:25%")
     %figure.media-item
-      %img(src="/assets/snow-260x180.png")
+      %img(src="/assets/fpo/snow-260x180.png")
       %figcaption.media-caption
         %h3 Media Item
         %p This is some caption copy with the footer aligned to the left.
@@ -25,11 +25,11 @@ container for this reason.
           %button.btn Action
   %li(style="width:25%")
     %a.media-item(href="#")
-      %img(src="/assets/snow-260x180.png")
+      %img(src="/assets/fpo/snow-260x180.png")
   %li(style="width:25%")
     %figure.media-item
       %a.media-item(href="#")
-        %img(src="/assets/snow-260x180.png")
+        %img(src="/assets/fpo/snow-260x180.png")
       %figcaption.media-caption
         %h3 Media Item
         %p This is some caption copy with the footer aligned to the right.
@@ -37,7 +37,7 @@ container for this reason.
           %button.btn Action
   %li(style="width:25%")
     %figure.media-item
-      %img(src="/assets/snow-260x180.png")
+      %img(src="/assets/fpo/snow-260x180.png")
 ```
 <!-- end -->
 
