@@ -1,4 +1,4 @@
-//= require jquery
+//= require jquery.min
 
 //= require utensils/utensils/spec
 //= require utensils/directional/spec

@@ -12,7 +12,6 @@ group :assets do
   gem 'uglifier'
 end
 
-gem 'jquery-rails'
 gem 'thin'
 gem 'redcarpet'
 gem 'mustache'

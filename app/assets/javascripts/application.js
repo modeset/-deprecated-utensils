@@ -1,5 +1,3 @@
-//= require jquery
-
 //= require utensils/utensils
 //= require utensils/bindable
 //= require utensils/triggerable
