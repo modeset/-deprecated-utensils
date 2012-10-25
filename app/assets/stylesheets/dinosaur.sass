@@ -1,0 +1,40 @@
+
+// Setup the configuration settings
+@import config
+
+// Override some of the settings
+$add-mixin-helpers: false
+$legacy-support-for-ie: true
+$legacy-support-for-ie8: $legacy-support-for-ie
+
+// Pick a library: compass, bourbon or underoos/polyfills
+@import ../utensils/polyfill/polyfills
+
+// Reset should be the first component
+@import ../utensils/normalize/normalize
+
+// Import the mixins
+@import ../utensils/mixin/mixins
+
+// Core base styles
+@import ../utensils/scaffold/scaffold
+@import ../utensils/typography/typography
+@import ../utensils/container/container
+@import ../utensils/table/table
+@import ../utensils/form_controls/form-controls
+
+@import ../utensils/well/well
+@import ../utensils/decal/decal
+
+@import ../utensils/button_group/button-group
+
+@import ../utensils/accordion/accordion
+@import ../utensils/breadcrumb/breadcrumb
+@import ../utensils/pager/pager
+@import ../utensils/pagination/pagination
+@import ../utensils/tab/tab
+@import ../utensils/pill/pill
+@import ../utensils/menu/menu
+
+@import ../utensils/print/print
+
