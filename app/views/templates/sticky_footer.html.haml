@@ -18,11 +18,11 @@
     %meta(name="apple-mobile-web-app-status-bar-style" content="black")
 
     <!--[if (gte IE 8)|!(IE)]><!-->
-    = stylesheet_link_tag :application
+    = stylesheet_link_tag :application, :media => "all"
     <!--<![endif]-->
 
     /[if lte IE 7]
-      = stylesheet_link_tag :dinosaur
+      = stylesheet_link_tag :dinosaur, :media => "all"
 
     /[if lte IE 8]
       = javascript_include_tag :polyfill
@@ -57,7 +57,7 @@
 
     %script(src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js" type="text/javascript")
     :javascript
-      window.jQuery || document.write('<script src="/javascripts/jquery-1.8.2.min.js"><\/script>')
+      window.jQuery || document.write('<script src="/assets/jquery.min.js"><\/script>')
 
     <!--[if (gte IE 8)|!(IE)]><!-->
     = javascript_include_tag :application

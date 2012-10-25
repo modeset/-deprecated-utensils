@@ -2,9 +2,6 @@
 # Todo
 
 ## WIP
-- Dinosaurs style sheet
-- Polyfill js (start curling scripts)
-- Dinosaurs js
 - Upgrades
 - ARIA roles for templates/fixtures
 - Style lists should be able to pass a single element
@@ -17,6 +14,7 @@
 - Cleanup Todo lists
 - Media queries
 - Carousels *
+- Test Dinosaurs css and js
 - Listing of needed utensils
 - Fishnet
 
@@ -39,4 +37,5 @@
 - Better tools for documentation (generation, behavior, and styles)
 - Better docs
 - Add a script for curling vendor libraries (non-gems)
+- Use the styleguide for dinosaur test
 
