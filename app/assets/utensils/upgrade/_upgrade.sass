@@ -1,0 +1,32 @@
+
+$upgrade-color: white !default
+$upgrade-bgc: $danger !default
+
+.upgrade-notifications
+  color: $upgrade-color
+  font-size: 0.85em
+  display: none
+  position: absolute
+  top: 0
+  right: 0
+  left: 0
+  z-index: 99999
+
+.upgrade-notifications .upgrade-group
+  background-color: $upgrade-bgc
+  padding: 0.25em 0.8em
+
+.upgrade-notifications .upgrade-group a
+  color: $upgrade-color
+  font-weight: bold
+  text-decoration: underline
+
+// Default all message containers to be hidden
+.upgrade-notifications .upgrade-item
+  display: none
+
+// Show notifications and the correct message
+html.no-js .upgrade-notifications,
+html.no-js .upgrade-notifications .no-js-msg
+  display: block
+

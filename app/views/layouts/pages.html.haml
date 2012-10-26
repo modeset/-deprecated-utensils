@@ -45,7 +45,7 @@
 
     = content_for :pre_footer
     -# = render partial: 'layouts/shared/footer'
-    -# = render partial: 'layouts/shared/upgrades'
+    = render partial: 'templates/layouts/shared/upgrade'
 
     %ul#flash_message.flash-message.top-right
       - flash.each do |kind, message|

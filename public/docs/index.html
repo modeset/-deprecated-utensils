@@ -59,6 +59,7 @@
 <li><a href='#dimensionizer'>Dimensionizer</a></li>
 <li><a href='#directional'>Directional</a></li>
 <li><a href='#dismiss'>Dismiss</a></li>
+<li><a href='#dom_util'>Dom util</a></li>
 <li><a href='#drop'>Drop</a></li>
 <li><a href='#flash_message'>Flash message</a></li>
 <li><a href='#form_controls'>Form controls</a></li>
@@ -100,6 +101,7 @@
 <li><a href='#transition'>Transition</a></li>
 <li><a href='#triggerable'>Triggerable</a></li>
 <li><a href='#typography'>Typography</a></li>
+<li><a href='#upgrade'>Upgrade</a></li>
 <li><a href='#utensils'>Utensils</a></li>
 <li><a href='#well'>Well</a></li>
 
@@ -2067,6 +2069,20 @@ will animate out and call <code>#removeTarget</code>.</p>
 </ul>
 
 <p><code>Dismiss</code> utilizes <code>Triggerable</code> via composition.</p>
+
+<p></section><section class="sherpa-section sherpa-clearfix"></p>
+
+<h1>DomUtil</h1>
+
+<p>A collection of utility DOM functions</p>
+
+<h2>Todo:</h2>
+
+<ul>
+<li>Import all DomUtil methods</li>
+<li>Write specs</li>
+<li>Document this</li>
+</ul>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
@@ -8227,6 +8243,59 @@ your <code>config.sass</code> file or before <code>typography.sass</code> is loa
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
+<h1>Upgrade</h1>
+
+<p>The upgrade component is a lightweight messaging systems used to notify
+users to upgrade their browser or enable JavaScript.</p>
+
+<p>The markup is served as a partial, typically from
+<code>layouts/shared/_upgrade.html.haml</code>. A template is included in
+<code>templates/layouts/shared</code>.</p>
+
+<div class="sherpa-showcase sherpa-clearfix"><section class='button-toolbar'>
+<nav class='button-group' data-behavior='checkbox' data-bindable='toggle-button-group' id='upgrade-demo'>
+<button class='btn' data-toggle='js'>Toggle JS Message</button>
+<button class='btn' data-toggle='dinosaur'>Toggle Dinosaur Message</button>
+</nav>
+</section>
+</div>
+
+<pre><code class="haml">%section.button-toolbar
+  %nav.button-group#upgrade-demo(data-bindable=&quot;toggle-button-group&quot; data-behavior=&quot;checkbox&quot;)
+    %button.btn(data-toggle=&quot;js&quot;) Toggle JS Message
+    %button.btn(data-toggle=&quot;dinosaur&quot;) Toggle Dinosaur Message
+</code></pre>
+
+<p>The demo positions the upgrade message with <code>position:fixed</code> while the
+default behavior is actually <code>position:absolute</code>. This is for
+convenience only so there is no need to scroll to the top of the page.</p>
+
+<h2>Style Settings</h2>
+
+<p>To override the default settings, set the variable and it&#39;s value
+within your <code>config.sass</code> file or before <code>upgrade.sass</code> is loaded.</p>
+
+<table><thead>
+<tr>
+<th>Variable</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>$upgrade-color</code></td>
+<td><code>white</code></td>
+<td>The text <code>color</code> of the message</td>
+</tr>
+<tr>
+<td><code>$upgrade-bgc</code></td>
+<td><code>$danger</code></td>
+<td>The <code>background-color</code> of the notification</td>
+</tr>
+</tbody></table>
+
+<p></section><section class="sherpa-section sherpa-clearfix"></p>
+
 <h1>Utensils</h1>
 
 <p>The top level <code>namespace</code> object for the utensils library created on window.</p>
@@ -8305,6 +8374,21 @@ within your <code>config.sass</code> file or before <code>well.sass</code> is lo
     <footer class="sherpa-footer sherpa-container sherpa-clearfix">
     </footer>
     <ul id="flash_message_demo" class="flash-message top"></ul>
+
+    <div class="upgrade-notifications">
+      <div class="upgrade-group">
+        <div class="dinosaur-msg upgrade-item">
+          <p>
+            You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or
+            <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.
+          </p>
+        </div>
+        <div class="no-js-msg upgrade-item">
+          <p>For full functionality of this site it is necessary to enable <a href="http://www.enable-javascript.com/" target="_blank">JavaScript</a>.</p>
+        </div>
+      </div>
+    </div>
+
     <script>
       //<![CDATA[
         window.jQuery || document.write('<script src="/assets/jquery.min.js"><\/script>')

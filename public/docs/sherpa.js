@@ -63,6 +63,7 @@ Sherpa.prototype.addListeners = function() {
   $('.progress').on('click', {self: this}, this.demoProgress)
   this.el.find('#demo_flash_message nav:first-child .btn').on('click', {self: this}, this.flashDemo)
   this.el.find('#demo_flash_message nav:last-child .btn').on('click', {self: this}, this.addFlashMessage)
+  this.el.find('#upgrade-demo .btn').on('click', {self: this}, this.upgradeDemo)
 };
 
 Sherpa.prototype.addJasmine = function() {
@@ -397,6 +398,20 @@ Sherpa.prototype.sliderDemo = function() {
   var slider = new utensils.Slider( sliderEl[0], sliderHandle[0], sliderProgress[0], function(value){
     sliderProgress.html(Math.round(value));
   });
+};
+
+Sherpa.prototype.upgradeDemo = function(e) {
+  var target = $(e.target)
+  var type = target.data('toggle')
+  var upgrades = $('.upgrade-notifications')
+  var btns  = target.parent('#upgrade-demo').find('.btn')
+  var element = type === 'js' ? upgrades.find('.no-js-msg') : upgrades.find('.dinosaur-msg')
+  setTimeout(function() {
+    var state = target.hasClass('active') ? 'block' : 'none'
+    var overall = btns.hasClass('active') ? 'block' : 'none'
+    element.css({display: state})
+    upgrades.css({display: overall, position: 'fixed'})
+  }, 10)
 };
 
 // Bring the magic..
