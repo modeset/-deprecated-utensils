@@ -3,6 +3,7 @@
 
 ## WIP
 - ARIA roles for templates/fixtures
+- Cleanup the fixtures for more semantic markup
 - Manage focus states around all utensils
 - Look at making the sass files use abstract elements (placeholders)
 - Document mixins
