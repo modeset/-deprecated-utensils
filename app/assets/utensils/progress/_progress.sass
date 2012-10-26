@@ -26,6 +26,7 @@ $progress-list: nil !default
   @each $_status in $progress-list
     $_class_name: nth($_status,1)
     $_color_value: nth($_status,2)
-    .progress.#{$_class_name} .bar
-      background-color: $_color_value
+    @if $_class_name != nil
+      .progress.#{$_class_name} .bar
+        background-color: $_color_value
 

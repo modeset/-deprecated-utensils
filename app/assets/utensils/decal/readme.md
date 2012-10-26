@@ -20,7 +20,6 @@ modifiers to limit the output of generated classes.
 %span.decal.warning Warning
 %span.decal.danger Danger
 %span.decal.info Info
-%span.decal.primary Primary
 ```
 
 ## Style Settings

@@ -84,12 +84,6 @@ $large-inset-dark: inset 0 1px 4px rgba(black, 0.3)
 $small-inset-lite: 0 -1px 0 rgba(white, 0.7)
 $large-inset-lite: inset 0 1px 4px rgba(white, 0.7)
 
-
-// ???..
-// $focus-inset: inset 0 1px 3px rgba(black, 0.1)
-// $error-glow: 0 0 8px rgba($red, 0.6)
-
-
 // Settings
 $radii: 0.4em
 $speed: 0.25s
@@ -97,7 +91,7 @@ $horiz-offset: 130px
 $horiz-offset-padding: 10
 
 
-// Top level component settings (only required for certain components)
+// Status colors and lists
 // -----------------------------------------------------------------------------
 
 // Status colors
@@ -110,7 +104,7 @@ $warning: $yellow
 $danger: $red
 $error: $red
 
-// Define core list pairings
+// Define core list pairings (class name, color value)
 $important-list: important $important
 $success-list: success $success
 $warning-list: warning $warning
@@ -122,10 +116,15 @@ $standard-list: standard $standard
 $info-list: info $info
 $primary-list: primary $primary
 
-// Create basic lists for status objects, to pass an empty list, set to `nil`
-$base-level-list: $important-list, $success-list, $warning-list, $danger-list
-$base-color-list: $inverse-list, $standard-list, $info-list, $primary-list
-$base-status-list: join($base-color-list, $base-level-list)
+// Combine lists for simpler pairings (nil list is for passing a single list)
+$status-list: $important-list, $success-list, $warning-list, $danger-list
+$color-list: $inverse-list, $standard-list, $info-list, $primary-list
+$full-list: join($status-list, $color-list)
+$nil-list: nil nil
+
+
+// Top level component settings
+// -----------------------------------------------------------------------------
 
 // z-indexing
 $zindex-drop: 1000
@@ -137,18 +136,18 @@ $zindex-modal: 1050
 $zindex-flash-message: 1060
 
 
-// Component overrides
+// Utensils overrides
 // -----------------------------------------------------------------------------
 $code-color-inline: $red
-$decal-list: join($base-level-list, $info-list $primary-list)
-$table-list: $important-list, $success-list, warning darken($warning, 25%), $danger-list
-$notification-list: $important-list, $success-list, warning darken($warning, 25%), $danger-list
-$progress-list: $base-level-list
+$decal-list: append($status-list, $info-list)
+$notification-list: $important-list, $success-list, warning darken($warning, 15%), $danger-list
+$table-list: $status-list
+$progress-list: $status-list
 
 
 // Auto generate base utensils
 // -----------------------------------------------------------------------------
-$auto-generate-semigloss: btn, $base-status-list
+$auto-generate-semigloss: btn, $full-list
 
 
 // Project specific

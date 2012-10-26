@@ -86,11 +86,12 @@ $auto-generate-semigloss: false !default
   @each $_button in $list
     $_class_name: nth($_button,1)
     $_color_value: nth($_button,2)
-    .#{$name}.#{$_class_name}
-      @if $_class_name == standard
-        +semigloss-button-modifier($_color_value, #666, 10%, 15%, 30%)
-      @else
-        +semigloss-button-modifier($_color_value, white)
+    @if $_class_name != nil
+      .#{$name}.#{$_class_name}
+        @if $_class_name == standard
+          +semigloss-button-modifier($_color_value, #666, 10%, 15%, 30%)
+        @else
+          +semigloss-button-modifier($_color_value, white)
   // Make links look like buttons
   a.#{$name}
     font-weight: bold

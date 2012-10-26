@@ -56,6 +56,7 @@ $notification-list: nil !default
   @each $_status in $notification-list
     $_class_name: nth($_status,1)
     $_color_value: nth($_status,2)
-    .notification.#{$_class_name}
-      +_notification-coloring($_color_value)
+    @if $_class_name != nil
+      .notification.#{$_class_name}
+        +_notification-coloring($_color_value)
 

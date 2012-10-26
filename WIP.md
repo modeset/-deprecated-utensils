@@ -3,8 +3,6 @@
 
 ## WIP
 - ARIA roles for templates/fixtures
-- Style lists should be able to pass a single element
-- Cleanup the lists within config (normalize and simplify)
 - Manage focus states around all utensils
 - Look at making the sass files use abstract elements (placeholders)
 - Document mixins
