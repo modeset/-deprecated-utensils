@@ -1,5 +1,5 @@
 
-# DomUtil
+# Dom Util
 A collection of utility DOM functions
 
 ## Todo:
