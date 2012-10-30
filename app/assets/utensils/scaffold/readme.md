@@ -16,7 +16,7 @@ can be used for simple navigation as well.
 
 <!--~ markup/scaffold-nav.html.haml -->
 ```haml
-%nav.well
+%nav.well(role="navigation")
   %ul.nav(data-bindable="toggle-group")
     %li.nav-header Nav Header
     %li
@@ -29,7 +29,7 @@ can be used for simple navigation as well.
     %li.nav-header Nav Header
     %li
       %a(href="#") Block Link 4
-%nav
+%nav(role="navigation")
   %ul.nav.inline(data-bindable="toggle-group")
     %li
       %a(href="#") Inline Link 1

@@ -20,7 +20,7 @@ various components with navigation, search forms and drop downs.
         -# %span.icon-bar
         -# %span.icon-bar
       %a.brand(href="#") Brand
-      %nav.nav-collapse#navbar_collapse
+      %nav.nav-collapse#navbar_collapse(role="navigation")
         %ul.nav(data-bindable="toggle-group")
           %li<
             %a(href="#") Link 1
@@ -31,8 +31,8 @@ various components with navigation, search forms and drop downs.
           %li<
             %a(href="#") Link 4
           %li.drop(data-bindable="drop")<
-            %a.drop-toggle(href="#") Drop <span class="caret"></span>
-            %ul.nav.menu
+            %a#nb_drop_1.drop-toggle(href="#") Drop <span class="caret"></span>
+            %ul.nav.menu(role="menu" aria-labelledby="nb_drop_1")
               %li<
                 %a(href="#") Subnav 1
               %li<
@@ -41,7 +41,7 @@ various components with navigation, search forms and drop downs.
                 %a(href="#") Subnav 3
 
         %section.pull-right
-          %form.form-search
+          %form.form-search(role="search")
             .control-group
               .controls
                 %input.search-query(type="search" placeholder="search")
@@ -49,8 +49,8 @@ various components with navigation, search forms and drop downs.
             %li<
               %a(href="#") Another Link
             %li.drop(data-bindable="drop")<
-              %a.drop-toggle(href="#") Settings <span class="caret"></span>
-              %ul.nav.menu
+              %a.drop-toggle#nb_drop_2(href="#") Settings <span class="caret"></span>
+              %ul.nav.menu(role="menu" aria-labelledby="nb_drop_2")
                 %li<
                   %a(href="#") Subnav 1
                 %li<

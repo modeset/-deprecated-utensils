@@ -11,19 +11,19 @@ Styles and simple behavior for progress indicator bars.
 
 <!--~ markup/progress.html.haml -->
 ```haml
-.progress
+.progress(role="progressbar")
   .bar(style="width:60%")
 
-.progress.important(data-initial="80")
+.progress.important(data-initial="80" role="progressbar")
   .bar
 
-.progress.success
+.progress.success(role="progressbar")
   .bar(style="width:60%")
 
-.progress.warning
+.progress.warning(role="progressbar")
   .bar(style="width:60%")
 
-.progress.danger
+.progress.danger(role="progressbar")
   .bar(style="width:60%")
 ```
 <!-- end -->

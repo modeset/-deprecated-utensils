@@ -14,7 +14,7 @@ a divider after their content. This is configurable from the
 
 <!--~ markup/breadcrumb.html.haml -->
 ```haml
-%nav
+%nav(role="navigation")
   %ol.nav.breadcrumb(data-bindable="toggle-group")
     %li<
       %a(href="#") Level 1

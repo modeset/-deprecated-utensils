@@ -15,27 +15,27 @@ Add the `Dismiss` behavior for allowing the notification to be closed.
 :ruby
   @lorem = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
 
-.notification.fade.in
+.notification.fade.in(role="alert")
   %p <strong>Default!</strong> This is the default notification
   %a.close(href="#" data-bindable="dismiss") &times;
 
-.notification.important.fade.in#notification_important
+.notification.important.fade.in#notification_important(role="alert")
   %p <strong>Important!</strong> This is the important notification
   %a.close(href="#" data-bindable="dismiss" data-target="#notification_important") &times;
 
-.notification.success.fade.in#notification_success
+.notification.success.fade.in#notification_success(role="alert")
   %p <strong>Success!</strong> This is the success notification
   %a.close(href="#notification_success" data-bindable="dismiss") &times;
 
-.notification.warning.fade.in
+.notification.warning.fade.in(role="alert")
   %p <strong>Warning!</strong> This is the warning notification
   %a.close(href="#" data-bindable="dismiss") &times;
 
-.notification.danger.fade.in
+.notification.danger.fade.in(role="alert")
   %p <strong>Danger!</strong> This is the danger notification
   %a.close(href="#" data-bindable="dismiss") &times;
 
-.notification.success.fade.in
+.notification.success.fade.in(role="alert")
   %header.notify-header
     %h4.notify-heading Block Notification
   %section.notify-content
@@ -45,7 +45,7 @@ Add the `Dismiss` behavior for allowing the notification to be closed.
     %button.btn.danger Cancel
   %a.close(href="#" data-bindable="dismiss") &times;
 
-.notification.danger.fade.in
+.notification.danger.fade.in(role="alert")
   %section.notify-content
     %p <strong>Yikes! This doesn't have a header and the footer is on the right!</strong> #{@lorem}
   %footer.notify-footer.notify-right

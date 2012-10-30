@@ -11,7 +11,7 @@ elements under a `.button-toolbar` container to form a navigation system.
 <!--~ markup/button-group.html.haml -->
 ```haml
 %h5(style="margin-bottom:1em;") Button Toolbar (radio)
-%section.button-toolbar(data-bindable="toggle-button-group")
+%section.button-toolbar(data-bindable="toggle-button-group" role="navigation")
   %nav.button-group
     %button.btn(href="#") 1
     %button.btn(href="#") 2
@@ -24,7 +24,7 @@ elements under a `.button-toolbar` container to form a navigation system.
     %button.btn(href="#") 7
 
 %h5(style="margin-top:3em; margin-bottom:1em;") Button Group (checkbox)
-%nav.button-group(data-bindable="toggle-button-group" data-behavior="checkbox")
+%nav.button-group(data-bindable="toggle-button-group" data-behavior="checkbox" role="navigation")
   %a.btn(href="#") Left
   %a.btn.active(href="#") Middle 1
   %a.btn(href="#") Middle 2

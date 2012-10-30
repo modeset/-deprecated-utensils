@@ -28,7 +28,7 @@ data-bindable="modal"
 %button.btn(data-bindable="modal" href="#modal_href" data-keyboard="true") Launch Modal
 
 .modal.fade#modal_href
-  .notification.success.fade.in
+  .notification.success.fade.in(role="alert")
     %header.notify-header
       %h4.notify-heading Modal Notification
     %section.notify-content

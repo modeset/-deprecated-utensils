@@ -14,7 +14,7 @@ data-bindable="toggle-group"
 
 <!--~ markup/toggle_group.html.haml -->
 ```haml
-%nav
+%nav(role="navigation")
   %ul#toggle_group_radios.nav.inline(data-bindable="toggle-group" data-target=".radio-li")
     %li.radio-li<
       %a(href="#") Radio 1
@@ -25,7 +25,7 @@ data-bindable="toggle-group"
     %li.radio-li.group-ignore Not a link
 
 %hr
-%nav(style="margin-top: 1em;")
+%nav(style="margin-top: 1em;" role="navigtion")
   %ul#toggle_group_checks.nav.inline(data-bindable="toggle-group" data-behavior="checkbox" data-ignore=".text-ignore")
     %li<
       %a(href="#") Checkbox 1
@@ -36,7 +36,7 @@ data-bindable="toggle-group"
     %li.text-ignore Not a link
 
 %hr
-%nav(style="margin-top: 1em;")
+%nav(style="margin-top: 1em;" role="navigation")
   %ul#toggle_group_delay.nav.inline(data-bindable="toggle-group" data-delay="500, 500" data-toggle="active on" data-namespace="toggle_delay")
     %li<
       %a(href="#") Radio Delay 1

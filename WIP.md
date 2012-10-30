@@ -2,9 +2,10 @@
 # Todo
 
 ## WIP
-- ARIA roles for templates/fixtures
 - Cleanup the fixtures for more semantic markup
+- Refactor progress bar (slider) to use ARIA attributes
 - Manage focus states around all utensils
+- Add basic behaviors for ARIA
 - Look at making the sass files use abstract elements (placeholders)
 - Document mixins
 - Scrub the behavior files and normalize

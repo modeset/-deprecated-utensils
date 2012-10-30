@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>:Utensils Docs:</title>
+    <title>Utensils Docs</title>
     <meta name="description" content="">
     <meta name="author" content="Mode Set">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -123,44 +123,44 @@ with either the <code>Toggle</code>, <code>ToggleGroup</code> or <code>Collapse<
 
 <!--~ markup/accordion.html.haml -->
 
-<div class="sherpa-showcase sherpa-clearfix"><section class='accordion-group'>
-<a class='accordion-toggle' data-bindable='toggle' href='#accordion_single'>Single Accordion Element</a>
-<section class='collapse' id='accordion_single'>
+<div class="sherpa-showcase sherpa-clearfix"><section class='accordion-group' role='tablist'>
+<a class='accordion-toggle' data-bindable='toggle' href='#accordion_single' role='tab'>Single Accordion Element</a>
+<section class='collapse' id='accordion_single' role='tabpanel'>
 <article class='accordion-inner'>
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 </article>
 </section>
 </section>
 <hr />
-<ul class='accordion' data-bindable='toggle-group' id='accordion_radio' style='margin-top:1em;'>
+<ul class='accordion' data-bindable='toggle-group' id='accordion_radio' role='tablist' style='margin-top:1em;'>
 <li class='accordion-group'>
-<a class='accordion-toggle' href='#accordion_radio_1'>
+<a class='accordion-toggle' href='#accordion_radio_1' role='tab'>
 <span>Accordion Radio 1</span>
 <span>&darr;</span>
 </a>
-<section class='collapse' id='accordion_radio_1'>
+<section class='collapse' id='accordion_radio_1' role='tabpanel'>
 <article class='accordion-inner'>
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 </article>
 </section>
 </li>
 <li class='accordion-group'>
-<a class='accordion-toggle' href='#accordion_radio_2'>
+<a class='accordion-toggle' href='#accordion_radio_2' role='tab'>
 <span>Accordion Radio 2</span>
 <span>&darr;</span>
 </a>
-<section class='collapse' id='accordion_radio_2'>
+<section class='collapse' id='accordion_radio_2' role='tabpanel'>
 <article class='accordion-inner'>
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 </article>
 </section>
 </li>
 <li class='accordion-group'>
-<a class='accordion-toggle' href='#accordion_radio_3'>
+<a class='accordion-toggle' href='#accordion_radio_3' role='tab'>
 <span>Accordion Radio 3</span>
 <span>&darr;</span>
 </a>
-<section class='collapse' id='accordion_radio_3'>
+<section class='collapse' id='accordion_radio_3' role='tabpanel'>
 <article class='accordion-inner'>
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 </article>
@@ -168,26 +168,26 @@ with either the <code>Toggle</code>, <code>ToggleGroup</code> or <code>Collapse<
 </li>
 </ul>
 <hr />
-<ul class='accordion' data-behavior='checkbox' data-bindable='collapse' data-type='group' id='accordion_checkbox' style='margin-top:1em;'>
+<ul class='accordion' data-behavior='checkbox' data-bindable='collapse' data-type='group' id='accordion_checkbox' role='tablist' style='margin-top:1em;'>
 <li class='accordion-group'>
-<a class='accordion-toggle' href='#accordion_check_1'>Accordion Check 1 with Collapse</a>
-<section class='collapse' id='accordion_check_1'>
+<a class='accordion-toggle' href='#accordion_check_1' role='tab'>Accordion Check 1 with Collapse</a>
+<section class='collapse' id='accordion_check_1' role='tabpanel'>
 <article class='accordion-inner'>
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 </article>
 </section>
 </li>
 <li class='accordion-group'>
-<a class='accordion-toggle' href='#accordion_check_2'>Accordion Check 2 with Collapse</a>
-<section class='collapse' id='accordion_check_2'>
+<a class='accordion-toggle' href='#accordion_check_2' role='tab'>Accordion Check 2 with Collapse</a>
+<section class='collapse' id='accordion_check_2' role='tabpanel'>
 <article class='accordion-inner'>
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 </article>
 </section>
 </li>
 <li class='accordion-group'>
-<a class='accordion-toggle' href='#accordion_check_3'>Accordion Check 3 with Collapse</a>
-<section class='collapse' id='accordion_check_3'>
+<a class='accordion-toggle' href='#accordion_check_3' role='tab'>Accordion Check 3 with Collapse</a>
+<section class='collapse' id='accordion_check_3' role='tabpanel'>
 <article class='accordion-inner'>
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 </article>
@@ -195,10 +195,10 @@ with either the <code>Toggle</code>, <code>ToggleGroup</code> or <code>Collapse<
 </li>
 </ul>
 <hr />
-<ul class='accordion' data-behavior='checkbox' data-bindable='collapse' data-type='group' id='accordion_complex' style='margin-top:1em;'>
+<ul class='accordion' data-behavior='checkbox' data-bindable='collapse' data-type='group' id='accordion_complex' role='tablist' style='margin-top:1em;'>
 <li class='accordion-group'>
-<a class='accordion-toggle' href='#accordion_complex_1'>Accordion Complicated 1 with Collapse</a>
-<section class='collapse' id='accordion_complex_1'>
+<a class='accordion-toggle' href='#accordion_complex_1' role='tab'>Accordion Complicated 1 with Collapse</a>
+<section class='collapse' id='accordion_complex_1' role='tabpanel'>
 <article class='accordion-inner'>
 <ul>
 <li>
@@ -212,8 +212,8 @@ with either the <code>Toggle</code>, <code>ToggleGroup</code> or <code>Collapse<
 </section>
 </li>
 <li class='accordion-group'>
-<a class='accordion-toggle' href='#accordion_complex_2'>Accordion Complicated 2 with Collapse</a>
-<section class='collapse' id='accordion_complex_2'>
+<a class='accordion-toggle' href='#accordion_complex_2' role='tab'>Accordion Complicated 2 with Collapse</a>
+<section class='collapse' id='accordion_complex_2' role='tabpanel'>
 <article class='accordion-inner'>
 <ul>
 <li>
@@ -227,8 +227,8 @@ with either the <code>Toggle</code>, <code>ToggleGroup</code> or <code>Collapse<
 </section>
 </li>
 <li class='accordion-group'>
-<a class='accordion-toggle' href='#accordion_complex_3'>Accordion Complicated 3 with Collapse</a>
-<section class='collapse' id='accordion_complex_3'>
+<a class='accordion-toggle' href='#accordion_complex_3' role='tab'>Accordion Complicated 3 with Collapse</a>
+<section class='collapse' id='accordion_complex_3' role='tabpanel'>
 <article class='accordion-inner'>
 <ul>
 <li>
@@ -247,39 +247,39 @@ with either the <code>Toggle</code>, <code>ToggleGroup</code> or <code>Collapse<
 <pre><code class="haml">:ruby
   @lorem = &quot;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&quot;
 
-%section.accordion-group
-  %a.accordion-toggle(data-bindable=&quot;toggle&quot; href=&quot;#accordion_single&quot;) Single Accordion Element
-  %section.collapse#accordion_single
+%section.accordion-group(role=&quot;tablist&quot;)
+  %a.accordion-toggle(data-bindable=&quot;toggle&quot; href=&quot;#accordion_single&quot; role=&quot;tab&quot;) Single Accordion Element
+  %section.collapse#accordion_single(role=&quot;tabpanel&quot;)
     %article.accordion-inner
       %p=@lorem
 
 %hr
-%ul.accordion#accordion_radio(data-bindable=&quot;toggle-group&quot; style=&quot;margin-top:1em;&quot;)
+%ul.accordion#accordion_radio(data-bindable=&quot;toggle-group&quot; role=&quot;tablist&quot; style=&quot;margin-top:1em;&quot;)
   -(1..3).each do |i|
     %li.accordion-group
-      %a.accordion-toggle(href=&quot;#accordion_radio_#{i}&quot;)
+      %a.accordion-toggle(href=&quot;#accordion_radio_#{i}&quot; role=&quot;tab&quot;)
         %span Accordion Radio #{i}
         %span &amp;darr;
-      %section.collapse(id=&quot;accordion_radio_#{i}&quot;)
+      %section.collapse(id=&quot;accordion_radio_#{i}&quot; role=&quot;tabpanel&quot;)
         %article.accordion-inner
           %p=@lorem
 
 %hr
-%ul.accordion#accordion_checkbox(data-bindable=&quot;collapse&quot; data-type=&quot;group&quot; data-behavior=&quot;checkbox&quot; style=&quot;margin-top:1em;&quot;)
+%ul.accordion#accordion_checkbox(data-bindable=&quot;collapse&quot; data-type=&quot;group&quot; data-behavior=&quot;checkbox&quot; role=&quot;tablist&quot; style=&quot;margin-top:1em;&quot;)
   -(1..3).each do |i|
     %li.accordion-group
-      %a.accordion-toggle(href=&quot;#accordion_check_#{i}&quot;) Accordion Check #{i} with Collapse
-      %section.collapse(id=&quot;accordion_check_#{i}&quot;)
+      %a.accordion-toggle(href=&quot;#accordion_check_#{i}&quot; role=&quot;tab&quot;) Accordion Check #{i} with Collapse
+      %section.collapse(id=&quot;accordion_check_#{i}&quot; role=&quot;tabpanel&quot;)
         %article.accordion-inner
           %p=@lorem
 
 
 %hr
-%ul.accordion#accordion_complex(data-bindable=&quot;collapse&quot; data-type=&quot;group&quot; data-behavior=&quot;checkbox&quot; style=&quot;margin-top:1em;&quot;)
+%ul.accordion#accordion_complex(data-bindable=&quot;collapse&quot; data-type=&quot;group&quot; data-behavior=&quot;checkbox&quot; role=&quot;tablist&quot; style=&quot;margin-top:1em;&quot;)
   -(1..3).each do |i|
     %li.accordion-group
-      %a.accordion-toggle(href=&quot;#accordion_complex_#{i}&quot;) Accordion Complicated #{i} with Collapse
-      %section.collapse(id=&quot;accordion_complex_#{i}&quot;)
+      %a.accordion-toggle(href=&quot;#accordion_complex_#{i}&quot; role=&quot;tab&quot;) Accordion Complicated #{i} with Collapse
+      %section.collapse(id=&quot;accordion_complex_#{i}&quot; role=&quot;tabpanel&quot;)
         %article.accordion-inner
           %ul
             %li
@@ -382,7 +382,7 @@ a divider after their content. This is configurable from the
 
 <!--~ markup/breadcrumb.html.haml -->
 
-<div class="sherpa-showcase sherpa-clearfix"><nav>
+<div class="sherpa-showcase sherpa-clearfix"><nav role='navigation'>
 <ol class='nav breadcrumb' data-bindable='toggle-group'>
 <li><a href='#'>Level 1</a></li>
 <li><a href='#'>Level 2</a></li>
@@ -392,7 +392,7 @@ a divider after their content. This is configurable from the
 </nav>
 </div>
 
-<pre><code class="haml">%nav
+<pre><code class="haml">%nav(role=&quot;navigation&quot;)
   %ol.nav.breadcrumb(data-bindable=&quot;toggle-group&quot;)
     %li&lt;
       %a(href=&quot;#&quot;) Level 1
@@ -473,7 +473,7 @@ elements under a <code>.button-toolbar</code> container to form a navigation sys
 <!--~ markup/button-group.html.haml -->
 
 <div class="sherpa-showcase sherpa-clearfix"><h5 style='margin-bottom:1em;'>Button Toolbar (radio)</h5>
-<section class='button-toolbar' data-bindable='toggle-button-group'>
+<section class='button-toolbar' data-bindable='toggle-button-group' role='navigation'>
 <nav class='button-group'>
 <button class='btn' href='#'>1</button>
 <button class='btn' href='#'>2</button>
@@ -489,7 +489,7 @@ elements under a <code>.button-toolbar</code> container to form a navigation sys
 </nav>
 </section>
 <h5 style='margin-top:3em; margin-bottom:1em;'>Button Group (checkbox)</h5>
-<nav class='button-group' data-behavior='checkbox' data-bindable='toggle-button-group'>
+<nav class='button-group' data-behavior='checkbox' data-bindable='toggle-button-group' role='navigation'>
 <a class='btn' href='#'>Left</a>
 <a class='btn active' href='#'>Middle 1</a>
 <a class='btn' href='#'>Middle 2</a>
@@ -498,7 +498,7 @@ elements under a <code>.button-toolbar</code> container to form a navigation sys
 </div>
 
 <pre><code class="haml">%h5(style=&quot;margin-bottom:1em;&quot;) Button Toolbar (radio)
-%section.button-toolbar(data-bindable=&quot;toggle-button-group&quot;)
+%section.button-toolbar(data-bindable=&quot;toggle-button-group&quot; role=&quot;navigation&quot;)
   %nav.button-group
     %button.btn(href=&quot;#&quot;) 1
     %button.btn(href=&quot;#&quot;) 2
@@ -511,7 +511,7 @@ elements under a <code>.button-toolbar</code> container to form a navigation sys
     %button.btn(href=&quot;#&quot;) 7
 
 %h5(style=&quot;margin-top:3em; margin-bottom:1em;&quot;) Button Group (checkbox)
-%nav.button-group(data-bindable=&quot;toggle-button-group&quot; data-behavior=&quot;checkbox&quot;)
+%nav.button-group(data-bindable=&quot;toggle-button-group&quot; data-behavior=&quot;checkbox&quot; role=&quot;navigation&quot;)
   %a.btn(href=&quot;#&quot;) Left
   %a.btn.active(href=&quot;#&quot;) Middle 1
   %a.btn(href=&quot;#&quot;) Middle 2
@@ -943,7 +943,7 @@ else</li>
 
 <!--~ markup/carousel.html.haml -->
 
-<div class="sherpa-showcase sherpa-clearfix"><section class='carousel' data-active-class='in' data-autoplay='false' data-bindable='carousel' data-cycles='1' data-duration='2' data-keyboard='true'>
+<div class="sherpa-showcase sherpa-clearfix"><section class='carousel' data-active-class='in' data-autoplay='false' data-bindable='carousel' data-cycles='1' data-duration='2' data-keyboard='true' role='presentation'>
 <nav class='carousel-controls fade in'>
 <a class='paddle-icon west' href='#prev'>&larr;</a>
 <a class='paddle-icon east' href='#next'>&rarr;</a>
@@ -978,7 +978,7 @@ else</li>
 </section>
 </div>
 
-<pre><code class="haml">%section.carousel(data-bindable=&quot;carousel&quot; data-autoplay=&quot;false&quot; data-cycles=&quot;1&quot; data-duration=&quot;2&quot; data-active-class=&quot;in&quot; data-keyboard=&quot;true&quot;)
+<pre><code class="haml">%section.carousel(data-bindable=&quot;carousel&quot; data-autoplay=&quot;false&quot; data-cycles=&quot;1&quot; data-duration=&quot;2&quot; data-active-class=&quot;in&quot; data-keyboard=&quot;true&quot; role=&quot;presentation&quot;)
   %nav.carousel-controls.fade.in
     %a.paddle-icon.west(href=&quot;#prev&quot;) &amp;larr;
     %a.paddle-icon.east(href=&quot;#next&quot;) &amp;rarr;
@@ -1010,42 +1010,42 @@ navigation system such as an accordion group. </p>
 
 <!--~ markup/collapse.html.haml -->
 
-<div class="sherpa-showcase sherpa-clearfix"><a data-bindable='collapse' href='#collapse_height'>Single Collapse</a>
-<section class='collapse' id='collapse_height'>
+<div class="sherpa-showcase sherpa-clearfix"><a data-bindable='collapse' href='#collapse_height' role='tab'>Single Collapse</a>
+<section class='collapse' id='collapse_height' role='tabpanel'>
 <article>
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 </article>
 </section>
-<a data-activate='true' data-bindable='collapse' data-target='#collapse_auto' href='#'>Single Auto Shown</a>
-<section class='collapse in' id='collapse_auto'>
+<a data-activate='true' data-bindable='collapse' data-target='#collapse_auto' href='#' role='tab'>Single Auto Shown</a>
+<section class='collapse in' id='collapse_auto' role='tabpanel'>
 <article>
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 </article>
 </section>
 <hr />
-<nav style='margin-top: 1em;'>
-<ul data-activate='0' data-bindable='collapse' data-type='group' id='collapse_radio'>
+<nav role='navigation' style='margin-top: 1em;'>
+<ul data-activate='0' data-bindable='collapse' data-type='group' id='collapse_radio' role='tablist'>
 <li>
-<a href='#collapse_radio_1'>Radio Collapse 1</a>
-<section class='collapse' id='collapse_radio_1'>
+<a href='#collapse_radio_1' role='tab'>Radio Collapse 1</a>
+<section class='collapse' id='collapse_radio_1' role='tabpanel'>
 <article>
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 </article>
 </section>
 </li>
 <li>
-<a href='#collapse_radio_2'>Radio Collapse 2</a>
-<section class='collapse' id='collapse_radio_2'>
+<a href='#collapse_radio_2' role='tab'>Radio Collapse 2</a>
+<section class='collapse' id='collapse_radio_2' role='tabpanel'>
 <article>
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 </article>
 </section>
 </li>
 <li>
-<a href='#collapse_radio_3'>Radio Collapse 3</a>
-<section class='collapse' id='collapse_radio_3'>
+<a href='#collapse_radio_3' role='tab'>Radio Collapse 3</a>
+<section class='collapse' id='collapse_radio_3' role='tabpanel'>
 <article>
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 </article>
@@ -1054,27 +1054,27 @@ navigation system such as an accordion group. </p>
 </ul>
 </nav>
 <hr />
-<nav style='margin-top: 1em;'>
-<ul data-behavior='checkbox' data-bindable='collapse' data-type='group' id='collapse_checkbox'>
+<nav role='navigation' style='margin-top: 1em;'>
+<ul data-behavior='checkbox' data-bindable='collapse' data-type='group' id='collapse_checkbox' role='tablist'>
 <li>
-<a data-target='#collapse_check_1' href='#'>Checkbox Collapse 1</a>
-<section class='collapse' id='collapse_check_1'>
+<a data-target='#collapse_check_1' href='#' role='tab'>Checkbox Collapse 1</a>
+<section class='collapse' id='collapse_check_1' role='tabpanel'>
 <article>
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 </article>
 </section>
 </li>
 <li>
-<a data-target='#collapse_check_2' href='#'>Checkbox Collapse 2</a>
-<section class='collapse' id='collapse_check_2'>
+<a data-target='#collapse_check_2' href='#' role='tab'>Checkbox Collapse 2</a>
+<section class='collapse' id='collapse_check_2' role='tabpanel'>
 <article>
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 </article>
 </section>
 </li>
 <li>
-<a data-target='#collapse_check_3' href='#'>Checkbox Collapse 3</a>
-<section class='collapse' id='collapse_check_3'>
+<a data-target='#collapse_check_3' href='#' role='tab'>Checkbox Collapse 3</a>
+<section class='collapse' id='collapse_check_3' role='tabpanel'>
 <article>
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 </article>
@@ -1083,31 +1083,31 @@ navigation system such as an accordion group. </p>
 </ul>
 </nav>
 <hr />
-<nav style='margin-top: 1em;'>
-<ul data-behavior='checkbox' data-bindable='collapse' data-type='group' id='collapse_external'>
+<nav role='navigation' style='margin-top: 1em;'>
+<ul data-behavior='checkbox' data-bindable='collapse' data-type='group' id='collapse_external' role='tablist'>
 <li>
-<a href='#collapse_external_1'>External Checkbox Collapse 1</a>
+<a href='#collapse_external_1' role='tab'>External Checkbox Collapse 1</a>
 </li>
 <li>
-<a href='#collapse_external_2'>External Checkbox Collapse 2</a>
+<a href='#collapse_external_2' role='tab'>External Checkbox Collapse 2</a>
 </li>
 <li>
-<a href='#collapse_external_3'>External Checkbox Collapse 3</a>
+<a href='#collapse_external_3' role='tab'>External Checkbox Collapse 3</a>
 </li>
 </ul>
-<section class='collapse' id='collapse_external_1'>
+<section class='collapse' id='collapse_external_1' role='tabpanel'>
 <article>
 <p><strong>Collapse External Pane 1</strong></p>
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 </article>
 </section>
-<section class='collapse' id='collapse_external_2'>
+<section class='collapse' id='collapse_external_2' role='tabpanel'>
 <article>
 <p><strong>Collapse External Pane 2</strong></p>
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 </article>
 </section>
-<section class='collapse' id='collapse_external_3'>
+<section class='collapse' id='collapse_external_3' role='tabpanel'>
 <article>
 <p><strong>Collapse External Pane 3</strong></p>
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
@@ -1119,47 +1119,47 @@ navigation system such as an accordion group. </p>
 <pre><code class="haml">:ruby
   @lorem = &quot;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&quot;
 
-%a(data-bindable=&quot;collapse&quot; href=&quot;#collapse_height&quot;) Single Collapse
-%section.collapse#collapse_height
+%a(data-bindable=&quot;collapse&quot; href=&quot;#collapse_height&quot; role=&quot;tab&quot;) Single Collapse
+%section.collapse#collapse_height(role=&quot;tabpanel&quot;)
   %article
     -(1..3).each do |i|
       %p=@lorem
 
-%a(data-bindable=&quot;collapse&quot; data-target=&quot;#collapse_auto&quot; href=&quot;#&quot; data-activate=&quot;true&quot;) Single Auto Shown
-%section.collapse.in#collapse_auto
+%a(data-bindable=&quot;collapse&quot; data-target=&quot;#collapse_auto&quot; href=&quot;#&quot; data-activate=&quot;true&quot; role=&quot;tab&quot;) Single Auto Shown
+%section.collapse.in#collapse_auto(role=&quot;tabpanel&quot;)
   %article
     %p=@lorem
 
 
 %hr
-%nav(style=&quot;margin-top: 1em;&quot;)
-  %ul#collapse_radio(data-bindable=&quot;collapse&quot; data-type=&quot;group&quot; data-activate=&quot;0&quot;)
+%nav(role=&quot;navigation&quot; style=&quot;margin-top: 1em;&quot;)
+  %ul#collapse_radio(data-bindable=&quot;collapse&quot; data-type=&quot;group&quot; data-activate=&quot;0&quot; role=&quot;tablist&quot;)
     -(1..3).each do |i|
       %li
-        %a(href=&quot;#collapse_radio_#{i}&quot;) Radio Collapse #{i}
-        %section.collapse(id=&quot;collapse_radio_#{i}&quot;)
+        %a(href=&quot;#collapse_radio_#{i}&quot; role=&quot;tab&quot;) Radio Collapse #{i}
+        %section.collapse(id=&quot;collapse_radio_#{i}&quot; role=&quot;tabpanel&quot;)
           %article
             %p=@lorem
 
 %hr
-%nav(style=&quot;margin-top: 1em;&quot;)
-  %ul#collapse_checkbox(data-bindable=&quot;collapse&quot; data-type=&quot;group&quot; data-behavior=&quot;checkbox&quot;)
+%nav(role=&quot;navigation&quot; style=&quot;margin-top: 1em;&quot;)
+  %ul#collapse_checkbox(data-bindable=&quot;collapse&quot; data-type=&quot;group&quot; data-behavior=&quot;checkbox&quot; role=&quot;tablist&quot;)
     -(1..3).each do |i|
       %li
-        %a(href=&quot;#&quot; data-target=&quot;#collapse_check_#{i}&quot;) Checkbox Collapse #{i}
-        %section.collapse(id=&quot;collapse_check_#{i}&quot;)
+        %a(href=&quot;#&quot; data-target=&quot;#collapse_check_#{i}&quot; role=&quot;tab&quot;) Checkbox Collapse #{i}
+        %section.collapse(id=&quot;collapse_check_#{i}&quot; role=&quot;tabpanel&quot;)
           %article
             %p=@lorem
 
 %hr
-%nav(style=&quot;margin-top: 1em;&quot;)
-  %ul#collapse_external(data-bindable=&quot;collapse&quot; data-type=&quot;group&quot; data-behavior=&quot;checkbox&quot;)
+%nav(role=&quot;navigation&quot; style=&quot;margin-top: 1em;&quot;)
+  %ul#collapse_external(data-bindable=&quot;collapse&quot; data-type=&quot;group&quot; data-behavior=&quot;checkbox&quot; role=&quot;tablist&quot;)
     -(1..3).each do |i|
       %li
-        %a(href=&quot;#collapse_external_#{i}&quot;) External Checkbox Collapse #{i}
+        %a(href=&quot;#collapse_external_#{i}&quot; role=&quot;tab&quot;) External Checkbox Collapse #{i}
 
   -(1..3).each do |i|
-    %section.collapse(id=&quot;collapse_external_#{i}&quot;)
+    %section.collapse(id=&quot;collapse_external_#{i}&quot; role=&quot;tabpanel&quot;)
       %article
         %p&lt;
           %strong Collapse External Pane #{i}
@@ -1928,22 +1928,22 @@ on_screen = @directional.constrainToViewport(position)
 
 <!--~ markup/dismiss.html.haml -->
 
-<div class="sherpa-showcase sherpa-clearfix"><div class='notification fade in'>
+<div class="sherpa-showcase sherpa-clearfix"><div class='notification fade in' role='alert'>
 <p><strong>Notification!</strong> This is the default notification</p>
 <a class='close' data-bindable='dismiss' href='#'>&times;</a>
 </div>
 
-<div class='notification fade in' id='dismiss_href'>
+<div class='notification fade in' id='dismiss_href' role='alert'>
 <p><strong>Notifcation Href!</strong> This is the default notification</p>
 <a class='close' data-bindable='dismiss' href='#dismiss_href'>&times;</a>
 </div>
 
-<div class='notification fade in' id='dismiss_target'>
+<div class='notification fade in' id='dismiss_target' role='alert'>
 <p><strong>Notifcation Target!</strong> With a delay</p>
 <a class='close' data-bindable='dismiss' data-delay='2000' data-target='#dismiss_target' href='#'>&times;</a>
 </div>
 
-<div class='notification fade in' id='dismiss_nested'>
+<div class='notification fade in' id='dismiss_nested' role='alert'>
 <p><strong>Notifcation Nested!</strong> This is the default notification</p>
 <p>
 <a class='close' data-bindable='dismiss' href='#'>&times;</a>
@@ -1957,19 +1957,19 @@ on_screen = @directional.constrainToViewport(position)
 </section>
 </div></p>
 
-<pre><code class="haml">.notification.fade.in
+<pre><code class="haml">.notification.fade.in(role=&quot;alert&quot;)
   %p &lt;strong&gt;Notification!&lt;/strong&gt; This is the default notification
   %a.close(href=&quot;#&quot; data-bindable=&quot;dismiss&quot;) &amp;times;
 
-.notification.fade.in#dismiss_href
+.notification.fade.in#dismiss_href(role=&quot;alert&quot;)
   %p &lt;strong&gt;Notifcation Href!&lt;/strong&gt; This is the default notification
   %a.close(href=&quot;#dismiss_href&quot; data-bindable=&quot;dismiss&quot;) &amp;times;
 
-.notification.fade.in#dismiss_target
+.notification.fade.in#dismiss_target(role=&quot;alert&quot;)
   %p &lt;strong&gt;Notifcation Target!&lt;/strong&gt; With a delay
   %a.close(href=&quot;#&quot; data-target=&quot;#dismiss_target&quot; data-bindable=&quot;dismiss&quot; data-delay=&quot;2000&quot;) &amp;times;
 
-.notification.fade.in#dismiss_nested
+.notification.fade.in#dismiss_nested(role=&quot;alert&quot;)
   %p &lt;strong&gt;Notifcation Nested!&lt;/strong&gt; This is the default notification
   %p
     %a.close(href=&quot;#&quot; data-bindable=&quot;dismiss&quot;) &amp;times;
@@ -2106,20 +2106,20 @@ the inner content.</p>
 <div class="sherpa-showcase sherpa-clearfix"><h5 style='margin-bottom:1em;'>Drops in Navigation</h5>
 <nav>
 <ul class='nav inline' id='drop_nav_demo'>
-<li class='drop' data-bindable='drop'><a class='drop-toggle' href='#'>Drop Normal <span class="caret"></span></a>
-<ul class='nav menu' data-bindable='toggle-group'>
+<li class='drop' data-bindable='drop'><a class='drop-toggle' href='#' id='drop_1'>Drop Normal <span class="caret"></span></a>
+<ul aria-labelledby='drop_1' class='nav menu' data-bindable='toggle-group' role='menu'>
 <li><a href='#'>Subnav 1</a></li>
 <li><a href='#'>Subnav 2</a></li>
 <li><a href='#'>Subnav 3</a></li>
 </ul></li>
-<li class='drop' data-bindable='drop' data-keyboard='false' data-placement='north' data-toggle='active open hello'><a class='drop-toggle' href='#'>Drop North <span class="caret"></span></a>
-<ul class='nav menu' data-bindable='toggle-group'>
+<li class='drop' data-bindable='drop' data-keyboard='false' data-placement='north' data-toggle='active open hello'><a class='drop-toggle' href='#' id='drop_2'>Drop North <span class="caret"></span></a>
+<ul aria-labelledby='drop_2' class='nav menu' data-bindable='toggle-group' role='menu'>
 <li><a href='#'>Subnav 1</a></li>
 <li><a href='#'>Subnav 2</a></li>
 <li><a href='#'>Subnav 3</a></li>
 </ul></li>
-<li class='drop' data-bindable='drop' data-placement='west'><a class='drop-toggle' href='#'>Drop West <span class="caret"></span></a>
-<ul class='nav menu' data-bindable='toggle-group'>
+<li class='drop' data-bindable='drop' data-placement='west'><a class='drop-toggle' href='#' id='drop_3'>Drop West <span class="caret"></span></a>
+<ul aria-labelledby='drop_3' class='nav menu' data-bindable='toggle-group' role='menu'>
 <li><a href='#'>Subnav 1</a></li>
 <li><a href='#'>Subnav 2</a></li>
 <li><a href='#'>Subnav 3</a></li>
@@ -2129,8 +2129,8 @@ the inner content.</p>
 <h5 style='margin-bottom:1em; margin-top:2em;'>Drops in Button Toolbar</h5>
 <section class='button-toolbar'>
 <nav class='button-group' id='drop_button_demo'>
-<a class='btn drop' data-bindable='drop' href='#'>Drop Button <span class="caret"></span></a>
-<ul class='nav menu' data-bindable='toggle-group'>
+<a class='btn drop' data-bindable='drop' href='#' id='drop_4'>Drop Button <span class="caret"></span></a>
+<ul aria-labelledby='drop_4' class='nav menu' data-bindable='toggle-group' role='menu'>
 <li><a href='#'>Subnav 1</a></li>
 <li><a href='#'>Subnav 2</a></li>
 <li><a href='#'>Subnav 3</a></li>
@@ -2138,8 +2138,8 @@ the inner content.</p>
 </nav>
 <nav class='button-group' id='drop_split_demo'>
 <a class='btn'>Action</a>
-<a class='btn drop' data-bindable='drop'><span class="caret"></span></a>
-<ul class='nav menu' data-bindable='toggle-group'>
+<a class='btn drop' data-bindable='drop' id='drop_5'><span class="caret"></span></a>
+<ul aria-labelledby='drop_5' class='nav menu' data-bindable='toggle-group' role='menu'>
 <li><a href='#'>Subnav 1</a></li>
 <li><a href='#'>Subnav 2</a></li>
 <li><a href='#'>Subnav 3</a></li>
@@ -2147,8 +2147,8 @@ the inner content.</p>
 </nav>
 <nav class='button-group' id='drop_delay_demo'>
 <a class='btn'>Action</a>
-<a class='btn drop' data-bindable='drop' data-delay='500' data-placement='east'><span class="caret"></span></a>
-<ul class='nav menu' data-bindable='toggle-group'>
+<a class='btn drop' data-bindable='drop' data-delay='500' data-placement='east' id='drop_6'><span class="caret"></span></a>
+<ul aria-labelledby='drop_6' class='nav menu' data-bindable='toggle-group' role='menu'>
 <li><a href='#'>Subnav 1</a></li>
 <li><a href='#'>Subnav 2</a></li>
 <li><a href='#'>Subnav 3</a></li>
@@ -2161,8 +2161,8 @@ the inner content.</p>
 %nav
   %ul.nav.inline#drop_nav_demo
     %li.drop(data-bindable=&quot;drop&quot;)&lt;
-      %a.drop-toggle(href=&quot;#&quot;) Drop Normal &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
-      %ul.nav.menu(data-bindable=&quot;toggle-group&quot;)
+      %a.drop-toggle#drop_1(href=&quot;#&quot;) Drop Normal &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
+      %ul.nav.menu(data-bindable=&quot;toggle-group&quot; role=&quot;menu&quot; aria-labelledby=&quot;drop_1&quot;)
         %li&lt;
           %a(href=&quot;#&quot;) Subnav 1
         %li&lt;
@@ -2171,8 +2171,8 @@ the inner content.</p>
           %a(href=&quot;#&quot;) Subnav 3
 
     %li.drop(data-bindable=&quot;drop&quot; data-placement=&quot;north&quot; data-toggle=&quot;active open hello&quot; data-keyboard=&quot;false&quot;)&lt;
-      %a.drop-toggle(href=&quot;#&quot;) Drop North &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
-      %ul.nav.menu(data-bindable=&quot;toggle-group&quot;)
+      %a.drop-toggle#drop_2(href=&quot;#&quot;) Drop North &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
+      %ul.nav.menu(data-bindable=&quot;toggle-group&quot; role=&quot;menu&quot; aria-labelledby=&quot;drop_2&quot;)
         %li&lt;
           %a(href=&quot;#&quot;) Subnav 1
         %li&lt;
@@ -2181,8 +2181,8 @@ the inner content.</p>
           %a(href=&quot;#&quot;) Subnav 3
 
     %li.drop(data-bindable=&quot;drop&quot; data-placement=&quot;west&quot;)&lt;
-      %a.drop-toggle(href=&quot;#&quot;) Drop West &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
-      %ul.nav.menu(data-bindable=&quot;toggle-group&quot;)
+      %a.drop-toggle#drop_3(href=&quot;#&quot;) Drop West &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
+      %ul.nav.menu(data-bindable=&quot;toggle-group&quot; role=&quot;menu&quot; aria-labelledby=&quot;drop_3&quot;)
         %li&lt;
           %a(href=&quot;#&quot;) Subnav 1
         %li&lt;
@@ -2193,8 +2193,8 @@ the inner content.</p>
 %h5(style=&quot;margin-bottom:1em; margin-top:2em;&quot;) Drops in Button Toolbar
 %section.button-toolbar
   %nav.button-group#drop_button_demo
-    %a.btn.drop(href=&quot;#&quot; data-bindable=&quot;drop&quot;) Drop Button &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
-    %ul.nav.menu(data-bindable=&quot;toggle-group&quot;)
+    %a.btn.drop#drop_4(href=&quot;#&quot; data-bindable=&quot;drop&quot;) Drop Button &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
+    %ul.nav.menu(data-bindable=&quot;toggle-group&quot; role=&quot;menu&quot; aria-labelledby=&quot;drop_4&quot;)
       %li&lt;
         %a(href=&quot;#&quot;) Subnav 1
       %li&lt;
@@ -2204,8 +2204,8 @@ the inner content.</p>
 
   %nav.button-group#drop_split_demo
     %a.btn Action
-    %a.btn.drop(data-bindable=&quot;drop&quot;) &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
-    %ul.nav.menu(data-bindable=&quot;toggle-group&quot;)
+    %a.btn.drop#drop_5(data-bindable=&quot;drop&quot;) &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
+    %ul.nav.menu(data-bindable=&quot;toggle-group&quot; role=&quot;menu&quot; aria-labelledby=&quot;drop_5&quot;)
       %li&lt;
         %a(href=&quot;#&quot;) Subnav 1
       %li&lt;
@@ -2215,8 +2215,8 @@ the inner content.</p>
 
   %nav.button-group#drop_delay_demo
     %a.btn Action
-    %a.btn.drop(data-bindable=&quot;drop&quot; data-placement=&quot;east&quot; data-delay=&quot;500&quot;) &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
-    %ul.nav.menu(data-bindable=&quot;toggle-group&quot;)
+    %a.btn.drop#drop_6(data-bindable=&quot;drop&quot; data-placement=&quot;east&quot; data-delay=&quot;500&quot;) &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
+    %ul.nav.menu(data-bindable=&quot;toggle-group&quot; role=&quot;menu&quot; aria-labelledby=&quot;drop_6&quot;)
       %li&lt;
         %a(href=&quot;#&quot;) Subnav 1
       %li&lt;
@@ -2445,7 +2445,7 @@ paired with one of the form layout components.</p>
 
 <!--~ markup/form-controls-inputs.html.haml -->
 
-<div class="sherpa-showcase sherpa-clearfix"><form class='sherpa-clearfix'>
+<div class="sherpa-showcase sherpa-clearfix"><form class='sherpa-clearfix' role='form'>
 <fieldset class='sherpa-split-pull'>
 <legend>Common input controls</legend>
 <div class='control-group'>
@@ -2542,7 +2542,7 @@ paired with one of the form layout components.</p>
 </form>
 </div></p>
 
-<pre><code class="haml">%form.sherpa-clearfix
+<pre><code class="haml">%form.sherpa-clearfix(role=&quot;form&quot;)
   %fieldset.sherpa-split-pull
     %legend Common input controls
     .control-group
@@ -2611,7 +2611,7 @@ paired with one of the form layout components.</p>
 
 <!--~ markup/form-controls-search.html.haml -->
 
-<div class="sherpa-showcase sherpa-clearfix"><form>
+<div class="sherpa-showcase sherpa-clearfix"><form role='search'>
 <fieldset>
 <legend>Search Elements</legend>
 <div class='control-group'>
@@ -2624,7 +2624,7 @@ paired with one of the form layout components.</p>
 </form>
 </div></p>
 
-<pre><code class="haml">%form
+<pre><code class="haml">%form(role=&quot;search&quot;)
   %fieldset
     %legend Search Elements
     .control-group
@@ -2648,7 +2648,7 @@ other text input controls. These types of inputs require the
 
 <!--~ markup/form-controls-textarea.html.haml -->
 
-<div class="sherpa-showcase sherpa-clearfix"><form>
+<div class="sherpa-showcase sherpa-clearfix"><form role='form'>
 <fieldset>
 <legend>Textarea Controls</legend>
 <div class='control-group'>
@@ -2661,7 +2661,7 @@ other text input controls. These types of inputs require the
 </form>
 </div></p>
 
-<pre><code class="haml">%form
+<pre><code class="haml">%form(role=&quot;form&quot;)
   %fieldset
     %legend Textarea Controls
     .control-group
@@ -2677,7 +2677,7 @@ other text input controls. These types of inputs require the
 
 <!--~ markup/form-controls-select.html.haml -->
 
-<div class="sherpa-showcase sherpa-clearfix"><form>
+<div class="sherpa-showcase sherpa-clearfix"><form role='form'>
 <fieldset>
 <legend>Select Controls</legend>
 <div class='control-group'>
@@ -2711,7 +2711,7 @@ other text input controls. These types of inputs require the
 </form>
 </div></p>
 
-<pre><code class="haml">%form
+<pre><code class="haml">%form(role=&quot;form&quot;)
   %fieldset
     %legend Select Controls
     .control-group
@@ -2744,7 +2744,7 @@ zero to many options.</p>
 
 <!--~ markup/form-controls-radio-check.html.haml -->
 
-<div class="sherpa-showcase sherpa-clearfix"><form>
+<div class="sherpa-showcase sherpa-clearfix"><form role='form'>
 <fieldset>
 <legend>Radio Controls</legend>
 <div class='control-group'>
@@ -2797,7 +2797,7 @@ zero to many options.</p>
 </form>
 </div></p>
 
-<pre><code class="haml">%form
+<pre><code class="haml">%form(role=&quot;form&quot;)
   %fieldset
     %legend Radio Controls
     .control-group
@@ -2846,7 +2846,7 @@ zero to many options.</p>
 
 <!--~ markup/form-controls-description.html.haml -->
 
-<div class="sherpa-showcase sherpa-clearfix"><form>
+<div class="sherpa-showcase sherpa-clearfix"><form role='form'>
 <fieldset>
 <legend>I am Legend</legend>
 <div class='control-group'>
@@ -2869,7 +2869,7 @@ zero to many options.</p>
 </form>
 </div></p>
 
-<pre><code class="haml">%form
+<pre><code class="haml">%form(role=&quot;form&quot;)
   %fieldset
     %legend I am Legend
     .control-group
@@ -3074,7 +3074,7 @@ or other descriptive helpers</li>
 <button class='btn' data-add='error' href='#'>Error</button>
 </nav>
 </section>
-<form>
+<form role='form'>
 <fieldset>
 <legend>Standard information</legend>
 <div class='control-group'>
@@ -3222,7 +3222,7 @@ or other descriptive helpers</li>
     %button.btn(href=&quot;#&quot; data-add=&quot;success&quot;) Success
     %button.btn(href=&quot;#&quot; data-add=&quot;error&quot;) Error
 
-%form
+%form(role=&quot;form&quot;)
   %fieldset
     %legend Standard information
     -# Text inputs
@@ -3557,7 +3557,7 @@ inline form. Supports control labels as well.</p>
 
 <!--~ markup/form-inline.html.haml -->
 
-<div class="sherpa-showcase sherpa-clearfix"><form class='form-inline well fill'>
+<div class="sherpa-showcase sherpa-clearfix"><form class='form-inline well fill' role='form'>
 <input id='fi_email' placeholder='email' type='email' />
 <input id='fi_passw' placeholder='password' type='password' />
 <select>
@@ -3573,7 +3573,7 @@ inline form. Supports control labels as well.</p>
 </form>
 </div>
 
-<pre><code class="haml">%form.form-inline.well.fill
+<pre><code class="haml">%form.form-inline.well.fill(role=&quot;form&quot;)
   %input#fi_email(type=&quot;email&quot; placeholder=&quot;email&quot;)
   %input#fi_passw(type=&quot;password&quot; placeholder=&quot;password&quot;)
   %select
@@ -3610,13 +3610,13 @@ inherit the top and bottom <code>padding</code> of the input element.</p>
 
 <!--~ markup/form-search.html.haml -->
 
-<div class="sherpa-showcase sherpa-clearfix"><form class='form-search well fill'>
+<div class="sherpa-showcase sherpa-clearfix"><form class='form-search well fill' role='search'>
 <input id='fs_search' placeholder='search' type='search' />
 <input class='btn standard' type='submit' value='Submit' />
 </form>
 </div>
 
-<pre><code class="haml">%form.form-search.well.fill
+<pre><code class="haml">%form.form-search.well.fill(role=&quot;search&quot;)
   %input#fs_search(type=&quot;search&quot; placeholder=&quot;search&quot;)
   %input.btn.standard(type=&quot;submit&quot; value=&quot;Submit&quot;)
 </code></pre>
@@ -3922,23 +3922,20 @@ typically used within the <code>Drop</code> component.</p>
 
 <!--~ markup/menu.html.haml -->
 
-<div class="sherpa-showcase sherpa-clearfix"><nav>
-<ul class='nav menu' data-bindable='toggle-group'>
+<div class="sherpa-showcase sherpa-clearfix"><ul class='nav menu' data-bindable='toggle-group' role='menu'>
 <li><a href='#'>Menu item 1</a></li>
 <li class='active'><a href='#'>Menu item 2</a></li>
 <li><a href='#'>Menu item 3</a></li>
 </ul>
-</nav>
 </div>
 
-<pre><code class="haml">%nav
-  %ul.nav.menu(data-bindable=&quot;toggle-group&quot;)
-    %li&lt;
-      %a(href=&quot;#&quot;) Menu item 1
-    %li.active&lt;
-      %a(href=&quot;#&quot;) Menu item 2
-    %li&lt;
-      %a(href=&quot;#&quot;) Menu item 3
+<pre><code class="haml">%ul.nav.menu(data-bindable=&quot;toggle-group&quot; role=&quot;menu&quot;)
+  %li&lt;
+    %a(href=&quot;#&quot;) Menu item 1
+  %li.active&lt;
+    %a(href=&quot;#&quot;) Menu item 2
+  %li&lt;
+    %a(href=&quot;#&quot;) Menu item 3
 </code></pre>
 
 <!-- end -->
@@ -4018,7 +4015,7 @@ or custom layouts within the application.</p>
 
 <div class="sherpa-showcase sherpa-clearfix"><button class='btn' data-bindable='modal' data-keyboard='true' href='#modal_href'>Launch Modal</button>
 <div class='modal fade' id='modal_href'>
-<div class='notification success fade in'>
+<div class='notification success fade in' role='alert'>
 <header class='notify-header'>
 <h4 class='notify-heading'>Modal Notification</h4>
 </header>
@@ -4041,7 +4038,7 @@ or custom layouts within the application.</p>
 %button.btn(data-bindable=&quot;modal&quot; href=&quot;#modal_href&quot; data-keyboard=&quot;true&quot;) Launch Modal
 
 .modal.fade#modal_href
-  .notification.success.fade.in
+  .notification.success.fade.in(role=&quot;alert&quot;)
     %header.notify-header
       %h4.notify-heading Modal Notification
     %section.notify-content
@@ -4230,21 +4227,21 @@ various components with navigation, search forms and drop downs.</p>
 <div class='navbar-inner'>
 <div class='container'>
 <a class='brand' href='#'>Brand</a>
-<nav class='nav-collapse' id='navbar_collapse'>
+<nav class='nav-collapse' id='navbar_collapse' role='navigation'>
 <ul class='nav' data-bindable='toggle-group'>
 <li><a href='#'>Link 1</a></li>
 <li class='active'><a href='#'>Link 2</a></li>
 <li><a href='#'>Link 3</a></li>
 <li><a href='#'>Link 4</a></li>
-<li class='drop' data-bindable='drop'><a class='drop-toggle' href='#'>Drop <span class="caret"></span></a>
-<ul class='nav menu'>
+<li class='drop' data-bindable='drop'><a class='drop-toggle' href='#' id='nb_drop_1'>Drop <span class="caret"></span></a>
+<ul aria-labelledby='nb_drop_1' class='nav menu' role='menu'>
 <li><a href='#'>Subnav 1</a></li>
 <li><a href='#'>Subnav 2</a></li>
 <li><a href='#'>Subnav 3</a></li>
 </ul></li>
 </ul>
 <section class='pull-right'>
-<form class='form-search'>
+<form class='form-search' role='search'>
 <div class='control-group'>
 <div class='controls'>
 <input class='search-query' placeholder='search' type='search' />
@@ -4254,8 +4251,8 @@ various components with navigation, search forms and drop downs.</p>
 </form>
 <ul class='nav'>
 <li><a href='#'>Another Link</a></li>
-<li class='drop' data-bindable='drop'><a class='drop-toggle' href='#'>Settings <span class="caret"></span></a>
-<ul class='nav menu'>
+<li class='drop' data-bindable='drop'><a class='drop-toggle' href='#' id='nb_drop_2'>Settings <span class="caret"></span></a>
+<ul aria-labelledby='nb_drop_2' class='nav menu' role='menu'>
 <li><a href='#'>Subnav 1</a></li>
 <li><a href='#'>Subnav 2</a></li>
 </ul></li>
@@ -4275,7 +4272,7 @@ various components with navigation, search forms and drop downs.</p>
         -# %span.icon-bar
         -# %span.icon-bar
       %a.brand(href=&quot;#&quot;) Brand
-      %nav.nav-collapse#navbar_collapse
+      %nav.nav-collapse#navbar_collapse(role=&quot;navigation&quot;)
         %ul.nav(data-bindable=&quot;toggle-group&quot;)
           %li&lt;
             %a(href=&quot;#&quot;) Link 1
@@ -4286,8 +4283,8 @@ various components with navigation, search forms and drop downs.</p>
           %li&lt;
             %a(href=&quot;#&quot;) Link 4
           %li.drop(data-bindable=&quot;drop&quot;)&lt;
-            %a.drop-toggle(href=&quot;#&quot;) Drop &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
-            %ul.nav.menu
+            %a#nb_drop_1.drop-toggle(href=&quot;#&quot;) Drop &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
+            %ul.nav.menu(role=&quot;menu&quot; aria-labelledby=&quot;nb_drop_1&quot;)
               %li&lt;
                 %a(href=&quot;#&quot;) Subnav 1
               %li&lt;
@@ -4296,7 +4293,7 @@ various components with navigation, search forms and drop downs.</p>
                 %a(href=&quot;#&quot;) Subnav 3
 
         %section.pull-right
-          %form.form-search
+          %form.form-search(role=&quot;search&quot;)
             .control-group
               .controls
                 %input.search-query(type=&quot;search&quot; placeholder=&quot;search&quot;)
@@ -4304,8 +4301,8 @@ various components with navigation, search forms and drop downs.</p>
             %li&lt;
               %a(href=&quot;#&quot;) Another Link
             %li.drop(data-bindable=&quot;drop&quot;)&lt;
-              %a.drop-toggle(href=&quot;#&quot;) Settings &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
-              %ul.nav.menu
+              %a.drop-toggle#nb_drop_2(href=&quot;#&quot;) Settings &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
+              %ul.nav.menu(role=&quot;menu&quot; aria-labelledby=&quot;nb_drop_2&quot;)
                 %li&lt;
                   %a(href=&quot;#&quot;) Subnav 1
                 %li&lt;
@@ -4408,32 +4405,32 @@ and inserts them directly into your style sheet.</p>
 
 <!--~ markup/notification.html.haml -->
 
-<div class="sherpa-showcase sherpa-clearfix"><div class='notification fade in'>
+<div class="sherpa-showcase sherpa-clearfix"><div class='notification fade in' role='alert'>
 <p><strong>Default!</strong> This is the default notification</p>
 <a class='close' data-bindable='dismiss' href='#'>&times;</a>
 </div>
 
-<div class='notification important fade in' id='notification_important'>
+<div class='notification important fade in' id='notification_important' role='alert'>
 <p><strong>Important!</strong> This is the important notification</p>
 <a class='close' data-bindable='dismiss' data-target='#notification_important' href='#'>&times;</a>
 </div>
 
-<div class='notification success fade in' id='notification_success'>
+<div class='notification success fade in' id='notification_success' role='alert'>
 <p><strong>Success!</strong> This is the success notification</p>
 <a class='close' data-bindable='dismiss' href='#notification_success'>&times;</a>
 </div>
 
-<div class='notification warning fade in'>
+<div class='notification warning fade in' role='alert'>
 <p><strong>Warning!</strong> This is the warning notification</p>
 <a class='close' data-bindable='dismiss' href='#'>&times;</a>
 </div>
 
-<div class='notification danger fade in'>
+<div class='notification danger fade in' role='alert'>
 <p><strong>Danger!</strong> This is the danger notification</p>
 <a class='close' data-bindable='dismiss' href='#'>&times;</a>
 </div>
 
-<div class='notification success fade in'>
+<div class='notification success fade in' role='alert'>
 <header class='notify-header'>
 <h4 class='notify-heading'>Block Notification</h4>
 </header>
@@ -4447,7 +4444,7 @@ and inserts them directly into your style sheet.</p>
 <a class='close' data-bindable='dismiss' href='#'>&times;</a>
 </div>
 
-<div class='notification danger fade in'>
+<div class='notification danger fade in' role='alert'>
 <section class='notify-content'>
 <p><strong>Yikes! This doesn't have a header and the footer is on the right!</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 </section>
@@ -4463,27 +4460,27 @@ and inserts them directly into your style sheet.</p>
 <pre><code class="haml">:ruby
   @lorem = &quot;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.&quot;
 
-.notification.fade.in
+.notification.fade.in(role=&quot;alert&quot;)
   %p &lt;strong&gt;Default!&lt;/strong&gt; This is the default notification
   %a.close(href=&quot;#&quot; data-bindable=&quot;dismiss&quot;) &amp;times;
 
-.notification.important.fade.in#notification_important
+.notification.important.fade.in#notification_important(role=&quot;alert&quot;)
   %p &lt;strong&gt;Important!&lt;/strong&gt; This is the important notification
   %a.close(href=&quot;#&quot; data-bindable=&quot;dismiss&quot; data-target=&quot;#notification_important&quot;) &amp;times;
 
-.notification.success.fade.in#notification_success
+.notification.success.fade.in#notification_success(role=&quot;alert&quot;)
   %p &lt;strong&gt;Success!&lt;/strong&gt; This is the success notification
   %a.close(href=&quot;#notification_success&quot; data-bindable=&quot;dismiss&quot;) &amp;times;
 
-.notification.warning.fade.in
+.notification.warning.fade.in(role=&quot;alert&quot;)
   %p &lt;strong&gt;Warning!&lt;/strong&gt; This is the warning notification
   %a.close(href=&quot;#&quot; data-bindable=&quot;dismiss&quot;) &amp;times;
 
-.notification.danger.fade.in
+.notification.danger.fade.in(role=&quot;alert&quot;)
   %p &lt;strong&gt;Danger!&lt;/strong&gt; This is the danger notification
   %a.close(href=&quot;#&quot; data-bindable=&quot;dismiss&quot;) &amp;times;
 
-.notification.success.fade.in
+.notification.success.fade.in(role=&quot;alert&quot;)
   %header.notify-header
     %h4.notify-heading Block Notification
   %section.notify-content
@@ -4493,7 +4490,7 @@ and inserts them directly into your style sheet.</p>
     %button.btn.danger Cancel
   %a.close(href=&quot;#&quot; data-bindable=&quot;dismiss&quot;) &amp;times;
 
-.notification.danger.fade.in
+.notification.danger.fade.in(role=&quot;alert&quot;)
   %section.notify-content
     %p &lt;strong&gt;Yikes! This doesn&#39;t have a header and the footer is on the right!&lt;/strong&gt; #{@lorem}
   %footer.notify-footer.notify-right
@@ -4562,28 +4559,28 @@ blown pagination system isn&#39;t required.</p>
 
 <!--~ markup/pager.html.haml -->
 
-<div class="sherpa-showcase sherpa-clearfix"><nav>
+<div class="sherpa-showcase sherpa-clearfix"><nav role='navigation'>
 <ul class='pager'>
 <li class='disabled'><a href='#'>&larr; Prev</a></li>
 <li><a href='#'>Next &rarr;</a></li>
 </ul>
 </nav>
 <hr />
-<nav>
+<nav role='navigation'>
 <ul class='pager pager-center'>
 <li><a href='#'>&larr; Prev</a></li>
 <li><a href='#'>Next &rarr;</a></li>
 </ul>
 </nav>
 <hr />
-<nav>
+<nav role='navigation'>
 <ul class='pager pager-right'>
 <li><a href='#'>&larr; Prev</a></li>
 <li class='disabled'><a href='#'>Next &rarr;</a></li>
 </ul>
 </nav>
 <hr />
-<nav>
+<nav role='navigation'>
 <ul class='pager'>
 <li class='pager-prev'><a href='#'>&larr; Prev</a></li>
 <li class='pager-next'><a href='#'>Next &rarr;</a></li>
@@ -4591,28 +4588,28 @@ blown pagination system isn&#39;t required.</p>
 </nav>
 </div>
 
-<pre><code class="haml">%nav
+<pre><code class="haml">%nav(role=&quot;navigation&quot;)
   %ul.pager
     %li.disabled&lt;
       %a(href=&quot;#&quot;) &amp;larr; Prev
     %li&lt;
       %a(href=&quot;#&quot;) Next &amp;rarr;
 %hr
-%nav
+%nav(role=&quot;navigation&quot;)
   %ul.pager.pager-center
     %li&lt;
       %a(href=&quot;#&quot;) &amp;larr; Prev
     %li&lt;
       %a(href=&quot;#&quot;) Next &amp;rarr;
 %hr
-%nav
+%nav(role=&quot;navigation&quot;)
   %ul.pager.pager-right
     %li&lt;
       %a(href=&quot;#&quot;) &amp;larr; Prev
     %li.disabled&lt;
       %a(href=&quot;#&quot;) Next &amp;rarr;
 %hr
-%nav
+%nav(role=&quot;navigation&quot;)
   %ul.pager
     %li.pager-prev&lt;
       %a(href=&quot;#&quot;) &amp;larr; Prev
@@ -4710,7 +4707,7 @@ represent pagination navigation. The list should contain the <code>.nav</code> c
 
 <!--~ markup/pagination.html.haml -->
 
-<div class="sherpa-showcase sherpa-clearfix"><nav data-bindable='toggle-group'>
+<div class="sherpa-showcase sherpa-clearfix"><nav data-bindable='toggle-group' role='navigation'>
 <ol class='nav pagination'>
 <li class='disabled'><a href='#'>&laquo;</a></li>
 <li><a href='#'>1</a></li>
@@ -4723,7 +4720,7 @@ represent pagination navigation. The list should contain the <code>.nav</code> c
 </ol>
 </nav>
 <hr />
-<nav class='pagination-center' data-bindable='toggle-group'>
+<nav class='pagination-center' data-bindable='toggle-group' role='navigation'>
 <ol class='nav pagination'>
 <li class='disabled'><a href='#'>&laquo;</a></li>
 <li><a href='#'>1</a></li>
@@ -4736,7 +4733,7 @@ represent pagination navigation. The list should contain the <code>.nav</code> c
 </ol>
 </nav>
 <hr />
-<nav class='pagination-right' data-bindable='toggle-group'>
+<nav class='pagination-right' data-bindable='toggle-group' role='navigation'>
 <ol class='nav pagination'>
 <li class='disabled'><a href='#'>&laquo;</a></li>
 <li><a href='#'>1</a></li>
@@ -4750,7 +4747,7 @@ represent pagination navigation. The list should contain the <code>.nav</code> c
 </nav>
 </div>
 
-<pre><code class="haml">%nav(data-bindable=&quot;toggle-group&quot;)
+<pre><code class="haml">%nav(data-bindable=&quot;toggle-group&quot; role=&quot;navigation&quot;)
   %ol.nav.pagination
     %li.disabled&lt;
       %a(href=&quot;#&quot;) &amp;laquo;
@@ -4769,7 +4766,7 @@ represent pagination navigation. The list should contain the <code>.nav</code> c
     %li&lt;
       %a(href=&quot;#&quot;) &amp;raquo;
 %hr
-%nav.pagination-center(data-bindable=&quot;toggle-group&quot;)
+%nav.pagination-center(data-bindable=&quot;toggle-group&quot; role=&quot;navigation&quot;)
   %ol.nav.pagination
     %li.disabled&lt;
       %a(href=&quot;#&quot;) &amp;laquo;
@@ -4788,7 +4785,7 @@ represent pagination navigation. The list should contain the <code>.nav</code> c
     %li&lt;
       %a(href=&quot;#&quot;) &amp;raquo;
 %hr
-%nav.pagination-right(data-bindable=&quot;toggle-group&quot;)
+%nav.pagination-right(data-bindable=&quot;toggle-group&quot; role=&quot;navigation&quot;)
   %ol.nav.pagination
     %li.disabled&lt;
       %a(href=&quot;#&quot;) &amp;laquo;
@@ -4895,75 +4892,74 @@ the related targets panel.</p>
 
 <!--~ markup/pill.html.haml -->
 
-<div class="sherpa-showcase sherpa-clearfix"><nav id='pill_demo'>
-<ul class='nav pill' data-bindable='tab' data-related='#pill_content'>
-<li class='active'><a href='#pill_one'>Pill One</a></li>
-<li><a data-target='#pill_two' href='#'>Pill Two</a></li>
-<li><a href='#pill_three'>Pill Three</a></li>
+<div class="sherpa-showcase sherpa-clearfix"><nav id='pill_demo' role='navigation'>
+<ul class='nav pill' data-bindable='tab' data-related='#pill_content' role='tablist'>
+<li class='active'><a href='#pill_one' role='tab'>Pill One</a></li>
+<li><a data-target='#pill_two' href='#' role='tab'>Pill Two</a></li>
+<li><a href='#pill_three' role='tab'>Pill Three</a></li>
 <li class='drop' data-bindable='drop'>
-<a class='drop-toggle' href='#'>Pill Drop <span class="caret"></span></a>
-<ul class='nav menu'>
-<li><a href='#pill_four'>Pill Four</a></li>
-<li><a href='#pill_five'>Pill Five</a></li>
-<li><a href='#pill_six'>Pill Six</a></li>
+<a class='drop-toggle' href='#' id='pill_drop'>Pill Drop <span class="caret"></span></a>
+<ul aria-labelledby='pill_drop' class='nav menu' role='menu'>
+<li><a href='#pill_four' role='tab'>Pill Four</a></li>
+<li><a href='#pill_five' role='tab'>Pill Five</a></li>
+<li><a href='#pill_six' role='tab'>Pill Six</a></li>
 </ul>
 </li>
 </ul>
 </nav>
 <section class='tab-content' id='pill_content' style='margin-top:1.25em;'>
-<article class='tab-pane active' id='pill_one'>
+<article class='tab-pane active' id='pill_one' role='tabpanel'>
 <p>Pill content <span class="decal important">one</span></p>
 </article>
-<article class='tab-pane' id='pill_two'>
+<article class='tab-pane' id='pill_two' role='tabpanel'>
 <p>Pill content <span class="decal success">two</span></p>
 </article>
-<article class='tab-pane' id='pill_three'>
+<article class='tab-pane' id='pill_three' role='tabpanel'>
 <p>Pill content <span class="decal danger">three</span></p>
 </article>
-<article class='tab-pane' id='pill_four'>
+<article class='tab-pane' id='pill_four' role='tabpanel'>
 <p>Pill sub content <span class="decal warning">four</span></p>
 </article>
-<article class='tab-pane' id='pill_five'>
+<article class='tab-pane' id='pill_five' role='tabpanel'>
 <p>Pill sub content <span class="decal inverse">five</span></p>
 </article>
-<article class='tab-pane' id='pill_six'>
+<article class='tab-pane' id='pill_six' role='tabpanel'>
 <p>Pill sub content <span class="decal important">six</span></p>
 </article>
 </section>
 </div>
 
-<pre><code class="haml">%nav#pill_demo
-  %ul.nav.pill(data-bindable=&quot;tab&quot; data-related=&quot;#pill_content&quot;)
+<pre><code class="haml">%nav#pill_demo(role=&quot;navigation&quot;)
+  %ul.nav.pill(data-bindable=&quot;tab&quot; data-related=&quot;#pill_content&quot; role=&quot;tablist&quot;)
     %li.active&lt;
-      %a(href=&quot;#pill_one&quot;) Pill One
+      %a(href=&quot;#pill_one&quot; role=&quot;tab&quot;) Pill One
     %li&lt;
-      %a(href=&quot;#&quot; data-target=&quot;#pill_two&quot;) Pill Two
+      %a(href=&quot;#&quot; data-target=&quot;#pill_two&quot; role=&quot;tab&quot;) Pill Two
     %li&lt;
-      %a(href=&quot;#pill_three&quot;) Pill Three
+      %a(href=&quot;#pill_three&quot; role=&quot;tab&quot;) Pill Three
 
     %li.drop(data-bindable=&quot;drop&quot;)
-      %a.drop-toggle(href=&quot;#&quot;) Pill Drop &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
-      %ul.nav.menu
+      %a.drop-toggle#pill_drop(href=&quot;#&quot;) Pill Drop &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
+      %ul.nav.menu(role=&quot;menu&quot; aria-labelledby=&quot;pill_drop&quot;)
         %li&lt;
-          %a(href=&quot;#pill_four&quot;) Pill Four
+          %a(href=&quot;#pill_four&quot; role=&quot;tab&quot;) Pill Four
         %li&lt;
-          %a(href=&quot;#pill_five&quot;) Pill Five
+          %a(href=&quot;#pill_five&quot; role=&quot;tab&quot;) Pill Five
         %li&lt;
-          %a(href=&quot;#pill_six&quot;) Pill Six
+          %a(href=&quot;#pill_six&quot; role=&quot;tab&quot;) Pill Six
 
 %section#pill_content.tab-content(style=&quot;margin-top:1.25em;&quot;)
-  %article.tab-pane.active#pill_one
+  %article.tab-pane.active#pill_one(role=&quot;tabpanel&quot;)
     %p Pill content &lt;span class=&quot;decal important&quot;&gt;one&lt;/span&gt;
-  %article.tab-pane#pill_two
+  %article.tab-pane#pill_two(role=&quot;tabpanel&quot;)
     %p Pill content &lt;span class=&quot;decal success&quot;&gt;two&lt;/span&gt;
-  %article.tab-pane#pill_three
+  %article.tab-pane#pill_three(role=&quot;tabpanel&quot;)
     %p Pill content &lt;span class=&quot;decal danger&quot;&gt;three&lt;/span&gt;
-
-  %article.tab-pane#pill_four
+  %article.tab-pane#pill_four(role=&quot;tabpanel&quot;)
     %p Pill sub content &lt;span class=&quot;decal warning&quot;&gt;four&lt;/span&gt;
-  %article.tab-pane#pill_five
+  %article.tab-pane#pill_five(role=&quot;tabpanel&quot;)
     %p Pill sub content &lt;span class=&quot;decal inverse&quot;&gt;five&lt;/span&gt;
-  %article.tab-pane#pill_six
+  %article.tab-pane#pill_six(role=&quot;tabpanel&quot;)
     %p Pill sub content &lt;span class=&quot;decal important&quot;&gt;six&lt;/span&gt;
 </code></pre>
 
@@ -5017,17 +5013,17 @@ within your <code>config.sass</code> file or before <code>pill.sass</code> is lo
 
 <!--~ markup/pill-stacked.html.haml -->
 
-<div class="sherpa-showcase sherpa-clearfix"><nav id='pill_stacked_demo'>
-<ul class='nav pill stacked' data-bindable='tab' data-related='#pill_stacked_content'>
-<li class='active'><a href='#pill_stacked_one'>Pill One</a></li>
-<li><a data-target='#pill_stacked_two' href='#'>Pill Two</a></li>
-<li><a href='#pill_stacked_three'>Pill Three</a></li>
+<div class="sherpa-showcase sherpa-clearfix"><nav id='pill_stacked_demo' role='navigation'>
+<ul class='nav pill stacked' data-bindable='tab' data-related='#pill_stacked_content' role='tablist'>
+<li class='active'><a href='#pill_stacked_one' role='tab'>Pill One</a></li>
+<li><a data-target='#pill_stacked_two' href='#' role='tab'>Pill Two</a></li>
+<li><a href='#pill_stacked_three' role='tab'>Pill Three</a></li>
 <li class='drop' data-bindable='drop'>
-<a class='drop-toggle' href='#'>Pill Drop <span class="caret"></span></a>
-<ul class='nav menu'>
-<li><a href='#pill_stacked_four'>Pill Four</a></li>
-<li><a href='#pill_stacked_five'>Pill Five</a></li>
-<li><a href='#pill_stacked_six'>Pill Six</a></li>
+<a class='drop-toggle' href='#' id='pill_stacked_drop'>Pill Drop <span class="caret"></span></a>
+<ul aria-labelledby='pill_stacked_drop' class='nav menu' role='menu'>
+<li><a href='#pill_stacked_four' role='tab'>Pill Four</a></li>
+<li><a href='#pill_stacked_five' role='tab'>Pill Five</a></li>
+<li><a href='#pill_stacked_six' role='tab'>Pill Six</a></li>
 </ul>
 </li>
 </ul>
@@ -5054,24 +5050,24 @@ within your <code>config.sass</code> file or before <code>pill.sass</code> is lo
 </section>
 </div>
 
-<pre><code class="haml">%nav#pill_stacked_demo
-  %ul.nav.pill.stacked(data-bindable=&quot;tab&quot; data-related=&quot;#pill_stacked_content&quot;)
+<pre><code class="haml">%nav#pill_stacked_demo(role=&quot;navigation&quot;)
+  %ul.nav.pill.stacked(data-bindable=&quot;tab&quot; data-related=&quot;#pill_stacked_content&quot; role=&quot;tablist&quot;)
     %li.active&lt;
-      %a(href=&quot;#pill_stacked_one&quot;) Pill One
+      %a(href=&quot;#pill_stacked_one&quot; role=&quot;tab&quot;) Pill One
     %li&lt;
-      %a(href=&quot;#&quot; data-target=&quot;#pill_stacked_two&quot;) Pill Two
+      %a(href=&quot;#&quot; data-target=&quot;#pill_stacked_two&quot; role=&quot;tab&quot;) Pill Two
     %li&lt;
-      %a(href=&quot;#pill_stacked_three&quot;) Pill Three
+      %a(href=&quot;#pill_stacked_three&quot; role=&quot;tab&quot;) Pill Three
 
     %li.drop(data-bindable=&quot;drop&quot;)
-      %a.drop-toggle(href=&quot;#&quot;) Pill Drop &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
-      %ul.nav.menu
+      %a.drop-toggle#pill_stacked_drop(href=&quot;#&quot;) Pill Drop &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
+      %ul.nav.menu(role=&quot;menu&quot; aria-labelledby=&quot;pill_stacked_drop&quot;)
         %li&lt;
-          %a(href=&quot;#pill_stacked_four&quot;) Pill Four
+          %a(href=&quot;#pill_stacked_four&quot; role=&quot;tab&quot;) Pill Four
         %li&lt;
-          %a(href=&quot;#pill_stacked_five&quot;) Pill Five
+          %a(href=&quot;#pill_stacked_five&quot; role=&quot;tab&quot;) Pill Five
         %li&lt;
-          %a(href=&quot;#pill_stacked_six&quot;) Pill Six
+          %a(href=&quot;#pill_stacked_six&quot; role=&quot;tab&quot;) Pill Six
 
 %section#pill_stacked_content.tab-content(style=&quot;margin-top:1.25em;&quot;)
   %article.tab-pane.active#pill_stacked_one
@@ -5080,7 +5076,6 @@ within your <code>config.sass</code> file or before <code>pill.sass</code> is lo
     %p Pill content &lt;span class=&quot;decal success&quot;&gt;two&lt;/span&gt;
   %article.tab-pane#pill_stacked_three
     %p Pill content &lt;span class=&quot;decal danger&quot;&gt;three&lt;/span&gt;
-
   %article.tab-pane#pill_stacked_four
     %p Pill sub content &lt;span class=&quot;decal warning&quot;&gt;four&lt;/span&gt;
   %article.tab-pane#pill_stacked_five
@@ -5568,41 +5563,41 @@ the <code>@media print</code> query.</p>
 
 <!--~ markup/progress.html.haml -->
 
-<div class="sherpa-showcase sherpa-clearfix"><div class='progress'>
+<div class="sherpa-showcase sherpa-clearfix"><div class='progress' role='progressbar'>
 <div class='bar' style='width:60%'></div>
 </div>
 
-<div class='progress important' data-initial='80'>
+<div class='progress important' data-initial='80' role='progressbar'>
 <div class='bar'></div>
 </div>
 
-<div class='progress success'>
+<div class='progress success' role='progressbar'>
 <div class='bar' style='width:60%'></div>
 </div>
 
-<div class='progress warning'>
+<div class='progress warning' role='progressbar'>
 <div class='bar' style='width:60%'></div>
 </div>
 
-<div class='progress danger'>
+<div class='progress danger' role='progressbar'>
 <div class='bar' style='width:60%'></div>
 </div>
 
 <p></div></p>
 
-<pre><code class="haml">.progress
+<pre><code class="haml">.progress(role=&quot;progressbar&quot;)
   .bar(style=&quot;width:60%&quot;)
 
-.progress.important(data-initial=&quot;80&quot;)
+.progress.important(data-initial=&quot;80&quot; role=&quot;progressbar&quot;)
   .bar
 
-.progress.success
+.progress.success(role=&quot;progressbar&quot;)
   .bar(style=&quot;width:60%&quot;)
 
-.progress.warning
+.progress.warning(role=&quot;progressbar&quot;)
   .bar(style=&quot;width:60%&quot;)
 
-.progress.danger
+.progress.danger(role=&quot;progressbar&quot;)
   .bar(style=&quot;width:60%&quot;)
 </code></pre>
 
@@ -5743,7 +5738,7 @@ can be used for simple navigation as well.</p>
 
 <!--~ markup/scaffold-nav.html.haml -->
 
-<div class="sherpa-showcase sherpa-clearfix"><nav class='well'>
+<div class="sherpa-showcase sherpa-clearfix"><nav class='well' role='navigation'>
 <ul class='nav' data-bindable='toggle-group'>
 <li class='nav-header'>Nav Header</li>
 <li>
@@ -5762,7 +5757,7 @@ can be used for simple navigation as well.</p>
 </li>
 </ul>
 </nav>
-<nav>
+<nav role='navigation'>
 <ul class='nav inline' data-bindable='toggle-group'>
 <li>
 <a href='#'>Inline Link 1</a>
@@ -5777,7 +5772,7 @@ can be used for simple navigation as well.</p>
 </nav>
 </div>
 
-<pre><code class="haml">%nav.well
+<pre><code class="haml">%nav.well(role=&quot;navigation&quot;)
   %ul.nav(data-bindable=&quot;toggle-group&quot;)
     %li.nav-header Nav Header
     %li
@@ -5790,7 +5785,7 @@ can be used for simple navigation as well.</p>
     %li.nav-header Nav Header
     %li
       %a(href=&quot;#&quot;) Block Link 4
-%nav
+%nav(role=&quot;navigation&quot;)
   %ul.nav.inline(data-bindable=&quot;toggle-group&quot;)
     %li
       %a(href=&quot;#&quot;) Inline Link 1
@@ -5894,7 +5889,7 @@ within your <code>config.sass</code> file or before <code>scaffold.sass</code> i
 
 <!--~ markup/slider.html.haml -->
 
-<div class="sherpa-showcase sherpa-clearfix"><div class='slider-control' data-initial-value='500' data-max='1000' data-min='0' id='slider_control'>
+<div class="sherpa-showcase sherpa-clearfix"><div class='slider-control' data-initial-value='500' data-max='1000' data-min='0' id='slider_control' role='slider'>
 <div class='slider-track'></div>
 <div class='slider-progress'></div>
 <div class='slider-handle'></div>
@@ -5902,7 +5897,7 @@ within your <code>config.sass</code> file or before <code>scaffold.sass</code> i
 
 <p></div></p>
 
-<pre><code class="haml">.slider-control#slider_control(data-initial-value=&quot;500&quot; data-min=&quot;0&quot; data-max=&quot;1000&quot;)
+<pre><code class="haml">.slider-control#slider_control(data-initial-value=&quot;500&quot; data-min=&quot;0&quot; data-max=&quot;1000&quot; role=&quot;slider&quot;)
   .slider-track
   .slider-progress
   .slider-handle
@@ -5915,6 +5910,9 @@ within your <code>config.sass</code> file or before <code>scaffold.sass</code> i
 <ul>
 <li>Document this</li>
 <li>Add specs</li>
+<li>Populate ARIA attributes as well, see
+<a href="http://access.aol.com/aegis/#goto_slider">examples</a> and
+<a href="http://www.w3.org/TR/wai-aria-practices/#slider">spec</a></li>
 </ul>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
@@ -5937,75 +5935,74 @@ the related targets panel.</p>
 
 <!--~ markup/tab.html.haml -->
 
-<div class="sherpa-showcase sherpa-clearfix"><nav id='tab_demo'>
-<ul class='nav tab' data-bindable='tab' data-related='#tab_content'>
-<li class='active'><a href='#tab_one'>Tab One</a></li>
-<li><a data-target='#tab_two' href='#'>Tab Two</a></li>
-<li><a href='#tab_three'>Tab Three</a></li>
+<div class="sherpa-showcase sherpa-clearfix"><nav id='tab_demo' role='navigation'>
+<ul class='nav tab' data-bindable='tab' data-related='#tab_content' role='tablist'>
+<li class='active'><a href='#tab_one' role='tab'>Tab One</a></li>
+<li><a data-target='#tab_two' href='#' role='tab'>Tab Two</a></li>
+<li><a href='#tab_three' role='tab'>Tab Three</a></li>
 <li class='drop' data-bindable='drop'>
-<a class='drop-toggle' href='#'>Tab Drop <span class="caret"></span></a>
-<ul class='nav menu'>
-<li><a href='#tab_four'>Tab Four</a></li>
-<li><a href='#tab_five'>Tab Five</a></li>
-<li><a href='#tab_six'>Tab Six</a></li>
+<a class='drop-toggle' href='#' id='tab_drop'>Tab Drop <span class="caret"></span></a>
+<ul aria-labelledby='tab_drop' class='nav menu' role='menu'>
+<li><a href='#tab_four' role='tab'>Tab Four</a></li>
+<li><a href='#tab_five' role='tab'>Tab Five</a></li>
+<li><a href='#tab_six' role='tab'>Tab Six</a></li>
 </ul>
 </li>
 </ul>
 </nav>
 <section class='tab-content' id='tab_content' style='margin-top:1.25em;'>
-<article class='tab-pane active' id='tab_one'>
+<article class='tab-pane active' id='tab_one' role='tabpanel'>
 <p>Tab content <span class="decal important">one</span></p>
 </article>
-<article class='tab-pane' id='tab_two'>
+<article class='tab-pane' id='tab_two' role='tabpanel'>
 <p>Tab content <span class="decal success">two</span></p>
 </article>
-<article class='tab-pane' id='tab_three'>
+<article class='tab-pane' id='tab_three' role='tabpanel'>
 <p>Tab content <span class="decal danger">three</span></p>
 </article>
-<article class='tab-pane' id='tab_four'>
+<article class='tab-pane' id='tab_four' role='tabpanel'>
 <p>Tab sub content <span class="decal warning">four</span></p>
 </article>
-<article class='tab-pane' id='tab_five'>
+<article class='tab-pane' id='tab_five' role='tabpanel'>
 <p>Tab sub content <span class="decal inverse">five</span></p>
 </article>
-<article class='tab-pane' id='tab_six'>
+<article class='tab-pane' id='tab_six' role='tabpanel'>
 <p>Tab sub content <span class="decal important">six</span></p>
 </article>
 </section>
 </div>
 
-<pre><code class="haml">%nav#tab_demo
-  %ul.nav.tab(data-bindable=&quot;tab&quot; data-related=&quot;#tab_content&quot;)
+<pre><code class="haml">%nav#tab_demo(role=&quot;navigation&quot;)
+  %ul.nav.tab(data-bindable=&quot;tab&quot; data-related=&quot;#tab_content&quot; role=&quot;tablist&quot;)
     %li.active&lt;
-      %a(href=&quot;#tab_one&quot;) Tab One
+      %a(href=&quot;#tab_one&quot; role=&quot;tab&quot;) Tab One
     %li&lt;
-      %a(href=&quot;#&quot; data-target=&quot;#tab_two&quot;) Tab Two
+      %a(href=&quot;#&quot; data-target=&quot;#tab_two&quot; role=&quot;tab&quot;) Tab Two
     %li&lt;
-      %a(href=&quot;#tab_three&quot;) Tab Three
+      %a(href=&quot;#tab_three&quot; role=&quot;tab&quot;) Tab Three
 
     %li.drop(data-bindable=&quot;drop&quot;)
-      %a.drop-toggle(href=&quot;#&quot;) Tab Drop &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
-      %ul.nav.menu
+      %a.drop-toggle#tab_drop(href=&quot;#&quot;) Tab Drop &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
+      %ul.nav.menu(role=&quot;menu&quot; aria-labelledby=&quot;tab_drop&quot;)
         %li&lt;
-          %a(href=&quot;#tab_four&quot;) Tab Four
+          %a(href=&quot;#tab_four&quot; role=&quot;tab&quot;) Tab Four
         %li&lt;
-          %a(href=&quot;#tab_five&quot;) Tab Five
+          %a(href=&quot;#tab_five&quot; role=&quot;tab&quot;) Tab Five
         %li&lt;
-          %a(href=&quot;#tab_six&quot;) Tab Six
+          %a(href=&quot;#tab_six&quot; role=&quot;tab&quot;) Tab Six
 
 %section#tab_content.tab-content(style=&quot;margin-top:1.25em;&quot;)
-  %article.tab-pane.active#tab_one
+  %article.tab-pane.active#tab_one(role=&quot;tabpanel&quot;)
     %p Tab content &lt;span class=&quot;decal important&quot;&gt;one&lt;/span&gt;
-  %article.tab-pane#tab_two
+  %article.tab-pane#tab_two(role=&quot;tabpanel&quot;)
     %p Tab content &lt;span class=&quot;decal success&quot;&gt;two&lt;/span&gt;
-  %article.tab-pane#tab_three
+  %article.tab-pane#tab_three(role=&quot;tabpanel&quot;)
     %p Tab content &lt;span class=&quot;decal danger&quot;&gt;three&lt;/span&gt;
-
-  %article.tab-pane#tab_four
+  %article.tab-pane#tab_four(role=&quot;tabpanel&quot;)
     %p Tab sub content &lt;span class=&quot;decal warning&quot;&gt;four&lt;/span&gt;
-  %article.tab-pane#tab_five
+  %article.tab-pane#tab_five(role=&quot;tabpanel&quot;)
     %p Tab sub content &lt;span class=&quot;decal inverse&quot;&gt;five&lt;/span&gt;
-  %article.tab-pane#tab_six
+  %article.tab-pane#tab_six(role=&quot;tabpanel&quot;)
     %p Tab sub content &lt;span class=&quot;decal important&quot;&gt;six&lt;/span&gt;
 </code></pre>
 
@@ -6160,75 +6157,74 @@ within your <code>config.sass</code> file or before <code>tab.sass</code> is loa
 
 <!--~ markup/tab-stacked.html.haml -->
 
-<div class="sherpa-showcase sherpa-clearfix"><nav id='tab_stacked_demo'>
-<ul class='nav tab stacked' data-bindable='tab' data-related='#tab_stacked_content'>
-<li class='active'><a href='#tab_stacked_one'>Tab One</a></li>
-<li><a data-target='#tab_stacked_two' href='#'>Tab Two</a></li>
-<li><a href='#tab_stacked_three'>Tab Three</a></li>
+<div class="sherpa-showcase sherpa-clearfix"><nav id='tab_stacked_demo' role='navigation'>
+<ul class='nav tab stacked' data-bindable='tab' data-related='#tab_stacked_content' role='tablist'>
+<li class='active'><a href='#tab_stacked_one' role='tab'>Tab One</a></li>
+<li><a data-target='#tab_stacked_two' href='#' role='tab'>Tab Two</a></li>
+<li><a href='#tab_stacked_three' role='tab'>Tab Three</a></li>
 <li class='drop' data-bindable='drop'>
-<a class='drop-toggle' href='#'>Tab Drop <span class="caret"></span></a>
-<ul class='nav menu'>
-<li><a href='#tab_stacked_four'>Tab Four</a></li>
-<li><a href='#tab_stacked_five'>Tab Five</a></li>
-<li><a href='#tab_stacked_six'>Tab Six</a></li>
+<a class='drop-toggle' href='#' id='tab_stacked_drop'>Tab Drop <span class="caret"></span></a>
+<ul aria-labelledby='tab_stacked_drop' class='nav menu' role='menu'>
+<li><a href='#tab_stacked_four' role='tab'>Tab Four</a></li>
+<li><a href='#tab_stacked_five' role='tab'>Tab Five</a></li>
+<li><a href='#tab_stacked_six' role='tab'>Tab Six</a></li>
 </ul>
 </li>
 </ul>
 </nav>
 <section class='tab-content' id='tab_stacked_content' style='margin-top:1.25em;'>
-<article class='tab-pane active' id='tab_stacked_one'>
+<article class='tab-pane active' id='tab_stacked_one' role='tabpanel'>
 <p>Tab content <span class="decal important">one</span></p>
 </article>
-<article class='tab-pane' id='tab_stacked_two'>
+<article class='tab-pane' id='tab_stacked_two' role='tabpanel'>
 <p>Tab content <span class="decal success">two</span></p>
 </article>
-<article class='tab-pane' id='tab_stacked_three'>
+<article class='tab-pane' id='tab_stacked_three' role='tabpanel'>
 <p>Tab content <span class="decal danger">three</span></p>
 </article>
-<article class='tab-pane' id='tab_stacked_four'>
+<article class='tab-pane' id='tab_stacked_four' role='tabpanel'>
 <p>Tab sub content <span class="decal warning">four</span></p>
 </article>
-<article class='tab-pane' id='tab_stacked_five'>
+<article class='tab-pane' id='tab_stacked_five' role='tabpanel'>
 <p>Tab sub content <span class="decal inverse">five</span></p>
 </article>
-<article class='tab-pane' id='tab_stacked_six'>
+<article class='tab-pane' id='tab_stacked_six' role='tabpanel'>
 <p>Tab sub content <span class="decal important">six</span></p>
 </article>
 </section>
 </div>
 
-<pre><code class="haml">%nav#tab_stacked_demo
-  %ul.nav.tab.stacked(data-bindable=&quot;tab&quot; data-related=&quot;#tab_stacked_content&quot;)
+<pre><code class="haml">%nav#tab_stacked_demo(role=&quot;navigation&quot;)
+  %ul.nav.tab.stacked(data-bindable=&quot;tab&quot; data-related=&quot;#tab_stacked_content&quot; role=&quot;tablist&quot;)
     %li.active&lt;
-      %a(href=&quot;#tab_stacked_one&quot;) Tab One
+      %a(href=&quot;#tab_stacked_one&quot; role=&quot;tab&quot;) Tab One
     %li&lt;
-      %a(href=&quot;#&quot; data-target=&quot;#tab_stacked_two&quot;) Tab Two
+      %a(href=&quot;#&quot; data-target=&quot;#tab_stacked_two&quot; role=&quot;tab&quot;) Tab Two
     %li&lt;
-      %a(href=&quot;#tab_stacked_three&quot;) Tab Three
+      %a(href=&quot;#tab_stacked_three&quot; role=&quot;tab&quot;) Tab Three
 
     %li.drop(data-bindable=&quot;drop&quot;)
-      %a.drop-toggle(href=&quot;#&quot;) Tab Drop &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
-      %ul.nav.menu
+      %a.drop-toggle#tab_stacked_drop(href=&quot;#&quot;) Tab Drop &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
+      %ul.nav.menu(role=&quot;menu&quot; aria-labelledby=&quot;tab_stacked_drop&quot;)
         %li&lt;
-          %a(href=&quot;#tab_stacked_four&quot;) Tab Four
+          %a(href=&quot;#tab_stacked_four&quot; role=&quot;tab&quot;) Tab Four
         %li&lt;
-          %a(href=&quot;#tab_stacked_five&quot;) Tab Five
+          %a(href=&quot;#tab_stacked_five&quot; role=&quot;tab&quot;) Tab Five
         %li&lt;
-          %a(href=&quot;#tab_stacked_six&quot;) Tab Six
+          %a(href=&quot;#tab_stacked_six&quot; role=&quot;tab&quot;) Tab Six
 
 %section#tab_stacked_content.tab-content(style=&quot;margin-top:1.25em;&quot;)
-  %article.tab-pane.active#tab_stacked_one
+  %article.tab-pane.active#tab_stacked_one(role=&quot;tabpanel&quot;)
     %p Tab content &lt;span class=&quot;decal important&quot;&gt;one&lt;/span&gt;
-  %article.tab-pane#tab_stacked_two
+  %article.tab-pane#tab_stacked_two(role=&quot;tabpanel&quot;)
     %p Tab content &lt;span class=&quot;decal success&quot;&gt;two&lt;/span&gt;
-  %article.tab-pane#tab_stacked_three
+  %article.tab-pane#tab_stacked_three(role=&quot;tabpanel&quot;)
     %p Tab content &lt;span class=&quot;decal danger&quot;&gt;three&lt;/span&gt;
-
-  %article.tab-pane#tab_stacked_four
+  %article.tab-pane#tab_stacked_four(role=&quot;tabpanel&quot;)
     %p Tab sub content &lt;span class=&quot;decal warning&quot;&gt;four&lt;/span&gt;
-  %article.tab-pane#tab_stacked_five
+  %article.tab-pane#tab_stacked_five(role=&quot;tabpanel&quot;)
     %p Tab sub content &lt;span class=&quot;decal inverse&quot;&gt;five&lt;/span&gt;
-  %article.tab-pane#tab_stacked_six
+  %article.tab-pane#tab_stacked_six(role=&quot;tabpanel&quot;)
     %p Tab sub content &lt;span class=&quot;decal important&quot;&gt;six&lt;/span&gt;
 </code></pre>
 
@@ -6863,7 +6859,7 @@ element.</p>
 
 <!--~ markup/toggle.html.haml -->
 
-<div class="sherpa-showcase sherpa-clearfix"><nav>
+<div class="sherpa-showcase sherpa-clearfix"><nav role='navigation'>
 <a class='btn' data-bindable='toggle' href='#' id='toggle_1'>Toggle Default</a>
 <a class='btn' data-bindable='toggle' data-namespace='hoverable' data-toggle='active on' data-trigger='hover' href='#' id='toggle_2'>Toggle Hover</a>
 <a class='btn' data-bindable='toggle' data-namespace='focusable' data-trigger='focus' href='#' id='toggle_3'>Toggle Focus</a>
@@ -6872,7 +6868,7 @@ element.</p>
 </nav>
 </div>
 
-<pre><code class="haml">%nav
+<pre><code class="haml">%nav(role=&quot;navigation&quot;)
   %a.btn#toggle_1(href=&quot;#&quot; data-bindable=&quot;toggle&quot;) Toggle Default
   %a.btn#toggle_2(href=&quot;#&quot; data-bindable=&quot;toggle&quot; data-namespace=&quot;hoverable&quot; data-trigger=&quot;hover&quot; data-toggle=&quot;active on&quot;) Toggle Hover
   %a.btn#toggle_3(href=&quot;#&quot; data-bindable=&quot;toggle&quot; data-namespace=&quot;focusable&quot; data-trigger=&quot;focus&quot;) Toggle Focus
@@ -6994,7 +6990,7 @@ boxes.</p>
 <!--~ markup/toggle_button_group.html.haml -->
 
 <div class="sherpa-showcase sherpa-clearfix"><h5 style='margin-bottom:1em;'>Button Toolbar (radio)</h5>
-<section class='button-toolbar' data-bindable='toggle-button-group' id='toggle_button_group_radios'>
+<section class='button-toolbar' data-bindable='toggle-button-group' id='toggle_button_group_radios' role='navigation'>
 <nav class='button-group'>
 <button class='btn' href='#'>1</button>
 <button class='btn' href='#'>2</button>
@@ -7010,7 +7006,7 @@ boxes.</p>
 </nav>
 </section>
 <h5 style='margin-top:3em; margin-bottom:1em;'>Button Group (checkbox)</h5>
-<nav class='button-group' data-behavior='checkbox' data-bindable='toggle-button-group' data-target='.btn' id='toggle_button_group_checks'>
+<nav class='button-group' data-behavior='checkbox' data-bindable='toggle-button-group' data-target='.btn' id='toggle_button_group_checks' role='navigation'>
 <a class='btn' href='#'>Left</a>
 <a class='btn active' href='#'>Middle 1</a>
 <a class='btn' href='#'>Middle 2</a>
@@ -7019,7 +7015,7 @@ boxes.</p>
 </div>
 
 <pre><code class="haml">%h5(style=&quot;margin-bottom:1em;&quot;) Button Toolbar (radio)
-%section#toggle_button_group_radios.button-toolbar(data-bindable=&quot;toggle-button-group&quot;)
+%section#toggle_button_group_radios.button-toolbar(data-bindable=&quot;toggle-button-group&quot; role=&quot;navigation&quot;)
   %nav.button-group
     %button.btn(href=&quot;#&quot;) 1
     %button.btn(href=&quot;#&quot;) 2
@@ -7032,7 +7028,7 @@ boxes.</p>
     %button.btn(href=&quot;#&quot;) 7
 
 %h5(style=&quot;margin-top:3em; margin-bottom:1em;&quot;) Button Group (checkbox)
-%nav#toggle_button_group_checks.button-group(data-bindable=&quot;toggle-button-group&quot; data-behavior=&quot;checkbox&quot; data-target=&quot;.btn&quot;)
+%nav#toggle_button_group_checks.button-group(data-bindable=&quot;toggle-button-group&quot; data-behavior=&quot;checkbox&quot; data-target=&quot;.btn&quot; role=&quot;navigation&quot;)
   %a.btn(href=&quot;#&quot;) Left
   %a.btn.active(href=&quot;#&quot;) Middle 1
   %a.btn(href=&quot;#&quot;) Middle 2
@@ -7159,7 +7155,7 @@ elements. These are predominantly used in navigation type systems. A
 
 <!--~ markup/toggle_group.html.haml -->
 
-<div class="sherpa-showcase sherpa-clearfix"><nav>
+<div class="sherpa-showcase sherpa-clearfix"><nav role='navigation'>
 <ul class='nav inline' data-bindable='toggle-group' data-target='.radio-li' id='toggle_group_radios'>
 <li class='radio-li'><a href='#'>Radio 1</a></li>
 <li class='radio-li'><a href='#'>Radio 2</a></li>
@@ -7168,7 +7164,7 @@ elements. These are predominantly used in navigation type systems. A
 </ul>
 </nav>
 <hr />
-<nav style='margin-top: 1em;'>
+<nav role='navigtion' style='margin-top: 1em;'>
 <ul class='nav inline' data-behavior='checkbox' data-bindable='toggle-group' data-ignore='.text-ignore' id='toggle_group_checks'>
 <li><a href='#'>Checkbox 1</a></li>
 <li><a href='#'>Checkbox 2</a></li>
@@ -7177,7 +7173,7 @@ elements. These are predominantly used in navigation type systems. A
 </ul>
 </nav>
 <hr />
-<nav style='margin-top: 1em;'>
+<nav role='navigation' style='margin-top: 1em;'>
 <ul class='nav inline' data-bindable='toggle-group' data-delay='500, 500' data-namespace='toggle_delay' data-toggle='active on' id='toggle_group_delay'>
 <li><a href='#'>Radio Delay 1</a></li>
 <li><a href='#'>Radio Delay 2</a></li>
@@ -7187,7 +7183,7 @@ elements. These are predominantly used in navigation type systems. A
 </nav>
 </div>
 
-<pre><code class="haml">%nav
+<pre><code class="haml">%nav(role=&quot;navigation&quot;)
   %ul#toggle_group_radios.nav.inline(data-bindable=&quot;toggle-group&quot; data-target=&quot;.radio-li&quot;)
     %li.radio-li&lt;
       %a(href=&quot;#&quot;) Radio 1
@@ -7198,7 +7194,7 @@ elements. These are predominantly used in navigation type systems. A
     %li.radio-li.group-ignore Not a link
 
 %hr
-%nav(style=&quot;margin-top: 1em;&quot;)
+%nav(style=&quot;margin-top: 1em;&quot; role=&quot;navigtion&quot;)
   %ul#toggle_group_checks.nav.inline(data-bindable=&quot;toggle-group&quot; data-behavior=&quot;checkbox&quot; data-ignore=&quot;.text-ignore&quot;)
     %li&lt;
       %a(href=&quot;#&quot;) Checkbox 1
@@ -7209,7 +7205,7 @@ elements. These are predominantly used in navigation type systems. A
     %li.text-ignore Not a link
 
 %hr
-%nav(style=&quot;margin-top: 1em;&quot;)
+%nav(style=&quot;margin-top: 1em;&quot; role=&quot;navigation&quot;)
   %ul#toggle_group_delay.nav.inline(data-bindable=&quot;toggle-group&quot; data-delay=&quot;500, 500&quot; data-toggle=&quot;active on&quot; data-namespace=&quot;toggle_delay&quot;)
     %li&lt;
       %a(href=&quot;#&quot;) Radio Delay 1

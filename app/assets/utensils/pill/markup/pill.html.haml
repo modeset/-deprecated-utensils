@@ -1,35 +1,34 @@
 
-%nav#pill_demo
-  %ul.nav.pill(data-bindable="tab" data-related="#pill_content")
+%nav#pill_demo(role="navigation")
+  %ul.nav.pill(data-bindable="tab" data-related="#pill_content" role="tablist")
     %li.active<
-      %a(href="#pill_one") Pill One
+      %a(href="#pill_one" role="tab") Pill One
     %li<
-      %a(href="#" data-target="#pill_two") Pill Two
+      %a(href="#" data-target="#pill_two" role="tab") Pill Two
     %li<
-      %a(href="#pill_three") Pill Three
+      %a(href="#pill_three" role="tab") Pill Three
 
     %li.drop(data-bindable="drop")
-      %a.drop-toggle(href="#") Pill Drop <span class="caret"></span>
-      %ul.nav.menu
+      %a.drop-toggle#pill_drop(href="#") Pill Drop <span class="caret"></span>
+      %ul.nav.menu(role="menu" aria-labelledby="pill_drop")
         %li<
-          %a(href="#pill_four") Pill Four
+          %a(href="#pill_four" role="tab") Pill Four
         %li<
-          %a(href="#pill_five") Pill Five
+          %a(href="#pill_five" role="tab") Pill Five
         %li<
-          %a(href="#pill_six") Pill Six
+          %a(href="#pill_six" role="tab") Pill Six
 
 %section#pill_content.tab-content(style="margin-top:1.25em;")
-  %article.tab-pane.active#pill_one
+  %article.tab-pane.active#pill_one(role="tabpanel")
     %p Pill content <span class="decal important">one</span>
-  %article.tab-pane#pill_two
+  %article.tab-pane#pill_two(role="tabpanel")
     %p Pill content <span class="decal success">two</span>
-  %article.tab-pane#pill_three
+  %article.tab-pane#pill_three(role="tabpanel")
     %p Pill content <span class="decal danger">three</span>
-
-  %article.tab-pane#pill_four
+  %article.tab-pane#pill_four(role="tabpanel")
     %p Pill sub content <span class="decal warning">four</span>
-  %article.tab-pane#pill_five
+  %article.tab-pane#pill_five(role="tabpanel")
     %p Pill sub content <span class="decal inverse">five</span>
-  %article.tab-pane#pill_six
+  %article.tab-pane#pill_six(role="tabpanel")
     %p Pill sub content <span class="decal important">six</span>
 

@@ -15,7 +15,7 @@ Represents the basic controls for creating forms. Contains support for all of th
 
 <!--~ markup/form-controls-inputs.html.haml -->
 ```haml
-%form.sherpa-clearfix
+%form.sherpa-clearfix(role="form")
   %fieldset.sherpa-split-pull
     %legend Common input controls
     .control-group
@@ -84,7 +84,7 @@ Represents a search form control. These are set by adding the class
 
 <!--~ markup/form-controls-search.html.haml -->
 ```haml
-%form
+%form(role="search")
   %fieldset
     %legend Search Elements
     .control-group
@@ -106,7 +106,7 @@ Represents a multi-line plain-text editing control.
 
 <!--~ markup/form-controls-textarea.html.haml -->
 ```haml
-%form
+%form(role="form")
   %fieldset
     %legend Textarea Controls
     .control-group
@@ -123,7 +123,7 @@ Represents a control that presents a menu of options.
 
 <!--~ markup/form-controls-select.html.haml -->
 ```haml
-%form
+%form(role="form")
   %fieldset
     %legend Select Controls
     .control-group
@@ -157,7 +157,7 @@ zero to many options.
 
 <!--~ markup/form-controls-radio-check.html.haml -->
 ```haml
-%form
+%form(role="form")
   %fieldset
     %legend Radio Controls
     .control-group
@@ -207,7 +207,7 @@ Description elements describe or act as helpers around their controls.
 
 <!--~ markup/form-controls-description.html.haml -->
 ```haml
-%form
+%form(role="form")
   %fieldset
     %legend I am Legend
     .control-group
@@ -340,7 +340,7 @@ Form structures typically consist of:
     %button.btn(href="#" data-add="success") Success
     %button.btn(href="#" data-add="error") Error
 
-%form
+%form(role="form")
   %fieldset
     %legend Standard information
     -# Text inputs

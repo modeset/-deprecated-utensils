@@ -11,7 +11,7 @@ inline form. Supports control labels as well.
 
 <!--~ markup/form-inline.html.haml -->
 ```haml
-%form.form-inline.well.fill
+%form.form-inline.well.fill(role="form")
   %input#fi_email(type="email" placeholder="email")
   %input#fi_passw(type="password" placeholder="password")
   %select

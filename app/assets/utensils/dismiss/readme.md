@@ -10,19 +10,19 @@ data-bindable="dismiss"
 
 <!--~ markup/dismiss.html.haml -->
 ```haml
-.notification.fade.in
+.notification.fade.in(role="alert")
   %p <strong>Notification!</strong> This is the default notification
   %a.close(href="#" data-bindable="dismiss") &times;
 
-.notification.fade.in#dismiss_href
+.notification.fade.in#dismiss_href(role="alert")
   %p <strong>Notifcation Href!</strong> This is the default notification
   %a.close(href="#dismiss_href" data-bindable="dismiss") &times;
 
-.notification.fade.in#dismiss_target
+.notification.fade.in#dismiss_target(role="alert")
   %p <strong>Notifcation Target!</strong> With a delay
   %a.close(href="#" data-target="#dismiss_target" data-bindable="dismiss" data-delay="2000") &times;
 
-.notification.fade.in#dismiss_nested
+.notification.fade.in#dismiss_nested(role="alert")
   %p <strong>Notifcation Nested!</strong> This is the default notification
   %p
     %a.close(href="#" data-bindable="dismiss") &times;
