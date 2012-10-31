@@ -2,8 +2,6 @@
 # Todo
 
 ## WIP
-- Cleanup the fixtures for more semantic markup
-- Refactor progress bar (slider) to use ARIA attributes
 - Manage focus states around all utensils
 - Add basic behaviors for ARIA
 - Look at making the sass files use abstract elements (placeholders)
@@ -36,5 +34,5 @@
 - Better tools for documentation (generation, behavior, and styles)
 - Better docs
 - Add a script for curling vendor libraries (non-gems)
-- Use the styleguide for dinosaur test
+- Use the style guide for dinosaur test
 

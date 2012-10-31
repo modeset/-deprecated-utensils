@@ -13,15 +13,15 @@ elements under a `.button-toolbar` container to form a navigation system.
 %h5(style="margin-bottom:1em;") Button Toolbar (radio)
 %section.button-toolbar(data-bindable="toggle-button-group" role="navigation")
   %nav.button-group
-    %button.btn(href="#") 1
-    %button.btn(href="#") 2
-    %button.btn(href="#") 3
+    %button.btn 1
+    %button.btn 2
+    %button.btn 3
   %nav.button-group
-    %button.btn.active(href="#") 4
+    %button.btn.active 4
   %nav.button-group
-    %button.btn(href="#") 5
-    %button.btn(href="#") 6
-    %button.btn(href="#") 7
+    %button.btn 5
+    %button.btn 6
+    %button.btn 7
 
 %h5(style="margin-top:3em; margin-bottom:1em;") Button Group (checkbox)
 %nav.button-group(data-bindable="toggle-button-group" data-behavior="checkbox" role="navigation")

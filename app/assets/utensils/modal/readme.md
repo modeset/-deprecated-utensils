@@ -23,7 +23,10 @@ data-bindable="modal"
 <!--~ markup/modal.html.haml -->
 ```haml
 :ruby
-  @lorem = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+  @lorem = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+  eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+  veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+  commodo consequat."
 
 %button.btn(data-bindable="modal" href="#modal_href" data-keyboard="true") Launch Modal
 
