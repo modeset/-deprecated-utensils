@@ -2276,21 +2276,21 @@ the inner content.</p>
 <ul class='nav inline' id='drop_nav_demo'>
 <li class='drop' data-bindable='drop'><a class='drop-toggle' href='#' id='drop_1'>Drop Normal <span class="caret"></span></a>
 <ul aria-labelledby='drop_1' class='nav menu' data-bindable='toggle-group' role='menu'>
-<li><a href='#'>Subnav 1</a></li>
-<li><a href='#'>Subnav 2</a></li>
-<li><a href='#'>Subnav 3</a></li>
+<li><a href='#' tabindex='-1'>Subnav 1</a></li>
+<li><a href='#' tabindex='-1'>Subnav 2</a></li>
+<li><a href='#' tabindex='-1'>Subnav 3</a></li>
 </ul></li>
 <li class='drop' data-bindable='drop' data-keyboard='false' data-placement='north' data-toggle='active open hello'><a class='drop-toggle' href='#' id='drop_2'>Drop North <span class="caret"></span></a>
 <ul aria-labelledby='drop_2' class='nav menu' data-bindable='toggle-group' role='menu'>
-<li><a href='#'>Subnav 1</a></li>
-<li><a href='#'>Subnav 2</a></li>
-<li><a href='#'>Subnav 3</a></li>
+<li><a href='#' tabindex='-1'>Subnav 1</a></li>
+<li><a href='#' tabindex='-1'>Subnav 2</a></li>
+<li><a href='#' tabindex='-1'>Subnav 3</a></li>
 </ul></li>
 <li class='drop' data-bindable='drop' data-placement='west'><a class='drop-toggle' href='#' id='drop_3'>Drop West <span class="caret"></span></a>
 <ul aria-labelledby='drop_3' class='nav menu' data-bindable='toggle-group' role='menu'>
-<li><a href='#'>Subnav 1</a></li>
-<li><a href='#'>Subnav 2</a></li>
-<li><a href='#'>Subnav 3</a></li>
+<li><a href='#' tabindex='-1'>Subnav 1</a></li>
+<li><a href='#' tabindex='-1'>Subnav 2</a></li>
+<li><a href='#' tabindex='-1'>Subnav 3</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -2299,27 +2299,27 @@ the inner content.</p>
 <nav class='button-group' id='drop_button_demo'>
 <a class='btn drop' data-bindable='drop' href='#' id='drop_4'>Drop Button <span class="caret"></span></a>
 <ul aria-labelledby='drop_4' class='nav menu' data-bindable='toggle-group' role='menu'>
-<li><a href='#'>Subnav 1</a></li>
-<li><a href='#'>Subnav 2</a></li>
-<li><a href='#'>Subnav 3</a></li>
+<li><a href='#' tabindex='-1'>Subnav 1</a></li>
+<li><a href='#' tabindex='-1'>Subnav 2</a></li>
+<li><a href='#' tabindex='-1'>Subnav 3</a></li>
 </ul>
 </nav>
 <nav class='button-group' id='drop_split_demo'>
 <a class='btn'>Action</a>
 <a class='btn drop' data-bindable='drop' id='drop_5'><span class="caret"></span></a>
 <ul aria-labelledby='drop_5' class='nav menu' data-bindable='toggle-group' role='menu'>
-<li><a href='#'>Subnav 1</a></li>
-<li><a href='#'>Subnav 2</a></li>
-<li><a href='#'>Subnav 3</a></li>
+<li><a href='#' tabindex='-1'>Subnav 1</a></li>
+<li><a href='#' tabindex='-1'>Subnav 2</a></li>
+<li><a href='#' tabindex='-1'>Subnav 3</a></li>
 </ul>
 </nav>
 <nav class='button-group' id='drop_delay_demo'>
 <a class='btn'>Action</a>
 <a class='btn drop' data-bindable='drop' data-delay='500' data-placement='east' id='drop_6'><span class="caret"></span></a>
 <ul aria-labelledby='drop_6' class='nav menu' data-bindable='toggle-group' role='menu'>
-<li><a href='#'>Subnav 1</a></li>
-<li><a href='#'>Subnav 2</a></li>
-<li><a href='#'>Subnav 3</a></li>
+<li><a href='#' tabindex='-1'>Subnav 1</a></li>
+<li><a href='#' tabindex='-1'>Subnav 2</a></li>
+<li><a href='#' tabindex='-1'>Subnav 3</a></li>
 </ul>
 </nav>
 </section>
@@ -2332,31 +2332,31 @@ the inner content.</p>
       %a.drop-toggle#drop_1(href=&quot;#&quot;) Drop Normal &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
       %ul.nav.menu(data-bindable=&quot;toggle-group&quot; role=&quot;menu&quot; aria-labelledby=&quot;drop_1&quot;)
         %li&lt;
-          %a(href=&quot;#&quot;) Subnav 1
+          %a(href=&quot;#&quot; tabindex=&quot;-1&quot;) Subnav 1
         %li&lt;
-          %a(href=&quot;#&quot;) Subnav 2
+          %a(href=&quot;#&quot; tabindex=&quot;-1&quot;) Subnav 2
         %li&lt;
-          %a(href=&quot;#&quot;) Subnav 3
+          %a(href=&quot;#&quot; tabindex=&quot;-1&quot;) Subnav 3
 
     %li.drop(data-bindable=&quot;drop&quot; data-placement=&quot;north&quot; data-toggle=&quot;active open hello&quot; data-keyboard=&quot;false&quot;)&lt;
       %a.drop-toggle#drop_2(href=&quot;#&quot;) Drop North &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
       %ul.nav.menu(data-bindable=&quot;toggle-group&quot; role=&quot;menu&quot; aria-labelledby=&quot;drop_2&quot;)
         %li&lt;
-          %a(href=&quot;#&quot;) Subnav 1
+          %a(href=&quot;#&quot; tabindex=&quot;-1&quot;) Subnav 1
         %li&lt;
-          %a(href=&quot;#&quot;) Subnav 2
+          %a(href=&quot;#&quot; tabindex=&quot;-1&quot;) Subnav 2
         %li&lt;
-          %a(href=&quot;#&quot;) Subnav 3
+          %a(href=&quot;#&quot; tabindex=&quot;-1&quot;) Subnav 3
 
     %li.drop(data-bindable=&quot;drop&quot; data-placement=&quot;west&quot;)&lt;
       %a.drop-toggle#drop_3(href=&quot;#&quot;) Drop West &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
       %ul.nav.menu(data-bindable=&quot;toggle-group&quot; role=&quot;menu&quot; aria-labelledby=&quot;drop_3&quot;)
         %li&lt;
-          %a(href=&quot;#&quot;) Subnav 1
+          %a(href=&quot;#&quot; tabindex=&quot;-1&quot;) Subnav 1
         %li&lt;
-          %a(href=&quot;#&quot;) Subnav 2
+          %a(href=&quot;#&quot; tabindex=&quot;-1&quot;) Subnav 2
         %li&lt;
-          %a(href=&quot;#&quot;) Subnav 3
+          %a(href=&quot;#&quot; tabindex=&quot;-1&quot;) Subnav 3
 
 %h5(style=&quot;margin-bottom:1em; margin-top:2em;&quot;) Drops in Button Toolbar
 %section.button-toolbar
@@ -2364,33 +2364,33 @@ the inner content.</p>
     %a.btn.drop#drop_4(href=&quot;#&quot; data-bindable=&quot;drop&quot;) Drop Button &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
     %ul.nav.menu(data-bindable=&quot;toggle-group&quot; role=&quot;menu&quot; aria-labelledby=&quot;drop_4&quot;)
       %li&lt;
-        %a(href=&quot;#&quot;) Subnav 1
+        %a(href=&quot;#&quot; tabindex=&quot;-1&quot;) Subnav 1
       %li&lt;
-        %a(href=&quot;#&quot;) Subnav 2
+        %a(href=&quot;#&quot; tabindex=&quot;-1&quot;) Subnav 2
       %li&lt;
-        %a(href=&quot;#&quot;) Subnav 3
+        %a(href=&quot;#&quot; tabindex=&quot;-1&quot;) Subnav 3
 
   %nav.button-group#drop_split_demo
     %a.btn Action
     %a.btn.drop#drop_5(data-bindable=&quot;drop&quot;) &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
     %ul.nav.menu(data-bindable=&quot;toggle-group&quot; role=&quot;menu&quot; aria-labelledby=&quot;drop_5&quot;)
       %li&lt;
-        %a(href=&quot;#&quot;) Subnav 1
+        %a(href=&quot;#&quot; tabindex=&quot;-1&quot;) Subnav 1
       %li&lt;
-        %a(href=&quot;#&quot;) Subnav 2
+        %a(href=&quot;#&quot; tabindex=&quot;-1&quot;) Subnav 2
       %li&lt;
-        %a(href=&quot;#&quot;) Subnav 3
+        %a(href=&quot;#&quot; tabindex=&quot;-1&quot;) Subnav 3
 
   %nav.button-group#drop_delay_demo
     %a.btn Action
     %a.btn.drop#drop_6(data-bindable=&quot;drop&quot; data-placement=&quot;east&quot; data-delay=&quot;500&quot;) &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
     %ul.nav.menu(data-bindable=&quot;toggle-group&quot; role=&quot;menu&quot; aria-labelledby=&quot;drop_6&quot;)
       %li&lt;
-        %a(href=&quot;#&quot;) Subnav 1
+        %a(href=&quot;#&quot; tabindex=&quot;-1&quot;) Subnav 1
       %li&lt;
-        %a(href=&quot;#&quot;) Subnav 2
+        %a(href=&quot;#&quot; tabindex=&quot;-1&quot;) Subnav 2
       %li&lt;
-        %a(href=&quot;#&quot;) Subnav 3
+        %a(href=&quot;#&quot; tabindex=&quot;-1&quot;) Subnav 3
 </code></pre>
 
 <!-- end -->

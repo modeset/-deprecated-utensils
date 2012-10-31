@@ -12,11 +12,11 @@
       %a.drop-toggle#tab_stacked_drop(href="#") Tab Drop <span class="caret"></span>
       %ul.nav.menu(role="menu" aria-labelledby="tab_stacked_drop")
         %li<
-          %a(href="#tab_stacked_four" role="tab") Tab Four
+          %a(href="#tab_stacked_four" role="tab" tabindex="-1") Tab Four
         %li<
-          %a(href="#tab_stacked_five" role="tab") Tab Five
+          %a(href="#tab_stacked_five" role="tab" tabindex="-1") Tab Five
         %li<
-          %a(href="#tab_stacked_six" role="tab") Tab Six
+          %a(href="#tab_stacked_six" role="tab" tabindex="-1") Tab Six
 
 %section#tab_stacked_content.tab-content(style="margin-top:1.25em;")
   %article.tab-pane.active#tab_stacked_one(role="tabpanel")

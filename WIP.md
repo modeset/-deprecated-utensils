@@ -2,7 +2,6 @@
 # Todo
 
 ## WIP
-- Manage focus states around all utensils
 - Add basic behaviors for ARIA
 - Look at making the sass files use abstract elements (placeholders)
 - Document mixins

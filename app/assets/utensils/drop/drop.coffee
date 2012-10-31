@@ -66,7 +66,6 @@ class utensils.Drop
     position = @directional.getPlacementAndConstrain()
     @menu.removeClass(@cardinals).addClass(position.cardinal)
     @addDocumentListener()
-    @dispatcher.focus()
 
   deactivated: (e) ->
     @el.removeClass("#{@toggle_classes} selected")
@@ -86,10 +85,19 @@ class utensils.Drop
     @removeDocumentListener()
 
   keyed: (e) ->
-    return if (!/(27)/.test(e.keyCode))
+    return if (!/(27|38|40)/.test(e.keyCode))
     e?.preventDefault()
     e?.stopPropagation()
-    if e.keyCode == 27 then return @clear()
+    return @clear() if e.keyCode == 27
+
+    links = @menu.find('a')
+    return unless links.length
+    index = links.index(links.filter(':focus'))
+    index -= 1 if e.keyCode == 38 && index > 0
+    index += 1 if e.keyCode == 40 && index < links.length - 1
+    index = 0 if !~index
+    links.eq(index).focus()
+
 
 # INTERNAL #
 

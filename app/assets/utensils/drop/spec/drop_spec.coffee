@@ -276,6 +276,20 @@ describe 'Drop', ->
       @split_drop.keyed(keyCode:27, preventDefault:@noop, stopPropagation:@noop)
       expect(@split_el).not.toHaveClass('active open')
 
+    it 'tabs through the sub menu via the down arrow', ->
+      menu = @split_drop.menu
+      @split_el.click()
+      expect(@split_el).toHaveClass('active open')
+      @split_drop.keyed(keyCode:40, preventDefault:@noop, stopPropagation:@noop)
+      expect(menu.find(':focus')).toBe(menu.find(':first a'))
+      @split_drop.keyed(keyCode:40, preventDefault:@noop, stopPropagation:@noop)
+      expect(menu.find(':focus')).toBe(menu.find(':nth-child(2) a'))
+      @split_drop.keyed(keyCode:40, preventDefault:@noop, stopPropagation:@noop)
+      expect(menu.find(':focus')).toBe(menu.find(':nth-child(3) a'))
+      @split_drop.keyed(keyCode:38, preventDefault:@noop, stopPropagation:@noop)
+      expect(menu.find(':focus')).toBe(menu.find(':nth-child(2) a'))
+
+
 
   describe '#findDispacher', ->
     it 'finds a reference to the link when the drop-toggle is a child of .drop', ->
