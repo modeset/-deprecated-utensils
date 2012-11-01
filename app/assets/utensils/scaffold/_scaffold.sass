@@ -28,11 +28,8 @@ body
   line-height: $base-line-height
   margin: 0
 
-\::-moz-selection
-  +text-selection($select-bgc, $select-color)
-
-\::selection
-  +text-selection($select-bgc, $select-color)
+// Set vendor text selection
++text-selection($select-bgc, $select-color)
 
 // Links
 a, a:visited

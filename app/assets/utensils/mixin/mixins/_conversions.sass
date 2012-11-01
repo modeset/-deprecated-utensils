@@ -1,22 +1,4 @@
 
-//~
-// Functions for calculations and conversion between pixels, ems, rems and percentages.
-//
-// Function           | Params                                    | Usage
-// ------------------ | ----------------------------------------- | ----------------------------------------------
-// `to_em`            |  `$target_px`, `$context:$base_font_size` |  Converts target `px` value to `em` in context constraints of the base font size
-// `to_rem`           |  `$target_px`, `$context:$context_px`     |  Converts target `px` value to `rem` in context constraints of the user's base font size
-// `to_percent`       |  `$target_px`, `$context:$base_width`     |  Converts target `px` value to `percentage` in context constraints of the container's width
-// `vertical_pixel`   |  `$target_px`                             |  Returns the vertical rhythm in pixels calculated from the `$base_vertical` setting
-// `vertical_em`      |  `$target_px`                             |  Returns the vertical rhythm in em calculated from the `$base_vertical` setting
-// `vertical_percent` |  `$target_px`                             |  Returns the vertical rhythm in percent calculated from the `$base_vertical` setting
-//
-// Notes:
-// - **Important!** When calculating vertical rhythm, always pass in what the expected pixel value is for the element.
-//
-// Warnings:
-// - **Warning!** Define `$context_px`, `$base_font_size`, `$base_width` and `$base_vertical` prior to the functions being loaded.
-
 @function to_em($target-px, $context:$base-font-size)
   @return ($target-px / $context) * 1em
 

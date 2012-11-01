@@ -1,16 +1,5 @@
 
-//~ Image tools
 // Image interpolation settings based on [stich css](http://stitchcss.com/).
-//
-// Mixin                 | Usage
-// --------------------- | --------------------------------------------------------------------------------
-// `+sharpen-image`      |  Sharpen an image if it has become blurry due to upscaling or downscaling
-// `+high-quality-image` |  Improves rendering quality for images which may be upscaled or downscaled
-// `+low-quality-image`  |  Optimizes the rendering on images so they appear faster, but at a lower quality
-//
-// Warnings:
-// - **Warning!** These settings can have adverse effects in some browsers, test thoroughly.
-
 @mixin sharpen-image
   image-rendering: -moz-crisp-edges
   -ms-interpolation-mode: nearest-neighbor

@@ -1,6 +1,12 @@
 
 @mixin text-selection($bg:#0091ce, $fg:#fff)
-  background: $bg
-  color: $fg
-  text-shadow: none
+  \::-moz-selection
+    background: $bg
+    color: $fg
+    text-shadow: none
+
+  \::selection
+    background: $bg
+    color: $fg
+    text-shadow: none
 

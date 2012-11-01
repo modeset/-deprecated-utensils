@@ -1,20 +1,4 @@
 
-//~ Font size
-// Sets a `font-size` using `rems` with a pixel fallback.
-//
-// Arguments:
-// - `$target_px`              - The target font size in pixels
-// - `$context:$context_px`    - [_optional_] The context constraints of the
-//                               user's base font size
-//
-// Notes:
-// - **Heads Up!** Make sure not to include the `px` postfix when passing a size
-//
-// Examples:
-//    h1
-//      +font-size(48)
-//      color: blue
-
 @mixin font-size($target-px, $context:$context-px)
   font-size: $target-px * 1px
   font-size: to_rem($target-px, $context)

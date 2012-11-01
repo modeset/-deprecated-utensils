@@ -1,18 +1,5 @@
 
-//~
-// Draws a directional arrow, typically used for the pseudo elements of `:before` or `:after`.
-// These are similar to carets, except they don't require an extra element inside the DOM.
-//
-// Mixin          | Params                   | Usage
-// ---------------|--------------------------|-------------------
-// `+arrow_north` | `$color:#000, $size:5px` | An arrow pointing up
-// `+arrow_south` | `$color:#000, $size:5px` | An arrow pointing down
-// `+arrow_east`  | `$color:#000, $size:5px` | An arrow pointing right
-// `+arrow_west`  | `$color:#000, $size:5px` | An arrow pointing left
-//
-// Notes:
-// - **Heads Up!** Arrows are positioned `absolute` by default so the host should be `relative` and don't forget to add `content: ""`
-
+// Base arrow for setup
 @mixin arrow
   display: inline-block
   position: absolute

@@ -4149,14 +4149,529 @@ your <code>config.sass</code> file or before <code>menu.sass</code> is loaded.</
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
-<h1>Mixins</h1>
+<h1>Mixin</h1>
 
-<p>Describe this</p>
+<p>Automate common re-usable chunks of CSS, properties, selectors, and/or settings.</p>
+
+<pre><code class="sass">@import utensils/mixin/mixins
+</code></pre>
+
+<h2>Arrows</h2>
+
+<p>Draws a directional arrow, typically used for the pseudo elements of
+<code>:before</code> or <code>:after</code>. These are similar to carets, except they don&#39;t
+require an extra element inside the DOM.</p>
+
+<table><thead>
+<tr>
+<th>Mixin</th>
+<th>Params</th>
+<th>Usage</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>+arrow</code></td>
+<td><code>none</code></td>
+<td>The base setup for arrows</td>
+</tr>
+<tr>
+<td><code>+arrow_north</code></td>
+<td><code>$color:#000, $size:5px, $addBase:false</code></td>
+<td>An arrow pointing up</td>
+</tr>
+<tr>
+<td><code>+arrow_south</code></td>
+<td><code>$color:#000, $size:5px, $addBase:false</code></td>
+<td>An arrow pointing down</td>
+</tr>
+<tr>
+<td><code>+arrow_east</code></td>
+<td><code>$color:#000, $size:5px, $addBase:false</code></td>
+<td>An arrow pointing right</td>
+</tr>
+<tr>
+<td><code>+arrow_west</code></td>
+<td><code>$color:#000, $size:5px, $addBase:false</code></td>
+<td>An arrow pointing left</td>
+</tr>
+</tbody></table>
+
+<h6>Notes</h6>
+
+<ul>
+<li><strong>Heads Up!</strong> Arrows are typically positioned <code>absolute</code> by default so
+the host should be <code>relative</code> and don&#39;t forget to add <code>content: &quot;&quot;</code></li>
+</ul>
+
+<h2>Clearfixins</h2>
+
+<p>Clearfixins force a containers height to adjust when it contains floated
+children elements.</p>
+
+<p>There are two mixins available for fixing floats</p>
+
+<ul>
+<li><code>+clearfixer</code> The <a href="http://nicolasgallagher.com/micro-clearfix-hack/">micro clearfix</a> utilizing
+pseudo elements to clear floats</li>
+<li><code>+clearfix</code> Uses <code>overflow: hidden</code> to clear floats</li>
+</ul>
+
+<p>Generally, the micro clearfix (<code>+clearfixer</code>) is prefered and mixed into
+the parent container of floated items.</p>
+
+<h2>Columns</h2>
+
+<p>Allows elements to take the shape of either a column or row within a
+grid environment.</p>
+
+<table><thead>
+<tr>
+<th>Mixin</th>
+<th>Usage</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>+base-column</code></td>
+<td>The base <code>column</code> settings, should be extended by all columns</td>
+</tr>
+<tr>
+<td><code>+base-column-right</code></td>
+<td>An alternate base <code>column</code> which floats elements to the right</td>
+</tr>
+<tr>
+<td><code>+base-row</code></td>
+<td>The base <code>row</code> settings, should be extended by all rows</td>
+</tr>
+</tbody></table>
+
+<h6>Warnings</h6>
+
+<ul>
+<li><strong>Warning!</strong> The column mixins all utilize <code>box-sizing: border-box</code>
+which is not supported in ie7</li>
+</ul>
+
+<h3>Todo</h3>
+
+<ul>
+<li>Move the <code>.pull-left/right</code> helpers out to a placeholder and document</li>
+</ul>
+
+<h2>Conversions</h2>
+
+<p>Functions for calculations and conversion between pixels, ems, rems and
+percentages.</p>
+
+<table><thead>
+<tr>
+<th>Function</th>
+<th>Params</th>
+<th>Usage</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>to_em</code></td>
+<td><code>$target-px</code>, <code>$context:$base-font_size</code></td>
+<td>Converts target <code>px</code> value to <code>em</code> in context constraints of the <code>$base-font-size</code></td>
+</tr>
+<tr>
+<td><code>to_rem</code></td>
+<td><code>$target-px</code>, <code>$context:$context-px</code></td>
+<td>Converts target <code>px</code> value to <code>rem</code> in context constraints of the user&#39;s <code>$base-font-size</code></td>
+</tr>
+<tr>
+<td><code>to_percent</code></td>
+<td><code>$target-px</code>, <code>$context:$base-width</code></td>
+<td>Converts target <code>px</code> value to <code>percentage</code> in context constraints of the container&#39;s width</td>
+</tr>
+<tr>
+<td><code>vertical_pixel</code></td>
+<td><code>$target-px</code></td>
+<td>Returns the vertical rhythm in pixels calculated from the <code>$base-vertical</code> setting</td>
+</tr>
+<tr>
+<td><code>vertical_em</code></td>
+<td><code>$target-px</code></td>
+<td>Returns the vertical rhythm in em calculated from the <code>$base-vertical</code> setting</td>
+</tr>
+<tr>
+<td><code>vertical_percent</code></td>
+<td><code>$target-px</code></td>
+<td>Returns the vertical rhythm in percent calculated from the <code>$base-vertical</code> setting</td>
+</tr>
+</tbody></table>
+
+<h6>Notes</h6>
+
+<ul>
+<li><strong>Important!</strong> When calculating vertical rhythm, always pass in what
+the expected pixel value is for the element.</li>
+</ul>
+
+<h6>Warnings</h6>
+
+<ul>
+<li><strong>Warning!</strong> Define <code>$context_px</code>, <code>$base_font_size</code>, <code>$base_width</code>
+and <code>$base_vertical</code> prior to the functions being loaded.</li>
+</ul>
+
+<h2>Float fill</h2>
+
+<p>JG... describe this!  </p>
+
+<h2>Font size</h2>
+
+<p>Sets a <code>font-size</code> using <code>rems</code> with a pixel fall back.</p>
+
+<h5>Arguments</h5>
+
+<ul>
+<li><code>$target-px</code> The target font size in pixels</li>
+<li><code>$context:$context-px</code> [_optional_] The context constraints of the user&#39;s base font size</li>
+</ul>
+
+<h6>Notes</h6>
+
+<ul>
+<li><strong>Heads Up!</strong> Make sure not to include the <code>px</code> postfix when passing a
+size</li>
+</ul>
+
+<pre><code class="sass">h1
+  +font-size(48)
+  color: blue
+</code></pre>
+
+<h2>Form placeholder</h2>
+
+<p>Adds vendor prefixes for altering colors of form placeholder elements.</p>
+
+<h5>Arguments</h5>
+
+<ul>
+<li><code>$color</code> The color to use (defaults to <code>#ccc</code>)</li>
+</ul>
+
+<pre><code class="sass">input,
+textarea
+  +form-placeholder(blue)
+</code></pre>
+
+<h2>Hardware accelerate</h2>
+
+<p>Add <code>webkit</code> vendor prefixes for hardware acceleration.</p>
+
+<pre><code class="sass">.carousel
+  +hardware-accelerate
+</code></pre>
+
+<h2>Image tools</h2>
+
+<p>Image interpolation settings based on <a href="http://stitchcss.com/">stich css</a>.</p>
+
+<table><thead>
+<tr>
+<th>Mixin</th>
+<th>Usage</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>+sharpen-image</code></td>
+<td>Sharpen an image if it has become blurry due to upscaling or downscaling</td>
+</tr>
+<tr>
+<td><code>+high-quality-image</code></td>
+<td>Improves rendering quality for images which may be upscaled or downscaled</td>
+</tr>
+<tr>
+<td><code>+low-quality-image</code></td>
+<td>Optimizes the rendering on images so they appear faster, but at a lower quality</td>
+</tr>
+</tbody></table>
+
+<h6>Warnings</h6>
+
+<ul>
+<li><strong>Warning!</strong> These settings can have adverse effects in some browsers, test thoroughly.</li>
+</ul>
+
+<h2>Inline block</h2>
+
+<p>Mirrors the functionality found in <a href="http://compass-style.org/reference/compass/css3/inline_block/">Compass</a>
+and normalizes <code>inline-block</code> for <a href="http://thoughtbot.com/bourbon/">Bourbon</a> by setting <code>vertical-align: middle</code>.</p>
+
+<p>The mixin also fixes support for ie7 if <code>$legacy-support-for-ie</code> is set
+to true.</p>
+
+<pre><code class="sass">.breadcrumb &gt; li
+  +inline-block
+  color: blue
+</code></pre>
+
+<h2>Image replacement</h2>
+
+<p>Hides text on an element when utilizing a <code>background-image</code> such as a logo or icon.</p>
+
+<pre><code class="sass">.footer .social-icon
+  +ir
+  background-image: $sprite-icons-img
+  width: 24px
+  height: 24px
+</code></pre>
+
+<h2>Responsive</h2>
+
+<p>Mixins for creating responsive behavior around structures and layouts.</p>
+
+<table><thead>
+<tr>
+<th>Mixin</th>
+<th>Parameters</th>
+<th>Usage</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>+resize_containers</code></td>
+<td><code>$base_value</code></td>
+<td>Resize any <code>.container</code> based on the media query</td>
+</tr>
+</tbody></table>
+
+<h2>Sticky footer</h2>
+
+<p>Mixins for sticking and unsticking a footer to the bottom of a page.</p>
+
+<table><thead>
+<tr>
+<th>Mixin</th>
+<th>Parameters</th>
+<th>Usage</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>+sticky_footer</code></td>
+<td><code>$footer-height</code></td>
+<td>Creates a sticky footer based off a fixed height on the footer element</td>
+</tr>
+<tr>
+<td><code>+unsticky_footer</code></td>
+<td><em>none</em></td>
+<td>Reverses the effect of the sticky_footer mixin, useful in media queries</td>
+</tr>
+</tbody></table>
+
+<p>Requires the markup to contain a <code>.main</code>, <code>.content</code> and <code>.footer</code> elements.</p>
+
+<pre><code class="haml">%body(role=&quot;document&quot;)
+  %section.main
+    %section.content
+      %section.container(role=&quot;main&quot;)
+        &lt;!-- page content --&gt;
+  %footer.footer
+    &lt;!-- footer content --&gt;
+</code></pre>
+
+<h2>Tab focus</h2>
+
+<p>Resets the normal browser behavior for tab focusable content.</p>
+
+<pre><code class="sass">input[type=&quot;radio&quot;]:focus,
+input[type=&quot;checkbox&quot;]:focus
+  +tab-focus
+</code></pre>
+
+<h2>Text selection</h2>
+
+<p>Inject vendor prefixes for coloring of text foreground and background when selected.</p>
+
+<table><thead>
+<tr>
+<th>Mixin</th>
+<th>Params</th>
+<th>Usage</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>+text-selection</code></td>
+<td><code>$bg:#0091ce, $fg:#fff</code></td>
+<td>Set the color styles</td>
+</tr>
+</tbody></table>
+
+<pre><code class="sass">+text-selection(blue, white)
+</code></pre>
+
+<h2>Timing equations</h2>
+
+<p>Cubic-bezier timing properties for use with
+<code>transition-timing-function</code>. The timing functions are based on the
+properties included with <a href="http://thoughtbot.com/bourbon/">Bourbon</a>.</p>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>default (linear)</code></td>
+<td><div class="sherpa-swatch"></div></td>
+</tr>
+<tr>
+<td><code>$ease-in-quad</code></td>
+<td><div class="sherpa-swatch ease-in-quad"></div></td>
+</tr>
+<tr>
+<td><code>$ease-in-cubic</code></td>
+<td><div class="sherpa-swatch ease-in-cubic"></div></td>
+</tr>
+<tr>
+<td><code>$ease-in-quart</code></td>
+<td><div class="sherpa-swatch ease-in-quart"></div></td>
+</tr>
+<tr>
+<td><code>$ease-in-quint</code></td>
+<td><div class="sherpa-swatch ease-in-quint"></div></td>
+</tr>
+<tr>
+<td><code>$ease-in-sine</code></td>
+<td><div class="sherpa-swatch ease-in-sine"></div></td>
+</tr>
+<tr>
+<td><code>$ease-in-expo</code></td>
+<td><div class="sherpa-swatch ease-in-expo"></div></td>
+</tr>
+<tr>
+<td><code>$ease-in-circ</code></td>
+<td><div class="sherpa-swatch ease-in-circ"></div></td>
+</tr>
+<tr>
+<td><code>$ease-in-back</code></td>
+<td><div class="sherpa-swatch ease-in-back"></div></td>
+</tr>
+<tr>
+<td><code>$ease-out-quad</code></td>
+<td><div class="sherpa-swatch ease-out-quad"></div></td>
+</tr>
+<tr>
+<td><code>$ease-out-cubic</code></td>
+<td><div class="sherpa-swatch ease-out-cubic"></div></td>
+</tr>
+<tr>
+<td><code>$ease-out-quart</code></td>
+<td><div class="sherpa-swatch ease-out-quart"></div></td>
+</tr>
+<tr>
+<td><code>$ease-out-quint</code></td>
+<td><div class="sherpa-swatch ease-out-quint"></div></td>
+</tr>
+<tr>
+<td><code>$ease-out-sine</code></td>
+<td><div class="sherpa-swatch ease-out-sine"></div></td>
+</tr>
+<tr>
+<td><code>$ease-out-expo</code></td>
+<td><div class="sherpa-swatch ease-out-expo"></div></td>
+</tr>
+<tr>
+<td><code>$ease-out-circ</code></td>
+<td><div class="sherpa-swatch ease-out-circ"></div></td>
+</tr>
+<tr>
+<td><code>$ease-out-back</code></td>
+<td><div class="sherpa-swatch ease-out-back"></div></td>
+</tr>
+<tr>
+<td><code>$ease-in-out-quad</code></td>
+<td><div class="sherpa-swatch ease-in-out-quad"></div></td>
+</tr>
+<tr>
+<td><code>$ease-in-out-cubic</code></td>
+<td><div class="sherpa-swatch ease-in-out-cubic"></div></td>
+</tr>
+<tr>
+<td><code>$ease-in-out-quart</code></td>
+<td><div class="sherpa-swatch ease-in-out-quart"></div></td>
+</tr>
+<tr>
+<td><code>$ease-in-out-quint</code></td>
+<td><div class="sherpa-swatch ease-in-out-quint"></div></td>
+</tr>
+<tr>
+<td><code>$ease-in-out-sine</code></td>
+<td><div class="sherpa-swatch ease-in-out-sine"></div></td>
+</tr>
+<tr>
+<td><code>$ease-in-out-expo</code></td>
+<td><div class="sherpa-swatch ease-in-out-expo"></div></td>
+</tr>
+<tr>
+<td><code>$ease-in-out-circ</code></td>
+<td><div class="sherpa-swatch ease-in-out-circ"></div></td>
+</tr>
+<tr>
+<td><code>$ease-in-out-back</code></td>
+<td><div class="sherpa-swatch ease-in-out-back"></div></td>
+</tr>
+</tbody></table>
+
+<h3>Todo</h3>
+
+<ul>
+<li>Setup the demo for this</li>
+</ul>
+
+<h2>Visibility</h2>
+
+<p>Controls various visibility settings applied to elements.</p>
+
+<table><thead>
+<tr>
+<th>Mixin</th>
+<th>Params</th>
+<th>Usage</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>+hidden</code></td>
+<td><em>none</em></td>
+<td>Totally hidden from screen readers and browsers</td>
+</tr>
+<tr>
+<td><code>+shown</code></td>
+<td><em>none</em></td>
+<td>Reverse the effects of <code>hidden</code></td>
+</tr>
+<tr>
+<td><code>+visuallyhidden</code></td>
+<td><em>none</em></td>
+<td>Only visually hidden, still available to screen readers</td>
+</tr>
+<tr>
+<td><code>+visuallyshown</code></td>
+<td><em>none</em></td>
+<td>Reverse the settings applied by <code>.visuallyhidden</code></td>
+</tr>
+<tr>
+<td><code>+invisible</code></td>
+<td><em>none</em></td>
+<td>Hide visually and from screenreaders, but maintain layout</td>
+</tr>
+</tbody></table>
+
+<h6>Warnings</h6>
+
+<ul>
+<li><strong>Warning!</strong> When using <code>visuallyhidden</code> and <code>visuallyshown</code> with
+<code>box-shadow</code>, you&#39;ll need to add <code>clip:initial</code> to get the shadows to
+reappear</li>
+</ul>
 
 <h2>Todo</h2>
 
 <ul>
-<li>Pull the docs from the files into this readme</li>
+<li>Normalize how this documentation is (either go with tables or
+argument listing)</li>
 </ul>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
