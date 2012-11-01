@@ -1,20 +1,22 @@
+
 $cursor-open-hand-path: "/assets/cursors/openhand.cur" !default
 $cursor-closed-hand-path: "/assets/cursors/closedhand.cur" !default
 
-.hand 
-  cursor: hand 
-  cursor: grab 
-  cursor: -moz-grab 
+.hand
+  cursor: hand
+  cursor: grab
+  cursor: -moz-grab
   cursor: -webkit-grab
 
-.handCursor 
-  cursor: url($cursor-open-hand-path), default !important
+.handCursor
+  cursor: asset-url($cursor-open-hand-path, image), default !important
 
-.handGrab 
-  cursor: hand 
+.handGrab
+  cursor: hand
   cursor: grabbing
   cursor: -moz-grabbing
   cursor: -webkit-grabbing
 
-.handGrabCursor 
-  cursor: url($cursor-closed-hand-path), default !important
+.handGrabCursor
+  cursor: asset-url($cursor-closed-hand-path, image), default !important
+
