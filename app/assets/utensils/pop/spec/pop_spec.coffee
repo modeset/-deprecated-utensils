@@ -153,7 +153,7 @@ describe 'Pop', ->
 
     it 'uses Triggerables trigger types', ->
       expect(@north_pop.triggerable.trigger_type).toEqual(on:'click.pop', off:'click.pop')
-      expect(@east_pop.triggerable.trigger_type).toEqual(on:'mouseenter.pop', off:'mouseleave.pop')
+      expect(@east_pop.triggerable.trigger_type).toEqual(on:'mouseenter.pop focus.pop', off:'mouseleave.pop blur.pop')
       expect(@override_pop.triggerable.trigger_type).toEqual(on:'focus.pop', off:'blur.pop')
 
 

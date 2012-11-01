@@ -134,7 +134,7 @@ describe 'Tip', ->
       expect(@south_el.attr('title')).toEqual('')
 
     it 'uses Triggerables trigger types', ->
-      expect(@east_tip.triggerable.trigger_type).toEqual(on:'mouseenter.tip', off:'mouseleave.tip')
+      expect(@east_tip.triggerable.trigger_type).toEqual(on:'mouseenter.tip focus.tip', off:'mouseleave.tip blur.tip')
       expect(@override_tip.triggerable.trigger_type).toEqual(on:'click.tip', off:'click.tip')
 
 

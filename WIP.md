@@ -2,7 +2,6 @@
 # Todo
 
 ## WIP
-- Add basic behaviors for ARIA
 - Look at making the sass files use abstract elements (placeholders)
 - Document mixins
 - Scrub the behavior files and normalize

@@ -70,7 +70,7 @@ describe 'Triggerable', ->
       expect(@defaulter.trigger_type).toEqual(on:'click.triggerable', off:'click.triggerable')
 
     it 'overrides the default trigger type based on a hover "hover.namespace"', ->
-      expect(@hoverer.trigger_type).toEqual(on:'mouseenter.hoverable', off:'mouseleave.hoverable')
+      expect(@hoverer.trigger_type).toEqual(on:'mouseenter.hoverable focus.hoverable', off:'mouseleave.hoverable blur.hoverable')
 
     it 'does not call #setDelay if there are is no delay attribute', ->
       expect(@defaulter.data.delay).toBeUndefined()
@@ -316,7 +316,7 @@ describe 'Triggerable', ->
   describe '#setTriggerEventTypes', ->
     it 'sets different event types for on and off from hover', ->
       type = @defaulter.setTriggerEventTypes('hover')
-      expect(type).toEqual(on:'mouseenter.triggerable', off:'mouseleave.triggerable')
+      expect(type).toEqual(on:'mouseenter.triggerable focus.triggerable', off:'mouseleave.triggerable blur.triggerable')
 
     it 'sets different event types for on and off from focus', ->
       type = @defaulter.setTriggerEventTypes('focus')

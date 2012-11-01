@@ -67,6 +67,9 @@ Attribute  | trigger.on => handler     | trigger.off => handler
 The `manual` trigger does not add any listeners, as it's meant to be
 called programmatically from another object.
 
+By default, any triggers related to hover will also receive the `focus`
+and `blur` events. This is done to help with typical ARIA behavior.
+
 Any other trigger types, not included in this list, map their `on/off`
 properties to the given trigger name. They will automatically call the
 `#toggle` handler.

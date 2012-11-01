@@ -81,7 +81,7 @@ class utensils.Triggerable
 
   setTriggerEventTypes: (type) ->
     if type == 'hover'
-      return on:"mouseenter.#{@namespace}", off:"mouseleave.#{@namespace}"
+      return on:"mouseenter.#{@namespace} focus.#{@namespace}", off:"mouseleave.#{@namespace} blur.#{@namespace}"
     else if type == 'focus'
       return on:"focus.#{@namespace}", off:"blur.#{@namespace}"
     else if type == 'manual'
