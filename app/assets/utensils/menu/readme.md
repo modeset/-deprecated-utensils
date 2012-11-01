@@ -13,11 +13,11 @@ typically used within the `Drop` component.
 ```haml
 %ul.nav.menu(data-bindable="toggle-group" role="menu")
   %li<
-    %a(href="#") Menu item 1
+    %a(href="#" tabindex="-1") Menu item 1
   %li.active<
-    %a(href="#") Menu item 2
+    %a(href="#" tabindex="-1") Menu item 2
   %li<
-    %a(href="#") Menu item 3
+    %a(href="#" tabindex="-1") Menu item 3
 ```
 <!-- end -->
 

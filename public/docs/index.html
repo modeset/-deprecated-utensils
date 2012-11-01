@@ -4091,19 +4091,19 @@ typically used within the <code>Drop</code> component.</p>
 <!--~ markup/menu.html.haml -->
 
 <div class="sherpa-showcase sherpa-clearfix"><ul class='nav menu' data-bindable='toggle-group' role='menu'>
-<li><a href='#'>Menu item 1</a></li>
-<li class='active'><a href='#'>Menu item 2</a></li>
-<li><a href='#'>Menu item 3</a></li>
+<li><a href='#' tabindex='-1'>Menu item 1</a></li>
+<li class='active'><a href='#' tabindex='-1'>Menu item 2</a></li>
+<li><a href='#' tabindex='-1'>Menu item 3</a></li>
 </ul>
 </div>
 
 <pre><code class="haml">%ul.nav.menu(data-bindable=&quot;toggle-group&quot; role=&quot;menu&quot;)
   %li&lt;
-    %a(href=&quot;#&quot;) Menu item 1
+    %a(href=&quot;#&quot; tabindex=&quot;-1&quot;) Menu item 1
   %li.active&lt;
-    %a(href=&quot;#&quot;) Menu item 2
+    %a(href=&quot;#&quot; tabindex=&quot;-1&quot;) Menu item 2
   %li&lt;
-    %a(href=&quot;#&quot;) Menu item 3
+    %a(href=&quot;#&quot; tabindex=&quot;-1&quot;) Menu item 3
 </code></pre>
 
 <!-- end -->
@@ -4411,9 +4411,9 @@ various components with navigation, search forms and drop downs.</p>
 <li><a href='#'>Link 4</a></li>
 <li class='drop' data-bindable='drop'><a class='drop-toggle' href='#' id='nb_drop_1'>Drop <span class="caret"></span></a>
 <ul aria-labelledby='nb_drop_1' class='nav menu' role='menu'>
-<li><a href='#'>Subnav 1</a></li>
-<li><a href='#'>Subnav 2</a></li>
-<li><a href='#'>Subnav 3</a></li>
+<li><a href='#' tabindex='-1'>Subnav 1</a></li>
+<li><a href='#' tabindex='-1'>Subnav 2</a></li>
+<li><a href='#' tabindex='-1'>Subnav 3</a></li>
 </ul></li>
 </ul>
 <section class='pull-right'>
@@ -4429,8 +4429,8 @@ various components with navigation, search forms and drop downs.</p>
 <li><a href='#'>Another Link</a></li>
 <li class='drop' data-bindable='drop'><a class='drop-toggle' href='#' id='nb_drop_2'>Settings <span class="caret"></span></a>
 <ul aria-labelledby='nb_drop_2' class='nav menu' role='menu'>
-<li><a href='#'>Subnav 1</a></li>
-<li><a href='#'>Subnav 2</a></li>
+<li><a href='#' tabindex='-1'>Subnav 1</a></li>
+<li><a href='#' tabindex='-1'>Subnav 2</a></li>
 </ul></li>
 </ul>
 </section>
@@ -4462,11 +4462,11 @@ various components with navigation, search forms and drop downs.</p>
             %a#nb_drop_1.drop-toggle(href=&quot;#&quot;) Drop &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
             %ul.nav.menu(role=&quot;menu&quot; aria-labelledby=&quot;nb_drop_1&quot;)
               %li&lt;
-                %a(href=&quot;#&quot;) Subnav 1
+                %a(href=&quot;#&quot; tabindex=&quot;-1&quot;) Subnav 1
               %li&lt;
-                %a(href=&quot;#&quot;) Subnav 2
+                %a(href=&quot;#&quot; tabindex=&quot;-1&quot;) Subnav 2
               %li&lt;
-                %a(href=&quot;#&quot;) Subnav 3
+                %a(href=&quot;#&quot; tabindex=&quot;-1&quot;) Subnav 3
 
         %section.pull-right
           %form.form-search(role=&quot;search&quot;)
@@ -4480,9 +4480,9 @@ various components with navigation, search forms and drop downs.</p>
               %a.drop-toggle#nb_drop_2(href=&quot;#&quot;) Settings &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
               %ul.nav.menu(role=&quot;menu&quot; aria-labelledby=&quot;nb_drop_2&quot;)
                 %li&lt;
-                  %a(href=&quot;#&quot;) Subnav 1
+                  %a(href=&quot;#&quot; tabindex=&quot;-1&quot;) Subnav 1
                 %li&lt;
-                  %a(href=&quot;#&quot;) Subnav 2
+                  %a(href=&quot;#&quot; tabindex=&quot;-1&quot;) Subnav 2
 </code></pre>
 
 <!-- end -->
@@ -5089,9 +5089,9 @@ the related targets panel.</p>
 <li class='drop' data-bindable='drop'>
 <a class='drop-toggle' href='#' id='pill_drop'>Pill Drop <span class="caret"></span></a>
 <ul aria-labelledby='pill_drop' class='nav menu' role='menu'>
-<li><a href='#pill_four' role='tab'>Pill Four</a></li>
-<li><a href='#pill_five' role='tab'>Pill Five</a></li>
-<li><a href='#pill_six' role='tab'>Pill Six</a></li>
+<li><a href='#pill_four' role='tab' tabindex='-1'>Pill Four</a></li>
+<li><a href='#pill_five' role='tab' tabindex='-1'>Pill Five</a></li>
+<li><a href='#pill_six' role='tab' tabindex='-1'>Pill Six</a></li>
 </ul>
 </li>
 </ul>
@@ -5131,11 +5131,11 @@ the related targets panel.</p>
       %a.drop-toggle#pill_drop(href=&quot;#&quot;) Pill Drop &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
       %ul.nav.menu(role=&quot;menu&quot; aria-labelledby=&quot;pill_drop&quot;)
         %li&lt;
-          %a(href=&quot;#pill_four&quot; role=&quot;tab&quot;) Pill Four
+          %a(href=&quot;#pill_four&quot; role=&quot;tab&quot; tabindex=&quot;-1&quot;) Pill Four
         %li&lt;
-          %a(href=&quot;#pill_five&quot; role=&quot;tab&quot;) Pill Five
+          %a(href=&quot;#pill_five&quot; role=&quot;tab&quot; tabindex=&quot;-1&quot;) Pill Five
         %li&lt;
-          %a(href=&quot;#pill_six&quot; role=&quot;tab&quot;) Pill Six
+          %a(href=&quot;#pill_six&quot; role=&quot;tab&quot; tabindex=&quot;-1&quot;) Pill Six
 
 %section#pill_content.tab-content(style=&quot;margin-top:1.25em;&quot;)
   %article.tab-pane.active#pill_one(role=&quot;tabpanel&quot;)
@@ -5210,9 +5210,9 @@ within your <code>config.sass</code> file or before <code>pill.sass</code> is lo
 <li class='drop' data-bindable='drop'>
 <a class='drop-toggle' href='#' id='pill_stacked_drop'>Pill Drop <span class="caret"></span></a>
 <ul aria-labelledby='pill_stacked_drop' class='nav menu' role='menu'>
-<li><a href='#pill_stacked_four' role='tab'>Pill Four</a></li>
-<li><a href='#pill_stacked_five' role='tab'>Pill Five</a></li>
-<li><a href='#pill_stacked_six' role='tab'>Pill Six</a></li>
+<li><a href='#pill_stacked_four' role='tab' tabindex='-1'>Pill Four</a></li>
+<li><a href='#pill_stacked_five' role='tab' tabindex='-1'>Pill Five</a></li>
+<li><a href='#pill_stacked_six' role='tab' tabindex='-1'>Pill Six</a></li>
 </ul>
 </li>
 </ul>
@@ -5252,11 +5252,11 @@ within your <code>config.sass</code> file or before <code>pill.sass</code> is lo
       %a.drop-toggle#pill_stacked_drop(href=&quot;#&quot;) Pill Drop &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
       %ul.nav.menu(role=&quot;menu&quot; aria-labelledby=&quot;pill_stacked_drop&quot;)
         %li&lt;
-          %a(href=&quot;#pill_stacked_four&quot; role=&quot;tab&quot;) Pill Four
+          %a(href=&quot;#pill_stacked_four&quot; role=&quot;tab&quot; tabindex=&quot;-1&quot;) Pill Four
         %li&lt;
-          %a(href=&quot;#pill_stacked_five&quot; role=&quot;tab&quot;) Pill Five
+          %a(href=&quot;#pill_stacked_five&quot; role=&quot;tab&quot; tabindex=&quot;-1&quot;) Pill Five
         %li&lt;
-          %a(href=&quot;#pill_stacked_six&quot; role=&quot;tab&quot;) Pill Six
+          %a(href=&quot;#pill_stacked_six&quot; role=&quot;tab&quot; tabindex=&quot;-1&quot;) Pill Six
 
 %section#pill_stacked_content.tab-content(style=&quot;margin-top:1.25em;&quot;)
   %article.tab-pane.active#pill_stacked_one
@@ -6132,9 +6132,9 @@ the related targets panel.</p>
 <li class='drop' data-bindable='drop'>
 <a class='drop-toggle' href='#' id='tab_drop'>Tab Drop <span class="caret"></span></a>
 <ul aria-labelledby='tab_drop' class='nav menu' role='menu'>
-<li><a href='#tab_four' role='tab'>Tab Four</a></li>
-<li><a href='#tab_five' role='tab'>Tab Five</a></li>
-<li><a href='#tab_six' role='tab'>Tab Six</a></li>
+<li><a href='#tab_four' role='tab' tabindex='-1'>Tab Four</a></li>
+<li><a href='#tab_five' role='tab' tabindex='-1'>Tab Five</a></li>
+<li><a href='#tab_six' role='tab' tabindex='-1'>Tab Six</a></li>
 </ul>
 </li>
 </ul>
@@ -6174,11 +6174,11 @@ the related targets panel.</p>
       %a.drop-toggle#tab_drop(href=&quot;#&quot;) Tab Drop &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
       %ul.nav.menu(role=&quot;menu&quot; aria-labelledby=&quot;tab_drop&quot;)
         %li&lt;
-          %a(href=&quot;#tab_four&quot; role=&quot;tab&quot;) Tab Four
+          %a(href=&quot;#tab_four&quot; role=&quot;tab&quot; tabindex=&quot;-1&quot;) Tab Four
         %li&lt;
-          %a(href=&quot;#tab_five&quot; role=&quot;tab&quot;) Tab Five
+          %a(href=&quot;#tab_five&quot; role=&quot;tab&quot; tabindex=&quot;-1&quot;) Tab Five
         %li&lt;
-          %a(href=&quot;#tab_six&quot; role=&quot;tab&quot;) Tab Six
+          %a(href=&quot;#tab_six&quot; role=&quot;tab&quot; tabindex=&quot;-1&quot;) Tab Six
 
 %section#tab_content.tab-content(style=&quot;margin-top:1.25em;&quot;)
   %article.tab-pane.active#tab_one(role=&quot;tabpanel&quot;)
@@ -6354,9 +6354,9 @@ within your <code>config.sass</code> file or before <code>tab.sass</code> is loa
 <li class='drop' data-bindable='drop'>
 <a class='drop-toggle' href='#' id='tab_stacked_drop'>Tab Drop <span class="caret"></span></a>
 <ul aria-labelledby='tab_stacked_drop' class='nav menu' role='menu'>
-<li><a href='#tab_stacked_four' role='tab'>Tab Four</a></li>
-<li><a href='#tab_stacked_five' role='tab'>Tab Five</a></li>
-<li><a href='#tab_stacked_six' role='tab'>Tab Six</a></li>
+<li><a href='#tab_stacked_four' role='tab' tabindex='-1'>Tab Four</a></li>
+<li><a href='#tab_stacked_five' role='tab' tabindex='-1'>Tab Five</a></li>
+<li><a href='#tab_stacked_six' role='tab' tabindex='-1'>Tab Six</a></li>
 </ul>
 </li>
 </ul>
@@ -6396,11 +6396,11 @@ within your <code>config.sass</code> file or before <code>tab.sass</code> is loa
       %a.drop-toggle#tab_stacked_drop(href=&quot;#&quot;) Tab Drop &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
       %ul.nav.menu(role=&quot;menu&quot; aria-labelledby=&quot;tab_stacked_drop&quot;)
         %li&lt;
-          %a(href=&quot;#tab_stacked_four&quot; role=&quot;tab&quot;) Tab Four
+          %a(href=&quot;#tab_stacked_four&quot; role=&quot;tab&quot; tabindex=&quot;-1&quot;) Tab Four
         %li&lt;
-          %a(href=&quot;#tab_stacked_five&quot; role=&quot;tab&quot;) Tab Five
+          %a(href=&quot;#tab_stacked_five&quot; role=&quot;tab&quot; tabindex=&quot;-1&quot;) Tab Five
         %li&lt;
-          %a(href=&quot;#tab_stacked_six&quot; role=&quot;tab&quot;) Tab Six
+          %a(href=&quot;#tab_stacked_six&quot; role=&quot;tab&quot; tabindex=&quot;-1&quot;) Tab Six
 
 %section#tab_stacked_content.tab-content(style=&quot;margin-top:1.25em;&quot;)
   %article.tab-pane.active#tab_stacked_one(role=&quot;tabpanel&quot;)
@@ -7751,6 +7751,9 @@ based on the following:</p>
 
 <p>The <code>manual</code> trigger does not add any listeners, as it&#39;s meant to be
 called programmatically from another object.</p>
+
+<p>By default, any triggers related to hover will also receive the <code>focus</code>
+and <code>blur</code> events. This is done to help with typical ARIA behavior.</p>
 
 <p>Any other trigger types, not included in this list, map their <code>on/off</code>
 properties to the given trigger name. They will automatically call the
