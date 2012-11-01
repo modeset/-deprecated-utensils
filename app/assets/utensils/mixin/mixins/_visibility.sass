@@ -1,5 +1,4 @@
 
-$add-mixin-helpers: true !default
 $legacy-support-for-ie: true !default
 
 // Totally hidden from screen readers and browsers
@@ -45,16 +44,15 @@ $legacy-support-for-ie: true !default
 @mixin invisible
   visibility: hidden
 
-// Add helper classes
-@if $add-mixin-helpers == true
-  .hidden
-    +hidden
-  .shown
-    +shown
-  .visuallyhidden
-    +visuallyhidden
-  .visuallyshown
-    +visuallyshown
-  .invisible
-    +invisible
+// Add placeholder classes
+%hidden
+  +hidden
+%shown
+  +shown
+%visuallyhidden
+  +visuallyhidden
+%visuallyshown
+  +visuallyshown
+%invisible
+  +invisible
 

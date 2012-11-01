@@ -51,6 +51,19 @@ Utilize the `.nav-header` and `.nav-divider` for building simple navigation list
 Tab panels are typically used by `Tab` and `Pill` for showing and
 hiding related content. See `Tab` for usage.
 
+## Utility Classes
+For convenience and common patterns, a few utility classes are setup in
+the scaffold.
+
+Class         | Usage
+------------- | --------------------------
+`.pull-left`  | Adds a `float:left` to an element
+`.pull-right` | Adds a `float:right` to an element
+`.cf`         | Extends the placeholder for the `clearfixer` mixin
+`.ir`         | Extends the placeholder for the `ir` image replacement mixin
+`.hidden`     | Extends the placeholder for the `hidden` mixin
+`.shown`      | Extends the placeholder for the `shown` mixin
+
 
 ## Style Settings
 To override the default settings, set the variable and it's value

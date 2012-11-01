@@ -1,5 +1,4 @@
 
-$add-mixin-helpers: true !default
 $legacy-support-for-ie: true !default
 
 @mixin clearfixer
@@ -16,9 +15,9 @@ $legacy-support-for-ie: true !default
   @if $legacy-support-for-ie
     *zoom: 1
 
-@if $add-mixin-helpers == true
-  .clearfixer
-    +clearfixer
-  .clearfix
-    +clearfix
+%clearfixer
+  +clearfixer
+
+%clearfix
+  +clearfix
 

@@ -1,11 +1,8 @@
 
-$add-mixin-helpers: true !default
-
 @mixin hardware-accelerate
   -webkit-transform: translateZ(0)
   -webkit-backface-visibility: hidden
 
-@if $add-mixin-helpers == true
-  .hardware-accelerate
-    +hardware-accelerate
+%hardware-accelerate
+  +hardware-accelerate
 

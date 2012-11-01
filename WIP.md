@@ -2,7 +2,6 @@
 # Todo
 
 ## WIP
-- Look at making the sass files use abstract elements (placeholders)
 - Scrub the behavior files and normalize
 - Check for disabled states on components, disable interactions if true
 - Cleanup Todo lists

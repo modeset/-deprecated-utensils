@@ -38,6 +38,16 @@ There are two mixins available for fixing floats
 Generally, the micro clearfix (`+clearfixer`) is prefered and mixed into
 the parent container of floated items.
 
+Includes placeholder classes to be used via extension
+
+```sass
+.cf
+  @extend %clearfixer
+
+.clearfix
+  @extend %clearfix
+```
+
 
 ## Columns
 Allows elements to take the shape of either a column or row within a
@@ -53,9 +63,18 @@ Mixin                | Usage
 - **Warning!** The column mixins all utilize `box-sizing: border-box`
   which is not supported in ie7
 
-### Todo
-- Move the `.pull-left/right` helpers out to a placeholder and document
+Includes placeholder classes to be used via extension
 
+```sass
+.column
+  @extend %base-colum
+
+.column-right
+  @extend %base-column-right
+
+.row
+  @extend %base-row
+```
 
 ## Conversions
 Functions for calculations and conversion between pixels, ems, rems and
@@ -121,6 +140,12 @@ Add `webkit` vendor prefixes for hardware acceleration.
   +hardware-accelerate
 ```
 
+Includes placeholder classes to be used via extension
+
+```sass
+.accelerate
+  @extend %hardware-accelerate
+```
 
 ## Image tools
 Image interpolation settings based on [stich css](http://stitchcss.com/).
@@ -159,6 +184,17 @@ Hides text on an element when utilizing a `background-image` such as a logo or i
   width: 24px
   height: 24px
 ```
+
+Includes placeholder classes to be used via extension
+
+```sass
+.image-replacement
+  @extend %ir
+```
+
+###### Notes
+- **Heads Up!** `scaffold.sass` automatically sets up a `.ir` class that
+  extends the `%ir` placeholder.
 
 
 ## Responsive
@@ -263,6 +299,25 @@ Mixin            | Params  | Usage
 - **Warning!** When using `visuallyhidden` and `visuallyshown` with
   `box-shadow`, you'll need to add `clip:initial` to get the shadows to
   reappear
+
+Includes placeholder classes to be used via extension
+
+```sass
+.hideme
+  @extend %hidden
+.showme
+  @extend %shown
+.vhidden
+  @extend %visuallyhidden
+.vshown
+  @extend %visuallyshown
+.invisible
+  @extend %invisible
+```
+
+###### Notes
+- **Heads Up!** `scaffold.sass` automatically sets up a `.hidden` and
+  `.shown` class that extends the `%hidden` and `%shown` placeholders.
 
 
 ## Todo

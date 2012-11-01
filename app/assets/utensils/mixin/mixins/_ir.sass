@@ -1,5 +1,4 @@
 
-$add-mixin-helpers: true !default
 $legacy-support-for-ie: true !default
 
 @mixin ir
@@ -17,7 +16,6 @@ $legacy-support-for-ie: true !default
     width: 0
     height: 100%
 
-@if $add-mixin-helpers == true
-  .ir
-    +ir
+%ir
+  +ir
 

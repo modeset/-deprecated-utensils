@@ -4219,6 +4219,15 @@ pseudo elements to clear floats</li>
 <p>Generally, the micro clearfix (<code>+clearfixer</code>) is prefered and mixed into
 the parent container of floated items.</p>
 
+<p>Includes placeholder classes to be used via extension</p>
+
+<pre><code class="sass">.cf
+  @extend %clearfixer
+
+.clearfix
+  @extend %clearfix
+</code></pre>
+
 <h2>Columns</h2>
 
 <p>Allows elements to take the shape of either a column or row within a
@@ -4251,11 +4260,17 @@ grid environment.</p>
 which is not supported in ie7</li>
 </ul>
 
-<h3>Todo</h3>
+<p>Includes placeholder classes to be used via extension</p>
 
-<ul>
-<li>Move the <code>.pull-left/right</code> helpers out to a placeholder and document</li>
-</ul>
+<pre><code class="sass">.column
+  @extend %base-colum
+
+.column-right
+  @extend %base-column-right
+
+.row
+  @extend %base-row
+</code></pre>
 
 <h2>Conversions</h2>
 
@@ -4365,6 +4380,12 @@ textarea
   +hardware-accelerate
 </code></pre>
 
+<p>Includes placeholder classes to be used via extension</p>
+
+<pre><code class="sass">.accelerate
+  @extend %hardware-accelerate
+</code></pre>
+
 <h2>Image tools</h2>
 
 <p>Image interpolation settings based on <a href="http://stitchcss.com/">stich css</a>.</p>
@@ -4418,6 +4439,19 @@ to true.</p>
   width: 24px
   height: 24px
 </code></pre>
+
+<p>Includes placeholder classes to be used via extension</p>
+
+<pre><code class="sass">.image-replacement
+  @extend %ir
+</code></pre>
+
+<h6>Notes</h6>
+
+<ul>
+<li><strong>Heads Up!</strong> <code>scaffold.sass</code> automatically sets up a <code>.ir</code> class that
+extends the <code>%ir</code> placeholder.</li>
+</ul>
 
 <h2>Responsive</h2>
 
@@ -4665,6 +4699,27 @@ properties included with <a href="http://thoughtbot.com/bourbon/">Bourbon</a>.</
 <li><strong>Warning!</strong> When using <code>visuallyhidden</code> and <code>visuallyshown</code> with
 <code>box-shadow</code>, you&#39;ll need to add <code>clip:initial</code> to get the shadows to
 reappear</li>
+</ul>
+
+<p>Includes placeholder classes to be used via extension</p>
+
+<pre><code class="sass">.hideme
+  @extend %hidden
+.showme
+  @extend %shown
+.vhidden
+  @extend %visuallyhidden
+.vshown
+  @extend %visuallyshown
+.invisible
+  @extend %invisible
+</code></pre>
+
+<h6>Notes</h6>
+
+<ul>
+<li><strong>Heads Up!</strong> <code>scaffold.sass</code> automatically sets up a <code>.hidden</code> and
+<code>.shown</code> class that extends the <code>%hidden</code> and <code>%shown</code> placeholders.</li>
 </ul>
 
 <h2>Todo</h2>
@@ -6515,6 +6570,39 @@ can be used for simple navigation as well.</p>
 
 <p>Tab panels are typically used by <code>Tab</code> and <code>Pill</code> for showing and
 hiding related content. See <code>Tab</code> for usage.</p>
+
+<h2>Utility Classes</h2>
+
+<p>For convenience and common patterns, a few utility classes are setup in
+the scaffold</p>
+
+<table><thead>
+<tr>
+<th>Class</th>
+<th>Usage</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>.pull-left</code></td>
+<td>Adds a <code>float:left</code> to an element</td>
+</tr>
+<tr>
+<td><code>.pull-right</code></td>
+<td>Adds a <code>float:right</code> to an element</td>
+</tr>
+<tr>
+<td><code>.hidden</code></td>
+<td>Extends the placeholder for the <code>hidden</code> mixin</td>
+</tr>
+<tr>
+<td><code>.shown</code></td>
+<td>Extends the placeholder for the <code>shown</code> mixin</td>
+</tr>
+<tr>
+<td><code>.ir</code></td>
+<td>Extends the placeholder for the <code>ir</code> image replacement mixin</td>
+</tr>
+</tbody></table>
 
 <h2>Style Settings</h2>
 
