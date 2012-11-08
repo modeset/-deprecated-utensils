@@ -32,6 +32,7 @@ class utensils.Toggle
     @triggerable.deactivate(target: @el)
 
   dispose: ->
+    return unless @triggerable
     @removeListeners()
     @triggerable.dispose()
     @triggerable = null

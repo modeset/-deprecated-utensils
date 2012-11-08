@@ -106,6 +106,11 @@ describe 'Toggle', ->
       @defaulter.dispose()
       expect(@defaulter.triggerable).toBeNull()
 
+    it 'does not toss an error if disposing multiple times', ->
+      @defaulter.dispose()
+      @defaulter.dispose()
+      expect(@defaulter.dispose).not.toThrow()
+
 
   describe '#addListeners', ->
     it 'adds a listener for "click" event', ->
