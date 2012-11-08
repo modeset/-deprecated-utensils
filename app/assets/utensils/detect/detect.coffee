@@ -1,6 +1,4 @@
 
-# usage: $(el).on(utensils.Detect.transition.end, @onDone) if utensils.Detect.hasTransition
-
 #= require utensils/utensils
 
 class utensils.Detect

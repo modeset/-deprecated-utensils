@@ -4,8 +4,6 @@
 ## WIP
 - Scrub the behavior files and normalize
   - Collapse
-  - Detect
-  - Directional
   - Dismiss
   - Drop
   - Modal
@@ -37,6 +35,5 @@
 - Turn into engine with generators
 - Better tools for documentation (generation, behavior, and styles)
 - Better docs
-- Add a script for curling vendor libraries (non-gems)
 - Use the style guide for dinosaur test
 

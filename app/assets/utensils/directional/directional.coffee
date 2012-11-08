@@ -4,6 +4,7 @@
 class utensils.Directional
 
   constructor: (element=null, container=null, @cardinal='north') ->
+    @win = $(window)
     @cardinals = "north south east west"
     @setElement(element) if element
     @setContainer(container) if container
@@ -48,11 +49,10 @@ class utensils.Directional
     return {cardinal: cardinal, top:0, left:0}
 
   constrainToViewport: (position) ->
-    win = $(window)
-    wt = win.scrollTop()
-    wl = win.scrollLeft()
-    ww = win.width()
-    wh = win.height()
+    wt = @win.scrollTop()
+    wl = @win.scrollLeft()
+    ww = @win.width()
+    wh = @win.height()
     ew = @element.outerWidth()
     eh = @element.outerHeight()
 

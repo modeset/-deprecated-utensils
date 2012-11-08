@@ -14,10 +14,10 @@ powder open
 
 ## Write some codes
 Generate all docs, fixtures and the style guide after changes to
-the markup fixtures, or readme.md files:
+the markup fixtures, or readme files:
 
 ```
-rake document
+bundle exec rake
 ```
 
 ## Style Guide
