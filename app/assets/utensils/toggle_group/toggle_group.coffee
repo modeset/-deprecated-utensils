@@ -12,10 +12,11 @@ class utensils.ToggleGroup
     @activate(@data.activate) if @data.activate
 
   options: ->
+    target_type = if @el.data('bindable') == 'toggle-button-group' then 'a,button' else 'li'
     @data.namespace = @data.namespace || 'toggle_group'
     @data.toggle = @data.toggle || 'active'
     @data.behavior = @data.behavior || 'radio'
-    @data.target = @data.target || 'li'
+    @data.target = @data.target || target_type
     @data.ignore = @data.ignore || '.group-ignore,.drop'
 
   initialize: ->
@@ -28,28 +29,15 @@ class utensils.ToggleGroup
 # PUBLIC #
 
   activate: (item) ->
-    selector = '> a,> button'
-    if typeof item == 'number'
-      @setTargets() unless @targets
-      activator = @targets.eq(item).find(selector)
-    else if typeof item == 'string'
-      activator = $(item).find(selector)
-    else
-      activator = item.find(selector)
+    activator = @findElementFromType(item)
     activator.trigger(@triggerable.trigger_type.on)
 
   deactivate: (item) ->
-    selector = '> a,button'
-    if typeof item == 'number'
-      @setTargets() unless @targets
-      deactivator = @targets.eq(item).find(selector)
-    else if typeof item == 'string'
-      deactivator = $(item).find(selector)
-    else
-      deactivator = item.find(selector)
+    deactivator = @findElementFromType(item)
     deactivator.trigger(@triggerable.trigger_type.off)
 
   dispose: ->
+    return unless @triggerable
     @removeListeners()
     @triggerable.dispose()
     @triggerable = null
@@ -62,11 +50,10 @@ class utensils.ToggleGroup
   removeListeners: ->
     @triggerable.dispatcher.off('triggerable:trigger')
 
-  triggered: (e, link) ->
+  triggered: (e, target) ->
     @setTargets() unless @targets
-    element = @targets.find(link).closest('a, button').parent(@data.target)
-    return if element.length <= 0
-    return if @behavior == 'radio' && element.hasClass(@toggle_classes)
+    element = $(target).closest("#{@data.target}:not(#{@data.ignore})", @targets)
+    return if !element.length || @behavior == 'radio' && element.hasClass(@toggle_classes)
     if @behavior == 'radio' then @radio(element) else @checkbox(element)
     @el.trigger("#{@namespace}:triggered", element)
 
@@ -79,8 +66,31 @@ class utensils.ToggleGroup
   checkbox: (element) ->
     element.toggleClass(@toggle_classes)
 
+# INTERNAL #
+
   setTargets: ->
     @targets = @el.find("#{@data.target}:not(#{@data.ignore})")
 
+  findElementFromType: (item) ->
+    if typeof item == 'number'
+      return @findElementByIndex(item)
+    else if typeof item == 'string'
+      return @findElementByString(item)
+    return @findElementBySelector(item)
+
+  findElementByIndex: (index) ->
+    @setTargets() unless @targets
+    element = @targets.eq(index).find('a, button')
+    if element.length then return element else return @targets.eq(index)
+
+  findElementByString: (value) ->
+    element = @el.find(value).find('a, button')
+    if element.length then return element else return @el.find(value)
+
+  findElementBySelector: (selector) ->
+    element = selector.find('a, button')
+    if element.length then return element else return selector
+
 utensils.Bindable.register('toggle-group', utensils.ToggleGroup)
+utensils.Bindable.register('toggle-button-group', utensils.ToggleGroup)
 

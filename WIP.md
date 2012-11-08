@@ -3,6 +3,16 @@
 
 ## WIP
 - Scrub the behavior files and normalize
+  - Collapse
+  - Detect
+  - Directional
+  - Dismiss
+  - Drop
+  - Modal
+  - Tab
+  - Timeslot
+  - Pop
+  - Tip
 - Check for disabled states on components, disable interactions if true
 - Cleanup Todo lists
 - Media queries
@@ -17,8 +27,6 @@
   focus states?)
 - There should be some sort of Toggle class that acts similar to the
   demo (removes a bunch of classes then add more) pass a data-remove?
-- Anyway to abstract ButtonGroup into ToggleGroup and kill this
-  component?
 - Should events have more of a namespace to avoid collisions?
 - Try and lazy load more of the lookups and cache where possible
 - Mobilize (templates, styles, js, etc..)

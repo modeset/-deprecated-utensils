@@ -3,7 +3,6 @@
 //= require utensils/triggerable
 //= require utensils/toggle
 //= require utensils/toggle_group
-//= require utensils/toggle_button_group
 //= require utensils/dismiss
 //= require utensils/collapse
 

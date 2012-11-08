@@ -8,7 +8,13 @@ elements. These are predominantly used in navigation type systems. A
 
 ```html
 data-bindable="toggle-group"
+data-bindable="toggle-button-group"
 ```
+
+Utilize the `toggle-group` value for most navigation styles that are
+`li` based. For `.button-groups` and `.button-toolbar` where links are
+flat, use `toggle-button-group` value. See the usage example for more
+information.
 
 ## Usage Example
 
@@ -25,7 +31,7 @@ data-bindable="toggle-group"
     %li.radio-li.group-ignore Not a link
 
 %hr
-%nav(style="margin-top: 1em;" role="navigtion")
+%nav(role="navigtion")
   %ul#toggle_group_checks.nav.inline(data-bindable="toggle-group" data-behavior="checkbox" data-ignore=".text-ignore")
     %li<
       %a(href="#") Checkbox 1
@@ -36,7 +42,7 @@ data-bindable="toggle-group"
     %li.text-ignore Not a link
 
 %hr
-%nav(style="margin-top: 1em;" role="navigation")
+%nav(role="navigation")
   %ul#toggle_group_delay.nav.inline(data-bindable="toggle-group" data-delay="500, 500" data-toggle="active on" data-namespace="toggle_delay")
     %li<
       %a(href="#") Radio Delay 1
@@ -45,6 +51,36 @@ data-bindable="toggle-group"
     %li<
       %a(href="#") Radio Delay 3
     %li.group-ignore Not a link
+
+%hr
+%nav(role="navigtion")
+  %ul#toggle_group_spans.nav.inline(data-bindable="toggle-group" data-behavior="checkbox")
+    %li<
+      %a(href="#") Checkbox 1 <span>I'm a span</span>
+    %li<
+      %a(href="#") Checkbox 2 <span>I'm a span</span>
+    %li<
+      %a(href="#") Checkbox 3 <span>I'm a span</span>
+
+%hr
+%section#toggle_button_group_radios.button-toolbar(data-bindable="toggle-button-group" role="navigation")
+  %nav.button-group
+    %button.btn 1
+    %button.btn 2
+    %button.btn 3
+  %nav.button-group
+    %button.btn.active 4
+  %nav.button-group
+    %button.btn 5
+    %button.btn 6
+    %button.btn 7
+
+%hr
+%nav#toggle_button_group_checks.button-group(data-bindable="toggle-button-group" data-behavior="checkbox" data-target=".btn" role="navigation")
+  %a.btn(href="#") Left <span>Span</span>
+  %a.btn.active(href="#") Middle 1
+  %a.btn(href="#") Middle 2
+  %a.btn(href="#") Right
 ```
 <!-- end -->
 
@@ -60,6 +96,11 @@ Attribute   | Default               | Description
 `ignore`    | `.group-ignore,.drop` | Elements in the stack to ignore trigger events from
 
 See `Triggerable` for more options.
+
+When specifying a `bindable` as `toggle-button-group`, the default
+`target` attribute becomes `a,button` instead of `li`. This can be overridden by
+supplying a `data-target` attribute.
+
 
 ## API
 
@@ -78,10 +119,10 @@ is instantiated through `Bindable`
 ```
 
 ### #activate
-Activate can take either an index or element as it's target parameter.
-Activating will add the toggle classes to the element. If behavior is
-set to `radio`, activate will remove the toggle classes from other
-elements within the group.
+Activate can take either an index, string or element as it's target
+parameter.  Activating will add the toggle classes to the element. If
+behavior is set to `radio`, activate will remove the toggle classes from
+other elements within the group.
 
 ##### dispatches:
 - `toggle_group:activated`
@@ -91,14 +132,19 @@ elements within the group.
 @radio_group.activate(1)
 @check_group.activate(1)
 
+# activate by string
+@radio_group.activate('li:first')
+@check_group.activate('li:first')
+
 # activate by element
-@radio_group.activate($(@radios[1]))
-@check_group.activate($(@checks[1]).find('a'))
+@radio_group.activate(@radios.find('li:first'))
+@check_group.activate(@checks.find('li:first'))
 ```
 
 ### #deactivate
-Deactivate can take either an index or element as it's target parameter.
-Deactivating will remove the toggle classes from the element.
+Deactivate can take either an index, string or element as it's target
+parameter.  Deactivating will remove the toggle classes from the
+element.
 
 ##### dispatches:
 - `toggle_group:deactivated`
@@ -108,9 +154,13 @@ Deactivating will remove the toggle classes from the element.
 @radio_group.deactivate(1)
 @check_group.deactivate(1)
 
+# deactivate by string
+@radio_group.deactivate('li:first')
+@check_group.deactivate('li:first')
+
 # deactivate by element
-@radio_group.deactivate($(@radios[1]))
-@check_group.deactivate($(@checks[1]).find('a'))
+@radio_group.deactivate(@radios.find('li:first'))
+@check_group.deactivate(@checks.find('li:first'))
 ```
 
 ### #dispose

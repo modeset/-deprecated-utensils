@@ -8,7 +8,6 @@
 //= require utensils/triggerable/spec
 //= require utensils/toggle/spec
 //= require utensils/toggle_group/spec
-//= require utensils/toggle_button_group/spec
 
 //= require utensils/dismiss/spec
 //= require utensils/drop/spec

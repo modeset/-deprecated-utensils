@@ -95,7 +95,6 @@
 <li><a href='#timeslot'>Timeslot</a></li>
 <li><a href='#tip'>Tip</a></li>
 <li><a href='#toggle'>Toggle</a></li>
-<li><a href='#toggle_button_group'>Toggle button group</a></li>
 <li><a href='#toggle_group'>Toggle group</a></li>
 <li><a href='#touch_tracker'>Touch tracker</a></li>
 <li><a href='#transition'>Transition</a></li>
@@ -6574,7 +6573,7 @@ hiding related content. See <code>Tab</code> for usage.</p>
 <h2>Utility Classes</h2>
 
 <p>For convenience and common patterns, a few utility classes are setup in
-the scaffold</p>
+the scaffold.</p>
 
 <table><thead>
 <tr>
@@ -6591,16 +6590,20 @@ the scaffold</p>
 <td>Adds a <code>float:right</code> to an element</td>
 </tr>
 <tr>
+<td><code>.cf</code></td>
+<td>Extends the placeholder for the <code>clearfixer</code> mixin</td>
+</tr>
+<tr>
+<td><code>.ir</code></td>
+<td>Extends the placeholder for the <code>ir</code> image replacement mixin</td>
+</tr>
+<tr>
 <td><code>.hidden</code></td>
 <td>Extends the placeholder for the <code>hidden</code> mixin</td>
 </tr>
 <tr>
 <td><code>.shown</code></td>
 <td>Extends the placeholder for the <code>shown</code> mixin</td>
-</tr>
-<tr>
-<td><code>.ir</code></td>
-<td>Extends the placeholder for the <code>ir</code> image replacement mixin</td>
 </tr>
 </tbody></table>
 
@@ -7761,21 +7764,60 @@ class utilizing a <code>Toggle</code> instance.</p>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
-<h1>Toggle Button Group</h1>
+<h1>Toggle Group</h1>
 
-<p>Base class for adding, removing and toggling classes on a button group
-of elements. These are predominantly used in button group type systems.
-A <code>ToggleButtonGroup</code> can function either like radio buttons or check
-boxes.</p>
+<p>Base class for adding, removing and toggling classes on a group of
+elements. These are predominantly used in navigation type systems. A
+<code>ToggleGroup</code> can function either like radio buttons or check boxes.</p>
 
-<p><code>ToggleButtonGroup</code> is an extension of <code>ToggleGroup</code>.</p>
+<p><code>ToggleGroup</code> utilizes <code>Triggerable</code> through composition.</p>
 
-<pre><code class="html">data-bindable=&quot;toggle-button-group&quot;
+<pre><code class="html">data-bindable=&quot;toggle-group&quot;
+data-bindable=&quot;toggle-button-group&quot;
 </code></pre>
 
-<!--~ markup/toggle_button_group.html.haml -->
+<p>Utilize the <code>toggle-group</code> value for most navigation styles that are
+<code>li</code> based. For <code>.button-groups</code> and <code>.button-toolbar</code> where links are
+flat, use <code>toggle-button-group</code> value. See the usage example for more
+information.</p>
 
-<div class="sherpa-showcase sherpa-clearfix"><h5 style='margin-bottom:1em;'>Button Toolbar (radio)</h5>
+<!--~ markup/toggle_group.html.haml -->
+
+<div class="sherpa-showcase sherpa-clearfix"><nav role='navigation'>
+<ul class='nav inline' data-bindable='toggle-group' data-target='.radio-li' id='toggle_group_radios'>
+<li class='radio-li'><a href='#'>Radio 1</a></li>
+<li class='radio-li'><a href='#'>Radio 2</a></li>
+<li class='radio-li'><a href='#'>Radio 3</a></li>
+<li class='radio-li group-ignore'>Not a link</li>
+</ul>
+</nav>
+<hr />
+<nav role='navigtion'>
+<ul class='nav inline' data-behavior='checkbox' data-bindable='toggle-group' data-ignore='.text-ignore' id='toggle_group_checks'>
+<li><a href='#'>Checkbox 1</a></li>
+<li><a href='#'>Checkbox 2</a></li>
+<li><a href='#'>Checkbox 3</a></li>
+<li class='text-ignore'>Not a link</li>
+</ul>
+</nav>
+<hr />
+<nav role='navigation'>
+<ul class='nav inline' data-bindable='toggle-group' data-delay='500, 500' data-namespace='toggle_delay' data-toggle='active on' id='toggle_group_delay'>
+<li><a href='#'>Radio Delay 1</a></li>
+<li><a href='#'>Radio Delay 2</a></li>
+<li><a href='#'>Radio Delay 3</a></li>
+<li class='group-ignore'>Not a link</li>
+</ul>
+</nav>
+<hr />
+<nav role='navigtion'>
+<ul class='nav inline' data-behavior='checkbox' data-bindable='toggle-group' id='toggle_group_spans'>
+<li><a href='#'>Checkbox 1 <span>I'm a span</span></a></li>
+<li><a href='#'>Checkbox 2 <span>I'm a span</span></a></li>
+<li><a href='#'>Checkbox 3 <span>I'm a span</span></a></li>
+</ul>
+</nav>
+<hr />
 <section class='button-toolbar' data-bindable='toggle-button-group' id='toggle_button_group_radios' role='navigation'>
 <nav class='button-group'>
 <button class='btn'>1</button>
@@ -7791,181 +7833,12 @@ boxes.</p>
 <button class='btn'>7</button>
 </nav>
 </section>
-<h5 style='margin-top:3em; margin-bottom:1em;'>Button Group (checkbox)</h5>
+<hr />
 <nav class='button-group' data-behavior='checkbox' data-bindable='toggle-button-group' data-target='.btn' id='toggle_button_group_checks' role='navigation'>
-<a class='btn' href='#'>Left</a>
+<a class='btn' href='#'>Left <span>Span</span></a>
 <a class='btn active' href='#'>Middle 1</a>
 <a class='btn' href='#'>Middle 2</a>
 <a class='btn' href='#'>Right</a>
-</nav>
-</div>
-
-<pre><code class="haml">%h5(style=&quot;margin-bottom:1em;&quot;) Button Toolbar (radio)
-%section#toggle_button_group_radios.button-toolbar(data-bindable=&quot;toggle-button-group&quot; role=&quot;navigation&quot;)
-  %nav.button-group
-    %button.btn 1
-    %button.btn 2
-    %button.btn 3
-  %nav.button-group
-    %button.btn.active 4
-  %nav.button-group
-    %button.btn 5
-    %button.btn 6
-    %button.btn 7
-
-%h5(style=&quot;margin-top:3em; margin-bottom:1em;&quot;) Button Group (checkbox)
-%nav#toggle_button_group_checks.button-group(data-bindable=&quot;toggle-button-group&quot; data-behavior=&quot;checkbox&quot; data-target=&quot;.btn&quot; role=&quot;navigation&quot;)
-  %a.btn(href=&quot;#&quot;) Left
-  %a.btn.active(href=&quot;#&quot;) Middle 1
-  %a.btn(href=&quot;#&quot;) Middle 2
-  %a.btn(href=&quot;#&quot;) Right
-</code></pre>
-
-<!-- end -->
-
-<h2>Options</h2>
-
-<table><thead>
-<tr>
-<th>Attribute</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>namespace</code></td>
-<td><code>toggle_button_group</code></td>
-<td>The namespace to use for dispatching events</td>
-</tr>
-<tr>
-<td><code>target</code></td>
-<td><code>a,button</code></td>
-<td>The identifier for looking up child elements to operate on.</td>
-</tr>
-</tbody></table>
-
-<p>See <code>ToggleGroup</code> and <code>Triggerable</code> for more options.</p>
-
-<h2>API</h2>
-
-<h3>#new</h3>
-
-<p>Create a new instance of <code>ToggleButtonGroup</code> programatically, typically
-this is instantiated through <code>Bindable</code></p>
-
-<pre><code class="coffee">#= require toggle_button_group
-
-@radios = $(&#39;#radios&#39;)
-@checks = $(&#39;#checks&#39;)
-
-@radio_group = new utensils.ToggleButtonGroup(radios, {behavior: &#39;radio&#39;})
-@check_group = new utensils.ToggleButtonGroup(checks, {behavior: &#39;checkbox&#39;})
-</code></pre>
-
-<h3>#activate</h3>
-
-<p>Activate can take either an index or element as it&#39;s target parameter.
-Activating will add the toggle classes to the element. If behavior is
-set to <code>radio</code>, activate will remove the toggle classes from other
-elements within the group.</p>
-
-<h5>dispatches:</h5>
-
-<ul>
-<li><code>toggle_button_group:activated</code></li>
-</ul>
-
-<pre><code class="coffee"># activate by index
-@radio_group.activate(1)
-@check_group.activate(1)
-
-# activate by element
-@radio_group.activate($(@radios[1]))
-@check_group.activate($(@checks[1]))
-</code></pre>
-
-<h3>#deactivate</h3>
-
-<p>Deactivate can take either an index or element as it&#39;s target parameter.
-Deactivating will remove the toggle classes from the element.</p>
-
-<h5>dispatches:</h5>
-
-<ul>
-<li><code>toggle_button_group:deactivated</code></li>
-</ul>
-
-<pre><code class="coffee"># deactivate by index
-@radio_group.deactivate(1)
-@check_group.deactivate(1)
-
-# deactivate by element
-@radio_group.deactivate($(@radios[1]))
-@check_group.deactivate($(@checks[1]))
-</code></pre>
-
-<h3>#dispose</h3>
-
-<p>Cleans up any internal references </p>
-
-<pre><code class="coffee">@radio_group.dispose()
-@check_group.dispose()
-</code></pre>
-
-<h3>Requires</h3>
-
-<ul>
-<li><code>utensils/utensils</code></li>
-<li><code>utensils/bindable</code></li>
-<li><code>utensils/toggle_group</code></li>
-</ul>
-
-<p>Any events dispatched from <code>ToggleButtonGroup</code> contain the <code>event</code>
-property as the first parameter and the <code>activator/deactivator</code> as the
-second parameter. This is done to ensure scope is transferred correctly
-and for a quicker lookup from the class utilizing a <code>ToggleButtonGroup</code>
-instance.</p>
-
-<p></section><section class="sherpa-section sherpa-clearfix"></p>
-
-<h1>Toggle Group</h1>
-
-<p>Base class for adding, removing and toggling classes on a group of
-elements. These are predominantly used in navigation type systems. A
-<code>ToggleGroup</code> can function either like radio buttons or check boxes.</p>
-
-<p><code>ToggleGroup</code> utilizes <code>Triggerable</code> through composition.</p>
-
-<pre><code class="html">data-bindable=&quot;toggle-group&quot;
-</code></pre>
-
-<!--~ markup/toggle_group.html.haml -->
-
-<div class="sherpa-showcase sherpa-clearfix"><nav role='navigation'>
-<ul class='nav inline' data-bindable='toggle-group' data-target='.radio-li' id='toggle_group_radios'>
-<li class='radio-li'><a href='#'>Radio 1</a></li>
-<li class='radio-li'><a href='#'>Radio 2</a></li>
-<li class='radio-li'><a href='#'>Radio 3</a></li>
-<li class='radio-li group-ignore'>Not a link</li>
-</ul>
-</nav>
-<hr />
-<nav role='navigtion' style='margin-top: 1em;'>
-<ul class='nav inline' data-behavior='checkbox' data-bindable='toggle-group' data-ignore='.text-ignore' id='toggle_group_checks'>
-<li><a href='#'>Checkbox 1</a></li>
-<li><a href='#'>Checkbox 2</a></li>
-<li><a href='#'>Checkbox 3</a></li>
-<li class='text-ignore'>Not a link</li>
-</ul>
-</nav>
-<hr />
-<nav role='navigation' style='margin-top: 1em;'>
-<ul class='nav inline' data-bindable='toggle-group' data-delay='500, 500' data-namespace='toggle_delay' data-toggle='active on' id='toggle_group_delay'>
-<li><a href='#'>Radio Delay 1</a></li>
-<li><a href='#'>Radio Delay 2</a></li>
-<li><a href='#'>Radio Delay 3</a></li>
-<li class='group-ignore'>Not a link</li>
-</ul>
 </nav>
 </div>
 
@@ -7980,7 +7853,7 @@ elements. These are predominantly used in navigation type systems. A
     %li.radio-li.group-ignore Not a link
 
 %hr
-%nav(style=&quot;margin-top: 1em;&quot; role=&quot;navigtion&quot;)
+%nav(role=&quot;navigtion&quot;)
   %ul#toggle_group_checks.nav.inline(data-bindable=&quot;toggle-group&quot; data-behavior=&quot;checkbox&quot; data-ignore=&quot;.text-ignore&quot;)
     %li&lt;
       %a(href=&quot;#&quot;) Checkbox 1
@@ -7991,7 +7864,7 @@ elements. These are predominantly used in navigation type systems. A
     %li.text-ignore Not a link
 
 %hr
-%nav(style=&quot;margin-top: 1em;&quot; role=&quot;navigation&quot;)
+%nav(role=&quot;navigation&quot;)
   %ul#toggle_group_delay.nav.inline(data-bindable=&quot;toggle-group&quot; data-delay=&quot;500, 500&quot; data-toggle=&quot;active on&quot; data-namespace=&quot;toggle_delay&quot;)
     %li&lt;
       %a(href=&quot;#&quot;) Radio Delay 1
@@ -8000,6 +7873,36 @@ elements. These are predominantly used in navigation type systems. A
     %li&lt;
       %a(href=&quot;#&quot;) Radio Delay 3
     %li.group-ignore Not a link
+
+%hr
+%nav(role=&quot;navigtion&quot;)
+  %ul#toggle_group_spans.nav.inline(data-bindable=&quot;toggle-group&quot; data-behavior=&quot;checkbox&quot;)
+    %li&lt;
+      %a(href=&quot;#&quot;) Checkbox 1 &lt;span&gt;I&#39;m a span&lt;/span&gt;
+    %li&lt;
+      %a(href=&quot;#&quot;) Checkbox 2 &lt;span&gt;I&#39;m a span&lt;/span&gt;
+    %li&lt;
+      %a(href=&quot;#&quot;) Checkbox 3 &lt;span&gt;I&#39;m a span&lt;/span&gt;
+
+%hr
+%section#toggle_button_group_radios.button-toolbar(data-bindable=&quot;toggle-button-group&quot; role=&quot;navigation&quot;)
+  %nav.button-group
+    %button.btn 1
+    %button.btn 2
+    %button.btn 3
+  %nav.button-group
+    %button.btn.active 4
+  %nav.button-group
+    %button.btn 5
+    %button.btn 6
+    %button.btn 7
+
+%hr
+%nav#toggle_button_group_checks.button-group(data-bindable=&quot;toggle-button-group&quot; data-behavior=&quot;checkbox&quot; data-target=&quot;.btn&quot; role=&quot;navigation&quot;)
+  %a.btn(href=&quot;#&quot;) Left &lt;span&gt;Span&lt;/span&gt;
+  %a.btn.active(href=&quot;#&quot;) Middle 1
+  %a.btn(href=&quot;#&quot;) Middle 2
+  %a.btn(href=&quot;#&quot;) Right
 </code></pre>
 
 <!-- end -->
@@ -8047,6 +7950,10 @@ elements. These are predominantly used in navigation type systems. A
 
 <p>See <code>Triggerable</code> for more options.</p>
 
+<p>When specifying a <code>bindable</code> as <code>toggle-button-group</code>, the default
+<code>target</code> attribute becomes <code>a,button</code> instead of <code>li</code>. This can be overridden by
+supplying a <code>data-target</code> attribute.</p>
+
 <h2>API</h2>
 
 <h3>#new</h3>
@@ -8065,10 +7972,10 @@ is instantiated through <code>Bindable</code></p>
 
 <h3>#activate</h3>
 
-<p>Activate can take either an index or element as it&#39;s target parameter.
-Activating will add the toggle classes to the element. If behavior is
-set to <code>radio</code>, activate will remove the toggle classes from other
-elements within the group.</p>
+<p>Activate can take either an index, string or element as it&#39;s target
+parameter.  Activating will add the toggle classes to the element. If
+behavior is set to <code>radio</code>, activate will remove the toggle classes from
+other elements within the group.</p>
 
 <h5>dispatches:</h5>
 
@@ -8080,15 +7987,20 @@ elements within the group.</p>
 @radio_group.activate(1)
 @check_group.activate(1)
 
+# activate by string
+@radio_group.activate(&#39;li:first&#39;)
+@check_group.activate(&#39;li:first&#39;)
+
 # activate by element
-@radio_group.activate($(@radios[1]))
-@check_group.activate($(@checks[1]).find(&#39;a&#39;))
+@radio_group.activate(@radios.find(&#39;li:first&#39;))
+@check_group.activate(@checks.find(&#39;li:first&#39;))
 </code></pre>
 
 <h3>#deactivate</h3>
 
-<p>Deactivate can take either an index or element as it&#39;s target parameter.
-Deactivating will remove the toggle classes from the element.</p>
+<p>Deactivate can take either an index, string or element as it&#39;s target
+parameter.  Deactivating will remove the toggle classes from the
+element.</p>
 
 <h5>dispatches:</h5>
 
@@ -8100,9 +8012,13 @@ Deactivating will remove the toggle classes from the element.</p>
 @radio_group.deactivate(1)
 @check_group.deactivate(1)
 
+# deactivate by string
+@radio_group.deactivate(&#39;li:first&#39;)
+@check_group.deactivate(&#39;li:first&#39;)
+
 # deactivate by element
-@radio_group.deactivate($(@radios[1]))
-@check_group.deactivate($(@checks[1]).find(&#39;a&#39;))
+@radio_group.deactivate(@radios.find(&#39;li:first&#39;))
+@check_group.deactivate(@checks.find(&#39;li:first&#39;))
 </code></pre>
 
 <h3>#dispose</h3>
