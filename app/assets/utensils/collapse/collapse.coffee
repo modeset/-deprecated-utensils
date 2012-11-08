@@ -15,7 +15,7 @@ class utensils.Collapse
     @multi() if @data.multipleActivate && @type == 'group' && @behavior != 'radio'
 
   options: ->
-    @data.namespace = 'collapse'
+    @data.namespace = @data.namespace || 'collapse'
     @data.dimension = @data.dimension || 'height'
     @data.type = @data.type || 'single'
 
@@ -39,6 +39,7 @@ class utensils.Collapse
     @toggler.deactivate(item)
 
   dispose: ->
+    return unless @toggler
     @removeListeners()
     @toggler.dispose()
     @toggler = null

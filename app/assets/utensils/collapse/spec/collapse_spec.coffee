@@ -164,6 +164,11 @@ describe 'Collapse', ->
       @radio.dispose()
       expect(@radio.toggler).toBeNull()
 
+    it 'does not freak out when calling multiple disposals', ->
+      @radio.dispose()
+      @radio.dispose()
+      expect(@radio.dispose).not.toThrow()
+
 
   describe '#addListeners', ->
     it 'adds a listener for "click" event for a single collapse', ->
