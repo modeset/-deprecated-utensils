@@ -20,21 +20,25 @@ class utensils.Triggerable
     @trigger_type = @setTriggerEventTypes(@data.trigger)
     @setDelay() if @data.delay
     @is_active = false
+    @is_disabled = @el.is('.disabled, :disabled')
 
 # PUBLIC #
 
   toggle: (e) ->
+    return if @is_disabled
     e?.preventDefault() unless @data.bubble
     e?.stopPropagation() if @stop_propagation
     if @is_active then @setDeactivate(e) else @setActivate(e)
 
   activate: (e) ->
+    return if @is_disabled
     @clearTimeout()
     @is_active = true
     @dispatcher.trigger('triggerable:trigger', e.target)
     @dispatcher.trigger('triggerable:activate', e.target)
 
   deactivate: (e) ->
+    return if @is_disabled
     @clearTimeout()
     @is_active = false
     @dispatcher.trigger('triggerable:trigger', e.target)

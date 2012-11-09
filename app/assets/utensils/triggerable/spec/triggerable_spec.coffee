@@ -17,6 +17,7 @@ describe 'Triggerable', ->
     @hover_el = @dom.find('#triggerable_2')
     @focus_el = @dom.find('#triggerable_3')
     @delay_el = @dom.find('#triggerable_4')
+    @disabled_el = @dom.find('#triggerable_5')
     @radios_el = @dom.find('#triggerable_radios')
     @checks_el = @dom.find('#triggerable_checks')
 
@@ -24,6 +25,7 @@ describe 'Triggerable', ->
     @hoverer = new utensils.Triggerable(@hover_el)
     @focuser = new utensils.Triggerable(@focus_el)
     @delayer = new utensils.Triggerable(@delay_el)
+    @disabler = new utensils.Triggerable(@disabled_el)
     @radio = new utensils.Triggerable(@radios_el)
     @check = new utensils.Triggerable(@checks_el)
 
@@ -85,6 +87,10 @@ describe 'Triggerable', ->
     it 'defaults is_active to false', ->
       expect(@defaulter.is_active).toEqual(false)
 
+    it 'sets the disabled property', ->
+      expect(@defaulter.is_disabled).toEqual(false)
+      expect(@disabler.is_disabled).toEqual(true)
+
 
   describe '#toggle', ->
     it 'toggles the is_active property on a "click"', ->
@@ -103,6 +109,11 @@ describe 'Triggerable', ->
       @defaulter.is_active = true
       @defaulter_el.click()
       expect(spyEvent).toHaveBeenCalled()
+
+    it 'bails if the element is disabled', ->
+      spyEvent = spyOn(@disabler, 'setActivate')
+      @disabled_el.click()
+      expect(spyEvent).not.toHaveBeenCalled()
 
 
   describe '#activate', ->
@@ -135,6 +146,11 @@ describe 'Triggerable', ->
       expect(spyEvent).toHaveBeenCalled()
       expect(@element).toBe(link)
       expect($(@event.target)).toBe(@radios_el)
+
+    it 'bails if the element is disabled', ->
+      spyEvent = spyOn(@disabler, 'clearTimeout')
+      @disabler.activate()
+      expect(spyEvent).not.toHaveBeenCalled()
 
 
   describe '#deactivate', ->
@@ -169,6 +185,11 @@ describe 'Triggerable', ->
       expect(spyEvent).toHaveBeenCalled()
       expect(@element).toBe(link)
       expect($(@event.target)).toBe(@checks_el)
+
+    it 'bails if the element is disabled', ->
+      spyEvent = spyOn(@disabler, 'clearTimeout')
+      @disabler.deactivate()
+      expect(spyEvent).not.toHaveBeenCalled()
 
 
   describe '#dispose', ->

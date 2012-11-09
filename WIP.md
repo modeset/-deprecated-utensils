@@ -2,7 +2,6 @@
 # Todo
 
 ## WIP
-- Check for disabled states on components, disable interactions if true
 - Cleanup Todo lists
 - Media queries
 - Carousels *
