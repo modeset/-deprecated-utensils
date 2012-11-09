@@ -80,7 +80,7 @@ class utensils.Collapse
     @target[@dimension](0)
 
   triggered: (e, element) ->
-    if @toggler.behavior == 'radio' && @target then @deactivated()
+    if @toggler.behavior == 'radio' && @target then @deactivated(e)
     activator = $(element)
     @setGroupTarget(activator)
     if activator.hasClass(@toggler.toggle_classes) then @activated(e) else @deactivated(e)
@@ -98,7 +98,7 @@ class utensils.Collapse
       self.target.trigger("#{self.namespace}:#{complete_event}")
 
     @target.trigger("#{@namespace}:#{start_event}")
-    @target[method] 'in'
+    @target[method]('in')
 
     if utensils.Detect.hasTransition && @target.hasClass('collapse')
       @target.one(utensils.Detect.transition.end, complete)
@@ -109,10 +109,10 @@ class utensils.Collapse
     @target = if @data.target then $(@data.target) else $(@el.attr('href'))
 
   setGroupTarget: (activator) ->
-    link = activator.find('> a,> button')
+    link = activator.find('a, button')
     selector = link.data('target') || link.attr('href')
     target = activator.find(selector)
-    @target = if target.length > 0 then target else $(selector)
+    @target = if target.length then target else $(selector)
 
 utensils.Bindable.register('collapse', utensils.Collapse)
 
