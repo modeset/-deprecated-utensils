@@ -1506,7 +1506,7 @@ within your <code>config.sass</code> file or before <code>collapse.sass</code> i
 <ul>
 <li>Should be able to collapse around the <code>width</code> property</li>
 <li>A few opportunities to speed up and cache lookups</li>
-<li>The multi method should be moved to TogglerGroup... need to figure out
+<li>The multi method should be moved to ToggleGroup... need to figure out
 the best way to handle this though from instances using composition.</li>
 </ul>
 
@@ -5189,7 +5189,7 @@ commodo consequat.
 </section>
 <footer class='notify-footer'>
 <button class='btn success'>Action</button>
-<button class='btn danger'>Cancel</button>
+<button class='btn danger' data-bindable='dismiss'>Cancel</button>
 </footer>
 <a class='close' data-bindable='dismiss' href='#'>&times;</a>
 </div>
@@ -5205,7 +5205,7 @@ commodo consequat.
 </section>
 <footer class='notify-footer notify-right'>
 <button class='btn success'>Action</button>
-<button class='btn danger'>Cancel</button>
+<button class='btn danger' data-bindable='dismiss'>Cancel</button>
 </footer>
 <a class='close' data-bindable='dismiss' href='#'>&times;</a>
 </div>
@@ -5245,7 +5245,7 @@ commodo consequat.
     %p= @lorem
   %footer.notify-footer
     %button.btn.success Action
-    %button.btn.danger Cancel
+    %button.btn.danger(data-bindable=&quot;dismiss&quot;) Cancel
   %a.close(href=&quot;#&quot; data-bindable=&quot;dismiss&quot;) &amp;times;
 
 .notification.danger.fade.in(role=&quot;alert&quot;)
@@ -5253,7 +5253,7 @@ commodo consequat.
     %p &lt;strong&gt;Yikes! This doesn&#39;t have a header and the footer is on the right!&lt;/strong&gt; #{@lorem}
   %footer.notify-footer.notify-right
     %button.btn.success Action
-    %button.btn.danger Cancel
+    %button.btn.danger(data-bindable=&quot;dismiss&quot;) Cancel
   %a.close(href=&quot;#&quot; data-bindable=&quot;dismiss&quot;) &amp;times;
 </code></pre>
 

@@ -45,7 +45,7 @@ Add the `Dismiss` behavior for allowing the notification to be closed.
     %p= @lorem
   %footer.notify-footer
     %button.btn.success Action
-    %button.btn.danger Cancel
+    %button.btn.danger(data-bindable="dismiss") Cancel
   %a.close(href="#" data-bindable="dismiss") &times;
 
 .notification.danger.fade.in(role="alert")
@@ -53,7 +53,7 @@ Add the `Dismiss` behavior for allowing the notification to be closed.
     %p <strong>Yikes! This doesn't have a header and the footer is on the right!</strong> #{@lorem}
   %footer.notify-footer.notify-right
     %button.btn.success Action
-    %button.btn.danger Cancel
+    %button.btn.danger(data-bindable="dismiss") Cancel
   %a.close(href="#" data-bindable="dismiss") &times;
 ```
 <!-- end -->
