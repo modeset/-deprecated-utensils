@@ -16,7 +16,6 @@ class utensils.Pop
 
   options: ->
     @data.namespace = @data.namespace || 'pop'
-    @data.trigger = @data.trigger || 'click'
     @data.toggle = @data.toggle || 'active in'
     @data.placement = @data.placement || 'north'
     @data.title = @data.title || @el.attr('title') || ''
@@ -33,11 +32,13 @@ class utensils.Pop
     @title = @data.title
     @content = @data.content
     @effect = @data.effect
-
     @triggerable = new utensils.Triggerable(@el, @data)
+    @el.attr('title', '')
+
+  setup: ->
+    @initialized = true
     @directional = new utensils.Directional(null, @el, @placement)
     @cardinals = @directional.getCardinals()
-    @el.attr('title', '')
 
 # PUBLIC #
 
@@ -51,6 +52,7 @@ class utensils.Pop
     @triggerable.deactivate(target: @el)
 
   dispose: ->
+    return unless @triggerable
     @removeListeners()
     @triggerable.dispose()
     @triggerable = null
@@ -67,6 +69,7 @@ class utensils.Pop
     @triggerable.dispatcher.off('triggerable:deactivate')
 
   activated: (e) ->
+    @setup() unless @initialized
     @remove()
     @cached_markup = @cached_markup || @findMarkup()
     @add()
@@ -74,6 +77,7 @@ class utensils.Pop
     @el.trigger("#{@namespace}:activated", @el)
 
   deactivated: (e) ->
+    @setup() unless @initialized
     if @pop && utensils.Detect.hasTransition
       @pop.one(utensils.Detect.transition.end, => @remove arguments...)
       @pop.removeClass(@toggle_classes)
@@ -83,6 +87,7 @@ class utensils.Pop
     @el.trigger("#{@namespace}:deactivated", @el)
 
   add: ->
+    @setup() unless @initialized
     @pop = @cached_markup
     @container = @container || $('body')
     @pop.appendTo(@container)
@@ -114,7 +119,7 @@ class utensils.Pop
 # INTERNAL #
 
   findMarkup: ->
-    pop_markup =  ''
+    pop_markup = ''
     if @is_tip_like
       pop_markup = $(@render())
       if @title == ''

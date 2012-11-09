@@ -3,8 +3,8 @@
 
 ## WIP
 - Scrub the behavior files and normalize
-  - Pop
   - Tip
+- Cleanup all Directional and other util classes on dispose
 - Check for disabled states on components, disable interactions if true
 - Cleanup Todo lists
 - Media queries
@@ -22,6 +22,8 @@
 - Should events have more of a namespace to avoid collisions?
 - Try and lazy load more of the lookups and cache where possible
 - Mobilize (templates, styles, js, etc..)
+- Need to figure out a way for the Directional tests to be more stable
+  when there are other failures
 
 ## Repository
 - Standardize file naming structure

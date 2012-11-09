@@ -66,12 +66,6 @@ describe 'Pop', ->
     it 'sets default namespace', ->
       expect(@north_pop.data.namespace).toEqual('pop')
 
-    it 'sets the default data.trigger state to "click"', ->
-      expect(@north_pop.data.trigger).toEqual('click')
-
-    it 'overrides the default data.trigger state to "hover"', ->
-      expect(@east_pop.data.trigger).toEqual('hover')
-
     it 'sets the default data.toggle classes to "active in"', ->
       expect(@north_pop.data.toggle).toEqual('active in')
 
@@ -141,12 +135,6 @@ describe 'Pop', ->
     it 'creates an instance of "Triggerable"', ->
       expect(@north_pop.triggerable instanceof utensils.Triggerable).toEqual(true)
 
-    it 'creates an instance of "Directional"', ->
-      expect(@north_pop.directional instanceof utensils.Directional).toEqual(true)
-
-    it 'memoizes the cardinals from "Directional"', ->
-      expect(@north_pop.cardinals).toEqual(new utensils.Directional().getCardinals())
-
     it 'blows away the title attribute contents', ->
       expect(@north_el.attr('title')).toEqual('')
       expect(@south_el.attr('title')).toEqual('')
@@ -155,6 +143,16 @@ describe 'Pop', ->
       expect(@north_pop.triggerable.trigger_type).toEqual(on:'click.pop', off:'click.pop')
       expect(@east_pop.triggerable.trigger_type).toEqual(on:'mouseenter.pop focus.pop', off:'mouseleave.pop blur.pop')
       expect(@override_pop.triggerable.trigger_type).toEqual(on:'focus.pop', off:'blur.pop')
+
+
+  describe '#setup', ->
+    it 'creates an instance of "Directional"', ->
+      @north_pop.setup()
+      expect(@north_pop.directional instanceof utensils.Directional).toEqual(true)
+
+    it 'memoizes the cardinals from "Directional"', ->
+      @north_pop.setup()
+      expect(@north_pop.cardinals).toEqual(new utensils.Directional().getCardinals())
 
 
   describe '#toggle', ->
@@ -226,6 +224,11 @@ describe 'Pop', ->
       @override_pop.dispose()
       expect(@override_pop.pop).toBeNull()
       expect($('.pop').length).toEqual(0)
+
+    it 'does not toss freak out if disposing multiple times', ->
+      @west_pop.dispose()
+      @west_pop.dispose()
+      expect(@west_pop.dispose).not.toThrow()
 
 
   describe '#activated', ->
