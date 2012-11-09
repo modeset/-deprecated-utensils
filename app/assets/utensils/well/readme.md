@@ -9,10 +9,12 @@ great with form layouts.
 
 ## Usage Example
 
+<!--~ markup/well.html.haml -->
 ```haml
 .well <code>.well</code>
 .well.fill <code>.well.fill</code>
 ```
+<!-- end -->
 
 ## Style Settings
 To override the default settings, set the variable and it's value
