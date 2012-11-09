@@ -89,6 +89,3 @@ Variable                     | Default               | Description
 ###### Note
 - **Pro Tip!** Add `.pagination-center` or `.pagination-right` on the `.pagination` container's `parent` (`nav`) element to change the alignment
 
-## Todo
-- Look at https://github.com/amatsuda/kaminari for pagination
-

@@ -3,9 +3,20 @@
 
 ## WIP
 - Cleanup Todo lists
+  - button group
+  - button semigloss
+  - collapse
+  - drop
+  - demo timing equations
+  - documentation for polyfill and mixin
+  - modal
+  - pop
+  - triggerable
+
 - Try and lazy load more of the lookups and cache where possible
 - Should it be visually.shown/visually.hide? (how is this working on
   focus states?)
+- Find a better home for transition styles
 - Really test out the order of sass files and where there are issues
 - Media queries
 - Carousels *

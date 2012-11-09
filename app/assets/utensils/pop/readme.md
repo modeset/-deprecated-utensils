@@ -181,7 +181,6 @@ The markup injected when a pop is shown:
 
 
 ## Todo:
-- Multiple pops?
 - Depth swapping?
 - disable on body click?
 

@@ -51,7 +51,6 @@
 <li><a href='#carousel'>Carousel</a></li>
 <li><a href='#collapse'>Collapse</a></li>
 <li><a href='#container'>Container</a></li>
-<li><a href='#container_media'>Container media</a></li>
 <li><a href='#content_editable'>Content editable</a></li>
 <li><a href='#cursor_hand'>Cursor hand</a></li>
 <li><a href='#decal'>Decal</a></li>
@@ -71,6 +70,7 @@
 <li><a href='#image_crop'>Image crop</a></li>
 <li><a href='#image_util'>Image util</a></li>
 <li><a href='#math_util'>Math util</a></li>
+<li><a href='#media_grid'>Media grid</a></li>
 <li><a href='#menu'>Menu</a></li>
 <li><a href='#mixin'>Mixin</a></li>
 <li><a href='#modal'>Modal</a></li>
@@ -614,7 +614,7 @@ elements under a <code>.button-toolbar</code> container to form a navigation sys
 <h2>Style Settings</h2>
 
 <p>To override the default settings, set the variable and it&#39;s value
-within your <code>config.sass</code> file or before <code>button-group.sass</code> is loaded.</p>
+within your <code>config.sass</code> file or before <code>button_group.sass</code> is loaded.</p>
 
 <table><thead>
 <tr>
@@ -641,7 +641,7 @@ within your <code>config.sass</code> file or before <code>button-group.sass</cod
 <h1>Button Modifiers</h1>
 
 <p>A set of modifier classes which can be added to any button, regardless
-of their base class,  to adjust various aspects around a button&#39;s display
+of their base class, to adjust various aspects around a button&#39;s display
 type, sizing, or positioning.</p>
 
 <pre><code class="sass">@import utensils/button_modifiers/button_modifiers
@@ -730,7 +730,7 @@ type, sizing, or positioning.</p>
 <h2>Style Settings</h2>
 
 <p>To override the default settings, set the variable and it&#39;s value
-within your <code>config.sass</code> file or before <code>button-modifiers.sass</code> is loaded.</p>
+within your <code>config.sass</code> file or before <code>button_modifiers.sass</code> is loaded.</p>
 
 <table><thead>
 <tr>
@@ -1507,7 +1507,6 @@ within your <code>config.sass</code> file or before <code>collapse.sass</code> i
 
 <ul>
 <li>Should be able to collapse around the <code>width</code> property</li>
-<li>A few opportunities to speed up and cache lookups</li>
 <li>The multi method should be moved to ToggleGroup... need to figure out
 the best way to handle this though from instances using composition.</li>
 </ul>
@@ -1578,134 +1577,6 @@ within your <code>config.sass</code> file or before <code>container.sass</code> 
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
-<h1>Container Media</h1>
-
-<p>Media container provides a simple way for showcasing images, video
-and other media items as static media or clickable links. Include
-a <code>.media-caption</code> element when an area is needed to describe the figure.</p>
-
-<p>The media container contains basic settings for styling and structure,
-but it will need some sort of grid setting or <code>width</code> defined on the <code>li</code>
-tags. There are currently no <code>margin</code> settings included in the media
-container for this reason.</p>
-
-<pre><code class="sass">@import utensils/container_media/container_media
-</code></pre>
-
-<!--~ markup/container_media.html.haml -->
-
-<div class="sherpa-showcase sherpa-clearfix"><ul class='media-container'>
-<li style='width:25%'>
-<figure class='media-item'>
-<img src='/assets/fpo/snow-260x180.png' />
-<figcaption class='media-caption'>
-<h3>Media Item</h3>
-<p>This is some caption copy with the footer aligned to the left.</p>
-<footer class='media-caption-footer'>
-<button class='btn'>Action</button>
-</footer>
-</figcaption>
-</figure>
-</li>
-<li style='width:25%'>
-<a class='media-item' href='#'>
-<img src='/assets/fpo/snow-260x180.png' />
-</a>
-</li>
-<li style='width:25%'>
-<figure class='media-item'>
-<a class='media-item' href='#'>
-<img src='/assets/fpo/snow-260x180.png' />
-</a>
-<figcaption class='media-caption'>
-<h3>Media Item</h3>
-<p>This is some caption copy with the footer aligned to the right.</p>
-<footer class='media-caption-footer media-caption-right'>
-<button class='btn'>Action</button>
-</footer>
-</figcaption>
-</figure>
-</li>
-<li style='width:25%'>
-<figure class='media-item'>
-<img src='/assets/fpo/snow-260x180.png' />
-</figure>
-</li>
-</ul>
-</div>
-
-<pre><code class="haml">%ul.media-container
-  %li(style=&quot;width:25%&quot;)
-    %figure.media-item
-      %img(src=&quot;/assets/fpo/snow-260x180.png&quot;)
-      %figcaption.media-caption
-        %h3 Media Item
-        %p This is some caption copy with the footer aligned to the left.
-        %footer.media-caption-footer
-          %button.btn Action
-  %li(style=&quot;width:25%&quot;)
-    %a.media-item(href=&quot;#&quot;)
-      %img(src=&quot;/assets/fpo/snow-260x180.png&quot;)
-  %li(style=&quot;width:25%&quot;)
-    %figure.media-item
-      %a.media-item(href=&quot;#&quot;)
-        %img(src=&quot;/assets/fpo/snow-260x180.png&quot;)
-      %figcaption.media-caption
-        %h3 Media Item
-        %p This is some caption copy with the footer aligned to the right.
-        %footer.media-caption-footer.media-caption-right
-          %button.btn Action
-  %li(style=&quot;width:25%&quot;)
-    %figure.media-item
-      %img(src=&quot;/assets/fpo/snow-260x180.png&quot;)
-</code></pre>
-
-<!-- end -->
-
-<h6>Notes</h6>
-
-<ul>
-<li><strong>Pro Tip!</strong> Add <code>media-caption-right</code> on the <code>media-caption-footer</code>
-to align buttons to the right</li>
-</ul>
-
-<h2>Style Settings</h2>
-
-<p>To override the default settings, set the variable and it&#39;s value
-within your <code>config.sass</code> file or before <code>container-media.sass</code> is loaded.</p>
-
-<table><thead>
-<tr>
-<th>Variable</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>$media-border</code></td>
-<td><code>$base-border</code></td>
-<td>The <code>border-color</code> of the <code>.media-item</code></td>
-</tr>
-<tr>
-<td><code>$media-border-hover</code></td>
-<td><code>$base-border-hover</code></td>
-<td>The <code>border-color</code> of the <code>.media-item</code> when a link is hovered</td>
-</tr>
-<tr>
-<td><code>$media-radii</code></td>
-<td><code>$radii</code></td>
-<td>The <code>border-radius</code> of the <code>.media-item</code></td>
-</tr>
-</tbody></table>
-
-<h2>Todo</h2>
-
-<ul>
-<li>This is not the best name for this thing</li>
-</ul>
-
-<p></section><section class="sherpa-section sherpa-clearfix"></p>
-
 <h1>Content Editable</h1>
 
 <p>Apply the attribute <code>contenteditable=&quot;true&quot;</code> to a given element,
@@ -1729,7 +1600,7 @@ allows the user to change it&#39;s contents.</p>
 <h2>Style Settings</h2>
 
 <p>To override the default settings, set the variable and it&#39;s value
-within your <code>config.sass</code> file or before <code>content-editable.sass</code> is loaded.</p>
+within your <code>config.sass</code> file or before <code>content_editable.sass</code> is loaded.</p>
 
 <table><thead>
 <tr>
@@ -1887,12 +1758,6 @@ within your <code>config.sass</code> file or before <code>decal.sass</code> is l
 <td>The <code>border-radius</code> of a decal</td>
 </tr>
 </tbody></table>
-
-<h2>Todo</h2>
-
-<ul>
-<li>Fix up the list for generating modifiers</li>
-</ul>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
@@ -3438,7 +3303,7 @@ or other descriptive helpers</li>
 <h2>Style Settings</h2>
 
 <p>To override the default settings, set the variable and it&#39;s value
-within your <code>config.sass</code> file or before <code>form-controls.sass</code> is loaded.</p>
+within your <code>config.sass</code> file or before <code>form_controls.sass</code> is loaded.</p>
 
 <table><thead>
 <tr>
@@ -3584,13 +3449,6 @@ within your <code>config.sass</code> file or before <code>form-controls.sass</co
 </tr>
 </tbody></table>
 
-<h2>Todo</h2>
-
-<ul>
-<li>Test out the simple form integration (possibly might need to create a
-special builder)</li>
-</ul>
-
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
 <h1>Form Horizontal</h1>
@@ -3613,7 +3471,7 @@ Controls&quot; for the demo and usage example.</li>
 <h2>Style Settings</h2>
 
 <p>To override the default settings, set the variable and it&#39;s value
-within your <code>config.sass</code> file or before <code>form-horizontal.sass</code> is loaded.</p>
+within your <code>config.sass</code> file or before <code>form_horizontal.sass</code> is loaded.</p>
 
 <table><thead>
 <tr>
@@ -4007,6 +3865,128 @@ image.</p>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
+<h1>Media Grid</h1>
+
+<p>Media container provides a simple way for showcasing images, video
+and other media items as static media or clickable links. Include
+a <code>.media-caption</code> element when an area is needed to describe the figure.</p>
+
+<p>The media grid contains basic settings for styling and structure,
+but it will need some sort of grid setting or <code>width</code> defined on the <code>li</code>
+tags. There are currently no <code>margin</code> settings included in the media
+grid for this reason.</p>
+
+<pre><code class="sass">@import utensils/media_grid/media_grid
+</code></pre>
+
+<!--~ markup/media_grid.html.haml -->
+
+<div class="sherpa-showcase sherpa-clearfix"><ul class='media-grid'>
+<li style='width:25%'>
+<figure class='media-item'>
+<img src='/assets/fpo/snow-260x180.png' />
+<figcaption class='media-caption'>
+<h3>Media Item</h3>
+<p>This is some caption copy with the footer aligned to the left.</p>
+<footer class='media-caption-footer'>
+<button class='btn'>Action</button>
+</footer>
+</figcaption>
+</figure>
+</li>
+<li style='width:25%'>
+<a class='media-item' href='#'>
+<img src='/assets/fpo/snow-260x180.png' />
+</a>
+</li>
+<li style='width:25%'>
+<figure class='media-item'>
+<a class='media-item' href='#'>
+<img src='/assets/fpo/snow-260x180.png' />
+</a>
+<figcaption class='media-caption'>
+<h3>Media Item</h3>
+<p>This is some caption copy with the footer aligned to the right.</p>
+<footer class='media-caption-footer media-caption-right'>
+<button class='btn'>Action</button>
+</footer>
+</figcaption>
+</figure>
+</li>
+<li style='width:25%'>
+<figure class='media-item'>
+<img src='/assets/fpo/snow-260x180.png' />
+</figure>
+</li>
+</ul>
+</div>
+
+<pre><code class="haml">%ul.media-grid
+  %li(style=&quot;width:25%&quot;)
+    %figure.media-item
+      %img(src=&quot;/assets/fpo/snow-260x180.png&quot;)
+      %figcaption.media-caption
+        %h3 Media Item
+        %p This is some caption copy with the footer aligned to the left.
+        %footer.media-caption-footer
+          %button.btn Action
+  %li(style=&quot;width:25%&quot;)
+    %a.media-item(href=&quot;#&quot;)
+      %img(src=&quot;/assets/fpo/snow-260x180.png&quot;)
+  %li(style=&quot;width:25%&quot;)
+    %figure.media-item
+      %a.media-item(href=&quot;#&quot;)
+        %img(src=&quot;/assets/fpo/snow-260x180.png&quot;)
+      %figcaption.media-caption
+        %h3 Media Item
+        %p This is some caption copy with the footer aligned to the right.
+        %footer.media-caption-footer.media-caption-right
+          %button.btn Action
+  %li(style=&quot;width:25%&quot;)
+    %figure.media-item
+      %img(src=&quot;/assets/fpo/snow-260x180.png&quot;)
+</code></pre>
+
+<!-- end -->
+
+<h6>Notes</h6>
+
+<ul>
+<li><strong>Pro Tip!</strong> Add <code>media-caption-right</code> on the <code>media-caption-footer</code>
+to align buttons to the right</li>
+</ul>
+
+<h2>Style Settings</h2>
+
+<p>To override the default settings, set the variable and it&#39;s value
+within your <code>config.sass</code> file or before <code>media_grid.sass</code> is loaded.</p>
+
+<table><thead>
+<tr>
+<th>Variable</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>$media-border</code></td>
+<td><code>$base-border</code></td>
+<td>The <code>border-color</code> of the <code>.media-item</code></td>
+</tr>
+<tr>
+<td><code>$media-border-hover</code></td>
+<td><code>$base-border-hover</code></td>
+<td>The <code>border-color</code> of the <code>.media-item</code> when a link is hovered</td>
+</tr>
+<tr>
+<td><code>$media-radii</code></td>
+<td><code>$radii</code></td>
+<td>The <code>border-radius</code> of the <code>.media-item</code></td>
+</tr>
+</tbody></table>
+
+<p></section><section class="sherpa-section sherpa-clearfix"></p>
+
 <h1>Menu</h1>
 
 <p>The menu component is a simple list of navigation elements, which are
@@ -4103,22 +4083,22 @@ require an extra element inside the DOM.</p>
 </tr>
 <tr>
 <td><code>+arrow_north</code></td>
-<td><code>$color:#000, $size:5px, $addBase:false</code></td>
+<td><code>$color:#000, $size:5px, $add_base:false</code></td>
 <td>An arrow pointing up</td>
 </tr>
 <tr>
 <td><code>+arrow_south</code></td>
-<td><code>$color:#000, $size:5px, $addBase:false</code></td>
+<td><code>$color:#000, $size:5px, $add_base:false</code></td>
 <td>An arrow pointing down</td>
 </tr>
 <tr>
 <td><code>+arrow_east</code></td>
-<td><code>$color:#000, $size:5px, $addBase:false</code></td>
+<td><code>$color:#000, $size:5px, $add_base:false</code></td>
 <td>An arrow pointing right</td>
 </tr>
 <tr>
 <td><code>+arrow_west</code></td>
-<td><code>$color:#000, $size:5px, $addBase:false</code></td>
+<td><code>$color:#000, $size:5px, $add_base:false</code></td>
 <td>An arrow pointing left</td>
 </tr>
 </tbody></table>
@@ -4576,12 +4556,6 @@ properties included with <a href="http://thoughtbot.com/bourbon/">Bourbon</a>.</
 </tr>
 </tbody></table>
 
-<h3>Todo</h3>
-
-<ul>
-<li>Setup the demo for this</li>
-</ul>
-
 <h2>Visibility</h2>
 
 <p>Controls various visibility settings applied to elements.</p>
@@ -4654,6 +4628,7 @@ reappear</li>
 <ul>
 <li>Normalize how this documentation is (either go with tables or
 argument listing)</li>
+<li>Setup demo for timing equations</li>
 </ul>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
@@ -5041,7 +5016,7 @@ your <code>config.sass</code> file or before <code>navbar.sass</code> is loaded.
 
 <ul>
 <li>Add media queries</li>
-<li>Add collapsible button and behavior</li>
+<li>Add collapsible button and behavior with media queries</li>
 </ul>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
@@ -5553,12 +5528,6 @@ within your <code>config.sass</code> file or before <code>pagination.sass</code>
 <li><strong>Pro Tip!</strong> Add <code>.pagination-center</code> or <code>.pagination-right</code> on the <code>.pagination</code> container&#39;s <code>parent</code> (<code>nav</code>) element to change the alignment</li>
 </ul>
 
-<h2>Todo</h2>
-
-<ul>
-<li>Look at <a href="https://github.com/amatsuda/kaminari">https://github.com/amatsuda/kaminari</a> for pagination</li>
-</ul>
-
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
 <h1>Pill</h1>
@@ -5912,7 +5881,9 @@ parameters)</p>
 
 <h1>Placeholder Polyfill</h1>
 
-<p>Polyfills <code>&lt;input&gt;</code> placeholder attribute functionality for IE 9 and below (and other dinosaurs).</section><section class="sherpa-section sherpa-clearfix"></p>
+<p>Polyfills <code>&lt;input&gt;</code> placeholder attribute functionality for IE 9 and below (and other dinosaurs).</p>
+
+<p></section><section class="sherpa-section sherpa-clearfix"></p>
 
 <h1>Pop</h1>
 
@@ -6222,7 +6193,6 @@ value before this file is imported, this is done to keep managing
 <h2>Todo:</h2>
 
 <ul>
-<li>Multiple pops?</li>
 <li>Depth swapping?</li>
 <li>disable on body click?</li>
 </ul>
@@ -7320,15 +7290,6 @@ against a set of regular expressions.</p>
 <li><code>utensils/utensils</code></li>
 </ul>
 
-<h2>Todo</h2>
-
-<ul>
-<li>The <code>#getTimeslotFromData</code> method is pretty specific, could use a
-some love and abstraction</li>
-<li>The regular expression matchers for <code>activate</code> and <code>deactivate</code> are
-pretty basic at the moment, could use a little tuning</li>
-</ul>
-
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
 <h1>Tip</h1>
@@ -8027,14 +7988,6 @@ touchTracker = new utensils.MouseAndTouchTracker()
 <td>Transitions an element to an <code>opacity</code> of <code>1</code></td>
 </tr>
 <tr>
-<td><code>.collapse</code></td>
-<td>Transitions an element to a <code>height</code> of <code>0</code></td>
-</tr>
-<tr>
-<td><code>.collapse.in</code></td>
-<td>Transitions an element to a <code>height</code> of <code>auto</code></td>
-</tr>
-<tr>
 <td><code>.transall</code></td>
 <td>A generic transition on <code>all</code> properties</td>
 </tr>
@@ -8060,16 +8013,6 @@ within your <code>config.sass</code> file or before <code>transition.sass</code>
 <tr>
 <td><code>$fade-timing-function</code></td>
 <td><code>linear</code></td>
-<td>Timing equation to fade the element</td>
-</tr>
-<tr>
-<td><code>$collapse-duration</code></td>
-<td><code>$speed</code></td>
-<td>Duration to collapse or expand the element</td>
-</tr>
-<tr>
-<td><code>$collapse-timing-function</code></td>
-<td><code>$ease-in-out-quart</code></td>
 <td>Timing equation to fade the element</td>
 </tr>
 <tr>

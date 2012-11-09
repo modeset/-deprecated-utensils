@@ -182,7 +182,6 @@ Variable                    | Default              | Description
 
 ## Todo
 - Should be able to collapse around the `width` property
-- A few opportunities to speed up and cache lookups
 - The multi method should be moved to ToggleGroup... need to figure out
   the best way to handle this though from instances using composition.
 

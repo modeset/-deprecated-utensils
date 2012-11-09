@@ -9,8 +9,8 @@
   border-style: solid
 
 // Set `top` and `left` positions from the caller
-@mixin arrow-north($color:#000, $size:5px, $addBase:false)
-  @if $addBase == true
+@mixin arrow-north($color:#000, $size:5px, $add_base:false)
+  @if $add_base == true
     +arrow
   border-width: 0 $size $size
   border-bottom-color: $color
@@ -18,16 +18,16 @@
 
 
 // Set `bottom` and `left` positions from the caller
-@mixin arrow-south($color:#000, $size:5px, $addBase:false)
-  @if $addBase == true
+@mixin arrow-south($color:#000, $size:5px, $add_base:false)
+  @if $add_base == true
     +arrow
   border-width: $size $size 0
   border-top-color: $color
   margin-left: -$size
 
 // Set `top` and `right` positions from the caller
-@mixin arrow-east($color:#000, $size:5px, $addBase:false)
-  @if $addBase == true
+@mixin arrow-east($color:#000, $size:5px, $add_base:false)
+  @if $add_base == true
     +arrow
   border-width: $size 0 $size $size
   border-left-color: $color
@@ -35,8 +35,8 @@
 
 
 // Set `top` and `left` positions from the caller
-@mixin arrow-west($color:#000, $size:5px, $addBase:false)
-  @if $addBase == true
+@mixin arrow-west($color:#000, $size:5px, $add_base:false)
+  @if $add_base == true
     +arrow
   border-width: $size $size $size 0
   border-right-color: $color

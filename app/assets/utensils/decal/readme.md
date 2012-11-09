@@ -35,6 +35,3 @@ Variable             | Default             | Description
 `$decal-status-list` | `$base-status-list` | The `list` of modifier classes to include
 `$decal-radii`       | `$radii`            | The `border-radius` of a decal
 
-## Todo
-- Fix up the list for generating modifiers
-

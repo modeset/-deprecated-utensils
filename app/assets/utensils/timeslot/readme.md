@@ -63,10 +63,3 @@ against a set of regular expressions.
 ### Requires
 - `utensils/utensils`
 
-
-## Todo
-- The `#getTimeslotFromData` method is pretty specific, could use a
-  some love and abstraction
-- The regular expression matchers for `activate` and `deactivate` are
-  pretty basic at the moment, could use a little tuning
-

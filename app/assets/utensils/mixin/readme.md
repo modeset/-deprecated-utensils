@@ -12,13 +12,13 @@ Draws a directional arrow, typically used for the pseudo elements of
 `:before` or `:after`. These are similar to carets, except they don't
 require an extra element inside the DOM.
 
-Mixin           | Params                                   | Usage
---------------- | ---------------------------------------- | -------------------
-`+arrow`        | `none`                                   | The base setup for arrows
-`+arrow_north`  | `$color:#000, $size:5px, $addBase:false` | An arrow pointing up
-`+arrow_south`  | `$color:#000, $size:5px, $addBase:false` | An arrow pointing down
-`+arrow_east`   | `$color:#000, $size:5px, $addBase:false` | An arrow pointing right
-`+arrow_west`   | `$color:#000, $size:5px, $addBase:false` | An arrow pointing left
+Mixin           | Params                                    | Usage
+--------------- | ----------------------------------------- | -------------------
+`+arrow`        | `none`                                    | The base setup for arrows
+`+arrow_north`  | `$color:#000, $size:5px, $add_base:false` | An arrow pointing up
+`+arrow_south`  | `$color:#000, $size:5px, $add_base:false` | An arrow pointing down
+`+arrow_east`   | `$color:#000, $size:5px, $add_base:false` | An arrow pointing right
+`+arrow_west`   | `$color:#000, $size:5px, $add_base:false` | An arrow pointing left
 
 ###### Notes
 - **Heads Up!** Arrows are typically positioned `absolute` by default so
@@ -280,9 +280,6 @@ Property             | Example
 `$ease-in-out-circ`  | <div class="sherpa-swatch ease-in-out-circ"></div>
 `$ease-in-out-back`  | <div class="sherpa-swatch ease-in-out-back"></div>
 
-### Todo
-- Setup the demo for this
-
 
 ## Visibility
 Controls various visibility settings applied to elements.
@@ -323,4 +320,5 @@ Includes placeholder classes to be used via extension
 ## Todo
 - Normalize how this documentation is (either go with tables or
   argument listing)
+- Setup demo for timing equations
 

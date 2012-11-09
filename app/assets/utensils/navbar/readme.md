@@ -82,5 +82,5 @@ Variable                  | Default                   | Description
 
 ## Todo
 - Add media queries
-- Add collapsible button and behavior
+- Add collapsible button and behavior with media queries
 
