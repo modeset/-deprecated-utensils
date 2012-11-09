@@ -8,7 +8,6 @@ describe 'Tip', ->
     # Add extra data which we might not want to be shown in documentation from the fixture
     extra = """
             <a id="overrides" data-toggle="active" data-trigger="click" data-effect="move" data-target="#jasmine-fixtures" data-title="The Overrides Tip">Overrides</a>
-            <a id="toucher" data-title="The Touch Tip">Touch</a>
             """
 
     loadFixtures('tip')
@@ -21,7 +20,6 @@ describe 'Tip', ->
     @west_el = @dom.find('#west_tip')
     @image_el = @dom.find('#image_tip')
     @override_el = @dom.find('#overrides')
-    @toucher_el = @dom.find('#toucher')
 
     @north_tip = new utensils.Tip(@north_el)
     @south_tip = new utensils.Tip(@south_el)
@@ -87,12 +85,6 @@ describe 'Tip', ->
     it 'sets the default container to null', ->
       expect(@north_tip.container).toBeNull()
 
-    it 'overrides the data.trigger state to "click" if the device is touch enabled', ->
-      $('html').addClass('touch')
-      touch_tip = new utensils.Tip(@toucher_el)
-      expect(touch_tip.triggerable.trigger_type).toEqual(on:"click.tip", off:"click.tip")
-      $('html').removeClass('touch')
-
     it 'sets default namespace', ->
       expect(@east_tip.namespace).toEqual('tip')
 
@@ -123,12 +115,6 @@ describe 'Tip', ->
     it 'creates an instance of "Triggerable"', ->
       expect(@north_tip.triggerable instanceof utensils.Triggerable).toEqual(true)
 
-    it 'creates an instance of "Directional"', ->
-      expect(@north_tip.directional instanceof utensils.Directional).toEqual(true)
-
-    it 'memoizes the cardinals from "Directional"', ->
-      expect(@north_tip.cardinals).toEqual(new utensils.Directional().getCardinals())
-
     it 'blows away the title attribute contents', ->
       expect(@north_el.attr('title')).toEqual('')
       expect(@south_el.attr('title')).toEqual('')
@@ -136,6 +122,16 @@ describe 'Tip', ->
     it 'uses Triggerables trigger types', ->
       expect(@east_tip.triggerable.trigger_type).toEqual(on:'mouseenter.tip focus.tip', off:'mouseleave.tip blur.tip')
       expect(@override_tip.triggerable.trigger_type).toEqual(on:'click.tip', off:'click.tip')
+
+
+  describe '#setup', ->
+    it 'creates an instance of "Directional"', ->
+      @north_tip.setup()
+      expect(@north_tip.directional instanceof utensils.Directional).toEqual(true)
+
+    it 'memoizes the cardinals from "Directional"', ->
+      @north_tip.setup()
+      expect(@north_tip.cardinals).toEqual(new utensils.Directional().getCardinals())
 
 
   describe '#toggle', ->
@@ -206,6 +202,11 @@ describe 'Tip', ->
       @override_tip.dispose()
       expect($('.tip').length).toEqual(0)
 
+    it 'does not freak out if disposing multiple times', ->
+      @west_tip.dispose()
+      @west_tip.dispose()
+      expect(@west_tip.dispose).not.toThrow()
+
 
   describe '#activated', ->
     it 'activates a tip immediately even though it has a delay', ->
@@ -247,8 +248,6 @@ describe 'Tip', ->
   describe '#render', ->
     it 'returns a string for rendering the default markup of a tip', ->
       west_render = @west_tip.render()
-      expect(west_render).toContain('class="tip west fade"')
-      expect(west_render).toContain('tip-arrow')
-      expect(west_render).toContain('tip-inner')
-      expect(west_render).toContain('The Western Tip')
+      expect(west_render).toHaveClass('tip west fade')
+      expect(west_render.find('.tip-inner').html()).toContain('The Western Tip')
 

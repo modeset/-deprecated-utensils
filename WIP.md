@@ -2,8 +2,6 @@
 # Todo
 
 ## WIP
-- Scrub the behavior files and normalize
-  - Tip
 - Cleanup all Directional and other util classes on dispose
 - Check for disabled states on components, disable interactions if true
 - Cleanup Todo lists

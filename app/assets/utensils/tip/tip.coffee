@@ -15,7 +15,7 @@ class utensils.Tip
 
   options: ->
     @data.namespace = @data.namespace || 'tip'
-    @data.trigger = @data.trigger || 'hover' unless $('html').hasClass('touch')
+    @data.trigger = @data.trigger || 'hover'
     @data.toggle = @data.toggle || 'active in'
     @data.placement = @data.placement || 'north'
     @data.title = @data.title || @el.attr('title') || ''
@@ -30,11 +30,13 @@ class utensils.Tip
     @placement = @data.placement
     @title = @data.title
     @effect = @data.effect
-
     @triggerable = new utensils.Triggerable(@el, @data)
+    @el.attr('title', '')
+
+  setup: ->
+    @initialized = true
     @directional = new utensils.Directional(null, @el, @placement)
     @cardinals = @directional.getCardinals()
-    @el.attr('title', '')
 
 # PUBLIC #
 
@@ -48,6 +50,7 @@ class utensils.Tip
     @triggerable.deactivate(target: @el)
 
   dispose: ->
+    return unless @triggerable
     @removeListeners()
     @triggerable.dispose()
     @triggerable = null
@@ -64,12 +67,14 @@ class utensils.Tip
     @triggerable.dispatcher.off('triggerable:deactivate')
 
   activated: (e) ->
+    @setup() unless @initialized
     @remove()
     @add()
     @el.addClass('selected')
     @el.trigger("#{@namespace}:activated", @el)
 
   deactivated: (e) ->
+    @setup() unless @initialized
     if @tip && utensils.Detect.hasTransition
       @tip.one(utensils.Detect.transition.end, => @remove arguments...)
       @tip.removeClass(@toggle_classes)
@@ -79,7 +84,8 @@ class utensils.Tip
     @el.trigger("#{@namespace}:deactivated", @el)
 
   add: ->
-    @cached_markup = @cached_markup || $(@render())
+    @setup() unless @initialized
+    @cached_markup = @cached_markup || @render()
     @tip = @cached_markup
     @container = @container || $('body')
     @tip.appendTo(@container)
@@ -101,7 +107,7 @@ class utensils.Tip
              <div class="tip-inner">#{@title}</div>
            </div>
            """
-    return html
+    return $(html)
 
 utensils.Bindable.register('tip', utensils.Tip)
 
