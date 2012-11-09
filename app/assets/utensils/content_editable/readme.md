@@ -18,7 +18,7 @@ allows the user to change it's contents.
 
 ## Style Settings
 To override the default settings, set the variable and it's value
-within your `config.sass` file or before `content-editable.sass` is loaded.
+within your `config.sass` file or before `content_editable.sass` is loaded.
 
 Variable                 | Default              | Description
 ------------------------ | -------------------- | -------------------------------------------

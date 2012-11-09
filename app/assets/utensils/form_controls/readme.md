@@ -454,7 +454,7 @@ Form structures typically consist of:
 
 ## Style Settings
 To override the default settings, set the variable and it's value
-within your `config.sass` file or before `form-controls.sass` is loaded.
+within your `config.sass` file or before `form_controls.sass` is loaded.
 
 Variable                      | Default                               | Description
 ----------------------------- | ------------------------------------- | -------------------------------------------

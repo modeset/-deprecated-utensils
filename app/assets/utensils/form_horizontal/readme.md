@@ -15,7 +15,7 @@ default layout, it only requires the class `.form-horizontal` on the
 
 ## Style Settings
 To override the default settings, set the variable and it's value
-within your `config.sass` file or before `form-horizontal.sass` is loaded.
+within your `config.sass` file or before `form_horizontal.sass` is loaded.
 
 Variable                     | Default                  | Description
 ---------------------------- | ------------------------ | -------------------------------------------

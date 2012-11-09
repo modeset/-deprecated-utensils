@@ -1,7 +1,7 @@
 
 # Button Modifiers
 A set of modifier classes which can be added to any button, regardless
-of their base class,  to adjust various aspects around a button's display
+of their base class, to adjust various aspects around a button's display
 type, sizing, or positioning.
 
 ```sass
@@ -47,7 +47,7 @@ Modifier Class    | Usage
 
 ## Style Settings
 To override the default settings, set the variable and it's value
-within your `config.sass` file or before `button-modifiers.sass` is loaded.
+within your `config.sass` file or before `button_modifiers.sass` is loaded.
 
 Variable                 | Default              | Description
 ------------------------ | -------------------- | -------------------------------------------

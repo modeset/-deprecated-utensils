@@ -41,7 +41,7 @@ elements under a `.button-toolbar` container to form a navigation system.
 
 ## Style Settings
 To override the default settings, set the variable and it's value
-within your `config.sass` file or before `button-group.sass` is loaded.
+within your `config.sass` file or before `button_group.sass` is loaded.
 
 Variable               | Default    | Description
 ---------------------- | ---------- | -------------------------------------------
