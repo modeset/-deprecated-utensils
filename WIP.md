@@ -2,14 +2,6 @@
 # Todo
 
 ## WIP
-- Cleanup Todo lists
-  - button semigloss
-  - triggerable
-  - collapse
-  - drop
-  - modal
-  - pop
-
 - Try and lazy load more of the lookups and cache where possible
 - Should it be visually.shown/visually.hide? (how is this working on
   focus states?)
@@ -21,6 +13,7 @@
 - Listing of needed utensils
 - Mobilize (templates, styles, js, etc..)
 - Fishnet
+- Complete Todo items
 
 ## Reminders, Tasks and Future Considerations
 - There should be some sort of Toggle class that acts similar to the

@@ -179,8 +179,3 @@ The markup injected when a pop is shown:
 </div>
 ```
 
-
-## Todo:
-- Depth swapping?
-- disable on body click?
-

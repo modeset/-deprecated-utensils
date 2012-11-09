@@ -29,6 +29,11 @@ $pop-arrow-offset: -$pop-arrow-size + 1 !default
   &.east
     margin-left: $pop-offset
 
+.pop:active,
+.pop:hover,
+.pop:focus
+  z-index: $zindex-pop + 1
+
 .pop-inner
   background-color: $pop-bgc
   border: 1px solid $pop-border
