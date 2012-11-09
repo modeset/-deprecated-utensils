@@ -211,6 +211,11 @@ describe 'Pop', ->
       @west_pop.dispose()
       expect(@west_pop.triggerable).toBeNull()
 
+    it 'gets rid of directional', ->
+      @west_pop.setup()
+      @west_pop.dispose()
+      expect(@west_pop.directional).toBeNull()
+
     it 'does not respond to any further events', ->
       spyEvent = spyOn(@west_pop, 'activate')
       @west_pop.dispose()

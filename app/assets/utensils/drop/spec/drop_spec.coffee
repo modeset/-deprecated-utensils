@@ -228,6 +228,11 @@ describe 'Drop', ->
       @west_drop.dispose()
       expect(@west_drop.triggerable).toBeNull()
 
+    it 'gets rid of directional', ->
+      @west_drop.setup()
+      @west_drop.dispose()
+      expect(@west_drop.directional).toBeNull()
+
     it 'does not respond to any further events', ->
       spyEvent = spyOn(@west_drop, 'activate')
       @west_drop.dispose()

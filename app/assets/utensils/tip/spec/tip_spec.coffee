@@ -190,6 +190,11 @@ describe 'Tip', ->
       @west_tip.dispose()
       expect(@west_tip.triggerable).toBeNull()
 
+    it 'gets rid of directional', ->
+      @west_tip.setup()
+      @west_tip.dispose()
+      expect(@west_tip.directional).toBeNull()
+
     it 'does not respond to any further events', ->
       spyEvent = spyOn(@west_tip, 'activate')
       @west_tip.dispose()

@@ -54,6 +54,7 @@ class utensils.Tip
     @removeListeners()
     @triggerable.dispose()
     @triggerable = null
+    @directional = null if @directional
     @remove()
 
 # PROTECTED #

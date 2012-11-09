@@ -56,6 +56,7 @@ class utensils.Pop
     @removeListeners()
     @triggerable.dispose()
     @triggerable = null
+    @directional = null if @directional
     @remove()
 
 # PROTECTED #

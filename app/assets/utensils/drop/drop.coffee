@@ -52,6 +52,7 @@ class utensils.Drop
     @removeListeners()
     @triggerable.dispose()
     @triggerable = null
+    @directional = null if @directional
 
 # PROTECTED #
 
