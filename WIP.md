@@ -3,7 +3,6 @@
 
 ## WIP
 - Scrub the behavior files and normalize
-  - Modal
   - Pop
   - Tip
 - Check for disabled states on components, disable interactions if true

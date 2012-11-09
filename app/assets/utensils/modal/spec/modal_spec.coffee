@@ -117,6 +117,11 @@ describe 'Modal', ->
       @modal_link.click()
       expect(spyEvent).not.toHaveBeenCalled()
 
+    it 'does not freak out if disposing multiple times', ->
+      @modal.dispose()
+      @modal.dispose()
+      expect(@modal.dispose).not.toThrow()
+
 
   describe '#addListeners', ->
     it 'adds a listener for "click" event for an modal', ->

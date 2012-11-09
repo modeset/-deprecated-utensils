@@ -35,6 +35,7 @@ class utensils.Modal
     @is_active = false
 
   dispose: ->
+    return unless @triggerable
     @removeListeners()
     @deactivate() if @is_active
     @triggerable.dispose()
@@ -64,11 +65,11 @@ class utensils.Modal
     @backdrop.off("click.close_modal.#{@namespace}")
 
   addDismissListeners: ->
-    @dismissers = @dismissers ||  @markup.find('[data-dismiss]')
+    @dismissers = @dismissers || @markup.find('[data-dismiss]')
     @dismissers.on("click.close_modal.#{@namespace}", => @deactivate arguments...) if @dismissers.length
 
   removeDismissListeners: ->
-    @dismissers.off("click.close_modal.#{@namespace}") if @dismissers.length
+    @dismissers.off("click.close_modal.#{@namespace}") if @dismissers && @dismissers.length
 
   keyed: (e) ->
     return if (!/(27)/.test(e.keyCode))
