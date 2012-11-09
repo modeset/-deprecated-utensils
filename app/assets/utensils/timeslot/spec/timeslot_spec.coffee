@@ -12,7 +12,6 @@ describe 'Timeslot', ->
     @hash_like_custom = "show:600, hide: 700"
     @hash_like_reversed = "off:100, on: 1000"
 
-  afterEach ->
 
   describe '#constructor', ->
     it 'constructs the class with parameters', ->

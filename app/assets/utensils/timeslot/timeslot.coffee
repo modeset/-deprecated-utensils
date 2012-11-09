@@ -45,7 +45,7 @@ class utensils.Timeslot
 
     return data
 
-  getClosestMatch: (key_name, index) ->
+  getClosestMatch: (key_name, index=0) ->
     if key_name.match(@active_key_types)
       return 'activate'
     else if key_name.match(@deactive_key_types)
