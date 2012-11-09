@@ -9,6 +9,15 @@ html element can be passed in to the CursorHand constructor, which would toggle 
 @import utensils/cursor_hand/cursor_hand
 ```
 
+## Usage Examples
+
+<!--~ markup/cursor_hand.html.haml -->
+```haml
+%h5.hand Hand
+%h5.handGrab Hand Grab
+```
+<!-- end -->
+
 ## API
 Typically cursor hand is required via a class that needs it, i.e. Carousel, Slider, TouchScroller, etc..
 

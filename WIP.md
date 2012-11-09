@@ -3,27 +3,27 @@
 
 ## WIP
 - Cleanup Todo lists
+- Try and lazy load more of the lookups and cache where possible
+- Should it be visually.shown/visually.hide? (how is this working on
+  focus states?)
+- Really test out the order of sass files and where there are issues
 - Media queries
 - Carousels *
 - Test Dinosaurs css and js
 - Listing of needed utensils
+- Mobilize (templates, styles, js, etc..)
 - Fishnet
 
 ## Reminders, Tasks and Future Considerations
-- Really test out the order of sass files and where there are issues
-- Should it be visually.shown/visually.hide? (how is this working on
-  focus states?)
 - There should be some sort of Toggle class that acts similar to the
   demo (removes a bunch of classes then add more) pass a data-remove?
 - Should events have more of a namespace to avoid collisions?
-- Try and lazy load more of the lookups and cache where possible
-- Mobilize (templates, styles, js, etc..)
 - Need to figure out a way for the Directional tests to be more stable
   when there are other failures
 
 ## Repository
-- Standardize file naming structure
 - Turn into engine with generators
+- FPO images (can't go public with the Burton photos)
 - Better tools for documentation (generation, behavior, and styles)
 - Better docs
 - Use the style guide for dinosaur test
