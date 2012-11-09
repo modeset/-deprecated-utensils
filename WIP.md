@@ -3,12 +3,9 @@
 
 ## WIP
 - Scrub the behavior files and normalize
-  - Collapse
-  - Dismiss
-  - Drop
-  - Modal
   - Tab
-  - Timeslot
+  - Dismiss
+  - Modal
   - Pop
   - Tip
 - Check for disabled states on components, disable interactions if true

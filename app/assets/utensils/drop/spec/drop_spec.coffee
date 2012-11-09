@@ -86,12 +86,6 @@ describe 'Drop', ->
     it 'finds a reference to the link when the drop-toggle is .drop', ->
       expect(@button_drop.dispatcher).toBe(@button_el)
 
-    it 'finds a reference to the menu when the drop-toggle is a child of .drop', ->
-      expect(@default_drop.menu).toBe(@default_el.find('.menu').first())
-
-    it 'finds a reference to the menu when the drop-toggle is .drop', ->
-      expect(@button_drop.menu).toBe(@button_el.next())
-
     it 'sets default namespace', ->
       expect(@west_drop.namespace).toEqual('drop')
 
@@ -125,14 +119,26 @@ describe 'Drop', ->
     it 'sets the instance of "Triggerable" to stop propagation', ->
       expect(@north_drop.triggerable.stop_propagation).toEqual(true)
 
+    it 'uses Triggerables trigger types', ->
+      expect(@north_drop.triggerable.trigger_type).toEqual(on:'click.drop', off:'click.drop')
+
+
+  describe '#setup', ->
+    it 'finds a reference to the menu when the drop-toggle is a child of .drop', ->
+      @default_drop.setup()
+      expect(@default_drop.menu).toBe(@default_el.find('.menu').first())
+
+    it 'finds a reference to the menu when the drop-toggle is .drop', ->
+      @button_drop.setup()
+      expect(@button_drop.menu).toBe(@button_el.next())
+
     it 'creates an instance of "Directional"', ->
+      @north_drop.setup()
       expect(@north_drop.directional instanceof utensils.Directional).toEqual(true)
 
     it 'memoizes the cardinals from "Directional"', ->
+      @north_drop.setup()
       expect(@north_drop.cardinals).toEqual(new utensils.Directional().getCardinals())
-
-    it 'uses Triggerables trigger types', ->
-      expect(@north_drop.triggerable.trigger_type).toEqual(on:'click.drop', off:'click.drop')
 
 
   describe '#toggle', ->
@@ -203,7 +209,8 @@ describe 'Drop', ->
       expect(@default_el).not.toHaveClass('active open')
 
     it 'adds the selected class if a child in menu has the active class', ->
-      menu_li = @button_drop.menu.find('li:first-child')
+      # menu_li = @button_drop.menu.find('li:first-child')
+      menu_li = @dom.find('#drop_button_demo .menu li:first-child')
       @button_el.click()
       menu_li.addClass('active')
       expect(menu_li).toHaveClass('active')
@@ -232,6 +239,11 @@ describe 'Drop', ->
       @west_drop.dispose()
       @west_el.click()
       expect(spyEvent).not.toHaveBeenCalled()
+
+    it 'does not freak out when calling multiple disposals', ->
+      @west_drop.dispose()
+      @west_drop.dispose()
+      expect(@west_drop.dispose).not.toThrow()
 
 
   describe '#activated', ->
@@ -277,7 +289,7 @@ describe 'Drop', ->
       expect(@split_el).not.toHaveClass('active open')
 
     it 'tabs through the sub menu via the down arrow', ->
-      menu = @split_drop.menu
+      menu = @dom.find('#drop_split_demo .menu')
       @split_el.click()
       expect(@split_el).toHaveClass('active open')
       @split_drop.keyed(keyCode:40, preventDefault:@noop, stopPropagation:@noop)
@@ -288,7 +300,6 @@ describe 'Drop', ->
       expect(menu.find(':focus')).toBe(menu.find(':nth-child(3) a'))
       @split_drop.keyed(keyCode:38, preventDefault:@noop, stopPropagation:@noop)
       expect(menu.find(':focus')).toBe(menu.find(':nth-child(2) a'))
-
 
 
   describe '#findDispacher', ->

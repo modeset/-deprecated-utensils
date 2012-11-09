@@ -10,26 +10,28 @@ class utensils.Drop
     @options()
     @initialize()
     @addListeners()
-    @activate() if @data.activate
+    @activate(@data.activate) if @data.activate || typeof @data.activate == 'number'
 
   options: ->
     @data.namespace = @data.namespace || 'drop'
-    @data.trigger = @data.trigger || 'click'
     @data.toggle = @data.toggle || 'active open'
     @data.placement = @data.placement || 'south'
     @data.keyboard = true unless @data.keyboard == false
 
   initialize: ->
     @html = $('html')
-    @dispatcher = @findDispatcher()
-    @menu = @dispatcher.next('.menu')
     @namespace = @data.namespace
     @toggle_classes = @data.toggle
     @placement = @data.placement
     @keyboard = @data.keyboard unless @html.hasClass('touch')
 
+    @dispatcher = @setDispatcher()
     @triggerable = new utensils.Triggerable(@dispatcher, @data)
     @triggerable.stop_propagation = true
+
+  setup: ->
+    @initialized = true
+    @menu = @dispatcher.next('.menu')
     @directional = new utensils.Directional(@menu, @el, @placement)
     @cardinals = @directional.getCardinals()
 
@@ -45,6 +47,7 @@ class utensils.Drop
     @triggerable.deactivate(target: @el)
 
   dispose: ->
+    return unless @triggerable
     @deactivate()
     @removeListeners()
     @triggerable.dispose()
@@ -61,6 +64,7 @@ class utensils.Drop
     @triggerable.dispatcher.off('triggerable:deactivate')
 
   activated: (e) ->
+    @setup() unless @initialized
     @html.trigger('click.drop.document')
     @el.addClass(@toggle_classes)
     position = @directional.getPlacementAndConstrain()
@@ -68,8 +72,9 @@ class utensils.Drop
     @addDocumentListener()
 
   deactivated: (e) ->
+    @setup() unless @initialized
     @el.removeClass("#{@toggle_classes} selected")
-    @el.addClass('selected') if @menu.find('.active').length > 0
+    @el.addClass('selected') if @menu.find('.active').length
     @removeDocumentListener()
 
   addDocumentListener: ->
@@ -98,12 +103,11 @@ class utensils.Drop
     index = 0 if !~index
     links.eq(index).focus()
 
-
 # INTERNAL #
 
-  findDispatcher: ->
+  setDispatcher: ->
     child = @el.find('.drop-toggle')
-    if child.length > 0 then return child.first() else return @el
+    if child.length then return child.first() else return @el
 
 utensils.Bindable.register('drop', utensils.Drop)
 
