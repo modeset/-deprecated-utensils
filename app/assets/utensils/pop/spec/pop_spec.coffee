@@ -285,12 +285,10 @@ describe 'Pop', ->
 
 
   describe '#render', ->
-    it 'returns a string for rendering the default markup of a pop', ->
+    it 'returns a string for rendering the default markup of a tip', ->
       west_render = @west_pop.render()
-      expect(west_render).toContain('class="pop west fade"')
-      expect(west_render).toContain('pop-arrow')
-      expect(west_render).toContain('pop-inner')
-      expect(west_render).toContain('The Western Pop')
+      expect(west_render).toHaveClass('pop west fade')
+      expect(west_render.find('.pop-inner').html()).toContain('The Western Pop')
 
 
   describe '#findMarkup', ->

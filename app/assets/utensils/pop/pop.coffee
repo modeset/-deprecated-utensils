@@ -114,14 +114,14 @@ class utensils.Pop
              </div>
            </div>
            """
-    return html
+    return $(html)
 
 # INTERNAL #
 
   findMarkup: ->
     pop_markup = ''
     if @is_tip_like
-      pop_markup = $(@render())
+      pop_markup = @render()
       if @title == ''
         pop_markup.find('.pop-header').remove()
         pop_markup.addClass('pop-no-header')
