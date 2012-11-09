@@ -33,6 +33,13 @@ elements under a `.button-toolbar` container to form a navigation system.
   %a.btn.active(href="#") Middle 1
   %a.btn(href="#") Middle 2
   %a.btn(href="#") Right
+
+%h5(style="margin-top:3em; margin-bottom:1em;") Vertical Button Group (radio)
+%nav.button-group.button-group-vertical(data-bindable="toggle-button-group" role="navigation")
+  %a.btn(href="#") 1
+  %a.btn.active(href="#") 2
+  %a.btn(href="#") 3
+  %a.btn(href="#") 4
 ```
 <!-- end -->
 
@@ -46,7 +53,4 @@ within your `config.sass` file or before `button_group.sass` is loaded.
 Variable               | Default    | Description
 ---------------------- | ---------- | -------------------------------------------
 `$button-group-offset` | `0.5em`    | The `margin-left` for a `.button-group + .button-group`
-
-## Todo
-- Add vertical button groups
 

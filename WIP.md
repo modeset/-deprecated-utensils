@@ -3,7 +3,6 @@
 
 ## WIP
 - Cleanup Todo lists
-  - button group
   - button semigloss
   - triggerable
   - collapse

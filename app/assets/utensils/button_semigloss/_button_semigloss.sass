@@ -46,12 +46,10 @@ $auto-generate-semigloss: false !default
   .button-group &
     border-radius: 0
     margin-left: -1px
-  &:first-child
-    .button-group &
+    &:first-child
       border-top-left-radius: $radii
       border-bottom-left-radius: $radii
-  &:last-child
-    .button-group &
+    &:last-child
       border-top-right-radius: $radii
       border-bottom-right-radius: $radii
   .button-group & + .drop,
@@ -60,6 +58,16 @@ $auto-generate-semigloss: false !default
     border-bottom-right-radius: $radii
     > .caret
       margin: 0.25em 0 -0.25em
+
+  .button-group.button-group-vertical &
+    margin-left: 0
+    margin-top: -1px
+    &:first-child
+      border-top-right-radius: $radii
+      border-bottom-left-radius: 0
+    &:last-child
+      border-top-right-radius: 0
+      border-bottom-left-radius: $radii
 
 
 // Override for specific color types (notice the slight difference in percentages)
