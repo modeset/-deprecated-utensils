@@ -10,9 +10,13 @@ but it will need some sort of grid setting or `width` defined on the `li`
 tags. There are currently no `margin` settings included in the media
 container for this reason.
 
+```sass
+@import utensils/container_media/container_media
+```
+
 ## Usage Examples
 
-<!--~ markup/container-media.html.haml -->
+<!--~ markup/container_media.html.haml -->
 ```haml
 %ul.media-container
   %li(style="width:25%")

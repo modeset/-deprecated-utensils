@@ -4,12 +4,12 @@ A semi-glossy button created via various mixins. By default, no classes
 are added to the style sheet unless told to do so.
 
 ```sass
-@import utensils/button_semigloss/button-semigloss
+@import utensils/button_semigloss/button_semigloss
 ```
 
 ## Usage Examples
 
-<!--~ markup/button-semigloss.html.haml -->
+<!--~ markup/button_semigloss.html.haml -->
 ```haml
 %section.demo(data-target=".btn" data-remove="active error disabled")
   %button.btn Default

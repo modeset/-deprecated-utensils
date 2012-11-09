@@ -12,7 +12,7 @@ Generic `h1`-`h6` headings with a paragraph element.
 
 ### Usage Example
 
-<!--~ markup/typography-headings.html.haml -->
+<!--~ markup/typography_headings.html.haml -->
 ```haml
 :ruby
   lorem = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
@@ -62,7 +62,7 @@ Element     | Usage
 
 ### Usage Example
 
-<!--~ markup/typography-inline.html.haml -->
+<!--~ markup/typography_inline.html.haml -->
 ```haml
 %section(style="width:45%; float:left; margin-right: 5%;")
   %h4 Inline elements examples
@@ -97,7 +97,7 @@ Used for showcasing a block of a code.
 
 ### Usage Example
 
-<!--~ markup/typography-pre.html.haml -->
+<!--~ markup/typography_pre.html.haml -->
 ```haml
 %pre
   git commit -am "Fixes issue #666"
@@ -111,7 +111,7 @@ Typically used for quoting blocks of text from another source.
 
 ### Usage Example
 
-<!--~ markup/typography-blockquote.html.haml -->
+<!--~ markup/typography_blockquote.html.haml -->
 ```haml
 %blockquote
   %p<
@@ -130,7 +130,7 @@ different separator.
 
 ### Usage Example
 
-<!--~ markup/typography-rules.html.haml -->
+<!--~ markup/typography_rules.html.haml -->
 ```haml
 %hr
 %hr.dashed
@@ -146,7 +146,7 @@ element render the same as an `.unstyled-list` class.
 
 ### Usage Example
 
-<!--~ markup/typography-lists.html.haml -->
+<!--~ markup/typography_lists.html.haml -->
 ```haml
 %section(style="width:25%; float:left; margin-right: 5%;")
   %p<
@@ -221,7 +221,7 @@ variables.
 
 ### Usage Example
 
-<!--~ markup/typography-definition.html.haml -->
+<!--~ markup/typography_definition.html.haml -->
 ```haml
 %section(style="width:25%; float:left; margin-right: 5%;")
   %p<

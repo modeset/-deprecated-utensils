@@ -6,9 +6,13 @@ Build them with a series of `<a>` or `<button>` elements.
 Building off of the button group concept, combine multiple `.button-group`
 elements under a `.button-toolbar` container to form a navigation system.
 
+```sass
+@import utensils/button_group/button_group
+```
+
 ## Usage Example
 
-<!--~ markup/button-group.html.haml -->
+<!--~ markup/button_group.html.haml -->
 ```haml
 %h5(style="margin-bottom:1em;") Button Toolbar (radio)
 %section.button-toolbar(data-bindable="toggle-button-group" role="navigation")

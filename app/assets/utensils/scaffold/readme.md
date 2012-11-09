@@ -14,7 +14,7 @@ The base `.nav` is the building block for navigation structures and components
 (tabs, pills, breadcrumbs, pagination and navigation lists). The `.nav` class
 can be used for simple navigation as well.
 
-<!--~ markup/scaffold-nav.html.haml -->
+<!--~ markup/scaffold_nav.html.haml -->
 ```haml
 %nav.well(role="navigation")
   %ul.nav(data-bindable="toggle-group")

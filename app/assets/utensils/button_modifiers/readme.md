@@ -5,12 +5,12 @@ of their base class,  to adjust various aspects around a button's display
 type, sizing, or positioning.
 
 ```sass
-@import utensils/button_modifiers/button-modifiers
+@import utensils/button_modifiers/button_modifiers
 ```
 
 ## Usage Examples
 
-<!--~ markup/button-modifiers.html.haml -->
+<!--~ markup/button_modifiers.html.haml -->
 ```haml
 %section.demo(data-target=".btn" data-remove="btn-xsmall btn-small btn-large btn-xlarge")
   %input.btn.standard(type="submit" value="Submit")

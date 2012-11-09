@@ -5,7 +5,7 @@ states, and basic structure for containers. Form controls are typically
 paired with one of the form layout components.
 
 ```sass
-@import utensils/form_controls/form-controls
+@import utensils/form_controls/form_controls
 ```
 
 ## Text based input controls
@@ -13,7 +13,7 @@ Represents the basic controls for creating forms. Contains support for all of th
 
 ### Usage Examples
 
-<!--~ markup/form-controls-inputs.html.haml -->
+<!--~ markup/form_controls_inputs.html.haml -->
 ```haml
 %form.sherpa-clearfix(role="form")
   %fieldset.sherpa-split-pull
@@ -82,7 +82,7 @@ Represents a search form control. These are set by adding the class
 
 ### Usage Examples
 
-<!--~ markup/form-controls-search.html.haml -->
+<!--~ markup/form_controls_search.html.haml -->
 ```haml
 %form(role="search")
   %fieldset
@@ -104,7 +104,7 @@ Represents a multi-line plain-text editing control.
 
 ### Usage Examples
 
-<!--~ markup/form-controls-textarea.html.haml -->
+<!--~ markup/form_controls_textarea.html.haml -->
 ```haml
 %form(role="form")
   %fieldset
@@ -121,7 +121,7 @@ Represents a control that presents a menu of options.
 
 ### Usage Examples
 
-<!--~ markup/form-controls-select.html.haml -->
+<!--~ markup/form_controls_select.html.haml -->
 ```haml
 %form(role="form")
   %fieldset
@@ -155,7 +155,7 @@ zero to many options.
 
 ### Usage Examples
 
-<!--~ markup/form-controls-radio-check.html.haml -->
+<!--~ markup/form_controls_radio_check.html.haml -->
 ```haml
 %form(role="form")
   %fieldset
@@ -205,7 +205,7 @@ Description elements describe or act as helpers around their controls.
 
 ### Usage Examples
 
-<!--~ markup/form-controls-description.html.haml -->
+<!--~ markup/form_controls_description.html.haml -->
 ```haml
 %form(role="form")
   %fieldset
@@ -256,7 +256,7 @@ user.
 
 ### Usage Examples
 
-<!--~ markup/form-controls-uneditable.html.haml -->
+<!--~ markup/form_controls_uneditable.html.haml -->
 ```haml
 %form(role="form")
   %fieldset
@@ -324,7 +324,7 @@ Form structures typically consist of:
   or other descriptive helpers
 
 ### Usage Examples
-<!--~ markup/form-controls-structure.html.haml -->
+<!--~ markup/form_controls_structure.html.haml -->
 ```haml
 %section#demo_form.button-toolbar(style="margin-bottom:1em;")
   %nav.button-group(data-bindable="toggle-button-group" data-remove="form-vertical form-horizontal")

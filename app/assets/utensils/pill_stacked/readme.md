@@ -11,7 +11,7 @@ Stacked pills require the `pill` component.
 
 ## Usage Example
 
-<!--~ markup/pill-stacked.html.haml -->
+<!--~ markup/pill_stacked.html.haml -->
 ```haml
 %nav#pill_stacked_demo(role="navigation")
   %ul.nav.pill.stacked(data-bindable="tab" data-related="#pill_stacked_content" role="tablist")

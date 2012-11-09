@@ -11,7 +11,7 @@ Stacked tabs require the `tab` component.
 
 ## Usage Example
 
-<!--~ markup/tab-stacked.html.haml -->
+<!--~ markup/tab_stacked.html.haml -->
 ```haml
 %nav#tab_stacked_demo(role="navigation")
   %ul.nav.tab.stacked(data-bindable="tab" data-related="#tab_stacked_content" role="tablist")

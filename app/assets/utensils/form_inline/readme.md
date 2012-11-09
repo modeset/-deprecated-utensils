@@ -9,7 +9,7 @@ inline form. Supports control labels as well.
 
 ## Usage Example
 
-<!--~ markup/form-inline.html.haml -->
+<!--~ markup/form_inline.html.haml -->
 ```haml
 %form.form-inline.well.fill(role="form")
   %input#fi_email(type="email" placeholder="email")
@@ -26,5 +26,5 @@ inline form. Supports control labels as well.
 <!-- end -->
 
 ###### Notes
-- **Heads Up!** Requires the `form-controls` utensil.
+- **Heads Up!** Requires the `form_controls` utensil.
 
