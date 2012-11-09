@@ -16,15 +16,21 @@ class utensils.Bindable
     $(bindable).data(@instanceKey) for bindable in @bindables
 
 
-  release: ->
+  dispose: ->
     for bindable in @bindables
       bindable = $(bindable)
       if instance = bindable.data(@instanceKey)
         instance.release() if typeof instance?.release is 'function'
+        instance.dispose() if typeof instance?.dispose is 'function'
         bindable.data(@instanceKey, null)
 
     delete @bindables
     @bindables = []
+
+
+  # Marked for Deprecation
+  release: ->
+    @dispose()
 
 
   bind: (el, dataKey=@dataKey) ->

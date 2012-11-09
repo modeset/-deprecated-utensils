@@ -19,7 +19,6 @@ class utensils.Drop
     @data.keyboard = true unless @data.keyboard == false
 
   initialize: ->
-    @html = $('html')
     @namespace = @data.namespace
     @toggle_classes = @data.toggle
     @placement = @data.placement
@@ -30,10 +29,11 @@ class utensils.Drop
     @triggerable.stop_propagation = true
 
   setup: ->
-    @initialized = true
+    @html = $('html')
     @menu = @dispatcher.next('.menu')
     @directional = new utensils.Directional(@menu, @el, @placement)
     @cardinals = @directional.getCardinals()
+    @initialized = true
 
 # PUBLIC #
 

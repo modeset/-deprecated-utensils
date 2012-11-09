@@ -12,7 +12,7 @@ class utensils.ToggleGroup
     @activate(@data.activate) if @data.activate
 
   options: ->
-    target_type = if @el.data('bindable') == 'toggle-button-group' then 'a,button' else 'li'
+    target_type = if @data.bindable == 'toggle-button-group' then 'a,button' else 'li'
     @data.namespace = @data.namespace || 'toggle_group'
     @data.toggle = @data.toggle || 'active'
     @data.behavior = @data.behavior || 'radio'

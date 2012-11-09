@@ -56,7 +56,7 @@ describe 'ToggleGroup', ->
       li.removeAttr('id')
 
     it 'activates an element on initialization from a number for a button group', ->
-      togglable = new utensils.ToggleGroup(@btn_radios_el, {activate: 1})
+      togglable = new utensils.ToggleGroup(@btn_radios_el, {activate: 1, bindable:"toggle-button-group"})
       expect(@btn_radios_el.find('button:nth-child(2)')).toHaveClass('active')
 
     it 'activates an element on initialization from an id for a button group', ->

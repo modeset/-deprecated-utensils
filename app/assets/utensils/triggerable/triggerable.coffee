@@ -20,7 +20,7 @@ class utensils.Triggerable
     @trigger_type = @setTriggerEventTypes(@data.trigger)
     @setDelay() if @data.delay
     @is_active = false
-    @is_disabled = @el.is('.disabled, :disabled')
+    @is_disabled = @dispatcher.is('.disabled, :disabled')
 
 # PUBLIC #
 

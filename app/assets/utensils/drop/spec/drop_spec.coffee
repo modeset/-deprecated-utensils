@@ -77,9 +77,6 @@ describe 'Drop', ->
 
 
   describe '#initialize', ->
-    it 'has a reference to the html node', ->
-      expect(@default_drop.html).toEqual($('html'))
-
     it 'finds a reference to the link when the drop-toggle is a child of .drop', ->
       expect(@default_drop.dispatcher).toBe(@default_el.find('.drop-toggle').first())
 
@@ -118,6 +115,10 @@ describe 'Drop', ->
 
 
   describe '#setup', ->
+    it 'has a reference to the html node', ->
+      @default_drop.setup()
+      expect(@default_drop.html).toEqual($('html'))
+
     it 'finds a reference to the menu when the drop-toggle is a child of .drop', ->
       @default_drop.setup()
       expect(@default_drop.menu).toBe(@default_el.find('.menu').first())

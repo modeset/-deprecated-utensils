@@ -46,4 +46,5 @@ $ ->
 ## Todo
 - Need to describe the public API
 - Is there a case for multiple bindables on a single element?
+- Fully deprecate the `release` method
 

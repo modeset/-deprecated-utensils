@@ -2,7 +2,6 @@
 # Todo
 
 ## WIP
-- Try and lazy load more of the lookups and cache where possible
 - Should it be visually.shown/visually.hide? (how is this working on
   focus states?)
 - Find a better home for transition styles
