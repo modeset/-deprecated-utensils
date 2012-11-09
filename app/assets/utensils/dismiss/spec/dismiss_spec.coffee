@@ -127,6 +127,11 @@ describe 'Dismiss', ->
       @alert_link.click()
       expect(spyEvent).not.toHaveBeenCalled()
 
+    it 'does not freak out if disposing multiple times', ->
+      @alert.dispose()
+      @alert.dispose()
+      expect(@alert.dispose).not.toThrow()
+
 
   describe '#addListeners', ->
     it 'adds a listener for "click" event for an alert', ->

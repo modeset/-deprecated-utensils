@@ -3,7 +3,6 @@
 
 ## WIP
 - Scrub the behavior files and normalize
-  - Dismiss
   - Modal
   - Pop
   - Tip

@@ -43,6 +43,7 @@ class utensils.Dismiss
     @dispose()
 
   dispose: ->
+    return unless @triggerable
     @clearTimeout() if @timeout
     @removeListeners()
     @triggerable.dispose()
