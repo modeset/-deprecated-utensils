@@ -152,7 +152,3 @@ By default, `Triggerable` allows an `event` to propagate. This can be
 shut down by calling on the instance: `@triggerable.stop_propagation =
 true`
 
-
-## Todo
-- Can `Triggerable` handle delays around CSS animations?
-

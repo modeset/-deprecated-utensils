@@ -129,16 +129,10 @@ Modal sizing is setup in a 16:9 ratio and centered within the browser
 based of the `$base-width` of the site. Specific media queries should be
 setup to handle various sizing based on the device's viewport.
 
+
 ###### Warning
 - **Heads Up!** The configuration file needs to define the
   `$zindex-modal` and `$zindex-modal-backdrop` values before this file is
   imported, this is done to keep managing `z-index` mappings in one
   place.
-
-
-## Todo
-- Add remote URL behavior
-- Focus states within a modal?
-- Add base media queries
-- Document scrolling behavior for mega content?
 

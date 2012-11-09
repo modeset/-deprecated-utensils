@@ -137,7 +137,6 @@ modifiers for each of the elements within the `$base-status-list`. By
 default this is set to `false` so no buttons are created.
 
 ## Todo:
-- This is a bit wordy here.. document how lists in sass work somewhere
-  else
+- This is a bit wordy.. document how lists in sass work somewhere else
 - The sass file could use a little cleaning.
 

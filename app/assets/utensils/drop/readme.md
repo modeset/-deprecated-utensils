@@ -174,8 +174,3 @@ Other default styles are set up through either `caret.sass` or
 value before this file is imported, this is done to keep managing
 `z-index` mappings in one place.
 
-## Todo
-- Exit animations do not occur since the `.visuallyhidden` class is
-  applied at the same time a transition occurs. Not sure if this should
-  be added in here or through an extension of `Drop`?
-
