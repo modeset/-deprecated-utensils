@@ -162,6 +162,11 @@ describe 'Tab', ->
       @tab.dispose()
       expect(@tab.toggler).toBeNull()
 
+    it 'does not freak out when calling multiple disposals', ->
+      @tab.dispose()
+      @tab.dispose()
+      expect(@tab.dispose).not.toThrow()
+
 
   describe '#addListeners', ->
     it 'adds a listener for "click" event', ->
@@ -211,7 +216,7 @@ describe 'Tab', ->
       li2.find('a').click()
       expect(@tab.panes['#tab_three']).toBe(pane2)
 
-  describe '#findContainer', ->
+  describe '#setTabableContainer', ->
     it 'finds the tabable content when a related container is passed', ->
       li = @tab_el.find('> li:nth-child(2)')
       li.find('> a').click()

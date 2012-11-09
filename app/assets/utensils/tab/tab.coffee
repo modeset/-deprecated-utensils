@@ -9,7 +9,7 @@ class utensils.Tab
     @options()
     @initialize()
     @addListeners()
-    @activate(@data.activate) if @data.activate
+    @activate(@data.activate) if @data.activate || typeof @data.activate == 'number'
 
   options: ->
     @data.namespace = @data.namespace || 'tab'
@@ -36,6 +36,7 @@ class utensils.Tab
     @toggler.deactivate(item)
 
   dispose: ->
+    return unless @toggler
     @removeListeners()
     @toggler.dispose()
     @toggler = null
@@ -49,28 +50,27 @@ class utensils.Tab
     @el.off("#{@namespace}:triggered")
 
   triggered: (e, link) ->
-    @container = @findContainer()
-    selector = $(link).find('[data-target]').data('target') ||
-               $(link).find('[href]').attr('href')
+    @setTabableContainer() unless @container
+    $referer = $(link)
+    selector = $referer.find('[data-target]').data('target') ||
+               $referer.find('[href]').attr('href')
 
     element = @getTabablePane(selector)
-    if element.length > 0
+    if element.length
       @container.find(@related_classified).removeClass(@related_classes)
       element.addClass(@related_classes)
 
   getTabablePane: (selector) ->
     if !@panes[selector]
-      pane = $(selector)
-      @panes[selector] = pane
+      @panes[selector] = $(selector)
     return @panes[selector]
 
-  findContainer: ->
-    return @container if @container
+  setTabableContainer: ->
     if @related
       container = @el.parent().find(@related)
-      if container.length > 0 then return container else return $(@related)
+      @container = if container.length then container else $(@related)
     else
-      return @el.parent().next()
+      @container = @el.parent().next()
 
 utensils.Bindable.register('tab', utensils.Tab)
 

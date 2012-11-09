@@ -3,7 +3,6 @@
 
 ## WIP
 - Scrub the behavior files and normalize
-  - Tab
   - Dismiss
   - Modal
   - Pop
