@@ -56,7 +56,6 @@
 <li><a href='#cursor_hand'>Cursor hand</a></li>
 <li><a href='#decal'>Decal</a></li>
 <li><a href='#detect'>Detect</a></li>
-<li><a href='#dimensionizer'>Dimensionizer</a></li>
 <li><a href='#directional'>Directional</a></li>
 <li><a href='#dismiss'>Dismiss</a></li>
 <li><a href='#dom_util'>Dom util</a></li>
@@ -1896,103 +1895,6 @@ properties, normalizing event names, and other useful detection.</p>
 
 <ul>
 <li><code>utensils/utensils</code></li>
-</ul>
-
-<p></section><section class="sherpa-section sherpa-clearfix"></p>
-
-<h1>Dimensionizer</h1>
-
-<p>Debugging tool for printing the <code>width</code> of the browser.
-Useful when creating styles associated with media queries.</p>
-
-<p>To use this class, simply require it from <code>application.js</code> and
-instantiate it.</p>
-
-<div class="sherpa-showcase sherpa-clearfix"><a class='btn' href='#' id='dimensionizer_demo'>Activate the dimensionizer</a>
-</div>
-
-<pre><code class="haml">%a#dimensionizer_demo.btn(href=&quot;#&quot;) Activate the dimensionizer
-</code></pre>
-
-<h6>Warnings</h6>
-
-<ul>
-<li><strong>Warning!</strong> Make sure this is turned off for production!</li>
-</ul>
-
-<h6>Notes</h6>
-
-<ul>
-<li><strong>Pro Tip!</strong> Clicking on the <code>Dimensionizer</code> will remove it from the DOM</li>
-</ul>
-
-<h2>Options</h2>
-
-<p>The following options can be passed to override the default settings
-when creating a <code>Dimensionizer</code> as the constructor&#39;s <code>data</code> object.</p>
-
-<table><thead>
-<tr>
-<th>Property</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>pos_x</code></td>
-<td><code>right</code></td>
-<td>The <code>x</code> position to display the tool (<code>left</code> or <code>right</code>)</td>
-</tr>
-<tr>
-<td><code>pos_y</code></td>
-<td><code>top</code></td>
-<td>The <code>y</code> position to display the tool (<code>top</code> or <code>bottom</code>)</td>
-</tr>
-<tr>
-<td><code>offset</code></td>
-<td><code>5</code></td>
-<td>The offset for <code>pos_x</code> and <code>pos_y</code> as a number</td>
-</tr>
-<tr>
-<td><code>color</code></td>
-<td><code>dark</code></td>
-<td>Passing any string value as the color will reverse the dark behavior and display it black on white</td>
-</tr>
-</tbody></table>
-
-<h2>API</h2>
-
-<h3>#new</h3>
-
-<p>Create a new <code>Dimensionizer</code> instance programmatically. </p>
-
-<pre><code class="coffee">#= require dimensionizer
-
-@dimensionizer = new utensils.Dimensionizer()
-
-# Or with options
-@dimensionizer = new utensils.Dimensionizer({pos_x:&#39;left&#39;, &#39;pos_y:&#39;bottom&#39;, offset:&#39;10&#39;, color:&#39;light&#39;})
-</code></pre>
-
-<h3>#dispose</h3>
-
-<p>Remove the <code>Dimensionizer</code> from the <code>DOM</code></p>
-
-<pre><code class="coffee">@dimensionizer.dispose()
-</code></pre>
-
-<h3>Requires</h3>
-
-<ul>
-<li><code>utensils/utensils</code></li>
-<li><code>utensils/detect</code></li>
-</ul>
-
-<h2>Todo</h2>
-
-<ul>
-<li>turn the dimensionizer demo button to a toggle button</li>
-<li>should this live in a debug package outside the components?</li>
 </ul>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>

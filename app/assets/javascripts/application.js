@@ -15,9 +15,6 @@
 //= require utensils/progress
 //= require utensils/slider
 
-// :: Debuggers ::
-//= require utensils/dimensionizer
-
 // Lets get this party started..
 $(function() {
   utensils._binder = new utensils.Bindable().bindAll();

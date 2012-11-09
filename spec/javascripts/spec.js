@@ -18,7 +18,5 @@
 //= require utensils/progress/spec
 //= require utensils/modal/spec
 
-//= require utensils/dimensionizer/spec
-
 //= require_tree ./
 

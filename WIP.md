@@ -23,7 +23,6 @@
 
 ## Repository
 - Standardize file naming structure
-- Move the debug tools outside of this project
 - Turn into engine with generators
 - Better tools for documentation (generation, behavior, and styles)
 - Better docs

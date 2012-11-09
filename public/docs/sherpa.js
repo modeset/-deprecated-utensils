@@ -58,7 +58,6 @@ Sherpa.prototype.addListeners = function() {
   this.check_demos.on('click', {self: this}, this.checkDemo)
   $('#demo_form').on('click', {self: this}, this.formDemo)
   $(window).keypress({self: this}, this.captureKeyStroke)
-  $('#dimensionizer_demo').on('click', {self: this}, this.activateDimensionizer)
   this.showcases.find('[href=#]').on('click', function(e){e.preventDefault()})
   $('.progress').on('click', {self: this}, this.demoProgress)
   this.el.find('#demo_flash_message nav:first-child .btn').on('click', {self: this}, this.flashDemo)
@@ -297,12 +296,6 @@ Sherpa.prototype.popNotes = function() {
 };
 
 // Demos
-
-// Activate the dimensionizer tool..
-Sherpa.prototype.activateDimensionizer = function(e) {
-  e.preventDefault()
-  var dimensionizer = new utensils.Dimensionizer()
-};
 
 Sherpa.prototype.initialProgress = function() {
   var pb = this.el.find('.progress.important').first()
