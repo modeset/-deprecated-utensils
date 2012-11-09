@@ -282,6 +282,15 @@
   opacity: 0.6;
 }
 
+.sherpa-swatch {
+  background-color: #268bd2;
+  border-radius: 0.4em;
+  display: inline-block;
+  vertical-align: middle;
+  width: 30px;
+  height: 20px;
+}
+
 #jasmine_frame {
   position: fixed;
   top: 20px;

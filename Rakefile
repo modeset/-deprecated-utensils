@@ -9,6 +9,11 @@ Utensils::Application.load_tasks
 
 task :default => :document
 
+desc "Convert the timing equation demo.sass over to demo.css"
+task :demo_styles do
+  system "sass ./public/docs/demo.sass > ./public/docs/demo.css"
+end
+
 desc "Generate the documentation"
 task :sherpa do
   system "ruby ./sherpa/sherpa.rb"

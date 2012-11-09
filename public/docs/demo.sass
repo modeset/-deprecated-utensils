@@ -1,0 +1,90 @@
+
+@import ../../app/assets/utensils/mixin/mixins/timing-equations
+
+// Transition demo
+@mixin _tranny-settings($prop, $timing)
+  -webkit-transition-property: $prop
+  -moz-transition-property: $prop
+  -ms-transition-property: $prop
+  -o-transition-property: $prop
+  transition-property: $prop
+  -webkit-transition-duration: $timing
+  -moz-transition-duration: $timing
+  -ms-transition-duration: $timing
+  -o-transition-duration: $timing
+  transition-duration: $timing
+
+@mixin _tranny-timing($type)
+  -webkit-transition-timing-function: $type
+  -moz-transition-timing-function: $type
+  -ms-transition-timing-function: $type
+  -o-transition-timing-function: $type
+  transition-timing-function: $type
+
+// #mixins-timing-equations table:hover .sherpa-swatch
+.timing-equations + p + table:hover .sherpa-swatch
+  cursor: pointer
+  $_pos: 500px
+  -webkit-transform: translateX($_pos)
+  -moz-transform: translateX($_pos)
+  -ms-transform: translateX($_pos)
+  -o-transform: translateX($_pos)
+  transform: translateX($_pos)
+
+.timing-equations + p + table tr td
+  padding: 0.2em
+  &:first-child
+    width: 20%
+
+// #mixins-timing-equations .sherpa-swatch
+.timing-equations + p + table .sherpa-swatch
+  +_tranny-settings(all, 1.5s)
+  &.ease-in-quad
+    +_tranny-timing($ease-in-quad)
+  &.ease-in-cubic
+    +_tranny-timing($ease-in-cubic)
+  &.ease-in-quart
+    +_tranny-timing($ease-in-quart)
+  &.ease-in-quint
+    +_tranny-timing($ease-in-quint)
+  &.ease-in-sine
+    +_tranny-timing($ease-in-sine)
+  &.ease-in-expo
+    +_tranny-timing($ease-in-expo)
+  &.ease-in-circ
+    +_tranny-timing($ease-in-circ)
+  &.ease-in-back
+    +_tranny-timing($ease-in-back)
+  &.ease-out-quad
+    +_tranny-timing($ease-out-quad)
+  &.ease-out-cubic
+    +_tranny-timing($ease-out-cubic)
+  &.ease-out-quart
+    +_tranny-timing($ease-out-quart)
+  &.ease-out-quint
+    +_tranny-timing($ease-out-quint)
+  &.ease-out-sine
+    +_tranny-timing($ease-out-sine)
+  &.ease-out-expo
+    +_tranny-timing($ease-out-expo)
+  &.ease-out-circ
+    +_tranny-timing($ease-out-circ)
+  &.ease-out-back
+    +_tranny-timing($ease-out-back)
+  &.ease-in-out-quad
+    +_tranny-timing($ease-in-out-quad)
+  &.ease-in-out-cubic
+    +_tranny-timing($ease-in-out-cubic)
+  &.ease-in-out-quart
+    +_tranny-timing($ease-in-out-quart)
+  &.ease-in-out-quint
+    +_tranny-timing($ease-in-out-quint)
+  &.ease-in-out-sine
+    +_tranny-timing($ease-in-out-sine)
+  &.ease-in-out-expo
+    +_tranny-timing($ease-in-out-expo)
+  &.ease-in-out-circ
+    +_tranny-timing($ease-in-out-circ)
+  &.ease-in-out-back
+    +_tranny-timing($ease-in-out-back)
+

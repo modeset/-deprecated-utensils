@@ -6,7 +6,6 @@ Automate common re-usable chunks of CSS, properties, selectors, and/or settings.
 @import utensils/mixin/mixins
 ```
 
-
 ## Arrows
 Draws a directional arrow, typically used for the pseudo elements of
 `:before` or `:after`. These are similar to carets, except they don't
@@ -29,11 +28,11 @@ Mixin           | Params                                    | Usage
 Clearfixins force a containers height to adjust when it contains floated
 children elements.
 
-There are two mixins available for fixing floats
+Mixin           | Usage
+--------------- | ----------------------------------------- 
+`+clearfixer`   | The [micro clearfix](http://nicolasgallagher.com/micro-clearfix-hack/) utilizing pseudo elements to clear floats
+`+clearfix`     | Utilizes `overflow: hidden` to clear floats (same as compass)
 
-- `+clearfixer` The [micro clearfix](http://nicolasgallagher.com/micro-clearfix-hack/) utilizing
-  pseudo elements to clear floats
-- `+clearfix` Uses `overflow: hidden` to clear floats
 
 Generally, the micro clearfix (`+clearfixer`) is prefered and mixed into
 the parent container of floated items.
@@ -105,13 +104,15 @@ JG... describe this!
 ## Font size
 Sets a `font-size` using `rems` with a pixel fall back.
 
-##### Arguments
+Mixin              | Params                                | Usage
+------------------ | ------------------------------------- | ----------------------------------------------
+`+font-size`       |  `$target-px`, `$context:$context-px` |  Renders the font with pixel and rem values
+
 - `$target-px` The target font size in pixels
 - `$context:$context-px` [_optional_] The context constraints of the user's base font size
 
 ###### Notes
-- **Heads Up!** Make sure not to include the `px` postfix when passing a
-  size
+- **Heads Up!** Make sure **not** to include the `px` postfix when passing a size
 
 ```sass
 h1
@@ -121,9 +122,7 @@ h1
 
 ## Form placeholder
 Adds vendor prefixes for altering colors of form placeholder elements.
-
-##### Arguments
-- `$color` The color to use (defaults to `#ccc`)
+Takes a single parameter for color (defaults to `#ccc`)
 
 ```sass
 input,
@@ -211,7 +210,7 @@ Mixins for sticking and unsticking a footer to the bottom of a page.
 Mixin              | Parameters       | Usage
 ------------------ | ---------------- | ---------------------
 `+sticky_footer`   | `$footer-height` | Creates a sticky footer based off a fixed height on the footer element
-`+unsticky_footer` | _none_           | Reverses the effect of the sticky_footer mixin, useful in media queries
+`+unsticky_footer` | _none_           | Reverses the effect of the `sticky_footer` mixin, useful in media queries
 
 Requires the markup to contain a `.main`, `.content` and `.footer` elements.
 
@@ -315,10 +314,4 @@ Includes placeholder classes to be used via extension
 ###### Notes
 - **Heads Up!** `scaffold.sass` automatically sets up a `.hidden` and
   `.shown` class that extends the `%hidden` and `%shown` placeholders.
-
-
-## Todo
-- Normalize how this documentation is (either go with tables or
-  argument listing)
-- Setup demo for timing equations
 

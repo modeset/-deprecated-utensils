@@ -21,6 +21,7 @@
       <link href="/assets/dinosaur.css" media="all" rel="stylesheet" type="text/css" />
     <![endif]-->
     <link rel="stylesheet" href="/docs/sherpa.css" type="text/css">
+    <link rel="stylesheet" href="/docs/demo.css" type="text/css">
 
     <!--[if lte IE 8]>
       <script src="/assets/polyfill.js" type="text/javascript"></script>
@@ -4115,13 +4116,21 @@ the host should be <code>relative</code> and don&#39;t forget to add <code>conte
 <p>Clearfixins force a containers height to adjust when it contains floated
 children elements.</p>
 
-<p>There are two mixins available for fixing floats</p>
-
-<ul>
-<li><code>+clearfixer</code> The <a href="http://nicolasgallagher.com/micro-clearfix-hack/">micro clearfix</a> utilizing
-pseudo elements to clear floats</li>
-<li><code>+clearfix</code> Uses <code>overflow: hidden</code> to clear floats</li>
-</ul>
+<table><thead>
+<tr>
+<th>Mixin</th>
+<th>Usage</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>+clearfixer</code></td>
+<td>The <a href="http://nicolasgallagher.com/micro-clearfix-hack/">micro clearfix</a> utilizing pseudo elements to clear floats</td>
+</tr>
+<tr>
+<td><code>+clearfix</code></td>
+<td>Utilizes <code>overflow: hidden</code> to clear floats (same as compass)</td>
+</tr>
+</tbody></table>
 
 <p>Generally, the micro clearfix (<code>+clearfixer</code>) is prefered and mixed into
 the parent container of floated items.</p>
@@ -4245,7 +4254,19 @@ and <code>$base_vertical</code> prior to the functions being loaded.</li>
 
 <p>Sets a <code>font-size</code> using <code>rems</code> with a pixel fall back.</p>
 
-<h5>Arguments</h5>
+<table><thead>
+<tr>
+<th>Mixin</th>
+<th>Params</th>
+<th>Usage</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>+font-size</code></td>
+<td><code>$target-px</code>, <code>$context:$context-px</code></td>
+<td>Renders the font with pixel and rem values</td>
+</tr>
+</tbody></table>
 
 <ul>
 <li><code>$target-px</code> The target font size in pixels</li>
@@ -4255,8 +4276,7 @@ and <code>$base_vertical</code> prior to the functions being loaded.</li>
 <h6>Notes</h6>
 
 <ul>
-<li><strong>Heads Up!</strong> Make sure not to include the <code>px</code> postfix when passing a
-size</li>
+<li><strong>Heads Up!</strong> Make sure <strong>not</strong> to include the <code>px</code> postfix when passing a size</li>
 </ul>
 
 <pre><code class="sass">h1
@@ -4266,13 +4286,8 @@ size</li>
 
 <h2>Form placeholder</h2>
 
-<p>Adds vendor prefixes for altering colors of form placeholder elements.</p>
-
-<h5>Arguments</h5>
-
-<ul>
-<li><code>$color</code> The color to use (defaults to <code>#ccc</code>)</li>
-</ul>
+<p>Adds vendor prefixes for altering colors of form placeholder elements.
+Takes a single parameter for color (defaults to <code>#ccc</code>)</p>
 
 <pre><code class="sass">input,
 textarea
@@ -4397,7 +4412,7 @@ extends the <code>%ir</code> placeholder.</li>
 <tr>
 <td><code>+unsticky_footer</code></td>
 <td><em>none</em></td>
-<td>Reverses the effect of the sticky_footer mixin, useful in media queries</td>
+<td>Reverses the effect of the <code>sticky_footer</code> mixin, useful in media queries</td>
 </tr>
 </tbody></table>
 
@@ -4621,14 +4636,6 @@ reappear</li>
 <ul>
 <li><strong>Heads Up!</strong> <code>scaffold.sass</code> automatically sets up a <code>.hidden</code> and
 <code>.shown</code> class that extends the <code>%hidden</code> and <code>%shown</code> placeholders.</li>
-</ul>
-
-<h2>Todo</h2>
-
-<ul>
-<li>Normalize how this documentation is (either go with tables or
-argument listing)</li>
-<li>Setup demo for timing equations</li>
 </ul>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>

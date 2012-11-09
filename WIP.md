@@ -5,13 +5,11 @@
 - Cleanup Todo lists
   - button group
   - button semigloss
+  - triggerable
   - collapse
   - drop
-  - demo timing equations
-  - documentation for polyfill and mixin
   - modal
   - pop
-  - triggerable
 
 - Try and lazy load more of the lookups and cache where possible
 - Should it be visually.shown/visually.hide? (how is this working on
