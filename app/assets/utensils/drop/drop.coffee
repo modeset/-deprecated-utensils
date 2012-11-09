@@ -23,7 +23,7 @@ class utensils.Drop
     @namespace = @data.namespace
     @toggle_classes = @data.toggle
     @placement = @data.placement
-    @keyboard = @data.keyboard unless @html.hasClass('touch')
+    @keyboard = @data.keyboard
 
     @dispatcher = @setDispatcher()
     @triggerable = new utensils.Triggerable(@dispatcher, @data)

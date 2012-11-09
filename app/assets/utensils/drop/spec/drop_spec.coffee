@@ -107,12 +107,6 @@ describe 'Drop', ->
     it 'overrides the default keyboard', ->
       expect(@north_drop.keyboard).toEqual(false)
 
-    it 'shuts down the keyboard if the device is touch enabled', ->
-      $('html').addClass('touch')
-      touch_drop = new utensils.Drop(@dom)
-      expect(touch_drop.keyboard).toBeUndefined()
-      $('html').removeClass('touch')
-
     it 'creates an instance of "Triggerable"', ->
       expect(@north_drop.triggerable instanceof utensils.Triggerable).toEqual(true)
 
