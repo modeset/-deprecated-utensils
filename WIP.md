@@ -2,13 +2,11 @@
 # Todo
 
 ## WIP
-- Should it be visually.shown/visually.hide? (how is this working on
-  focus states?)
 - Find a better home for transition styles
 - Really test out the order of sass files and where there are issues
 - Media queries
 - Carousels *
-- Test Dinosaurs css and js
+- Test dinosaurs css and js
 - Listing of needed utensils
 - Mobilize (templates, styles, js, etc..)
 - Fishnet
@@ -22,9 +20,12 @@
   when there are other failures
 
 ## Repository
-- Turn into engine with generators
 - FPO images (can't go public with the Burton photos)
+- Turn into engine
+- Add generators
 - Better tools for documentation (generation, behavior, and styles)
 - Better docs
 - Use the style guide for dinosaur test
+
+## Roadmap
 
