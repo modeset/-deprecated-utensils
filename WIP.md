@@ -2,8 +2,6 @@
 # Todo
 
 ## WIP
-- Find a better home for transition styles
-- Really test out the order of sass files and where there are issues
 - Media queries
 - Carousels *
 - Test dinosaurs css and js
