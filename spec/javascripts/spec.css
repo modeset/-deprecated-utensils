@@ -1,218 +1,238 @@
 
 body {
+  margin: 0.5em;
+}
+
+#TrivialReporter {
+  background-color: #eee;
   color: #333;
   font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  padding: 1%;
 }
 
-.jasmine_reporter a,
-.jasmine_reporter a:visited {
-  color: #333;
-  text-decoration: none;
-  text-shadow: 0 1px 0 rgba(255,255,255,0.75);
-}
 
-.jasmine_reporter a:hover,
-.jasmine_reporter a:active {
-  color: #268bd2;
-}
-
-.run_spec {
-  float: right;
-  font-size: 0.8em;
-  text-align: right;
-}
-
-.jasmine_reporter {
-  margin: 0 1%;
-}
-
-.banner {
+/* Banner */
+#TrivialReporter .banner {
   background-color: #ccc;
-  border: 1px solid #666;
+  border: 1px solid #333;
   border-top-left-radius: 0.4em;
   border-top-right-radius: 0.4em;
-  padding: 1%;
-  text-shadow: 0 1px 0 rgba(255,255,255,0.75);
+  color: #333;
+  padding: 1em;
+}
+
+#TrivialReporter .logo {
+  font-size: 1em;
+  padding-left: 0;
+}
+
+#TrivialReporter .logo .title {
+  font-weight: bold;
+}
+
+#TrivialReporter .options {
+  color: #ccc;
+}
+
+#TrivialReporter .options label {
   color: #333;
 }
 
-.logo {
-  float: left;
-  font-size: 1em;
-}
 
-.logo .title {
-  font-weight: bold;
-}
-
-.logo .version {
-  font-size: 0.6em;
-  padding-left: 1em;
-}
-
-.options {
-  font-size: 0.8em;
-  font-weight: bold;
-  text-align: right;
-}
-
-.options label {
-  font-weight: normal;
-}
-
-.runner.running {
-  background-color: #ffc40d;
-}
-
-.suite {
-  border: 1px solid #666;
-  border-radius: 0.4em;
-  margin: 0.5em 0;
-  padding: 0.75% 1%;
-}
-
-.suite .suite {
-  margin: 0.2em 0;
-  padding: 0.25% 1%;
-}
-
-.suite.passed {
-  background-color: #dfd;
-  border-color: #46a546;
-}
-
-.suite.failed {
-  background-color: #fdd;
-  border-color: #b22222;
-}
-
-.runner ~ .suite.passed {
-  background-color: #f2fff2;
-}
-
-.runner ~ .suite.failed {
-  background-color: #fff2f2;
-}
-
-.spec {
-  border-radius: 0.4em;
-  margin: 0.2em 0;
-  padding: 0.5% 1%;
-  clear: both;
-}
-
-.spec.failed, .spec.passed, .spec.skipped {
-  border: 1px solid #666;
-}
-
-.spec.failed {
-  background-color: #fbb;
-  border-color: #b22222;
-  border-style: dashed;
-}
-
-.spec.passed {
-  background-color: #bfb;
-  border-color: #46a546;
-}
-
-.spec.skipped {
-  background-color: #bbb;
-}
-
-.runner .description,
-.suite > .description {
-  font-weight: bold;
-}
-
-.suite > .suite > .description {
-  font-family: "Bitstream Vera Sans Mono", "Menslo LG M", "Menlo", "Monaco", monospace;
-  font-size: 85%;
-  font-weight: normal;
-  display: block;
-  margin: 0.5em 0;
-}
-
-.spec > .description {
-  font-size: 0.8em;
-}
-
-.passed {
-  background-color: #cfc;
-  display: none;
-}
-
-.failed {
-  background-color: #fbb;
-}
-
-.skipped {
-  color: #777;
-  background-color: #eee;
-  display: none;
-}
-
-.messages {
-  padding: 1%;
-  border-left: 0;
-}
-
-.resultMessage {
-  background: #eef;
-  border: 1px solid #b22222;
-  border-top-left-radius: 0.4em;
-  border-top-right-radius: 0.4em;
-  border-bottom: 0;
-  padding: 1%;
-}
-
-.stackTrace {
-  background: #eef;
-  border: 1px solid #b22222;
-  border-top: 1px dotted #333;
-  border-bottom-left-radius: 0.4em;
-  border-bottom-right-radius: 0.4em;
-  font-family: "Bitstream Vera Sans Mono", "Menslo LG M", "Menlo", "Monaco", monospace;
-  font-size: 75%;
-  max-height: 10em;
-  overflow: auto;
-  padding: 1%;
-  white-space: pre;
-  margin-left: 0;
-}
-
-.resultMessage span.result {
-  display: block;
-  line-height: 2;
-  color: black;
-}
-
-.resultMessage .mismatch {
-  color: black;
-}
-
-.finished-at {
-  padding-left: 1em;
-  font-size: .6em;
-}
-
-.show-passed .passed,
-.show-skipped .skipped {
-  display: block;
-}
-
-
-#jasmine_content {
-  position:fixed;
-  right: 100%;
-}
-
-.runner {
-  border: 1px solid #666;
+/* Runner */
+#TrivialReporter .runner {
+  border: 1px solid #333;
   border-bottom-left-radius: 0.4em;
   border-bottom-right-radius: 0.4em;
   border-top: 0;
-  display: block;
-  margin: 0 0 0.5em 0;
-  padding: 0.75% 1%;
+  margin: 0 0 2em 0;
+  padding: 1em;
 }
+
+#TrivialReporter .runner.running {
+  background-color: #ffc40d;
+}
+
+#TrivialReporter .runner.passed {
+  background-color: #cfc;
+}
+
+#TrivialReporter .runner.failed {
+  background-color: #b22222;
+}
+
+#TrivialReporter .finished-at,
+#TrivialReporter .run_spec {
+  display: none;
+}
+
+
+/* Suites */
+#TrivialReporter .suite {
+  border: 0;
+  font-family: "Bitstream Vera Sans Mono", "Menslo LG M", "Menlo", "Monaco", monospace;
+  font-size: 0.9em;
+  margin: 0;
+  padding: 0 1%;
+}
+
+#TrivialReporter .suite + .suite {
+  margin-top: 2em;
+}
+
+#TrivialReporter .suite .suite {
+  margin: 0;
+  padding-left: 1em;
+}
+
+#TrivialReporter .suite.passed {
+  background-color: transparent;
+}
+
+#TrivialReporter .suite.failed {
+  background-color: transparent;
+}
+
+#TrivialReporter .suite .description {
+  display: inline-block;
+}
+
+#TrivialReporter .runner ~ .suite > .description {
+  border-bottom: 1px dotted #666;
+  font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 0.5em;
+  padding-bottom: 0.25em;
+}
+
+#TrivialReporter .runner ~ .suite.failed > .description {
+  border-bottom-color: #b22222;
+}
+
+
+/* Specs */
+#TrivialReporter .spec {
+  font-size: 0.9em;
+  margin: 0.5em 0;
+  padding-left: 0;
+}
+
+#TrivialReporter .spec:last-child {
+  margin-bottom: 1.5em;
+}
+
+#TrivialReporter .spec a:before {
+  margin: 0 0.5em;
+}
+
+#TrivialReporter .spec.passed,
+#TrivialReporter .spec.failed,
+#TrivialReporter .spec.skipped {
+  border: 0;
+  padding: 0;
+}
+
+#TrivialReporter .spec.passed {
+  background-color: transparent;
+}
+
+#TrivialReporter .spec.failed {
+  background-color: transparent;
+}
+
+#TrivialReporter .spec.passed a:before {
+  content: "\2713";
+}
+
+#TrivialReporter .spec.failed a:before {
+  content: "\00d7";
+}
+
+
+/* Failures */
+#TrivialReporter .messages {
+  border-left: 0;
+  padding: 1% 0;
+}
+
+#TrivialReporter .resultMessage {
+  background-color: #b22222;
+  border: 1px solid #333;
+  border-top-left-radius: 0.4em;
+  border-top-right-radius: 0.4em;
+  color: white;
+  padding: 1%;
+}
+
+#TrivialReporter .resultMessage span.result {
+  line-height: 2;
+}
+
+#TrivialReporter .stackTrace {
+  background-color: #222;
+  border: 1px solid #333;
+  border-top: 0;
+  border-bottom-left-radius: 0.4em;
+  border-bottom-right-radius: 0.4em;
+  color: #ccc;
+  font-size: 1em;
+  max-height: none;
+  margin-left: 0;
+  padding: 1%;
+}
+
+#TrivialReporter .stackTrace:first-line {
+  color: #d30002;
+  line-height: 2.2;
+}
+
+
+/* Links */
+#TrivialReporter a,
+#TrivialReporter a:visited {
+  color: #333;
+  text-decoration: none;
+}
+
+#TrivialReporter a:hover,
+#TrivialReporter a:active {
+  color: #268bd2;
+  text-decoration: underline;
+}
+
+#TrivialReporter .runner a:hover,
+#TrivialReporter .runner a:active {
+  text-decoration: none;
+}
+
+#TrivialReporter .runner.failed a,
+#TrivialReporter .runner.failed a:visited {
+  color: white;
+}
+
+#TrivialReporter .runner.failed a:hover,
+#TrivialReporter .runner.failed a:active {
+  color: #ccc;
+}
+
+#TrivialReporter .suite.passed > a:hover,
+#TrivialReporter .suite.passed > a:active,
+#TrivialReporter .spec.passed a,
+#TrivialReporter .spec.passed a:visited,
+#TrivialReporter .spec.passed a:hover,
+#TrivialReporter .spec.passed a:active {
+  color: #46a546;
+}
+
+#TrivialReporter .suite.failed > a,
+#TrivialReporter .suite.failed > a:visited,
+#TrivialReporter .suite.failed > a:hover,
+#TrivialReporter .suite.failed > a:active,
+#TrivialReporter .spec.failed a,
+#TrivialReporter .spec.failed a:visited,
+#TrivialReporter .spec.failed a:hover,
+#TrivialReporter .spec.failed a:active {
+  color: #b22222;
+}
+

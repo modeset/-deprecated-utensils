@@ -3,7 +3,7 @@
 
 describe 'Utensils', ->
 
-  describe 'namespace', ->
+  describe '#namespace', ->
     it 'exists for access', ->
       expect(utensils).toBeDefined()
     it 'exists on the window object', ->

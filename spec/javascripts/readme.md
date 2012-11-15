@@ -7,6 +7,10 @@ their behavior, style and markup files.
 Jasmine is setup under [jasminerice](https://github.com/bradphelan/jasminerice), which
 incorporates a patched version of [jasmine-jquery](https://github.com/velesin/jasmine-jquery)
 
+Jasminerice defaults to Jasmine's html reporter for displaying spec
+results. This is overridden to the trivial reporter within `spec.js`,
+since it executes much faster.
+
 The fixtures in `/spec/javascripts/fixtures/` are copied in from each
 utensil's markup directory. This is invoked by the rake task:
 

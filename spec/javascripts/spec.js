@@ -1,9 +1,10 @@
 //= require jquery.min
 
-//= require utensils/utensils/spec
 //= require utensils/directional/spec
+//= require utensils/utensils/spec
 //= require utensils/bindable/spec
 //= require utensils/detect/spec
+//= require utensils/timesicle/spec
 //= require utensils/timeslot/spec
 //= require utensils/triggerable/spec
 //= require utensils/toggle/spec
@@ -19,4 +20,13 @@
 //= require utensils/modal/spec
 
 //= require_tree ./
+
+// Jasmine (rice) defaults to the HTML Reporter, yank it out
+// in favor of the Trivial Reporter... it's way faster!
+(function() {
+  var jasmineEnv = jasmine.getEnv()
+  jasmineEnv.reporter.subReporters_.shift()
+  var reporter = new jasmine.TrivialReporter()
+  jasmineEnv.addReporter(reporter)
+}())
 

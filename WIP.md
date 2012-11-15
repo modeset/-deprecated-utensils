@@ -2,9 +2,10 @@
 # Todo
 
 ## WIP
-- Media queries
+- Timer Class
 - Carousels *
 - Test dinosaurs css and js
+- Media queries
 - Listing of needed utensils
 - Mobilize (templates, styles, js, etc..)
 - Fishnet

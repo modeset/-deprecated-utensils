@@ -81,7 +81,7 @@ describe 'Directional', ->
       expect(suggested.cardinal).toEqual('south')
 
     it 'repositions the item on stage when south is offscreen', ->
-      @south_el.css(position:'absolute', bottom:0, left:'50%')
+      @dom.css(position:'absolute', bottom:0, left:'50%')
       pos = @south_direc.getPlacementFromCardinal()
       suggested = @south_direc.constrainToViewport(pos)
       expect(suggested.cardinal).toEqual('north')
