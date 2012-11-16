@@ -2,8 +2,8 @@
 # Todo
 
 ## WIP
-- Timer Class
 - Carousels *
+- Force classes to cleanup their own triggers
 - Test dinosaurs css and js
 - Media queries
 - Listing of needed utensils

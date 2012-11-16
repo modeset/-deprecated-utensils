@@ -4,7 +4,7 @@
 //= require utensils/utensils/spec
 //= require utensils/bindable/spec
 //= require utensils/detect/spec
-//= require utensils/timesicle/spec
+//= require utensils/beacon/spec
 //= require utensils/timeslot/spec
 //= require utensils/triggerable/spec
 //= require utensils/toggle/spec
