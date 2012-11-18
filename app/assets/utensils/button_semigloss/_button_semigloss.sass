@@ -100,9 +100,6 @@ $auto-generate-semigloss: false !default
           +semigloss-button-modifier($_color_value, #666, 10%, 15%, 30%)
         @else
           +semigloss-button-modifier($_color_value, white)
-  // Make links look like buttons
-  a.#{$name}
-    font-weight: bold
 
 // Auto generate if the variable exists and not false
 @if $auto-generate-semigloss != false
