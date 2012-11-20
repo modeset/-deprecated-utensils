@@ -57,7 +57,7 @@ describe 'Drop', ->
     it 'sets the default data.trigger state to "click"', ->
       expect(@default_drop.data.trigger).toEqual('click')
 
-    it 'sets the default data.toggle classes to "active in"', ->
+    it 'sets the default data.toggle classes to "active open"', ->
       expect(@default_drop.data.toggle).toEqual('active open')
 
     it 'overrides the default data.toggle classes', ->

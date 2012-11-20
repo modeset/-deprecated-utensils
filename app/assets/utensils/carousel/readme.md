@@ -6,7 +6,7 @@ The base carousel.
 
 <!--~ markup/carousel.html.haml -->
 ```haml
-%section.carousel(data-bindable="carousel" data-autoplay="false" data-cycles="1" data-duration="2" data-active-class="in" data-keyboard="true" role="presentation")
+%section.carousel(data-bindable="carousel" data-autoplay="false" data-cycles="1" data-duration="1" data-keyboard="true" role="presentation")
   %nav.carousel-controls.fade.in
     %a.paddle-icon.west(href="#prev") &larr;
     %a.paddle-icon.east(href="#next") &rarr;
@@ -19,4 +19,11 @@ The base carousel.
           %figcaption.carousel-caption
 ```
 <!-- end -->
+
+## Todo
+- test
+- activate like toggles (test this)
+- test beacon behavior
+- toggle button for auto play in demo
+- document
 

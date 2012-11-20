@@ -1,157 +1,130 @@
+
 #= require utensils/utensils
 #= require utensils/bindable
 #= require utensils/detect
+#= require utensils/beacon
 
 class utensils.Carousel
-  constructor:(el) ->
-    @el = $(el)
-    @index = 0
-    @num_panels = 0
-    @num_cycles = 0
-    @cycle_slide = 0
+  constructor:(@el, data) ->
+    @data = if data then data else @el.data()
     @options()
     @initialize()
-
-  # Carousel Setup
+    @addListeners()
+    @activate(@index) # @activate... should be based on a passed active instance or 0
 
   options: ->
-    # Set any options coming from html data attributes
-    @autoplay = (@el.data('autoplay') + "" == "true")
-    @num_cycles = parseFloat(@el.data('cycles')) || 99
-    @duration = @el.data('duration') || 5
-    @duration *= 1000
-    @active_class = @el.data('active-class') || 'in'
-    @keyboard = (@el.data('keyboard') + "" == "true")
+    @data.namespace = @data.namespace || 'carousel'
+    @data.toggle = @data.toggle || 'active in'
+    @data.keyboard = true unless @data.keyboard == false
+    @data.paddles = @data.paddles || '.paddle-icon'
 
   initialize: ->
-    @getElements()
+    @namespace = @data.namespace
+    @toggle_classes = @data.toggle
+    @keyboard = @data.keyboard
 
-    @buildControls() if @num_panels > 1 && @controls.length > 0
-    @swap(0)
-
-    @initTimer()
-
-  getElements: ->
+    @index = 0
     @slider = @el.find('.carousel-inner')
-    @panels = @el.find('.carousel-panel')
-    @controls = @el.find('.carousel-controls')
-    @indication = @el.find('.indication')
-
+    @panels = @slider.find('.carousel-panel')
     @num_panels = @panels.length
 
-  initTimer: ->    
-    @num_cycles *= @num_panels
-    @startTimer() if @autoplay == true && @num_panels > 1
+    @paddles = @el.find(@data.paddles)
+    @html = $('html') if @keyboard
 
-  buildControls: ->
-    @buildPaddles()
-    @buildIndicators()
-    @buildKeyboardControl()
-  
-  buildPaddles: ->
-    @el.find('.paddle-icon.east').on("click", @next)
-    @el.find('.paddle-icon.west').on("click", @prev)
+    @initializeBeacon() if @data.autoplay == true
 
-  buildIndicators: ->
-    indicators_html = ''
-    # add <li> buttons
-    if @indication
-      for i in [1..@num_panels]
-        indicators_html += "<li><a href='#slide_#{i}'>#{i}</a></li>"
-      @indication.append(indicators_html)
-      # add clicks
-      @indicators = @indication.find('li')
-      @indication.find('a').on 'click', (e) =>
-        e.preventDefault()
-        @autoplay_finished = true
-        newIndex = $(e.target).parent().index()
-        newIndex = @index - ( @index % @num_panels ) + newIndex # for infinite scrolling - mods the page index so we're in the current range
-        @swap(newIndex)
-      @updateIndicators()
+  initializeBeacon: ->
+    duration = parseFloat((@data.duration || 5) * 1000, 10)
+    cycles = parseFloat((@data.cycles || 1), 10)
+    total = cycles *= @num_panels
+    @is_autoplaying = true
+    @beacon = new utensils.Beacon(@el, {total, duration})
+    @beacon.dispatcher.on("beacon:ticked", => @next arguments...)
+    @beacon.dispatcher.on("beacon:finished", => @disposeBeacon arguments...)
 
-  buildKeyboardControl: ->
-    if @keyboard
-      $(document).on 'keydown', @handleKeyboard
+# PUBLIC #
 
-  handleKeyboard: (e) =>
-    @prev() if e.keyCode == 37
-    @next() if e.keyCode == 39
+  next: (e, data) ->
+    e?.preventDefault()
+    @pause() unless data
+    @activate(@index + 1)
+
+  prev: (e) ->
+    e?.preventDefault()
+    @pause()
+    @activate(@index - 1)
+
+  activate: (index=0) ->
+    @index = index
+    @constrainIndex()
+    @transition()
+
+  pause: ->
+    @beacon.pause() if @beacon && @is_autoplaying
+    @is_autoplaying = false
+
+  restart: ->
+    @initializeBeacon() unless @beacon
+    @is_autoplaying = true
+    @next(null, true)
+
+  dispose: ->
+    @disposeBeacon()
+    @removeListeners()
+
+# PROTECTED #
+
+  addListeners: ->
+    @html.on("keydown.#{@namespace}", => @keyed arguments...) if @keyboard
+    @paddles.on("click.#{@namespace}", => @paddled arguments...) if @paddles.length
+
+  removeListeners: ->
+    @html.off("keydown.#{@namespace}") if @keyboard
+    @paddles.off("click.#{@namespace}") if @paddles.length
+
+  disposeBeacon: ->
+    return unless @beacon
+    @beacon.dispose()
+    @beacon = null
+
+  transition: ->
+    @setTransitions() unless @tranny_defined
+    panel = @panels.eq(@index)
+    @panels.removeClass(@toggle_classes)
+    if @has_tranny then panel.one(@tranny_end, => @transitionEnd arguments...) else @transitionEnd()
+    panel.addClass(@toggle_classes)
+
+  transitionEnd: (e) ->
+    @el.trigger("#{@namespace}:transition.end", index: @index, length: @num_panels)
+    @beacon.start() if @beacon && @is_autoplaying
+
+  paddled: (e) ->
+    e?.preventDefault()
+    method = $(e.target).attr('href').replace(/#/, '')
+    @[method](e) if typeof @[method] == 'function'
+
+  keyed: (e) ->
+    return if (!/(37|39)/.test(e.keyCode))
+    e?.preventDefault()
+    @prev(e) if e.keyCode == 37
+    @next(e) if e.keyCode == 39
 
   setSliderWidth: ->
-    @slider.width((100 * @num_panels) + '%')
+    @slider.width("#{100 * @num_panels}%")
 
   setPanelWidths: ->
-    @panels.width((100 / @num_panels) + '%')
+    @panels.width("#{100 / @num_panels}%")
 
-  updateIndicators: ->
-    if @indication.length
-      indicator_index = @index % @num_panels  # mod page index in case of infinite scrolling
-      for indicator, i in @indicators
-        if i == indicator_index
-          $(indicator).addClass 'active'
-        else
-          $(indicator).removeClass 'active'
+# INTERNAL #
 
-  startTimer: ->
-    # stop auto-play after 2 full cycles
-    if @cycle_slide >= @num_cycles
-      @autoplay_finished = true
-    if @autoplay_finished == true || @autoplay == false
-      return
-    # set next slide timer
-    @timer = setTimeout =>
-      unless @autoplay_finished
-        @cycle_slide++
-        @next()
-    , @duration
-
-  clearTimer: ->
-    clearTimeout @timer
+  setTransitions: ->
+    @has_tranny = utensils.Detect.hasTransition
+    @tranny_end = utensils.Detect.transition.end
+    @tranny_defined = true
 
   constrainIndex: ->
     @index = 0 if @index >= @num_panels
     @index = @num_panels - 1 if @index < 0
-
-  # Public Functions
-  
-  next: (e) =>
-    e?.preventDefault()
-    @autoplay_finished = true if e
-    @clearTimer()
-    @swap(@index + 1)
-
-  prev: (e) =>
-    e?.preventDefault()
-    @autoplay_finished = true if e
-    @clearTimer()
-    @swap(@index - 1)
-
-  swap: (index) ->
-    @index = index
-    @constrainIndex()
-    @slide()
-    @updateIndicators()
-    @startTimer()
-
-  slide: ->
-    for page, i in @panels
-      if i == @index
-        if utensils.Detect.hasTransition then $(page).on(utensils.Detect.transition.end, @handleTransitionEnd) else @handleTransitionEnd()
-        $(page).addClass @active_class
-      else
-        if utensils.Detect.hasTransition then $(page).off(utensils.Detect.transition.end, @handleTransitionEnd) 
-        $(page).removeClass @active_class
-
-  handleTransitionEnd: (e) =>
-    @el.trigger('carousel:transitionEnd', index: @index, length: @num_panels)
-
-  dispose: ->
-    @clearTimer()
-    @panels.off(utensils.Detect.transition.end, @handleTransitionEnd) 
-    $(document).off 'keydown', @handleKeyboard
-    @el.find('.paddle-icon.east').off("click", @next)
-    @el.find('.paddle-icon.west').off("click", @prev)
-    @indication.find('a').off 'click'
 
 utensils.Bindable.register('carousel', utensils.Carousel)
 

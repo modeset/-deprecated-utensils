@@ -43,6 +43,7 @@
         </ul>
         <ul class="sherpa-anchor-nav sherpa-nav-list">
           <li><a href='#accordion'>Accordion</a></li>
+<li><a href='#beacon'>Beacon</a></li>
 <li><a href='#bindable'>Bindable</a></li>
 <li><a href='#breadcrumb'>Breadcrumb</a></li>
 <li><a href='#button_group'>Button group</a></li>
@@ -399,6 +400,105 @@ within your <code>config.sass</code> file or before <code>accordion.sass</code> 
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
+<h1>Beacon</h1>
+
+<p>Triggers an event based on a passage of time via a <code>setTimeout</code>.</p>
+
+<h2>Options</h2>
+
+<p>Beacon accepts 2 arguments, a <code>@dispatcher</code> element  and a <code>@data</code>
+object. The <code>@data</code> object defaults to the following: </p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>index</code></td>
+<td><code>0</code></td>
+<td>The initial starting position</td>
+</tr>
+<tr>
+<td><code>total</code></td>
+<td><code>1</code></td>
+<td>The number of times a beacon can dispatch it&#39;s events</td>
+</tr>
+<tr>
+<td><code>duration</code></td>
+<td><code>1000</code></td>
+<td>The duration of the <code>setTimeout</code></td>
+</tr>
+<tr>
+<td><code>continuous</code></td>
+<td><code>false</code></td>
+<td>Whether to recursively create the <code>setTimeout</code></td>
+</tr>
+</tbody></table>
+
+<p><code>Beacon</code> will automatically dispose of internals and stop dispatching
+events once the <code>index</code> value is equal to the <code>total</code> value.</p>
+
+<h2>API</h2>
+
+<h3>#new</h3>
+
+<p>Create a new instance of <code>Beacon</code>, typically used via an instance. </p>
+
+<pre><code class="coffee">#= require utensils/beacon
+@beacon = new utensils.Beacon(@el, {total: 5, duration: 500, continuous: true})
+</code></pre>
+
+<h3>#start</h3>
+
+<p>Starts the beacon and dispatches a <code>beacon:started</code> event.</p>
+
+<pre><code class="coffee">@beacon.start()
+</code></pre>
+
+<h3>#pause</h3>
+
+<p>Pauses the beacon and dispatches a <code>beacon:paused</code> event.</p>
+
+<pre><code class="coffee">@beacon.pause()
+</code></pre>
+
+<h3>#stop</h3>
+
+<p>Stops the beacon, resets the <code>index</code> to it&#39;s initial value and dispatches a <code>beacon:stopped</code> event.</p>
+
+<pre><code class="coffee">@beacon.stop()
+</code></pre>
+
+<h3>#tick</h3>
+
+<p>Manually trigger the <code>beacon:ticked</code> event and increment the <code>index</code>
+value. This is called after a <code>beacon</code> has been started and completed
+it&#39;s timeout. If set to <code>continuous</code> this will be triggered until the
+<code>index</code> is equal to the <code>total</code>.</p>
+
+<pre><code class="coffee">@beacon.tick()
+</code></pre>
+
+<h3>#dispose</h3>
+
+<p>Clean up the <code>beacon</code> instance and remove the event triggers created on
+the <code>@dispatcher</code>.</p>
+
+<pre><code class="coffee">@beacon.dispose()
+</code></pre>
+
+<p>Once the <code>index</code> is equal to the <code>total</code>, a <code>beacon:finished</code> event
+will be triggered. It&#39;s up to the instance that created the <code>beacon</code> to
+either call <code>dispose</code> or reset the <code>index</code>.</p>
+
+<p>All events triggered, pass a <code>data</code> object consisting of the <code>index</code> and
+it&#39;s current value and the <code>total</code> number of ticks.</p>
+
+<p></section><section class="sherpa-section sherpa-clearfix"></p>
+
 <h1>Bindable</h1>
 
 <p>Light weight dependency injection for client side components. Looks for
@@ -448,6 +548,7 @@ $ -&gt;
 <ul>
 <li>Need to describe the public API</li>
 <li>Is there a case for multiple bindables on a single element?</li>
+<li>Fully deprecate the <code>release</code> method</li>
 </ul>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
@@ -644,12 +745,6 @@ within your <code>config.sass</code> file or before <code>button_group.sass</cod
 <td>The <code>margin-left</code> for a <code>.button-group + .button-group</code></td>
 </tr>
 </tbody></table>
-
-<h2>Todo</h2>
-
-<ul>
-<li>Add vertical button groups</li>
-</ul>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
@@ -1024,8 +1119,7 @@ default this is set to <code>false</code> so no buttons are created.</p>
 <h2>Todo:</h2>
 
 <ul>
-<li>This is a bit wordy here.. document how lists in sass work somewhere
-else</li>
+<li>This is a bit wordy.. document how lists in sass work somewhere else</li>
 <li>The sass file could use a little cleaning.</li>
 </ul>
 
@@ -1043,7 +1137,7 @@ else</li>
 
 <!--~ markup/carousel.html.haml -->
 
-<div class="sherpa-showcase sherpa-clearfix"><section class='carousel' data-active-class='in' data-autoplay='false' data-bindable='carousel' data-cycles='1' data-duration='2' data-keyboard='true' role='presentation'>
+<div class="sherpa-showcase sherpa-clearfix"><section class='carousel' data-autoplay='false' data-bindable='carousel' data-cycles='1' data-duration='1' data-keyboard='true' role='presentation'>
 <nav class='carousel-controls fade in'>
 <a class='paddle-icon west' href='#prev'>&larr;</a>
 <a class='paddle-icon east' href='#next'>&rarr;</a>
@@ -1078,7 +1172,7 @@ else</li>
 </section>
 </div>
 
-<pre><code class="haml">%section.carousel(data-bindable=&quot;carousel&quot; data-autoplay=&quot;false&quot; data-cycles=&quot;1&quot; data-duration=&quot;2&quot; data-active-class=&quot;in&quot; data-keyboard=&quot;true&quot; role=&quot;presentation&quot;)
+<pre><code class="haml">%section.carousel(data-bindable=&quot;carousel&quot; data-autoplay=&quot;false&quot; data-cycles=&quot;1&quot; data-duration=&quot;1&quot; data-keyboard=&quot;true&quot; role=&quot;presentation&quot;)
   %nav.carousel-controls.fade.in
     %a.paddle-icon.west(href=&quot;#prev&quot;) &amp;larr;
     %a.paddle-icon.east(href=&quot;#next&quot;) &amp;rarr;
@@ -1092,6 +1186,15 @@ else</li>
 </code></pre>
 
 <!-- end -->
+
+<h2>Todo</h2>
+
+<ul>
+<li>test</li>
+<li>document</li>
+<li>activate like toggles</li>
+<li>toggle button for auto play in demo</li>
+</ul>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
@@ -1522,8 +1625,6 @@ within your <code>config.sass</code> file or before <code>collapse.sass</code> i
 
 <ul>
 <li>Should be able to collapse around the <code>width</code> property</li>
-<li>The multi method should be moved to ToggleGroup... need to figure out
-the best way to handle this though from instances using composition.</li>
 </ul>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
@@ -2326,14 +2427,6 @@ your <code>config.sass</code> file or before <code>drop.sass</code> is loaded.</
 <li><strong>Heads Up!</strong> The configuration file needs to define the <code>$zindex-drop</code>
 value before this file is imported, this is done to keep managing
 <code>z-index</code> mappings in one place.</li>
-</ul>
-
-<h2>Todo</h2>
-
-<ul>
-<li>Exit animations do not occur since the <code>.visuallyhidden</code> class is
-applied at the same time a transition occurs. Not sure if this should
-be added in here or through an extension of <code>Drop</code>?</li>
 </ul>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
@@ -4870,15 +4963,6 @@ imported, this is done to keep managing <code>z-index</code> mappings in one
 place.</li>
 </ul>
 
-<h2>Todo</h2>
-
-<ul>
-<li>Add remote URL behavior</li>
-<li>Focus states within a modal?</li>
-<li>Add base media queries</li>
-<li>Document scrolling behavior for mega content?</li>
-</ul>
-
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
 <h1>Navbar</h1>
@@ -6210,13 +6294,6 @@ value before this file is imported, this is done to keep managing
  &lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
-
-<h2>Todo:</h2>
-
-<ul>
-<li>Depth swapping?</li>
-<li>disable on body click?</li>
-</ul>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
@@ -8256,12 +8333,6 @@ lookup from the class utilizing a <code>Triggerable</code> instance.</p>
 <p>By default, <code>Triggerable</code> allows an <code>event</code> to propagate. This can be
 shut down by calling on the instance: <code>@triggerable.stop_propagation =
 true</code></p>
-
-<h2>Todo</h2>
-
-<ul>
-<li>Can <code>Triggerable</code> handle delays around CSS animations?</li>
-</ul>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
