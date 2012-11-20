@@ -6,7 +6,6 @@ describe 'Beacon', ->
   beforeEach ->
     @event = null
     @element = null
-    @count = 0
     @noop = (e, element) ->
       @event = e
       @element = $(element)
