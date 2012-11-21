@@ -51,9 +51,11 @@
 <li><a href='#button_semigloss'>Button semigloss</a></li>
 <li><a href='#canvas_util'>Canvas util</a></li>
 <li><a href='#carousel'>Carousel</a></li>
+<li><a href='#carousel_touch'>Carousel touch</a></li>
 <li><a href='#collapse'>Collapse</a></li>
 <li><a href='#container'>Container</a></li>
 <li><a href='#content_editable'>Content editable</a></li>
+<li><a href='#css_helper'>Css helper</a></li>
 <li><a href='#cursor_hand'>Cursor hand</a></li>
 <li><a href='#decal'>Decal</a></li>
 <li><a href='#detect'>Detect</a></li>
@@ -97,6 +99,7 @@
 <li><a href='#tip'>Tip</a></li>
 <li><a href='#toggle'>Toggle</a></li>
 <li><a href='#toggle_group'>Toggle group</a></li>
+<li><a href='#touch_scroller'>Touch scroller</a></li>
 <li><a href='#touch_tracker'>Touch tracker</a></li>
 <li><a href='#transition'>Transition</a></li>
 <li><a href='#triggerable'>Triggerable</a></li>
@@ -1147,7 +1150,6 @@ default this is set to <code>false</code> so no buttons are created.</p>
 <nav class='carousel-controls'>
 <a class='paddle-icon west' href='#prev'>&larr;</a>
 <a class='paddle-icon east' href='#next'>&rarr;</a>
-<ul class='nav indication'></ul>
 </nav>
 <section class='carousel-inner'>
 <article class='carousel-panel fade'>
@@ -1182,7 +1184,6 @@ default this is set to <code>false</code> so no buttons are created.</p>
   %nav.carousel-controls
     %a.paddle-icon.west(href=&quot;#prev&quot;) &amp;larr;
     %a.paddle-icon.east(href=&quot;#next&quot;) &amp;rarr;
-    %ul.nav.indication
   %section.carousel-inner
     - (1..4).each do |i|
       %article.carousel-panel.fade
@@ -1326,6 +1327,65 @@ within your <code>config.sass</code> file or before <code>carousel.sass</code> i
 
 <p>The styles associated with a <code>Carousel</code> are mainly associated with
 structure. See <code>Paddles</code> for <code>paddle-icon</code> styles.</p>
+
+<p></section><section class="sherpa-section sherpa-clearfix"></p>
+
+<h1>Carousel Touch</h1>
+
+<p>Touch me.</p>
+
+<!--~ markup/carousel_touch.html.haml -->
+
+<div class="sherpa-showcase sherpa-clearfix"><section class='carousel' data-bindable='carousel-touch' role='presentation'>
+<nav class='carousel-controls'>
+<a class='paddle-icon west' href='#prev'>&larr;</a>
+<a class='paddle-icon east' href='#next'>&rarr;</a>
+</nav>
+<section class='carousel-inner'>
+<article class='carousel-panel'>
+<figure class='carousel-figure'>
+<img alt='image' src='/assets/fpo/fpo-600x400-1.jpg' />
+</figure>
+</article>
+<article class='carousel-panel'>
+<figure class='carousel-figure'>
+<img alt='image' src='/assets/fpo/fpo-600x400-2.jpg' />
+</figure>
+</article>
+<article class='carousel-panel'>
+<figure class='carousel-figure'>
+<img alt='image' src='/assets/fpo/fpo-600x400-3.jpg' />
+</figure>
+</article>
+<article class='carousel-panel'>
+<figure class='carousel-figure'>
+<img alt='image' src='/assets/fpo/fpo-600x400-4.jpg' />
+</figure>
+</article>
+</section>
+</section>
+</div>
+
+<pre><code class="haml">%section.carousel(data-bindable=&quot;carousel-touch&quot; role=&quot;presentation&quot;)
+  %nav.carousel-controls
+    %a.paddle-icon.west(href=&quot;#prev&quot;) &amp;larr;
+    %a.paddle-icon.east(href=&quot;#next&quot;) &amp;rarr;
+  %section.carousel-inner
+    - (1..4).each do |i|
+      %article.carousel-panel
+        %figure.carousel-figure
+          %img(src=&quot;/assets/fpo/fpo-600x400-#{i}.jpg&quot; alt=&quot;image&quot;)
+</code></pre>
+
+<!-- end -->
+
+<h2>Todo</h2>
+
+<ul>
+<li>Chat with JG on this port</li>
+<li>Test</li>
+<li>Document</li>
+</ul>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
@@ -1872,6 +1932,20 @@ within your <code>config.sass</code> file or before <code>content_editable.sass<
 <td>The glow while the region is focused</td>
 </tr>
 </tbody></table>
+
+<p></section><section class="sherpa-section sherpa-clearfix"></p>
+
+<h1>CSS Helper</h1>
+
+<p>Describe this.</p>
+
+<h2>Todo</h2>
+
+<ul>
+<li>Check with JG on this</li>
+<li>Test</li>
+<li>Document</li>
+</ul>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
@@ -8159,6 +8233,21 @@ element.</p>
 the first parameter and the <code>activator/deactivator</code> as the second
 parameter. This is done to ensure scope is transferred correctly and for
 a quicker lookup from the class utilizing a <code>ToggleGroup</code> instance.</p>
+
+<p></section><section class="sherpa-section sherpa-clearfix"></p>
+
+<h1>Touch Scroller</h1>
+
+<p>Describe this.</p>
+
+<h2>Todo</h2>
+
+<ul>
+<li>Check with JG on the js port</li>
+<li>Check with JG on the style port</li>
+<li>Test</li>
+<li>Document</li>
+</ul>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 

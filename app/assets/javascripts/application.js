@@ -7,6 +7,7 @@
 //= require utensils/collapse
 
 //= require utensils/carousel
+//= require utensils/carousel_touch
 //= require utensils/modal
 //= require utensils/drop
 //= require utensils/tab

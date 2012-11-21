@@ -2,8 +2,6 @@
 # Todo
 
 ## WIP
-- Carousels (finish)
-- Carousel Touch
 - Carousel Infinite
 - Force classes to cleanup their own triggers
 - Test dinosaurs css and js
@@ -11,8 +9,8 @@
 - Listing of needed utensils
   - Carousel indicators, status, etc
   - Background section (something that scales)
+  - Fishnet
 - Mobilize (templates, styles, js, etc..)
-- Fishnet
 - Complete Todo items
 
 ## Reminders, Tasks and Future Considerations
