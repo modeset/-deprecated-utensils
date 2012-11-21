@@ -2,7 +2,6 @@
 # Todo
 
 ## WIP
-- Carousel Infinite
 - Force classes to cleanup their own triggers
 - Test dinosaurs css and js
 - Media queries

@@ -52,6 +52,7 @@
 <li><a href='#canvas_util'>Canvas util</a></li>
 <li><a href='#carousel'>Carousel</a></li>
 <li><a href='#carousel_touch'>Carousel touch</a></li>
+<li><a href='#carousel_touch_infinite'>Carousel touch infinite</a></li>
 <li><a href='#collapse'>Collapse</a></li>
 <li><a href='#container'>Container</a></li>
 <li><a href='#content_editable'>Content editable</a></li>
@@ -1367,6 +1368,65 @@ structure. See <code>Paddles</code> for <code>paddle-icon</code> styles.</p>
 </div>
 
 <pre><code class="haml">%section.carousel(data-bindable=&quot;carousel-touch&quot; role=&quot;presentation&quot;)
+  %nav.carousel-controls
+    %a.paddle-icon.west(href=&quot;#prev&quot;) &amp;larr;
+    %a.paddle-icon.east(href=&quot;#next&quot;) &amp;rarr;
+  %section.carousel-inner
+    - (1..4).each do |i|
+      %article.carousel-panel
+        %figure.carousel-figure
+          %img(src=&quot;/assets/fpo/fpo-600x400-#{i}.jpg&quot; alt=&quot;image&quot;)
+</code></pre>
+
+<!-- end -->
+
+<h2>Todo</h2>
+
+<ul>
+<li>Chat with JG on this port</li>
+<li>Test</li>
+<li>Document</li>
+</ul>
+
+<p></section><section class="sherpa-section sherpa-clearfix"></p>
+
+<h1>Carousel Touch Infinite</h1>
+
+<p>Touch me.</p>
+
+<!--~ markup/carousel_touch_infinite.html.haml -->
+
+<div class="sherpa-showcase sherpa-clearfix"><section class='carousel' data-bindable='carousel-touch-infinite' role='presentation'>
+<nav class='carousel-controls'>
+<a class='paddle-icon west' href='#prev'>&larr;</a>
+<a class='paddle-icon east' href='#next'>&rarr;</a>
+</nav>
+<section class='carousel-inner'>
+<article class='carousel-panel'>
+<figure class='carousel-figure'>
+<img alt='image' src='/assets/fpo/fpo-600x400-1.jpg' />
+</figure>
+</article>
+<article class='carousel-panel'>
+<figure class='carousel-figure'>
+<img alt='image' src='/assets/fpo/fpo-600x400-2.jpg' />
+</figure>
+</article>
+<article class='carousel-panel'>
+<figure class='carousel-figure'>
+<img alt='image' src='/assets/fpo/fpo-600x400-3.jpg' />
+</figure>
+</article>
+<article class='carousel-panel'>
+<figure class='carousel-figure'>
+<img alt='image' src='/assets/fpo/fpo-600x400-4.jpg' />
+</figure>
+</article>
+</section>
+</section>
+</div>
+
+<pre><code class="haml">%section.carousel(data-bindable=&quot;carousel-touch-infinite&quot; role=&quot;presentation&quot;)
   %nav.carousel-controls
     %a.paddle-icon.west(href=&quot;#prev&quot;) &amp;larr;
     %a.paddle-icon.east(href=&quot;#next&quot;) &amp;rarr;
