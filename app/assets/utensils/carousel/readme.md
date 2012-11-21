@@ -18,7 +18,6 @@ data-bindable="carousel"
   %nav.carousel-controls
     %a.paddle-icon.west(href="#prev") &larr;
     %a.paddle-icon.east(href="#next") &rarr;
-    %ul.nav.indication
   %section.carousel-inner
     - (1..4).each do |i|
       %article.carousel-panel.fade
