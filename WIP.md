@@ -2,7 +2,9 @@
 # Todo
 
 ## WIP
-- Carousels *
+- Carousels (finish)
+- Carousel Touch
+- Carousel Infinite
 - Force classes to cleanup their own triggers
 - Test dinosaurs css and js
 - Media queries
@@ -25,6 +27,4 @@
 - Better tools for documentation (generation, behavior, and styles)
 - Better docs
 - Use the style guide for dinosaur test
-
-## Roadmap
 

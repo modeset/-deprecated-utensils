@@ -1138,7 +1138,7 @@ default this is set to <code>false</code> so no buttons are created.</p>
 <!--~ markup/carousel.html.haml -->
 
 <div class="sherpa-showcase sherpa-clearfix"><section class='carousel' data-autoplay='false' data-bindable='carousel' data-cycles='1' data-duration='1' data-keyboard='true' role='presentation'>
-<nav class='carousel-controls fade in'>
+<nav class='carousel-controls'>
 <a class='paddle-icon west' href='#prev'>&larr;</a>
 <a class='paddle-icon east' href='#next'>&rarr;</a>
 <ul class='nav indication'></ul>
@@ -1173,13 +1173,13 @@ default this is set to <code>false</code> so no buttons are created.</p>
 </div>
 
 <pre><code class="haml">%section.carousel(data-bindable=&quot;carousel&quot; data-autoplay=&quot;false&quot; data-cycles=&quot;1&quot; data-duration=&quot;1&quot; data-keyboard=&quot;true&quot; role=&quot;presentation&quot;)
-  %nav.carousel-controls.fade.in
+  %nav.carousel-controls
     %a.paddle-icon.west(href=&quot;#prev&quot;) &amp;larr;
     %a.paddle-icon.east(href=&quot;#next&quot;) &amp;rarr;
     %ul.nav.indication
   %section.carousel-inner
     - (1..4).each do |i|
-      %article.carousel-panel(class=&quot;fade&quot;)
+      %article.carousel-panel.fade
         %figure.carousel-figure
           %img(src=&quot;/assets/fpo/fpo-600x400-#{i}.jpg&quot; alt=&quot;image&quot;)
           %figcaption.carousel-caption
@@ -1190,10 +1190,9 @@ default this is set to <code>false</code> so no buttons are created.</p>
 <h2>Todo</h2>
 
 <ul>
-<li>test</li>
-<li>document</li>
-<li>activate like toggles</li>
+<li>activate like toggles (test this)</li>
 <li>toggle button for auto play in demo</li>
+<li>document</li>
 </ul>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>

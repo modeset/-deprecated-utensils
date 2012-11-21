@@ -10,7 +10,7 @@ class utensils.Carousel
     @options()
     @initialize()
     @addListeners()
-    @activate(@index) # @activate... should be based on a passed active instance or 0
+    @activate(@index)
 
   options: ->
     @data.namespace = @data.namespace || 'carousel'
@@ -23,10 +23,10 @@ class utensils.Carousel
     @toggle_classes = @data.toggle
     @keyboard = @data.keyboard
 
-    @index = 0
     @slider = @el.find('.carousel-inner')
     @panels = @slider.find('.carousel-panel')
     @num_panels = @panels.length
+    @index = @setIndex()
 
     @paddles = @el.find(@data.paddles)
     @html = $('html') if @keyboard
@@ -125,6 +125,15 @@ class utensils.Carousel
   constrainIndex: ->
     @index = 0 if @index >= @num_panels
     @index = @num_panels - 1 if @index < 0
+
+  setIndex: ->
+    index = 0
+    if typeof @data.activate == 'string'
+      order = @panels.index(@el.find(@data.activate))
+      index = if order >= 0 then order else 0
+    else if typeof @data.activate == 'number'
+      index = parseFloat(@data.activate, 10)
+    return index
 
 utensils.Bindable.register('carousel', utensils.Carousel)
 

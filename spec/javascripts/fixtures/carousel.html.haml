@@ -1,12 +1,12 @@
 
 %section.carousel(data-bindable="carousel" data-autoplay="false" data-cycles="1" data-duration="1" data-keyboard="true" role="presentation")
-  %nav.carousel-controls.fade.in
+  %nav.carousel-controls
     %a.paddle-icon.west(href="#prev") &larr;
     %a.paddle-icon.east(href="#next") &rarr;
     %ul.nav.indication
   %section.carousel-inner
     - (1..4).each do |i|
-      %article.carousel-panel(class="fade")
+      %article.carousel-panel.fade
         %figure.carousel-figure
           %img(src="/assets/fpo/fpo-600x400-#{i}.jpg" alt="image")
           %figcaption.carousel-caption
