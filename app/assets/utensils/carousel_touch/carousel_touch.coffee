@@ -19,13 +19,13 @@ class utensils.CarouselTouch extends utensils.Carousel
     @initializeScroller()
 
   initializeScroller: ->
-    scrollOptions =
+    scroll_options =
       isPaged: true,
       defaultOrientation: utensils.TouchScroller.HORIZONTAL,
       scrollerDelegate: @createScrollDelegate(),
       disabledElements: "img",
       pagedEasingFactor: 4
-    @scroller = new utensils.TouchScroller(@el[0], @slider[0], scrollOptions)
+    @scroller = new utensils.TouchScroller(@el[0], @slider[0], scroll_options)
 
 # PUBLIC #
 
@@ -36,7 +36,7 @@ class utensils.CarouselTouch extends utensils.Carousel
 # PROTECTED #
 
   createScrollDelegate: =>
-    updatePosition: ( positionX, positionY, isTouching ) =>
+    updatePosition: (position_x, position_y, is_touching) =>
       @pressed_and_didnt_move = false
     touchStart: =>
       @pause()
@@ -52,14 +52,14 @@ class utensils.CarouselTouch extends utensils.Carousel
       @index = @scroller.getPage()
       @scrollerPageUpdated(@scroller.getPage())
       @transition()
-    closestIndexChanged: (closestIndex) =>
-      @index = closestIndex
-      @scrollerPageUpdated(closestIndex)
+    closestIndexChanged: (closest_index) =>
+      @index = closest_index
+      @scrollerPageUpdated(closest_index)
 
   scrollerPageUpdated: (index) ->
     # do nothing - used in infinite scroller
 
-  transition: =>
+  transition: ->
     super()
     @scroller.setPage(@index, false)
 
