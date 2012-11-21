@@ -1135,6 +1135,12 @@ default this is set to <code>false</code> so no buttons are created.</p>
 
 <p>The base carousel.</p>
 
+<pre><code class="sass">@import utensils/carousel/carousel
+</code></pre>
+
+<pre><code class="html">data-bindable=&quot;carousel&quot;
+</code></pre>
+
 <!--~ markup/carousel.html.haml -->
 
 <div class="sherpa-showcase sherpa-clearfix"><section class='carousel' data-autoplay='false' data-bindable='carousel' data-cycles='1' data-duration='1' data-keyboard='true' role='presentation'>
@@ -1187,13 +1193,139 @@ default this is set to <code>false</code> so no buttons are created.</p>
 
 <!-- end -->
 
-<h2>Todo</h2>
+<h2>Options</h2>
 
-<ul>
-<li>activate like toggles (test this)</li>
-<li>toggle button for auto play in demo</li>
-<li>document</li>
-</ul>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>namespace</code></td>
+<td><code>carousel</code></td>
+<td>The namespace to use for dispatching events</td>
+</tr>
+<tr>
+<td><code>toggle</code></td>
+<td><code>active in</code></td>
+<td>The classes to add to an active a carousel panel</td>
+</tr>
+<tr>
+<td><code>keyboard</code></td>
+<td><code>true</code></td>
+<td>Whether to allow the keyboard directional arrows to control next and previous slides</td>
+</tr>
+<tr>
+<td><code>activate</code></td>
+<td><code>0</code></td>
+<td>A number or string to find the starting index panel for display</td>
+</tr>
+<tr>
+<td><code>paddles</code></td>
+<td><code>.paddle-icon</code></td>
+<td>The element container to search for paddle buttons</td>
+</tr>
+<tr>
+<td><code>autoplay</code></td>
+<td><code>false</code></td>
+<td>Whether to allow the carousel to auto play and cycle through slides</td>
+</tr>
+<tr>
+<td><code>cycles</code></td>
+<td><code>1</code></td>
+<td>The number of cycles to perform before stopping in <code>auto play</code> mode</td>
+</tr>
+<tr>
+<td><code>duration</code></td>
+<td><code>5</code></td>
+<td>The delay between slides in <code>auto play</code> mode</td>
+</tr>
+</tbody></table>
+
+<p>When utilizing paddle buttons, the <code>href</code> attribute is used to determine
+which method to call when clicked (i.e. <code>#next</code> or <code>#prev</code>).</p>
+
+<p>When set to <code>auto play</code>, <code>Carousel</code> will instantiate a <code>Beacon</code> object
+for time management.</p>
+
+<h2>API</h2>
+
+<h3>#new</h3>
+
+<p>Create a new instance of <code>Carousel</code>, typically used via <code>Bindable</code>. </p>
+
+<pre><code class="coffee">#= require utensils/carousel
+@carousel = new utensils.Carousel(@el.find(&#39;.carousel&#39;))
+</code></pre>
+
+<h3>#next</h3>
+
+<p>Advance to the next slide panel, dispatches a <code>carousel:next</code> event.</p>
+
+<pre><code class="coffee">@carousel.next()
+</code></pre>
+
+<h3>#prev</h3>
+
+<p>Advance to the previous slide panel, dispatches a <code>carousel:prev</code> event.</p>
+
+<pre><code class="coffee">@carousel.prev()
+</code></pre>
+
+<h3>#activate</h3>
+
+<p>Jump to a given slide based on an index, dispatches a
+<code>carousel:activated</code> event.</p>
+
+<pre><code class="coffee">@carousel.activate(2)
+</code></pre>
+
+<h3>#pause</h3>
+
+<p>Pause a carousel, only available while in <code>auto play</code> mode, dispatches a
+<code>carousel:paused</code> event.</p>
+
+<pre><code class="coffee">@carousel.pause()
+</code></pre>
+
+<h3>#restart</h3>
+
+<p>Restart a carousel after a pause in the action, only available while in
+<code>auto play</code> mode, dispatches a <code>carousel:restarted</code> event.</p>
+
+<pre><code class="coffee">@carousel.restart()
+</code></pre>
+
+<h3>#dispose</h3>
+
+<p>Kill it with fire.</p>
+
+<pre><code class="coffee">@carousel.dispose()
+</code></pre>
+
+<h2>Style Settings</h2>
+
+<p>To override the default settings, set the variable and it&#39;s value
+within your <code>config.sass</code> file or before <code>carousel.sass</code> is loaded.</p>
+
+<table><thead>
+<tr>
+<th>Variable</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>$carousel-height</code></td>
+<td><code>400px</code></td>
+<td>The default <code>height</code> of the carousel</td>
+</tr>
+</tbody></table>
+
+<p>The styles associated with a <code>Carousel</code> are mainly associated with
+structure. See <code>Paddles</code> for <code>paddle-icon</code> styles.</p>
 
 <p></section><section class="sherpa-section sherpa-clearfix"></p>
 
@@ -9084,15 +9216,13 @@ within your <code>config.sass</code> file or before <code>well.sass</code> is lo
 
     <div class="upgrade-notifications">
       <div class="upgrade-group">
-        <div class="dinosaur-msg upgrade-item">
-          <p>
-            You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or
-            <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.
-          </p>
-        </div>
-        <div class="no-js-msg upgrade-item">
-          <p>For full functionality of this site it is necessary to enable <a href="http://www.enable-javascript.com/" target="_blank">JavaScript</a>.</p>
-        </div>
+        <p class="dinosaur-msg upgrade-item">
+          You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or
+          <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.
+        </p>
+        <p class="no-js-msg upgrade-item">
+          For full functionality of this site it is necessary to enable <a href="http://www.enable-javascript.com/" target="_blank">JavaScript</a>.
+        </p>
       </div>
     </div>
 

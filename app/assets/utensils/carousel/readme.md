@@ -59,28 +59,30 @@ Create a new instance of `Carousel`, typically used via `Bindable`.
 ```
 
 ### #next
-Advance to the next slide panel.
+Advance to the next slide panel, dispatches a `carousel:next` event.
 
 ```coffee
 @carousel.next()
 ```
 
 ### #prev
-Advance to the previous slide panel.
+Advance to the previous slide panel, dispatches a `carousel:prev` event.
 
 ```coffee
 @carousel.prev()
 ```
 
 ### #activate
-Jump to a given slide based on an index.
+Jump to a given slide based on an index, dispatches a
+`carousel:activated` event.
 
 ```coffee
 @carousel.activate(2)
 ```
 
 ### #pause
-Pause a carousel, only available while in `auto play` mode
+Pause a carousel, only available while in `auto play` mode, dispatches a
+`carousel:paused` event.
 
 ```coffee
 @carousel.pause()
@@ -88,7 +90,7 @@ Pause a carousel, only available while in `auto play` mode
 
 ### #restart
 Restart a carousel after a pause in the action, only available while in
-`auto play` mode
+`auto play` mode, dispatches a `carousel:restarted` event.
 
 ```coffee
 @carousel.restart()
@@ -101,9 +103,14 @@ Kill it with fire.
 @carousel.dispose()
 ```
 
+## Style Settings
+To override the default settings, set the variable and it's value
+within your `config.sass` file or before `carousel.sass` is loaded.
 
-## Todo
-- Carousels should dispatch events on it's state
-- Cleanup the css
-- How to use indicators, status, etc...
+Variable            | Default        | Description
+------------------- | -------------- | -------------------------------------------
+`$carousel-height`  | `400px`        | The default `height` of the carousel
+
+The styles associated with a `Carousel` are mainly associated with
+structure. See `Paddles` for `paddle-icon` styles.
 

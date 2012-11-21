@@ -9,6 +9,8 @@
 - Test dinosaurs css and js
 - Media queries
 - Listing of needed utensils
+  - Carousel indicators, status, etc
+  - Background section (something that scales)
 - Mobilize (templates, styles, js, etc..)
 - Fishnet
 - Complete Todo items

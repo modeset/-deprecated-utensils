@@ -19,6 +19,7 @@ class utensils.Carousel
     @data.paddles = @data.paddles || '.paddle-icon'
 
   initialize: ->
+    @dispatcher = @el
     @namespace = @data.namespace
     @toggle_classes = @data.toggle
     @keyboard = @data.keyboard
@@ -48,31 +49,40 @@ class utensils.Carousel
     e?.preventDefault()
     @pause() unless data
     @activate(@index + 1)
+    @send('next')
 
   prev: (e) ->
     e?.preventDefault()
     @pause()
     @activate(@index - 1)
+    @send('prev')
 
   activate: (index=0) ->
     @index = index
     @constrainIndex()
     @transition()
+    @send('activated')
 
   pause: ->
     @beacon.pause() if @beacon && @is_autoplaying
     @is_autoplaying = false
+    @send('paused')
 
   restart: ->
     @initializeBeacon() unless @beacon
     @is_autoplaying = true
     @next(null, true)
+    @send('restarted')
 
   dispose: ->
     @disposeBeacon()
     @removeListeners()
+    @dispatcher.off("#{@namespace}:next #{@namespace}:prev #{@namespace}:activated #{@namespace}:paused #{@namespace}:restarted")
 
 # PROTECTED #
+
+  send: (event_type) ->
+    @dispatcher.trigger("#{@namespace}:#{event_type}", {index: @index, total: @num_panels})
 
   addListeners: ->
     @html.on("keydown.#{@namespace}", => @keyed arguments...) if @keyboard
