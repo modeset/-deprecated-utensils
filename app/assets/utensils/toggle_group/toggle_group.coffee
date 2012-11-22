@@ -48,6 +48,7 @@ class utensils.ToggleGroup
     @triggerable.dispatcher.on('triggerable:trigger', => @triggered arguments...)
 
   removeListeners: ->
+    @el.off("#{@namespace}:triggered")
     @triggerable.dispatcher.off('triggerable:trigger')
 
   triggered: (e, target) ->

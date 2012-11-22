@@ -105,7 +105,7 @@ class utensils.Carousel
     panel.addClass(@toggle_classes)
 
   transitionEnd: (e) ->
-    @el.trigger("#{@namespace}:transition.end", index: @index, length: @num_panels)
+    @dispatcher.trigger("#{@namespace}:transition.end", index: @index, length: @num_panels)
     @beacon.start() if @beacon && @is_autoplaying
 
   paddled: (e) ->
