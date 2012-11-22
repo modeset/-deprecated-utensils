@@ -2,14 +2,15 @@
 # Todo
 
 ## WIP
-- Force classes to cleanup their own triggers
-- Test dinosaurs css and js
-- Media queries
+- Behavior classes should dispatch events
 - Listing of needed utensils
   - Carousel indicators, status, etc
   - Background section (something that scales)
   - Fishnet
+  - Stateful button
+- Media queries
 - Mobilize (templates, styles, js, etc..)
+- Test dinosaurs css and js
 - Complete Todo items
 
 ## Reminders, Tasks and Future Considerations
