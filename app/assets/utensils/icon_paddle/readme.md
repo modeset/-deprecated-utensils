@@ -12,16 +12,8 @@ and styles.
 ```
 
 ## Usage Example
-
 <!--~ markup/paddle.html.haml -->
-```haml
-%nav
-  %a.paddle-icon.north(href="#") &uarr;
-  %a.paddle-icon.south(href="#") &darr;
-  %a.paddle-icon.west(href="#") &larr;
-  %a.paddle-icon.east(href="#") &rarr;
-```
-<!-- end -->
+
 
 ## Usage
 

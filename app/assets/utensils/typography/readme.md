@@ -11,32 +11,7 @@ elements.
 Generic `h1`-`h6` headings with a paragraph element.
 
 ### Usage Example
-
 <!--~ markup/typography_headings.html.haml -->
-```haml
-:ruby
-  lorem = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-  eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-  veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-  commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-  esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-  cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-  laborum."
-
-%h1 Google hearts h1 headings, but only use one per page.
-%p=lorem
-%h2 Got sections? Try using h2 headings.
-%p=lorem
-%h3 Good things come in threes, like tacos and h3 headings.
-%p=lorem
-%h4 There's nothing clever to say about h4 headings.
-%p=lorem
-%h5 Every time you use an h5 heading, Google kills a puppy. A tiny little puppy.
-%p=lorem
-%h6 An h6 heading? Google just killed a litter of kittens.
-%p=lorem
-```
-<!-- end -->
 
 ### Inline paragraph elements
 These elements are typically found within blocks of copy.
@@ -61,64 +36,19 @@ Element     | Usage
 `<samp>`    | The <samp>samp</samp> tag defines sample computer code
 
 ### Usage Example
-
 <!--~ markup/typography_inline.html.haml -->
-```haml
-%section(style="width:45%; float:left; margin-right: 5%;")
-  %h4 Inline elements examples
-  %br
-  %p
-    Yeah, well, <em>listen</em>. You <kbd>ought</kbd> to <strong>ditch</strong> the <strong><em>two</em></strong>
-    <a href="http://modeset.com/">geeks</a> you're in the <dfn title="motorized vehicle">car</dfn> with now and get
-    <sub>in with</sub> us. But <samp>that's</samp> <code>alright</code>, <mark>we'll worry about</mark> that <time>later</time>.
-    I will <small>see you</small> there. All right<sup>™</sup>? <del>Man</del>, <ins>I love</ins> those
-    <abbr title="Hotties">redheads</abbr>.
-
-%section(style="width:45%; float:left;")
-  %h4 Address examples
-  %br
-  %address
-    <strong>Mr. Address Tag</strong>
-    <br />
-    1600 Pennsylvania Ave NW
-    <br />
-    Washington D.C. DC 20500
-    <br />
-    <br />
-    <strong>Email:</strong>
-    <br />
-    <a href="#">president@whitehouse.gov</a>
-```
-<!-- end -->
-
 
 ### Pre blocks
 Used for showcasing a block of a code.
 
 ### Usage Example
-
 <!--~ markup/typography_pre.html.haml -->
-```haml
-%pre
-  git commit -am "Fixes issue #666"
-  git pull
-  git push
-```
-<!-- end -->
 
 ### Blockquotes
 Typically used for quoting blocks of text from another source.
 
 ### Usage Example
-
 <!--~ markup/typography_blockquote.html.haml -->
-```haml
-%blockquote
-  %p<
-    &#8220;Let me tell you what Melba Toast is packin' right here, all right. We got 4:11 Positrac outback, 750 double pumper, Edelbrock intake, bored over 30, 11 to 1 pop-up pistons, turbo-jet 390 horsepower. We're talkin' some f***in' muscle.&#8221;
-    <small>David Wooderson, <cite title="link to source">Dazed &amp; Confused</cite></small>
-```
-<!-- end -->
 
 ###### Notes
 - **Pro Tip!** Utilize `&#8220;` and `&#8221;` for opening and closing
@@ -129,86 +59,16 @@ Horizontal rules can utilize the class `.dashed` and `.dotted` for a
 different separator.
 
 ### Usage Example
-
 <!--~ markup/typography_rules.html.haml -->
-```haml
-%hr
-%hr.dashed
-%hr.dotted
-```
-<!-- end -->
 
 ### Lists
 Lists come in three varieties, unordered (`ul`), ordered (`ol`), and
 unstyled (`.unstyled-list`). Unstyled simply removes any list styles and
 left margin. By default all `ul` and `ol` elements nested under a `nav`
-element render the same as an `.unstyled-list` class. 
+element render the same as an `.unstyled-list` class.
 
 ### Usage Example
-
 <!--~ markup/typography_lists.html.haml -->
-```haml
-%section(style="width:25%; float:left; margin-right: 5%;")
-  %p<
-    %strong Unordered list:
-  %ul
-    %li Unordered list
-    %li Unordered list
-    %li
-      Start nested unordered list
-      %ul
-        %li Nested unordered list
-        %li Nested unordered list
-        %li Nested unordered list
-    %li Unordered list
-    %li
-      Start nested ordered list
-      %ol
-        %li Nested ordered list
-        %li Nested ordered list
-        %li Nested ordered list
-
-%section(style="width:25%; float:left; margin-right: 5%;")
-  %p<
-    %strong Ordered list:
-  %ol
-    %li Ordered list
-    %li Ordered list
-    %li
-      Start nested ordered list
-      %ol
-        %li Nested ordered list
-        %li Nested ordered list
-        %li Nested ordered list
-    %li Ordered list
-    %li
-      Start nested unordered list
-      %ul
-        %li Nested unordered list
-        %li Nested unordered list
-        %li Nested unordered list
-
-%section(style="width:25%; float:left;")
-  %p<
-    %strong Unstyled list:
-  %ul.unstyled-list
-    %li Unordered list
-    %li Unordered list
-    %li
-      Start nested unordered list
-      %ul
-        %li Nested unordered list
-        %li Nested unordered list
-        %li Nested unordered list
-    %li Unordered list
-    %li
-      Start nested ordered list
-      %ol
-        %li Nested ordered list
-        %li Nested ordered list
-        %li Nested ordered list
-```
-<!-- end -->
 
 ### Definition Lists
 Definition lists are used to encapsulate a term and it's definition. The
@@ -218,34 +78,8 @@ line. You can control the positioning by altering the
 `$definition-horiz-offset` and `$definition-horiz-offset-padding`
 variables.
 
-
 ### Usage Example
-
 <!--~ markup/typography_definition.html.haml -->
-```haml
-%section(style="width:25%; float:left; margin-right: 5%;")
-  %p<
-    %strong Definition list:
-  %dl
-    %dt Definition Term
-    %dd Definition Description Lorem ipsum dolor sit amet.
-    %dt Definition Term
-    %dd Definition Description Lorem ipsum dolor sit amet.
-    %dt Definition Term
-    %dd Definition Description Lorem ipsum dolor sit amet.
-
-%section(style="width:60%; float:left;")
-  %p<
-    %strong Horizontal Definition list:
-  %dl.dl-horizontal
-    %dt Definition Term
-    %dd Definition Description Lorem ipsum dolor sit amet.
-    %dt Definition Term
-    %dd Definition Description Lorem ipsum dolor sit amet.
-    %dt Definition Term
-    %dd Definition Description Lorem ipsum dolor sit amet.
-```
-<!-- end -->
 
 ## Style Settings
 To override the default settings, set the variable and it's value within

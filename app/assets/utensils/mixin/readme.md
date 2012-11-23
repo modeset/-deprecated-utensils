@@ -29,7 +29,7 @@ Clearfixins force a containers height to adjust when it contains floated
 children elements.
 
 Mixin           | Usage
---------------- | ----------------------------------------- 
+--------------- | -----------------------------------------
 `+clearfixer`   | The [micro clearfix](http://nicolasgallagher.com/micro-clearfix-hack/) utilizing pseudo elements to clear floats
 `+clearfix`     | Utilizes `overflow: hidden` to clear floats (same as compass)
 
@@ -46,7 +46,6 @@ Includes placeholder classes to be used via extension
 .clearfix
   @extend %clearfix
 ```
-
 
 ## Columns
 Allows elements to take the shape of either a column or row within a
@@ -98,7 +97,7 @@ Function           | Params                                    | Usage
 
 
 ## Float fill
-JG... describe this!  
+JG... describe this!
 
 
 ## Font size

@@ -17,23 +17,7 @@ data-bindable="tip"
 ```
 
 ## Usage Examples
-
 <!--~ markup/tip.html.haml -->
-```haml
-%nav
-  %ul.nav.inline
-    %li<
-      %a#north_tip(data-bindable="tip" data-delay="100" title="The Northern Tip" href="#") Northern Tip
-    %li<
-      %a#south_tip(data-bindable="tip" data-placement="south" data-delay="500,1000" title="The Southern Tip" href="#") Southern Tip
-    %li<
-      %a#east_tip(data-bindable="tip" data-placement="east" title="The Eastern Tip" href="#") Eastern Tip
-    %li<
-      %a#west_tip(data-bindable="tip" data-placement="west" title="The Western Tip" href="#") Western Tip
-    %li<
-      %a#image_tip(data-bindable="tip" data-placement="north" data-trigger="click" title="<img src='/assets/fpo/snow-260x180.png' width=260 height=180 />" href="#") Image Tip (click)
-```
-<!-- end -->
 
 
 ## Options
@@ -47,10 +31,10 @@ Attribute   | Default     | Description
 `placement` | `north`     | Where to position the tip in relation to the element: `north`, `south`, `east`, `west`
 `effect`    | `fade`      | The base animation class to add to the tip markup
 
-See `Triggerable` for other options 
+See `Triggerable` for other options
 
 
-###### Notes  
+###### Notes
 - **Heads Up!** `Tip` will override it's placement automatically through
   `Directional` if it determines the requested position will render the
   tip outside the viewport.
@@ -64,7 +48,7 @@ See `Triggerable` for other options
 
 ### #new
 Create a new instance of `Tip` programmatically. Normally this is
-handled through `Bindable`. 
+handled through `Bindable`.
 
 ```coffee
 #= require tip
@@ -110,6 +94,7 @@ Remove the tip behavior
 - `utensils/directional`
 
 `Tip` utilizes `Triggerable` via composition.
+
 
 ## Style Settings
 To override the default settings, set the variable and it's value

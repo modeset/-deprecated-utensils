@@ -11,40 +11,11 @@ elements under a `.button-toolbar` container to form a navigation system.
 ```
 
 ## Usage Example
-
 <!--~ markup/button_group.html.haml -->
-```haml
-%h5(style="margin-bottom:1em;") Button Toolbar (radio)
-%section.button-toolbar(data-bindable="toggle-button-group" role="navigation")
-  %nav.button-group
-    %button.btn 1
-    %button.btn 2
-    %button.btn 3
-  %nav.button-group
-    %button.btn.active 4
-  %nav.button-group
-    %button.btn 5
-    %button.btn 6
-    %button.btn 7
-
-%h5(style="margin-top:3em; margin-bottom:1em;") Button Group (checkbox)
-%nav.button-group(data-bindable="toggle-button-group" data-behavior="checkbox" role="navigation")
-  %a.btn(href="#") Left
-  %a.btn.active(href="#") Middle 1
-  %a.btn(href="#") Middle 2
-  %a.btn(href="#") Right
-
-%h5(style="margin-top:3em; margin-bottom:1em;") Vertical Button Group (radio)
-%nav.button-group.button-group-vertical(data-bindable="toggle-button-group" role="navigation")
-  %a.btn(href="#") 1
-  %a.btn.active(href="#") 2
-  %a.btn(href="#") 3
-  %a.btn(href="#") 4
-```
-<!-- end -->
 
 ###### Notes
 - **Pro Tip!** Button groups and tool bars play great with the `ToggleButtonGroup` behavior
+
 
 ## Style Settings
 To override the default settings, set the variable and it's value

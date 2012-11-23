@@ -15,30 +15,6 @@ The base `.nav` is the building block for navigation structures and components
 can be used for simple navigation as well.
 
 <!--~ markup/scaffold_nav.html.haml -->
-```haml
-%nav.well(role="navigation")
-  %ul.nav(data-bindable="toggle-group")
-    %li.nav-header Nav Header
-    %li
-      %a(href="#") Block Link 1
-    %li.active
-      %a(href="#") Block Link 2
-    %li
-      %a(href="#") Block Link 3
-    %li.nav-divider
-    %li.nav-header Nav Header
-    %li
-      %a(href="#") Block Link 4
-%nav(role="navigation")
-  %ul.nav.inline(data-bindable="toggle-group")
-    %li
-      %a(href="#") Inline Link 1
-    %li.active
-      %a(href="#") Inline Link 2
-    %li
-      %a(href="#") Inline Link 3
-```
-<!-- end -->
 
 ###### Warnings
 - **Heads Up!** All navigation components depend on the `.nav` class being attached to the container element

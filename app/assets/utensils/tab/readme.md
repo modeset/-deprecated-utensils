@@ -17,43 +17,8 @@ data-bindable="tab"
 ```
 
 ## Usage Example
-
 <!--~ markup/tab.html.haml -->
-```haml
-%nav#tab_demo(role="navigation")
-  %ul.nav.tab(data-bindable="tab" data-related="#tab_content" role="tablist")
-    %li.active<
-      %a(href="#tab_one" role="tab") Tab One
-    %li<
-      %a(href="#" data-target="#tab_two" role="tab") Tab Two
-    %li<
-      %a(href="#tab_three" role="tab") Tab Three
 
-    %li.drop(data-bindable="drop")
-      %a.drop-toggle#tab_drop(href="#") Tab Drop <span class="caret"></span>
-      %ul.nav.menu(role="menu" aria-labelledby="tab_drop")
-        %li<
-          %a(href="#tab_four" role="tab" tabindex="-1") Tab Four
-        %li<
-          %a(href="#tab_five" role="tab" tabindex="-1") Tab Five
-        %li<
-          %a(href="#tab_six" role="tab" tabindex="-1") Tab Six
-
-%section#tab_content.tab-content(style="margin-top:1.25em;")
-  %article.tab-pane.active#tab_one(role="tabpanel")
-    %p Tab content <span class="decal important">one</span>
-  %article.tab-pane#tab_two(role="tabpanel")
-    %p Tab content <span class="decal success">two</span>
-  %article.tab-pane#tab_three(role="tabpanel")
-    %p Tab content <span class="decal danger">three</span>
-  %article.tab-pane#tab_four(role="tabpanel")
-    %p Tab sub content <span class="decal warning">four</span>
-  %article.tab-pane#tab_five(role="tabpanel")
-    %p Tab sub content <span class="decal inverse">five</span>
-  %article.tab-pane#tab_six(role="tabpanel")
-    %p Tab sub content <span class="decal important">six</span>
-```
-<!-- end -->
 
 ## Options
 
@@ -64,6 +29,7 @@ Attribute        | Default     | Description
 `related-toggle` | `toggle`    | The class(es) to toggle when triggered on the related element
 
 See `ToggleGroup` for more options.
+
 
 ## API
 
@@ -111,7 +77,7 @@ Deactivating will remove the toggle classes from the element.
 ```
 
 ### #dispose
-Cleans up any internal references 
+Cleans up any internal references
 
 ```coffee
 @tab.dispose()
@@ -123,6 +89,7 @@ Cleans up any internal references
 - `utensils/toggle_group`
 
 `Tab` utilizes `ToggleGroup` via composition.
+
 
 ## Style Settings
 To override the default settings, set the variable and it's value

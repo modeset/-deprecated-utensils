@@ -1,27 +1,11 @@
-source 'https://rubygems.org'
+source "http://rubygems.org"
 
-gem 'rails'
-gem 'capybara'
+# Declare your gem's dependencies in docomo.gemspec.
+# Bundler will treat runtime dependencies like base dependencies, and
+# development dependencies will be added by default to the :development group.
+gemspec
 
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  gem 'haml-rails'
-  gem 'sass-rails'
-  gem 'coffee-rails'
-  gem 'uglifier'
-end
-
-gem 'thin'
-gem 'redcarpet'
-gem 'mustache'
-
-
-group :development, :test do
-  gem 'pry'
-  gem 'jasminerice'
- # gem 'cucumber-rails'
- # gem 'rspec'
- # gem 'chromedriver-helper'
-end
-
+# Used by the dummy application
+gem 'docomo', git: 'git@github.com:modeset/docomo.git'
+gem 'rails', '>= 3.2.5'
+gem 'jasminerice'

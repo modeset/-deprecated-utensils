@@ -39,7 +39,6 @@ class utensils.Dismiss
     @clearTimeout() if @timeout
     @setTarget() unless @target
     @target.trigger("#{@namespace}:dismissed")
-    @target.off("#{@namespace}:dismiss #{@namespace}:dismissed")
     @target.remove()
     @dispose()
 
@@ -76,5 +75,5 @@ class utensils.Dismiss
     return @target = parent if parent.length
     return @target = @el
 
-utensils.Bindable.register('dismiss', utensils.Dismiss)
+utensils.Bindable.register 'dismiss', utensils.Dismiss
 

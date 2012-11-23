@@ -10,30 +10,7 @@ directly in the markup.
 ```
 
 ## Usage Example
-
 <!--~ markup/caret.html.haml -->
-```haml
-%nav.demo(data-target="#test_caret" data-remove="north south east west")
-  %ul.nav.inline
-    %li
-      %span.caret.north
-    %li
-      %span.caret.south
-    %li
-      %span.caret.east
-    %li
-      %span.caret.west
-    %li(style="margin-left: 5em;")
-      %span.caret.transall#test_caret
-
-%h5(style="margin-top:3em; margin-bottom:1em;") Select to spin the caret
-%nav.radio-demo.button-group(data-bindable="toggle-button-group")
-  %button.btn(data-add="north") North
-  %button.btn.active(data-add="south") South
-  %button.btn(data-add="east") East
-  %button.btn(data-add="west") West
-```
-<!-- end -->
 
 Caret's are positioned to align with one another, most likely they will
 need some sort of offset based on the component they are paired with.

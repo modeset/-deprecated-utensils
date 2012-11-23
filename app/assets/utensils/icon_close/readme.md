@@ -7,16 +7,7 @@ Use the close icon to dismiss modals, notifications and other elements.
 ```
 
 ## Usage Example
-
 <!--~ markup/close.html.haml -->
-```haml
-.well(style="background-color:#CEE6F6; border-color:#78B9E6;")
-  %a.close(href="#") &times;
-
-.well(style="background-color:#333; border-color:#000;")
-  %a.close.inverse(href="#") &times;
-```
-<!-- end -->
 
 ###### Notes
 - **Pro Tip!** In your markup use `&times;` for the content of the close icon

@@ -17,72 +17,8 @@ flat, use `toggle-button-group` value. See the usage example for more
 information.
 
 ## Usage Example
-
 <!--~ markup/toggle_group.html.haml -->
-```haml
-%nav(role="navigation")
-  %ul#toggle_group_radios.nav.inline(data-bindable="toggle-group" data-target=".radio-li")
-    %li.radio-li<
-      %a(href="#") Radio 1
-    %li.radio-li<
-      %a(href="#") Radio 2
-    %li.radio-li<
-      %a(href="#") Radio 3
-    %li.radio-li.group-ignore Not a link
 
-%hr
-%nav(role="navigtion")
-  %ul#toggle_group_checks.nav.inline(data-bindable="toggle-group" data-behavior="checkbox" data-ignore=".text-ignore")
-    %li<
-      %a(href="#") Checkbox 1
-    %li<
-      %a(href="#") Checkbox 2
-    %li<
-      %a(href="#") Checkbox 3
-    %li.text-ignore Not a link
-
-%hr
-%nav(role="navigation")
-  %ul#toggle_group_delay.nav.inline(data-bindable="toggle-group" data-delay="500, 500" data-toggle="active on" data-namespace="toggle_delay")
-    %li<
-      %a(href="#") Radio Delay 1
-    %li<
-      %a(href="#") Radio Delay 2
-    %li<
-      %a(href="#") Radio Delay 3
-    %li.group-ignore Not a link
-
-%hr
-%nav(role="navigtion")
-  %ul#toggle_group_spans.nav.inline(data-bindable="toggle-group" data-behavior="checkbox")
-    %li<
-      %a(href="#") Checkbox 1 <span>I'm a span</span>
-    %li<
-      %a(href="#") Checkbox 2 <span>I'm a span</span>
-    %li<
-      %a(href="#") Checkbox 3 <span>I'm a span</span>
-
-%hr
-%section#toggle_button_group_radios.button-toolbar(data-bindable="toggle-button-group" role="navigation")
-  %nav.button-group
-    %button.btn 1
-    %button.btn 2
-    %button.btn 3
-  %nav.button-group
-    %button.btn.active 4
-  %nav.button-group
-    %button.btn 5
-    %button.btn 6
-    %button.btn 7
-
-%hr
-%nav#toggle_button_group_checks.button-group(data-bindable="toggle-button-group" data-behavior="checkbox" data-target=".btn" role="navigation")
-  %a.btn(href="#") Left <span>Span</span>
-  %a.btn.active(href="#") Middle 1
-  %a.btn(href="#") Middle 2
-  %a.btn(href="#") Right
-```
-<!-- end -->
 
 ## Options
 
@@ -164,7 +100,7 @@ element.
 ```
 
 ### #dispose
-Cleans up any internal references 
+Cleans up any internal references
 
 ```coffee
 @radio_group.dispose()

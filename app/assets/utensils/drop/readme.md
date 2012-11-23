@@ -18,77 +18,8 @@ data-bindable="drop"
 ```
 
 ## Usage Example
-
 <!--~ markup/drop.html.haml -->
-```haml
-%h5(style="margin-bottom:1em;") Drops in Navigation
-%nav
-  %ul.nav.inline#drop_nav_demo
-    %li.drop(data-bindable="drop")<
-      %a.drop-toggle#drop_1(href="#") Drop Normal <span class="caret"></span>
-      %ul.nav.menu(data-bindable="toggle-group" role="menu" aria-labelledby="drop_1")
-        %li<
-          %a(href="#" tabindex="-1") Subnav 1
-        %li<
-          %a(href="#" tabindex="-1") Subnav 2
-        %li<
-          %a(href="#" tabindex="-1") Subnav 3
 
-    %li.drop(data-bindable="drop" data-placement="north" data-toggle="active open hello" data-keyboard="false")<
-      %a.drop-toggle#drop_2(href="#") Drop North <span class="caret"></span>
-      %ul.nav.menu(data-bindable="toggle-group" role="menu" aria-labelledby="drop_2")
-        %li<
-          %a(href="#" tabindex="-1") Subnav 1
-        %li<
-          %a(href="#" tabindex="-1") Subnav 2
-        %li<
-          %a(href="#" tabindex="-1") Subnav 3
-
-    %li.drop(data-bindable="drop" data-placement="west")<
-      %a.drop-toggle#drop_3(href="#") Drop West <span class="caret"></span>
-      %ul.nav.menu(data-bindable="toggle-group" role="menu" aria-labelledby="drop_3")
-        %li<
-          %a(href="#" tabindex="-1") Subnav 1
-        %li<
-          %a(href="#" tabindex="-1") Subnav 2
-        %li<
-          %a(href="#" tabindex="-1") Subnav 3
-
-%h5(style="margin-bottom:1em; margin-top:2em;") Drops in Button Toolbar
-%section.button-toolbar
-  %nav.button-group#drop_button_demo
-    %a.btn.drop#drop_4(href="#" data-bindable="drop") Drop Button <span class="caret"></span>
-    %ul.nav.menu(data-bindable="toggle-group" role="menu" aria-labelledby="drop_4")
-      %li<
-        %a(href="#" tabindex="-1") Subnav 1
-      %li<
-        %a(href="#" tabindex="-1") Subnav 2
-      %li<
-        %a(href="#" tabindex="-1") Subnav 3
-
-  %nav.button-group#drop_split_demo
-    %a.btn Action
-    %a.btn.drop#drop_5(data-bindable="drop") <span class="caret"></span>
-    %ul.nav.menu(data-bindable="toggle-group" role="menu" aria-labelledby="drop_5")
-      %li<
-        %a(href="#" tabindex="-1") Subnav 1
-      %li<
-        %a(href="#" tabindex="-1") Subnav 2
-      %li<
-        %a(href="#" tabindex="-1") Subnav 3
-
-  %nav.button-group#drop_delay_demo
-    %a.btn Action
-    %a.btn.drop#drop_6(data-bindable="drop" data-placement="east" data-delay="500") <span class="caret"></span>
-    %ul.nav.menu(data-bindable="toggle-group" role="menu" aria-labelledby="drop_6")
-      %li<
-        %a(href="#" tabindex="-1") Subnav 1
-      %li<
-        %a(href="#" tabindex="-1") Subnav 2
-      %li<
-        %a(href="#" tabindex="-1") Subnav 3
-```
-<!-- end -->
 
 ## Options
 
@@ -99,9 +30,9 @@ Attribute   | Default         | Description
 `placement` | `south`         | Where to position the drop menu in relation to the element: `north`, `south`, `east`, `west`
 `keyboard`  | `true`          | Utilize some basic key commands for controlling the menu
 
-See `Triggerable` for other options 
+See `Triggerable` for other options
 
-###### Notes  
+###### Notes
 - **Heads Up!** `Drop` will override it's placement automatically
   through `Directional` if it determines the requested position will
   render the `menu` outside the viewport.
@@ -112,7 +43,7 @@ See `Triggerable` for other options
 
 ### #new
 Create a new instance of `Drop` programmatically. Normally this is
-handled through `Bindable`. 
+handled through `Bindable`.
 
 ```coffee
 #= require drop
@@ -157,6 +88,7 @@ Remove the drop behavior
 - `utensils/directional`
 
 `Drop` utilizes `Triggerable` via composition.
+
 
 ## Style Settings
 To override the default settings, set the variable and it's value within

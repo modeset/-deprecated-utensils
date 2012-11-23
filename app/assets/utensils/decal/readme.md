@@ -12,17 +12,8 @@ modifiers to limit the output of generated classes.
 ```
 
 ## Usage Example
-
 <!--~ markup/decal.html.haml -->
-```haml
-%span.decal Default
-%span.decal.important Important
-%span.decal.success Success
-%span.decal.warning Warning
-%span.decal.danger Danger
-%span.decal.info Info
-```
-<!-- end -->
+
 
 ## Style Settings
 To override the default settings, set the variable and it's value
