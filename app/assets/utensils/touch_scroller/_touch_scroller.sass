@@ -1,0 +1,55 @@
+
+// Outer container - progressively enhance
+.scroll_outer
+  position: relative
+  overflow: hidden
+
+// Inner content
+.scroll_inner
+  position: relative
+  top: 0
+  left: 0
+  float: left
+  -webkit-transform-origin: 0 0
+  -moz-transform-origin: 0 0
+  transform-origin: 0 0
+
+// Scroll bar holder
+.scrollbar
+  position: absolute
+  overflow: hidden
+  z-index: 10
+
+.scrollbar.horizontal
+  left: 0
+  bottom: 4px
+  height: 5px
+  padding: 0 4px
+
+.scrollbar.vertical
+  top: 0
+  right: 4px
+  width: 5px
+  padding: 4px 0
+
+// Scroll bar indicator
+.scrollbar-pill
+  +opacity(0)
+  +transition(opacity 0.2s ease-in-out)
+  background-color: black
+  background-color: rgba(black, 0.5)
+  border-radius: 6px
+  position: absolute
+  top: 0
+  left: 0
+
+.scrollbar.horizontal .scrollbar-pill
+  height: 5px
+
+.scrollbar.vertical .scrollbar-pill
+  width: 5px
+
+.scrollbar-pill.showing
+  +opacity(1)
+  display: block
+
