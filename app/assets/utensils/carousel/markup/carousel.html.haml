@@ -5,9 +5,9 @@
     %a.paddle-icon.east(href="#next") &rarr;
     %ul.nav.indication
   %section.carousel-inner
-    - 4.times do |i|
+    - (["ff00ff", "00ffff", "ff0000", "666666"]).each do |i|
       %article.carousel-panel(class="fade")
         %figure.carousel-figure
-          %img(src="http://lorempixel.com/600/400/#{i}" alt="image")
+          %img(src="http://placehold.it/600x400/#{i}/ffffff" alt="image")
           %figcaption.carousel-caption
 
