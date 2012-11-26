@@ -10,7 +10,7 @@ The markup is served as a partial, typically from
 
 ## Usage Example
 
-```haml
+```~haml
 %section.button-toolbar
   %nav.button-group#upgrade-demo(data-bindable="toggle-button-group" data-behavior="checkbox")
     %button.btn(data-toggle="js") Toggle JS Message

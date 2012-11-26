@@ -11,21 +11,8 @@ a divider after their content. This is configurable from the
 ```
 
 ## Usage Example
-
 <!--~ markup/breadcrumb.html.haml -->
-```haml
-%nav(role="navigation")
-  %ol.nav.breadcrumb(data-bindable="toggle-group")
-    %li<
-      %a(href="#") Level 1
-    %li<
-      %a(href="#") Level 2
-    %li<
-      %a(href="#") Level 3
-    %li.active<
-      %a(href="#") Active
-```
-<!-- end -->
+
 
 ## Style Settings
 To override the default settings, set the variable and it's value

@@ -7,34 +7,7 @@ data-bindable="dismiss"
 ```
 
 ## Usage Example
-
 <!--~ markup/dismiss.html.haml -->
-```haml
-.notification.fade.in(role="alert")
-  %p <strong>Notification!</strong> This is the default notification
-  %a.close(href="#" data-bindable="dismiss") &times;
-
-.notification.fade.in#dismiss_href(role="alert")
-  %p <strong>Notifcation Href!</strong> This is the default notification
-  %a.close(href="#dismiss_href" data-bindable="dismiss") &times;
-
-.notification.fade.in#dismiss_target(role="alert")
-  %p <strong>Notifcation Target!</strong> With a delay
-  %a.close(href="#" data-target="#dismiss_target" data-bindable="dismiss" data-delay="2000") &times;
-
-.notification.fade.in#dismiss_nested(role="alert")
-  %p <strong>Notifcation Nested!</strong> This is the default notification
-  %p
-    %a.close(href="#" data-bindable="dismiss") &times;
-
-%a#dismiss_alone(href="#" data-bindable="dismiss") Close Me
-
-%section#dismiss_cya.fade.in
-  %p<
-    This whole thing should fade out,
-    %a(href="#" data-bindable="dismiss" data-parents="#dismiss_cya") when you click this link
-```
-<!-- end -->
 
 
 ## Options
@@ -45,9 +18,9 @@ Attribute      | Default                  | Description
 `parents`      | `.notification,.dismiss` | The default classes to search for if an `href` or `target` is not defined
 `auto-dismiss` | `undefined`              | Pass the time in milliseconds and the element will automatically remove itself from the DOM.
 
-See `Triggerable` for other options 
+See `Triggerable` for other options
 
-###### Notes  
+###### Notes
 - **Pro Tip!** If the target element has the class `in` it will remove
   this class first and wait for the transition to finish
 
@@ -55,7 +28,7 @@ See `Triggerable` for other options
 
 ### #new
 Create a new instance of `Dismiss` programmatically. Normally this is
-handled through `Bindable`. 
+handled through `Bindable`.
 
 ```coffee
 #= require dismiss

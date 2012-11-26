@@ -52,7 +52,6 @@ Attribute   | Default       | Description
 Options are typically passed up through the class instance utilizing
 `Triggerable`.
 
-
 ### Trigger Types
 The `trigger` attribute is mapped to an object with `on/off` properties
 based on the following:
@@ -89,7 +88,7 @@ method.
 ## API
 
 ### #new
-Create a new instance of `Triggerable` programatically. 
+Create a new instance of `Triggerable` programatically.
 
 ```coffee
 #= require triggerable
@@ -128,7 +127,7 @@ Deactivate a `Triggerable` instance
 ```
 
 ### #dispose
-Cleans up any internal references 
+Cleans up any internal references
 
 ```coffee
 @triggerable.dispose()

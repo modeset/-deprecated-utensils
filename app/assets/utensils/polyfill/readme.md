@@ -36,7 +36,6 @@ A function to combine and normalize multiple parameters (supports up to
 $full: combine($transition-1, $transition-2, $transition-3)
 ```
 
-
 ## Background Image
 Draws a background image to an element, mainly used for gradients
 (supports up to 9 background image parameters) This does not support the
@@ -51,7 +50,6 @@ old webkit linear gradient.
 .element
   +background-image(linear-gradient(#ff00ff, #000), url("/images/asset.png"))
 ```
-
 
 ## Box Shadow
 Draws an outer or inset shadow around an element (supports up to 9

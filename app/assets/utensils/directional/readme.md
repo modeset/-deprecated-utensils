@@ -5,11 +5,10 @@ an element measured against it's container.
 
 For working examples, see `Tip` or `Pop`
 
-
 ## API
 
 ### #new
-Create a new instance of `Directional`, typically used compositionally. 
+Create a new instance of `Directional`, typically used compositionally.
 
 ```coffee
 #= require directional
@@ -18,28 +17,28 @@ Create a new instance of `Directional`, typically used compositionally.
 ```
 
 ### #setElement
-Sets the `element` being used for positioning. 
+Sets the `element` being used for positioning.
 
 ```coffee
 @directional.setElement(@target)
 ```
 
 ### #setContainer
-Sets the `container` being used for positioning. 
+Sets the `container` being used for positioning.
 
 ```coffee
 @directional.setContainer(@el)
 ```
 
 ### #setCardinal
-Sets the cardinal position `north|south|east|west` to use. 
+Sets the cardinal position `north|south|east|west` to use.
 
 ```coffee
 @directional.setCardinal('west')
 ```
 
 ### #getCardinals
-Returns the cardinal position list tested against. 
+Returns the cardinal position list tested against.
 
 ```coffee
 @cardinals = @directional.getCardinals()

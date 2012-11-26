@@ -1,13 +1,11 @@
 
-$carousel-height: 400px !default
-
 .carousel
   +box-sizing(border-box)
   +clearfixer
   overflow: hidden
-  position: relative
   width: 100%
-  height: $carousel-height
+  height: 400px
+  position: relative
 
 .carousel-inner
   position: relative
@@ -22,7 +20,23 @@ $carousel-height: 400px !default
   width: 100%
   height: 100%
 
+.carousel-controls .indication
+  +clearfixer
+  position: absolute
+  left: 50%
+  bottom: 0
+  z-index: 1
+
+.carousel-controls .indication li
+  float: left
+
 .carousel-controls .paddle-icon
+  z-index 2
+
+.carousel-status
+  position: absolute
+  top: 0
+  left: 0
   z-index: 2
 
 .carousel .carousel-panel
@@ -32,9 +46,13 @@ $carousel-height: 400px !default
 .carousel-figure
   +box-sizing(border-box)
 
+.carousel-caption
+  +box-sizing(border-box)
+  +clearfixer
+
 .carousel[data-bindable="carousel"] .carousel-panel
-  position: absolute
   width: auto
+  position: absolute
 
 .carousel img
   display: block

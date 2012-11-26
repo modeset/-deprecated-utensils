@@ -8,18 +8,8 @@ typically used within the `Drop` component.
 ```
 
 ## Usage Example
-
 <!--~ markup/menu.html.haml -->
-```haml
-%ul.nav.menu(data-bindable="toggle-group" role="menu")
-  %li<
-    %a(href="#" tabindex="-1") Menu item 1
-  %li.active<
-    %a(href="#" tabindex="-1") Menu item 2
-  %li<
-    %a(href="#" tabindex="-1") Menu item 3
-```
-<!-- end -->
+
 
 ## Style Settings
 To override the default settings, set the variable and it's value within

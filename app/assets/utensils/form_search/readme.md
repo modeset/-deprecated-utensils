@@ -12,14 +12,7 @@ inherit the top and bottom `padding` of the input element.
 ```
 
 ## Usage Example
-
 <!--~ markup/form_search.html.haml -->
-```haml
-%form.form-search.well.fill(role="search")
-  %input#fs_search(type="search" placeholder="search")
-  %input.btn.standard(type="submit" value="Submit")
-```
-<!-- end -->
 
 ###### Notes
 - **Heads Up!** Requires the `form_controls` utensil.

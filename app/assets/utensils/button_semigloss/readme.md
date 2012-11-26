@@ -8,32 +8,11 @@ are added to the style sheet unless told to do so.
 ```
 
 ## Usage Examples
-
 <!--~ markup/button_semigloss.html.haml -->
-```haml
-%section.demo(data-target=".btn" data-remove="active error disabled")
-  %button.btn Default
-  %button.btn.inverse Inverse
-  %button.btn.standard Standard
-  %button.btn.info Info
-  %button.btn.important Important
-  %button.btn.success Success
-  %button.btn.warning Warning
-  %button.btn.danger Danger
-  %button.btn.primary Primary
-
-%h5(style="margin-top:3em; margin-bottom:1em;") Select to view states
-%nav.radio-demo.button-group(data-bindable="toggle-button-group")
-  %a.btn.active(href="#" data-add="") Normal
-  %a.btn(href="#" data-add="active") Active
-  %a.btn(href="#" data-add="error") Error
-  %a.btn(href="#" data-add="disabled") Disabled
-```
-<!-- end -->
 
 The semigloss-button class can be applied to `<a>`, `<button>` and `<input>` elements.
 
-```haml
+```~haml
 %section.semigloss-btn-demo
   %a.btn(href="#") Link
   %button.btn(type="submit") Button
@@ -41,9 +20,8 @@ The semigloss-button class can be applied to `<a>`, `<button>` and `<input>` ele
   %input.btn(type="submit" value="Submit")
 ```
 
-
 ## Options
-Semigloss button contains 3 mixins. 
+Semigloss button contains 3 mixins.
 
 ### Mixin: `semigloss-button`
 

@@ -8,26 +8,7 @@ Styles and simple behavior for progress indicator bars.
 
 
 ## Usage Example
-
 <!--~ markup/progress.html.haml -->
-```haml
-.progress(role="progressbar")
-  .bar(style="width:60%")
-
-.progress.important(data-initial="80" role="progressbar")
-  .bar
-
-.progress.success(role="progressbar")
-  .bar(style="width:60%")
-
-.progress.warning(role="progressbar")
-  .bar(style="width:60%")
-
-.progress.danger(role="progressbar")
-  .bar(style="width:60%")
-```
-<!-- end -->
-
 
 ###### Note
 - **Pro Tip!** Click on one of the progress bars and it will animate to
