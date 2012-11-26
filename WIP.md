@@ -21,11 +21,11 @@
   when there are other failures
 
 ## Repository
-- FPO images (can't go public with the Burton photos)
-- Turn into engine
-- Add generators
-- Better tools for documentation (generation, behavior, and styles)
-- Better docs
+- Move template files over
+- Final walkthrough on the repository merge
+- FPO images should be local instead of a service
+- Add generators (templates)
+- Better description docs
 - Use the style guide for dinosaur test
 - Jasmine rice loading fixtures from app instead of
   /spec/javascripts/fixtures
