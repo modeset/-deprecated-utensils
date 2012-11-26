@@ -9,29 +9,8 @@ type, sizing, or positioning.
 ```
 
 ## Usage Examples
-
 <!--~ markup/button_modifiers.html.haml -->
-```haml
-%section.demo(data-target=".btn" data-remove="btn-xsmall btn-small btn-large btn-xlarge")
-  %input.btn.standard(type="submit" value="Submit")
-  %button.btn.inverse Inverse
-  %button.btn.important Important
-  %a.btn.success(href="#") Success
 
-%h5(style="margin-top:3em; margin-bottom:1em;") Select to view states
-%section.button-toolbar
-  %nav.check-demo.button-group(data-bindable="toggle-button-group" data-behavior="checkbox")
-    %a.btn(href="#" data-toggle="btn-block") Block
-    %a.btn(href="#" data-toggle="btn-transition") Transition
-
-  %nav.radio-demo.button-group(data-bindable="toggle-button-group")
-    %a.btn.active(href="#" data-add="") Normal
-    %a.btn(href="#" data-add="btn-xsmall") XS
-    %a.btn(href="#" data-add="btn-small") Small
-    %a.btn(href="#" data-add="btn-large") Large
-    %a.btn(href="#" data-add="btn-xlarge") XL
-```
-<!-- end -->
 
 ## Usage
 

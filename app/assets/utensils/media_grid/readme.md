@@ -15,39 +15,12 @@ grid for this reason.
 ```
 
 ## Usage Examples
-
 <!--~ markup/media_grid.html.haml -->
-```haml
-%ul.media-grid
-  %li(style="width:25%")
-    %figure.media-item
-      %img(src="/assets/fpo/snow-260x180.png")
-      %figcaption.media-caption
-        %h3 Media Item
-        %p This is some caption copy with the footer aligned to the left.
-        %footer.media-caption-footer
-          %button.btn Action
-  %li(style="width:25%")
-    %a.media-item(href="#")
-      %img(src="/assets/fpo/snow-260x180.png")
-  %li(style="width:25%")
-    %figure.media-item
-      %a.media-item(href="#")
-        %img(src="/assets/fpo/snow-260x180.png")
-      %figcaption.media-caption
-        %h3 Media Item
-        %p This is some caption copy with the footer aligned to the right.
-        %footer.media-caption-footer.media-caption-right
-          %button.btn Action
-  %li(style="width:25%")
-    %figure.media-item
-      %img(src="/assets/fpo/snow-260x180.png")
-```
-<!-- end -->
 
 ###### Notes
 - **Pro Tip!** Add `media-caption-right` on the `media-caption-footer`
   to align buttons to the right
+
 
 ## Style Settings
 To override the default settings, set the variable and it's value

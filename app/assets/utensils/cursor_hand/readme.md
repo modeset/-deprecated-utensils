@@ -2,7 +2,7 @@
 # Cursor Hand
 The CursorHand .js/css combination provides a nice cross-browser way to have a hand-grab cursor, a-la Google Maps' interface.
 
-By default, CursorHand will add or remove a class on the `<body>` element when the cursor state needs to change. An optional 
+By default, CursorHand will add or remove a class on the `<body>` element when the cursor state needs to change. An optional
 html element can be passed in to the CursorHand constructor, which would toggle the class instead, in case of css scoping needs.
 
 ```sass
@@ -10,13 +10,8 @@ html element can be passed in to the CursorHand constructor, which would toggle 
 ```
 
 ## Usage Examples
-
 <!--~ markup/cursor_hand.html.haml -->
-```haml
-%h5.hand Hand
-%h5.handGrab Hand Grab
-```
-<!-- end -->
+
 
 ## API
 Typically cursor hand is required via a class that needs it, i.e. Carousel, Slider, TouchScroller, etc..

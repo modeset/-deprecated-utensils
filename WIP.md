@@ -27,4 +27,6 @@
 - Better tools for documentation (generation, behavior, and styles)
 - Better docs
 - Use the style guide for dinosaur test
+- Jasmine rice loading fixtures from app instead of
+  /spec/javascripts/fixtures
 

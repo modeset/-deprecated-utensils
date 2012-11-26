@@ -17,34 +17,8 @@ data-bindable="pop"
 ```
 
 ## Usage Examples
-
 <!--~ markup/pop.html.haml -->
-```haml
-%nav
-  %ul.nav.inline
-    %li<
-      %a#pop_north(data-bindable="pop" data-delay="100" title="The Northern Pop" data-content="North is way up there, just hanging out with the Canadians." href="#") Northern Pop
-    %li<
-      %a#pop_south(data-bindable="pop" data-placement="south" data-delay="1000,2000" title="The Southern Pop" data-content="South is where the snow goes in the summer. You should go there." href="#") Southern Pop
-    %li<
-      %a#pop_east(data-bindable="pop" data-trigger="hover" data-placement="east" title="The Eastern Pop" data-content="East Coast hip-hop in the 90s is about as good as it gets." href="#") Eastern Pop
-    %li<
-      %a#pop_west(data-bindable="pop" data-placement="west" title="<h2>The Western Pop</h2>" data-content="At some point the West Coast is just going to drop into the Pacific." href="#") Western Pop
-    %li<
-      %a#pop_no_title(data-bindable="pop" data-placement="north" data-content="Check me out, rolling with no title and all. Total chaos." href="#") No Title
-    %li<
-      %a#pop_selector(data-bindable="pop" href="#pop_exterior_content" data-placement="west" data-toggle="in" data-delay="1000,0" data-bubble="true") Exterior Content
 
-.hidden#pop_exterior_content
-  .pop.fade
-    .pop-arrow
-    .pop-inner
-      .pop-header
-        %h3 Exterior content
-      .pop-content(style="width: 260px; height:180px;")
-        %img(src="/assets/fpo/snow-260x180.png")
-```
-<!-- end -->
 
 ## Options
 
@@ -57,15 +31,15 @@ Attribute   | Default     | Description
 `content`   | `""`        | The content (html or text) to insert for the body when "is tip like"
 `placement` | `north`     | Where to position the pop in relation to the element: `north`, `south`, `east`, `west`
 `effect`    | `fade`      | The base animation class to add to the tip markup
-`href`      | _none_      | Optional DOM element `id` for the contents and `data-attributes` to use for the contents of the `Pop` 
+`href`      | _none_      | Optional DOM element `id` for the contents and `data-attributes` to use for the contents of the `Pop`
 
 Referencing "is tip like" means the contents of the `Pop` reside within
 the `data` attributes of the link. When a `Pop` "is not tip like", it
 references a `hidden` DOM element.
 
-See `Triggerable` for other options 
+See `Triggerable` for other options
 
-###### Notes  
+###### Notes
 - **Heads Up!** `Pop` will override it's placement automatically through
   `Directional` if it determines the requested position will render the
   pop outside the viewport.
@@ -90,7 +64,7 @@ appearing on screen initially.
 
 ### #new
 Create a new instance of `Pop` programmatically. Normally this is
-handled through `Bindable`. 
+handled through `Bindable`.
 
 ```coffee
 #= require pop

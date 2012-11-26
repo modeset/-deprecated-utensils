@@ -11,38 +11,8 @@ To allow pager to float on the sides of the container, apply the
 ```
 
 ## Usage Example
-
 <!--~ markup/pager.html.haml -->
-```haml
-%nav(role="navigation")
-  %ul.pager
-    %li.disabled<
-      %a(href="#") &larr; Prev
-    %li<
-      %a(href="#") Next &rarr;
-%hr
-%nav(role="navigation")
-  %ul.pager.pager-center
-    %li<
-      %a(href="#") &larr; Prev
-    %li<
-      %a(href="#") Next &rarr;
-%hr
-%nav(role="navigation")
-  %ul.pager.pager-right
-    %li<
-      %a(href="#") &larr; Prev
-    %li.disabled<
-      %a(href="#") Next &rarr;
-%hr
-%nav(role="navigation")
-  %ul.pager
-    %li.pager-prev<
-      %a(href="#") &larr; Prev
-    %li.pager-next<
-      %a(href="#") Next &rarr;
-```
-<!-- end -->
+
 
 ## Usage
 

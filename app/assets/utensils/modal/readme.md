@@ -19,29 +19,8 @@ data-bindable="modal"
 ```
 
 ## Usage Example
-
 <!--~ markup/modal.html.haml -->
-```haml
-:ruby
-  @lorem = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-  eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-  veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-  commodo consequat."
 
-%button.btn(data-bindable="modal" href="#modal_href" data-keyboard="true") Launch Modal
-
-.modal.fade#modal_href
-  .notification.success.fade.in(role="alert")
-    %header.notify-header
-      %h4.notify-heading Modal Notification
-    %section.notify-content
-      %p= @lorem
-    %footer.notify-footer
-      %button.btn.success(type="button") Action
-      %button.btn.danger(type="button" data-dismiss="modal") Cancel
-    %a.close(href="#" data-dismiss="modal") &times;
-```
-<!-- end -->
 
 ## Options
 
@@ -52,20 +31,20 @@ Attribute   | Default     | Description
 `activate`  | `undefined` | Allows the modal to activate on load
 `href`      | _none_      | DOM element `id` for the contents of the `Modal`
 
-See `Triggerable` for other options 
+See `Triggerable` for other options
 
 ### Referencing DOM elements
 The `modal` trigger element needs to reference an element within the DOM
 via an `id`. The target element can live either as the `href` or
 `target` attribute. By default, any elements with the `.modal` class are
-set to `display:none`. 
+set to `display:none`.
 
 
 ## API
 
 ### #new
 Create a new instance of `Modal` programmatically. Normally this is
-handled through `Bindable`. 
+handled through `Bindable`.
 
 ```coffee
 #= require modal

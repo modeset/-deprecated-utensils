@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-curl -L -o ./vendor/assets/javascripts/jquery.min.js http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js
-curl -L -o ./vendor/assets/javascripts/html5shiv-printshiv.js https://raw.github.com/aFarkas/html5shiv/master/dist/html5shiv-printshiv.js
-curl -L -o ./vendor/assets/javascripts/respond.js https://raw.github.com/scottjehl/Respond/master/respond.src.js
-curl -L -o ./vendor/assets/javascripts/respond.proxy.js https://raw.github.com/scottjehl/Respond/master/cross-domain/respond.proxy.js
-curl -L -o ./vendor/assets/javascripts/respond-proxy.html https://raw.github.com/scottjehl/Respond/master/cross-domain/respond-proxy.html
-curl -L -o ./vendor/assets/images/respond.proxy.gif https://raw.github.com/scottjehl/Respond/master/cross-domain/respond.proxy.gif
-
