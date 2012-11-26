@@ -8,6 +8,8 @@
 //= require utensils/collapse
 
 //= require utensils/carousel
+//= require utensils/carousel_touch
+//= require utensils/carousel_touch_infinite
 //= require utensils/modal
 //= require utensils/drop
 //= require utensils/tab

@@ -1,13 +1,24 @@
-// This is a manifest file that'll be compiled into application.js, which will include all the files
-// listed below.
-//
-// Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,
-// or vendor/assets/javascripts of plugins, if any, can be referenced here using a relative path.
-//
-// It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
-// the compiled file.
-//
-// WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
-// GO AFTER THE REQUIRES BELOW.
-//
+//= require utensils/utensils
 //= require utensils/bindable
+//= require utensils/triggerable
+//= require utensils/toggle
+//= require utensils/toggle_group
+//= require utensils/dismiss
+//= require utensils/collapse
+
+//= require utensils/carousel
+//= require utensils/carousel_touch
+//= require utensils/carousel_touch_infinite
+//= require utensils/modal
+//= require utensils/drop
+//= require utensils/tab
+//= require utensils/tip
+//= require utensils/pop
+//= require utensils/progress
+//= require utensils/slider
+
+// Lets get this party started..
+$(function() {
+  utensils._binder = new utensils.Bindable().bindAll();
+});
+
