@@ -37,3 +37,8 @@ Variable                   | Default                            | Description
 `$cursor-open-hand-path`   | `"/assets/cursors/openhand.cur"`   | The default path to find the open hand cursor
 `$cursor-closed-hand-path` | `"/assets/cursors/closedhand.cur"` | The default path to find the closed hand cursor
 
+
+## Todo
+- Cursor grab hand seems to be broken in the latest webkit version,
+  works fine in FF
+
