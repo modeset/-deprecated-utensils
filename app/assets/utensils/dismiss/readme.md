@@ -7,7 +7,7 @@ data-bindable="dismiss"
 ```
 
 ## Usage Example
-<!--~ markup/dismiss.html.haml -->
+[<~Example](markup/dismiss.html.haml)
 
 
 ## Options

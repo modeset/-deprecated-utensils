@@ -8,7 +8,7 @@ By combining any of the following classes, the table can be given a different lo
 ```
 
 ## Usage Example
-<!--~ markup/table.html.haml -->
+[<~Example](markup/table.html.haml)
 
 ###### Note
 - **Heads up!** To get the status colors, see the "Table Status Modifiers" section below.

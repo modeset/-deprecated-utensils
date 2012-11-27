@@ -17,7 +17,7 @@ flat, use `toggle-button-group` value. See the usage example for more
 information.
 
 ## Usage Example
-<!--~ markup/toggle_group.html.haml -->
+[<~Example](markup/toggle_group.html.haml)
 
 
 ## Options

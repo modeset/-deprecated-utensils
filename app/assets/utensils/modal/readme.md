@@ -19,7 +19,7 @@ data-bindable="modal"
 ```
 
 ## Usage Example
-<!--~ markup/modal.html.haml -->
+[<~Example](markup/modal.html.haml)
 
 
 ## Options

@@ -9,7 +9,7 @@ various components with navigation, search forms and drop downs.
 ```
 
 ## Usage Example
-<!--~ markup/navbar.html.haml -->
+[<~Example](markup/navbar.html.haml)
 
 
 ## Navbar Types

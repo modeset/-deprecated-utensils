@@ -11,7 +11,7 @@ To allow pager to float on the sides of the container, apply the
 ```
 
 ## Usage Example
-<!--~ markup/pager.html.haml -->
+[<~Example](markup/pager.html.haml)
 
 
 ## Usage

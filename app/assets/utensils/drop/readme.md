@@ -18,7 +18,7 @@ data-bindable="drop"
 ```
 
 ## Usage Example
-<!--~ markup/drop.html.haml -->
+[<~Example](markup/drop.html.haml)
 
 
 ## Options

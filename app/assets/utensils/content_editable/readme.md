@@ -8,13 +8,8 @@ allows the user to change it's contents.
 ```
 
 ## Usage Examples
+[<~Example](markup/content_editable.html.haml)
 
-<!--~ markup/content_editable.html.haml -->
-```haml
-%h2(contenteditable="true") Edit Title
-%p(contenteditable="true") Edit Description
-```
-<!-- end -->
 
 ## Style Settings
 To override the default settings, set the variable and it's value

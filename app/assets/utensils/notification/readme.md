@@ -9,7 +9,7 @@ Add the `Dismiss` behavior for allowing the notification to be closed.
 ```
 
 ## Usage Example
-<!--~ markup/notification.html.haml -->
+[<~Example](markup/notification.html.haml)
 
 ### Block Notifications
 Block notifications are similar to the base notification, in fact

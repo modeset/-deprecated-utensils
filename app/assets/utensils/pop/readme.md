@@ -17,7 +17,7 @@ data-bindable="pop"
 ```
 
 ## Usage Examples
-<!--~ markup/pop.html.haml -->
+[<~Example](markup/pop.html.haml)
 
 
 ## Options

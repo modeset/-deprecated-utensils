@@ -3,7 +3,7 @@
 The base carousel.
 
 ## Usage Example
-<!--~ markup/carousel.html.haml -->
+[<~Example](markup/carousel.html.haml)
 
 
 ## Todo

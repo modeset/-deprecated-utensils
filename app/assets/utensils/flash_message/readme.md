@@ -4,7 +4,7 @@ A top level container to house notifications and messages targeted to
 the user.
 
 ## Usage Example
-<!--~ markup/flash_message.html.haml -->
+[<~Example](markup/flash_message.html.haml)
 
 Flash notifications enhance the `.notification` component by allowing
 them to appear fixed above all other elements on the page. Wrap the

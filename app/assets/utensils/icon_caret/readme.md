@@ -10,7 +10,7 @@ directly in the markup.
 ```
 
 ## Usage Example
-<!--~ markup/caret.html.haml -->
+[<~Example](markup/caret.html.haml)
 
 Caret's are positioned to align with one another, most likely they will
 need some sort of offset based on the component they are paired with.

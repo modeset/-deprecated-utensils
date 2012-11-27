@@ -9,7 +9,7 @@ type, sizing, or positioning.
 ```
 
 ## Usage Examples
-<!--~ markup/button_modifiers.html.haml -->
+[<~Example](markup/button_modifiers.html.haml)
 
 
 ## Usage

@@ -8,7 +8,7 @@ Styles and simple behavior for progress indicator bars.
 
 
 ## Usage Example
-<!--~ markup/progress.html.haml -->
+[<~Example](markup/progress.html.haml)
 
 ###### Note
 - **Pro Tip!** Click on one of the progress bars and it will animate to

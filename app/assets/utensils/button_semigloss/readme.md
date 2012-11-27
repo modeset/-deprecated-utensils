@@ -8,7 +8,7 @@ are added to the style sheet unless told to do so.
 ```
 
 ## Usage Examples
-<!--~ markup/button_semigloss.html.haml -->
+[<~Example](markup/button_semigloss.html.haml)
 
 The semigloss-button class can be applied to `<a>`, `<button>` and `<input>` elements.
 

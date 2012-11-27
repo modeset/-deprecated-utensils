@@ -12,7 +12,7 @@ inherit the top and bottom `padding` of the input element.
 ```
 
 ## Usage Example
-<!--~ markup/form_search.html.haml -->
+[<~Example](markup/form_search.html.haml)
 
 ###### Notes
 - **Heads Up!** Requires the `form_controls` utensil.

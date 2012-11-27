@@ -17,7 +17,7 @@ data-bindable="tab"
 ```
 
 ## Usage Example
-<!--~ markup/tab.html.haml -->
+[<~Example](markup/tab.html.haml)
 
 
 ## Options

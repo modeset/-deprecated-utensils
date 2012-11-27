@@ -15,7 +15,7 @@ grid for this reason.
 ```
 
 ## Usage Examples
-<!--~ markup/media_grid.html.haml -->
+[<~Example](markup/media_grid.html.haml)
 
 ###### Notes
 - **Pro Tip!** Add `media-caption-right` on the `media-caption-footer`

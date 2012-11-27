@@ -12,7 +12,7 @@ modifiers to limit the output of generated classes.
 ```
 
 ## Usage Example
-<!--~ markup/decal.html.haml -->
+[<~Example](markup/decal.html.haml)
 
 
 ## Style Settings

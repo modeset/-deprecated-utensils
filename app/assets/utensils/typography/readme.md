@@ -11,7 +11,7 @@ elements.
 Generic `h1`-`h6` headings with a paragraph element.
 
 ### Usage Example
-<!--~ markup/typography_headings.html.haml -->
+[<~Example](markup/typography_headings.html.haml)
 
 ### Inline paragraph elements
 These elements are typically found within blocks of copy.
@@ -36,19 +36,19 @@ Element     | Usage
 `<samp>`    | The <samp>samp</samp> tag defines sample computer code
 
 ### Usage Example
-<!--~ markup/typography_inline.html.haml -->
+[<~Example](markup/typography_inline.html.haml)
 
 ### Pre blocks
 Used for showcasing a block of a code.
 
 ### Usage Example
-<!--~ markup/typography_pre.html.haml -->
+[<~Example](markup/typography_pre.html.haml)
 
 ### Blockquotes
 Typically used for quoting blocks of text from another source.
 
 ### Usage Example
-<!--~ markup/typography_blockquote.html.haml -->
+[<~Example](markup/typography_blockquote.html.haml)
 
 ###### Notes
 - **Pro Tip!** Utilize `&#8220;` and `&#8221;` for opening and closing
@@ -59,7 +59,7 @@ Horizontal rules can utilize the class `.dashed` and `.dotted` for a
 different separator.
 
 ### Usage Example
-<!--~ markup/typography_rules.html.haml -->
+[<~Example](markup/typography_rules.html.haml)
 
 ### Lists
 Lists come in three varieties, unordered (`ul`), ordered (`ol`), and
@@ -68,7 +68,7 @@ left margin. By default all `ul` and `ol` elements nested under a `nav`
 element render the same as an `.unstyled-list` class.
 
 ### Usage Example
-<!--~ markup/typography_lists.html.haml -->
+[<~Example](markup/typography_lists.html.haml)
 
 ### Definition Lists
 Definition lists are used to encapsulate a term and it's definition. The
@@ -79,7 +79,7 @@ line. You can control the positioning by altering the
 variables.
 
 ### Usage Example
-<!--~ markup/typography_definition.html.haml -->
+[<~Example](markup/typography_definition.html.haml)
 
 ## Style Settings
 To override the default settings, set the variable and it's value within

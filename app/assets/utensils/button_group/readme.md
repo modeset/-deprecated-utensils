@@ -11,7 +11,7 @@ elements under a `.button-toolbar` container to form a navigation system.
 ```
 
 ## Usage Example
-<!--~ markup/button_group.html.haml -->
+[<~Example](markup/button_group.html.haml)
 
 ###### Notes
 - **Pro Tip!** Button groups and tool bars play great with the `ToggleButtonGroup` behavior

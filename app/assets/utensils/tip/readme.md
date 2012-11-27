@@ -17,7 +17,7 @@ data-bindable="tip"
 ```
 
 ## Usage Examples
-<!--~ markup/tip.html.haml -->
+[<~Example](markup/tip.html.haml)
 
 
 ## Options

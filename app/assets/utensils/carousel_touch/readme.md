@@ -4,7 +4,7 @@ Touch me.
 
 ## Usage Example
 
-<!--~ markup/carousel_touch.html.haml -->
+[<~Example](markup/carousel_touch.html.haml)
 
 ## Todo
 - Chat with JG on this port

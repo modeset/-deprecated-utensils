@@ -10,7 +10,7 @@ Stacked tabs require the `tab` component.
 ```
 
 ## Usage Example
-<!--~ markup/tab_stacked.html.haml -->
+[<~Example](markup/tab_stacked.html.haml)
 
 
 ## Style Settings

@@ -11,7 +11,7 @@ a divider after their content. This is configurable from the
 ```
 
 ## Usage Example
-<!--~ markup/breadcrumb.html.haml -->
+[<~Example](markup/breadcrumb.html.haml)
 
 
 ## Style Settings

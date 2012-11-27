@@ -3,7 +3,7 @@
 Describe this
 
 ## Usage Example
-<!--~ markup/slider.html.haml -->
+[<~Example](markup/slider.html.haml)
 
 
 ## Todo

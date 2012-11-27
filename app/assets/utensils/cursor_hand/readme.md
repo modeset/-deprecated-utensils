@@ -10,7 +10,7 @@ html element can be passed in to the CursorHand constructor, which would toggle 
 ```
 
 ## Usage Examples
-<!--~ markup/cursor_hand.html.haml -->
+[<~Example](markup/cursor_hand.html.haml)
 
 
 ## API

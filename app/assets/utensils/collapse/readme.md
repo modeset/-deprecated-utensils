@@ -14,7 +14,7 @@ data-bindable="collapse"
 ```
 
 ## Usage Examples
-<!--~ markup/collapse.html.haml -->
+[<~Example](markup/collapse.html.haml)
 
 
 ## Options

@@ -10,7 +10,7 @@ Stacked pills require the `pill` component.
 ```
 
 ## Usage Example
-<!--~ markup/pill_stacked.html.haml -->
+[<~Example](markup/pill_stacked.html.haml)
 
 
 ## Style Settings

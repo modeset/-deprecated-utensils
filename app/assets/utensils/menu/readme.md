@@ -8,7 +8,7 @@ typically used within the `Drop` component.
 ```
 
 ## Usage Example
-<!--~ markup/menu.html.haml -->
+[<~Example](markup/menu.html.haml)
 
 
 ## Style Settings

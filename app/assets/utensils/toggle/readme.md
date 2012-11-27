@@ -10,7 +10,7 @@ data-bindable="toggle"
 ```
 
 ## Usage Example
-<!--~ markup/toggle.html.haml -->
+[<~Example](markup/toggle.html.haml)
 
 
 ## Options

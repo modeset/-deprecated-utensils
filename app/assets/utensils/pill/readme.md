@@ -15,7 +15,7 @@ See `Tab` for more information.
 ```
 
 ## Usage Example
-<!--~ markup/pill.html.haml -->
+[<~Example](markup/pill.html.haml)
 
 
 ## Style Settings

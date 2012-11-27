@@ -8,7 +8,7 @@ represent pagination navigation. The list should contain the `.nav` class.
 ```
 
 ## Usage Example
-<!--~ markup/pagination.html.haml -->
+[<~Example](markup/pagination.html.haml)
 
 
 ## Style Settings

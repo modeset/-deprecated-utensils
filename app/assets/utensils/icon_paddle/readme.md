@@ -12,7 +12,7 @@ and styles.
 ```
 
 ## Usage Example
-<!--~ markup/paddle.html.haml -->
+[<~Example](markup/paddle.html.haml)
 
 
 ## Usage

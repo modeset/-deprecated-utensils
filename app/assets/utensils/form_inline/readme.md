@@ -8,7 +8,7 @@ inline form. Supports control labels as well.
 ```
 
 ## Usage Example
-<!--~ markup/form_inline.html.haml -->
+[<~Example](markup/form_inline.html.haml)
 
 ###### Notes
 - **Heads Up!** Requires the `form_controls` utensil.

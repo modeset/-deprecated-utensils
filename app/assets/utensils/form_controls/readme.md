@@ -12,7 +12,7 @@ paired with one of the form layout components.
 Represents the basic controls for creating forms. Contains support for all of the HTML5 types.
 
 ### Usage Examples
-<!--~ markup/form_controls_inputs.html.haml -->
+[<~Example](markup/form_controls_inputs.html.haml)
 
 
 ## Search controls
@@ -20,7 +20,7 @@ Represents a search form control. These are set by adding the class
 `.search-query` to any text input control element.
 
 ### Usage Examples
-<!--~ markup/form_controls_search.html.haml -->
+[<~Example](markup/form_controls_search.html.haml)
 
 ###### Warning
 - **Heads Up!** `input[type="search"]` renders the same as
@@ -32,14 +32,14 @@ Represents a search form control. These are set by adding the class
 Represents a multi-line plain-text editing control.
 
 ### Usage Examples
-<!--~ markup/form_controls_textarea.html.haml -->
+[<~Example](markup/form_controls_textarea.html.haml)
 
 
 ## Select controls
 Represents a control that presents a menu of options.
 
 ### Usage Examples
-<!--~ markup/form_controls_select.html.haml -->
+[<~Example](markup/form_controls_select.html.haml)
 
 
 ## Radio &amp; Checkbox controls
@@ -48,14 +48,14 @@ used for selecting a single option, while checkbox is used for selecting
 zero to many options.
 
 ### Usage Examples
-<!--~ markup/form_controls_radio_check.html.haml -->
+[<~Example](markup/form_controls_radio_check.html.haml)
 
 
 ## Description elements
 Description elements describe or act as helpers around their controls.
 
 ### Usage Examples
-<!--~ markup/form_controls_description.html.haml -->
+[<~Example](markup/form_controls_description.html.haml)
 
 ### Usage
 
@@ -88,7 +88,7 @@ A modifier on `input` or `textarea` fields that is uneditable by the
 user.
 
 ### Usage Examples
-<!--~ markup/form_controls_uneditable.html.haml -->
+[<~Example](markup/form_controls_uneditable.html.haml)
 
 ###### Warning
 - **Heads Up!** Make sure the field has the `disabled` attribute set.
@@ -140,7 +140,7 @@ Form structures typically consist of:
   or other descriptive helpers
 
 ### Usage Examples
-<!--~ markup/form_controls_structure.html.haml -->
+[<~Example](markup/form_controls_structure.html.haml)
 
 ###### Notes
 - **Pro Tip!** Add either `.well` or `well.fill` to the `form` element to contain it from other items on the page (requires `well.sass`)

@@ -8,7 +8,7 @@ great with form layouts.
 ```
 
 ## Usage Example
-<!--~ markup/well.html.haml -->
+[<~Example](markup/well.html.haml)
 
 
 ## Style Settings
