@@ -21,7 +21,6 @@
   when there are other failures
 
 ## Repository
-- Walkthrough on the repository merge
 - Clean out some of the files within the dummy app
 - Write generators (templates, script, utensil)
 - Clean up templates (upgrade, flash notification)
