@@ -21,10 +21,11 @@
   when there are other failures
 
 ## Repository
-- Move template files over
-- Final walkthrough on the repository merge
+- Walkthrough on the repository merge
+- Clean out some of the files within the dummy app
+- Write generators (templates, script, utensil)
+- Clean up templates (upgrade, flash notification)
 - FPO images should be local instead of a service
-- Add generators (templates)
 - Better description docs
 - Use the style guide for dinosaur test
 - Jasmine rice loading fixtures from app instead of
