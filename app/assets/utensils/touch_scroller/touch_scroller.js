@@ -301,8 +301,8 @@ utensils.TouchScroller = function( scrollOuterEl, scrollInnerEl, options ) {
             if( _pageIndex.y > _numPages.y - 1 ) _pageIndex.y = _numPages.y - 1;
             if( _scrollsX ) sendBackInBounds( AXIS_X );
             if( _scrollsY ) sendBackInBounds( AXIS_Y );
-            if( _scrollsX ) _scrollbars.x.resizeScrollbar();
-            if( _scrollsY ) _scrollbars.y.resizeScrollbar();
+            if( _scrollsX && _scrollbars ) _scrollbars.x.resizeScrollbar();
+            if( _scrollsY && _scrollbars ) _scrollbars.y.resizeScrollbar();
         }
     };
 
@@ -475,6 +475,7 @@ utensils.TouchScroller = function( scrollOuterEl, scrollInnerEl, options ) {
     };
 
     var updateScrollbar = function() {
+        if( !_scrollbars ) return;
         if( _scrollsX ) _scrollbars.x.updateScrollbarPosition( _curPosition.x );
         if( _scrollsY ) _scrollbars.y.updateScrollbarPosition( _curPosition.y );
     };
@@ -541,8 +542,8 @@ utensils.TouchScroller = function( scrollOuterEl, scrollInnerEl, options ) {
         }
         calculateDimensions();
         redraw();
-        if( _scrollsX ) _scrollbars.x.resizeScrollbar();
-        if( _scrollsY ) _scrollbars.y.resizeScrollbar();
+        if( _scrollsX && _scrollbars ) _scrollbars.x.resizeScrollbar();
+        if( _scrollsY && _scrollbars ) _scrollbars.y.resizeScrollbar();
         hideScrollbars();
     };
 
@@ -557,11 +558,13 @@ utensils.TouchScroller = function( scrollOuterEl, scrollInnerEl, options ) {
     };
 
     var showScrollbars = function() {
+        if( !_scrollbars ) return;
         if( _scrollsX ) _scrollbars.x.showScrollbar();
         if( _scrollsY ) _scrollbars.y.showScrollbar();
     };
 
     var hideScrollbars = function() {
+        if( !_scrollbars ) return;
         _scrollbars.x.hideScrollbar();
         _scrollbars.y.hideScrollbar();
     };
@@ -690,12 +693,16 @@ utensils.TouchScroller = function( scrollOuterEl, scrollInnerEl, options ) {
     var setIsHardwareAcceleratedCSS = function( isAccelerated ) {
         if( isAccelerated ) {
             _cssHelper.convertToWebkitPositioning( _scrollInnerEl );
-            _scrollbars.x.setIsHardwareAcceleratedCSS( isAccelerated );
-            _scrollbars.y.setIsHardwareAcceleratedCSS( isAccelerated );
+            if( !_scrollbars ) {
+              _scrollbars.x.setIsHardwareAcceleratedCSS( isAccelerated );
+              _scrollbars.y.setIsHardwareAcceleratedCSS( isAccelerated );
+            }
         } else {
             _cssHelper.convertToNativePositioning( _scrollInnerEl );
-            _scrollbars.x.setIsHardwareAcceleratedCSS( isAccelerated );
-            _scrollbars.y.setIsHardwareAcceleratedCSS( isAccelerated );
+            if( !_scrollbars ) {
+              _scrollbars.x.setIsHardwareAcceleratedCSS( isAccelerated );
+              _scrollbars.y.setIsHardwareAcceleratedCSS( isAccelerated );
+            }
         }
         redraw();
     };
@@ -747,6 +754,7 @@ utensils.TouchScroller = function( scrollOuterEl, scrollInnerEl, options ) {
         _curPosition.x = 0;
         _curPosition.y = 0;
         redraw();
+        if( !_scrollbars ) return;
         _scrollbars.x.updateScrollbarPosition( 0 );
         _scrollbars.y.updateScrollbarPosition( 0 );
     };

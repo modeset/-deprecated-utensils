@@ -40,5 +40,15 @@ class utensils.CarouselTouchInfinite extends utensils.CarouselTouch
   constrainIndex: ->
     @index = 0 if @index < 0
 
+  getScrollOptions: ->
+    return {
+      isPaged: true
+      defaultOrientation: utensils.TouchScroller.HORIZONTAL
+      scrollerDelegate: @createScrollDelegate()
+      disabledElements: "img"
+      pagedEasingFactor: 4
+      hasScrollbars: false
+    }
+
 utensils.Bindable.register('carousel-touch-infinite', utensils.CarouselTouchInfinite)
 

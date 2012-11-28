@@ -25,7 +25,7 @@ class utensils.CarouselTouch extends utensils.Carousel
       scrollerDelegate: @createScrollDelegate(),
       disabledElements: "img",
       pagedEasingFactor: 4
-    @scroller = new utensils.TouchScroller(@el[0], @slider[0], scroll_options)
+    @scroller = new utensils.TouchScroller(@el[0], @slider[0], @getScrollOptions())
 
 # PUBLIC #
 
@@ -62,6 +62,15 @@ class utensils.CarouselTouch extends utensils.Carousel
   transition: ->
     super()
     @scroller.setPage(@index, false)
+
+  getScrollOptions: ->
+    return {
+      isPaged: true
+      defaultOrientation: utensils.TouchScroller.HORIZONTAL
+      scrollerDelegate: @createScrollDelegate()
+      disabledElements: "img"
+      pagedEasingFactor: 4
+    }
 
 utensils.Bindable.register('carousel-touch', utensils.CarouselTouch)
 
