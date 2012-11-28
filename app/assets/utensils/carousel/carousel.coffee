@@ -10,7 +10,7 @@ class utensils.Carousel
     @options()
     @initialize()
     @addListeners()
-    @activate(@index) # @activate... should be based on a passed active instance or 0
+    @activate(@index)
 
   options: ->
     @data.namespace = @data.namespace || 'carousel'
@@ -19,14 +19,15 @@ class utensils.Carousel
     @data.paddles = @data.paddles || '.paddle-icon'
 
   initialize: ->
+    @dispatcher = @el
     @namespace = @data.namespace
     @toggle_classes = @data.toggle
     @keyboard = @data.keyboard
 
-    @index = 0
     @slider = @el.find('.carousel-inner')
     @panels = @slider.find('.carousel-panel')
     @num_panels = @panels.length
+    @index = @setIndex()
 
     @paddles = @el.find(@data.paddles)
     @html = $('html') if @keyboard
@@ -48,31 +49,40 @@ class utensils.Carousel
     e?.preventDefault()
     @pause() unless data
     @activate(@index + 1)
+    @send('next')
 
   prev: (e) ->
     e?.preventDefault()
     @pause()
     @activate(@index - 1)
+    @send('prev')
 
   activate: (index=0) ->
     @index = index
     @constrainIndex()
     @transition()
+    @send('activated')
 
   pause: ->
     @beacon.pause() if @beacon && @is_autoplaying
     @is_autoplaying = false
+    @send('paused')
 
   restart: ->
     @initializeBeacon() unless @beacon
     @is_autoplaying = true
     @next(null, true)
+    @send('restarted')
 
   dispose: ->
     @disposeBeacon()
     @removeListeners()
+    @dispatcher.off("#{@namespace}:next #{@namespace}:prev #{@namespace}:activated #{@namespace}:paused #{@namespace}:restarted")
 
 # PROTECTED #
+
+  send: (event_type) ->
+    @dispatcher.trigger("#{@namespace}:#{event_type}", {index: @index, total: @num_panels})
 
   addListeners: ->
     @html.on("keydown.#{@namespace}", => @keyed arguments...) if @keyboard
@@ -88,6 +98,7 @@ class utensils.Carousel
     @beacon = null
 
   transition: ->
+    @send('transition.start')
     @setTransitions() unless @tranny_defined
     panel = @panels.eq(@index)
     @panels.removeClass(@toggle_classes)
@@ -95,7 +106,7 @@ class utensils.Carousel
     panel.addClass(@toggle_classes)
 
   transitionEnd: (e) ->
-    @el.trigger("#{@namespace}:transition.end", index: @index, length: @num_panels)
+    @send('transition.end')
     @beacon.start() if @beacon && @is_autoplaying
 
   paddled: (e) ->
@@ -125,6 +136,15 @@ class utensils.Carousel
   constrainIndex: ->
     @index = 0 if @index >= @num_panels
     @index = @num_panels - 1 if @index < 0
+
+  setIndex: ->
+    index = 0
+    if typeof @data.activate == 'string'
+      order = @panels.index(@el.find(@data.activate))
+      index = if order >= 0 then order else 0
+    else if typeof @data.activate == 'number'
+      index = parseFloat(@data.activate, 10)
+    return index
 
 utensils.Bindable.register('carousel', utensils.Carousel)
 
