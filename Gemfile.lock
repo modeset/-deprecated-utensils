@@ -1,6 +1,6 @@
 GIT
   remote: git@github.com:modeset/docomo.git
-  revision: f4b6f166b08f77d39f62889e21d85ac38be3b51d
+  revision: 01babbdeaa6a24a93ece8ec9f2cb454d8e33f950
   specs:
     docomo (0.0.1)
       haml (>= 3.1.7)
@@ -108,7 +108,7 @@ GEM
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
-    sprockets (2.2.1)
+    sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
       rack (~> 1.0)
