@@ -66,6 +66,7 @@ class utensils.Pop
     @triggerable.dispatcher.on('triggerable:deactivate', => @deactivated arguments...)
 
   removeListeners: ->
+    @el.off("#{@namespace}:activated #{@namespace}:deactivated")
     @triggerable.dispatcher.off('triggerable:activate')
     @triggerable.dispatcher.off('triggerable:deactivate')
 
