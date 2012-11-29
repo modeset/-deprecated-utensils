@@ -2,31 +2,34 @@
 # Todo
 
 ## WIP
+- Get docomo styles and behavior in order
+- Add dispatching for `transition.start` events
 - Behavior classes should dispatch events
-- Listing of needed utensils
-  - Carousel indicators, status, etc
-  - Background section (something that scales)
-  - Fishnet
-  - Stateful button
+- Should events have more of a namespace to avoid collisions?
+- FPO images should be local instead of a service?
+- Clean up templates (upgrade, flash notification)
 - Media queries
+- Test dinosaurs css and js (use from style guide)
+- More coherent descriptions within the docs
+- Document what Utensils is
 - Mobilize (templates, styles, js, etc..)
-- Test dinosaurs css and js
+- Generators (templates, script, utensil, dinosaurs, polyfill, etc...)
 - Complete Todo items
 
-## Reminders, Tasks and Future Considerations
-- There should be some sort of Toggle class that acts similar to the
-  demo (removes a bunch of classes then add more) pass a data-remove?
-- Should events have more of a namespace to avoid collisions?
+## Repository
+- Jasmine rice loading fixtures from app instead of
+  `/spec/javascripts/fixtures`
 - Need to figure out a way for the Directional tests to be more stable
   when there are other failures
 
-## Repository
-- Clean up templates (upgrade, flash notification)
-- FPO images should be local instead of a service?
-- Write generators (templates, script, utensil, dinosaurs, polyfill,
-  etc...)
-- Better description docs
-- Use the style guide for dinosaur test
-- Jasmine rice loading fixtures from app instead of
-  /spec/javascripts/fixtures
+## Utensils Roadmap
+- Indicator
+- Background scaler
+- Stateful button
+- Tool similar to the demo (remove and add classes on a few items)
+- Fishnet
+- Migrate modeset.js files
+- Scroll Spy
+- Spinner
+- Auto Complete
 
