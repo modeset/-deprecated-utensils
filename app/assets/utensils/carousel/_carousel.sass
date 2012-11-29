@@ -7,7 +7,6 @@ $carousel-height: 400px !default
   overflow: hidden
   position: relative
   width: 100%
-  height: $carousel-height
 
 .carousel-inner
   position: relative
@@ -33,6 +32,9 @@ $carousel-height: 400px !default
 
 .carousel-figure
   +box-sizing(border-box)
+
+.carousel[data-bindable="carousel"]
+  height: $carousel-height
 
 .carousel[data-bindable="carousel"] .carousel-panel
   +user-select()
