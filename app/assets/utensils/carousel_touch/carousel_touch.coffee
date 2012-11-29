@@ -19,12 +19,6 @@ class utensils.CarouselTouch extends utensils.Carousel
     @initializeScroller()
 
   initializeScroller: ->
-    scroll_options =
-      isPaged: true,
-      defaultOrientation: utensils.TouchScroller.HORIZONTAL,
-      scrollerDelegate: @createScrollDelegate(),
-      disabledElements: "img",
-      pagedEasingFactor: 4
     @scroller = new utensils.TouchScroller(@el[0], @slider[0], @getScrollOptions())
 
 # PUBLIC #
