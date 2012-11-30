@@ -59,11 +59,12 @@ class utensils.CarouselTouch extends utensils.Carousel
 
   getScrollOptions: ->
     return {
-      isPaged: true
-      defaultOrientation: utensils.TouchScroller.HORIZONTAL
+      isPaged: true unless @data.isPaged == false
+      defaultOrientation: @data.defaultOrientation || utensils.TouchScroller.HORIZONTAL
       scrollerDelegate: @createScrollDelegate()
-      disabledElements: "img nav section article div"
-      pagedEasingFactor: 4
+      disabledElements: @data.disabledElements || "img nav section article div"
+      pagedEasingFactor: @data.pagedEasingFactor || 4
+      hasScrollbars: true unless @data.hasScrollbars == false
     }
 
 utensils.Bindable.register('carousel-touch', utensils.CarouselTouch)
