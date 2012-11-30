@@ -62,7 +62,7 @@ class utensils.CarouselTouch extends utensils.Carousel
       isPaged: true
       defaultOrientation: utensils.TouchScroller.HORIZONTAL
       scrollerDelegate: @createScrollDelegate()
-      disabledElements: "img"
+      disabledElements: "img nav section article div"
       pagedEasingFactor: 4
     }
 

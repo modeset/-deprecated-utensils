@@ -49,7 +49,7 @@ utensils.TouchScroller = function( scrollOuterEl, scrollInnerEl, options ) {
         hasScrollbars: true,
         isPaged: true,
         defaultOrientation: utensils.TouchScroller.HORIZONTAL,
-        disabledElements: 'div img',
+        disabledElements: 'div img nav section article',
         // delegate
         scrollerDelegate: function(){}
     };
@@ -229,24 +229,7 @@ utensils.TouchScroller = function( scrollOuterEl, scrollInnerEl, options ) {
 
     var updateCursor = function( state ) {
         if( _cursor && _timerActive ) {
-            switch( state ) {
-                case utensils.MouseAndTouchTracker.state_start :
-                    _cursor.setGrabHand();
-                    break;
-                case utensils.MouseAndTouchTracker.state_move :
-                    break;
-                case utensils.MouseAndTouchTracker.state_end :
-                    if( _touchTracker.touch_is_inside ) _cursor.setHand();
-                    else _cursor.setDefault();
-                    break;
-                case utensils.MouseAndTouchTracker.state_enter :
-                    if( !_touchTracker.is_touching ) _cursor.setHand();
-                    break;
-                case utensils.MouseAndTouchTracker.state_leave :
-                    if(_touchTracker.is_touching) _cursor.setGrabHand();
-                    else _cursor.setDefault();
-                    break;
-            }
+            utensils.CursorHand.setCursorFromTouchTrackerState( _touchTracker, _cursor, state );
         }
     };
 

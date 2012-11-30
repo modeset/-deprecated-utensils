@@ -3,17 +3,16 @@
 /*
  * Requires: _cursor-grab.css
  * Adds grabby-hand cursor functionality on-demand, and handles cases for different browsers
- * Absolute paths to .cur files are needed for IE. Chrome likes the cursor files too
+ * Absolute paths to .cur files are needed for IE. 
  * TODO: IE might only want the .cur style def, and not want the plain css class
  */
 utensils.CursorHand = function( element ){
-  this.is_chrome = !!navigator.userAgent.toLowerCase().match(/chrome/i);
   this.is_msie = !!navigator.userAgent.toLowerCase().match(/msie/i);
   this.element = element || document.body;
 }
 
 utensils.CursorHand.prototype.setDefault = function() {
-  if( this.is_chrome || this.is_msie ) {
+  if( this.is_msie ) {
     this.removeClass( 'hand handCursor' );
     this.removeClass( 'handGrab handGrabCursor' );
   } else {
@@ -24,7 +23,7 @@ utensils.CursorHand.prototype.setDefault = function() {
 
 utensils.CursorHand.prototype.setHand = function() {
   this.setDefault();
-  if( this.is_chrome || this.is_msie ) {
+  if( this.is_msie ) {
     this.addClass( 'hand handCursor' );
   } else {
     this.addClass( 'hand' );
@@ -33,7 +32,7 @@ utensils.CursorHand.prototype.setHand = function() {
 
 utensils.CursorHand.prototype.setGrabHand = function() {
   this.setDefault();
-  if( this.is_chrome || this.is_msie ) {
+  if( this.is_msie ) {
     this.addClass( 'handGrab handGrabCursor' );
   } else {
     this.addClass( 'handGrab' );
@@ -56,7 +55,6 @@ utensils.CursorHand.prototype.removeClass = function( className ) {
 
 utensils.CursorHand.prototype.dispose = function(){
   this.setDefault();
-  delete this.is_chrome;
   delete this.is_msie;
   delete this.element;
 };
@@ -68,6 +66,7 @@ utensils.CursorHand.setCursorFromTouchTrackerState = function( touchTracker, cur
       cursor.setGrabHand();
       break;
     case utensils.MouseAndTouchTracker.state_move :
+      if(touchTracker.is_touching) cursor.setGrabHand();
       break;
     case utensils.MouseAndTouchTracker.state_end :
       if( touchTracker.touch_is_inside ) cursor.setHand();
