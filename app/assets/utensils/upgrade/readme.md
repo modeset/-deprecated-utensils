@@ -12,9 +12,9 @@ The markup is served as a partial, typically from
 
 ```~haml
 %section.button-toolbar
-  %nav.button-group#upgrade-demo(data-bindable="toggle-button-group" data-behavior="checkbox")
-    %button.btn(data-toggle="js") Toggle JS Message
-    %button.btn(data-toggle="dinosaur") Toggle Dinosaur Message
+  %nav.button-group#upgrade_demo(data-bindable="toggle-button-group" data-behavior="checkbox")
+    %button.btn(data-toggle="no-js-msg") Toggle JS Message
+    %button.btn(data-toggle="dinosaur-msg") Toggle Dinosaur Message
 ```
 
 The demo positions the upgrade message with `position:fixed` while the

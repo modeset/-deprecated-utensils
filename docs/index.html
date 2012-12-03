@@ -1,22 +1,24 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
+<!DOCTYPE html>
+<html lang='en'>
   <head>
-    <title>Utensils Documentation</title>
     <meta charset='utf-8' />
     <meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible' />
-    <meta content='Docomo Documentation / https://github.com/modeset/docomo ' name='description' />
-    <meta content='Mode Set / Docomo' name='author' />
-    <meta content='width=device-width, initial-scale=1.0' name='viewport' />
+    <title>Utensils Documentation</title>
+    <meta content='Docomo Documentation / https://github.com/modeset/docomo' name='description' />
+    <meta content='Mode Set Docomo Documentation' name='keywords' />
+    <meta content='Mode Set' name='author' />
     <meta content='no' name='imagetoolbar' />
+    <meta content='width=device-width, initial-scale=1.0' name='viewport' />
     <meta content='yes' name='apple-touch-fullscreen' />
     <meta content='yes' name='apple-mobile-web-app-capable' />
     <meta content='black' name='apple-mobile-web-app-status-bar-style' />
-    <link href='/assets/docomo.css' rel='stylesheet' type='text/css' />
-    <script src='/assets/docomo.js' type='text/javascript'></script>
+    <link href='/assets/docs.css' rel='stylesheet' type='text/css' />
   </head>
   <body role='document'>
     <aside id='docomo_sidebar'>
-      <h1 href='/'>Utensils Documentation</h1>
+      <h1>
+        <a href='/'>Utensils Documentation</a>
+      </h1>
       <ul>
         <li>
           <a href='#accordion'>Accordion</a>
@@ -227,9 +229,7 @@ with either the <code>Toggle</code>, <code>ToggleGroup</code> or <code>Collapse<
 <div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/collapse/collapse</span>
 <span class="k">@import</span> <span class="s">utensils/accordion/accordion</span>
 </pre></div>
-<h2>Usage Example</h2>
-
-<p><section class='accordion-group' role='tablist'>
+<p><div class="docomo-showcase"><section class='accordion-group' role='tablist'>
   <a class='accordion-toggle' data-bindable='toggle' href='#accordion_single' role='tab'>Single Accordion Element</a>
   <section class='collapse' id='accordion_single' role='tabpanel'>
     <article class='accordion-inner'>
@@ -426,7 +426,7 @@ laborum.</p>
     </section>
   </li>
 </ul>
-<div class="highlight"><pre><span class="nd">:ruby</span>
+</div><div class="highlight"><pre><span class="nd">:ruby</span>
   <span class="nd">@lorem = &quot;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</span>
   <span class="nd">eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim</span>
   <span class="nd">veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea</span>
@@ -642,7 +642,7 @@ a divider after their content. This is configurable from the
 </pre></div>
 <h2>Usage Example</h2>
 
-<p><nav role='navigation'>
+<p><div class="docomo-showcase"><nav role='navigation'>
   <ol class='nav breadcrumb' data-bindable='toggle-group'>
     <li><a href='#'>Level 1</a></li>
     <li><a href='#'>Level 2</a></li>
@@ -650,7 +650,7 @@ a divider after their content. This is configurable from the
     <li class='active'><a href='#'>Active</a></li>
   </ol>
 </nav>
-<div class="highlight"><pre><span class="nt">%nav</span>(<span class="na">role=</span><span class="s">&quot;navigation&quot;</span>)
+</div><div class="highlight"><pre><span class="nt">%nav</span>(<span class="na">role=</span><span class="s">&quot;navigation&quot;</span>)
   <span class="nt">%ol</span><span class="nc">.nav.breadcrumb</span>(<span class="na">data-bindable=</span><span class="s">&quot;toggle-group&quot;</span>)
     <span class="nt">%li</span>&lt;
       <span class="nt">%a</span>(<span class="na">href=</span><span class="s">&quot;#&quot;</span>) Level 1
@@ -727,7 +727,7 @@ elements under a <code>.button-toolbar</code> container to form a navigation sys
 </pre></div>
 <h2>Usage Example</h2>
 
-<p><h5 style='margin-bottom:1em;'>Button Toolbar (radio)</h5>
+<p><div class="docomo-showcase"><h5 style='margin-bottom:1em;'>Button Toolbar (radio)</h5>
 <section class='button-toolbar' data-bindable='toggle-button-group' role='navigation'>
   <nav class='button-group'>
     <button class='btn'>1</button>
@@ -757,7 +757,7 @@ elements under a <code>.button-toolbar</code> container to form a navigation sys
   <a class='btn' href='#'>3</a>
   <a class='btn' href='#'>4</a>
 </nav>
-<div class="highlight"><pre><span class="nt">%h5</span>(<span class="na">style=</span><span class="s">&quot;margin-bottom:1em;&quot;</span>) Button Toolbar (radio)
+</div><div class="highlight"><pre><span class="nt">%h5</span>(<span class="na">style=</span><span class="s">&quot;margin-bottom:1em;&quot;</span>) Button Toolbar (radio)
 <span class="nt">%section</span><span class="nc">.button-toolbar</span>(<span class="na">data-bindable=</span><span class="s">&quot;toggle-button-group&quot;</span> <span class="na">role=</span><span class="s">&quot;navigation&quot;</span>)
   <span class="nt">%nav</span><span class="nc">.button-group</span>
     <span class="nt">%button</span><span class="nc">.btn</span> 1
@@ -819,7 +819,7 @@ type, sizing, or positioning.</p>
 </pre></div>
 <h2>Usage Examples</h2>
 
-<p><section class='demo' data-remove='btn-xsmall btn-small btn-large btn-xlarge' data-target='.btn'>
+<p><div class="docomo-showcase"><section class='demo' data-remove='btn-xsmall btn-small btn-large btn-xlarge' data-target='.btn'>
   <input class='btn standard' type='submit' value='Submit' />
   <button class='btn inverse'>Inverse</button>
   <button class='btn important'>Important</button>
@@ -839,7 +839,7 @@ type, sizing, or positioning.</p>
     <a class='btn' data-add='btn-xlarge' href='#'>XL</a>
   </nav>
 </section>
-<div class="highlight"><pre><span class="nt">%section</span><span class="nc">.demo</span>(<span class="na">data-target=</span><span class="s">&quot;.btn&quot;</span> <span class="na">data-remove=</span><span class="s">&quot;btn-xsmall btn-small btn-large btn-xlarge&quot;</span>)
+</div><div class="highlight"><pre><span class="nt">%section</span><span class="nc">.demo</span>(<span class="na">data-target=</span><span class="s">&quot;.btn&quot;</span> <span class="na">data-remove=</span><span class="s">&quot;btn-xsmall btn-small btn-large btn-xlarge&quot;</span>)
   <span class="nt">%input</span><span class="nc">.btn.standard</span>(<span class="na">type=</span><span class="s">&quot;submit&quot;</span> <span class="na">value=</span><span class="s">&quot;Submit&quot;</span>)
   <span class="nt">%button</span><span class="nc">.btn.inverse</span> Inverse
   <span class="nt">%button</span><span class="nc">.btn.important</span> Important
@@ -945,7 +945,7 @@ are added to the style sheet unless told to do so.</p>
 </pre></div>
 <h2>Usage Examples</h2>
 
-<p><section class='demo' data-remove='active error disabled' data-target='.btn'>
+<p><div class="docomo-showcase"><section class='demo' data-remove='active error disabled' data-target='.btn'>
   <button class='btn'>Default</button>
   <button class='btn inverse'>Inverse</button>
   <button class='btn standard'>Standard</button>
@@ -963,7 +963,7 @@ are added to the style sheet unless told to do so.</p>
   <a class='btn' data-add='error' href='#'>Error</a>
   <a class='btn' data-add='disabled' href='#'>Disabled</a>
 </nav>
-<div class="highlight"><pre><span class="nt">%section</span><span class="nc">.demo</span>(<span class="na">data-target=</span><span class="s">&quot;.btn&quot;</span> <span class="na">data-remove=</span><span class="s">&quot;active error disabled&quot;</span>)
+</div><div class="highlight"><pre><span class="nt">%section</span><span class="nc">.demo</span>(<span class="na">data-target=</span><span class="s">&quot;.btn&quot;</span> <span class="na">data-remove=</span><span class="s">&quot;active error disabled&quot;</span>)
   <span class="nt">%button</span><span class="nc">.btn</span> Default
   <span class="nt">%button</span><span class="nc">.btn.inverse</span> Inverse
   <span class="nt">%button</span><span class="nc">.btn.standard</span> Standard
@@ -983,13 +983,13 @@ are added to the style sheet unless told to do so.</p>
 </pre></div></p>
 
 <p>The semigloss-button class can be applied to <code>&lt;a&gt;</code>, <code>&lt;button&gt;</code> and <code>&lt;input&gt;</code> elements.</p>
-<section class='semigloss-btn-demo'>
+<div class="docomo-showcase"><section class='semigloss-btn-demo'>
   <a class='btn' href='#'>Link</a>
   <button class='btn' type='submit'>Button</button>
   <input class='btn' type='button' value='Input' />
   <input class='btn' type='submit' value='Submit' />
 </section>
-<div class="highlight"><pre><span class="nt">%section</span><span class="nc">.semigloss-btn-demo</span>
+</div><div class="highlight"><pre><span class="nt">%section</span><span class="nc">.semigloss-btn-demo</span>
   <span class="nt">%a</span><span class="nc">.btn</span>(<span class="na">href=</span><span class="s">&quot;#&quot;</span>) Link
   <span class="nt">%button</span><span class="nc">.btn</span>(<span class="na">type=</span><span class="s">&quot;submit&quot;</span>) Button
   <span class="nt">%input</span><span class="nc">.btn</span>(<span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">value=</span><span class="s">&quot;Input&quot;</span>)
@@ -1171,7 +1171,7 @@ default this is set to <code>false</code> so no buttons are created.</p>
 </pre></div>
 <h2>Usage Example</h2>
 
-<p><section class='carousel' data-autoplay='false' data-bindable='carousel' data-cycles='1' data-duration='1' data-keyboard='true' role='presentation'>
+<p><div class="docomo-showcase"><section class='carousel' data-autoplay='false' data-bindable='carousel' data-cycles='1' data-duration='1' data-keyboard='true' role='presentation'>
   <nav class='carousel-controls'>
     <a class='paddle-icon west' href='#prev'>&larr;</a>
     <a class='paddle-icon east' href='#next'>&rarr;</a>
@@ -1179,31 +1179,31 @@ default this is set to <code>false</code> so no buttons are created.</p>
   <section class='carousel-inner'>
     <article class='carousel-panel fade'>
       <figure class='carousel-figure'>
-        <img alt='image' src='http://placehold.it/600x400/ff00ff/ffffff' />
+        <img alt='image' height='400' src='http://placehold.it/600x400/ff00ff/ffffff' width='600' />
         <figcaption class='carousel-caption'></figcaption>
       </figure>
     </article>
     <article class='carousel-panel fade'>
       <figure class='carousel-figure'>
-        <img alt='image' src='http://placehold.it/600x400/00ffff/ffffff' />
+        <img alt='image' height='400' src='http://placehold.it/600x400/00ffff/ffffff' width='600' />
         <figcaption class='carousel-caption'></figcaption>
       </figure>
     </article>
     <article class='carousel-panel fade'>
       <figure class='carousel-figure'>
-        <img alt='image' src='http://placehold.it/600x400/ff0000/ffffff' />
+        <img alt='image' height='400' src='http://placehold.it/600x400/ff0000/ffffff' width='600' />
         <figcaption class='carousel-caption'></figcaption>
       </figure>
     </article>
     <article class='carousel-panel fade'>
       <figure class='carousel-figure'>
-        <img alt='image' src='http://placehold.it/600x400/666666/ffffff' />
+        <img alt='image' height='400' src='http://placehold.it/600x400/666666/ffffff' width='600' />
         <figcaption class='carousel-caption'></figcaption>
       </figure>
     </article>
   </section>
 </section>
-<div class="highlight"><pre><span class="nt">%section</span><span class="nc">.carousel</span>(<span class="na">data-bindable=</span><span class="s">&quot;carousel&quot;</span> <span class="na">data-autoplay=</span><span class="s">&quot;false&quot;</span> <span class="na">data-cycles=</span><span class="s">&quot;1&quot;</span> <span class="na">data-duration=</span><span class="s">&quot;1&quot;</span> <span class="na">data-keyboard=</span><span class="s">&quot;true&quot;</span> <span class="na">role=</span><span class="s">&quot;presentation&quot;</span>)
+</div><div class="highlight"><pre><span class="nt">%section</span><span class="nc">.carousel</span>(<span class="na">data-bindable=</span><span class="s">&quot;carousel&quot;</span> <span class="na">data-autoplay=</span><span class="s">&quot;false&quot;</span> <span class="na">data-cycles=</span><span class="s">&quot;1&quot;</span> <span class="na">data-duration=</span><span class="s">&quot;1&quot;</span> <span class="na">data-keyboard=</span><span class="s">&quot;true&quot;</span> <span class="na">role=</span><span class="s">&quot;presentation&quot;</span>)
   <span class="nt">%nav</span><span class="nc">.carousel-controls</span>
     <span class="nt">%a</span><span class="nc">.paddle-icon.west</span>(<span class="na">href=</span><span class="s">&quot;#prev&quot;</span>) &amp;larr;
     <span class="nt">%a</span><span class="nc">.paddle-icon.east</span>(<span class="na">href=</span><span class="s">&quot;#next&quot;</span>) &amp;rarr;
@@ -1211,7 +1211,7 @@ default this is set to <code>false</code> so no buttons are created.</p>
     <span class="p">-</span> <span class="p">(</span><span class="o">[</span><span class="s2">&quot;ff00ff&quot;</span><span class="p">,</span> <span class="s2">&quot;00ffff&quot;</span><span class="p">,</span> <span class="s2">&quot;ff0000&quot;</span><span class="p">,</span> <span class="s2">&quot;666666&quot;</span><span class="o">]</span><span class="p">)</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
       <span class="nt">%article</span><span class="nc">.carousel-panel.fade</span>
         <span class="nt">%figure</span><span class="nc">.carousel-figure</span>
-          <span class="nt">%img</span>(<span class="na">src=</span><span class="s">&quot;http://placehold.it/600x400/#{i}/ffffff&quot;</span> <span class="na">alt=</span><span class="s">&quot;image&quot;</span>)
+          <span class="nt">%img</span>(<span class="na">src=</span><span class="s">&quot;http://placehold.it/600x400/#{i}/ffffff&quot;</span> <span class="na">alt=</span><span class="s">&quot;image&quot;</span> <span class="na">width=</span><span class="s">&quot;600&quot;</span> <span class="na">height=</span><span class="s">&quot;400&quot;</span>)
           <span class="nt">%figcaption</span><span class="nc">.carousel-caption</span>
 </pre></div></p>
 
@@ -1341,7 +1341,7 @@ structure. See <code>Paddles</code> for <code>paddle-icon</code> styles.</p></se
 
 <h2>Usage Example</h2>
 
-<p><section class='carousel' data-bindable='carousel-touch' role='presentation'>
+<p><div class="docomo-showcase"><section class='carousel' data-bindable='carousel-touch' role='presentation'>
   <nav class='carousel-controls'>
     <a class='paddle-icon west' href='#prev'>&larr;</a>
     <a class='paddle-icon east' href='#next'>&rarr;</a>
@@ -1369,7 +1369,7 @@ structure. See <code>Paddles</code> for <code>paddle-icon</code> styles.</p></se
     </article>
   </section>
 </section>
-<div class="highlight"><pre><span class="nt">%section</span><span class="nc">.carousel</span>(<span class="na">data-bindable=</span><span class="s">&quot;carousel-touch&quot;</span> <span class="na">role=</span><span class="s">&quot;presentation&quot;</span>)
+</div><div class="highlight"><pre><span class="nt">%section</span><span class="nc">.carousel</span>(<span class="na">data-bindable=</span><span class="s">&quot;carousel-touch&quot;</span> <span class="na">role=</span><span class="s">&quot;presentation&quot;</span>)
   <span class="nt">%nav</span><span class="nc">.carousel-controls</span>
     <span class="nt">%a</span><span class="nc">.paddle-icon.west</span>(<span class="na">href=</span><span class="s">&quot;#prev&quot;</span>) &amp;larr;
     <span class="nt">%a</span><span class="nc">.paddle-icon.east</span>(<span class="na">href=</span><span class="s">&quot;#next&quot;</span>) &amp;rarr;
@@ -1394,7 +1394,7 @@ structure. See <code>Paddles</code> for <code>paddle-icon</code> styles.</p></se
 
 <h2>Usage Example</h2>
 
-<p><section class='carousel' data-bindable='carousel-touch-infinite' role='presentation'>
+<p><div class="docomo-showcase"><section class='carousel' data-bindable='carousel-touch-infinite' role='presentation'>
   <nav class='carousel-controls'>
     <a class='paddle-icon west' href='#prev'>&larr;</a>
     <a class='paddle-icon east' href='#next'>&rarr;</a>
@@ -1422,7 +1422,7 @@ structure. See <code>Paddles</code> for <code>paddle-icon</code> styles.</p></se
     </article>
   </section>
 </section>
-<div class="highlight"><pre><span class="nt">%section</span><span class="nc">.carousel</span>(<span class="na">data-bindable=</span><span class="s">&quot;carousel-touch-infinite&quot;</span> <span class="na">role=</span><span class="s">&quot;presentation&quot;</span>)
+</div><div class="highlight"><pre><span class="nt">%section</span><span class="nc">.carousel</span>(<span class="na">data-bindable=</span><span class="s">&quot;carousel-touch-infinite&quot;</span> <span class="na">role=</span><span class="s">&quot;presentation&quot;</span>)
   <span class="nt">%nav</span><span class="nc">.carousel-controls</span>
     <span class="nt">%a</span><span class="nc">.paddle-icon.west</span>(<span class="na">href=</span><span class="s">&quot;#prev&quot;</span>) &amp;larr;
     <span class="nt">%a</span><span class="nc">.paddle-icon.east</span>(<span class="na">href=</span><span class="s">&quot;#next&quot;</span>) &amp;rarr;
@@ -1453,7 +1453,7 @@ navigation system such as an accordion group.</p>
 </pre></div>
 <h2>Usage Examples</h2>
 
-<p><a data-bindable='collapse' href='#collapse_height' role='tab'>Single Collapse</a>
+<p><div class="docomo-showcase"><a data-bindable='collapse' href='#collapse_height' role='tab'>Single Collapse</a>
 <section class='collapse' id='collapse_height' role='tabpanel'>
   <article>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
@@ -1635,7 +1635,7 @@ laborum.</p>
     </article>
   </section>
 </nav>
-<div class="highlight"><pre><span class="nd">:ruby</span>
+</div><div class="highlight"><pre><span class="nd">:ruby</span>
   <span class="nd">@lorem = &quot;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</span>
   <span class="nd">eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim</span>
   <span class="nd">veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea</span>
@@ -1923,9 +1923,9 @@ allows the user to change it&#39;s contents.</p>
 </pre></div>
 <h2>Usage Examples</h2>
 
-<p><h2 contenteditable='true'>Edit Title</h2>
+<p><div class="docomo-showcase"><h2 contenteditable='true'>Edit Title</h2>
 <p contenteditable='true'>Edit Description</p>
-<div class="highlight"><pre><span class="nt">%h2</span>(<span class="na">contenteditable=</span><span class="s">&quot;true&quot;</span>) Edit Title
+</div><div class="highlight"><pre><span class="nt">%h2</span>(<span class="na">contenteditable=</span><span class="s">&quot;true&quot;</span>) Edit Title
 <span class="nt">%p</span>(<span class="na">contenteditable=</span><span class="s">&quot;true&quot;</span>) Edit Description
 </pre></div></p>
 
@@ -1982,9 +1982,9 @@ html element can be passed in to the CursorHand constructor, which would toggle 
 </pre></div>
 <h2>Usage Examples</h2>
 
-<p><h5 class='hand'>Hand</h5>
+<p><div class="docomo-showcase"><h5 class='hand'>Hand</h5>
 <h5 class='handGrab'>Hand Grab</h5>
-<div class="highlight"><pre><span class="nt">%h5</span><span class="nc">.hand</span> Hand
+</div><div class="highlight"><pre><span class="nt">%h5</span><span class="nc">.hand</span> Hand
 <span class="nt">%h5</span><span class="nc">.handGrab</span> Hand Grab
 </pre></div></p>
 
@@ -2046,13 +2046,13 @@ modifiers to limit the output of generated classes.</p>
 </pre></div>
 <h2>Usage Example</h2>
 
-<p><span class='decal'>Default</span>
+<p><div class="docomo-showcase"><span class='decal'>Default</span>
 <span class='decal important'>Important</span>
 <span class='decal success'>Success</span>
 <span class='decal warning'>Warning</span>
 <span class='decal danger'>Danger</span>
 <span class='decal info'>Info</span>
-<div class="highlight"><pre><span class="nt">%span</span><span class="nc">.decal</span> Default
+</div><div class="highlight"><pre><span class="nt">%span</span><span class="nc">.decal</span> Default
 <span class="nt">%span</span><span class="nc">.decal.important</span> Important
 <span class="nt">%span</span><span class="nc">.decal.success</span> Success
 <span class="nt">%span</span><span class="nc">.decal.warning</span> Warning
@@ -2193,7 +2193,7 @@ viewport.</p>
 </pre></div>
 <h2>Usage Example</h2>
 
-<p><div class='notification fade in' role='alert'>
+<p><div class="docomo-showcase"><div class='notification fade in' role='alert'>
   <p><strong>Notification!</strong> This is the default notification</p>
   <a class='close' data-bindable='dismiss' href='#'>&times;</a>
 </div>
@@ -2216,7 +2216,7 @@ viewport.</p>
   <p>This whole thing should fade out,
   <a data-bindable='dismiss' data-parents='#dismiss_cya' href='#'>when you click this link</a></p>
 </section>
-<div class="highlight"><pre><span class="nc">.notification.fade.in</span>(<span class="na">role=</span><span class="s">&quot;alert&quot;</span>)
+</div><div class="highlight"><pre><span class="nc">.notification.fade.in</span>(<span class="na">role=</span><span class="s">&quot;alert&quot;</span>)
   <span class="nt">%p</span> &lt;strong&gt;Notification!&lt;/strong&gt; This is the default notification
   <span class="nt">%a</span><span class="nc">.close</span>(<span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">data-bindable=</span><span class="s">&quot;dismiss&quot;</span>) &amp;times;
 
@@ -2352,7 +2352,7 @@ the inner content.</p>
 </pre></div>
 <h2>Usage Example</h2>
 
-<p><h5 style='margin-bottom:1em;'>Drops in Navigation</h5>
+<p><div class="docomo-showcase"><h5 style='margin-bottom:1em;'>Drops in Navigation</h5>
 <nav>
   <ul class='nav inline' id='drop_nav_demo'>
     <li class='drop' data-bindable='drop'><a class='drop-toggle' href='#' id='drop_1'>Drop Normal <span class="caret"></span></a>
@@ -2404,7 +2404,7 @@ the inner content.</p>
     </ul>
   </nav>
 </section>
-<div class="highlight"><pre><span class="nt">%h5</span>(<span class="na">style=</span><span class="s">&quot;margin-bottom:1em;&quot;</span>) Drops in Navigation
+</div><div class="highlight"><pre><span class="nt">%h5</span>(<span class="na">style=</span><span class="s">&quot;margin-bottom:1em;&quot;</span>) Drops in Navigation
 <span class="nt">%nav</span>
   <span class="nt">%ul</span><span class="nc">.nav.inline</span><span class="nf">#drop_nav_demo</span>
     <span class="nt">%li</span><span class="nc">.drop</span>(<span class="na">data-bindable=</span><span class="s">&quot;drop&quot;</span>)&lt;
@@ -2595,7 +2595,7 @@ the user.</p>
 
 <h2>Usage Example</h2>
 
-<p><section id='demo_flash_message'>
+<p><div class="docomo-showcase"><section id='demo_flash_message'>
   <nav class='button-group' data-bindable='toggle-button-group' data-remove='top bottom middle top-left top-center top-right'>
     <button class='btn active' data-add='top'>Default (Top)</button>
     <button class='btn' data-add='top-left'>Top Left</button>
@@ -2612,7 +2612,7 @@ the user.</p>
     <button class='btn' data-type='danger'>Add Danger</button>
   </nav>
 </section>
-<div class="highlight"><pre><span class="nt">%section</span><span class="nf">#demo_flash_message</span>
+</div><div class="highlight"><pre><span class="nt">%section</span><span class="nf">#demo_flash_message</span>
   <span class="nt">%nav</span><span class="nc">.button-group</span>(<span class="na">data-bindable=</span><span class="s">&quot;toggle-button-group&quot;</span> <span class="na">data-remove=</span><span class="s">&quot;top bottom middle top-left top-center top-right&quot;</span>)
     <span class="nt">%button</span><span class="nc">.btn.active</span>(<span class="na">data-add=</span><span class="s">&quot;top&quot;</span>) Default (Top)
     <span class="nt">%button</span><span class="nc">.btn</span>(<span class="na">data-add=</span><span class="s">&quot;top-left&quot;</span>) Top Left
@@ -2662,7 +2662,7 @@ paired with one of the form layout components.</p>
 
 <h3>Usage Examples</h3>
 
-<p><form class='sherpa-clearfix' role='form'>
+<p><div class="docomo-showcase"><form class='sherpa-clearfix' role='form'>
   <fieldset class='sherpa-split-pull'>
     <legend>Common input controls</legend>
     <div class='control-group'>
@@ -2756,7 +2756,7 @@ paired with one of the form layout components.</p>
     </div>
   </fieldset>
 </form>
-<div class="highlight"><pre><span class="nt">%form</span><span class="nc">.sherpa-clearfix</span>(<span class="na">role=</span><span class="s">&quot;form&quot;</span>)
+</div><div class="highlight"><pre><span class="nt">%form</span><span class="nc">.sherpa-clearfix</span>(<span class="na">role=</span><span class="s">&quot;form&quot;</span>)
   <span class="nt">%fieldset</span><span class="nc">.sherpa-split-pull</span>
     <span class="nt">%legend</span> Common input controls
     <span class="nc">.control-group</span>
@@ -2823,7 +2823,7 @@ paired with one of the form layout components.</p>
 
 <h3>Usage Examples</h3>
 
-<p><form role='search'>
+<p><div class="docomo-showcase"><form role='search'>
   <fieldset>
     <legend>Search Elements</legend>
     <div class='control-group'>
@@ -2833,7 +2833,7 @@ paired with one of the form layout components.</p>
     </div>
   </fieldset>
 </form>
-<div class="highlight"><pre><span class="nt">%form</span>(<span class="na">role=</span><span class="s">&quot;search&quot;</span>)
+</div><div class="highlight"><pre><span class="nt">%form</span>(<span class="na">role=</span><span class="s">&quot;search&quot;</span>)
   <span class="nt">%fieldset</span>
     <span class="nt">%legend</span> Search Elements
     <span class="nc">.control-group</span>
@@ -2855,7 +2855,7 @@ other text input controls. These types of inputs require the
 
 <h3>Usage Examples</h3>
 
-<p><form role='form'>
+<p><div class="docomo-showcase"><form role='form'>
   <fieldset>
     <legend>Textarea Controls</legend>
     <div class='control-group'>
@@ -2865,7 +2865,7 @@ other text input controls. These types of inputs require the
     </div>
   </fieldset>
 </form>
-<div class="highlight"><pre><span class="nt">%form</span>(<span class="na">role=</span><span class="s">&quot;form&quot;</span>)
+</div><div class="highlight"><pre><span class="nt">%form</span>(<span class="na">role=</span><span class="s">&quot;form&quot;</span>)
   <span class="nt">%fieldset</span>
     <span class="nt">%legend</span> Textarea Controls
     <span class="nc">.control-group</span>
@@ -2879,7 +2879,7 @@ other text input controls. These types of inputs require the
 
 <h3>Usage Examples</h3>
 
-<p><form role='form'>
+<p><div class="docomo-showcase"><form role='form'>
   <fieldset>
     <legend>Select Controls</legend>
     <div class='control-group'>
@@ -2910,7 +2910,7 @@ other text input controls. These types of inputs require the
     </div>
   </fieldset>
 </form>
-<div class="highlight"><pre><span class="nt">%form</span>(<span class="na">role=</span><span class="s">&quot;form&quot;</span>)
+</div><div class="highlight"><pre><span class="nt">%form</span>(<span class="na">role=</span><span class="s">&quot;form&quot;</span>)
   <span class="nt">%fieldset</span>
     <span class="nt">%legend</span> Select Controls
     <span class="nc">.control-group</span>
@@ -2941,7 +2941,7 @@ zero to many options.</p>
 
 <h3>Usage Examples</h3>
 
-<p><form role='form'>
+<p><div class="docomo-showcase"><form role='form'>
   <fieldset>
     <legend>Radio Controls</legend>
     <div class='control-group'>
@@ -2991,7 +2991,7 @@ zero to many options.</p>
     </div>
   </fieldset>
 </form>
-<div class="highlight"><pre><span class="nt">%form</span>(<span class="na">role=</span><span class="s">&quot;form&quot;</span>)
+</div><div class="highlight"><pre><span class="nt">%form</span>(<span class="na">role=</span><span class="s">&quot;form&quot;</span>)
   <span class="nt">%fieldset</span>
     <span class="nt">%legend</span> Radio Controls
     <span class="nc">.control-group</span>
@@ -3038,7 +3038,7 @@ zero to many options.</p>
 
 <h3>Usage Examples</h3>
 
-<p><form role='form'>
+<p><div class="docomo-showcase"><form role='form'>
   <fieldset>
     <legend>I am Legend</legend>
     <div class='control-group'>
@@ -3058,7 +3058,7 @@ zero to many options.</p>
     </div>
   </fieldset>
 </form>
-<div class="highlight"><pre><span class="nt">%form</span>(<span class="na">role=</span><span class="s">&quot;form&quot;</span>)
+</div><div class="highlight"><pre><span class="nt">%form</span>(<span class="na">role=</span><span class="s">&quot;form&quot;</span>)
   <span class="nt">%fieldset</span>
     <span class="nt">%legend</span> I am Legend
     <span class="nc">.control-group</span>
@@ -3125,7 +3125,7 @@ user.</p>
 
 <h3>Usage Examples</h3>
 
-<p><form role='form'>
+<p><div class="docomo-showcase"><form role='form'>
   <fieldset>
     <legend>Uneditable Controls</legend>
     <div class='control-group'>
@@ -3143,7 +3143,7 @@ user.</p>
     </div>
   </fieldset>
 </form>
-<div class="highlight"><pre><span class="nt">%form</span>(<span class="na">role=</span><span class="s">&quot;form&quot;</span>)
+</div><div class="highlight"><pre><span class="nt">%form</span>(<span class="na">role=</span><span class="s">&quot;form&quot;</span>)
   <span class="nt">%fieldset</span>
     <span class="nt">%legend</span> Uneditable Controls
     <span class="nc">.control-group</span>
@@ -3237,7 +3237,7 @@ or other descriptive helpers</li>
 
 <h3>Usage Examples</h3>
 
-<p><section class='button-toolbar' id='demo_form' style='margin-bottom:1em;'>
+<p><div class="docomo-showcase"><section class='button-toolbar' id='demo_form' style='margin-bottom:1em;'>
   <nav class='button-group' data-bindable='toggle-button-group' data-remove='form-vertical form-horizontal'>
     <button class='btn active' data-add=''>Default</button>
     <button class='btn' data-add='form-horizontal'>Horizontal</button>
@@ -3385,7 +3385,7 @@ or other descriptive helpers</li>
     </div>
   </fieldset>
 </form>
-<div class="highlight"><pre><span class="nt">%section</span><span class="nf">#demo_form</span><span class="nc">.button-toolbar</span>(<span class="na">style=</span><span class="s">&quot;margin-bottom:1em;&quot;</span>)
+</div><div class="highlight"><pre><span class="nt">%section</span><span class="nf">#demo_form</span><span class="nc">.button-toolbar</span>(<span class="na">style=</span><span class="s">&quot;margin-bottom:1em;&quot;</span>)
   <span class="nt">%nav</span><span class="nc">.button-group</span>(<span class="na">data-bindable=</span><span class="s">&quot;toggle-button-group&quot;</span> <span class="na">data-remove=</span><span class="s">&quot;form-vertical form-horizontal&quot;</span>)
     <span class="nt">%button</span><span class="nc">.btn.active</span>(<span class="na">data-add=</span><span class="s">&quot;&quot;</span>) Default
     <span class="nt">%button</span><span class="nc">.btn</span>(<span class="na">data-add=</span><span class="s">&quot;form-horizontal&quot;</span>) Horizontal
@@ -3717,7 +3717,7 @@ inline form. Supports control labels as well.</p>
 </pre></div>
 <h2>Usage Example</h2>
 
-<p><form class='form-inline well fill' role='form'>
+<p><div class="docomo-showcase"><form class='form-inline well fill' role='form'>
   <input id='fi_email' placeholder='email' type='email' />
   <input id='fi_passw' placeholder='password' type='password' />
   <select>
@@ -3731,7 +3731,7 @@ inline form. Supports control labels as well.</p>
   </label>
   <input class='btn standard' type='submit' value='Go' />
 </form>
-<div class="highlight"><pre><span class="nt">%form</span><span class="nc">.form-inline.well.fill</span>(<span class="na">role=</span><span class="s">&quot;form&quot;</span>)
+</div><div class="highlight"><pre><span class="nt">%form</span><span class="nc">.form-inline.well.fill</span>(<span class="na">role=</span><span class="s">&quot;form&quot;</span>)
   <span class="nt">%input</span><span class="nf">#fi_email</span>(<span class="na">type=</span><span class="s">&quot;email&quot;</span> <span class="na">placeholder=</span><span class="s">&quot;email&quot;</span>)
   <span class="nt">%input</span><span class="nf">#fi_passw</span>(<span class="na">type=</span><span class="s">&quot;password&quot;</span> <span class="na">placeholder=</span><span class="s">&quot;password&quot;</span>)
   <span class="nt">%select</span>
@@ -3762,11 +3762,11 @@ inherit the top and bottom <code>padding</code> of the input element.</p>
 </pre></div>
 <h2>Usage Example</h2>
 
-<p><form class='form-search well fill' role='search'>
+<p><div class="docomo-showcase"><form class='form-search well fill' role='search'>
   <input id='fs_search' placeholder='search' type='search' />
   <input class='btn standard' type='submit' value='Submit' />
 </form>
-<div class="highlight"><pre><span class="nt">%form</span><span class="nc">.form-search.well.fill</span>(<span class="na">role=</span><span class="s">&quot;search&quot;</span>)
+</div><div class="highlight"><pre><span class="nt">%form</span><span class="nc">.form-search.well.fill</span>(<span class="na">role=</span><span class="s">&quot;search&quot;</span>)
   <span class="nt">%input</span><span class="nf">#fs_search</span>(<span class="na">type=</span><span class="s">&quot;search&quot;</span> <span class="na">placeholder=</span><span class="s">&quot;search&quot;</span>)
   <span class="nt">%input</span><span class="nc">.btn.standard</span>(<span class="na">type=</span><span class="s">&quot;submit&quot;</span> <span class="na">value=</span><span class="s">&quot;Submit&quot;</span>)
 </pre></div></p>
@@ -3787,7 +3787,7 @@ directly in the markup.</p>
 </pre></div>
 <h2>Usage Example</h2>
 
-<p><nav class='demo' data-remove='north south east west' data-target='#test_caret'>
+<p><div class="docomo-showcase"><nav class='demo' data-remove='north south east west' data-target='#test_caret'>
   <ul class='nav inline'>
     <li>
       <span class='caret north'></span>
@@ -3813,7 +3813,7 @@ directly in the markup.</p>
   <button class='btn' data-add='east'>East</button>
   <button class='btn' data-add='west'>West</button>
 </nav>
-<div class="highlight"><pre><span class="nt">%nav</span><span class="nc">.demo</span>(<span class="na">data-target=</span><span class="s">&quot;#test_caret&quot;</span> <span class="na">data-remove=</span><span class="s">&quot;north south east west&quot;</span>)
+</div><div class="highlight"><pre><span class="nt">%nav</span><span class="nc">.demo</span>(<span class="na">data-target=</span><span class="s">&quot;#test_caret&quot;</span> <span class="na">data-remove=</span><span class="s">&quot;north south east west&quot;</span>)
   <span class="nt">%ul</span><span class="nc">.nav.inline</span>
     <span class="nt">%li</span>
       <span class="nt">%span</span><span class="nc">.caret.north</span>
@@ -3885,13 +3885,13 @@ within your <code>config.sass</code> file or before <code>caret.sass</code> is l
 </pre></div>
 <h2>Usage Example</h2>
 
-<p><div class='well' style='background-color:#CEE6F6; border-color:#78B9E6;'>
+<p><div class="docomo-showcase"><div class='well' style='background-color:#CEE6F6; border-color:#78B9E6;'>
   <a class='close' href='#'>&times;</a>
 </div>
 <div class='well' style='background-color:#333; border-color:#000;'>
   <a class='close inverse' href='#'>&times;</a>
 </div>
-<div class="highlight"><pre><span class="nc">.well</span>(<span class="na">style=</span><span class="s">&quot;background-color:#CEE6F6; border-color:#78B9E6;&quot;</span>)
+</div><div class="highlight"><pre><span class="nc">.well</span>(<span class="na">style=</span><span class="s">&quot;background-color:#CEE6F6; border-color:#78B9E6;&quot;</span>)
   <span class="nt">%a</span><span class="nc">.close</span>(<span class="na">href=</span><span class="s">&quot;#&quot;</span>) &amp;times;
 
 <span class="nc">.well</span>(<span class="na">style=</span><span class="s">&quot;background-color:#333; border-color:#000;&quot;</span>)
@@ -3965,13 +3965,13 @@ and styles.</p>
 </pre></div>
 <h2>Usage Example</h2>
 
-<p><nav>
+<p><div class="docomo-showcase"><nav>
   <a class='paddle-icon north' href='#'>&uarr;</a>
   <a class='paddle-icon south' href='#'>&darr;</a>
   <a class='paddle-icon west' href='#'>&larr;</a>
   <a class='paddle-icon east' href='#'>&rarr;</a>
 </nav>
-<div class="highlight"><pre><span class="nt">%nav</span>
+</div><div class="highlight"><pre><span class="nt">%nav</span>
   <span class="nt">%a</span><span class="nc">.paddle-icon.north</span>(<span class="na">href=</span><span class="s">&quot;#&quot;</span>) &amp;uarr;
   <span class="nt">%a</span><span class="nc">.paddle-icon.south</span>(<span class="na">href=</span><span class="s">&quot;#&quot;</span>) &amp;darr;
   <span class="nt">%a</span><span class="nc">.paddle-icon.west</span>(<span class="na">href=</span><span class="s">&quot;#&quot;</span>) &amp;larr;
@@ -4046,7 +4046,7 @@ grid for this reason.</p>
 </pre></div>
 <h2>Usage Examples</h2>
 
-<p><ul class='media-grid'>
+<p><div class="docomo-showcase"><ul class='media-grid'>
   <li style='width:25%'>
     <figure class='media-item'>
       <img src='http://lorempixel.com/260/180' />
@@ -4084,7 +4084,7 @@ grid for this reason.</p>
     </figure>
   </li>
 </ul>
-<div class="highlight"><pre><span class="nt">%ul</span><span class="nc">.media-grid</span>
+</div><div class="highlight"><pre><span class="nt">%ul</span><span class="nc">.media-grid</span>
   <span class="nt">%li</span>(<span class="na">style=</span><span class="s">&quot;width:25%&quot;</span>)
     <span class="nt">%figure</span><span class="nc">.media-item</span>
       <span class="nt">%img</span>(<span class="na">src=</span><span class="s">&quot;http://lorempixel.com/260/180&quot;</span>)
@@ -4154,12 +4154,12 @@ typically used within the <code>Drop</code> component.</p>
 </pre></div>
 <h2>Usage Example</h2>
 
-<p><ul class='nav menu' data-bindable='toggle-group' role='menu'>
+<p><div class="docomo-showcase"><ul class='nav menu' data-bindable='toggle-group' role='menu'>
   <li><a href='#' tabindex='-1'>Menu item 1</a></li>
   <li class='active'><a href='#' tabindex='-1'>Menu item 2</a></li>
   <li><a href='#' tabindex='-1'>Menu item 3</a></li>
 </ul>
-<div class="highlight"><pre><span class="nt">%ul</span><span class="nc">.nav.menu</span>(<span class="na">data-bindable=</span><span class="s">&quot;toggle-group&quot;</span> <span class="na">role=</span><span class="s">&quot;menu&quot;</span>)
+</div><div class="highlight"><pre><span class="nt">%ul</span><span class="nc">.nav.menu</span>(<span class="na">data-bindable=</span><span class="s">&quot;toggle-group&quot;</span> <span class="na">role=</span><span class="s">&quot;menu&quot;</span>)
   <span class="nt">%li</span>&lt;
     <span class="nt">%a</span>(<span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">tabindex=</span><span class="s">&quot;-1&quot;</span>) Menu item 1
   <span class="nt">%li</span><span class="nc">.active</span>&lt;
@@ -4776,7 +4776,7 @@ or custom layouts within the application.</p>
 </pre></div>
 <h2>Usage Example</h2>
 
-<p><button class='btn' data-bindable='modal' data-keyboard='true' href='#modal_href'>Launch Modal</button>
+<p><div class="docomo-showcase"><button class='btn' data-bindable='modal' data-keyboard='true' href='#modal_href'>Launch Modal</button>
 <div class='modal fade' id='modal_href'>
   <div class='notification success fade in' role='alert'>
     <header class='notify-header'>
@@ -4797,7 +4797,7 @@ or custom layouts within the application.</p>
     <a class='close' data-dismiss='modal' href='#'>&times;</a>
   </div>
 </div>
-<div class="highlight"><pre><span class="nd">:ruby</span>
+</div><div class="highlight"><pre><span class="nd">:ruby</span>
   <span class="nd">@lorem = &quot;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</span>
   <span class="nd">eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim</span>
   <span class="nd">veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea</span>
@@ -4966,7 +4966,7 @@ various components with navigation, search forms and drop downs.</p>
 </pre></div>
 <h2>Usage Example</h2>
 
-<p><div class='navbar'>
+<p><div class="docomo-showcase"><div class='navbar'>
   <div class='navbar-inner'>
     <div class='container'>
       <a class='brand' href='#'>Brand</a>
@@ -5004,7 +5004,7 @@ various components with navigation, search forms and drop downs.</p>
     </div>
   </div>
 </div>
-<div class="highlight"><pre><span class="nc">.navbar</span>
+</div><div class="highlight"><pre><span class="nc">.navbar</span>
   <span class="nc">.navbar-inner</span>
     <span class="nc">.container</span>
       <span class="cp">-# %button.btn.info.btn-navbar(data-bindable=&quot;collapse&quot; data-target=&quot;#navbar_collapse&quot;)</span>
@@ -5136,7 +5136,7 @@ and inserts them directly into your style sheet.</p>
 </pre></div>
 <h2>Usage Example</h2>
 
-<p><div class='notification fade in' role='alert'>
+<p><div class="docomo-showcase"><div class='notification fade in' role='alert'>
   <p><strong>Default!</strong> This is the default notification</p>
   <a class='close' data-bindable='dismiss' href='#'>&times;</a>
 </div>
@@ -5189,7 +5189,7 @@ and inserts them directly into your style sheet.</p>
   </footer>
   <a class='close' data-bindable='dismiss' href='#'>&times;</a>
 </div>
-<div class="highlight"><pre><span class="nd">:ruby</span>
+</div><div class="highlight"><pre><span class="nd">:ruby</span>
   <span class="nd">@lorem = &quot;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</span>
   <span class="nd">eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim</span>
   <span class="nd">veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea</span>
@@ -5288,7 +5288,7 @@ blown pagination system isn&#39;t required.</p>
 </pre></div>
 <h2>Usage Example</h2>
 
-<p><nav role='navigation'>
+<p><div class="docomo-showcase"><nav role='navigation'>
   <ul class='pager'>
     <li class='disabled'><a href='#'>&larr; Prev</a></li>
     <li><a href='#'>Next &rarr;</a></li>
@@ -5315,7 +5315,7 @@ blown pagination system isn&#39;t required.</p>
     <li class='pager-next'><a href='#'>Next &rarr;</a></li>
   </ul>
 </nav>
-<div class="highlight"><pre><span class="nt">%nav</span>(<span class="na">role=</span><span class="s">&quot;navigation&quot;</span>)
+</div><div class="highlight"><pre><span class="nt">%nav</span>(<span class="na">role=</span><span class="s">&quot;navigation&quot;</span>)
   <span class="nt">%ul</span><span class="nc">.pager</span>
     <span class="nt">%li</span><span class="nc">.disabled</span>&lt;
       <span class="nt">%a</span>(<span class="na">href=</span><span class="s">&quot;#&quot;</span>) &amp;larr; Prev
@@ -5428,7 +5428,7 @@ represent pagination navigation. The list should contain the <code>.nav</code> c
 </pre></div>
 <h2>Usage Example</h2>
 
-<p><nav data-bindable='toggle-group' role='navigation'>
+<p><div class="docomo-showcase"><nav data-bindable='toggle-group' role='navigation'>
   <ol class='nav pagination'>
     <li class='disabled'><a href='#'>&laquo;</a></li>
     <li><a href='#'>1</a></li>
@@ -5466,7 +5466,7 @@ represent pagination navigation. The list should contain the <code>.nav</code> c
     <li><a href='#'>&raquo;</a></li>
   </ol>
 </nav>
-<div class="highlight"><pre><span class="nt">%nav</span>(<span class="na">data-bindable=</span><span class="s">&quot;toggle-group&quot;</span> <span class="na">role=</span><span class="s">&quot;navigation&quot;</span>)
+</div><div class="highlight"><pre><span class="nt">%nav</span>(<span class="na">data-bindable=</span><span class="s">&quot;toggle-group&quot;</span> <span class="na">role=</span><span class="s">&quot;navigation&quot;</span>)
   <span class="nt">%ol</span><span class="nc">.nav.pagination</span>
     <span class="nt">%li</span><span class="nc">.disabled</span>&lt;
       <span class="nt">%a</span>(<span class="na">href=</span><span class="s">&quot;#&quot;</span>) &amp;laquo;
@@ -5599,7 +5599,7 @@ the related targets panel.</p>
 </pre></div>
 <h2>Usage Example</h2>
 
-<p><nav id='pill_demo' role='navigation'>
+<p><div class="docomo-showcase"><nav id='pill_demo' role='navigation'>
   <ul class='nav pill' data-bindable='tab' data-related='#pill_content' role='tablist'>
     <li class='active'><a href='#pill_one' role='tab'>Pill One</a></li>
     <li><a data-target='#pill_two' href='#' role='tab'>Pill Two</a></li>
@@ -5634,7 +5634,7 @@ the related targets panel.</p>
     <p>Pill sub content <span class="decal important">six</span></p>
   </article>
 </section>
-<div class="highlight"><pre><span class="nt">%nav</span><span class="nf">#pill_demo</span>(<span class="na">role=</span><span class="s">&quot;navigation&quot;</span>)
+</div><div class="highlight"><pre><span class="nt">%nav</span><span class="nf">#pill_demo</span>(<span class="na">role=</span><span class="s">&quot;navigation&quot;</span>)
   <span class="nt">%ul</span><span class="nc">.nav.pill</span>(<span class="na">data-bindable=</span><span class="s">&quot;tab&quot;</span> <span class="na">data-related=</span><span class="s">&quot;#pill_content&quot;</span> <span class="na">role=</span><span class="s">&quot;tablist&quot;</span>)
     <span class="nt">%li</span><span class="nc">.active</span>&lt;
       <span class="nt">%a</span>(<span class="na">href=</span><span class="s">&quot;#pill_one&quot;</span> <span class="na">role=</span><span class="s">&quot;tab&quot;</span>) Pill One
@@ -5712,7 +5712,7 @@ within your <code>config.sass</code> file or before <code>pill.sass</code> is lo
 </pre></div>
 <h2>Usage Example</h2>
 
-<p><nav id='pill_stacked_demo' role='navigation'>
+<p><div class="docomo-showcase"><nav id='pill_stacked_demo' role='navigation'>
   <ul class='nav pill stacked' data-bindable='tab' data-related='#pill_stacked_content' role='tablist'>
     <li class='active'><a href='#pill_stacked_one' role='tab'>Pill One</a></li>
     <li><a data-target='#pill_stacked_two' href='#' role='tab'>Pill Two</a></li>
@@ -5747,7 +5747,7 @@ within your <code>config.sass</code> file or before <code>pill.sass</code> is lo
     <p>Pill sub content <span class="decal important">six</span></p>
   </article>
 </section>
-<div class="highlight"><pre><span class="nt">%nav</span><span class="nf">#pill_stacked_demo</span>(<span class="na">role=</span><span class="s">&quot;navigation&quot;</span>)
+</div><div class="highlight"><pre><span class="nt">%nav</span><span class="nf">#pill_stacked_demo</span>(<span class="na">role=</span><span class="s">&quot;navigation&quot;</span>)
   <span class="nt">%ul</span><span class="nc">.nav.pill.stacked</span>(<span class="na">data-bindable=</span><span class="s">&quot;tab&quot;</span> <span class="na">data-related=</span><span class="s">&quot;#pill_stacked_content&quot;</span> <span class="na">role=</span><span class="s">&quot;tablist&quot;</span>)
     <span class="nt">%li</span><span class="nc">.active</span>&lt;
       <span class="nt">%a</span>(<span class="na">href=</span><span class="s">&quot;#pill_stacked_one&quot;</span> <span class="na">role=</span><span class="s">&quot;tab&quot;</span>) Pill One
@@ -5931,7 +5931,7 @@ points.</p>
 </pre></div>
 <h2>Usage Examples</h2>
 
-<p><nav>
+<p><div class="docomo-showcase"><nav>
   <ul class='nav inline'>
     <li><a data-bindable='pop' data-content='North is way up there, just hanging out with the Canadians.' data-delay='100' href='#' id='pop_north' title='The Northern Pop'>Northern Pop</a></li>
     <li><a data-bindable='pop' data-content='South is where the snow goes in the summer. You should go there.' data-delay='1000,2000' data-placement='south' href='#' id='pop_south' title='The Southern Pop'>Southern Pop</a></li>
@@ -5954,7 +5954,7 @@ points.</p>
     </div>
   </div>
 </div>
-<div class="highlight"><pre><span class="nt">%nav</span>
+</div><div class="highlight"><pre><span class="nt">%nav</span>
   <span class="nt">%ul</span><span class="nc">.nav.inline</span>
     <span class="nt">%li</span>&lt;
       <span class="nt">%a</span><span class="nf">#pop_north</span>(<span class="na">data-bindable=</span><span class="s">&quot;pop&quot;</span> <span class="na">data-delay=</span><span class="s">&quot;100&quot;</span> <span class="na">title=</span><span class="s">&quot;The Northern Pop&quot;</span> <span class="na">data-content=</span><span class="s">&quot;North is way up there, just hanging out with the Canadians.&quot;</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span>) Northern Pop
@@ -6217,11 +6217,11 @@ the <code>@media print</code> query.</p>
 </pre></div>
 <h2>Usage Example</h2>
 
-<p><div class='progress' role='progressbar'>
+<p><div class="docomo-showcase"><div class='progress' role='progressbar'>
   <div class='bar' style='width:60%'></div>
 </div>
 <div class='progress important' data-initial='80' role='progressbar'>
-  <div class='bar'></div>
+  <div class='bar' style='width:60%'></div>
 </div>
 <div class='progress success' role='progressbar'>
   <div class='bar' style='width:60%'></div>
@@ -6232,11 +6232,11 @@ the <code>@media print</code> query.</p>
 <div class='progress danger' role='progressbar'>
   <div class='bar' style='width:60%'></div>
 </div>
-<div class="highlight"><pre><span class="nc">.progress</span>(<span class="na">role=</span><span class="s">&quot;progressbar&quot;</span>)
+</div><div class="highlight"><pre><span class="nc">.progress</span>(<span class="na">role=</span><span class="s">&quot;progressbar&quot;</span>)
   <span class="nc">.bar</span>(<span class="na">style=</span><span class="s">&quot;width:60%&quot;</span>)
 
 <span class="nc">.progress.important</span>(<span class="na">data-initial=</span><span class="s">&quot;80&quot;</span> <span class="na">role=</span><span class="s">&quot;progressbar&quot;</span>)
-  <span class="nc">.bar</span>
+  <span class="nc">.bar</span>(<span class="na">style=</span><span class="s">&quot;width:60%&quot;</span>)
 
 <span class="nc">.progress.success</span>(<span class="na">role=</span><span class="s">&quot;progressbar&quot;</span>)
   <span class="nc">.bar</span>(<span class="na">style=</span><span class="s">&quot;width:60%&quot;</span>)
@@ -6369,7 +6369,7 @@ colors related to bars. This list is typically defined in the
 (tabs, pills, breadcrumbs, pagination and navigation lists). The <code>.nav</code> class
 can be used for simple navigation as well.</p>
 
-<p><nav class='well' role='navigation'>
+<p><div class="docomo-showcase"><nav class='well' role='navigation'>
   <ul class='nav' data-bindable='toggle-group'>
     <li class='nav-header'>Nav Header</li>
     <li>
@@ -6401,7 +6401,7 @@ can be used for simple navigation as well.</p>
     </li>
   </ul>
 </nav>
-<div class="highlight"><pre><span class="nt">%nav</span><span class="nc">.well</span>(<span class="na">role=</span><span class="s">&quot;navigation&quot;</span>)
+</div><div class="highlight"><pre><span class="nt">%nav</span><span class="nc">.well</span>(<span class="na">role=</span><span class="s">&quot;navigation&quot;</span>)
   <span class="nt">%ul</span><span class="nc">.nav</span>(<span class="na">data-bindable=</span><span class="s">&quot;toggle-group&quot;</span>)
     <span class="nt">%li</span><span class="nc">.nav-header</span> Nav Header
     <span class="nt">%li</span>
@@ -6551,12 +6551,12 @@ within your <code>config.sass</code> file or before <code>scaffold.sass</code> i
 
 <h2>Usage Example</h2>
 
-<p><div class='slider-control' data-initial-value='500' data-max='1000' data-min='0' id='slider_control' role='slider'>
+<p><div class="docomo-showcase"><div class='slider-control' data-initial-value='500' data-max='1000' data-min='0' id='slider_control' role='slider'>
   <div class='slider-track'></div>
   <div class='slider-progress'></div>
   <div class='slider-handle'></div>
 </div>
-<div class="highlight"><pre><span class="nc">.slider-control</span><span class="nf">#slider_control</span>(<span class="na">data-initial-value=</span><span class="s">&quot;500&quot;</span> <span class="na">data-min=</span><span class="s">&quot;0&quot;</span> <span class="na">data-max=</span><span class="s">&quot;1000&quot;</span> <span class="na">role=</span><span class="s">&quot;slider&quot;</span>)
+</div><div class="highlight"><pre><span class="nc">.slider-control</span><span class="nf">#slider_control</span>(<span class="na">data-initial-value=</span><span class="s">&quot;500&quot;</span> <span class="na">data-min=</span><span class="s">&quot;0&quot;</span> <span class="na">data-max=</span><span class="s">&quot;1000&quot;</span> <span class="na">role=</span><span class="s">&quot;slider&quot;</span>)
   <span class="nc">.slider-track</span>
   <span class="nc">.slider-progress</span>
   <span class="nc">.slider-handle</span>
@@ -6586,7 +6586,7 @@ the related targets panel.</p>
 </pre></div>
 <h2>Usage Example</h2>
 
-<p><nav id='tab_demo' role='navigation'>
+<p><div class="docomo-showcase"><nav id='tab_demo' role='navigation'>
   <ul class='nav tab' data-bindable='tab' data-related='#tab_content' role='tablist'>
     <li class='active'><a href='#tab_one' role='tab'>Tab One</a></li>
     <li><a data-target='#tab_two' href='#' role='tab'>Tab Two</a></li>
@@ -6621,7 +6621,7 @@ the related targets panel.</p>
     <p>Tab sub content <span class="decal important">six</span></p>
   </article>
 </section>
-<div class="highlight"><pre><span class="nt">%nav</span><span class="nf">#tab_demo</span>(<span class="na">role=</span><span class="s">&quot;navigation&quot;</span>)
+</div><div class="highlight"><pre><span class="nt">%nav</span><span class="nf">#tab_demo</span>(<span class="na">role=</span><span class="s">&quot;navigation&quot;</span>)
   <span class="nt">%ul</span><span class="nc">.nav.tab</span>(<span class="na">data-bindable=</span><span class="s">&quot;tab&quot;</span> <span class="na">data-related=</span><span class="s">&quot;#tab_content&quot;</span> <span class="na">role=</span><span class="s">&quot;tablist&quot;</span>)
     <span class="nt">%li</span><span class="nc">.active</span>&lt;
       <span class="nt">%a</span>(<span class="na">href=</span><span class="s">&quot;#tab_one&quot;</span> <span class="na">role=</span><span class="s">&quot;tab&quot;</span>) Tab One
@@ -6792,7 +6792,7 @@ within your <code>config.sass</code> file or before <code>tab.sass</code> is loa
 </pre></div>
 <h2>Usage Example</h2>
 
-<p><nav id='tab_stacked_demo' role='navigation'>
+<p><div class="docomo-showcase"><nav id='tab_stacked_demo' role='navigation'>
   <ul class='nav tab stacked' data-bindable='tab' data-related='#tab_stacked_content' role='tablist'>
     <li class='active'><a href='#tab_stacked_one' role='tab'>Tab One</a></li>
     <li><a data-target='#tab_stacked_two' href='#' role='tab'>Tab Two</a></li>
@@ -6827,7 +6827,7 @@ within your <code>config.sass</code> file or before <code>tab.sass</code> is loa
     <p>Tab sub content <span class="decal important">six</span></p>
   </article>
 </section>
-<div class="highlight"><pre><span class="nt">%nav</span><span class="nf">#tab_stacked_demo</span>(<span class="na">role=</span><span class="s">&quot;navigation&quot;</span>)
+</div><div class="highlight"><pre><span class="nt">%nav</span><span class="nf">#tab_stacked_demo</span>(<span class="na">role=</span><span class="s">&quot;navigation&quot;</span>)
   <span class="nt">%ul</span><span class="nc">.nav.tab.stacked</span>(<span class="na">data-bindable=</span><span class="s">&quot;tab&quot;</span> <span class="na">data-related=</span><span class="s">&quot;#tab_stacked_content&quot;</span> <span class="na">role=</span><span class="s">&quot;tablist&quot;</span>)
     <span class="nt">%li</span><span class="nc">.active</span>&lt;
       <span class="nt">%a</span>(<span class="na">href=</span><span class="s">&quot;#tab_stacked_one&quot;</span> <span class="na">role=</span><span class="s">&quot;tab&quot;</span>) Tab One
@@ -6873,7 +6873,7 @@ By combining any of the following classes, the table can be given a different lo
 </pre></div>
 <h2>Usage Example</h2>
 
-<p><table class='demo' data-target='this'><caption>Table Caption</caption><thead>
+<p><div class="docomo-showcase"><table class='demo' data-target='this'><caption>Table Caption</caption><thead>
     <tr>
       <th>
         <a href='#'>#</a>
@@ -6957,7 +6957,7 @@ By combining any of the following classes, the table can be given a different lo
   <button class='btn' data-toggle='table-thead'>Header</button>
   <button class='btn' data-toggle='table-tfoot'>Footer</button>
 </nav>
-<div class="highlight"><pre><span class="nt">%table</span><span class="nc">.demo</span>(<span class="na">data-target=</span><span class="s">&quot;this&quot;</span>)
+</div><div class="highlight"><pre><span class="nt">%table</span><span class="nc">.demo</span>(<span class="na">data-target=</span><span class="s">&quot;this&quot;</span>)
   <span class="nt">%caption</span>&gt;Table Caption
   <span class="nt">%thead</span>
     <span class="nt">%tr</span>
@@ -7226,7 +7226,7 @@ should be considered in most cases.</p>
 </pre></div>
 <h2>Usage Examples</h2>
 
-<p><nav>
+<p><div class="docomo-showcase"><nav>
   <ul class='nav inline'>
     <li><a data-bindable='tip' data-delay='100' href='#' id='north_tip' title='The Northern Tip'>Northern Tip</a></li>
     <li><a data-bindable='tip' data-delay='500,1000' data-placement='south' href='#' id='south_tip' title='The Southern Tip'>Southern Tip</a></li>
@@ -7235,7 +7235,7 @@ should be considered in most cases.</p>
     <li><a data-bindable='tip' data-placement='north' data-trigger='click' href='#' id='image_tip' title="&lt;img src='http://lorempixel.com/260/180' width=260 height=180 /&gt;">Image Tip (click)</a></li>
   </ul>
 </nav>
-<div class="highlight"><pre><span class="nt">%nav</span>
+</div><div class="highlight"><pre><span class="nt">%nav</span>
   <span class="nt">%ul</span><span class="nc">.nav.inline</span>
     <span class="nt">%li</span>&lt;
       <span class="nt">%a</span><span class="nf">#north_tip</span>(<span class="na">data-bindable=</span><span class="s">&quot;tip&quot;</span> <span class="na">data-delay=</span><span class="s">&quot;100&quot;</span> <span class="na">title=</span><span class="s">&quot;The Northern Tip&quot;</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span>) Northern Tip
@@ -7434,14 +7434,14 @@ element.</p>
 </pre></div>
 <h2>Usage Example</h2>
 
-<p><nav role='navigation'>
+<p><div class="docomo-showcase"><nav role='navigation'>
   <a class='btn' data-bindable='toggle' href='#' id='toggle_1'>Toggle Default</a>
   <a class='btn' data-bindable='toggle' data-namespace='hoverable' data-toggle='active on' data-trigger='hover' href='#' id='toggle_2'>Toggle Hover</a>
   <a class='btn' data-bindable='toggle' data-namespace='focusable' data-trigger='focus' href='#' id='toggle_3'>Toggle Focus</a>
   <a class='btn' data-bindable='toggle' data-delay='500, 500' href='#' id='toggle_4'>Toggle Delay</a>
   <a class='btn' data-activate='true' data-bindable='toggle' href='#' id='toggle_5'>Toggle Auto Activate</a>
 </nav>
-<div class="highlight"><pre><span class="nt">%nav</span>(<span class="na">role=</span><span class="s">&quot;navigation&quot;</span>)
+</div><div class="highlight"><pre><span class="nt">%nav</span>(<span class="na">role=</span><span class="s">&quot;navigation&quot;</span>)
   <span class="nt">%a</span><span class="nc">.btn</span><span class="nf">#toggle_1</span>(<span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">data-bindable=</span><span class="s">&quot;toggle&quot;</span>) Toggle Default
   <span class="nt">%a</span><span class="nc">.btn</span><span class="nf">#toggle_2</span>(<span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">data-bindable=</span><span class="s">&quot;toggle&quot;</span> <span class="na">data-namespace=</span><span class="s">&quot;hoverable&quot;</span> <span class="na">data-trigger=</span><span class="s">&quot;hover&quot;</span> <span class="na">data-toggle=</span><span class="s">&quot;active on&quot;</span>) Toggle Hover
   <span class="nt">%a</span><span class="nc">.btn</span><span class="nf">#toggle_3</span>(<span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">data-bindable=</span><span class="s">&quot;toggle&quot;</span> <span class="na">data-namespace=</span><span class="s">&quot;focusable&quot;</span> <span class="na">data-trigger=</span><span class="s">&quot;focus&quot;</span>) Toggle Focus
@@ -7551,7 +7551,7 @@ information.</p>
 
 <h2>Usage Example</h2>
 
-<p><nav role='navigation'>
+<p><div class="docomo-showcase"><nav role='navigation'>
   <ul class='nav inline' data-bindable='toggle-group' data-target='.radio-li' id='toggle_group_radios'>
     <li class='radio-li'><a href='#'>Radio 1</a></li>
     <li class='radio-li'><a href='#'>Radio 2</a></li>
@@ -7608,7 +7608,7 @@ information.</p>
   <a class='btn' href='#'>Middle 2</a>
   <a class='btn' href='#'>Right</a>
 </nav>
-<div class="highlight"><pre><span class="nt">%nav</span>(<span class="na">role=</span><span class="s">&quot;navigation&quot;</span>)
+</div><div class="highlight"><pre><span class="nt">%nav</span>(<span class="na">role=</span><span class="s">&quot;navigation&quot;</span>)
   <span class="nt">%ul</span><span class="nf">#toggle_group_radios</span><span class="nc">.nav.inline</span>(<span class="na">data-bindable=</span><span class="s">&quot;toggle-group&quot;</span> <span class="na">data-target=</span><span class="s">&quot;.radio-li&quot;</span>)
     <span class="nt">%li</span><span class="nc">.radio-li</span>&lt;
       <span class="nt">%a</span>(<span class="na">href=</span><span class="s">&quot;#&quot;</span>) Radio 1
@@ -8108,7 +8108,7 @@ elements.</p>
 
 <h3>Usage Example</h3>
 
-<p><h1>Google hearts h1 headings, but only use one per page.</h1>
+<p><div class="docomo-showcase"><h1>Google hearts h1 headings, but only use one per page.</h1>
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
 veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
@@ -8156,7 +8156,7 @@ commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
 esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
 cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
 laborum.</p>
-<div class="highlight"><pre><span class="nd">:ruby</span>
+</div><div class="highlight"><pre><span class="nd">:ruby</span>
   <span class="nd">lorem = &quot;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</span>
   <span class="nd">eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim</span>
   <span class="nd">veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea</span>
@@ -8257,7 +8257,7 @@ laborum.</p>
 
 <h3>Usage Example</h3>
 
-<p><section style='width:45%; float:left; margin-right: 5%;'>
+<p><div class="docomo-showcase"><section style='width:45%; float:left; margin-right: 5%;'>
   <h4>Inline elements examples</h4>
   <br />
   <p>
@@ -8284,7 +8284,7 @@ laborum.</p>
     <a href="#">president@whitehouse.gov</a>
   </address>
 </section>
-<div class="highlight"><pre><span class="nt">%section</span>(<span class="na">style=</span><span class="s">&quot;width:45%; float:left; margin-right: 5%;&quot;</span>)
+</div><div class="highlight"><pre><span class="nt">%section</span>(<span class="na">style=</span><span class="s">&quot;width:45%; float:left; margin-right: 5%;&quot;</span>)
   <span class="nt">%h4</span> Inline elements examples
   <span class="nt">%br</span>
   <span class="nt">%p</span>
@@ -8316,10 +8316,10 @@ laborum.</p>
 
 <h3>Usage Example</h3>
 
-<p><pre>git commit -am "Fixes issue #666"
+<p><div class="docomo-showcase"><pre>git commit -am "Fixes issue #666"
 git pull
 git push</pre>
-<div class="highlight"><pre><span class="nt">%pre</span>
+</div><div class="highlight"><pre><span class="nt">%pre</span>
   git commit -am &quot;Fixes issue #666&quot;
   git pull
   git push
@@ -8331,11 +8331,11 @@ git push</pre>
 
 <h3>Usage Example</h3>
 
-<p><blockquote>
+<p><div class="docomo-showcase"><blockquote>
   <p>&#8220;Let me tell you what Melba Toast is packin' right here, all right. We got 4:11 Positrac outback, 750 double pumper, Edelbrock intake, bored over 30, 11 to 1 pop-up pistons, turbo-jet 390 horsepower. We're talkin' some f***in' muscle.&#8221;
   <small>David Wooderson, <cite title="link to source">Dazed &amp; Confused</cite></small></p>
 </blockquote>
-<div class="highlight"><pre><span class="nt">%blockquote</span>
+</div><div class="highlight"><pre><span class="nt">%blockquote</span>
   <span class="nt">%p</span>&lt;
     &amp;#8220;Let me tell you what Melba Toast is packin&#39; right here, all right. We got 4:11 Positrac outback, 750 double pumper, Edelbrock intake, bored over 30, 11 to 1 pop-up pistons, turbo-jet 390 horsepower. We&#39;re talkin&#39; some f***in&#39; muscle.&amp;#8221;
     &lt;small&gt;David Wooderson, &lt;cite title=&quot;link to source&quot;&gt;Dazed &amp;amp; Confused&lt;/cite&gt;&lt;/small&gt;
@@ -8355,10 +8355,10 @@ different separator.</p>
 
 <h3>Usage Example</h3>
 
-<p><hr />
+<p><div class="docomo-showcase"><hr />
 <hr class='dashed' />
 <hr class='dotted' />
-<div class="highlight"><pre><span class="nt">%hr</span>
+</div><div class="highlight"><pre><span class="nt">%hr</span>
 <span class="nt">%hr</span><span class="nc">.dashed</span>
 <span class="nt">%hr</span><span class="nc">.dotted</span>
 </pre></div></p>
@@ -8372,7 +8372,7 @@ element render the same as an <code>.unstyled-list</code> class.</p>
 
 <h3>Usage Example</h3>
 
-<p><section style='width:25%; float:left; margin-right: 5%;'>
+<p><div class="docomo-showcase"><section style='width:25%; float:left; margin-right: 5%;'>
   <p><strong>Unordered list:</strong></p>
   <ul>
     <li>Unordered list</li>
@@ -8444,7 +8444,7 @@ element render the same as an <code>.unstyled-list</code> class.</p>
     </li>
   </ul>
 </section>
-<div class="highlight"><pre><span class="nt">%section</span>(<span class="na">style=</span><span class="s">&quot;width:25%; float:left; margin-right: 5%;&quot;</span>)
+</div><div class="highlight"><pre><span class="nt">%section</span>(<span class="na">style=</span><span class="s">&quot;width:25%; float:left; margin-right: 5%;&quot;</span>)
   <span class="nt">%p</span>&lt;
     <span class="nt">%strong</span> Unordered list:
   <span class="nt">%ul</span>
@@ -8516,7 +8516,7 @@ variables.</p>
 
 <h3>Usage Example</h3>
 
-<p><section style='width:25%; float:left; margin-right: 5%;'>
+<p><div class="docomo-showcase"><section style='width:25%; float:left; margin-right: 5%;'>
   <p><strong>Definition list:</strong></p>
   <dl>
     <dt>Definition Term</dt>
@@ -8538,7 +8538,7 @@ variables.</p>
     <dd>Definition Description Lorem ipsum dolor sit amet.</dd>
   </dl>
 </section>
-<div class="highlight"><pre><span class="nt">%section</span>(<span class="na">style=</span><span class="s">&quot;width:25%; float:left; margin-right: 5%;&quot;</span>)
+</div><div class="highlight"><pre><span class="nt">%section</span>(<span class="na">style=</span><span class="s">&quot;width:25%; float:left; margin-right: 5%;&quot;</span>)
   <span class="nt">%p</span>&lt;
     <span class="nt">%strong</span> Definition list:
   <span class="nt">%dl</span>
@@ -8685,16 +8685,16 @@ users to upgrade their browser or enable JavaScript.</p>
 <code>templates/layouts/shared</code>.</p>
 
 <h2>Usage Example</h2>
-<section class='button-toolbar'>
-  <nav class='button-group' data-behavior='checkbox' data-bindable='toggle-button-group' id='upgrade-demo'>
-    <button class='btn' data-toggle='js'>Toggle JS Message</button>
-    <button class='btn' data-toggle='dinosaur'>Toggle Dinosaur Message</button>
+<div class="docomo-showcase"><section class='button-toolbar'>
+  <nav class='button-group' data-behavior='checkbox' data-bindable='toggle-button-group' id='upgrade_demo'>
+    <button class='btn' data-toggle='no-js-msg'>Toggle JS Message</button>
+    <button class='btn' data-toggle='dinosaur-msg'>Toggle Dinosaur Message</button>
   </nav>
 </section>
-<div class="highlight"><pre><span class="nt">%section</span><span class="nc">.button-toolbar</span>
-  <span class="nt">%nav</span><span class="nc">.button-group</span><span class="nf">#upgrade-demo</span>(<span class="na">data-bindable=</span><span class="s">&quot;toggle-button-group&quot;</span> <span class="na">data-behavior=</span><span class="s">&quot;checkbox&quot;</span>)
-    <span class="nt">%button</span><span class="nc">.btn</span>(<span class="na">data-toggle=</span><span class="s">&quot;js&quot;</span>) Toggle JS Message
-    <span class="nt">%button</span><span class="nc">.btn</span>(<span class="na">data-toggle=</span><span class="s">&quot;dinosaur&quot;</span>) Toggle Dinosaur Message
+</div><div class="highlight"><pre><span class="nt">%section</span><span class="nc">.button-toolbar</span>
+  <span class="nt">%nav</span><span class="nc">.button-group</span><span class="nf">#upgrade_demo</span>(<span class="na">data-bindable=</span><span class="s">&quot;toggle-button-group&quot;</span> <span class="na">data-behavior=</span><span class="s">&quot;checkbox&quot;</span>)
+    <span class="nt">%button</span><span class="nc">.btn</span>(<span class="na">data-toggle=</span><span class="s">&quot;no-js-msg&quot;</span>) Toggle JS Message
+    <span class="nt">%button</span><span class="nc">.btn</span>(<span class="na">data-toggle=</span><span class="s">&quot;dinosaur-msg&quot;</span>) Toggle Dinosaur Message
 </pre></div>
 <p>The demo positions the upgrade message with <code>position:fixed</code> while the
 default behavior is actually <code>position:absolute</code>. This is for
@@ -8743,9 +8743,9 @@ great with form layouts.</p>
 </pre></div>
 <h2>Usage Example</h2>
 
-<p><div class='well'><code>.well</code></div>
+<p><div class="docomo-showcase"><div class='well'><code>.well</code></div>
 <div class='well fill'><code>.well.fill</code></div>
-<div class="highlight"><pre><span class="nc">.well</span> &lt;code&gt;.well&lt;/code&gt;
+</div><div class="highlight"><pre><span class="nc">.well</span> &lt;code&gt;.well&lt;/code&gt;
 <span class="nc">.well.fill</span> &lt;code&gt;.well.fill&lt;/code&gt;
 </pre></div></p>
 
@@ -8788,5 +8788,18 @@ within your <code>config.sass</code> file or before <code>well.sass</code> is lo
 </tr>
 </tbody></table></section>
     </section>
+    <ul class='flash-message top-right' id='flash_message'></ul>
+    <div aria-hidden='true' class='upgrade-notifications'>
+      <div class='upgrade-group'>
+        <p class='dinosaur-msg upgrade-item'>
+          You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or
+          <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.
+        </p>
+        <p class='no-js-msg upgrade-item'>
+          For full functionality of this site it is necessary to enable <a href="http://www.enable-javascript.com/" target="_blank">JavaScript</a>.
+        </p>
+      </div>
+    </div>
+    <script src='/assets/docs.js' type='text/javascript'></script>
   </body>
 </html>

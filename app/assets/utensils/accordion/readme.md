@@ -8,7 +8,6 @@ with either the `Toggle`, `ToggleGroup` or `Collapse` behaviors.
 @import utensils/accordion/accordion
 ```
 
-## Usage Example
 [<~Example](markup/accordion.html.haml)
 
 
