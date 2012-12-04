@@ -830,11 +830,11 @@ type, sizing, or positioning.</p>
 </section>
 <h5 style='margin-top:3em; margin-bottom:1em;'>Select to view states</h5>
 <section class='button-toolbar'>
-  <nav class='check-demo button-group' data-behavior='checkbox' data-bindable='toggle-button-group'>
+  <nav class='modifier-demo button-group' data-behavior='checkbox' data-bindable='toggle-button-group'>
     <a class='btn' data-toggle='btn-block' href='#'>Block</a>
     <a class='btn' data-toggle='btn-transition' href='#'>Transition</a>
   </nav>
-  <nav class='radio-demo button-group' data-bindable='toggle-button-group'>
+  <nav class='modifier-demo button-group' data-bindable='toggle-button-group'>
     <a class='btn active' data-add='' href='#'>Normal</a>
     <a class='btn' data-add='btn-xsmall' href='#'>XS</a>
     <a class='btn' data-add='btn-small' href='#'>Small</a>
@@ -850,11 +850,11 @@ type, sizing, or positioning.</p>
 
 <span class="nt">%h5</span>(<span class="na">style=</span><span class="s">&quot;margin-top:3em; margin-bottom:1em;&quot;</span>) Select to view states
 <span class="nt">%section</span><span class="nc">.button-toolbar</span>
-  <span class="nt">%nav</span><span class="nc">.check-demo.button-group</span>(<span class="na">data-bindable=</span><span class="s">&quot;toggle-button-group&quot;</span> <span class="na">data-behavior=</span><span class="s">&quot;checkbox&quot;</span>)
+  <span class="nt">%nav</span><span class="nc">.modifier-demo.button-group</span>(<span class="na">data-bindable=</span><span class="s">&quot;toggle-button-group&quot;</span> <span class="na">data-behavior=</span><span class="s">&quot;checkbox&quot;</span>)
     <span class="nt">%a</span><span class="nc">.btn</span>(<span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">data-toggle=</span><span class="s">&quot;btn-block&quot;</span>) Block
     <span class="nt">%a</span><span class="nc">.btn</span>(<span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">data-toggle=</span><span class="s">&quot;btn-transition&quot;</span>) Transition
 
-  <span class="nt">%nav</span><span class="nc">.radio-demo.button-group</span>(<span class="na">data-bindable=</span><span class="s">&quot;toggle-button-group&quot;</span>)
+  <span class="nt">%nav</span><span class="nc">.modifier-demo.button-group</span>(<span class="na">data-bindable=</span><span class="s">&quot;toggle-button-group&quot;</span>)
     <span class="nt">%a</span><span class="nc">.btn.active</span>(<span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">data-add=</span><span class="s">&quot;&quot;</span>) Normal
     <span class="nt">%a</span><span class="nc">.btn</span>(<span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">data-add=</span><span class="s">&quot;btn-xsmall&quot;</span>) XS
     <span class="nt">%a</span><span class="nc">.btn</span>(<span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">data-add=</span><span class="s">&quot;btn-small&quot;</span>) Small
@@ -960,7 +960,7 @@ are added to the style sheet unless told to do so.</p>
   <button class='btn primary'>Primary</button>
 </section>
 <h5 style='margin-top:3em; margin-bottom:1em;'>Select to view states</h5>
-<nav class='radio-demo button-group' data-bindable='toggle-button-group'>
+<nav class='modifier-demo button-group' data-bindable='toggle-button-group'>
   <a class='btn active' data-add='' href='#'>Normal</a>
   <a class='btn' data-add='active' href='#'>Active</a>
   <a class='btn' data-add='error' href='#'>Error</a>
@@ -978,7 +978,7 @@ are added to the style sheet unless told to do so.</p>
   <span class="nt">%button</span><span class="nc">.btn.primary</span> Primary
 
 <span class="nt">%h5</span>(<span class="na">style=</span><span class="s">&quot;margin-top:3em; margin-bottom:1em;&quot;</span>) Select to view states
-<span class="nt">%nav</span><span class="nc">.radio-demo.button-group</span>(<span class="na">data-bindable=</span><span class="s">&quot;toggle-button-group&quot;</span>)
+<span class="nt">%nav</span><span class="nc">.modifier-demo.button-group</span>(<span class="na">data-bindable=</span><span class="s">&quot;toggle-button-group&quot;</span>)
   <span class="nt">%a</span><span class="nc">.btn.active</span>(<span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">data-add=</span><span class="s">&quot;&quot;</span>) Normal
   <span class="nt">%a</span><span class="nc">.btn</span>(<span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">data-add=</span><span class="s">&quot;active&quot;</span>) Active
   <span class="nt">%a</span><span class="nc">.btn</span>(<span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">data-add=</span><span class="s">&quot;error&quot;</span>) Error
@@ -2608,7 +2608,7 @@ the user.</p>
     <button class='btn' data-add='bottom'>Bottom</button>
   </nav>
   <nav class='button-group' style='margin:2em 0 0;'>
-    <button class='btn' data-type=''>Add Default (Info)</button>
+    <button class='btn' data-type='info'>Add Default (Info)</button>
     <button class='btn' data-type='important'>Add Important</button>
     <button class='btn' data-type='success'>Add Success</button>
     <button class='btn' data-type='warning'>Add Warning</button>
@@ -2625,7 +2625,7 @@ the user.</p>
     <span class="nt">%button</span><span class="nc">.btn</span>(<span class="na">data-add=</span><span class="s">&quot;bottom&quot;</span>) Bottom
 
   <span class="nt">%nav</span><span class="nc">.button-group</span>(<span class="na">style=</span><span class="s">&quot;margin:2em 0 0;&quot;</span>)
-    <span class="nt">%button</span><span class="nc">.btn</span>(<span class="na">data-type=</span><span class="s">&quot;&quot;</span>) Add Default (Info)
+    <span class="nt">%button</span><span class="nc">.btn</span>(<span class="na">data-type=</span><span class="s">&quot;info&quot;</span>) Add Default (Info)
     <span class="nt">%button</span><span class="nc">.btn</span>(<span class="na">data-type=</span><span class="s">&quot;important&quot;</span>) Add Important
     <span class="nt">%button</span><span class="nc">.btn</span>(<span class="na">data-type=</span><span class="s">&quot;success&quot;</span>) Add Success
     <span class="nt">%button</span><span class="nc">.btn</span>(<span class="na">data-type=</span><span class="s">&quot;warning&quot;</span>) Add Warning
@@ -3970,7 +3970,7 @@ directly in the markup.</p>
   </ul>
 </nav>
 <h5 style='margin-top:3em; margin-bottom:1em;'>Select to spin the caret</h5>
-<nav class='radio-demo button-group' data-bindable='toggle-button-group'>
+<nav class='modifier-demo button-group' data-bindable='toggle-button-group'>
   <button class='btn' data-add='north'>North</button>
   <button class='btn active' data-add='south'>South</button>
   <button class='btn' data-add='east'>East</button>
@@ -3990,7 +3990,7 @@ directly in the markup.</p>
       <span class="nt">%span</span><span class="nc">.caret.transall</span><span class="nf">#test_caret</span>
 
 <span class="nt">%h5</span>(<span class="na">style=</span><span class="s">&quot;margin-top:3em; margin-bottom:1em;&quot;</span>) Select to spin the caret
-<span class="nt">%nav</span><span class="nc">.radio-demo.button-group</span>(<span class="na">data-bindable=</span><span class="s">&quot;toggle-button-group&quot;</span>)
+<span class="nt">%nav</span><span class="nc">.modifier-demo.button-group</span>(<span class="na">data-bindable=</span><span class="s">&quot;toggle-button-group&quot;</span>)
   <span class="nt">%button</span><span class="nc">.btn</span>(<span class="na">data-add=</span><span class="s">&quot;north&quot;</span>) North
   <span class="nt">%button</span><span class="nc">.btn.active</span>(<span class="na">data-add=</span><span class="s">&quot;south&quot;</span>) South
   <span class="nt">%button</span><span class="nc">.btn</span>(<span class="na">data-add=</span><span class="s">&quot;east&quot;</span>) East
@@ -7111,7 +7111,7 @@ By combining any of the following classes, the table can be given a different lo
   </tbody>
 </table>
 <h5 style='margin-bottom:1em; margin-top:3em;'>Select to toggle table classes</h5>
-<nav class='check-demo button-group' data-behavior='checkbox' data-bindable='toggle-button-group'>
+<nav class='modifier-demo button-group' data-behavior='checkbox' data-bindable='toggle-button-group'>
   <button class='btn' data-toggle='table-box'>Box</button>
   <button class='btn' data-toggle='table-vborder'>Vertical Border</button>
   <button class='btn' data-toggle='table-condensed'>Condensed</button>
@@ -7179,7 +7179,7 @@ By combining any of the following classes, the table can be given a different lo
 
 
 <span class="nt">%h5</span>(<span class="na">style=</span><span class="s">&quot;margin-bottom:1em; margin-top:3em;&quot;</span>) Select to toggle table classes
-<span class="nt">%nav</span><span class="nc">.check-demo.button-group</span>(<span class="na">data-bindable=</span><span class="s">&quot;toggle-button-group&quot;</span> <span class="na">data-behavior=</span><span class="s">&quot;checkbox&quot;</span>)
+<span class="nt">%nav</span><span class="nc">.modifier-demo.button-group</span>(<span class="na">data-bindable=</span><span class="s">&quot;toggle-button-group&quot;</span> <span class="na">data-behavior=</span><span class="s">&quot;checkbox&quot;</span>)
   <span class="nt">%button</span><span class="nc">.btn</span>(<span class="na">data-toggle=</span><span class="s">&quot;table-box&quot;</span>) Box
   <span class="nt">%button</span><span class="nc">.btn</span>(<span class="na">data-toggle=</span><span class="s">&quot;table-vborder&quot;</span>) Vertical Border
   <span class="nt">%button</span><span class="nc">.btn</span>(<span class="na">data-toggle=</span><span class="s">&quot;table-condensed&quot;</span>) Condensed

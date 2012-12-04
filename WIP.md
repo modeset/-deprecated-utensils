@@ -2,16 +2,14 @@
 # Todo
 
 ## WIP
-- Tool similar to the demo (remove and add classes on a few items)
 - Fine tune styles with utensils documentation
-- Finish remaining demos
 - Should events have more of a namespace to avoid collisions?
 - FPO images should be local instead of a service?
 - Clean up templates (upgrade, flash notification)
 - Media queries
-- Test dinosaurs css and js (use from style guide)
 - More coherent descriptions within the docs
 - Document what Utensils is
+- Test dinosaurs css and js (use from style guide)
 - Mobilize (templates, styles, js, etc..)
 - Generators (templates, script, utensil, dinosaurs, polyfill, etc...)
 - Complete Todo items
