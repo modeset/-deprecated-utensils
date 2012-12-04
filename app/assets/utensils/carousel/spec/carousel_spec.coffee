@@ -1,4 +1,3 @@
-
 #= require utensils/carousel
 #= require utensils/beacon
 

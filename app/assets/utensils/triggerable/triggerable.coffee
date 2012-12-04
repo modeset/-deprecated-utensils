@@ -1,4 +1,3 @@
-
 #= require utensils/utensils
 #= require utensils/timeslot
 
@@ -7,20 +6,23 @@ class utensils.Triggerable
     @data = if data then data else @el.data()
     @options()
     @initialize()
-    @addListeners() unless @data.trigger == 'manual'
+    @addListeners() unless @data.trigger is 'manual'
+
 
   options: ->
-    @data.namespace = @data.namespace || 'triggerable'
-    @data.trigger = @data.trigger || 'click'
+    @data.namespace ?= 'triggerable'
+    @data.trigger ?= 'click'
+
 
   initialize: ->
     @dispatcher = @el
     @stop_propagation = false
     @namespace = @data.namespace
-    @trigger_type = @setTriggerEventTypes(@data.trigger)
+    @trigger_type = @setTriggerEventTypes @data.trigger
     @setDelay() if @data.delay
     @is_active = false
-    @is_disabled = @dispatcher.is('.disabled, :disabled')
+    @is_disabled = @dispatcher.is '.disabled, :disabled'
+
 
 # PUBLIC #
 
@@ -28,72 +30,84 @@ class utensils.Triggerable
     return if @is_disabled
     e?.preventDefault() unless @data.bubble
     e?.stopPropagation() if @stop_propagation
-    if @is_active then @setDeactivate(e) else @setActivate(e)
+    if @is_active then @setDeactivate e else @setActivate e
+
 
   activate: (e) ->
     return if @is_disabled
     @clearTimeout()
     @is_active = true
-    @dispatcher.trigger('triggerable:trigger', e.target)
-    @dispatcher.trigger('triggerable:activate', e.target)
+    @dispatcher.trigger 'triggerable:trigger', e.target
+    @dispatcher.trigger 'triggerable:activate', e.target
+
 
   deactivate: (e) ->
     return if @is_disabled
     @clearTimeout()
     @is_active = false
-    @dispatcher.trigger('triggerable:trigger', e.target)
-    @dispatcher.trigger('triggerable:deactivate', e.target)
+    @dispatcher.trigger 'triggerable:trigger', e.target
+    @dispatcher.trigger 'triggerable:deactivate', e.target
+
 
   dispose: ->
     @clearTimeout()
-    @removeListeners() unless @trigger_type.on == 'manual'
+    @removeListeners() unless @trigger_type.on is 'manual'
+
 
 # PROTECTED #
 
   addListeners: ->
-    if @trigger_type.on == @trigger_type.off
-      @dispatcher.on(@trigger_type.on, => @toggle arguments...)
+    if @trigger_type.on is @trigger_type.off
+      @dispatcher.on @trigger_type.on, => @toggle arguments...
     else
-      @dispatcher.on(@trigger_type.on, => @setActivate arguments...)
-      @dispatcher.on(@trigger_type.off, => @setDeactivate arguments...)
+      @dispatcher.on @trigger_type.on, => @setActivate arguments...
+      @dispatcher.on @trigger_type.off, => @setDeactivate arguments...
+
 
   removeListeners: ->
-    @dispatcher.off(@trigger_type.on)
-    @dispatcher.off(@trigger_type.off) unless @trigger_type.on == @trigger_type.off
+    @dispatcher.off @trigger_type.on
+    @dispatcher.off @trigger_type.off unless @trigger_type.on is @trigger_type.off
+
 
   setActivate: (e) ->
-    @activate(e)
+    @activate e
+
 
   setDeactivate: (e) ->
-    @deactivate(e)
+    @deactivate e
+
 
   activateWithDelay: (e) ->
     @clearTimeout()
     @timeout = setTimeout(( => @activate(e)), @delay.activate)
 
+
   deactivateWithDelay: (e) ->
     @clearTimeout()
     @timeout = setTimeout(( => @deactivate(e)), @delay.deactivate)
 
+
 # INTERNAL #
 
   setDelay: ->
-    @delay = new utensils.Timeslot().getTimeslotFromData(@data.delay)
+    @delay = new utensils.Timeslot().getTimeslotFromData @data.delay
     @timeout = null
-    @setActivate = @activateWithDelay unless @delay.activate == 0
-    @setDeactivate = @deactivateWithDelay unless @delay.deactivate == 0
+    @setActivate = @activateWithDelay unless @delay.activate is 0
+    @setDeactivate = @deactivateWithDelay unless @delay.deactivate is 0
+
 
   setTriggerEventTypes: (type) ->
-    if type == 'hover'
+    if type is 'hover'
       return on:"mouseenter.#{@namespace} focus.#{@namespace}", off:"mouseleave.#{@namespace} blur.#{@namespace}"
-    else if type == 'focus'
+    else if type is 'focus'
       return on:"focus.#{@namespace}", off:"blur.#{@namespace}"
-    else if type == 'manual'
+    else if type is 'manual'
       return on:type, off:type
     else
       return on:"#{type}.#{@namespace}", off:"#{type}.#{@namespace}"
 
+
   clearTimeout: ->
-    clearTimeout(@timeout) if @timeout
+    clearTimeout @timeout if @timeout
     @timeout = null
 

@@ -1,4 +1,3 @@
-
 #= require utensils/dismiss
 
 describe 'Dismiss', ->

@@ -1,4 +1,3 @@
-
 #= require utensils/utensils
 
 class utensils.Bindable
@@ -13,16 +12,16 @@ class utensils.Bindable
 
 
   getRefs: ->
-    $(bindable).data(@instanceKey) for bindable in @bindables
+    $(bindable).data @instanceKey for bindable in @bindables
 
 
   dispose: ->
     for bindable in @bindables
       bindable = $(bindable)
-      if instance = bindable.data(@instanceKey)
+      if instance = bindable.data @instanceKey
         instance.release() if typeof instance?.release is 'function'
         instance.dispose() if typeof instance?.dispose is 'function'
-        bindable.data(@instanceKey, null)
+        bindable.data @instanceKey, null
 
     delete @bindables
     @bindables = []
@@ -35,9 +34,9 @@ class utensils.Bindable
 
   bind: (el, dataKey=@dataKey) ->
     el = $(el)
-    key = el.data(dataKey)
-    if _class = @constructor.getClass(key)
-      el.data( @instanceKey, new _class(el) ) unless el.data(@instanceKey)
+    key = el.data dataKey
+    if _class = @constructor.getClass key
+      el.data(@instanceKey, new _class(el)) unless el.data @instanceKey
     else
       console?.error "Bindable for key: #{key} not found in Bindable.registry for instance", el
 
@@ -48,7 +47,6 @@ class utensils.Bindable
 
   @register: (key, klass) ->
     @registry ?= {}
-    @registry[key] = { class: klass }
+    @registry[key] = {class: klass}
     return null
-
 

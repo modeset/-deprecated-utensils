@@ -1,4 +1,3 @@
-
 #= require utensils/directional
 
 describe 'Directional', ->

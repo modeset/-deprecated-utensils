@@ -1,4 +1,3 @@
-
 #= require utensils/beacon
 
 describe 'Beacon', ->
@@ -10,13 +9,11 @@ describe 'Beacon', ->
       @event = e
       @element = $(element)
 
-    # loadFixtures('beacon')
-    data = {
+    data =
       index: 1
       total: 4
       duration: 50
       continuous: true
-    }
 
     @dom = $('#jasmine-fixtures')
     @window = $(window)
@@ -116,6 +113,15 @@ describe 'Beacon', ->
       @beacon.tick()
       @beacon.tick()
       expect(@beacon.index).toEqual(2)
+
+
+  describe '#finish', ->
+    it 'dispatches a "finished" event when the beacon index has reached the total', ->
+      spyEvent = spyOn(@beacon, 'send')
+      @beacon.tick()
+      @beacon.tick()
+      @beacon.ticked()
+      expect(spyEvent).toHaveBeenCalledWith('finished')
 
 
   describe '#dispose', ->

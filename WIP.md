@@ -2,13 +2,10 @@
 # Todo
 
 ## WIP
-- Add dispatching for `transition.start` events
-- Behavior classes should dispatch events
 - Tool similar to the demo (remove and add classes on a few items)
 - Fine tune styles with utensils documentation
 - Finish remaining demos
 - Should events have more of a namespace to avoid collisions?
-- Another run through the behavior classes
 - FPO images should be local instead of a service?
 - Clean up templates (upgrade, flash notification)
 - Media queries
@@ -23,7 +20,7 @@
 - Jasmine rice loading fixtures from app instead of
   `/spec/javascripts/fixtures`
 - Need to figure out a way for the Directional tests to be more stable
-  when there are other failures
+  when there are other failures, or within smaller windows (see demo)
 
 ## Utensils Roadmap
 - Indicator

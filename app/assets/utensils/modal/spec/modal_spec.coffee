@@ -1,4 +1,3 @@
-
 #= require utensils/modal
 #= require utensils/detect
 

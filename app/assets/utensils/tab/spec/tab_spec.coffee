@@ -1,4 +1,3 @@
-
 #= require utensils/tab
 
 describe 'Tab', ->

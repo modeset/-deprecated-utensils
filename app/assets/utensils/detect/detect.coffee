@@ -1,4 +1,3 @@
-
 #= require utensils/utensils
 
 class utensils.Detect

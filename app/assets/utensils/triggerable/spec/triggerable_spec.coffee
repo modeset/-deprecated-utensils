@@ -1,4 +1,3 @@
-
 #= require utensils/triggerable
 
 describe 'Triggerable', ->

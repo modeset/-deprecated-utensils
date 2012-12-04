@@ -1,4 +1,3 @@
-
 #= require utensils/bindable
 
 class MockClass

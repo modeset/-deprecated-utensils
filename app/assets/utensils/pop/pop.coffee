@@ -1,4 +1,3 @@
-
 #= require utensils/utensils
 #= require utensils/bindable
 #= require utensils/triggerable
@@ -14,13 +13,15 @@ class utensils.Pop
     @addListeners()
     @activate() if @data.activate
 
+
   options: ->
-    @data.namespace = @data.namespace || 'pop'
-    @data.toggle = @data.toggle || 'active in'
-    @data.placement = @data.placement || 'north'
-    @data.title = @data.title || @el.attr('title') || ''
-    @data.content = @data.content || ''
-    @data.effect = @data.effect || 'fade'
+    @data.namespace ?= 'pop'
+    @data.toggle ?= 'active in'
+    @data.placement ?= 'north'
+    @data.title = @data.title ? @el.attr('title') ? ''
+    @data.content ?= ''
+    @data.effect ?= 'fade'
+
 
   initialize: ->
     @pop = null
@@ -32,24 +33,29 @@ class utensils.Pop
     @title = @data.title
     @content = @data.content
     @effect = @data.effect
-    @triggerable = new utensils.Triggerable(@el, @data)
-    @el.attr('title', '')
+    @triggerable = new utensils.Triggerable @el, @data
+    @el.attr 'title', ''
+
 
   setup: ->
     @initialized = true
-    @directional = new utensils.Directional(null, @el, @placement)
+    @directional = new utensils.Directional null, @el, @placement
     @cardinals = @directional.getCardinals()
+
 
 # PUBLIC #
 
   toggle: ->
-    @triggerable.toggle(target: @el)
+    @triggerable.toggle target: @el
+
 
   activate: ->
-    @triggerable.activate(target: @el)
+    @triggerable.activate target: @el
+
 
   deactivate: ->
-    @triggerable.deactivate(target: @el)
+    @triggerable.deactivate target: @el
+
 
   dispose: ->
     return unless @triggerable
@@ -59,50 +65,56 @@ class utensils.Pop
     @directional = null if @directional
     @remove()
 
+
 # PROTECTED #
 
   addListeners: ->
-    @triggerable.dispatcher.on('triggerable:activate', => @activated arguments...)
-    @triggerable.dispatcher.on('triggerable:deactivate', => @deactivated arguments...)
+    @triggerable.dispatcher.on 'triggerable:activate', => @activated arguments...
+    @triggerable.dispatcher.on 'triggerable:deactivate', => @deactivated arguments...
+
 
   removeListeners: ->
-    @el.off("#{@namespace}:activated #{@namespace}:deactivated")
-    @triggerable.dispatcher.off('triggerable:activate')
-    @triggerable.dispatcher.off('triggerable:deactivate')
+    @el.off "#{@namespace}:activated #{@namespace}:deactivated"
+    @triggerable.dispatcher.off 'triggerable:activate triggerable:deactivate'
+
 
   activated: (e) ->
     @setup() unless @initialized
     @remove()
-    @cached_markup = @cached_markup || @findMarkup()
+    @cached_markup ?= @findMarkup()
     @add()
-    @el.addClass('selected')
-    @el.trigger("#{@namespace}:activated", @el)
+    @el.addClass 'selected'
+    @el.trigger "#{@namespace}:activated", @el
+
 
   deactivated: (e) ->
     @setup() unless @initialized
     if @pop && utensils.Detect.hasTransition
-      @pop.one(utensils.Detect.transition.end, => @remove arguments...)
-      @pop.removeClass(@toggle_classes)
+      @pop.one utensils.Detect.transition.end, => @remove arguments...
+      @pop.removeClass @toggle_classes
     else
       @remove()
-    @el.removeClass('selected')
-    @el.trigger("#{@namespace}:deactivated", @el)
+    @el.removeClass 'selected'
+    @el.trigger "#{@namespace}:deactivated", @el
+
 
   add: ->
     @setup() unless @initialized
     @pop = @cached_markup
-    @container = @container || $('body')
-    @pop.appendTo(@container)
-    @directional.setElement(@pop)
+    @container ?= $('body')
+    @pop.appendTo @container
+    @directional.setElement @pop
     position = @directional.getPlacementAndConstrain()
-    @pop.removeClass(@cardinals).addClass(position.cardinal)
-    @pop.css({top: position.top, left: position.left})
-    @pop.addClass(@toggle_classes)
+    @pop.removeClass(@cardinals).addClass position.cardinal
+    @pop.css {top: position.top, left: position.left}
+    @pop.addClass @toggle_classes
+
 
   remove: ->
     if @pop
       @pop.remove()
       @pop = null
+
 
   render: ->
     html = """
@@ -118,20 +130,21 @@ class utensils.Pop
            """
     return $(html)
 
+
 # INTERNAL #
 
   findMarkup: ->
     pop_markup = ''
     if @is_tip_like
       pop_markup = @render()
-      if @title == ''
+      if @title is ''
         pop_markup.find('.pop-header').remove()
-        pop_markup.addClass('pop-no-header')
+        pop_markup.addClass 'pop-no-header'
     else
-      target = $(@el.data('target') || @el.attr('href'))
+      target = $(@el.data('target') or @el.attr('href'))
       pop_markup = $(target.html())
       target.remove()
     return pop_markup
 
-utensils.Bindable.register('pop', utensils.Pop)
+utensils.Bindable.register 'pop', utensils.Pop
 

@@ -1,4 +1,3 @@
-
 #= require utensils/utensils
 
 class utensils.Directional
@@ -9,44 +8,47 @@ class utensils.Directional
     @setElement(element) if element
     @setContainer(container) if container
 
+
   setElement: (@element) ->
   setContainer: (@container) ->
   setCardinal: (@cardinal) ->
   getCardinals: -> @cardinals
 
+
   getPlacementAndConstrain: ->
-    default_position = @getPlacementFromCardinal()
-    return @constrainToViewport(default_position)
+    @constrainToViewport @getPlacementFromCardinal()
+
 
   getPlacementFromCardinal: (cardinal=@cardinal) ->
-    ed = @getDimensions(@element)
-    cd = @getDimensions(@container)
+    ed = @getDimensions @element
+    cd = @getDimensions @container
 
-    if cardinal == 'north'
+    if cardinal is 'north'
       return {
         cardinal: 'north'
         top: Math.round(cd.top - ed.height)
         left: Math.round(cd.left + cd.width * 0.5 - ed.width * 0.5)
       }
-    else if cardinal == 'south'
+    else if cardinal is 'south'
       return {
         cardinal: 'south'
         top: Math.round(cd.top + cd.height)
         left: Math.round(cd.left + cd.width * 0.5 - ed.width * 0.5)
       }
-    else if cardinal == 'east'
+    else if cardinal is 'east'
       return {
         cardinal: 'east'
         top: Math.round(cd.top + cd.height * 0.5 - ed.height * 0.5)
         left: Math.round(cd.left + cd.width)
       }
-    else if cardinal == 'west'
+    else if cardinal is 'west'
       return {
         cardinal: 'west'
         top: Math.round(cd.top + cd.height * 0.5 - ed.height * 0.5)
         left: Math.round(cd.left - ed.width)
       }
     return {cardinal: cardinal, top:0, left:0}
+
 
   constrainToViewport: (position) ->
     wt = @win.scrollTop()
@@ -65,6 +67,7 @@ class utensils.Directional
     if (position.left < wl)
       return @getPlacementFromCardinal('east')
     return position
+
 
   getDimensions: (element) ->
     eo = element.offset()
