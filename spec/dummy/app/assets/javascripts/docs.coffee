@@ -4,7 +4,7 @@
 
 class docomo.Docs extends docomo.Docomo
   constructor: ($, @el) ->
-    super($, @el)
+    super $, @el
 
 
   initialize: ->
@@ -38,9 +38,9 @@ class docomo.Docs extends docomo.Docomo
   toggleSpecs: ->
     @spec_template ?= @templSpec()
     if @spec_frame
-      @spec_frame.remove() && @spec_frame = null
+      @spec_frame.remove() and @spec_frame = null
     else
-      @spec_frame = @spec_template.appendTo(@el)
+      @spec_frame = @spec_template.appendTo @el
 
 
 # UTENSIL DEMOS #
