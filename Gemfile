@@ -7,5 +7,6 @@ gemspec
 
 # Used by the dummy application
 gem 'docomo', git: 'git@github.com:modeset/docomo.git'
+# gem 'docomo', path: '../docomo'
 gem 'rails', '>= 3.2.5'
 gem 'jasminerice'
