@@ -102,6 +102,9 @@
           <a href='#form_search'>Form Search</a>
         </li>
         <li>
+          <a href='#form_stack'>Form Stack</a>
+        </li>
+        <li>
           <a href='#icon_caret'>Icon Caret</a>
         </li>
         <li>
@@ -3776,6 +3779,166 @@ inherit the top and bottom <code>padding</code> of the input element.</p>
 <ul>
 <li><strong>Heads Up!</strong> Requires the <code>form_controls</code> utensil.</li>
 </ul></section>
+      <a name='form_stack'></a>
+      <section class='docomo-section'><h1>Form Stack</h1>
+
+<p>Utilize the <code>.form-stack</code> class on the <code>form</code> element to create a
+form stack styled form. Supports control labels as well.</p>
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/form_stack/form_stack</span>
+</pre></div>
+<h2>Usage Example</h2>
+
+<p><div class="docomo-showcase"><form class='form-stack sherpa-clearfix' role='form'>
+  <fieldset class='sherpa-split-pull'>
+    <legend>Common input controls</legend>
+    <div class='control-group'>
+      <label>Text</label>
+      <div class='controls'>
+        <input placeholder='text' type='text' />
+      </div>
+    </div>
+    <div class='control-group'>
+      <label>Email</label>
+      <div class='controls'>
+        <input placeholder='name@example.com' type='email' />
+      </div>
+    </div>
+    <div class='control-group'>
+      <label>Password</label>
+      <div class='controls'>
+        <input placeholder='password' type='password' />
+      </div>
+    </div>
+    <div class='control-group'>
+      <label>URL</label>
+      <div class='controls'>
+        <input placeholder='www.example.com' type='url' />
+      </div>
+    </div>
+    <div class='control-group'>
+      <label>Tel</label>
+      <div class='controls'>
+        <input placeholder='303-867-5309' type='tel' />
+      </div>
+    </div>
+    <div class='control-group'>
+      <label>Search</label>
+      <div class='controls'>
+        <input placeholder='search' type='search' />
+      </div>
+    </div>
+    <div class='control-group'>
+      <label>Date</label>
+      <div class='controls'>
+        <input placeholder='date' type='date' />
+      </div>
+    </div>
+    <div class='control-group'>
+      <label>Number</label>
+      <div class='controls'>
+        <input max='10' min='0' placeholder='number' type='number' />
+      </div>
+    </div>
+  </fieldset>
+  <fieldset class='sherpa-split-push'>
+    <legend>Less common input controls</legend>
+    <div class='control-group'>
+      <label>Datetime</label>
+      <div class='controls'>
+        <input placeholder='datetime' type='datetime' />
+      </div>
+    </div>
+    <div class='control-group'>
+      <label>Datetime Local</label>
+      <div class='controls'>
+        <input placeholder='datetime-local' type='datetime-local' />
+      </div>
+    </div>
+    <div class='control-group'>
+      <label>Time</label>
+      <div class='controls'>
+        <input placeholder='time' type='time' />
+      </div>
+    </div>
+    <div class='control-group'>
+      <label>Month</label>
+      <div class='controls'>
+        <input placeholder='month' type='month' />
+      </div>
+    </div>
+    <div class='control-group'>
+      <label>Week</label>
+      <div class='controls'>
+        <input placeholder='week' type='week' />
+      </div>
+    </div>
+  </fieldset>
+</form>
+</div><div class="highlight"><pre><span class="nt">%form</span><span class="nc">.form-stack.sherpa-clearfix</span>(<span class="na">role=</span><span class="s">&quot;form&quot;</span>)
+  <span class="nt">%fieldset</span><span class="nc">.sherpa-split-pull</span>
+    <span class="nt">%legend</span> Common input controls
+    <span class="nc">.control-group</span>
+      <span class="nt">%label</span> Text
+      <span class="nc">.controls</span>
+        <span class="nt">%input</span>(<span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">placeholder=</span><span class="s">&quot;text&quot;</span>)
+    <span class="nc">.control-group</span>
+      <span class="nt">%label</span> Email
+      <span class="nc">.controls</span>
+        <span class="nt">%input</span>(<span class="na">type=</span><span class="s">&quot;email&quot;</span> <span class="na">placeholder=</span><span class="s">&quot;name@example.com&quot;</span>)
+    <span class="nc">.control-group</span>
+      <span class="nt">%label</span> Password
+      <span class="nc">.controls</span>
+        <span class="nt">%input</span>(<span class="na">type=</span><span class="s">&quot;password&quot;</span> <span class="na">placeholder=</span><span class="s">&quot;password&quot;</span>)
+    <span class="nc">.control-group</span>
+      <span class="nt">%label</span> URL
+      <span class="nc">.controls</span>
+        <span class="nt">%input</span>(<span class="na">type=</span><span class="s">&quot;url&quot;</span> <span class="na">placeholder=</span><span class="s">&quot;www.example.com&quot;</span>)
+    <span class="nc">.control-group</span>
+      <span class="nt">%label</span> Tel
+      <span class="nc">.controls</span>
+        <span class="nt">%input</span>(<span class="na">type=</span><span class="s">&quot;tel&quot;</span> <span class="na">placeholder=</span><span class="s">&quot;303-867-5309&quot;</span>)
+    <span class="nc">.control-group</span>
+      <span class="nt">%label</span> Search
+      <span class="nc">.controls</span>
+        <span class="nt">%input</span>(<span class="na">type=</span><span class="s">&quot;search&quot;</span> <span class="na">placeholder=</span><span class="s">&quot;search&quot;</span>)
+    <span class="nc">.control-group</span>
+      <span class="nt">%label</span> Date
+      <span class="nc">.controls</span>
+        <span class="nt">%input</span>(<span class="na">type=</span><span class="s">&quot;date&quot;</span> <span class="na">placeholder=</span><span class="s">&quot;date&quot;</span>)
+    <span class="nc">.control-group</span>
+      <span class="nt">%label</span> Number
+      <span class="nc">.controls</span>
+        <span class="nt">%input</span>(<span class="na">type=</span><span class="s">&quot;number&quot;</span> <span class="na">placeholder=</span><span class="s">&quot;number&quot;</span> <span class="na">max=</span><span class="s">&quot;10&quot;</span> <span class="na">min=</span><span class="s">&quot;0&quot;</span>)
+
+  <span class="nt">%fieldset</span><span class="nc">.sherpa-split-push</span>
+    <span class="nt">%legend</span> Less common input controls
+    <span class="nc">.control-group</span>
+      <span class="nt">%label</span> Datetime
+      <span class="nc">.controls</span>
+        <span class="nt">%input</span>(<span class="na">type=</span><span class="s">&quot;datetime&quot;</span> <span class="na">placeholder=</span><span class="s">&quot;datetime&quot;</span>)
+    <span class="nc">.control-group</span>
+      <span class="nt">%label</span> Datetime Local
+      <span class="nc">.controls</span>
+        <span class="nt">%input</span>(<span class="na">type=</span><span class="s">&quot;datetime-local&quot;</span> <span class="na">placeholder=</span><span class="s">&quot;datetime-local&quot;</span>)
+    <span class="nc">.control-group</span>
+      <span class="nt">%label</span> Time
+      <span class="nc">.controls</span>
+        <span class="nt">%input</span>(<span class="na">type=</span><span class="s">&quot;time&quot;</span> <span class="na">placeholder=</span><span class="s">&quot;time&quot;</span>)
+    <span class="nc">.control-group</span>
+      <span class="nt">%label</span> Month
+      <span class="nc">.controls</span>
+        <span class="nt">%input</span>(<span class="na">type=</span><span class="s">&quot;month&quot;</span> <span class="na">placeholder=</span><span class="s">&quot;month&quot;</span>)
+    <span class="nc">.control-group</span>
+      <span class="nt">%label</span> Week
+      <span class="nc">.controls</span>
+        <span class="nt">%input</span>(<span class="na">type=</span><span class="s">&quot;week&quot;</span> <span class="na">placeholder=</span><span class="s">&quot;week&quot;</span>)
+</pre></div></p>
+
+<h6>Notes</h6>
+
+<ul>
+<li><strong>Heads Up!</strong> Requires the <code>form_controls</code> utensil.</li>
+</ul></section>
       <a name='icon_caret'></a>
       <section class='docomo-section'><h1>Icon Caret</h1>
 
@@ -4005,32 +4168,32 @@ and styles.</p>
 </tbody></table></section>
       <a name='image_crop'></a>
       <section class='docomo-section'>
-                                                                <h1>ImageCrop</h1>
-                                                                
-                                                                <p>An object that keeps track of an image&#39;s original size, it&#39;s container&#39;s
-                                                                size, and gives you the ability to set different crop modes on the
-                                                                image.</p>
-                                                              </section>
+                                                                  <h1>ImageCrop</h1>
+                                                                  
+                                                                  <p>An object that keeps track of an image&#39;s original size, it&#39;s container&#39;s
+                                                                  size, and gives you the ability to set different crop modes on the
+                                                                  image.</p>
+                                                                </section>
       <a name='image_util'></a>
       <section class='docomo-section'>
-                                                                <h1>ImageUtil</h1>
-                                                                
-                                                                <p>A collection of image loading and resizing helper methods</p>
-                                                              </section>
+                                                                  <h1>ImageUtil</h1>
+                                                                  
+                                                                  <p>A collection of image loading and resizing helper methods</p>
+                                                                </section>
       <a name='math_util'></a>
       <section class='docomo-section'>
-                                                                <h1>MathUtil</h1>
-                                                                
-                                                                <p>A collection of utility math functions</p>
-                                                                
-                                                                <h2>Todo:</h2>
-                                                                
-                                                                <ul>
-                                                                <li>Import all MathUtil methods</li>
-                                                                <li>Port specs from ModeSet.js</li>
-                                                                <li>Document this</li>
-                                                                </ul>
-                                                              </section>
+                                                                  <h1>MathUtil</h1>
+                                                                  
+                                                                  <p>A collection of utility math functions</p>
+                                                                  
+                                                                  <h2>Todo:</h2>
+                                                                  
+                                                                  <ul>
+                                                                  <li>Import all MathUtil methods</li>
+                                                                  <li>Port specs from ModeSet.js</li>
+                                                                  <li>Document this</li>
+                                                                  </ul>
+                                                                </section>
       <a name='media_grid'></a>
       <section class='docomo-section'><h1>Media Grid</h1>
 
@@ -7799,19 +7962,19 @@ parameter. This is done to ensure scope is transferred correctly and for
 a quicker lookup from the class utilizing a <code>ToggleGroup</code> instance.</p></section>
       <a name='touch_scroller'></a>
       <section class='docomo-section'>
-                                                                                                                  <h1>Touch Scroller</h1>
-                                                                                                                  
-                                                                                                                  <p>Describe this.</p>
-                                                                                                                  
-                                                                                                                  <h2>Todo</h2>
-                                                                                                                  
-                                                                                                                  <ul>
-                                                                                                                  <li>Check with JG on the js port</li>
-                                                                                                                  <li>Check with JG on the style port</li>
-                                                                                                                  <li>Test</li>
-                                                                                                                  <li>Document</li>
-                                                                                                                  </ul>
-                                                                                                                </section>
+                                                                                                                    <h1>Touch Scroller</h1>
+                                                                                                                    
+                                                                                                                    <p>Describe this.</p>
+                                                                                                                    
+                                                                                                                    <h2>Todo</h2>
+                                                                                                                    
+                                                                                                                    <ul>
+                                                                                                                    <li>Check with JG on the js port</li>
+                                                                                                                    <li>Check with JG on the style port</li>
+                                                                                                                    <li>Test</li>
+                                                                                                                    <li>Document</li>
+                                                                                                                    </ul>
+                                                                                                                  </section>
       <a name='touch_tracker'></a>
       <section class='docomo-section'><h1>MouseAndTouchTracker</h1>
 
