@@ -1,4 +1,3 @@
-
 #= require utensils/progress
 
 describe 'Progress', ->

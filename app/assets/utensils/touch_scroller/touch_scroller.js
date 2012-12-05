@@ -1,4 +1,3 @@
-
 //= require utensils/utensils
 //= require utensils/touch_tracker
 //= require utensils/css_helper

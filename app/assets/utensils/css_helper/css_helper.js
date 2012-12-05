@@ -1,4 +1,3 @@
-
 //= require utensils/utensils
 
 utensils.CSSHelper = function() {

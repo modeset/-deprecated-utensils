@@ -1,4 +1,3 @@
-
 # Decal
 Decals are used to <span class="decal important">POP</span> information
 in a block of text.  They are typically used with inline elements. The
