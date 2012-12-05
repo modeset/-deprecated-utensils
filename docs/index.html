@@ -229,9 +229,7 @@
 
 <p>Base styles for rendering accordion elements. Accordions can be used
 with either the <code>Toggle</code>, <code>ToggleGroup</code> or <code>Collapse</code> behaviors.</p>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/collapse/collapse</span>
-<span class="k">@import</span> <span class="s">utensils/accordion/accordion</span>
-</pre></div>
+
 <p><div class="docomo-showcase"><section class='accordion-group' role='tablist'>
   <a class='accordion-toggle' data-bindable='toggle' href='#accordion_single' role='tab'>Single Accordion Element</a>
   <section class='collapse' id='accordion_single' role='tabpanel'>
@@ -480,7 +478,9 @@ laborum.</p>
 </pre></div></p>
 
 <h2>Style Settings</h2>
-
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/collapse/collapse</span>
+<span class="k">@import</span> <span class="s">utensils/accordion/accordion</span>
+</pre></div>
 <p>To override the default settings, set the variable and it&#39;s value
 within your <code>config.sass</code> file or before <code>accordion.sass</code> is loaded.</p>
 
@@ -550,7 +550,7 @@ events once the <code>index</code> value is equal to the <code>total</code> valu
 
 <p>Create a new instance of <code>Beacon</code>, typically used via an instance. </p>
 <div class="highlight"><pre><span class="c1">#= require utensils/beacon</span>
-<span class="vi">@beacon = </span><span class="k">new</span> <span class="nx">utensils</span><span class="p">.</span><span class="nx">Beacon</span><span class="p">(</span><span class="nx">@el</span><span class="p">,</span> <span class="p">{</span><span class="nv">total: </span><span class="mi">5</span><span class="p">,</span> <span class="nv">duration: </span><span class="mi">500</span><span class="p">,</span> <span class="nv">continuous: </span><span class="kc">true</span><span class="p">})</span>
+<span class="vi">@beacon = </span><span class="k">new</span> <span class="nx">utensils</span><span class="p">.</span><span class="nx">Beacon</span> <span class="nx">@el</span><span class="p">,</span> <span class="p">{</span><span class="nv">total: </span><span class="mi">5</span><span class="p">,</span> <span class="nv">duration: </span><span class="mi">500</span><span class="p">,</span> <span class="nv">continuous: </span><span class="kc">true</span><span class="p">}</span>
 </pre></div>
 <h3>#start</h3>
 
@@ -607,7 +607,7 @@ converted to a <code>$</code> object.</p>
   <span class="c1"># make some magic</span>
 
 <span class="c1"># register with Bindable</span>
-<span class="nx">utensils</span><span class="p">.</span><span class="nx">Bindable</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="s">&#39;mocker&#39;</span><span class="p">,</span> <span class="nx">utensils</span><span class="p">.</span><span class="nx">MockClass</span><span class="p">)</span>
+<span class="nx">utensils</span><span class="p">.</span><span class="nx">Bindable</span><span class="p">.</span><span class="nx">register</span> <span class="s">&#39;mocker&#39;</span><span class="p">,</span> <span class="nx">utensils</span><span class="p">.</span><span class="nx">MockClass</span>
 </pre></div>
 <p>As markup instantiating a class that is registered with <code>Bindable</code>:</p>
 <div class="highlight"><pre><span class="nt">%a</span><span class="nc">.mock</span>(<span class="na">data-bindable=</span><span class="s">&quot;mocker&quot;</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span>) Binded to MockClass
@@ -621,11 +621,8 @@ bootstrap file)</p>
 <h2>API</h2>
 
 <h3>Requires</h3>
-
-<ul>
-<li><code>utensils/utensils</code></li>
-</ul>
-
+<div class="highlight"><pre><span class="nx">utensils</span><span class="o">/</span><span class="nx">utensils</span>
+</pre></div>
 <h2>Todo</h2>
 
 <ul>
@@ -641,9 +638,6 @@ references to nested sections within the application. The links generate
 a divider after their content. This is configurable from the
 <code>$breadcrumb-divider-content</code> variable. The list should contain the
 <code>.nav</code> class.</p>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/breadcrumb/breadcrumb</span>
-</pre></div>
-<h2>Usage Example</h2>
 
 <p><div class="docomo-showcase"><nav role='navigation'>
   <ol class='nav breadcrumb' data-bindable='toggle-group'>
@@ -666,7 +660,8 @@ a divider after their content. This is configurable from the
 </pre></div></p>
 
 <h2>Style Settings</h2>
-
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/breadcrumb/breadcrumb</span>
+</pre></div>
 <p>To override the default settings, set the variable and it&#39;s value
 within your <code>config.sass</code> file or before <code>breadcrumb.sass</code> is loaded.</p>
 
@@ -726,9 +721,6 @@ Build them with a series of <code>&lt;a&gt;</code> or <code>&lt;button&gt;</code
 
 <p>Building off of the button group concept, combine multiple <code>.button-group</code>
 elements under a <code>.button-toolbar</code> container to form a navigation system.</p>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/button_group/button_group</span>
-</pre></div>
-<h2>Usage Example</h2>
 
 <p><div class="docomo-showcase"><h5 style='margin-bottom:1em;'>Button Toolbar (radio)</h5>
 <section class='button-toolbar' data-bindable='toggle-button-group' role='navigation'>
@@ -788,14 +780,11 @@ elements under a <code>.button-toolbar</code> container to form a navigation sys
   <span class="nt">%a</span><span class="nc">.btn</span>(<span class="na">href=</span><span class="s">&quot;#&quot;</span>) 4
 </pre></div></p>
 
-<h6>Notes</h6>
-
-<ul>
-<li><strong>Pro Tip!</strong> Button groups and tool bars play great with the <code>ToggleButtonGroup</code> behavior</li>
-</ul>
+<p><strong>Pro Tip!</strong> Button groups and tool bars play great with the <code>ToggleGroup</code> behavior</p>
 
 <h2>Style Settings</h2>
-
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/button_group/button_group</span>
+</pre></div>
 <p>To override the default settings, set the variable and it&#39;s value
 within your <code>config.sass</code> file or before <code>button_group.sass</code> is loaded.</p>
 
@@ -818,9 +807,6 @@ within your <code>config.sass</code> file or before <code>button_group.sass</cod
 <p>A set of modifier classes which can be added to any button, regardless
 of their base class, to adjust various aspects around a button&#39;s display
 type, sizing, or positioning.</p>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/button_modifiers/button_modifiers</span>
-</pre></div>
-<h2>Usage Examples</h2>
 
 <p><div class="docomo-showcase"><section class='demo' data-remove='btn-xsmall btn-small btn-large btn-xlarge' data-target='.btn'>
   <input class='btn standard' type='submit' value='Submit' />
@@ -897,7 +883,8 @@ type, sizing, or positioning.</p>
 </tbody></table>
 
 <h2>Style Settings</h2>
-
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/button_modifiers/button_modifiers</span>
+</pre></div>
 <p>To override the default settings, set the variable and it&#39;s value
 within your <code>config.sass</code> file or before <code>button_modifiers.sass</code> is loaded.</p>
 
@@ -944,9 +931,6 @@ within your <code>config.sass</code> file or before <code>button_modifiers.sass<
 
 <p>A semi-glossy button created via various mixins. By default, no classes
 are added to the style sheet unless told to do so.</p>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/button_semigloss/button_semigloss</span>
-</pre></div>
-<h2>Usage Examples</h2>
 
 <p><div class="docomo-showcase"><section class='demo' data-remove='active error disabled' data-target='.btn'>
   <button class='btn'>Default</button>
@@ -997,6 +981,7 @@ are added to the style sheet unless told to do so.</p>
   <span class="nt">%button</span><span class="nc">.btn</span>(<span class="na">type=</span><span class="s">&quot;submit&quot;</span>) Button
   <span class="nt">%input</span><span class="nc">.btn</span>(<span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">value=</span><span class="s">&quot;Input&quot;</span>)
   <span class="nt">%input</span><span class="nc">.btn</span>(<span class="na">type=</span><span class="s">&quot;submit&quot;</span> <span class="na">value=</span><span class="s">&quot;Submit&quot;</span>)
+</pre></div><div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/button_semigloss/button_semigloss</span>
 </pre></div>
 <h2>Options</h2>
 
@@ -1169,10 +1154,6 @@ default this is set to <code>false</code> so no buttons are created.</p>
       <section class='docomo-section'><h1>Carousel</h1>
 
 <p>The base carousel.</p>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/carousel/carousel</span>
-</pre></div><div class="highlight"><pre>data-bindable=&quot;carousel&quot;
-</pre></div>
-<h2>Usage Example</h2>
 
 <p><div class="docomo-showcase"><section class='carousel' data-autoplay='false' data-bindable='carousel' data-cycles='1' data-duration='1' data-keyboard='true' role='presentation'>
   <nav class='carousel-controls'>
@@ -1269,19 +1250,21 @@ default this is set to <code>false</code> so no buttons are created.</p>
 </tr>
 </tbody></table>
 
-<p>When utilizing paddle buttons, the <code>href</code> attribute is used to determine
+<p><strong>Heads Up!</strong> When utilizing paddle buttons, the <code>href</code> attribute is used to determine
 which method to call when clicked (i.e. <code>#next</code> or <code>#prev</code>).</p>
 
 <p>When set to <code>auto play</code>, <code>Carousel</code> will instantiate a <code>Beacon</code> object
 for time management.</p>
 
 <h2>API</h2>
-
+<div class="highlight"><pre><span class="c1">#= require utensils/carousel</span>
+</pre></div><div class="highlight"><pre>data-bindable=&quot;carousel&quot;
+</pre></div>
 <h3>#new</h3>
 
 <p>Create a new instance of <code>Carousel</code>, typically used via <code>Bindable</code>. </p>
 <div class="highlight"><pre><span class="c1">#= require utensils/carousel</span>
-<span class="vi">@carousel = </span><span class="k">new</span> <span class="nx">utensils</span><span class="p">.</span><span class="nx">Carousel</span><span class="p">(</span><span class="nx">@el</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s">&#39;.carousel&#39;</span><span class="p">))</span>
+<span class="vi">@carousel = </span><span class="k">new</span> <span class="nx">utensils</span><span class="p">.</span><span class="nx">Carousel</span> <span class="nx">@el</span><span class="p">.</span><span class="nx">find</span> <span class="s">&#39;.carousel&#39;</span>
 </pre></div>
 <h3>#next</h3>
 
@@ -1297,7 +1280,7 @@ for time management.</p>
 
 <p>Jump to a given slide based on an index, dispatches a
 <code>carousel:activated</code> event.</p>
-<div class="highlight"><pre><span class="nx">@carousel</span><span class="p">.</span><span class="nx">activate</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight"><pre><span class="nx">@carousel</span><span class="p">.</span><span class="nx">activate</span> <span class="mi">2</span>
 </pre></div>
 <h3>#pause</h3>
 
@@ -1317,7 +1300,8 @@ for time management.</p>
 <div class="highlight"><pre><span class="nx">@carousel</span><span class="p">.</span><span class="nx">dispose</span><span class="p">()</span>
 </pre></div>
 <h2>Style Settings</h2>
-
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/carousel/carousel</span>
+</pre></div>
 <p>To override the default settings, set the variable and it&#39;s value
 within your <code>config.sass</code> file or before <code>carousel.sass</code> is loaded.</p>
 
@@ -1341,8 +1325,6 @@ structure. See <code>Paddles</code> for <code>paddle-icon</code> styles.</p></se
       <section class='docomo-section'><h1>Carousel Touch</h1>
 
 <p>Touch me.</p>
-
-<h2>Usage Example</h2>
 
 <p><div class="docomo-showcase"><section class='carousel' data-bindable='carousel-touch' role='presentation'>
   <nav class='carousel-controls'>
@@ -1393,9 +1375,7 @@ structure. See <code>Paddles</code> for <code>paddle-icon</code> styles.</p></se
       <a name='carousel_touch_infinite'></a>
       <section class='docomo-section'><h1>Carousel Touch Infinite</h1>
 
-<p>Touch me.</p>
-
-<h2>Usage Example</h2>
+<p>Touch me infinitely.</p>
 
 <p><div class="docomo-showcase"><section class='carousel' data-bindable='carousel-touch-infinite' role='presentation'>
   <nav class='carousel-controls'>
@@ -1440,7 +1420,6 @@ structure. See <code>Paddles</code> for <code>paddle-icon</code> styles.</p></se
 
 <ul>
 <li>Chat with JG on this port</li>
-<li>Hide the scrollbar?</li>
 <li>Test</li>
 <li>Document</li>
 </ul></section>
@@ -1451,10 +1430,6 @@ structure. See <code>Paddles</code> for <code>paddle-icon</code> styles.</p></se
 navigation system such as an accordion group.</p>
 
 <p>Collapse utilizes either <code>Toggle</code> or <code>ToggleGroup</code> through composition.</p>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/collapse/collapse</span>
-</pre></div><div class="highlight"><pre>data-bindable=&quot;collapse&quot;
-</pre></div>
-<h2>Usage Examples</h2>
 
 <p><div class="docomo-showcase"><a data-bindable='collapse' href='#collapse_height' role='tab'>Single Collapse</a>
 <section class='collapse' id='collapse_height' role='tabpanel'>
@@ -1732,7 +1707,9 @@ instance of <code>Toggle</code> for managing the links state. If <code>type</cod
 <code>group</code>, the <code>ToggleGroup</code> behavior is used.</p>
 
 <h2>API</h2>
-
+<div class="highlight"><pre><span class="c1">#= require utensils/collapse</span>
+</pre></div><div class="highlight"><pre>data-bindable=&quot;collapse&quot;
+</pre></div>
 <h3>#new</h3>
 
 <p>Create a new instance of <code>Collapse</code> programatically, typically this
@@ -1742,48 +1719,36 @@ is instantiated through <code>Bindable</code></p>
 <span class="vi">@collapse_el = </span><span class="nx">$</span><span class="p">(</span><span class="s">&#39;#single&#39;</span><span class="p">)</span>
 <span class="vi">@group_el = </span><span class="nx">$</span><span class="p">(</span><span class="s">&#39;#group_el&#39;</span><span class="p">)</span>
 
-<span class="vi">@collapse = </span><span class="k">new</span> <span class="nx">utensils</span><span class="p">.</span><span class="nx">Collapse</span><span class="p">(</span><span class="nx">@collapse_el</span><span class="p">)</span>
-<span class="vi">@collapse_group = </span><span class="k">new</span> <span class="nx">utensils</span><span class="p">.</span><span class="nx">Collapse</span><span class="p">(</span><span class="nx">@group_el</span><span class="p">)</span>
+<span class="vi">@collapse = </span><span class="k">new</span> <span class="nx">utensils</span><span class="p">.</span><span class="nx">Collapse</span> <span class="nx">@collapse_el</span>
+<span class="vi">@collapse_group = </span><span class="k">new</span> <span class="nx">utensils</span><span class="p">.</span><span class="nx">Collapse</span> <span class="nx">@group_el</span>
 </pre></div>
 <h3>#activate</h3>
 
 <p>Activate can take either an index, element or string as it&#39;s target
 parameter if the <code>type</code> is set to <code>group</code>. Otherwise, no parameter is
-required.</p>
-
-<h5>dispatches:</h5>
-
-<ul>
-<li><code>collapse:activated</code></li>
-</ul>
+required. Dispatches a <code>collapse:activated</code> event.</p>
 <div class="highlight"><pre><span class="c1"># activate on a non-group collapse</span>
 <span class="nx">@collapse</span><span class="p">.</span><span class="nx">activate</span><span class="p">()</span>
 
 <span class="c1"># activate by index on a group</span>
-<span class="nx">@collapse_group</span><span class="p">.</span><span class="nx">activate</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="nx">@collapse_group</span><span class="p">.</span><span class="nx">activate</span> <span class="mi">1</span>
 
 <span class="c1"># activate by element on a group</span>
-<span class="nx">@collapse_group</span><span class="p">.</span><span class="nx">activate</span><span class="p">(</span><span class="nx">@group_el</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s">&#39;li:nth-child(2)&#39;</span><span class="p">))</span>
+<span class="nx">@collapse_group</span><span class="p">.</span><span class="nx">activate</span> <span class="nx">@group_el</span><span class="p">.</span><span class="nx">find</span> <span class="s">&#39;li:nth-child(2)&#39;</span>
 </pre></div>
 <h3>#deactivate</h3>
 
 <p>Deactivate can take either an index, element or string as it&#39;s target
 parameter if the <code>type</code> is set to <code>group</code>. Otherwise, no parameter is
-required.</p>
-
-<h5>dispatches:</h5>
-
-<ul>
-<li><code>collapse:deactivated</code></li>
-</ul>
+required. Dispatches a <code>collapse:deactivated</code> event.</p>
 <div class="highlight"><pre><span class="c1"># deactivate on a non-group collapse</span>
 <span class="nx">@collapse</span><span class="p">.</span><span class="nx">deactivate</span><span class="p">()</span>
 
 <span class="c1"># deactivate by index on a group</span>
-<span class="nx">@collapse_group</span><span class="p">.</span><span class="nx">deactivate</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="nx">@collapse_group</span><span class="p">.</span><span class="nx">deactivate</span> <span class="mi">1</span>
 
 <span class="c1"># deactivate by element on a group</span>
-<span class="nx">@collapse_group</span><span class="p">.</span><span class="nx">deactivate</span><span class="p">(</span><span class="nx">@group_el</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s">&#39;li:nth-child(2)&#39;</span><span class="p">))</span>
+<span class="nx">@collapse_group</span><span class="p">.</span><span class="nx">deactivate</span> <span class="nx">@group_el</span><span class="p">.</span><span class="nx">find</span> <span class="s">&#39;li:nth-child(2)&#39;</span>
 </pre></div>
 <h3>#dispose</h3>
 
@@ -1819,17 +1784,15 @@ it dispatches events around it&#39;s state.</p>
 </tbody></table>
 
 <h3>Requires</h3>
-
-<ul>
-<li><code>utensils/utensils</code></li>
-<li><code>utensils/bindable</code></li>
-<li><code>utensils/detect</code></li>
-<li><code>utensils/toggle</code></li>
-<li><code>utensils/toggle_group</code></li>
-</ul>
-
+<div class="highlight"><pre><span class="nx">utensils</span><span class="o">/</span><span class="nx">utensils</span>
+<span class="nx">utensils</span><span class="o">/</span><span class="nx">bindable</span>
+<span class="nx">utensils</span><span class="o">/</span><span class="nx">detect</span>
+<span class="nx">utensils</span><span class="o">/</span><span class="nx">toggle</span>
+<span class="nx">utensils</span><span class="o">/</span><span class="nx">toggle_group</span>
+</pre></div>
 <h2>Style Settings</h2>
-
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/collapse/collapse</span>
+</pre></div>
 <p>To override the default settings, set the variable and it&#39;s value
 within your <code>config.sass</code> file or before <code>collapse.sass</code> is loaded.</p>
 
@@ -1866,8 +1829,7 @@ to clear any floats from interior elements.</p>
 
 <p>There are a few modifiers which can be applied to the default container
 to affect how it displays contained elements.</p>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/container/container</span>
-</pre></div>
+
 <h2>Usage</h2>
 
 <table><thead>
@@ -1895,7 +1857,8 @@ to affect how it displays contained elements.</p>
 </tbody></table>
 
 <h2>Style Settings</h2>
-
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/container/container</span>
+</pre></div>
 <p>To override the default settings, set the variable and it&#39;s value
 within your <code>config.sass</code> file or before <code>container.sass</code> is loaded.</p>
 
@@ -1922,9 +1885,6 @@ within your <code>config.sass</code> file or before <code>container.sass</code> 
 
 <p>Apply the attribute <code>contenteditable=&quot;true&quot;</code> to a given element,
 allows the user to change it&#39;s contents.</p>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/content_editable/content-editable</span>
-</pre></div>
-<h2>Usage Examples</h2>
 
 <p><div class="docomo-showcase"><h2 contenteditable='true'>Edit Title</h2>
 <p contenteditable='true'>Edit Description</p>
@@ -1933,7 +1893,8 @@ allows the user to change it&#39;s contents.</p>
 </pre></div></p>
 
 <h2>Style Settings</h2>
-
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/content_editable/content-editable</span>
+</pre></div>
 <p>To override the default settings, set the variable and it&#39;s value
 within your <code>config.sass</code> file or before <code>content_editable.sass</code> is loaded.</p>
 
@@ -1977,13 +1938,13 @@ within your <code>config.sass</code> file or before <code>content_editable.sass<
       <a name='cursor_hand'></a>
       <section class='docomo-section'><h1>Cursor Hand</h1>
 
-<p>The CursorHand .js/css combination provides a nice cross-browser way to have a hand-grab cursor, a-la Google Maps&#39; interface.</p>
+<p>The CursorHand <code>.js/css</code> combination provides a nice cross-browser way
+to have a hand-grab cursor, a-la Google Maps&#39; interface.</p>
 
-<p>By default, CursorHand will add or remove a class on the <code>&lt;body&gt;</code> element when the cursor state needs to change. An optional
-html element can be passed in to the CursorHand constructor, which would toggle the class instead, in case of css scoping needs.</p>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/cursor_hand/cursor_hand</span>
-</pre></div>
-<h2>Usage Examples</h2>
+<p>By default, CursorHand will add or remove a class on the <code>&lt;body&gt;</code>
+element when the cursor state needs to change. An optional html element
+can be passed in to the CursorHand constructor, which would toggle the
+class instead, in case of css scoping needs.</p>
 
 <p><div class="docomo-showcase"><h5 class='hand'>Hand</h5>
 <h5 class='handGrab'>Hand Grab</h5>
@@ -1992,22 +1953,22 @@ html element can be passed in to the CursorHand constructor, which would toggle 
 </pre></div></p>
 
 <h2>API</h2>
-
-<p>Typically cursor hand is required via a class that needs it, i.e. Carousel, Slider, TouchScroller, etc..</p>
-
+<div class="highlight"><pre><span class="c1">#= require utensils/cursor_hand</span>
+</pre></div>
 <h3>#new</h3>
+
+<p>Typically cursor hand is required via a class that needs it, i.e.
+Carousel, Slider, TouchScroller, etc..</p>
 <div class="highlight"><pre><span class="c1">#= require cursor_hand</span>
 
 <span class="nv">cursor = </span><span class="k">new</span> <span class="nx">utensils</span><span class="p">.</span><span class="nx">CursorHand</span><span class="p">()</span>
 </pre></div>
 <h3>Requires</h3>
-
-<ul>
-<li><code>utensils/utensils</code></li>
-</ul>
-
+<div class="highlight"><pre><span class="nx">utensils</span><span class="o">/</span><span class="nx">utensils</span>
+</pre></div>
 <h2>Style Settings</h2>
-
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/cursor_hand/cursor_hand</span>
+</pre></div>
 <p>To override the default settings, set the variable and it&#39;s value
 within your <code>config.sass</code> file or before <code>cursor_hand.sass</code> is loaded.</p>
 
@@ -2028,26 +1989,16 @@ within your <code>config.sass</code> file or before <code>cursor_hand.sass</code
 <td><code>&quot;/assets/cursors/closedhand.cur&quot;</code></td>
 <td>The default path to find the closed hand cursor</td>
 </tr>
-</tbody></table>
-
-<h2>Todo</h2>
-
-<ul>
-<li>Cursor grab hand seems to be broken in the latest webkit version,
-works fine in FF</li>
-</ul></section>
+</tbody></table></section>
       <a name='decal'></a>
       <section class='docomo-section'><h1>Decal</h1>
 
-<p>Decals are used to <span class="decal important">POP</span> information in a block of text.
-They are typically used with inline elements. The default color is
-equivalent to the <code>$inverse</code> status color.</p>
+<p>Decals are used to <span class="decal important">POP</span> information
+in a block of text.  They are typically used with inline elements. The
+default color is equivalent to the <code>$inverse</code> status color.</p>
 
 <p>It&#39;s recommended to pass a <code>$decal-status-list</code> of needed
 modifiers to limit the output of generated classes.</p>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/decal/decal</span>
-</pre></div>
-<h2>Usage Example</h2>
 
 <p><div class="docomo-showcase"><span class='decal'>Default</span>
 <span class='decal important'>Important</span>
@@ -2064,7 +2015,8 @@ modifiers to limit the output of generated classes.</p>
 </pre></div></p>
 
 <h2>Style Settings</h2>
-
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/decal/decal</span>
+</pre></div>
 <p>To override the default settings, set the variable and it&#39;s value
 within your <code>config.sass</code> file or before <code>decal.sass</code> is loaded.</p>
 
@@ -2103,22 +2055,21 @@ within your <code>config.sass</code> file or before <code>decal.sass</code> is l
 properties, normalizing event names, and other useful detection.</p>
 
 <h2>API</h2>
-
+<div class="highlight"><pre><span class="c1">#= require utensils/detect</span>
+</pre></div>
 <h3>#transition</h3>
 
-<p>Get the transition event name for the current browser for use in css transitions</p>
+<p>Get the transition event name for the current browser for use in CSS transitions.</p>
 <div class="highlight"><pre><span class="vi">@tranny_event = </span><span class="nx">utensils</span><span class="p">.</span><span class="nx">Detect</span><span class="p">.</span><span class="nx">transition</span><span class="p">.</span><span class="nx">end</span>
 </pre></div>
 <h3>#hasTransition</h3>
 
-<p>Boolean value based on the browsers support for transitions</p>
-<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="nx">el</span><span class="p">).</span><span class="kc">on</span><span class="p">(</span><span class="nx">utensils</span><span class="p">.</span><span class="nx">Detect</span><span class="p">.</span><span class="nx">transition</span><span class="p">.</span><span class="nx">end</span><span class="p">,</span> <span class="nx">@onDone</span><span class="p">)</span> <span class="k">if</span> <span class="nx">utensils</span><span class="p">.</span><span class="nx">Detect</span><span class="p">.</span><span class="nx">hasTransition</span>
+<p>Boolean value based on the browsers support for transitions.</p>
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="nx">el</span><span class="p">).</span><span class="nx">one</span> <span class="nx">utensils</span><span class="p">.</span><span class="nx">Detect</span><span class="p">.</span><span class="nx">transition</span><span class="p">.</span><span class="nx">end</span><span class="p">,</span> <span class="nx">@transitionEnd</span> <span class="k">if</span> <span class="nx">utensils</span><span class="p">.</span><span class="nx">Detect</span><span class="p">.</span><span class="nx">hasTransition</span>
 </pre></div>
 <h3>Requires</h3>
-
-<ul>
-<li><code>utensils/utensils</code></li>
-</ul></section>
+<div class="highlight"><pre><span class="nx">utensils</span><span class="o">/</span><span class="nx">utensils</span>
+</pre></div></section>
       <a name='directional'></a>
       <section class='docomo-section'><h1>Directional</h1>
 
@@ -2128,28 +2079,29 @@ an element measured against it&#39;s container.</p>
 <p>For working examples, see <code>Tip</code> or <code>Pop</code></p>
 
 <h2>API</h2>
-
+<div class="highlight"><pre><span class="c1">#= require utensils/directional</span>
+</pre></div>
 <h3>#new</h3>
 
 <p>Create a new instance of <code>Directional</code>, typically used compositionally.</p>
 <div class="highlight"><pre><span class="c1">#= require directional</span>
 
-<span class="vi">@directional = </span><span class="k">new</span> <span class="nx">utensils</span><span class="p">.</span><span class="nx">Directional</span><span class="p">(</span><span class="nx">@element</span><span class="p">,</span> <span class="nx">@container</span><span class="p">,</span> <span class="s">&#39;north&#39;</span><span class="p">)</span>
+<span class="vi">@directional = </span><span class="k">new</span> <span class="nx">utensils</span><span class="p">.</span><span class="nx">Directional</span> <span class="nx">@element</span><span class="p">,</span> <span class="nx">@container</span><span class="p">,</span> <span class="s">&#39;north&#39;</span>
 </pre></div>
 <h3>#setElement</h3>
 
 <p>Sets the <code>element</code> being used for positioning.</p>
-<div class="highlight"><pre><span class="nx">@directional</span><span class="p">.</span><span class="nx">setElement</span><span class="p">(</span><span class="nx">@target</span><span class="p">)</span>
+<div class="highlight"><pre><span class="nx">@directional</span><span class="p">.</span><span class="nx">setElement</span> <span class="nx">@target</span>
 </pre></div>
 <h3>#setContainer</h3>
 
 <p>Sets the <code>container</code> being used for positioning.</p>
-<div class="highlight"><pre><span class="nx">@directional</span><span class="p">.</span><span class="nx">setContainer</span><span class="p">(</span><span class="nx">@el</span><span class="p">)</span>
+<div class="highlight"><pre><span class="nx">@directional</span><span class="p">.</span><span class="nx">setContainer</span> <span class="nx">@el</span>
 </pre></div>
 <h3>#setCardinal</h3>
 
 <p>Sets the cardinal position <code>north|south|east|west</code> to use.</p>
-<div class="highlight"><pre><span class="nx">@directional</span><span class="p">.</span><span class="nx">setCardinal</span><span class="p">(</span><span class="s">&#39;west&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span class="nx">@directional</span><span class="p">.</span><span class="nx">setCardinal</span> <span class="s">&#39;west&#39;</span>
 </pre></div>
 <h3>#getCardinals</h3>
 
@@ -2159,13 +2111,13 @@ an element measured against it&#39;s container.</p>
 <h3>#getDimensions</h3>
 
 <p>Returns the sizing of a given element.</p>
-<div class="highlight"><pre><span class="nx">@directional</span><span class="p">.</span><span class="nx">getDimensions</span><span class="p">(</span><span class="nx">@el</span><span class="p">)</span>
+<div class="highlight"><pre><span class="nx">@directional</span><span class="p">.</span><span class="nx">getDimensions</span> <span class="nx">@el</span>
 <span class="c1"># returns: {top:10 left:20, width:200, height:100}</span>
 </pre></div>
 <h3>#getPlacementFromCardinal</h3>
 
 <p>Returns the suggested position where the element should be within the
-container, based on the cardinal</p>
+container, based on the cardinal.</p>
 <div class="highlight"><pre><span class="nx">@directional</span><span class="p">.</span><span class="nx">getPlacementFromCardinal</span><span class="p">()</span>
 <span class="c1"># returns: {top:50 left:220, cardinal:&#39;west&#39;}</span>
 </pre></div>
@@ -2175,7 +2127,7 @@ container, based on the cardinal</p>
 coordinates if the passed position would render the element outside the
 viewport.</p>
 <div class="highlight"><pre><span class="nv">position = </span><span class="nx">@directional</span><span class="p">.</span><span class="nx">getPlacementFromCardinal</span><span class="p">()</span>
-<span class="nv">on_screen = </span><span class="nx">@directional</span><span class="p">.</span><span class="nx">constrainToViewport</span><span class="p">(</span><span class="nx">position</span><span class="p">)</span>
+<span class="nv">on_screen = </span><span class="nx">@directional</span><span class="p">.</span><span class="nx">constrainToViewport</span> <span class="nx">position</span>
 <span class="c1"># returns: {top:50 left:-220, cardinal:&#39;east&#39;}</span>
 </pre></div>
 <h3>#getPlacementAndConstrain</h3>
@@ -2184,17 +2136,12 @@ viewport.</p>
 <div class="highlight"><pre><span class="nv">position = </span><span class="nx">@directional</span><span class="p">.</span><span class="nx">getPlacementAndConstrain</span><span class="p">()</span>
 </pre></div>
 <h3>Requires</h3>
-
-<ul>
-<li><code>utensils/utensils</code></li>
-</ul></section>
+<div class="highlight"><pre><span class="nx">utensils</span><span class="o">/</span><span class="nx">utensils</span>
+</pre></div></section>
       <a name='dismiss'></a>
       <section class='docomo-section'><h1>Dismiss</h1>
 
 <p>Remove an element from the DOM.</p>
-<div class="highlight"><pre>data-bindable=&quot;dismiss&quot;
-</pre></div>
-<h2>Usage Example</h2>
 
 <p><div class="docomo-showcase"><div class='notification fade in' role='alert'>
   <p><strong>Notification!</strong> This is the default notification</p>
@@ -2272,15 +2219,13 @@ viewport.</p>
 
 <p>See <code>Triggerable</code> for other options</p>
 
-<h6>Notes</h6>
-
-<ul>
-<li><strong>Pro Tip!</strong> If the target element has the class <code>in</code> it will remove
-this class first and wait for the transition to finish</li>
-</ul>
+<p><strong>Pro Tip!</strong> If the target element has the class <code>in</code> it will remove
+this class first and wait for the transition to finish</p>
 
 <h2>API</h2>
-
+<div class="highlight"><pre><span class="c1">#= require utensils/dismiss</span>
+</pre></div><div class="highlight"><pre>data-bindable=&quot;dismiss&quot;
+</pre></div>
 <h3>#new</h3>
 
 <p>Create a new instance of <code>Dismiss</code> programmatically. Normally this is
@@ -2288,42 +2233,32 @@ handled through <code>Bindable</code>.</p>
 <div class="highlight"><pre><span class="c1">#= require dismiss</span>
 
 <span class="vi">@el = </span><span class="nx">$</span><span class="p">(</span><span class="s">&#39;#dismiss&#39;</span><span class="p">)</span>
-<span class="vi">@dismiss = </span><span class="k">new</span> <span class="nx">utensils</span><span class="p">.</span><span class="nx">Dismiss</span><span class="p">(</span><span class="nx">@el</span><span class="p">,</span> <span class="p">{</span><span class="nv">target: </span><span class="nx">@el</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s">&#39;.notification&#39;</span><span class="p">)})</span>
+<span class="vi">@dismiss = </span><span class="k">new</span> <span class="nx">utensils</span><span class="p">.</span><span class="nx">Dismiss</span> <span class="nx">@el</span><span class="p">,</span> <span class="p">{</span><span class="nv">target: </span><span class="nx">@el</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s">&#39;.notification&#39;</span><span class="p">)}</span>
 </pre></div>
 <h3>#remove</h3>
 
 <p>Removes the element from the DOM, if the <code>in</code> class is on the target, it
-will animate out and call <code>#removeTarget</code>.</p>
-
-<h5>dispatches:</h5>
-
-<ul>
-<li><code>dismiss:dismiss</code></li>
-</ul>
-
+will animate out and call <code>#removeTarget</code>. Dispatches a
+<code>dismiss:dismiss</code> event.</p>
+<div class="highlight"><pre><span class="nx">@dismiss</span><span class="p">.</span><span class="nx">remove</span><span class="p">()</span>
+</pre></div>
 <h3>#removeTarget</h3>
 
-<p>Removes the element from the DOM immediately.</p>
-
-<h5>dispatches:</h5>
-
-<ul>
-<li><code>dismiss:dismissed</code></li>
-</ul>
-
+<p>Removes the element from the DOM immediately. Dispatches a
+<code>dismiss:dismissed</code> event.</p>
+<div class="highlight"><pre><span class="nx">@dismiss</span><span class="p">.</span><span class="nx">removeTarget</span><span class="p">()</span>
+</pre></div>
 <h3>#dispose</h3>
 
 <p>Cleans up all listeners, but does not remove the element from the DOM.</p>
-
+<div class="highlight"><pre><span class="nx">@dismiss</span><span class="p">.</span><span class="nx">dispose</span><span class="p">()</span>
+</pre></div>
 <h3>Requires</h3>
-
-<ul>
-<li><code>utesnils/utensils</code></li>
-<li><code>utesnils/bindable</code></li>
-<li><code>utesnils/triggerable</code></li>
-<li><code>utesnils/detect</code></li>
-</ul>
-
+<div class="highlight"><pre><span class="nx">utesnils</span><span class="o">/</span><span class="nx">utensils</span>
+<span class="nx">utesnils</span><span class="o">/</span><span class="nx">bindable</span>
+<span class="nx">utesnils</span><span class="o">/</span><span class="nx">triggerable</span>
+<span class="nx">utesnils</span><span class="o">/</span><span class="nx">detect</span>
+</pre></div>
 <p><code>Dismiss</code> utilizes <code>Triggerable</code> via composition.</p></section>
       <a name='dom_util'></a>
       <section class='docomo-section'>
@@ -2348,12 +2283,6 @@ system.</p>
 <p>Drop&#39;s utilize a <code>visuallyhidden</code> and <code>visuallyshown</code> technique rather
 than a <code>display: none|block</code> to allow screen readers to still discover
 the inner content.</p>
-
-<p>Drop requires the <code>menu</code> component for styles.</p>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/drop/drop</span>
-</pre></div><div class="highlight"><pre>data-bindable=&quot;drop&quot;
-</pre></div>
-<h2>Usage Example</h2>
 
 <p><div class="docomo-showcase"><h5 style='margin-bottom:1em;'>Drops in Navigation</h5>
 <nav>
@@ -2506,20 +2435,19 @@ the inner content.</p>
 </tr>
 </tbody></table>
 
+<p><strong>Heads Up!</strong> <code>Drop</code> will override it&#39;s placement automatically through
+<code>Directional</code> if it determines the requested position will render the
+<code>menu</code> outside the viewport.</p>
+
+<p><strong>You Need This!</strong> The <code>Drop</code> link needs to have the class <code>.drop-toggle</code> to
+help speed up lookups.</p>
+
 <p>See <code>Triggerable</code> for other options</p>
 
-<h6>Notes</h6>
-
-<ul>
-<li><strong>Heads Up!</strong> <code>Drop</code> will override it&#39;s placement automatically
-through <code>Directional</code> if it determines the requested position will
-render the <code>menu</code> outside the viewport.</li>
-<li><strong>Heads Up!</strong> The <code>Drop</code> link needs to have the class <code>.drop-toggle</code>
-to help speed up lookups.</li>
-</ul>
-
 <h2>API</h2>
-
+<div class="highlight"><pre><span class="c1">#= require utensils/drop</span>
+</pre></div><div class="highlight"><pre>data-bindable=&quot;drop&quot;
+</pre></div>
 <h3>#new</h3>
 
 <p>Create a new instance of <code>Drop</code> programmatically. Normally this is
@@ -2527,42 +2455,40 @@ handled through <code>Bindable</code>.</p>
 <div class="highlight"><pre><span class="c1">#= require drop</span>
 
 <span class="vi">@el = </span><span class="nx">$</span><span class="p">(</span><span class="s">&#39;#drop&#39;</span><span class="p">)</span>
-<span class="vi">@drop = </span><span class="k">new</span> <span class="nx">utensils</span><span class="p">.</span><span class="nx">Drop</span><span class="p">(</span><span class="nx">@el</span><span class="p">,</span> <span class="p">{</span><span class="nv">placement: </span><span class="s">&#39;west&#39;</span><span class="p">})</span>
+<span class="vi">@drop = </span><span class="k">new</span> <span class="nx">utensils</span><span class="p">.</span><span class="nx">Drop</span> <span class="nx">@el</span><span class="p">,</span> <span class="p">{</span><span class="nv">placement: </span><span class="s">&#39;west&#39;</span><span class="p">}</span>
 </pre></div>
 <h3>#toggle</h3>
 
 <p>Typically called through user input, but can be triggered by the
 elements toggle event.</p>
-<div class="highlight"><pre><span class="nx">@el</span><span class="p">.</span><span class="nx">trigger</span><span class="p">(</span><span class="s">&#39;click&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span class="nx">@el</span><span class="p">.</span><span class="nx">trigger</span> <span class="s">&#39;click&#39;</span>
 </pre></div>
 <h3>#activate</h3>
 
-<p>Show the drop</p>
+<p>Show the drop.</p>
 <div class="highlight"><pre><span class="nx">@drop</span><span class="p">.</span><span class="nx">activate</span><span class="p">()</span>
 </pre></div>
 <h3>#deactivate</h3>
 
-<p>Removes the drop</p>
+<p>Removes the drop.</p>
 <div class="highlight"><pre><span class="nx">@drop</span><span class="p">.</span><span class="nx">deactivate</span><span class="p">()</span>
 </pre></div>
 <h3>#dispose</h3>
 
-<p>Remove the drop behavior</p>
+<p>Remove the drop behavior.</p>
 <div class="highlight"><pre><span class="nx">@drop</span><span class="p">.</span><span class="nx">dispose</span><span class="p">()</span>
 </pre></div>
 <h3>Requires</h3>
-
-<ul>
-<li><code>utensils/utensils</code></li>
-<li><code>utensils/bindable</code></li>
-<li><code>utensils/triggerable</code></li>
-<li><code>utensils/directional</code></li>
-</ul>
-
+<div class="highlight"><pre><span class="nx">utensils</span><span class="o">/</span><span class="nx">utensils</span>
+<span class="nx">utensils</span><span class="o">/</span><span class="nx">bindable</span>
+<span class="nx">utensils</span><span class="o">/</span><span class="nx">triggerable</span>
+<span class="nx">utensils</span><span class="o">/</span><span class="nx">directional</span>
+</pre></div>
 <p><code>Drop</code> utilizes <code>Triggerable</code> via composition.</p>
 
 <h2>Style Settings</h2>
-
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/drop/drop</span>
+</pre></div>
 <p>To override the default settings, set the variable and it&#39;s value within
 your <code>config.sass</code> file or before <code>drop.sass</code> is loaded.</p>
 
@@ -2583,20 +2509,16 @@ your <code>config.sass</code> file or before <code>drop.sass</code> is loaded.</
 <p>Other default styles are set up through either <code>caret.sass</code> or
 <code>menu.sass</code></p>
 
-<h6>Warning</h6>
+<p><em>Warning!</em> Drop requires the <code>menu</code> component for styles.</p>
 
-<ul>
-<li><strong>Heads Up!</strong> The configuration file needs to define the <code>$zindex-drop</code>
+<p><em>Warning!</em> The configuration file needs to define the <code>$zindex-drop</code>
 value before this file is imported, this is done to keep managing
-<code>z-index</code> mappings in one place.</li>
-</ul></section>
+<code>z-index</code> mappings in one place.</p></section>
       <a name='flash_message'></a>
       <section class='docomo-section'><h1>Flash Message</h1>
 
 <p>A top level container to house notifications and messages targeted to
 the user.</p>
-
-<h2>Usage Example</h2>
 
 <p><div class="docomo-showcase"><section id='demo_flash_message'>
   <nav class='button-group' data-bindable='toggle-button-group' data-remove='top bottom middle top-left top-center top-right'>
@@ -2644,29 +2566,22 @@ will allow them to appear in different quadrants of the viewport.</p>
 
 <p>There are no style settings to override for flash messaging.</p>
 
-<h6>Warning</h6>
-
-<ul>
-<li><strong>Heads Up!</strong> The configuration file needs to define the
-<code>$zindex-flash-message</code> value before this file is imported, this is
-done to keep managing <code>z-index</code> mappings in one place.</li>
-</ul></section>
+<p><em>Warning!</em> The configuration file needs to define the
+<code>$zindex-flash-message</code> value before this file is imported, this is done
+to keep managing <code>z-index</code> mappings in one place.</p></section>
       <a name='form_controls'></a>
       <section class='docomo-section'><h1>Form Controls</h1>
 
 <p>Contains the style definitions for form control elements, form control
 states, and basic structure for containers. Form controls are typically
 paired with one of the form layout components.</p>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/form_controls/form_controls</span>
-</pre></div>
+
 <h2>Text based input controls</h2>
 
 <p>Represents the basic controls for creating forms. Contains support for all of the HTML5 types.</p>
 
-<h3>Usage Examples</h3>
-
-<p><div class="docomo-showcase"><form class='sherpa-clearfix' role='form'>
-  <fieldset class='sherpa-split-pull'>
+<p><div class="docomo-showcase"><form class='docomo-cf' role='form'>
+  <fieldset class='docomo-split-pull'>
     <legend>Common input controls</legend>
     <div class='control-group'>
       <div class='controls'>
@@ -2709,7 +2624,7 @@ paired with one of the form layout components.</p>
       </div>
     </div>
   </fieldset>
-  <fieldset class='sherpa-split-push'>
+  <fieldset class='docomo-split-push'>
     <legend>Less common input controls</legend>
     <div class='control-group'>
       <div class='controls'>
@@ -2759,8 +2674,8 @@ paired with one of the form layout components.</p>
     </div>
   </fieldset>
 </form>
-</div><div class="highlight"><pre><span class="nt">%form</span><span class="nc">.sherpa-clearfix</span>(<span class="na">role=</span><span class="s">&quot;form&quot;</span>)
-  <span class="nt">%fieldset</span><span class="nc">.sherpa-split-pull</span>
+</div><div class="highlight"><pre><span class="nt">%form</span><span class="nc">.docomo-cf</span>(<span class="na">role=</span><span class="s">&quot;form&quot;</span>)
+  <span class="nt">%fieldset</span><span class="nc">.docomo-split-pull</span>
     <span class="nt">%legend</span> Common input controls
     <span class="nc">.control-group</span>
       <span class="nc">.controls</span>
@@ -2787,7 +2702,7 @@ paired with one of the form layout components.</p>
       <span class="nc">.controls</span>
         <span class="nt">%input</span>(<span class="na">type=</span><span class="s">&quot;number&quot;</span> <span class="na">placeholder=</span><span class="s">&quot;number&quot;</span> <span class="na">max=</span><span class="s">&quot;10&quot;</span> <span class="na">min=</span><span class="s">&quot;0&quot;</span>)
 
-  <span class="nt">%fieldset</span><span class="nc">.sherpa-split-push</span>
+  <span class="nt">%fieldset</span><span class="nc">.docomo-split-push</span>
     <span class="nt">%legend</span> Less common input controls
     <span class="nc">.control-group</span>
       <span class="nc">.controls</span>
@@ -2824,8 +2739,6 @@ paired with one of the form layout components.</p>
 <p>Represents a search form control. These are set by adding the class
 <code>.search-query</code> to any text input control element.</p>
 
-<h3>Usage Examples</h3>
-
 <p><div class="docomo-showcase"><form role='search'>
   <fieldset>
     <legend>Search Elements</legend>
@@ -2844,19 +2757,13 @@ paired with one of the form layout components.</p>
         <span class="nt">%input</span><span class="nc">.search-query</span>(<span class="na">type=</span><span class="s">&quot;search&quot;</span> <span class="na">placeholder=</span><span class="s">&quot;search&quot;</span>)
 </pre></div></p>
 
-<h6>Warning</h6>
-
-<ul>
-<li><strong>Heads Up!</strong> <code>input[type=&quot;search&quot;]</code> renders the same as
-other text input controls. These types of inputs require the
-<code>.search-query</code> class to be added to the control.</li>
-</ul>
+<p><em>Warning!</em> <code>input[type=&quot;search&quot;]</code> renders the same as other text input
+controls. These types of inputs require the <code>.search-query</code> class to be
+added to the control.</p>
 
 <h2>Textarea controls</h2>
 
 <p>Represents a multi-line plain-text editing control.</p>
-
-<h3>Usage Examples</h3>
 
 <p><div class="docomo-showcase"><form role='form'>
   <fieldset>
@@ -2879,8 +2786,6 @@ other text input controls. These types of inputs require the
 <h2>Select controls</h2>
 
 <p>Represents a control that presents a menu of options.</p>
-
-<h3>Usage Examples</h3>
 
 <p><div class="docomo-showcase"><form role='form'>
   <fieldset>
@@ -2941,8 +2846,6 @@ other text input controls. These types of inputs require the
 <p>Radio and checkbox are for selecting options within a list. Radios are
 used for selecting a single option, while checkbox is used for selecting
 zero to many options.</p>
-
-<h3>Usage Examples</h3>
 
 <p><div class="docomo-showcase"><form role='form'>
   <fieldset>
@@ -3039,8 +2942,6 @@ zero to many options.</p>
 
 <p>Description elements describe or act as helpers around their controls.</p>
 
-<h3>Usage Examples</h3>
-
 <p><div class="docomo-showcase"><form role='form'>
   <fieldset>
     <legend>I am Legend</legend>
@@ -3126,8 +3027,6 @@ has the status type class added. The following would show only the
 <p>A modifier on <code>input</code> or <code>textarea</code> fields that is uneditable by the
 user.</p>
 
-<h3>Usage Examples</h3>
-
 <p><div class="docomo-showcase"><form role='form'>
   <fieldset>
     <legend>Uneditable Controls</legend>
@@ -3161,11 +3060,7 @@ user.</p>
         <span class="nt">%textarea</span><span class="nf">#fcu_textarea</span><span class="nc">.uneditable-field</span>(<span class="na">placeholder=</span><span class="s">&quot;Enter the textarea...&quot;</span> <span class="na">rows=</span><span class="s">&quot;8&quot;</span> <span class="na">disabled</span>) Can&#39;t touch this either
 </pre></div></p>
 
-<h6>Warning</h6>
-
-<ul>
-<li><strong>Heads Up!</strong> Make sure the field has the <code>disabled</code> attribute set.</li>
-</ul>
+<p><em>Warning!</em> Make sure the field has the <code>disabled</code> attribute set.</p>
 
 <h2>Sizing helpers</h2>
 
@@ -3209,12 +3104,8 @@ It&#39;s even better practice to assign these values within a form layout.</p>
 </tr>
 </tbody></table>
 
-<h6>Alert</h6>
-
-<ul>
-<li><strong>Heads Up!</strong> These classes set their <code>width</code> with <code>!important</code> to
-override specificity. Use them only when you mean it.</li>
-</ul>
+<p><em>Alert!</em> These classes set their <code>width</code> with <code>!important</code> to override
+specificity. Use them only when you mean it.</p>
 
 <h2>Button controls</h2>
 
@@ -3238,12 +3129,11 @@ it&#39;s <code>.controls</code> sibling</li>
 or other descriptive helpers</li>
 </ul>
 
-<h3>Usage Examples</h3>
-
 <p><div class="docomo-showcase"><section class='button-toolbar' id='demo_form' style='margin-bottom:1em;'>
-  <nav class='button-group' data-bindable='toggle-button-group' data-remove='form-vertical form-horizontal'>
+  <nav class='button-group' data-bindable='toggle-button-group' data-remove='form-vertical form-horizontal form-stack'>
     <button class='btn active' data-add=''>Default</button>
     <button class='btn' data-add='form-horizontal'>Horizontal</button>
+    <button class='btn' data-add='form-stack'>Stack</button>
   </nav>
   <nav class='button-group' data-bindable='toggle-button-group' data-remove='well fill'>
     <button class='btn active' data-add=''>None</button>
@@ -3389,9 +3279,10 @@ or other descriptive helpers</li>
   </fieldset>
 </form>
 </div><div class="highlight"><pre><span class="nt">%section</span><span class="nf">#demo_form</span><span class="nc">.button-toolbar</span>(<span class="na">style=</span><span class="s">&quot;margin-bottom:1em;&quot;</span>)
-  <span class="nt">%nav</span><span class="nc">.button-group</span>(<span class="na">data-bindable=</span><span class="s">&quot;toggle-button-group&quot;</span> <span class="na">data-remove=</span><span class="s">&quot;form-vertical form-horizontal&quot;</span>)
+  <span class="nt">%nav</span><span class="nc">.button-group</span>(<span class="na">data-bindable=</span><span class="s">&quot;toggle-button-group&quot;</span> <span class="na">data-remove=</span><span class="s">&quot;form-vertical form-horizontal form-stack&quot;</span>)
     <span class="nt">%button</span><span class="nc">.btn.active</span>(<span class="na">data-add=</span><span class="s">&quot;&quot;</span>) Default
     <span class="nt">%button</span><span class="nc">.btn</span>(<span class="na">data-add=</span><span class="s">&quot;form-horizontal&quot;</span>) Horizontal
+    <span class="nt">%button</span><span class="nc">.btn</span>(<span class="na">data-add=</span><span class="s">&quot;form-stack&quot;</span>) Stack
   <span class="nt">%nav</span><span class="nc">.button-group</span>(<span class="na">data-bindable=</span><span class="s">&quot;toggle-button-group&quot;</span> <span class="na">data-remove=</span><span class="s">&quot;well fill&quot;</span>)
     <span class="nt">%button</span><span class="nc">.btn.active</span>(<span class="na">data-add=</span><span class="s">&quot;&quot;</span>) None
     <span class="nt">%button</span><span class="nc">.btn</span>(<span class="na">data-add=</span><span class="s">&quot;well&quot;</span>) Well
@@ -3506,20 +3397,13 @@ or other descriptive helpers</li>
       <span class="nt">%input</span><span class="nc">.btn.standard</span>(<span class="na">type=</span><span class="s">&quot;reset&quot;</span> <span class="na">value=</span><span class="s">&quot;Cancel&quot;</span>)
 </pre></div></p>
 
-<h6>Notes</h6>
+<p><strong>Pro Tip!</strong> Add either <code>.well</code> or <code>well.fill</code> to the <code>form</code> element to contain it from other items on the page (requires <code>well.sass</code>).</p>
 
-<ul>
-<li><strong>Pro Tip!</strong> Add either <code>.well</code> or <code>well.fill</code> to the <code>form</code> element to contain it from other items on the page (requires <code>well.sass</code>)</li>
-</ul>
-
-<h6>Warning</h6>
-
-<ul>
-<li><strong>Heads Up!</strong> Not all layouts may render in the demo if they aren&#39;t included in the project</li>
-</ul>
+<p><em>Warning!</em> Not all layouts may render in the demo if they aren&#39;t included in the project.</p>
 
 <h2>Style Settings</h2>
-
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/form_controls/form_controls</span>
+</pre></div>
 <p>To override the default settings, set the variable and it&#39;s value
 within your <code>config.sass</code> file or before <code>form_controls.sass</code> is loaded.</p>
 
@@ -3673,17 +3557,14 @@ within your <code>config.sass</code> file or before <code>form_controls.sass</co
 the left side of the form. The markup structure remains the same as the
 default layout, it only requires the class <code>.form-horizontal</code> on the
 <code>form</code> element.</p>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/form_horizontal/form-horizontal</span>
-</pre></div>
-<h6>Notes</h6>
 
-<ul>
-<li><strong>Pro Tip!</strong> Check out the &quot;Form Structure&quot; section under &quot;Form
-Controls&quot; for the demo and usage example.</li>
-</ul>
+<p><strong>Pro Tip!</strong> Check out the &quot;Form Structure&quot; section under &quot;Form
+Controls&quot; for the demo and usage example.</p>
 
 <h2>Style Settings</h2>
-
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/form_controls/form_controls</span>
+<span class="k">@import</span> <span class="s">utensils/form_horizontal/form_horizontal</span>
+</pre></div>
 <p>To override the default settings, set the variable and it&#39;s value
 within your <code>config.sass</code> file or before <code>form_horizontal.sass</code> is loaded.</p>
 
@@ -3706,19 +3587,12 @@ within your <code>config.sass</code> file or before <code>form_horizontal.sass</
 </tr>
 </tbody></table>
 
-<h6>Notes</h6>
-
-<ul>
-<li><strong>Heads Up!</strong> Requires the <code>form-controls</code> utensil.</li>
-</ul></section>
+<p><em>Alert!</em> Requires the <code>form_controls</code> utensil.</p></section>
       <a name='form_inline'></a>
       <section class='docomo-section'><h1>Form Inline</h1>
 
 <p>Utilize the <code>.form-inline</code> class on the <code>form</code> element to create a simple
 inline form. Supports control labels as well.</p>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/form_inline/form-inline</span>
-</pre></div>
-<h2>Usage Example</h2>
 
 <p><div class="docomo-showcase"><form class='form-inline well fill' role='form'>
   <input id='fi_email' placeholder='email' type='email' />
@@ -3747,11 +3621,11 @@ inline form. Supports control labels as well.</p>
   <span class="nt">%input</span><span class="nc">.btn.standard</span>(<span class="na">type=</span><span class="s">&quot;submit&quot;</span> <span class="na">value=</span><span class="s">&quot;Go&quot;</span>)
 </pre></div></p>
 
-<h6>Notes</h6>
-
-<ul>
-<li><strong>Heads Up!</strong> Requires the <code>form_controls</code> utensil.</li>
-</ul></section>
+<h2>Style Settings</h2>
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/form_controls/form_controls</span>
+<span class="k">@import</span> <span class="s">utensils/form_inline/form_inline</span>
+</pre></div>
+<p><em>Alert!</em> Requires the <code>form_controls</code> utensil.</p></section>
       <a name='form_search'></a>
       <section class='docomo-section'><h1>Form Search</h1>
 
@@ -3761,9 +3635,6 @@ search form. Supports hints and control labels as well.</p>
 <p>Any input fields of type <code>&quot;text&quot;</code> or <code>&quot;search&quot;</code> automatically receive the
 properties of the <code>.search-query</code> class. Any input buttons used will
 inherit the top and bottom <code>padding</code> of the input element.</p>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/form_search/form-search</span>
-</pre></div>
-<h2>Usage Example</h2>
 
 <p><div class="docomo-showcase"><form class='form-search well fill' role='search'>
   <input id='fs_search' placeholder='search' type='search' />
@@ -3774,22 +3645,19 @@ inherit the top and bottom <code>padding</code> of the input element.</p>
   <span class="nt">%input</span><span class="nc">.btn.standard</span>(<span class="na">type=</span><span class="s">&quot;submit&quot;</span> <span class="na">value=</span><span class="s">&quot;Submit&quot;</span>)
 </pre></div></p>
 
-<h6>Notes</h6>
-
-<ul>
-<li><strong>Heads Up!</strong> Requires the <code>form_controls</code> utensil.</li>
-</ul></section>
+<h2>Style Settings</h2>
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/form_controls/form_controls</span>
+<span class="k">@import</span> <span class="s">utensils/form_search/form_search</span>
+</pre></div>
+<p><em>Alert!</em> Requires the <code>form_controls</code> utensil.</p></section>
       <a name='form_stack'></a>
       <section class='docomo-section'><h1>Form Stack</h1>
 
 <p>Utilize the <code>.form-stack</code> class on the <code>form</code> element to create a
 form stack styled form. Supports control labels as well.</p>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/form_stack/form_stack</span>
-</pre></div>
-<h2>Usage Example</h2>
 
-<p><div class="docomo-showcase"><form class='form-stack sherpa-clearfix' role='form'>
-  <fieldset class='sherpa-split-pull'>
+<p><div class="docomo-showcase"><form class='form-stack docomo-clearfix' role='form'>
+  <fieldset class='docomo-split-pull'>
     <legend>Common input controls</legend>
     <div class='control-group'>
       <label>Text</label>
@@ -3840,7 +3708,7 @@ form stack styled form. Supports control labels as well.</p>
       </div>
     </div>
   </fieldset>
-  <fieldset class='sherpa-split-push'>
+  <fieldset class='docomo-split-push'>
     <legend>Less common input controls</legend>
     <div class='control-group'>
       <label>Datetime</label>
@@ -3874,8 +3742,8 @@ form stack styled form. Supports control labels as well.</p>
     </div>
   </fieldset>
 </form>
-</div><div class="highlight"><pre><span class="nt">%form</span><span class="nc">.form-stack.sherpa-clearfix</span>(<span class="na">role=</span><span class="s">&quot;form&quot;</span>)
-  <span class="nt">%fieldset</span><span class="nc">.sherpa-split-pull</span>
+</div><div class="highlight"><pre><span class="nt">%form</span><span class="nc">.form-stack.docomo-clearfix</span>(<span class="na">role=</span><span class="s">&quot;form&quot;</span>)
+  <span class="nt">%fieldset</span><span class="nc">.docomo-split-pull</span>
     <span class="nt">%legend</span> Common input controls
     <span class="nc">.control-group</span>
       <span class="nt">%label</span> Text
@@ -3910,7 +3778,7 @@ form stack styled form. Supports control labels as well.</p>
       <span class="nc">.controls</span>
         <span class="nt">%input</span>(<span class="na">type=</span><span class="s">&quot;number&quot;</span> <span class="na">placeholder=</span><span class="s">&quot;number&quot;</span> <span class="na">max=</span><span class="s">&quot;10&quot;</span> <span class="na">min=</span><span class="s">&quot;0&quot;</span>)
 
-  <span class="nt">%fieldset</span><span class="nc">.sherpa-split-push</span>
+  <span class="nt">%fieldset</span><span class="nc">.docomo-split-push</span>
     <span class="nt">%legend</span> Less common input controls
     <span class="nc">.control-group</span>
       <span class="nt">%label</span> Datetime
@@ -3934,11 +3802,14 @@ form stack styled form. Supports control labels as well.</p>
         <span class="nt">%input</span>(<span class="na">type=</span><span class="s">&quot;week&quot;</span> <span class="na">placeholder=</span><span class="s">&quot;week&quot;</span>)
 </pre></div></p>
 
-<h6>Notes</h6>
+<p><strong>Pro Tip!</strong> Check out the &quot;Form Structure&quot; section under &quot;Form
+Controls&quot; for the demo and usage example.</p>
 
-<ul>
-<li><strong>Heads Up!</strong> Requires the <code>form_controls</code> utensil.</li>
-</ul></section>
+<h2>Style Settings</h2>
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/form_controls/form_controls</span>
+<span class="k">@import</span> <span class="s">utensils/form_stack/form_stack</span>
+</pre></div>
+<p><em>Alert!</em> Requires the <code>form_controls</code> utensil.</p></section>
       <a name='icon_caret'></a>
       <section class='docomo-section'><h1>Icon Caret</h1>
 
@@ -3946,9 +3817,6 @@ form stack styled form. Supports control labels as well.</p>
 Carets are similar to the <code>+arrow</code> mixin, where in the <code>+arrow</code> mixin is
 used for <code>:before</code> and <code>:after</code> pseudo elements and carets are embedded
 directly in the markup.</p>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/icon_caret/caret</span>
-</pre></div>
-<h2>Usage Example</h2>
 
 <p><div class="docomo-showcase"><nav class='demo' data-remove='north south east west' data-target='#test_caret'>
   <ul class='nav inline'>
@@ -4000,15 +3868,12 @@ directly in the markup.</p>
 <p>Caret&#39;s are positioned to align with one another, most likely they will
 need some sort of offset based on the component they are paired with.</p>
 
-<h6>Note</h6>
-
-<ul>
-<li><strong>Heads Up!</strong> The class <code>.caret</code> and <code>.caret.south</code> are scoped to the
-same styles</li>
-</ul>
+<p><strong>Heads Up!</strong> The class <code>.caret</code> and <code>.caret.south</code> are scoped to the
+same styles</p>
 
 <h2>Style Settings</h2>
-
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/icon_caret/caret</span>
+</pre></div>
 <p>To override the default settings, set the variable and it&#39;s value
 within your <code>config.sass</code> file or before <code>caret.sass</code> is loaded.</p>
 
@@ -4044,9 +3909,6 @@ within your <code>config.sass</code> file or before <code>caret.sass</code> is l
       <section class='docomo-section'><h1>Icon Close</h1>
 
 <p>Use the close icon to dismiss modals, notifications and other elements.</p>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/icon_close/close</span>
-</pre></div>
-<h2>Usage Example</h2>
 
 <p><div class="docomo-showcase"><div class='well' style='background-color:#CEE6F6; border-color:#78B9E6;'>
   <a class='close' href='#'>&times;</a>
@@ -4061,14 +3923,11 @@ within your <code>config.sass</code> file or before <code>caret.sass</code> is l
   <span class="nt">%a</span><span class="nc">.close.inverse</span>(<span class="na">href=</span><span class="s">&quot;#&quot;</span>) &amp;times;
 </pre></div></p>
 
-<h6>Notes</h6>
-
-<ul>
-<li><strong>Pro Tip!</strong> In your markup use <code>&amp;times;</code> for the content of the close icon</li>
-</ul>
+<p><strong>Pro Tip!</strong> In your markup use <code>&amp;times;</code> for the content of the close icon</p>
 
 <h2>Style Settings</h2>
-
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/icon_close/close</span>
+</pre></div>
 <p>To override the default settings, set the variable and it&#39;s value
 within your <code>config.sass</code> file or before <code>close.sass</code> is loaded.</p>
 
@@ -4124,9 +3983,6 @@ an element that is positioned relatively.</p>
 
 <p>Paddles should be extended by a component class for exact positioning
 and styles.</p>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/icon_paddle/paddle</span>
-</pre></div>
-<h2>Usage Example</h2>
 
 <p><div class="docomo-showcase"><nav>
   <a class='paddle-icon north' href='#'>&uarr;</a>
@@ -4141,8 +3997,9 @@ and styles.</p>
   <span class="nt">%a</span><span class="nc">.paddle-icon.east</span>(<span class="na">href=</span><span class="s">&quot;#&quot;</span>) &amp;rarr;
 </pre></div></p>
 
-<h2>Usage</h2>
-
+<h2>Style Settings</h2>
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/icon_paddle/paddle</span>
+</pre></div>
 <table><thead>
 <tr>
 <th>Class</th>
@@ -4205,14 +4062,11 @@ a <code>.media-caption</code> element when an area is needed to describe the fig
 but it will need some sort of grid setting or <code>width</code> defined on the <code>li</code>
 tags. There are currently no <code>margin</code> settings included in the media
 grid for this reason.</p>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/media_grid/media_grid</span>
-</pre></div>
-<h2>Usage Examples</h2>
 
 <p><div class="docomo-showcase"><ul class='media-grid'>
   <li style='width:25%'>
     <figure class='media-item'>
-      <img src='http://lorempixel.com/260/180' />
+      <img height='180' src='http://placehold.it/260x180' width='260' />
       <figcaption class='media-caption'>
         <h3>Media Item</h3>
         <p>This is some caption copy with the footer aligned to the left.</p>
@@ -4224,13 +4078,13 @@ grid for this reason.</p>
   </li>
   <li style='width:25%'>
     <a class='media-item' href='#'>
-      <img src='http://lorempixel.com/260/180' />
+      <img height='180' src='http://placehold.it/260x180' width='260' />
     </a>
   </li>
   <li style='width:25%'>
     <figure class='media-item'>
       <a class='media-item' href='#'>
-        <img src='http://lorempixel.com/260/180' />
+        <img height='180' src='http://placehold.it/260x180' width='260' />
       </a>
       <figcaption class='media-caption'>
         <h3>Media Item</h3>
@@ -4243,14 +4097,14 @@ grid for this reason.</p>
   </li>
   <li style='width:25%'>
     <figure class='media-item'>
-      <img src='http://lorempixel.com/260/180' />
+      <img height='180' src='http://placehold.it/260x180' width='260' />
     </figure>
   </li>
 </ul>
 </div><div class="highlight"><pre><span class="nt">%ul</span><span class="nc">.media-grid</span>
   <span class="nt">%li</span>(<span class="na">style=</span><span class="s">&quot;width:25%&quot;</span>)
     <span class="nt">%figure</span><span class="nc">.media-item</span>
-      <span class="nt">%img</span>(<span class="na">src=</span><span class="s">&quot;http://lorempixel.com/260/180&quot;</span>)
+      <span class="nt">%img</span>(<span class="na">src=</span><span class="s">&quot;http://placehold.it/260x180&quot;</span> <span class="na">width=</span><span class="s">&quot;260&quot;</span> <span class="na">height=</span><span class="s">&quot;180&quot;</span>)
       <span class="nt">%figcaption</span><span class="nc">.media-caption</span>
         <span class="nt">%h3</span> Media Item
         <span class="nt">%p</span> This is some caption copy with the footer aligned to the left.
@@ -4258,11 +4112,11 @@ grid for this reason.</p>
           <span class="nt">%button</span><span class="nc">.btn</span> Action
   <span class="nt">%li</span>(<span class="na">style=</span><span class="s">&quot;width:25%&quot;</span>)
     <span class="nt">%a</span><span class="nc">.media-item</span>(<span class="na">href=</span><span class="s">&quot;#&quot;</span>)
-      <span class="nt">%img</span>(<span class="na">src=</span><span class="s">&quot;http://lorempixel.com/260/180&quot;</span>)
+      <span class="nt">%img</span>(<span class="na">src=</span><span class="s">&quot;http://placehold.it/260x180&quot;</span> <span class="na">width=</span><span class="s">&quot;260&quot;</span> <span class="na">height=</span><span class="s">&quot;180&quot;</span>)
   <span class="nt">%li</span>(<span class="na">style=</span><span class="s">&quot;width:25%&quot;</span>)
     <span class="nt">%figure</span><span class="nc">.media-item</span>
       <span class="nt">%a</span><span class="nc">.media-item</span>(<span class="na">href=</span><span class="s">&quot;#&quot;</span>)
-        <span class="nt">%img</span>(<span class="na">src=</span><span class="s">&quot;http://lorempixel.com/260/180&quot;</span>)
+        <span class="nt">%img</span>(<span class="na">src=</span><span class="s">&quot;http://placehold.it/260x180&quot;</span> <span class="na">width=</span><span class="s">&quot;260&quot;</span> <span class="na">height=</span><span class="s">&quot;180&quot;</span>)
       <span class="nt">%figcaption</span><span class="nc">.media-caption</span>
         <span class="nt">%h3</span> Media Item
         <span class="nt">%p</span> This is some caption copy with the footer aligned to the right.
@@ -4270,18 +4124,15 @@ grid for this reason.</p>
           <span class="nt">%button</span><span class="nc">.btn</span> Action
   <span class="nt">%li</span>(<span class="na">style=</span><span class="s">&quot;width:25%&quot;</span>)
     <span class="nt">%figure</span><span class="nc">.media-item</span>
-      <span class="nt">%img</span>(<span class="na">src=</span><span class="s">&quot;http://lorempixel.com/260/180&quot;</span>)
+      <span class="nt">%img</span>(<span class="na">src=</span><span class="s">&quot;http://placehold.it/260x180&quot;</span> <span class="na">width=</span><span class="s">&quot;260&quot;</span> <span class="na">height=</span><span class="s">&quot;180&quot;</span>)
 </pre></div></p>
 
-<h6>Notes</h6>
-
-<ul>
-<li><strong>Pro Tip!</strong> Add <code>media-caption-right</code> on the <code>media-caption-footer</code>
-to align buttons to the right</li>
-</ul>
+<p><strong>Pro Tip!</strong> Add <code>media-caption-right</code> on the <code>media-caption-footer</code> to
+align buttons to the right</p>
 
 <h2>Style Settings</h2>
-
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/media_grid/media_grid</span>
+</pre></div>
 <p>To override the default settings, set the variable and it&#39;s value
 within your <code>config.sass</code> file or before <code>media_grid.sass</code> is loaded.</p>
 
@@ -4313,9 +4164,6 @@ within your <code>config.sass</code> file or before <code>media_grid.sass</code>
 
 <p>The menu component is a simple list of navigation elements, which are
 typically used within the <code>Drop</code> component.</p>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/menu/menu</span>
-</pre></div>
-<h2>Usage Example</h2>
 
 <p><div class="docomo-showcase"><ul class='nav menu' data-bindable='toggle-group' role='menu'>
   <li><a href='#' tabindex='-1'>Menu item 1</a></li>
@@ -4332,7 +4180,8 @@ typically used within the <code>Drop</code> component.</p>
 </pre></div></p>
 
 <h2>Style Settings</h2>
-
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/menu/menu</span>
+</pre></div>
 <p>To override the default settings, set the variable and it&#39;s value within
 your <code>config.sass</code> file or before <code>menu.sass</code> is loaded.</p>
 
@@ -4415,12 +4264,8 @@ require an extra element inside the DOM.</p>
 </tr>
 </tbody></table>
 
-<h6>Notes</h6>
-
-<ul>
-<li><strong>Heads Up!</strong> Arrows are typically positioned <code>absolute</code> by default so
-the host should be <code>relative</code> and don&#39;t forget to add <code>content: &quot;&quot;</code></li>
-</ul>
+<p><strong>Heads Up!</strong> Arrows are typically positioned <code>absolute</code> by default so
+the host should be <code>relative</code> and don&#39;t forget to add <code>content: &quot;&quot;</code></p>
 
 <h2>Clearfixins</h2>
 
@@ -4478,12 +4323,8 @@ grid environment.</p>
 </tr>
 </tbody></table>
 
-<h6>Warnings</h6>
-
-<ul>
-<li><strong>Warning!</strong> The column mixins all utilize <code>box-sizing: border-box</code>
-which is not supported in ie7</li>
-</ul>
+<p><em>Warning!</em> The column mixins all utilize <code>box-sizing: border-box</code> which
+is not supported in ie7</p>
 
 <p>Includes placeholder classes to be used via extension</p>
 <div class="highlight"><pre><span class="nc">.column</span>
@@ -4539,19 +4380,11 @@ percentages.</p>
 </tr>
 </tbody></table>
 
-<h6>Notes</h6>
+<p><strong>Important!</strong> When calculating vertical rhythm, always pass in what the
+expected pixel value is for the element.</p>
 
-<ul>
-<li><strong>Important!</strong> When calculating vertical rhythm, always pass in what
-the expected pixel value is for the element.</li>
-</ul>
-
-<h6>Warnings</h6>
-
-<ul>
-<li><strong>Warning!</strong> Define <code>$context_px</code>, <code>$base_font_size</code>, <code>$base_width</code>
-and <code>$base_vertical</code> prior to the functions being loaded.</li>
-</ul>
+<p><em>Warning!</em> Define <code>$context_px</code>, <code>$base_font_size</code>, <code>$base_width</code> and
+<code>$base_vertical</code> prior to the functions being loaded.</p>
 
 <h2>Float fill</h2>
 
@@ -4580,11 +4413,7 @@ and <code>$base_vertical</code> prior to the functions being loaded.</li>
 <li><code>$context:$context-px</code> [_optional_] The context constraints of the user&#39;s base font size</li>
 </ul>
 
-<h6>Notes</h6>
-
-<ul>
-<li><strong>Heads Up!</strong> Make sure <strong>not</strong> to include the <code>px</code> postfix when passing a size</li>
-</ul>
+<p><strong>Heads Up!</strong> Make sure <em>not</em> to include the <code>px</code> postfix when passing a size</p>
 <div class="highlight"><pre><span class="nt">h1</span>
   <span class="nd">+font-size</span><span class="p">(</span><span class="mi">48</span><span class="p">)</span>
   <span class="na">color</span><span class="o">:</span> <span class="nb">blue</span>
@@ -4631,11 +4460,7 @@ Takes a single parameter for color (defaults to <code>#ccc</code>)</p>
 </tr>
 </tbody></table>
 
-<h6>Warnings</h6>
-
-<ul>
-<li><strong>Warning!</strong> These settings can have adverse effects in some browsers, test thoroughly.</li>
-</ul>
+<p><em>Warning!</em> These settings can have adverse effects in some browsers, test thoroughly.</p>
 
 <h2>Inline block</h2>
 
@@ -4661,12 +4486,8 @@ to true.</p>
 <div class="highlight"><pre><span class="nc">.image-replacement</span>
   <span class="k">@extend</span> <span class="err">%</span><span class="nt">ir</span>
 </pre></div>
-<h6>Notes</h6>
-
-<ul>
-<li><strong>Heads Up!</strong> <code>scaffold.sass</code> automatically sets up a <code>.ir</code> class that
-extends the <code>%ir</code> placeholder.</li>
-</ul>
+<p><strong>Heads Up!</strong> <code>scaffold.sass</code> automatically sets up a <code>.ir</code> class that
+extends the <code>%ir</code> placeholder.</p>
 
 <h2>Responsive</h2>
 
@@ -4758,103 +4579,103 @@ properties included with <a target="_blank" href="http://thoughtbot.com/bourbon/
 </thead><tbody>
 <tr>
 <td><code>default (linear)</code></td>
-<td><div class="sherpa-swatch"></div></td>
+<td><div class="docomo-swatch"></div></td>
 </tr>
 <tr>
 <td><code>$ease-in-quad</code></td>
-<td><div class="sherpa-swatch ease-in-quad"></div></td>
+<td><div class="docomo-swatch ease-in-quad"></div></td>
 </tr>
 <tr>
 <td><code>$ease-in-cubic</code></td>
-<td><div class="sherpa-swatch ease-in-cubic"></div></td>
+<td><div class="docomo-swatch ease-in-cubic"></div></td>
 </tr>
 <tr>
 <td><code>$ease-in-quart</code></td>
-<td><div class="sherpa-swatch ease-in-quart"></div></td>
+<td><div class="docomo-swatch ease-in-quart"></div></td>
 </tr>
 <tr>
 <td><code>$ease-in-quint</code></td>
-<td><div class="sherpa-swatch ease-in-quint"></div></td>
+<td><div class="docomo-swatch ease-in-quint"></div></td>
 </tr>
 <tr>
 <td><code>$ease-in-sine</code></td>
-<td><div class="sherpa-swatch ease-in-sine"></div></td>
+<td><div class="docomo-swatch ease-in-sine"></div></td>
 </tr>
 <tr>
 <td><code>$ease-in-expo</code></td>
-<td><div class="sherpa-swatch ease-in-expo"></div></td>
+<td><div class="docomo-swatch ease-in-expo"></div></td>
 </tr>
 <tr>
 <td><code>$ease-in-circ</code></td>
-<td><div class="sherpa-swatch ease-in-circ"></div></td>
+<td><div class="docomo-swatch ease-in-circ"></div></td>
 </tr>
 <tr>
 <td><code>$ease-in-back</code></td>
-<td><div class="sherpa-swatch ease-in-back"></div></td>
+<td><div class="docomo-swatch ease-in-back"></div></td>
 </tr>
 <tr>
 <td><code>$ease-out-quad</code></td>
-<td><div class="sherpa-swatch ease-out-quad"></div></td>
+<td><div class="docomo-swatch ease-out-quad"></div></td>
 </tr>
 <tr>
 <td><code>$ease-out-cubic</code></td>
-<td><div class="sherpa-swatch ease-out-cubic"></div></td>
+<td><div class="docomo-swatch ease-out-cubic"></div></td>
 </tr>
 <tr>
 <td><code>$ease-out-quart</code></td>
-<td><div class="sherpa-swatch ease-out-quart"></div></td>
+<td><div class="docomo-swatch ease-out-quart"></div></td>
 </tr>
 <tr>
 <td><code>$ease-out-quint</code></td>
-<td><div class="sherpa-swatch ease-out-quint"></div></td>
+<td><div class="docomo-swatch ease-out-quint"></div></td>
 </tr>
 <tr>
 <td><code>$ease-out-sine</code></td>
-<td><div class="sherpa-swatch ease-out-sine"></div></td>
+<td><div class="docomo-swatch ease-out-sine"></div></td>
 </tr>
 <tr>
 <td><code>$ease-out-expo</code></td>
-<td><div class="sherpa-swatch ease-out-expo"></div></td>
+<td><div class="docomo-swatch ease-out-expo"></div></td>
 </tr>
 <tr>
 <td><code>$ease-out-circ</code></td>
-<td><div class="sherpa-swatch ease-out-circ"></div></td>
+<td><div class="docomo-swatch ease-out-circ"></div></td>
 </tr>
 <tr>
 <td><code>$ease-out-back</code></td>
-<td><div class="sherpa-swatch ease-out-back"></div></td>
+<td><div class="docomo-swatch ease-out-back"></div></td>
 </tr>
 <tr>
 <td><code>$ease-in-out-quad</code></td>
-<td><div class="sherpa-swatch ease-in-out-quad"></div></td>
+<td><div class="docomo-swatch ease-in-out-quad"></div></td>
 </tr>
 <tr>
 <td><code>$ease-in-out-cubic</code></td>
-<td><div class="sherpa-swatch ease-in-out-cubic"></div></td>
+<td><div class="docomo-swatch ease-in-out-cubic"></div></td>
 </tr>
 <tr>
 <td><code>$ease-in-out-quart</code></td>
-<td><div class="sherpa-swatch ease-in-out-quart"></div></td>
+<td><div class="docomo-swatch ease-in-out-quart"></div></td>
 </tr>
 <tr>
 <td><code>$ease-in-out-quint</code></td>
-<td><div class="sherpa-swatch ease-in-out-quint"></div></td>
+<td><div class="docomo-swatch ease-in-out-quint"></div></td>
 </tr>
 <tr>
 <td><code>$ease-in-out-sine</code></td>
-<td><div class="sherpa-swatch ease-in-out-sine"></div></td>
+<td><div class="docomo-swatch ease-in-out-sine"></div></td>
 </tr>
 <tr>
 <td><code>$ease-in-out-expo</code></td>
-<td><div class="sherpa-swatch ease-in-out-expo"></div></td>
+<td><div class="docomo-swatch ease-in-out-expo"></div></td>
 </tr>
 <tr>
 <td><code>$ease-in-out-circ</code></td>
-<td><div class="sherpa-swatch ease-in-out-circ"></div></td>
+<td><div class="docomo-swatch ease-in-out-circ"></div></td>
 </tr>
 <tr>
 <td><code>$ease-in-out-back</code></td>
-<td><div class="sherpa-swatch ease-in-out-back"></div></td>
+<td><div class="docomo-swatch ease-in-out-back"></div></td>
 </tr>
 </tbody></table>
 
@@ -4896,13 +4717,9 @@ properties included with <a target="_blank" href="http://thoughtbot.com/bourbon/
 </tr>
 </tbody></table>
 
-<h6>Warnings</h6>
-
-<ul>
-<li><strong>Warning!</strong> When using <code>visuallyhidden</code> and <code>visuallyshown</code> with
+<p><em>Warning!</em> When using <code>visuallyhidden</code> and <code>visuallyshown</code> with
 <code>box-shadow</code>, you&#39;ll need to add <code>clip:initial</code> to get the shadows to
-reappear</li>
-</ul>
+reappear</p>
 
 <p>Includes placeholder classes to be used via extension</p>
 <div class="highlight"><pre><span class="nc">.hideme</span>
@@ -4916,12 +4733,8 @@ reappear</li>
 <span class="nc">.invisible</span>
   <span class="k">@extend</span> <span class="err">%</span><span class="nt">invisible</span>
 </pre></div>
-<h6>Notes</h6>
-
-<ul>
-<li><strong>Heads Up!</strong> <code>scaffold.sass</code> automatically sets up a <code>.hidden</code> and
-<code>.shown</code> class that extends the <code>%hidden</code> and <code>%shown</code> placeholders.</li>
-</ul></section>
+<p><strong>Heads Up!</strong> <code>scaffold.sass</code> automatically sets up a <code>.hidden</code> and
+<code>.shown</code> class that extends the <code>%hidden</code> and <code>%shown</code> placeholders.</p></section>
       <a name='modal'></a>
       <section class='docomo-section'><h1>Modal</h1>
 
@@ -4934,10 +4747,6 @@ on the backdrop or triggering the <code>escape</code> key.</p>
 <p>Styles are not included for the contents of a modal (rather just the
 modal and backdrop itself). This is better suited for other components
 or custom layouts within the application.</p>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/modal/modal</span>
-</pre></div><div class="highlight"><pre>data-bindable=&quot;modal&quot;
-</pre></div>
-<h2>Usage Example</h2>
 
 <p><div class="docomo-showcase"><button class='btn' data-bindable='modal' data-keyboard='true' href='#modal_href'>Launch Modal</button>
 <div class='modal fade' id='modal_href'>
@@ -5021,7 +4830,9 @@ via an <code>id</code>. The target element can live either as the <code>href</co
 set to <code>display:none</code>.</p>
 
 <h2>API</h2>
-
+<div class="highlight"><pre><span class="c1">#= require utensils/modal</span>
+</pre></div><div class="highlight"><pre>data-bindable=&quot;modal&quot;
+</pre></div>
 <h3>#new</h3>
 
 <p>Create a new instance of <code>Modal</code> programmatically. Normally this is
@@ -5029,42 +4840,40 @@ handled through <code>Bindable</code>.</p>
 <div class="highlight"><pre><span class="c1">#= require modal</span>
 
 <span class="vi">@el = </span><span class="nx">$</span><span class="p">(</span><span class="s">&#39;#modal&#39;</span><span class="p">)</span>
-<span class="vi">@modal = </span><span class="k">new</span> <span class="nx">utensils</span><span class="p">.</span><span class="nx">Modal</span><span class="p">(</span><span class="nx">@el</span><span class="p">,</span> <span class="p">{</span><span class="nx">target</span><span class="o">:</span><span class="s">&#39;#my_modal&#39;</span><span class="p">})</span>
+<span class="vi">@modal = </span><span class="k">new</span> <span class="nx">utensils</span><span class="p">.</span><span class="nx">Modal</span> <span class="nx">@el</span><span class="p">,</span> <span class="p">{</span><span class="nx">target</span><span class="o">:</span><span class="s">&#39;#my_modal&#39;</span><span class="p">}</span>
 </pre></div>
 <h3>#toggle</h3>
 
 <p>Typically called through user input, but can be triggered by the
 elements toggle event.</p>
-<div class="highlight"><pre><span class="nx">@el</span><span class="p">.</span><span class="nx">trigger</span><span class="p">(</span><span class="s">&#39;click&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span class="nx">@el</span><span class="p">.</span><span class="nx">trigger</span> <span class="s">&#39;click&#39;</span>
 </pre></div>
 <h3>#activate</h3>
 
-<p>Show the modal</p>
+<p>Show the modal.</p>
 <div class="highlight"><pre><span class="nx">@modal</span><span class="p">.</span><span class="nx">activate</span><span class="p">()</span>
 </pre></div>
 <h3>#deactivate</h3>
 
-<p>Removes the modal</p>
+<p>Removes the modal.</p>
 <div class="highlight"><pre><span class="nx">@modal</span><span class="p">.</span><span class="nx">deactivate</span><span class="p">()</span>
 </pre></div>
 <h3>#dispose</h3>
 
-<p>Remove the modal behavior</p>
+<p>Remove the modal behavior.</p>
 <div class="highlight"><pre><span class="nx">@modal</span><span class="p">.</span><span class="nx">dispose</span><span class="p">()</span>
 </pre></div>
 <h3>Requires</h3>
-
-<ul>
-<li><code>utensils/utensils</code></li>
-<li><code>utensils/bindable</code></li>
-<li><code>utensils/triggerable</code></li>
-<li><code>utensils/detect</code></li>
-</ul>
-
+<div class="highlight"><pre><span class="nx">utensils</span><span class="o">/</span><span class="nx">utensils</span>
+<span class="nx">utensils</span><span class="o">/</span><span class="nx">bindable</span>
+<span class="nx">utensils</span><span class="o">/</span><span class="nx">triggerable</span>
+<span class="nx">utensils</span><span class="o">/</span><span class="nx">detect</span>
+</pre></div>
 <p><code>Modal</code> utilizes <code>Triggerable</code> via composition.</p>
 
 <h2>Style Settings</h2>
-
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/modal/modal</span>
+</pre></div>
 <p>To override the default settings, set the variable and it&#39;s value
 within your <code>config.sass</code> file or before <code>modal.sass</code> is loaded.</p>
 
@@ -5111,23 +4920,15 @@ within your <code>config.sass</code> file or before <code>modal.sass</code> is l
 based of the <code>$base-width</code> of the site. Specific media queries should be
 setup to handle various sizing based on the device&#39;s viewport.</p>
 
-<h6>Warning</h6>
-
-<ul>
-<li><strong>Heads Up!</strong> The configuration file needs to define the
-<code>$zindex-modal</code> and <code>$zindex-modal-backdrop</code> values before this file is
-imported, this is done to keep managing <code>z-index</code> mappings in one
-place.</li>
-</ul></section>
+<p><em>Warning!</em> The configuration file needs to define the <code>$zindex-modal</code>
+and <code>$zindex-modal-backdrop</code> values before this file is imported, this
+is done to keep managing <code>z-index</code> mappings in one place.</p></section>
       <a name='navbar'></a>
       <section class='docomo-section'><h1>Navbar</h1>
 
 <p>Contains the basic structure for creating application or page level
 navigation systems. A combination of styles and layout for supporting
 various components with navigation, search forms and drop downs.</p>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/navbar/navbar</span>
-</pre></div>
-<h2>Usage Example</h2>
 
 <p><div class="docomo-showcase"><div class='navbar'>
   <div class='navbar-inner'>
@@ -5242,7 +5043,8 @@ navbar displays.</p>
 <p>Need to implement this</p>
 
 <h2>Style Settings</h2>
-
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/navbar/navbar</span>
+</pre></div>
 <p>To override the default settings, set the variable and it&#39;s value within
 your <code>config.sass</code> file or before <code>navbar.sass</code> is loaded.</p>
 
@@ -5295,9 +5097,6 @@ and inserts them directly into your style sheet.</p>
 <p>UI pattern for displaying messaging information in a notification.</p>
 
 <p>Add the <code>Dismiss</code> behavior for allowing the notification to be closed.</p>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/notification/notification</span>
-</pre></div>
-<h2>Usage Example</h2>
 
 <p><div class="docomo-showcase"><div class='notification fade in' role='alert'>
   <p><strong>Default!</strong> This is the default notification</p>
@@ -5407,7 +5206,8 @@ align one of these containers to the right, simply add the modifier
 class <code>.notify-right</code>.</p>
 
 <h2>Style Settings</h2>
-
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/notification/notification</span>
+</pre></div>
 <p>To override the default settings, set the variable and it&#39;s value within
 your <code>config.sass</code> file or before <code>notification.sass</code> is loaded.</p>
 
@@ -5447,9 +5247,6 @@ blown pagination system isn&#39;t required.</p>
 
 <p>To allow pager to float on the sides of the container, apply the
 <code>.prev</code> and <code>.next</code> classes to the containing pager <code>li</code> element.</p>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/pager/pager</span>
-</pre></div>
-<h2>Usage Example</h2>
 
 <p><div class="docomo-showcase"><nav role='navigation'>
   <ul class='pager'>
@@ -5540,7 +5337,8 @@ blown pagination system isn&#39;t required.</p>
 <p>To disable a pager, add the <code>disabled</code> class to the <code>a</code> element&#39;s parent <code>li</code>.</p>
 
 <h2>Style Settings</h2>
-
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/pager/pager</span>
+</pre></div>
 <p>To override the default settings, set the variable and it&#39;s value
 within your <code>config.sass</code> file or before <code>pager.sass</code> is loaded.</p>
 
@@ -5585,11 +5383,8 @@ within your <code>config.sass</code> file or before <code>pager.sass</code> is l
       <a name='pagination'></a>
       <section class='docomo-section'><h1>Pagination</h1>
 
-<p>Apply the <code>.pagination</code> class to the <code>ol</code> or <code>ul</code> element to
-represent pagination navigation. The list should contain the <code>.nav</code> class.</p>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/pagination/pagination</span>
-</pre></div>
-<h2>Usage Example</h2>
+<p>Apply the <code>.pagination</code> class to the <code>ol</code> or <code>ul</code> element to represent
+pagination navigation. The list should contain the <code>.nav</code> class.</p>
 
 <p><div class="docomo-showcase"><nav data-bindable='toggle-group' role='navigation'>
   <ol class='nav pagination'>
@@ -5688,9 +5483,10 @@ represent pagination navigation. The list should contain the <code>.nav</code> c
 </pre></div></p>
 
 <h2>Style Settings</h2>
-
-<p>To override the default settings, set the variable and it&#39;s value
-within your <code>config.sass</code> file or before <code>pagination.sass</code> is loaded.</p>
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/pagination/pagination</span>
+</pre></div>
+<p>To override the default settings, set the variable and it&#39;s value within
+your <code>config.sass</code> file or before <code>pagination.sass</code> is loaded.</p>
 
 <table><thead>
 <tr>
@@ -5741,11 +5537,9 @@ within your <code>config.sass</code> file or before <code>pagination.sass</code>
 </tr>
 </tbody></table>
 
-<h6>Note</h6>
-
-<ul>
-<li><strong>Pro Tip!</strong> Add <code>.pagination-center</code> or <code>.pagination-right</code> on the <code>.pagination</code> container&#39;s <code>parent</code> (<code>nav</code>) element to change the alignment</li>
-</ul></section>
+<p><strong>Pro Tip!</strong> Add <code>.pagination-center</code> or <code>.pagination-right</code> on the
+<code>.pagination</code> container&#39;s <code>parent</code> (<code>nav</code>) element to change the
+alignment</p></section>
       <a name='pill'></a>
       <section class='docomo-section'><h1>Pill</h1>
 
@@ -5758,9 +5552,6 @@ the <code>data-bindable=&quot;tab&quot;</code> along with an <code>href</code> a
 the related targets panel.</p>
 
 <p>See <code>Tab</code> for more information.</p>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/pill/pill</span>
-</pre></div>
-<h2>Usage Example</h2>
 
 <p><div class="docomo-showcase"><nav id='pill_demo' role='navigation'>
   <ul class='nav pill' data-bindable='tab' data-related='#pill_content' role='tablist'>
@@ -5832,9 +5623,10 @@ the related targets panel.</p>
 </pre></div></p>
 
 <h2>Style Settings</h2>
-
-<p>To override the default settings, set the variable and it&#39;s value
-within your <code>config.sass</code> file or before <code>pill.sass</code> is loaded.</p>
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/pill/pill</span>
+</pre></div>
+<p>To override the default settings, set the variable and it&#39;s value within
+your <code>config.sass</code> file or before <code>pill.sass</code> is loaded.</p>
 
 <table><thead>
 <tr>
@@ -5870,10 +5662,6 @@ within your <code>config.sass</code> file or before <code>pill.sass</code> is lo
 <p>Stack pills by adding the class <code>.stacked</code> to the <code>.pill</code> element.</p>
 
 <p>Stacked pills require the <code>pill</code> component.</p>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/pill/pill</span>
-<span class="k">@import</span> <span class="s">utensils/pill_stacked/pill_stacked</span>
-</pre></div>
-<h2>Usage Example</h2>
 
 <p><div class="docomo-showcase"><nav id='pill_stacked_demo' role='navigation'>
   <ul class='nav pill stacked' data-bindable='tab' data-related='#pill_stacked_content' role='tablist'>
@@ -5945,7 +5733,9 @@ within your <code>config.sass</code> file or before <code>pill.sass</code> is lo
 </pre></div></p>
 
 <h2>Style Settings</h2>
-
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/pill/pill</span>
+<span class="k">@import</span> <span class="s">utensils/pill_stacked/pill_stacked</span>
+</pre></div>
 <p>All style settings are inherited from <code>pill.sass</code>.</p></section>
       <a name='polyfill'></a>
       <section class='docomo-section'><h1>Polyfill</h1>
@@ -5978,14 +5768,8 @@ polyfills.</p>
 <li><code>@return</code> The combined values for translation into the mixin</li>
 </ul>
 
-<h6>Warning</h6>
-
-<ul>
-<li><strong>Warning!</strong> The combine function for mixin values only accepts 9
-values, this is inline with the Bourbon library (Compass supports 10!)</li>
-</ul>
-
-<h4>Usage Example</h4>
+<p><em>Warning!</em> The combine function for mixin values only accepts 9 values,
+this is inline with the Bourbon library (Compass supports 10!)</p>
 <div class="highlight"><pre><span class="nv">$full</span><span class="o">:</span> <span class="nf">combine</span><span class="p">(</span><span class="nv">$transition-1</span><span class="o">,</span> <span class="nv">$transition-2</span><span class="o">,</span> <span class="nv">$transition-3</span><span class="p">)</span>
 </pre></div>
 <h2>Background Image</h2>
@@ -5999,8 +5783,6 @@ old webkit linear gradient.</p>
 <ul>
 <li><code>$bgi-n</code> The background image properties to apply</li>
 </ul>
-
-<h4>Usage Example</h4>
 <div class="highlight"><pre><span class="nc">.element</span>
   <span class="nd">+background-image</span><span class="p">(</span><span class="nf">linear-gradient</span><span class="p">(</span><span class="mh">#ff00ff</span><span class="o">,</span> <span class="mh">#000</span><span class="p">)</span><span class="o">,</span> <span class="sx">url(&quot;/images/asset.png&quot;)</span><span class="p">)</span>
 </pre></div>
@@ -6014,8 +5796,6 @@ shadow parameters)</p>
 <ul>
 <li><code>$shadow-n</code> The normal or inset shadow properties to apply</li>
 </ul>
-
-<h4>Usage Example</h4>
 <div class="highlight"><pre><span class="nc">.element</span>
   <span class="nd">+box-shadow</span><span class="p">(</span><span class="no">inset</span> <span class="mi">0</span> <span class="mi">1</span><span class="kt">px</span> <span class="mi">1</span><span class="kt">px</span> <span class="nf">rgba</span><span class="p">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="mf">.1</span><span class="p">)</span><span class="o">,</span> <span class="mi">-1</span><span class="kt">px</span> <span class="mi">-1</span><span class="kt">px</span> <span class="mi">5</span><span class="kt">px</span> <span class="mi">1</span><span class="kt">px</span> <span class="nb">black</span><span class="p">)</span>
 </pre></div>
@@ -6028,8 +5808,6 @@ shadow parameters)</p>
 <ul>
 <li><code>$type:border-box</code> Options: <code>content-box | border-box | inherit</code></li>
 </ul>
-
-<h4>Usage Example</h4>
 <div class="highlight"><pre><span class="nc">.column</span>
   <span class="nd">+box-sizing</span><span class="p">(</span><span class="no">border</span><span class="o">-</span><span class="n">box</span><span class="p">)</span>
 </pre></div>
@@ -6042,8 +5820,6 @@ shadow parameters)</p>
 <ul>
 <li><code>$alpha:1</code></li>
 </ul>
-
-<h4>Usage Example</h4>
 <div class="highlight"><pre><span class="nc">.element</span>
   <span class="nd">+opacity</span><span class="p">(</span><span class="mi">0</span><span class="mf">.5</span><span class="p">)</span>
 </pre></div>
@@ -6057,8 +5833,6 @@ parameters)</p>
 <ul>
 <li><code>$transition-n</code> The transition values to apply.</li>
 </ul>
-
-<h4>Usage Example</h4>
 <div class="highlight"><pre><span class="nc">.element</span>
   <span class="nd">+transition</span><span class="p">(</span><span class="no">height</span> <span class="nv">$speed</span> <span class="nv">$ease-in-out-quart</span><span class="o">,</span> <span class="no">color</span> <span class="nv">$speed</span><span class="p">)</span>
 </pre></div>
@@ -6071,8 +5845,6 @@ parameters)</p>
 <ul>
 <li><code>$type:none</code> Options: <code>none | auto | text</code></li>
 </ul>
-
-<h4>Usage Example</h4>
 <div class="highlight"><pre><span class="nc">.cant-touch-this</span>
   <span class="nd">+user-select</span><span class="p">(</span><span class="no">none</span><span class="p">)</span>
 </pre></div></section>
@@ -6089,10 +5861,6 @@ triggered through a <code>click</code> event. They can be assembled via
 <code>data</code> attributes or reference a hidden element within the DOM to
 inject into a <code>Pop</code> container. Positioning is defined by cardinal
 points.</p>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/pop/pop</span>
-</pre></div><div class="highlight"><pre>data-bindable=&quot;pop&quot;
-</pre></div>
-<h2>Usage Examples</h2>
 
 <p><div class="docomo-showcase"><nav>
   <ul class='nav inline'>
@@ -6111,8 +5879,8 @@ points.</p>
       <div class='pop-header'>
         <h3>Exterior content</h3>
       </div>
-      <div class='pop-content' style='width: 260px; height:180px;'>
-        <img src='http://lorempixel.com/260/180' />
+      <div class='pop-content'>
+        <img height='180' src='http://placehold.it/260x180' width='280' />
       </div>
     </div>
   </div>
@@ -6138,8 +5906,8 @@ points.</p>
     <span class="nc">.pop-inner</span>
       <span class="nc">.pop-header</span>
         <span class="nt">%h3</span> Exterior content
-      <span class="nc">.pop-content</span>(<span class="na">style=</span><span class="s">&quot;width: 260px; height:180px;&quot;</span>)
-        <span class="nt">%img</span>(<span class="na">src=</span><span class="s">&quot;http://lorempixel.com/260/180&quot;</span>)
+      <span class="nc">.pop-content</span>
+        <span class="nt">%img</span>(<span class="na">src=</span><span class="s">&quot;http://placehold.it/260x180&quot;</span> <span class="na">width=</span><span class="s">&quot;280&quot;</span> <span class="na">height=</span><span class="s">&quot;180&quot;</span>)
 </pre></div></p>
 
 <h2>Options</h2>
@@ -6193,19 +5961,15 @@ points.</p>
 </tr>
 </tbody></table>
 
+<p><strong>Heads Up!</strong> <code>Pop</code> will override it&#39;s placement automatically through
+<code>Directional</code> if it determines the requested position will render the
+pop outside the viewport.</p>
+
 <p>Referencing &quot;is tip like&quot; means the contents of the <code>Pop</code> reside within
 the <code>data</code> attributes of the link. When a <code>Pop</code> &quot;is not tip like&quot;, it
 references a <code>hidden</code> DOM element.</p>
 
-<p>See <code>Triggerable</code> for other options</p>
-
-<h6>Notes</h6>
-
-<ul>
-<li><strong>Heads Up!</strong> <code>Pop</code> will override it&#39;s placement automatically through
-<code>Directional</code> if it determines the requested position will render the
-pop outside the viewport.</li>
-</ul>
+<p>See <code>Triggerable</code> for other options.</p>
 
 <h3>Referencing DOM elements</h3>
 
@@ -6218,15 +5982,13 @@ first time the <code>Pop</code> is activated. It&#39;s a good idea to include th
 <code>.hidden</code> or <code>.visuallyhidden</code> class on the container to keep it from
 appearing on screen initially.</p>
 
-<h6>Notes</h6>
-
-<ul>
-<li><strong>Pro Tip!</strong> This is the preferred behavior for creating more complex
-<code>Pop</code> components</li>
-</ul>
+<p><strong>Pro Tip!</strong> This is the preferred behavior for creating more complex
+<code>Pop</code> components.</p>
 
 <h2>API</h2>
-
+<div class="highlight"><pre><span class="c1">#= require utensils/pop</span>
+</pre></div><div class="highlight"><pre>data-bindable=&quot;pop&quot;
+</pre></div>
 <h3>#new</h3>
 
 <p>Create a new instance of <code>Pop</code> programmatically. Normally this is
@@ -6234,43 +5996,41 @@ handled through <code>Bindable</code>.</p>
 <div class="highlight"><pre><span class="c1">#= require pop</span>
 
 <span class="vi">@el = </span><span class="nx">$</span><span class="p">(</span><span class="s">&#39;#pop&#39;</span><span class="p">)</span>
-<span class="vi">@pop = </span><span class="k">new</span> <span class="nx">utensils</span><span class="p">.</span><span class="nx">Pop</span><span class="p">(</span><span class="nx">@el</span><span class="p">,</span> <span class="p">{</span><span class="nx">target</span><span class="o">:</span><span class="s">&#39;#pop_exterior_content&#39;</span><span class="p">})</span>
+<span class="vi">@pop = </span><span class="k">new</span> <span class="nx">utensils</span><span class="p">.</span><span class="nx">Pop</span> <span class="nx">@el</span><span class="p">,</span> <span class="nv">target: </span><span class="s">&#39;#pop_exterior_content&#39;</span>
 </pre></div>
 <h3>#toggle</h3>
 
 <p>Typically called through user input, but can be triggered by the
 elements toggle event.</p>
-<div class="highlight"><pre><span class="nx">@el</span><span class="p">.</span><span class="nx">trigger</span><span class="p">(</span><span class="s">&#39;click&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span class="nx">@el</span><span class="p">.</span><span class="nx">trigger</span> <span class="s">&#39;click&#39;</span>
 </pre></div>
 <h3>#activate</h3>
 
-<p>Show the pop</p>
+<p>Show the pop.</p>
 <div class="highlight"><pre><span class="nx">@pop</span><span class="p">.</span><span class="nx">activate</span><span class="p">()</span>
 </pre></div>
 <h3>#deactivate</h3>
 
-<p>Removes the pop</p>
+<p>Removes the pop.</p>
 <div class="highlight"><pre><span class="nx">@pop</span><span class="p">.</span><span class="nx">deactivate</span><span class="p">()</span>
 </pre></div>
 <h3>#dispose</h3>
 
-<p>Remove the pop behavior</p>
+<p>Remove the pop behavior.</p>
 <div class="highlight"><pre><span class="nx">@pop</span><span class="p">.</span><span class="nx">dispose</span><span class="p">()</span>
 </pre></div>
 <h3>Requires</h3>
-
-<ul>
-<li><code>utensils/utensils</code></li>
-<li><code>utensils/bindable</code></li>
-<li><code>utensils/triggerable</code></li>
-<li><code>utensils/detect</code></li>
-<li><code>utensils/directional</code></li>
-</ul>
-
+<div class="highlight"><pre><span class="nx">utensils</span><span class="o">/</span><span class="nx">utensils</span>
+<span class="nx">utensils</span><span class="o">/</span><span class="nx">bindable</span>
+<span class="nx">utensils</span><span class="o">/</span><span class="nx">triggerable</span>
+<span class="nx">utensils</span><span class="o">/</span><span class="nx">detect</span>
+<span class="nx">utensils</span><span class="o">/</span><span class="nx">directional</span>
+</pre></div>
 <p><code>Pop</code> utilizes <code>Triggerable</code> via composition.</p>
 
 <h2>Style Settings</h2>
-
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/pop/pop</span>
+</pre></div>
 <p>To override the default settings, set the variable and it&#39;s value
 within your <code>config.sass</code> file or before <code>pop.sass</code> is loaded.</p>
 
@@ -6343,27 +6103,9 @@ within your <code>config.sass</code> file or before <code>pop.sass</code> is loa
 </tr>
 </tbody></table>
 
-<h6>Warning</h6>
-
-<ul>
-<li><strong>Heads Up!</strong> The configuration file needs to define the <code>$zindex-pop</code>
+<p><em>Warning!</em> The configuration file needs to define the <code>$zindex-pop</code>
 value before this file is imported, this is done to keep managing
-<code>z-index</code> mappings in one place.</li>
-</ul>
-
-<h2>Injected Markup</h2>
-
-<p>The markup injected when a pop is shown:</p>
-<div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;pop north fade&quot;</span><span class="nt">&gt;</span>
- <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;pop-arrow&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
- <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;pop-inner&quot;</span><span class="nt">&gt;</span>
-   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;pop-header&quot;</span><span class="nt">&gt;</span>The Western Pop<span class="nt">&lt;/div&gt;</span>
-   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;pop-content&quot;</span><span class="nt">&gt;</span>
-     <span class="nt">&lt;p&gt;</span>A bunch of killer content<span class="nt">&lt;/p&gt;</span>
-   <span class="nt">&lt;/div&gt;</span>
- <span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;/div&gt;</span>
-</pre></div></section>
+<code>z-index</code> mappings in one place.</p></section>
       <a name='print'></a>
       <section class='docomo-section'><h1>Print</h1>
 
@@ -6376,9 +6118,6 @@ the <code>@media print</code> query.</p>
       <section class='docomo-section'><h1>Progress</h1>
 
 <p>Styles and simple behavior for progress indicator bars.</p>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/progress/progress</span>
-</pre></div>
-<h2>Usage Example</h2>
 
 <p><div class="docomo-showcase"><div class='progress' role='progressbar'>
   <div class='bar' style='width:60%'></div>
@@ -6411,12 +6150,8 @@ the <code>@media print</code> query.</p>
   <span class="nc">.bar</span>(<span class="na">style=</span><span class="s">&quot;width:60%&quot;</span>)
 </pre></div></p>
 
-<h6>Note</h6>
-
-<ul>
-<li><strong>Pro Tip!</strong> Click on one of the progress bars and it will animate to
-a random number between <code>0-100</code></li>
-</ul>
+<p><strong>Pro Tip!</strong> Click on one of the progress bars and it will animate to a
+random number between <code>0-100</code>.</p>
 
 <h2>Options</h2>
 
@@ -6435,44 +6170,42 @@ a random number between <code>0-100</code></li>
 </tbody></table>
 
 <h2>API</h2>
-
+<div class="highlight"><pre><span class="c1">#= require utensils/progress</span>
+</pre></div>
 <h3>#new</h3>
 
-<p><code>Progress</code> is typically used by a class instance</p>
+<p><code>Progress</code> is typically used by a class instance.</p>
 <div class="highlight"><pre><span class="c1">#= require progress</span>
 
 <span class="vi">@progress_el = </span><span class="nx">$</span><span class="p">(</span><span class="s">&#39;#progress&#39;</span><span class="p">)</span>
-
-<span class="vi">@progress = </span><span class="k">new</span> <span class="nx">utensils</span><span class="p">.</span><span class="nx">Progress</span><span class="p">(</span><span class="nx">@progress_el</span><span class="p">)</span>
+<span class="vi">@progress = </span><span class="k">new</span> <span class="nx">utensils</span><span class="p">.</span><span class="nx">Progress</span> <span class="nx">@progress_el</span>
 </pre></div>
 <h3>#set</h3>
 
-<p>Set the width of the progress bar from a percentage value</p>
-<div class="highlight"><pre><span class="nx">@progress</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<p>Set the <code>width</code> of the progress bar from a percentage value.</p>
+<div class="highlight"><pre><span class="nx">@progress</span><span class="p">.</span><span class="nx">set</span> <span class="mi">50</span>
 </pre></div>
 <h3>#get</h3>
 
-<p>Get the width of the progress bar from a percentage value</p>
+<p>Get the <code>width</code> of the progress bar from a percentage value.</p>
 <div class="highlight"><pre><span class="nv">current = </span><span class="nx">@progress</span><span class="p">.</span><span class="nx">get</span><span class="p">()</span>
 </pre></div>
 <h3>#reset</h3>
 
-<p>Reset the width of the progress bar back to <code>0</code></p>
+<p>Reset the <code>width</code> of the progress bar back to <code>0</code>.</p>
 <div class="highlight"><pre><span class="nx">@progress</span><span class="p">.</span><span class="nx">reset</span><span class="p">()</span>
 </pre></div>
 <h3>#complete</h3>
 
-<p>Set the width of the progress bar to <code>100</code></p>
+<p>Set the <code>width</code> of the progress bar to <code>100</code>.</p>
 <div class="highlight"><pre><span class="nx">@progress</span><span class="p">.</span><span class="nx">complete</span><span class="p">()</span>
 </pre></div>
 <h3>Requires</h3>
-
-<ul>
-<li><code>utensils/utensils</code></li>
-</ul>
-
+<div class="highlight"><pre><span class="nx">utensils</span><span class="o">/</span><span class="nx">utensils</span>
+</pre></div>
 <h2>Style Settings</h2>
-
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/progress/progress</span>
+</pre></div>
 <p>To override the default settings, set the variable and it&#39;s value
 within your <code>config.sass</code> file or before <code>progress.sass</code> is loaded.</p>
 
@@ -6521,16 +6254,14 @@ colors related to bars. This list is typically defined in the
       <a name='scaffold'></a>
       <section class='docomo-section'><h1>Scaffold</h1>
 
-<p>Sets up core scaffolding elements for <code>html</code>, <code>body</code>, selections, links and navigation.</p>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/scaffold/scaffold</span>
-</pre></div>
+<p>Sets up core scaffolding elements for <code>html</code>, <code>body</code>, selections, links
+and navigation.</p>
+
 <h2>Navs</h2>
 
-<h3>Usage Example</h3>
-
-<p>The base <code>.nav</code> is the building block for navigation structures and components
-(tabs, pills, breadcrumbs, pagination and navigation lists). The <code>.nav</code> class
-can be used for simple navigation as well.</p>
+<p>The base <code>.nav</code> is the building block for navigation structures and
+components (tabs, pills, breadcrumbs, pagination and navigation lists).
+The <code>.nav</code> class can be used for simple navigation as well.</p>
 
 <p><div class="docomo-showcase"><nav class='well' role='navigation'>
   <ul class='nav' data-bindable='toggle-group'>
@@ -6587,20 +6318,19 @@ can be used for simple navigation as well.</p>
       <span class="nt">%a</span>(<span class="na">href=</span><span class="s">&quot;#&quot;</span>) Inline Link 3
 </pre></div></p>
 
-<h6>Warnings</h6>
+<p><em>Warning!</em> All navigation components depend on the <code>.nav</code> class being
+attached to the container element</p>
 
-<ul>
-<li><strong>Heads Up!</strong> All navigation components depend on the <code>.nav</code> class being attached to the container element</li>
-</ul>
+<p>For convenience, add the <code>.inline</code> class to the <code>.nav</code> element to
+display the base nav inline.</p>
 
-<p>For convenience, add the <code>inline</code> class to the <code>.nav</code> element to display the base nav inline.</p>
-
-<p>Utilize the <code>.nav-header</code> and <code>.nav-divider</code> for building simple navigation lists.</p>
+<p>Utilize the <code>.nav-header</code> and <code>.nav-divider</code> for building simple
+navigation lists.</p>
 
 <h2>Tab Panels</h2>
 
-<p>Tab panels are typically used by <code>Tab</code> and <code>Pill</code> for showing and
-hiding related content. See <code>Tab</code> for usage.</p>
+<p>Tab panels are typically used by <code>Tab</code> and <code>Pill</code> for showing and hiding
+related content. See <code>Tab</code> for usage.</p>
 
 <h2>Utility Classes</h2>
 
@@ -6640,7 +6370,8 @@ the scaffold.</p>
 </tbody></table>
 
 <h2>Style Settings</h2>
-
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/scaffold/scaffold</span>
+</pre></div>
 <p>To override the default settings, set the variable and it&#39;s value
 within your <code>config.sass</code> file or before <code>scaffold.sass</code> is loaded.</p>
 
@@ -6712,8 +6443,6 @@ within your <code>config.sass</code> file or before <code>scaffold.sass</code> i
 
 <p>Describe this</p>
 
-<h2>Usage Example</h2>
-
 <p><div class="docomo-showcase"><div class='slider-control' data-initial-value='500' data-max='1000' data-min='0' id='slider_control' role='slider'>
   <div class='slider-track'></div>
   <div class='slider-progress'></div>
@@ -6744,10 +6473,6 @@ like other navigation elements require the <code>.nav</code> class for layout. A
 <p>To utilize a drop dead simple version of hiding and showing content, add
 the <code>data-bindable=&quot;tab&quot;</code> along with an <code>href</code> attributes pointing to
 the related targets panel.</p>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/tab/tab</span>
-</pre></div><div class="highlight"><pre>data-bindable=&quot;tab&quot;
-</pre></div>
-<h2>Usage Example</h2>
 
 <p><div class="docomo-showcase"><nav id='tab_demo' role='navigation'>
   <ul class='nav tab' data-bindable='tab' data-related='#tab_content' role='tablist'>
@@ -6847,69 +6572,58 @@ the related targets panel.</p>
 <p>See <code>ToggleGroup</code> for more options.</p>
 
 <h2>API</h2>
-
+<div class="highlight"><pre><span class="c1">#= require utensils/tab</span>
+</pre></div><div class="highlight"><pre>data-bindable=&quot;tab&quot;
+</pre></div>
 <h3>#new</h3>
 
-<p>Create a new instance of <code>Tab</code> programatically, typically this
-is instantiated through <code>Bindable</code></p>
+<p>Create a new instance of <code>Tab</code> programatically, typically this is
+instantiated through <code>Bindable</code>.</p>
 <div class="highlight"><pre><span class="c1">#= require tab</span>
 
 <span class="vi">@tab_el = </span><span class="nx">$</span><span class="p">(</span><span class="s">&#39;#tab&#39;</span><span class="p">)</span>
-
-<span class="vi">@tab = </span><span class="k">new</span> <span class="nx">utensils</span><span class="p">.</span><span class="nx">Tab</span><span class="p">(</span><span class="nx">@tab_el</span><span class="p">)</span>
+<span class="vi">@tab = </span><span class="k">new</span> <span class="nx">utensils</span><span class="p">.</span><span class="nx">Tab</span> <span class="nx">@tab_el</span>
 </pre></div>
 <h3>#activate</h3>
 
 <p>Activate can take either an index or element as it&#39;s target parameter.
 Activating will add the toggle classes to the element. Activate will
-remove the toggle classes from other elements within the group.</p>
-
-<h5>dispatches:</h5>
-
-<ul>
-<li><code>tab:activated</code></li>
-</ul>
+remove the toggle classes from other elements within the group.
+Dispatches a <code>tab:activated</code> event.</p>
 <div class="highlight"><pre><span class="c1"># activate by index</span>
-<span class="nx">@tab</span><span class="p">.</span><span class="nx">activate</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="nx">@tab</span><span class="p">.</span><span class="nx">activate</span> <span class="mi">1</span>
 
 <span class="c1"># activate by element</span>
-<span class="nx">@tab</span><span class="p">.</span><span class="nx">activate</span><span class="p">(</span><span class="nx">@tab_el</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s">&#39;li:nth-child(2)&#39;</span><span class="p">))</span>
+<span class="nx">@tab</span><span class="p">.</span><span class="nx">activate</span> <span class="nx">@tab_el</span><span class="p">.</span><span class="nx">find</span> <span class="s">&#39;li:nth-child(2)&#39;</span>
 </pre></div>
 <h3>#deactivate</h3>
 
 <p>Deactivate can take either an index or element as it&#39;s target parameter.
-Deactivating will remove the toggle classes from the element.</p>
-
-<h5>dispatches:</h5>
-
-<ul>
-<li><code>tab:deactivated</code></li>
-</ul>
+Deactivating will remove the toggle classes from the element. Dispatches
+a <code>tab:deactivated</code> event.</p>
 <div class="highlight"><pre><span class="c1"># deactivate by index</span>
-<span class="nx">@tab</span><span class="p">.</span><span class="nx">deactivate</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="nx">@tab</span><span class="p">.</span><span class="nx">deactivate</span> <span class="mi">1</span>
 
 <span class="c1"># deactivate by element</span>
-<span class="nx">@tab</span><span class="p">.</span><span class="nx">deactivate</span><span class="p">(</span><span class="nx">@tab_el</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s">&#39;li:nth-child(2)&#39;</span><span class="p">))</span>
+<span class="nx">@tab</span><span class="p">.</span><span class="nx">deactivate</span> <span class="nx">@tab_el</span><span class="p">.</span><span class="nx">find</span> <span class="s">&#39;li:nth-child(2)&#39;</span>
 </pre></div>
 <h3>#dispose</h3>
 
-<p>Cleans up any internal references</p>
+<p>Cleans up any internal references.</p>
 <div class="highlight"><pre><span class="nx">@tab</span><span class="p">.</span><span class="nx">dispose</span><span class="p">()</span>
 </pre></div>
 <h3>Requires</h3>
-
-<ul>
-<li><code>utensils/utensils</code></li>
-<li><code>utensils/bindable</code></li>
-<li><code>utensils/toggle_group</code></li>
-</ul>
-
+<div class="highlight"><pre><span class="nx">utensils</span><span class="o">/</span><span class="nx">utensils</span>
+<span class="nx">utensils</span><span class="o">/</span><span class="nx">bindable</span>
+<span class="nx">utensils</span><span class="o">/</span><span class="nx">toggle_group</span>
+</pre></div>
 <p><code>Tab</code> utilizes <code>ToggleGroup</code> via composition.</p>
 
 <h2>Style Settings</h2>
-
-<p>To override the default settings, set the variable and it&#39;s value
-within your <code>config.sass</code> file or before <code>tab.sass</code> is loaded.</p>
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/tab/tab</span>
+</pre></div>
+<p>To override the default settings, set the variable and it&#39;s value within
+your <code>config.sass</code> file or before <code>tab.sass</code> is loaded.</p>
 
 <table><thead>
 <tr>
@@ -6950,10 +6664,6 @@ within your <code>config.sass</code> file or before <code>tab.sass</code> is loa
 <p>Stack tabs by adding the class <code>.stacked</code> to the <code>.tab</code> element.</p>
 
 <p>Stacked tabs require the <code>tab</code> component.</p>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/tab/tab</span>
-<span class="k">@import</span> <span class="s">utensils/tab_stacked/tab_stacked</span>
-</pre></div>
-<h2>Usage Example</h2>
 
 <p><div class="docomo-showcase"><nav id='tab_stacked_demo' role='navigation'>
   <ul class='nav tab stacked' data-bindable='tab' data-related='#tab_stacked_content' role='tablist'>
@@ -7025,16 +6735,16 @@ within your <code>config.sass</code> file or before <code>tab.sass</code> is loa
 </pre></div></p>
 
 <h2>Style Settings</h2>
-
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/tab/tab</span>
+<span class="k">@import</span> <span class="s">utensils/tab_stacked/tab_stacked</span>
+</pre></div>
 <p>All style settings are inherited from <code>tab.sass</code>.</p></section>
       <a name='table'></a>
       <section class='docomo-section'><h1>Table</h1>
 
-<p>Building tables is additive around the classes applied to the top level <code>&lt;table&gt;</code> element.
-By combining any of the following classes, the table can be given a different look and feel.</p>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/table/table</span>
-</pre></div>
-<h2>Usage Example</h2>
+<p>Building tables is additive around the classes applied to the top level
+<code>&lt;table&gt;</code> element.  By combining any of the following classes, the table
+can be given a different look and feel.</p>
 
 <p><div class="docomo-showcase"><table class='demo' data-target='this'><caption>Table Caption</caption><thead>
     <tr>
@@ -7189,12 +6899,6 @@ By combining any of the following classes, the table can be given a different lo
   <span class="nt">%button</span><span class="nc">.btn</span>(<span class="na">data-toggle=</span><span class="s">&quot;table-tfoot&quot;</span>) Footer
 </pre></div></p>
 
-<h6>Note</h6>
-
-<ul>
-<li><strong>Heads up!</strong> To get the status colors, see the &quot;Table Status Modifiers&quot; section below.</li>
-</ul>
-
 <h2>Options</h2>
 
 <p>Adding a class directly to the <code>table</code> element produces the following.</p>
@@ -7246,7 +6950,8 @@ the box. To include these, setup a <code>$table-status-list</code> variable with
 the associated classes and color values.</p>
 
 <h2>Style Settings</h2>
-
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/table/table</span>
+</pre></div>
 <p>To override the default settings, set the variable and it&#39;s value
 within your <code>config.sass</code> file or before <code>table.sass</code> is loaded.</p>
 
@@ -7309,18 +7014,15 @@ within your <code>config.sass</code> file or before <code>table.sass</code> is l
 </tr>
 </tbody></table>
 
-<h6>Warnings</h6>
-
-<ul>
-<li><strong>Heads Up!</strong> Tables throughout the style guide may not contain the exact styles of the application</li>
-</ul></section>
+<p><em>Warning!</em> Tables throughout the style guide may not contain the exact styles of the application.</p></section>
       <a name='timeslot'></a>
       <section class='docomo-section'><h1>Timeslot</h1>
 
 <p>Utility class for finding and normalizing time slots.</p>
 
 <h2>API</h2>
-
+<div class="highlight"><pre><span class="c1">#= require timeslot</span>
+</pre></div>
 <h3>#new</h3>
 
 <p>Create a new instance of <code>Timeslot</code>, typically used compositionally. </p>
@@ -7330,27 +7032,28 @@ within your <code>config.sass</code> file or before <code>table.sass</code> is l
 </pre></div>
 <h3>#getTimeslotFromData</h3>
 
-<p>Returns an object from a hash like, array like or number like string. The object
-assumes delay style timeouts with an <code>activate</code> and <code>deactivate</code> values.</p>
-<div class="highlight"><pre><span class="nx">@timeslot</span><span class="p">.</span><span class="nx">getTimeslotFromData</span><span class="p">(</span><span class="s">&#39;100&#39;</span><span class="p">)</span>
+<p>Returns an object from a hash like, array like or number like string.
+The object assumes delay style timeouts with an <code>activate</code> and
+<code>deactivate</code> values.</p>
+<div class="highlight"><pre><span class="nx">@timeslot</span><span class="p">.</span><span class="nx">getTimeslotFromData</span> <span class="s">&#39;100&#39;</span>
 <span class="c1"># returns: {activate:100, deactivate:100}</span>
 
-<span class="nx">@timeslot</span><span class="p">.</span><span class="nx">getTimeslotFromData</span><span class="p">(</span><span class="s">&#39;200&#39;</span><span class="p">,</span> <span class="s">&#39;show&#39;</span><span class="p">,</span> <span class="s">&#39;hide&#39;</span><span class="p">)</span>
+<span class="nx">@timeslot</span><span class="p">.</span><span class="nx">getTimeslotFromData</span> <span class="s">&#39;200&#39;</span><span class="p">,</span> <span class="s">&#39;show&#39;</span><span class="p">,</span> <span class="s">&#39;hide&#39;</span>
 <span class="c1"># returns: {activate:200, deactivate:200, show:200, hide:200}</span>
 
-<span class="nx">@timeslot</span><span class="p">.</span><span class="nx">getTimeslotFromData</span><span class="p">(</span><span class="s">&#39;200, 300&#39;</span><span class="p">)</span>
+<span class="nx">@timeslot</span><span class="p">.</span><span class="nx">getTimeslotFromData</span> <span class="s">&#39;200, 300&#39;</span>
 <span class="c1"># returns: {activate:200, deactivate:300}, the first number is always assumed as `activate`</span>
 
-<span class="nx">@timeslot</span><span class="p">.</span><span class="nx">getTimeslotFromData</span><span class="p">(</span><span class="s">&#39;{activate:400, deactivate:500}&#39;</span><span class="p">)</span>
+<span class="nx">@timeslot</span><span class="p">.</span><span class="nx">getTimeslotFromData</span> <span class="s">&#39;{activate:400, deactivate:500}&#39;</span>
 <span class="c1"># returns: {activate:400, deactivate:500}</span>
 
-<span class="nx">@timeslot</span><span class="p">.</span><span class="nx">getTimeslotFromData</span><span class="p">(</span><span class="s">&#39;activate:600, deactivate: 700&#39;</span><span class="p">)</span>
+<span class="nx">@timeslot</span><span class="p">.</span><span class="nx">getTimeslotFromData</span> <span class="s">&#39;activate:600, deactivate: 700&#39;</span>
 <span class="c1"># returns: {activate:600, deactivate:700}</span>
 
-<span class="nx">@timeslot</span><span class="p">.</span><span class="nx">getTimeslotFromData</span><span class="p">(</span><span class="s">&#39;show:600, hide: 700&#39;</span><span class="p">)</span>
+<span class="nx">@timeslot</span><span class="p">.</span><span class="nx">getTimeslotFromData</span> <span class="s">&#39;show:600, hide: 700&#39;</span>
 <span class="c1"># returns: {activate:600, deactivate:700, show:600, hide:700}</span>
 
-<span class="nx">@timeslot</span><span class="p">.</span><span class="nx">getTimeslotFromData</span><span class="p">(</span><span class="s">&#39;off:100, on: 1000&#39;</span><span class="p">)</span>
+<span class="nx">@timeslot</span><span class="p">.</span><span class="nx">getTimeslotFromData</span> <span class="s">&#39;off:100, on: 1000&#39;</span>
 <span class="c1"># returns: {activate:1000, deactivate:100, on:1000, off:100}</span>
 </pre></div>
 <p>If slot names are not <code>activate</code> or <code>deactivate</code> an attempt is made to
@@ -7361,19 +7064,15 @@ are returned along with the typical <code>activate</code> and <code>deactivate</
 
 <p>Attempts to find the closest match for <code>activate</code> and <code>deactivate</code>
 against a set of regular expressions.</p>
-<div class="highlight"><pre><span class="c1">#= require timeslot</span>
-
-<span class="nx">@timeslot</span><span class="p">.</span><span class="nx">getClosestMatch</span><span class="p">(</span><span class="s">&#39;on&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span class="nx">@timeslot</span><span class="p">.</span><span class="nx">getClosestMatch</span> <span class="s">&#39;on&#39;</span>
 <span class="c1"># returns: &#39;activate&#39;</span>
 
-<span class="nx">@timeslot</span><span class="p">.</span><span class="nx">getClosestMatch</span><span class="p">(</span><span class="s">&#39;hide&#39;</span><span class="p">)</span>
+<span class="nx">@timeslot</span><span class="p">.</span><span class="nx">getClosestMatch</span> <span class="s">&#39;hide&#39;</span>
 <span class="c1"># returns: &#39;deactivate&#39;</span>
 </pre></div>
 <h3>Requires</h3>
-
-<ul>
-<li><code>utensils/utensils</code></li>
-</ul></section>
+<div class="highlight"><pre><span class="nx">utensils</span><span class="o">/</span><span class="nx">utensils</span>
+</pre></div></section>
       <a name='tip'></a>
       <section class='docomo-section'><h1>Tip</h1>
 
@@ -7384,10 +7083,6 @@ trigger. Positioning is defined by cardinal points.</p>
 <p><code>Tip</code> is structured for very simple use cases, mainly dealing with tool
 tip type behavior. Generally the <code>Pop</code> component is more robust and
 should be considered in most cases.</p>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/tip/tip</span>
-</pre></div><div class="highlight"><pre>data-bindable=&quot;tip&quot;
-</pre></div>
-<h2>Usage Examples</h2>
 
 <p><div class="docomo-showcase"><nav>
   <ul class='nav inline'>
@@ -7395,7 +7090,7 @@ should be considered in most cases.</p>
     <li><a data-bindable='tip' data-delay='500,1000' data-placement='south' href='#' id='south_tip' title='The Southern Tip'>Southern Tip</a></li>
     <li><a data-bindable='tip' data-placement='east' href='#' id='east_tip' title='The Eastern Tip'>Eastern Tip</a></li>
     <li><a data-bindable='tip' data-placement='west' href='#' id='west_tip' title='The Western Tip'>Western Tip</a></li>
-    <li><a data-bindable='tip' data-placement='north' data-trigger='click' href='#' id='image_tip' title="&lt;img src='http://lorempixel.com/260/180' width=260 height=180 /&gt;">Image Tip (click)</a></li>
+    <li><a data-bindable='tip' data-placement='north' data-trigger='click' href='#' id='image_tip' title="&lt;img src='http://placehold.it/260x180' width=260 height=180 /&gt;">Image Tip (click)</a></li>
   </ul>
 </nav>
 </div><div class="highlight"><pre><span class="nt">%nav</span>
@@ -7409,7 +7104,7 @@ should be considered in most cases.</p>
     <span class="nt">%li</span>&lt;
       <span class="nt">%a</span><span class="nf">#west_tip</span>(<span class="na">data-bindable=</span><span class="s">&quot;tip&quot;</span> <span class="na">data-placement=</span><span class="s">&quot;west&quot;</span> <span class="na">title=</span><span class="s">&quot;The Western Tip&quot;</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span>) Western Tip
     <span class="nt">%li</span>&lt;
-      <span class="nt">%a</span><span class="nf">#image_tip</span>(<span class="na">data-bindable=</span><span class="s">&quot;tip&quot;</span> <span class="na">data-placement=</span><span class="s">&quot;north&quot;</span> <span class="na">data-trigger=</span><span class="s">&quot;click&quot;</span> <span class="na">title=</span><span class="s">&quot;&lt;img src=&#39;http://lorempixel.com/260/180&#39; width=260 height=180 /&gt;&quot;</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span>) Image Tip (click)
+      <span class="nt">%a</span><span class="nf">#image_tip</span>(<span class="na">data-bindable=</span><span class="s">&quot;tip&quot;</span> <span class="na">data-placement=</span><span class="s">&quot;north&quot;</span> <span class="na">data-trigger=</span><span class="s">&quot;click&quot;</span> <span class="na">title=</span><span class="s">&quot;&lt;img src=&#39;http://placehold.it/260x180&#39; width=260 height=180 /&gt;&quot;</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span>) Image Tip (click)
 </pre></div></p>
 
 <h2>Options</h2>
@@ -7455,20 +7150,14 @@ should be considered in most cases.</p>
 
 <p>See <code>Triggerable</code> for other options</p>
 
-<h6>Notes</h6>
-
-<ul>
-<li><strong>Heads Up!</strong> <code>Tip</code> will override it&#39;s placement automatically through
+<p><strong>Heads Up!</strong> <code>Tip</code> will override it&#39;s placement automatically through
 <code>Directional</code> if it determines the requested position will render the
-tip outside the viewport.</li>
-<li><strong>Touch it!</strong> On touch devices when using
-<a target="_blank" href="http://www.modernizr.com/" title="">modernizr</a>, tips will change their trigger
-behavior to <code>click</code> events. If the item is a link that resolves, make
-sure to add <code>data-bubble=&quot;true&quot;</code> to the element</li>
-</ul>
+tip outside the viewport.</p>
 
 <h2>API</h2>
-
+<div class="highlight"><pre><span class="c1">#= require tip</span>
+</pre></div><div class="highlight"><pre>data-bindable=&quot;tip&quot;
+</pre></div>
 <h3>#new</h3>
 
 <p>Create a new instance of <code>Tip</code> programmatically. Normally this is
@@ -7476,43 +7165,41 @@ handled through <code>Bindable</code>.</p>
 <div class="highlight"><pre><span class="c1">#= require tip</span>
 
 <span class="vi">@el = </span><span class="nx">$</span><span class="p">(</span><span class="s">&#39;#tip&#39;</span><span class="p">)</span>
-<span class="vi">@tip = </span><span class="k">new</span> <span class="nx">utensils</span><span class="p">.</span><span class="nx">Tip</span><span class="p">(</span><span class="nx">@el</span><span class="p">,</span> <span class="p">{</span><span class="nx">delay</span><span class="o">:</span><span class="s">&#39;show:1000, hide:2000&#39;</span><span class="p">})</span>
+<span class="vi">@tip = </span><span class="k">new</span> <span class="nx">utensils</span><span class="p">.</span><span class="nx">Tip</span> <span class="nx">@el</span><span class="p">,</span> <span class="p">{</span><span class="nx">delay</span><span class="o">:</span><span class="s">&#39;show:1000, hide:2000&#39;</span><span class="p">}</span>
 </pre></div>
 <h3>#toggle</h3>
 
 <p>Typically called through user input, but can be triggered by the
 elements toggle event.</p>
-<div class="highlight"><pre><span class="nx">@el</span><span class="p">.</span><span class="nx">trigger</span><span class="p">(</span><span class="s">&#39;mouseenter&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span class="nx">@el</span><span class="p">.</span><span class="nx">trigger</span> <span class="s">&#39;mouseenter&#39;</span>
 </pre></div>
 <h3>#activate</h3>
 
-<p>Show the tip</p>
+<p>Show the tip.</p>
 <div class="highlight"><pre><span class="nx">@tip</span><span class="p">.</span><span class="nx">activate</span><span class="p">()</span>
 </pre></div>
 <h3>#deactivate</h3>
 
-<p>Removes the tip</p>
+<p>Removes the tip.</p>
 <div class="highlight"><pre><span class="nx">@tip</span><span class="p">.</span><span class="nx">deactivate</span><span class="p">()</span>
 </pre></div>
 <h3>#dispose</h3>
 
-<p>Remove the tip behavior</p>
+<p>Remove the tip behavior.</p>
 <div class="highlight"><pre><span class="nx">@tip</span><span class="p">.</span><span class="nx">dispose</span><span class="p">()</span>
 </pre></div>
 <h3>Requires</h3>
-
-<ul>
-<li><code>utensils/utensils</code></li>
-<li><code>utensils/bindable</code></li>
-<li><code>utensils/triggerable</code></li>
-<li><code>utensils/detect</code></li>
-<li><code>utensils/directional</code></li>
-</ul>
-
+<div class="highlight"><pre><span class="nx">utensils</span><span class="o">/</span><span class="nx">utensils</span>
+<span class="nx">utensils</span><span class="o">/</span><span class="nx">bindable</span>
+<span class="nx">utensils</span><span class="o">/</span><span class="nx">triggerable</span>
+<span class="nx">utensils</span><span class="o">/</span><span class="nx">detect</span>
+<span class="nx">utensils</span><span class="o">/</span><span class="nx">directional</span>
+</pre></div>
 <p><code>Tip</code> utilizes <code>Triggerable</code> via composition.</p>
 
 <h2>Style Settings</h2>
-
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/tip/tip</span>
+</pre></div>
 <p>To override the default settings, set the variable and it&#39;s value
 within your <code>config.sass</code> file or before <code>tip.sass</code> is loaded.</p>
 
@@ -7570,22 +7257,9 @@ within your <code>config.sass</code> file or before <code>tip.sass</code> is loa
 </tr>
 </tbody></table>
 
-<h6>Warning</h6>
-
-<ul>
-<li><strong>Heads Up!</strong> The configuration file needs to define the <code>$zindex-tip</code>
+<p><em>Warning!</em> The configuration file needs to define the <code>$zindex-tip</code>
 value before this file is imported, this is done to keep managing
-<code>z-index</code> mappings in one place.</li>
-</ul>
-
-<h2>Injected Markup</h2>
-
-<p>The markup injected when a tip is shown:</p>
-<div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;tip north fade&quot;</span><span class="nt">&gt;</span>
- <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;tip-arrow&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
- <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;tip-inner&quot;</span><span class="nt">&gt;</span>The Northern Tip<span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;/div&gt;</span>
-</pre></div></section>
+<code>z-index</code> mappings in one place.</p></section>
       <a name='toggle'></a>
       <section class='docomo-section'><h1>Toggle</h1>
 
@@ -7593,9 +7267,6 @@ value before this file is imported, this is done to keep managing
 element.</p>
 
 <p><code>Toggle</code> utilizes <code>Triggerable</code> through composition.</p>
-<div class="highlight"><pre>data-bindable=&quot;toggle&quot;
-</pre></div>
-<h2>Usage Example</h2>
 
 <p><div class="docomo-showcase"><nav role='navigation'>
   <a class='btn' data-bindable='toggle' href='#' id='toggle_1'>Toggle Default</a>
@@ -7641,57 +7312,46 @@ element.</p>
 <p>See <code>Triggerable</code> for more options.</p>
 
 <h2>API</h2>
-
+<div class="highlight"><pre><span class="c1">#= require utensils/toggle</span>
+</pre></div><div class="highlight"><pre>data-bindable=&quot;toggle&quot;
+</pre></div>
 <h3>#new</h3>
 
 <p>Create a new instance of <code>Toggle</code> programatically, typically this is
-instantiated through <code>Bindable</code></p>
+instantiated through <code>Bindable</code>.</p>
 <div class="highlight"><pre><span class="c1">#= require toggle</span>
 
 <span class="vi">@el = </span><span class="nx">$</span><span class="p">(</span><span class="s">&#39;#toggle&#39;</span><span class="p">)</span>
-<span class="vi">@toggle = </span><span class="k">new</span> <span class="nx">utensils</span><span class="p">.</span><span class="nx">Toggle</span><span class="p">(</span><span class="nx">@el</span><span class="p">,</span> <span class="p">{</span><span class="nv">toggle: </span><span class="s">&#39;fade active&#39;</span><span class="p">,</span> <span class="nv">trigger: </span><span class="s">&#39;hover&#39;</span><span class="p">})</span>
+<span class="vi">@toggle = </span><span class="k">new</span> <span class="nx">utensils</span><span class="p">.</span><span class="nx">Toggle</span> <span class="nx">@el</span><span class="p">,</span> <span class="p">{</span><span class="nv">toggle: </span><span class="s">&#39;fade active&#39;</span><span class="p">,</span> <span class="nv">trigger: </span><span class="s">&#39;hover&#39;</span><span class="p">}</span>
 </pre></div>
 <h3>#toggle</h3>
 
 <p>Typically called through user input, but can be triggered by the
 elements toggle event.</p>
-<div class="highlight"><pre><span class="nx">@el</span><span class="p">.</span><span class="nx">trigger</span><span class="p">(</span><span class="s">&#39;click&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span class="nx">@el</span><span class="p">.</span><span class="nx">trigger</span> <span class="s">&#39;click&#39;</span>
 </pre></div>
 <h3>#activate</h3>
 
-<p>Add the toggle classes to the targets</p>
-
-<h5>dispatches:</h5>
-
-<ul>
-<li><code>toggle:activated</code></li>
-</ul>
+<p>Add the toggle classes to the targets. Dispatches a <code>toggle:activated</code>
+event.</p>
 <div class="highlight"><pre><span class="nx">@toggle</span><span class="p">.</span><span class="nx">activate</span><span class="p">()</span>
 </pre></div>
 <h3>#deactivate</h3>
 
-<p>Removes the toggle classes from the targets</p>
-
-<h5>dispatches:</h5>
-
-<ul>
-<li><code>toggle:deactivated</code></li>
-</ul>
+<p>Removes the toggle classes from the targets. Dispatches a
+<code>toggle:deactivated</code> event.</p>
 <div class="highlight"><pre><span class="nx">@toggle</span><span class="p">.</span><span class="nx">deactivate</span><span class="p">()</span>
 </pre></div>
 <h3>#dispose</h3>
 
-<p>Cleans up any internal references</p>
+<p>Cleans up any internal references.</p>
 <div class="highlight"><pre><span class="nx">@toggle</span><span class="p">.</span><span class="nx">dispose</span><span class="p">()</span>
 </pre></div>
 <h3>Requires</h3>
-
-<ul>
-<li><code>utensils/utensils</code></li>
-<li><code>utensils/bindable</code></li>
-<li><code>utensils/triggerable</code></li>
-</ul>
-
+<div class="highlight"><pre><span class="nx">utensils</span><span class="o">/</span><span class="nx">utensils</span>
+<span class="nx">utensils</span><span class="o">/</span><span class="nx">bindable</span>
+<span class="nx">utensils</span><span class="o">/</span><span class="nx">triggerable</span>
+</pre></div>
 <p>Any events dispatched from <code>Toggle</code> contain the <code>event</code> property as the
 first parameter and the <code>@el</code> as the second parameter. This is done to
 ensure scope is transferred correctly and for a quicker lookup from the
@@ -7703,16 +7363,12 @@ class utilizing a <code>Toggle</code> instance.</p></section>
 elements. These are predominantly used in navigation type systems. A
 <code>ToggleGroup</code> can function either like radio buttons or check boxes.</p>
 
-<p><code>ToggleGroup</code> utilizes <code>Triggerable</code> through composition.</p>
-<div class="highlight"><pre>data-bindable=&quot;toggle-group&quot;
-data-bindable=&quot;toggle-button-group&quot;
-</pre></div>
 <p>Utilize the <code>toggle-group</code> value for most navigation styles that are
 <code>li</code> based. For <code>.button-groups</code> and <code>.button-toolbar</code> where links are
 flat, use <code>toggle-button-group</code> value. See the usage example for more
 information.</p>
 
-<h2>Usage Example</h2>
+<p><code>ToggleGroup</code> utilizes <code>Triggerable</code> through composition.</p>
 
 <p><div class="docomo-showcase"><nav role='navigation'>
   <ul class='nav inline' data-bindable='toggle-group' data-target='.radio-li' id='toggle_group_radios'>
@@ -7882,7 +7538,10 @@ information.</p>
 supplying a <code>data-target</code> attribute.</p>
 
 <h2>API</h2>
-
+<div class="highlight"><pre><span class="c1">#= require toggle_group</span>
+</pre></div><div class="highlight"><pre>data-bindable=&quot;toggle-group&quot;
+data-bindable=&quot;toggle-button-group&quot;
+</pre></div>
 <h3>#new</h3>
 
 <p>Create a new instance of <code>ToggleGroup</code> programatically, typically this
@@ -7892,55 +7551,44 @@ is instantiated through <code>Bindable</code></p>
 <span class="vi">@radios = </span><span class="nx">$</span><span class="p">(</span><span class="s">&#39;#radios&#39;</span><span class="p">)</span>
 <span class="vi">@checks = </span><span class="nx">$</span><span class="p">(</span><span class="s">&#39;#checks&#39;</span><span class="p">)</span>
 
-<span class="vi">@radio_group = </span><span class="k">new</span> <span class="nx">utensils</span><span class="p">.</span><span class="nx">ToggleGroup</span><span class="p">(</span><span class="nx">radios</span><span class="p">,</span> <span class="p">{</span><span class="nv">behavior: </span><span class="s">&#39;radio&#39;</span><span class="p">})</span>
-<span class="vi">@check_group = </span><span class="k">new</span> <span class="nx">utensils</span><span class="p">.</span><span class="nx">ToggleGroup</span><span class="p">(</span><span class="nx">checks</span><span class="p">,</span> <span class="p">{</span><span class="nv">behavior: </span><span class="s">&#39;checkbox&#39;</span><span class="p">})</span>
+<span class="vi">@radio_group = </span><span class="k">new</span> <span class="nx">utensils</span><span class="p">.</span><span class="nx">ToggleGroup</span> <span class="nx">radios</span><span class="p">,</span> <span class="p">{</span><span class="nv">behavior: </span><span class="s">&#39;radio&#39;</span><span class="p">}</span>
+<span class="vi">@check_group = </span><span class="k">new</span> <span class="nx">utensils</span><span class="p">.</span><span class="nx">ToggleGroup</span> <span class="nx">checks</span><span class="p">,</span> <span class="p">{</span><span class="nv">behavior: </span><span class="s">&#39;checkbox&#39;</span><span class="p">}</span>
 </pre></div>
 <h3>#activate</h3>
 
 <p>Activate can take either an index, string or element as it&#39;s target
 parameter.  Activating will add the toggle classes to the element. If
 behavior is set to <code>radio</code>, activate will remove the toggle classes from
-other elements within the group.</p>
-
-<h5>dispatches:</h5>
-
-<ul>
-<li><code>toggle_group:activated</code></li>
-</ul>
+other elements within the group. Dispatches a <code>toggle_group:activated</code>
+event.</p>
 <div class="highlight"><pre><span class="c1"># activate by index</span>
-<span class="nx">@radio_group</span><span class="p">.</span><span class="nx">activate</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="nx">@check_group</span><span class="p">.</span><span class="nx">activate</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="nx">@radio_group</span><span class="p">.</span><span class="nx">activate</span> <span class="mi">1</span>
+<span class="nx">@check_group</span><span class="p">.</span><span class="nx">activate</span> <span class="mi">1</span>
 
 <span class="c1"># activate by string</span>
-<span class="nx">@radio_group</span><span class="p">.</span><span class="nx">activate</span><span class="p">(</span><span class="s">&#39;li:first&#39;</span><span class="p">)</span>
-<span class="nx">@check_group</span><span class="p">.</span><span class="nx">activate</span><span class="p">(</span><span class="s">&#39;li:first&#39;</span><span class="p">)</span>
+<span class="nx">@radio_group</span><span class="p">.</span><span class="nx">activate</span> <span class="s">&#39;li:first&#39;</span>
+<span class="nx">@check_group</span><span class="p">.</span><span class="nx">activate</span> <span class="s">&#39;li:first&#39;</span>
 
 <span class="c1"># activate by element</span>
-<span class="nx">@radio_group</span><span class="p">.</span><span class="nx">activate</span><span class="p">(</span><span class="nx">@radios</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s">&#39;li:first&#39;</span><span class="p">))</span>
-<span class="nx">@check_group</span><span class="p">.</span><span class="nx">activate</span><span class="p">(</span><span class="nx">@checks</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s">&#39;li:first&#39;</span><span class="p">))</span>
+<span class="nx">@radio_group</span><span class="p">.</span><span class="nx">activate</span> <span class="nx">@radios</span><span class="p">.</span><span class="nx">find</span> <span class="s">&#39;li:first&#39;</span>
+<span class="nx">@check_group</span><span class="p">.</span><span class="nx">activate</span> <span class="nx">@checks</span><span class="p">.</span><span class="nx">find</span> <span class="s">&#39;li:first&#39;</span>
 </pre></div>
 <h3>#deactivate</h3>
 
 <p>Deactivate can take either an index, string or element as it&#39;s target
 parameter.  Deactivating will remove the toggle classes from the
-element.</p>
-
-<h5>dispatches:</h5>
-
-<ul>
-<li><code>toggle_group:deactivated</code></li>
-</ul>
+element. Dispatches a <code>toggle_group:activated</code> event.</p>
 <div class="highlight"><pre><span class="c1"># deactivate by index</span>
-<span class="nx">@radio_group</span><span class="p">.</span><span class="nx">deactivate</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="nx">@check_group</span><span class="p">.</span><span class="nx">deactivate</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="nx">@radio_group</span><span class="p">.</span><span class="nx">deactivate</span> <span class="mi">1</span>
+<span class="nx">@check_group</span><span class="p">.</span><span class="nx">deactivate</span> <span class="mi">1</span>
 
 <span class="c1"># deactivate by string</span>
-<span class="nx">@radio_group</span><span class="p">.</span><span class="nx">deactivate</span><span class="p">(</span><span class="s">&#39;li:first&#39;</span><span class="p">)</span>
-<span class="nx">@check_group</span><span class="p">.</span><span class="nx">deactivate</span><span class="p">(</span><span class="s">&#39;li:first&#39;</span><span class="p">)</span>
+<span class="nx">@radio_group</span><span class="p">.</span><span class="nx">deactivate</span> <span class="s">&#39;li:first&#39;</span> 
+<span class="nx">@check_group</span><span class="p">.</span><span class="nx">deactivate</span> <span class="s">&#39;li:first&#39;</span> 
 
 <span class="c1"># deactivate by element</span>
-<span class="nx">@radio_group</span><span class="p">.</span><span class="nx">deactivate</span><span class="p">(</span><span class="nx">@radios</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s">&#39;li:first&#39;</span><span class="p">))</span>
-<span class="nx">@check_group</span><span class="p">.</span><span class="nx">deactivate</span><span class="p">(</span><span class="nx">@checks</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s">&#39;li:first&#39;</span><span class="p">))</span>
+<span class="nx">@radio_group</span><span class="p">.</span><span class="nx">deactivate</span> <span class="nx">@radios</span><span class="p">.</span><span class="nx">find</span> <span class="s">&#39;li:first&#39;</span>
+<span class="nx">@check_group</span><span class="p">.</span><span class="nx">deactivate</span> <span class="nx">@checks</span><span class="p">.</span><span class="nx">find</span> <span class="s">&#39;li:first&#39;</span>
 </pre></div>
 <h3>#dispose</h3>
 
@@ -7949,13 +7597,10 @@ element.</p>
 <span class="nx">@check_group</span><span class="p">.</span><span class="nx">dispose</span><span class="p">()</span>
 </pre></div>
 <h3>Requires</h3>
-
-<ul>
-<li><code>utensils/utensils</code></li>
-<li><code>utensils/bindable</code></li>
-<li><code>utensils/triggerable</code></li>
-</ul>
-
+<div class="highlight"><pre><span class="nx">utensils</span><span class="o">/</span><span class="nx">utensils</span>
+<span class="nx">utensils</span><span class="o">/</span><span class="nx">bindable</span>
+<span class="nx">utensils</span><span class="o">/</span><span class="nx">triggerable</span>
+</pre></div>
 <p>Any events dispatched from <code>ToggleGroup</code> contain the <code>event</code> property as
 the first parameter and the <code>activator/deactivator</code> as the second
 parameter. This is done to ensure scope is transferred correctly and for
@@ -7982,20 +7627,18 @@ a quicker lookup from the class utilizing a <code>ToggleGroup</code> instance.</
 that work across browsers and devices.</p>
 
 <h2>API</h2>
+<div class="highlight"><pre><span class="c1">#= require touch_tracker</span>
+</pre></div>
+<h3>#new</h3>
 
 <p>Typically MouseAndTouchTracker is required via a class that needs it, i.e. Slider, TouchScroller, etc..</p>
-
-<h3>#new</h3>
 <div class="highlight"><pre><span class="c1">#= require touch_tracker</span>
 
 <span class="nv">touchTracker = </span><span class="k">new</span> <span class="nx">utensils</span><span class="p">.</span><span class="nx">MouseAndTouchTracker</span><span class="p">()</span>
 </pre></div>
 <h3>Requires</h3>
-
-<ul>
-<li><code>utensils/utensils</code></li>
-</ul>
-
+<div class="highlight"><pre><span class="nx">utensils</span><span class="o">/</span><span class="nx">utensils</span>
+</pre></div>
 <h2>Todo</h2>
 
 <ul>
@@ -8006,8 +7649,7 @@ that work across browsers and devices.</p>
       <section class='docomo-section'><h1>Transition</h1>
 
 <p>Contains helper classes for CSS transitions.</p>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/transition/transition</span>
-</pre></div>
+
 <h2>Usage</h2>
 
 <table><thead>
@@ -8031,7 +7673,8 @@ that work across browsers and devices.</p>
 </tbody></table>
 
 <h2>Style Settings</h2>
-
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/transition/transition</span>
+</pre></div>
 <p>To override the default settings, set the variable and it&#39;s value
 within your <code>config.sass</code> file or before <code>transition.sass</code> is loaded.</p>
 
@@ -8080,20 +7723,21 @@ a class instance.</p>
 
 <span class="k">class</span> <span class="nx">utensils</span><span class="p">.</span><span class="nx">MockClass</span>
   <span class="nv">constructor: </span><span class="nf">(@el, @data) -&gt;</span>
-    <span class="vi">@triggerable = </span><span class="k">new</span> <span class="nx">utensils</span><span class="p">.</span><span class="nx">Triggerable</span><span class="p">(</span><span class="nx">@el</span><span class="p">,</span> <span class="nx">@data</span><span class="p">)</span>
-    <span class="nx">@triggerable</span><span class="p">.</span><span class="nx">dispatcher</span><span class="p">.</span><span class="kc">on</span><span class="p">(</span><span class="s">&#39;triggerable:activate&#39;</span><span class="p">,</span> <span class="o">=&gt;</span> <span class="nx">@activated</span> <span class="nx">arguments</span><span class="p">...)</span>
-    <span class="nx">@triggerable</span><span class="p">.</span><span class="nx">dispatcher</span><span class="p">.</span><span class="kc">on</span><span class="p">(</span><span class="s">&#39;triggerable:deactivate&#39;</span><span class="p">,</span> <span class="o">=&gt;</span> <span class="nx">@deactivated</span> <span class="nx">arguments</span><span class="p">...)</span>
+    <span class="vi">@triggerable = </span><span class="k">new</span> <span class="nx">utensils</span><span class="p">.</span><span class="nx">Triggerable</span> <span class="nx">@el</span><span class="p">,</span> <span class="nx">@data</span>
+    <span class="nx">@triggerable</span><span class="p">.</span><span class="nx">dispatcher</span><span class="p">.</span><span class="kc">on</span> <span class="s">&#39;triggerable:activate&#39;</span><span class="p">,</span> <span class="o">=&gt;</span> <span class="nx">@activated</span> <span class="nx">arguments</span><span class="p">...</span>
+    <span class="nx">@triggerable</span><span class="p">.</span><span class="nx">dispatcher</span><span class="p">.</span><span class="kc">on</span> <span class="s">&#39;triggerable:deactivate&#39;</span><span class="p">,</span> <span class="o">=&gt;</span> <span class="nx">@deactivated</span> <span class="nx">arguments</span><span class="p">...</span>
 
   <span class="nv">toggle: </span><span class="o">-&gt;</span>
-    <span class="nx">@triggerable</span><span class="p">.</span><span class="nx">toggle</span><span class="p">(</span><span class="nv">target: </span><span class="nx">@el</span><span class="p">)</span>
+    <span class="nx">@triggerable</span><span class="p">.</span><span class="nx">toggle</span> <span class="nv">target: </span><span class="nx">@el</span>
 
   <span class="nv">activate: </span><span class="o">-&gt;</span>
-    <span class="nx">@triggerable</span><span class="p">.</span><span class="nx">activate</span><span class="p">(</span><span class="nv">target: </span><span class="nx">@el</span><span class="p">)</span>
+    <span class="nx">@triggerable</span><span class="p">.</span><span class="nx">activate</span> <span class="nv">target: </span><span class="nx">@el</span>
 
   <span class="nv">deactivate: </span><span class="o">-&gt;</span>
-    <span class="nx">@triggerable</span><span class="p">.</span><span class="nx">deactivate</span><span class="p">(</span><span class="nv">target: </span><span class="nx">@el</span><span class="p">)</span>
+    <span class="nx">@triggerable</span><span class="p">.</span><span class="nx">deactivate</span> <span class="nv">target: </span><span class="nx">@el</span>
 
   <span class="nv">dispose: </span><span class="o">-&gt;</span>
+    <span class="k">return</span> <span class="nx">unless</span> <span class="nx">@triggerable</span>
     <span class="nx">@removeListeners</span><span class="p">()</span>
     <span class="nx">@triggerable</span><span class="p">.</span><span class="nx">dispose</span><span class="p">()</span>
     <span class="vi">@triggerable = </span><span class="kc">null</span>
@@ -8151,22 +7795,22 @@ based on the following:</p>
 </tr>
 </thead><tbody>
 <tr>
-<td>&quot;click&quot;</td>
+<td><code>click</code></td>
 <td><code>click =&gt; #toggle</code></td>
 <td><code>click =&gt; #toggle</code></td>
 </tr>
 <tr>
-<td>&quot;hover&quot;</td>
+<td><code>hover</code></td>
 <td><code>mouseenter =&gt; #activate</code></td>
 <td><code>mouseleave =&gt; #deactivate</code></td>
 </tr>
 <tr>
-<td>&quot;focus&quot;</td>
+<td><code>focus</code></td>
 <td><code>focus =&gt; #activate</code></td>
 <td><code>blur =&gt; #deactivate</code></td>
 </tr>
 <tr>
-<td>&quot;manual&quot;</td>
+<td><code>manual</code></td>
 <td><em>none</em></td>
 <td><em>none</em></td>
 </tr>
@@ -8195,57 +7839,43 @@ the method for that property will not be scoped through the delay
 method.</p>
 
 <h2>API</h2>
-
+<div class="highlight"><pre><span class="c1">#= require utensils/triggerable</span>
+</pre></div>
 <h3>#new</h3>
 
 <p>Create a new instance of <code>Triggerable</code> programatically.</p>
-<div class="highlight"><pre><span class="c1">#= require triggerable</span>
+<div class="highlight"><pre><span class="c1">#= require utensils/triggerable</span>
 
-<span class="vi">@triggerable = </span><span class="k">new</span> <span class="nx">utensils</span><span class="p">.</span><span class="nx">Triggerable</span><span class="p">(</span><span class="nx">@el</span><span class="p">,</span> <span class="nx">@data</span><span class="p">)</span>
+<span class="vi">@triggerable = </span><span class="k">new</span> <span class="nx">utensils</span><span class="p">.</span><span class="nx">Triggerable</span> <span class="nx">@el</span><span class="p">,</span> <span class="nx">@data</span>
 </pre></div>
 <h3>#toggle</h3>
 
 <p>Typically called through user input, but can be triggered by the
 elements toggle event.</p>
-<div class="highlight"><pre><span class="nx">@triggerable</span><span class="p">.</span><span class="nx">toggle</span><span class="p">(</span><span class="nv">target: </span><span class="nx">@el</span><span class="p">)</span>
+<div class="highlight"><pre><span class="nx">@triggerable</span><span class="p">.</span><span class="nx">toggle</span> <span class="nv">target: </span><span class="nx">@el</span>
 </pre></div>
 <h3>#activate</h3>
 
-<p>Activate a <code>Triggerable</code> instance</p>
-
-<h5>dispatches:</h5>
-
-<ul>
-<li><code>triggerable:trigger</code></li>
-<li><code>triggerable:activate</code></li>
-</ul>
-<div class="highlight"><pre><span class="nx">@triggerable</span><span class="p">.</span><span class="nx">activate</span><span class="p">(</span><span class="nv">target: </span><span class="nx">@el</span><span class="p">)</span>
+<p>Activate a <code>Triggerable</code> instance. Dispatches a <code>triggerable:trigger</code>
+and <code>triggerable:activate</code> event.</p>
+<div class="highlight"><pre><span class="nx">@triggerable</span><span class="p">.</span><span class="nx">activate</span> <span class="nv">target: </span><span class="nx">@el</span>
 </pre></div>
 <h3>#deactivate</h3>
 
-<p>Deactivate a <code>Triggerable</code> instance</p>
-
-<h5>dispatches:</h5>
-
-<ul>
-<li><code>triggerable:trigger</code></li>
-<li><code>triggerable:deactivate</code></li>
-</ul>
-<div class="highlight"><pre><span class="nx">@triggerable</span><span class="p">.</span><span class="nx">deactivate</span><span class="p">(</span><span class="nv">target: </span><span class="nx">@el</span><span class="p">)</span>
+<p>Deactivate a <code>Triggerable</code> instance. Dispatches a <code>triggerable:trigger</code>
+and <code>triggerable:deactivate</code> event.</p>
+<div class="highlight"><pre><span class="nx">@triggerable</span><span class="p">.</span><span class="nx">deactivate</span> <span class="nv">target: </span><span class="nx">@el</span>
 </pre></div>
 <h3>#dispose</h3>
 
-<p>Cleans up any internal references</p>
+<p>Cleans up any internal references.</p>
 <div class="highlight"><pre><span class="nx">@triggerable</span><span class="p">.</span><span class="nx">dispose</span><span class="p">()</span>
 <span class="vi">@triggerable = </span><span class="kc">null</span>
 </pre></div>
 <h3>Requires</h3>
-
-<ul>
-<li><code>utensils/utensil</code></li>
-<li><code>utensils/timeslot</code></li>
-</ul>
-
+<div class="highlight"><pre><span class="nx">utensils</span><span class="o">/</span><span class="nx">utensil</span>
+<span class="nx">utensils</span><span class="o">/</span><span class="nx">timeslot</span>
+</pre></div>
 <p>An instance of <code>Triggerable</code> creates a <code>@dispatcher</code> property for
 dispatching events. Typically this is just the <code>@el</code> but is created for
 clarity in access from a compositional class.</p>
@@ -8263,13 +7893,10 @@ true</code></p></section>
 
 <p>Heading, paragraph, blockquotes, code, lists, and inline typographic
 elements.</p>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/typography/typography</span>
-</pre></div>
+
 <h3>Headings and body copy</h3>
 
 <p>Generic <code>h1</code>-<code>h6</code> headings with a paragraph element.</p>
-
-<h3>Usage Example</h3>
 
 <p><div class="docomo-showcase"><h1>Google hearts h1 headings, but only use one per page.</h1>
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
@@ -8418,8 +8045,6 @@ laborum.</p>
 </tr>
 </tbody></table>
 
-<h3>Usage Example</h3>
-
 <p><div class="docomo-showcase"><section style='width:45%; float:left; margin-right: 5%;'>
   <h4>Inline elements examples</h4>
   <br />
@@ -8477,8 +8102,6 @@ laborum.</p>
 
 <p>Used for showcasing a block of a code.</p>
 
-<h3>Usage Example</h3>
-
 <p><div class="docomo-showcase"><pre>git commit -am "Fixes issue #666"
 git pull
 git push</pre>
@@ -8492,8 +8115,6 @@ git push</pre>
 
 <p>Typically used for quoting blocks of text from another source.</p>
 
-<h3>Usage Example</h3>
-
 <p><div class="docomo-showcase"><blockquote>
   <p>&#8220;Let me tell you what Melba Toast is packin' right here, all right. We got 4:11 Positrac outback, 750 double pumper, Edelbrock intake, bored over 30, 11 to 1 pop-up pistons, turbo-jet 390 horsepower. We're talkin' some f***in' muscle.&#8221;
   <small>David Wooderson, <cite title="link to source">Dazed &amp; Confused</cite></small></p>
@@ -8504,19 +8125,13 @@ git push</pre>
     &lt;small&gt;David Wooderson, &lt;cite title=&quot;link to source&quot;&gt;Dazed &amp;amp; Confused&lt;/cite&gt;&lt;/small&gt;
 </pre></div></p>
 
-<h6>Notes</h6>
-
-<ul>
-<li><strong>Pro Tip!</strong> Utilize <code>&amp;#8220;</code> and <code>&amp;#8221;</code> for opening and closing
-quotes within a <code>&lt;blockquote&gt;</code> element</li>
-</ul>
+<p><strong>Pro Tip!</strong> Utilize <code>&amp;#8220;</code> and <code>&amp;#8221;</code> for opening and closing
+quotes within a <code>&lt;blockquote&gt;</code> element</p>
 
 <h3>Rules</h3>
 
 <p>Horizontal rules can utilize the class <code>.dashed</code> and <code>.dotted</code> for a
 different separator.</p>
-
-<h3>Usage Example</h3>
 
 <p><div class="docomo-showcase"><hr />
 <hr class='dashed' />
@@ -8532,8 +8147,6 @@ different separator.</p>
 unstyled (<code>.unstyled-list</code>). Unstyled simply removes any list styles and
 left margin. By default all <code>ul</code> and <code>ol</code> elements nested under a <code>nav</code>
 element render the same as an <code>.unstyled-list</code> class.</p>
-
-<h3>Usage Example</h3>
 
 <p><div class="docomo-showcase"><section style='width:25%; float:left; margin-right: 5%;'>
   <p><strong>Unordered list:</strong></p>
@@ -8677,8 +8290,6 @@ line. You can control the positioning by altering the
 <code>$definition-horiz-offset</code> and <code>$definition-horiz-offset-padding</code>
 variables.</p>
 
-<h3>Usage Example</h3>
-
 <p><div class="docomo-showcase"><section style='width:25%; float:left; margin-right: 5%;'>
   <p><strong>Definition list:</strong></p>
   <dl>
@@ -8725,7 +8336,8 @@ variables.</p>
 </pre></div></p>
 
 <h2>Style Settings</h2>
-
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/typography/typography</span>
+</pre></div>
 <p>To override the default settings, set the variable and it&#39;s value within
 your <code>config.sass</code> file or before <code>typography.sass</code> is loaded.</p>
 
@@ -8846,8 +8458,6 @@ users to upgrade their browser or enable JavaScript.</p>
 <p>The markup is served as a partial, typically from
 <code>layouts/shared/_upgrade.html.haml</code>. A template is included in
 <code>templates/layouts/shared</code>.</p>
-
-<h2>Usage Example</h2>
 <div class="docomo-showcase"><section class='button-toolbar'>
   <nav class='button-group' data-behavior='checkbox' data-bindable='toggle-button-group' id='upgrade_demo'>
     <button class='btn' data-toggle='no-js-msg'>Toggle JS Message</button>
@@ -8859,12 +8469,13 @@ users to upgrade their browser or enable JavaScript.</p>
     <span class="nt">%button</span><span class="nc">.btn</span>(<span class="na">data-toggle=</span><span class="s">&quot;no-js-msg&quot;</span>) Toggle JS Message
     <span class="nt">%button</span><span class="nc">.btn</span>(<span class="na">data-toggle=</span><span class="s">&quot;dinosaur-msg&quot;</span>) Toggle Dinosaur Message
 </pre></div>
-<p>The demo positions the upgrade message with <code>position:fixed</code> while the
+<p><strong>Read this!</strong> The demo positions the upgrade message with <code>position:fixed</code> while the
 default behavior is actually <code>position:absolute</code>. This is for
 convenience only so there is no need to scroll to the top of the page.</p>
 
 <h2>Style Settings</h2>
-
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/upgrade/upgrade</span>
+</pre></div>
 <p>To override the default settings, set the variable and it&#39;s value
 within your <code>config.sass</code> file or before <code>upgrade.sass</code> is loaded.</p>
 
@@ -8902,9 +8513,6 @@ within your <code>config.sass</code> file or before <code>upgrade.sass</code> is
 
 <p>Wells are used to contain components and other various elements. Works
 great with form layouts.</p>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/well/well</span>
-</pre></div>
-<h2>Usage Example</h2>
 
 <p><div class="docomo-showcase"><div class='well'><code>.well</code></div>
 <div class='well fill'><code>.well.fill</code></div>
@@ -8913,7 +8521,8 @@ great with form layouts.</p>
 </pre></div></p>
 
 <h2>Style Settings</h2>
-
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/well/well</span>
+</pre></div>
 <p>To override the default settings, set the variable and it&#39;s value
 within your <code>config.sass</code> file or before <code>well.sass</code> is loaded.</p>
 
