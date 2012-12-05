@@ -1,6 +1,6 @@
 GIT
   remote: git@github.com:modeset/docomo.git
-  revision: 9fbabc86ffdc9ed9ae6a37627a8537dc7e18f142
+  revision: 7261c3f30e7857095349d15335904730116d1cd3
   specs:
     docomo (0.0.1)
       haml (>= 3.1.7)
