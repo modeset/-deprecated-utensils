@@ -1,4 +1,3 @@
-
 # Pill
 Pills are similar to tabs, and follow the same markup structure as other
 navigation elements. Pills like other navigation elements require the
@@ -10,17 +9,16 @@ the related targets panel.
 
 See `Tab` for more information.
 
-```sass
-@import utensils/pill/pill
-```
-
-## Usage Example
 [<~Example](markup/pill.html.haml)
 
 
 ## Style Settings
-To override the default settings, set the variable and it's value
-within your `config.sass` file or before `pill.sass` is loaded.
+```sass
+@import utensils/pill/pill
+```
+
+To override the default settings, set the variable and it's value within
+your `config.sass` file or before `pill.sass` is loaded.
 
 Variable             | Default            | Description
 -------------------- | ------------------ | -------------------------------------------

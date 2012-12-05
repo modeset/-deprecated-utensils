@@ -1,4 +1,3 @@
-
 # Pager
 Pagers are commonly used in simple paging navigations, where a full
 blown pagination system isn't required.
@@ -6,11 +5,6 @@ blown pagination system isn't required.
 To allow pager to float on the sides of the container, apply the
 `.prev` and `.next` classes to the containing pager `li` element.
 
-```sass
-@import utensils/pager/pager
-```
-
-## Usage Example
 [<~Example](markup/pager.html.haml)
 
 
@@ -28,6 +22,10 @@ To disable a pager, add the `disabled` class to the `a` element's parent `li`.
 
 
 ## Style Settings
+```sass
+@import utensils/pager/pager
+```
+
 To override the default settings, set the variable and it's value
 within your `config.sass` file or before `pager.sass` is loaded.
 

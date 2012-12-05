@@ -1,18 +1,9 @@
-
 # Table
-Building tables is additive around the classes applied to the top level `<table>` element.
-By combining any of the following classes, the table can be given a different look and feel.
+Building tables is additive around the classes applied to the top level
+`<table>` element.  By combining any of the following classes, the table
+can be given a different look and feel.
 
-```sass
-@import utensils/table/table
-```
-
-## Usage Example
 [<~Example](markup/table.html.haml)
-
-###### Note
-- **Heads up!** To get the status colors, see the "Table Status Modifiers" section below.
-
 
 ## Options
 Adding a class directly to the `table` element produces the following.
@@ -36,6 +27,10 @@ the associated classes and color values.
 
 
 ## Style Settings
+```sass
+@import utensils/table/table
+```
+
 To override the default settings, set the variable and it's value
 within your `config.sass` file or before `table.sass` is loaded.
 
@@ -52,6 +47,5 @@ Variable               | Default                           | Description
 `$table-padding-tb`    | `0.8em`                           | The `padding-top`, `padding-bottom` value for `th` and `td` (divided by 2 for `table-condensed`)
 `$table-status-list`   | `nil`                             | The `list` of modifier classes to include for `tr` cell statuses
 
-###### Warnings
-- **Heads Up!** Tables throughout the style guide may not contain the exact styles of the application
+_Warning!_ Tables throughout the style guide may not contain the exact styles of the application.
 

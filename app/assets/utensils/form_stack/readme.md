@@ -1,15 +1,17 @@
-
 # Form Stack
 Utilize the `.form-stack` class on the `form` element to create a
 form stack styled form. Supports control labels as well.
 
+[<~Example](markup/form_stack.html.haml)
+
+**Pro Tip!** Check out the "Form Structure" section under "Form
+Controls" for the demo and usage example.
+
+## Style Settings
 ```sass
+@import utensils/form_controls/form_controls
 @import utensils/form_stack/form_stack
 ```
 
-## Usage Example
-[<~Example](markup/form_stack.html.haml)
-
-###### Notes
-- **Heads Up!** Requires the `form_controls` utensil.
+_Alert!_ Requires the `form_controls` utensil.
 

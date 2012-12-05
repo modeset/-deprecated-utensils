@@ -1,6 +1,4 @@
-
 # Media Grid
-
 Media container provides a simple way for showcasing images, video
 and other media items as static media or clickable links. Include
 a `.media-caption` element when an area is needed to describe the figure.
@@ -10,19 +8,17 @@ but it will need some sort of grid setting or `width` defined on the `li`
 tags. There are currently no `margin` settings included in the media
 grid for this reason.
 
+[<~Example](markup/media_grid.html.haml)
+
+**Pro Tip!** Add `media-caption-right` on the `media-caption-footer` to
+align buttons to the right
+
+
+## Style Settings
 ```sass
 @import utensils/media_grid/media_grid
 ```
 
-## Usage Examples
-[<~Example](markup/media_grid.html.haml)
-
-###### Notes
-- **Pro Tip!** Add `media-caption-right` on the `media-caption-footer`
-  to align buttons to the right
-
-
-## Style Settings
 To override the default settings, set the variable and it's value
 within your `config.sass` file or before `media_grid.sass` is loaded.
 

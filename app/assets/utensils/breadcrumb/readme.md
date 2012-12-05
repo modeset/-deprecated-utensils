@@ -1,4 +1,3 @@
-
 # Breadcrumb
 Apply the `.breadcrumb` class to the `ol` or `ul` element to provide linkable
 references to nested sections within the application. The links generate
@@ -6,15 +5,14 @@ a divider after their content. This is configurable from the
 `$breadcrumb-divider-content` variable. The list should contain the
 `.nav` class.
 
-```sass
-@import utensils/breadcrumb/breadcrumb
-```
-
-## Usage Example
 [<~Example](markup/breadcrumb.html.haml)
 
 
 ## Style Settings
+```sass
+@import utensils/breadcrumb/breadcrumb
+```
+
 To override the default settings, set the variable and it's value
 within your `config.sass` file or before `breadcrumb.sass` is loaded.
 

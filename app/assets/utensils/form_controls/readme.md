@@ -1,17 +1,11 @@
-
 # Form Controls
 Contains the style definitions for form control elements, form control
 states, and basic structure for containers. Form controls are typically
 paired with one of the form layout components.
 
-```sass
-@import utensils/form_controls/form_controls
-```
-
 ## Text based input controls
 Represents the basic controls for creating forms. Contains support for all of the HTML5 types.
 
-### Usage Examples
 [<~Example](markup/form_controls_inputs.html.haml)
 
 
@@ -19,26 +13,22 @@ Represents the basic controls for creating forms. Contains support for all of th
 Represents a search form control. These are set by adding the class
 `.search-query` to any text input control element.
 
-### Usage Examples
 [<~Example](markup/form_controls_search.html.haml)
 
-###### Warning
-- **Heads Up!** `input[type="search"]` renders the same as
-  other text input controls. These types of inputs require the
-  `.search-query` class to be added to the control.
+_Warning!_ `input[type="search"]` renders the same as other text input
+controls. These types of inputs require the `.search-query` class to be
+added to the control.
 
 
 ## Textarea controls
 Represents a multi-line plain-text editing control.
 
-### Usage Examples
 [<~Example](markup/form_controls_textarea.html.haml)
 
 
 ## Select controls
 Represents a control that presents a menu of options.
 
-### Usage Examples
 [<~Example](markup/form_controls_select.html.haml)
 
 
@@ -47,14 +37,12 @@ Radio and checkbox are for selecting options within a list. Radios are
 used for selecting a single option, while checkbox is used for selecting
 zero to many options.
 
-### Usage Examples
 [<~Example](markup/form_controls_radio_check.html.haml)
 
 
 ## Description elements
 Description elements describe or act as helpers around their controls.
 
-### Usage Examples
 [<~Example](markup/form_controls_description.html.haml)
 
 ### Usage
@@ -87,11 +75,9 @@ has the status type class added. The following would show only the
 A modifier on `input` or `textarea` fields that is uneditable by the
 user.
 
-### Usage Examples
 [<~Example](markup/form_controls_uneditable.html.haml)
 
-###### Warning
-- **Heads Up!** Make sure the field has the `disabled` attribute set.
+_Warning!_ Make sure the field has the `disabled` attribute set.
 
 
 ## Sizing helpers
@@ -115,9 +101,8 @@ Class          | Size
 `field-large ` | <input class="field-large" type="text" placeholder="75%" />
 `field-xlarge` | <input class="field-xlarge" type="text" placeholder="100%" />
 
-###### Alert
-- **Heads Up!** These classes set their `width` with `!important` to
-  override specificity. Use them only when you mean it.
+_Alert!_ These classes set their `width` with `!important` to override
+specificity. Use them only when you mean it.
 
 ## Button controls
 There are no specific style settings for input types of `submit`,
@@ -139,17 +124,18 @@ Form structures typically consist of:
 - The `div.controls` element hosting the control object, plus `.hints`
   or other descriptive helpers
 
-### Usage Examples
 [<~Example](markup/form_controls_structure.html.haml)
 
-###### Notes
-- **Pro Tip!** Add either `.well` or `well.fill` to the `form` element to contain it from other items on the page (requires `well.sass`)
+**Pro Tip!** Add either `.well` or `well.fill` to the `form` element to contain it from other items on the page (requires `well.sass`).
 
-###### Warning
-- **Heads Up!** Not all layouts may render in the demo if they aren't included in the project
+_Warning!_ Not all layouts may render in the demo if they aren't included in the project.
 
 
 ## Style Settings
+```sass
+@import utensils/form_controls/form_controls
+```
+
 To override the default settings, set the variable and it's value
 within your `config.sass` file or before `form_controls.sass` is loaded.
 

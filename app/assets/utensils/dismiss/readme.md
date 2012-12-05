@@ -1,12 +1,6 @@
-
 # Dismiss
 Remove an element from the DOM.
 
-```html
-data-bindable="dismiss"
-```
-
-## Usage Example
 [<~Example](markup/dismiss.html.haml)
 
 
@@ -20,11 +14,18 @@ Attribute      | Default                  | Description
 
 See `Triggerable` for other options
 
-###### Notes
-- **Pro Tip!** If the target element has the class `in` it will remove
-  this class first and wait for the transition to finish
+**Pro Tip!** If the target element has the class `in` it will remove
+this class first and wait for the transition to finish
+
 
 ## API
+```coffee
+#= require utensils/dismiss
+```
+
+```haml
+data-bindable="dismiss"
+```
 
 ### #new
 Create a new instance of `Dismiss` programmatically. Normally this is
@@ -34,30 +35,40 @@ handled through `Bindable`.
 #= require dismiss
 
 @el = $('#dismiss')
-@dismiss = new utensils.Dismiss(@el, {target: @el.find('.notification')})
+@dismiss = new utensils.Dismiss @el, {target: @el.find('.notification')}
 ```
 
 ### #remove
 Removes the element from the DOM, if the `in` class is on the target, it
-will animate out and call `#removeTarget`.
+will animate out and call `#removeTarget`. Dispatches a
+`dismiss:dismiss` event.
 
-##### dispatches:
-- `dismiss:dismiss`
+```coffee
+@dismiss.remove()
+```
 
 ### #removeTarget
-Removes the element from the DOM immediately.
+Removes the element from the DOM immediately. Dispatches a
+`dismiss:dismissed` event.
 
-##### dispatches:
-- `dismiss:dismissed`
+```coffee
+@dismiss.removeTarget()
+```
 
 ### #dispose
 Cleans up all listeners, but does not remove the element from the DOM.
 
+```coffee
+@dismiss.dispose()
+```
+
 ### Requires
-- `utesnils/utensils`
-- `utesnils/bindable`
-- `utesnils/triggerable`
-- `utesnils/detect`
+```coffee
+utesnils/utensils
+utesnils/bindable
+utesnils/triggerable
+utesnils/detect
+```
 
 `Dismiss` utilizes `Triggerable` via composition.
 

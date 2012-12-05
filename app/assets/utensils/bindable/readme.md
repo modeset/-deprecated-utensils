@@ -1,4 +1,3 @@
-
 # Bindable
 Light weight dependency injection for client side components. Looks for
 all DOM elements with a `data-bindable` attribute, stores references
@@ -19,7 +18,7 @@ class utensils.MockClass
   # make some magic
 
 # register with Bindable
-utensils.Bindable.register('mocker', utensils.MockClass)
+utensils.Bindable.register 'mocker', utensils.MockClass
 ```
 
 As markup instantiating a class that is registered with `Bindable`:
@@ -41,7 +40,10 @@ $ ->
 ## API
 
 ### Requires
-- `utensils/utensils`
+
+```coffee
+utensils/utensils
+```
 
 ## Todo
 - Need to describe the public API

@@ -1,15 +1,9 @@
-
 # Toggle
 Base class for adding, removing and toggling classes on a single
 element.
 
 `Toggle` utilizes `Triggerable` through composition.
 
-```html
-data-bindable="toggle"
-```
-
-## Usage Example
 [<~Example](markup/toggle.html.haml)
 
 
@@ -25,16 +19,23 @@ See `Triggerable` for more options.
 
 
 ## API
+```coffee
+#= require utensils/toggle
+```
+
+```haml
+data-bindable="toggle"
+```
 
 ### #new
 Create a new instance of `Toggle` programatically, typically this is
-instantiated through `Bindable`
+instantiated through `Bindable`.
 
 ```coffee
 #= require toggle
 
 @el = $('#toggle')
-@toggle = new utensils.Toggle(@el, {toggle: 'fade active', trigger: 'hover'})
+@toggle = new utensils.Toggle @el, {toggle: 'fade active', trigger: 'hover'}
 ```
 
 ### #toggle
@@ -42,40 +43,38 @@ Typically called through user input, but can be triggered by the
 elements toggle event.
 
 ```coffee
-@el.trigger('click')
+@el.trigger 'click'
 ```
 
 ### #activate
-Add the toggle classes to the targets
-
-##### dispatches:
-- `toggle:activated`
+Add the toggle classes to the targets. Dispatches a `toggle:activated`
+event.
 
 ```coffee
 @toggle.activate()
 ```
 
 ### #deactivate
-Removes the toggle classes from the targets
-
-##### dispatches:
-- `toggle:deactivated`
+Removes the toggle classes from the targets. Dispatches a
+`toggle:deactivated` event.
 
 ```coffee
 @toggle.deactivate()
 ```
 
 ### #dispose
-Cleans up any internal references
+Cleans up any internal references.
 
 ```coffee
 @toggle.dispose()
 ```
 
 ### Requires
-- `utensils/utensils`
-- `utensils/bindable`
-- `utensils/triggerable`
+```coffee
+utensils/utensils
+utensils/bindable
+utensils/triggerable
+```
 
 Any events dispatched from `Toggle` contain the `event` property as the
 first parameter and the `@el` as the second parameter. This is done to

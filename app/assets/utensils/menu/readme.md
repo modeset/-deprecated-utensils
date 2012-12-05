@@ -1,17 +1,15 @@
-
 # Menu
 The menu component is a simple list of navigation elements, which are
 typically used within the `Drop` component.
 
-```sass
-@import utensils/menu/menu
-```
-
-## Usage Example
 [<~Example](markup/menu.html.haml)
 
 
 ## Style Settings
+```sass
+@import utensils/menu/menu
+```
+
 To override the default settings, set the variable and it's value within
 your `config.sass` file or before `menu.sass` is loaded.
 

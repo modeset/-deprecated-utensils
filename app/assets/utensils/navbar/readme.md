@@ -1,14 +1,8 @@
-
 # Navbar
 Contains the basic structure for creating application or page level
 navigation systems. A combination of styles and layout for supporting
 various components with navigation, search forms and drop downs.
 
-```sass
-@import utensils/navbar/navbar
-```
-
-## Usage Example
 [<~Example](markup/navbar.html.haml)
 
 
@@ -28,6 +22,10 @@ Need to implement this
 
 
 ## Style Settings
+```sass
+@import utensils/navbar/navbar
+```
+
 To override the default settings, set the variable and it's value within
 your `config.sass` file or before `navbar.sass` is loaded.
 

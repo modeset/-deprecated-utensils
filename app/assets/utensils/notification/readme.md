@@ -1,14 +1,8 @@
-
 # Notification
 UI pattern for displaying messaging information in a notification.
 
 Add the `Dismiss` behavior for allowing the notification to be closed.
 
-```sass
-@import utensils/notification/notification
-```
-
-## Usage Example
 [<~Example](markup/notification.html.haml)
 
 ### Block Notifications
@@ -21,6 +15,10 @@ class `.notify-right`.
 
 
 ## Style Settings
+```sass
+@import utensils/notification/notification
+```
+
 To override the default settings, set the variable and it's value within
 your `config.sass` file or before `notification.sass` is loaded.
 

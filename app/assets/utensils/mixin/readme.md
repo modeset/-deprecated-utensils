@@ -1,4 +1,3 @@
-
 # Mixin
 Automate common re-usable chunks of CSS, properties, selectors, and/or settings.
 
@@ -19,9 +18,8 @@ Mixin           | Params                                    | Usage
 `+arrow_east`   | `$color:#000, $size:5px, $add_base:false` | An arrow pointing right
 `+arrow_west`   | `$color:#000, $size:5px, $add_base:false` | An arrow pointing left
 
-###### Notes
-- **Heads Up!** Arrows are typically positioned `absolute` by default so
-  the host should be `relative` and don't forget to add `content: ""`
+**Heads Up!** Arrows are typically positioned `absolute` by default so
+the host should be `relative` and don't forget to add `content: ""`
 
 
 ## Clearfixins
@@ -47,6 +45,7 @@ Includes placeholder classes to be used via extension
   @extend %clearfix
 ```
 
+
 ## Columns
 Allows elements to take the shape of either a column or row within a
 grid environment.
@@ -57,9 +56,8 @@ Mixin                | Usage
 `+base-column-right` | An alternate base `column` which floats elements to the right
 `+base-row`          | The base `row` settings, should be extended by all rows
 
-###### Warnings
-- **Warning!** The column mixins all utilize `box-sizing: border-box`
-  which is not supported in ie7
+_Warning!_ The column mixins all utilize `box-sizing: border-box` which
+is not supported in ie7
 
 Includes placeholder classes to be used via extension
 
@@ -74,6 +72,7 @@ Includes placeholder classes to be used via extension
   @extend %base-row
 ```
 
+
 ## Conversions
 Functions for calculations and conversion between pixels, ems, rems and
 percentages.
@@ -87,13 +86,11 @@ Function           | Params                                    | Usage
 `vertical_em`      |  `$target-px`                             |  Returns the vertical rhythm in em calculated from the `$base-vertical` setting
 `vertical_percent` |  `$target-px`                             |  Returns the vertical rhythm in percent calculated from the `$base-vertical` setting
 
-###### Notes
-- **Important!** When calculating vertical rhythm, always pass in what
-  the expected pixel value is for the element.
+**Important!** When calculating vertical rhythm, always pass in what the
+expected pixel value is for the element.
 
-###### Warnings
-- **Warning!** Define `$context_px`, `$base_font_size`, `$base_width`
-  and `$base_vertical` prior to the functions being loaded.
+_Warning!_ Define `$context_px`, `$base_font_size`, `$base_width` and
+`$base_vertical` prior to the functions being loaded.
 
 
 ## Float fill
@@ -110,14 +107,14 @@ Mixin              | Params                                | Usage
 - `$target-px` The target font size in pixels
 - `$context:$context-px` [_optional_] The context constraints of the user's base font size
 
-###### Notes
-- **Heads Up!** Make sure **not** to include the `px` postfix when passing a size
+**Heads Up!** Make sure _not_ to include the `px` postfix when passing a size
 
 ```sass
 h1
   +font-size(48)
   color: blue
 ```
+
 
 ## Form placeholder
 Adds vendor prefixes for altering colors of form placeholder elements.
@@ -145,6 +142,7 @@ Includes placeholder classes to be used via extension
   @extend %hardware-accelerate
 ```
 
+
 ## Image tools
 Image interpolation settings based on [stich css](http://stitchcss.com/).
 
@@ -154,8 +152,7 @@ Mixin                 | Usage
 `+high-quality-image` |  Improves rendering quality for images which may be upscaled or downscaled
 `+low-quality-image`  |  Optimizes the rendering on images so they appear faster, but at a lower quality
 
-###### Warnings
-- **Warning!** These settings can have adverse effects in some browsers, test thoroughly.
+_Warning!_ These settings can have adverse effects in some browsers, test thoroughly.
 
 
 ## Inline block
@@ -190,9 +187,8 @@ Includes placeholder classes to be used via extension
   @extend %ir
 ```
 
-###### Notes
-- **Heads Up!** `scaffold.sass` automatically sets up a `.ir` class that
-  extends the `%ir` placeholder.
+**Heads Up!** `scaffold.sass` automatically sets up a `.ir` class that
+extends the `%ir` placeholder.
 
 
 ## Responsive
@@ -252,31 +248,31 @@ properties included with [Bourbon](http://thoughtbot.com/bourbon/).
 
 Property             | Example
 -------------------- | -------------------------------------------------------
-`default (linear)`   | <div class="sherpa-swatch"></div>
-`$ease-in-quad`      | <div class="sherpa-swatch ease-in-quad"></div>
-`$ease-in-cubic`     | <div class="sherpa-swatch ease-in-cubic"></div>
-`$ease-in-quart`     | <div class="sherpa-swatch ease-in-quart"></div>
-`$ease-in-quint`     | <div class="sherpa-swatch ease-in-quint"></div>
-`$ease-in-sine`      | <div class="sherpa-swatch ease-in-sine"></div>
-`$ease-in-expo`      | <div class="sherpa-swatch ease-in-expo"></div>
-`$ease-in-circ`      | <div class="sherpa-swatch ease-in-circ"></div>
-`$ease-in-back`      | <div class="sherpa-swatch ease-in-back"></div>
-`$ease-out-quad`     | <div class="sherpa-swatch ease-out-quad"></div>
-`$ease-out-cubic`    | <div class="sherpa-swatch ease-out-cubic"></div>
-`$ease-out-quart`    | <div class="sherpa-swatch ease-out-quart"></div>
-`$ease-out-quint`    | <div class="sherpa-swatch ease-out-quint"></div>
-`$ease-out-sine`     | <div class="sherpa-swatch ease-out-sine"></div>
-`$ease-out-expo`     | <div class="sherpa-swatch ease-out-expo"></div>
-`$ease-out-circ`     | <div class="sherpa-swatch ease-out-circ"></div>
-`$ease-out-back`     | <div class="sherpa-swatch ease-out-back"></div>
-`$ease-in-out-quad`  | <div class="sherpa-swatch ease-in-out-quad"></div>
-`$ease-in-out-cubic` | <div class="sherpa-swatch ease-in-out-cubic"></div>
-`$ease-in-out-quart` | <div class="sherpa-swatch ease-in-out-quart"></div>
-`$ease-in-out-quint` | <div class="sherpa-swatch ease-in-out-quint"></div>
-`$ease-in-out-sine`  | <div class="sherpa-swatch ease-in-out-sine"></div>
-`$ease-in-out-expo`  | <div class="sherpa-swatch ease-in-out-expo"></div>
-`$ease-in-out-circ`  | <div class="sherpa-swatch ease-in-out-circ"></div>
-`$ease-in-out-back`  | <div class="sherpa-swatch ease-in-out-back"></div>
+`default (linear)`   | <div class="docomo-swatch"></div>
+`$ease-in-quad`      | <div class="docomo-swatch ease-in-quad"></div>
+`$ease-in-cubic`     | <div class="docomo-swatch ease-in-cubic"></div>
+`$ease-in-quart`     | <div class="docomo-swatch ease-in-quart"></div>
+`$ease-in-quint`     | <div class="docomo-swatch ease-in-quint"></div>
+`$ease-in-sine`      | <div class="docomo-swatch ease-in-sine"></div>
+`$ease-in-expo`      | <div class="docomo-swatch ease-in-expo"></div>
+`$ease-in-circ`      | <div class="docomo-swatch ease-in-circ"></div>
+`$ease-in-back`      | <div class="docomo-swatch ease-in-back"></div>
+`$ease-out-quad`     | <div class="docomo-swatch ease-out-quad"></div>
+`$ease-out-cubic`    | <div class="docomo-swatch ease-out-cubic"></div>
+`$ease-out-quart`    | <div class="docomo-swatch ease-out-quart"></div>
+`$ease-out-quint`    | <div class="docomo-swatch ease-out-quint"></div>
+`$ease-out-sine`     | <div class="docomo-swatch ease-out-sine"></div>
+`$ease-out-expo`     | <div class="docomo-swatch ease-out-expo"></div>
+`$ease-out-circ`     | <div class="docomo-swatch ease-out-circ"></div>
+`$ease-out-back`     | <div class="docomo-swatch ease-out-back"></div>
+`$ease-in-out-quad`  | <div class="docomo-swatch ease-in-out-quad"></div>
+`$ease-in-out-cubic` | <div class="docomo-swatch ease-in-out-cubic"></div>
+`$ease-in-out-quart` | <div class="docomo-swatch ease-in-out-quart"></div>
+`$ease-in-out-quint` | <div class="docomo-swatch ease-in-out-quint"></div>
+`$ease-in-out-sine`  | <div class="docomo-swatch ease-in-out-sine"></div>
+`$ease-in-out-expo`  | <div class="docomo-swatch ease-in-out-expo"></div>
+`$ease-in-out-circ`  | <div class="docomo-swatch ease-in-out-circ"></div>
+`$ease-in-out-back`  | <div class="docomo-swatch ease-in-out-back"></div>
 
 
 ## Visibility
@@ -290,10 +286,9 @@ Mixin            | Params  | Usage
 `+visuallyshown` | _none_  | Reverse the settings applied by `.visuallyhidden`
 `+invisible`     | _none_  | Hide visually and from screenreaders, but maintain layout
 
-###### Warnings
-- **Warning!** When using `visuallyhidden` and `visuallyshown` with
-  `box-shadow`, you'll need to add `clip:initial` to get the shadows to
-  reappear
+_Warning!_ When using `visuallyhidden` and `visuallyshown` with
+`box-shadow`, you'll need to add `clip:initial` to get the shadows to
+reappear
 
 Includes placeholder classes to be used via extension
 
@@ -310,7 +305,6 @@ Includes placeholder classes to be used via extension
   @extend %invisible
 ```
 
-###### Notes
-- **Heads Up!** `scaffold.sass` automatically sets up a `.hidden` and
-  `.shown` class that extends the `%hidden` and `%shown` placeholders.
+**Heads Up!** `scaffold.sass` automatically sets up a `.hidden` and
+`.shown` class that extends the `%hidden` and `%shown` placeholders.
 

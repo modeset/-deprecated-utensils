@@ -1,4 +1,3 @@
-
 # Pop
 Pops are a more robust `Tip`. They are built for holding small bits of
 information, media or other secondary content, which is predominantly
@@ -7,16 +6,6 @@ triggered through a `click` event. They can be assembled via
 inject into a `Pop` container. Positioning is defined by cardinal
 points.
 
-
-```sass
-@import utensils/pop/pop
-```
-
-```html
-data-bindable="pop"
-```
-
-## Usage Examples
 [<~Example](markup/pop.html.haml)
 
 
@@ -33,16 +22,15 @@ Attribute   | Default     | Description
 `effect`    | `fade`      | The base animation class to add to the tip markup
 `href`      | _none_      | Optional DOM element `id` for the contents and `data-attributes` to use for the contents of the `Pop`
 
+**Heads Up!** `Pop` will override it's placement automatically through
+`Directional` if it determines the requested position will render the
+pop outside the viewport.
+
 Referencing "is tip like" means the contents of the `Pop` reside within
 the `data` attributes of the link. When a `Pop` "is not tip like", it
 references a `hidden` DOM element.
 
-See `Triggerable` for other options
-
-###### Notes
-- **Heads Up!** `Pop` will override it's placement automatically through
-  `Directional` if it determines the requested position will render the
-  pop outside the viewport.
+See `Triggerable` for other options.
 
 
 ### Referencing DOM elements
@@ -55,12 +43,18 @@ first time the `Pop` is activated. It's a good idea to include the
 `.hidden` or `.visuallyhidden` class on the container to keep it from
 appearing on screen initially.
 
-###### Notes
-- **Pro Tip!** This is the preferred behavior for creating more complex
-  `Pop` components
+**Pro Tip!** This is the preferred behavior for creating more complex
+`Pop` components.
 
 
 ## API
+```coffee
+#= require utensils/pop
+```
+
+```haml
+data-bindable="pop"
+```
 
 ### #new
 Create a new instance of `Pop` programmatically. Normally this is
@@ -70,7 +64,7 @@ handled through `Bindable`.
 #= require pop
 
 @el = $('#pop')
-@pop = new utensils.Pop(@el, {target:'#pop_exterior_content'})
+@pop = new utensils.Pop @el, target: '#pop_exterior_content'
 ```
 
 ### #toggle
@@ -78,41 +72,47 @@ Typically called through user input, but can be triggered by the
 elements toggle event.
 
 ```coffee
-@el.trigger('click')
+@el.trigger 'click'
 ```
 
 ### #activate
-Show the pop
+Show the pop.
 
 ```coffee
 @pop.activate()
 ```
 
 ### #deactivate
-Removes the pop
+Removes the pop.
 
 ```coffee
 @pop.deactivate()
 ```
 
 ### #dispose
-Remove the pop behavior
+Remove the pop behavior.
 
 ```coffee
 @pop.dispose()
 ```
 
 ### Requires
-- `utensils/utensils`
-- `utensils/bindable`
-- `utensils/triggerable`
-- `utensils/detect`
-- `utensils/directional`
+```coffee
+utensils/utensils
+utensils/bindable
+utensils/triggerable
+utensils/detect
+utensils/directional
+```
 
 `Pop` utilizes `Triggerable` via composition.
 
 
 ## Style Settings
+```sass
+@import utensils/pop/pop
+```
+
 To override the default settings, set the variable and it's value
 within your `config.sass` file or before `pop.sass` is loaded.
 
@@ -132,24 +132,7 @@ Variable                  | Default                | Description
 `$pop-arrow-offset`       | `-$pop-arrow-size + 1` | The offset against the background arrow
 
 
-###### Warning
-- **Heads Up!** The configuration file needs to define the `$zindex-pop`
+_Warning!_ The configuration file needs to define the `$zindex-pop`
 value before this file is imported, this is done to keep managing
 `z-index` mappings in one place.
-
-
-## Injected Markup
-The markup injected when a pop is shown:
-
-```html
-<div class="pop north fade">
- <div class="pop-arrow"></div>
- <div class="pop-inner">
-   <div class="pop-header">The Western Pop</div>
-   <div class="pop-content">
-     <p>A bunch of killer content</p>
-   </div>
- </div>
-</div>
-```
 

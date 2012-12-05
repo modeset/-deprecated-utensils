@@ -1,4 +1,3 @@
-
 # Modal
 Base styles and behaviors for displaying elements within a modal window.
 Modals automatically create a backdrop which blocks user interaction
@@ -10,15 +9,6 @@ Styles are not included for the contents of a modal (rather just the
 modal and backdrop itself). This is better suited for other components
 or custom layouts within the application.
 
-```sass
-@import utensils/modal/modal
-```
-
-```html
-data-bindable="modal"
-```
-
-## Usage Example
 [<~Example](markup/modal.html.haml)
 
 
@@ -41,6 +31,13 @@ set to `display:none`.
 
 
 ## API
+```coffee
+#= require utensils/modal
+```
+
+```haml
+data-bindable="modal"
+```
 
 ### #new
 Create a new instance of `Modal` programmatically. Normally this is
@@ -50,7 +47,7 @@ handled through `Bindable`.
 #= require modal
 
 @el = $('#modal')
-@modal = new utensils.Modal(@el, {target:'#my_modal'})
+@modal = new utensils.Modal @el, {target:'#my_modal'}
 ```
 
 ### #toggle
@@ -58,40 +55,46 @@ Typically called through user input, but can be triggered by the
 elements toggle event.
 
 ```coffee
-@el.trigger('click')
+@el.trigger 'click'
 ```
 
 ### #activate
-Show the modal
+Show the modal.
 
 ```coffee
 @modal.activate()
 ```
 
 ### #deactivate
-Removes the modal
+Removes the modal.
 
 ```coffee
 @modal.deactivate()
 ```
 
 ### #dispose
-Remove the modal behavior
+Remove the modal behavior.
 
 ```coffee
 @modal.dispose()
 ```
 
 ### Requires
-- `utensils/utensils`
-- `utensils/bindable`
-- `utensils/triggerable`
-- `utensils/detect`
+```coffee
+utensils/utensils
+utensils/bindable
+utensils/triggerable
+utensils/detect
+```
 
 `Modal` utilizes `Triggerable` via composition.
 
 
 ## Style Settings
+```sass
+@import utensils/modal/modal
+```
+
 To override the default settings, set the variable and it's value
 within your `config.sass` file or before `modal.sass` is loaded.
 
@@ -108,10 +111,7 @@ Modal sizing is setup in a 16:9 ratio and centered within the browser
 based of the `$base-width` of the site. Specific media queries should be
 setup to handle various sizing based on the device's viewport.
 
-
-###### Warning
-- **Heads Up!** The configuration file needs to define the
-  `$zindex-modal` and `$zindex-modal-backdrop` values before this file is
-  imported, this is done to keep managing `z-index` mappings in one
-  place.
+_Warning!_ The configuration file needs to define the `$zindex-modal`
+and `$zindex-modal-backdrop` values before this file is imported, this
+is done to keep managing `z-index` mappings in one place.
 

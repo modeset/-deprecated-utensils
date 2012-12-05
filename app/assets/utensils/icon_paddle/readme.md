@@ -1,4 +1,3 @@
-
 # Icon Paddle
 Paddles are commonly used in carousel or simple paging navigations.
 The paddle icons are setup as absolutely positioned and should reside in
@@ -7,15 +6,13 @@ an element that is positioned relatively.
 Paddles should be extended by a component class for exact positioning
 and styles.
 
-```sass
-@import utensils/icon_paddle/paddle
-```
-
-## Usage Example
 [<~Example](markup/paddle.html.haml)
 
 
-## Usage
+## Style Settings
+```sass
+@import utensils/icon_paddle/paddle
+```
 
 Class                 | Description
 --------------------- | -------------------------------------------

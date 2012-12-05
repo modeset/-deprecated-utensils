@@ -1,17 +1,15 @@
-
 # Content Editable
 Apply the attribute `contenteditable="true"` to a given element,
 allows the user to change it's contents.
 
-```sass
-@import utensils/content_editable/content-editable
-```
-
-## Usage Examples
 [<~Example](markup/content_editable.html.haml)
 
 
 ## Style Settings
+```sass
+@import utensils/content_editable/content-editable
+```
+
 To override the default settings, set the variable and it's value
 within your `config.sass` file or before `content_editable.sass` is loaded.
 

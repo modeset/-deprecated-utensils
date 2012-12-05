@@ -1,16 +1,5 @@
-
 # Carousel
 The base carousel.
-
-```sass
-@import utensils/carousel/carousel
-```
-
-```html
-data-bindable="carousel"
-```
-
-## Usage Example
 
 [<~Example](markup/carousel.html.haml)
 
@@ -27,7 +16,7 @@ Attribute           | Default         | Description
 `cycles`            | `1`             | The number of cycles to perform before stopping in `auto play` mode
 `duration`          | `5`             | The delay between slides in `auto play` mode
 
-When utilizing paddle buttons, the `href` attribute is used to determine
+**Heads Up!** When utilizing paddle buttons, the `href` attribute is used to determine
 which method to call when clicked (i.e. `#next` or `#prev`).
 
 When set to `auto play`, `Carousel` will instantiate a `Beacon` object
@@ -35,13 +24,20 @@ for time management.
 
 
 ## API
+```coffee
+#= require utensils/carousel
+```
+
+```haml
+data-bindable="carousel"
+```
 
 ### #new
 Create a new instance of `Carousel`, typically used via `Bindable`. 
 
 ```coffee
 #= require utensils/carousel
-@carousel = new utensils.Carousel(@el.find('.carousel'))
+@carousel = new utensils.Carousel @el.find '.carousel'
 ```
 
 ### #next
@@ -63,7 +59,7 @@ Jump to a given slide based on an index, dispatches a
 `carousel:activated` event.
 
 ```coffee
-@carousel.activate(2)
+@carousel.activate 2
 ```
 
 ### #pause
@@ -90,6 +86,10 @@ Kill it with fire.
 ```
 
 ## Style Settings
+```sass
+@import utensils/carousel/carousel
+```
+
 To override the default settings, set the variable and it's value
 within your `config.sass` file or before `carousel.sass` is loaded.
 

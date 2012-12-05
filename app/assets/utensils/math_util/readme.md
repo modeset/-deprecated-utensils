@@ -1,6 +1,6 @@
-
 # MathUtil
 A collection of utility math functions
+
 
 ## Todo:
 - Import all MathUtil methods

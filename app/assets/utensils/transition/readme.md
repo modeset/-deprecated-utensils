@@ -2,10 +2,6 @@
 # Transition
 Contains helper classes for CSS transitions.
 
-```sass
-@import utensils/transition/transition
-```
-
 ## Usage
 
 Class                  | Usage
@@ -16,6 +12,10 @@ Class                  | Usage
 
 
 ## Style Settings
+```sass
+@import utensils/transition/transition
+```
+
 To override the default settings, set the variable and it's value
 within your `config.sass` file or before `transition.sass` is loaded.
 

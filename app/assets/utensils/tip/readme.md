@@ -1,4 +1,3 @@
-
 # Tip
 Tool tip component for showing quick bits of information to a user. Tips
 are generally used on `hover` states, but can be tied to any event
@@ -8,15 +7,6 @@ trigger. Positioning is defined by cardinal points.
 tip type behavior. Generally the `Pop` component is more robust and
 should be considered in most cases.
 
-```sass
-@import utensils/tip/tip
-```
-
-```html
-data-bindable="tip"
-```
-
-## Usage Examples
 [<~Example](markup/tip.html.haml)
 
 
@@ -34,17 +24,19 @@ Attribute   | Default     | Description
 See `Triggerable` for other options
 
 
-###### Notes
-- **Heads Up!** `Tip` will override it's placement automatically through
-  `Directional` if it determines the requested position will render the
-  tip outside the viewport.
-- **Touch it!** On touch devices when using
-  [modernizr](http://www.modernizr.com/), tips will change their trigger
-  behavior to `click` events. If the item is a link that resolves, make
-  sure to add `data-bubble="true"` to the element
+**Heads Up!** `Tip` will override it's placement automatically through
+`Directional` if it determines the requested position will render the
+tip outside the viewport.
 
 
 ## API
+```coffee
+#= require tip
+```
+
+```haml
+data-bindable="tip"
+```
 
 ### #new
 Create a new instance of `Tip` programmatically. Normally this is
@@ -54,7 +46,7 @@ handled through `Bindable`.
 #= require tip
 
 @el = $('#tip')
-@tip = new utensils.Tip(@el, {delay:'show:1000, hide:2000'})
+@tip = new utensils.Tip @el, {delay:'show:1000, hide:2000'}
 ```
 
 ### #toggle
@@ -62,41 +54,47 @@ Typically called through user input, but can be triggered by the
 elements toggle event.
 
 ```coffee
-@el.trigger('mouseenter')
+@el.trigger 'mouseenter'
 ```
 
 ### #activate
-Show the tip
+Show the tip.
 
 ```coffee
 @tip.activate()
 ```
 
 ### #deactivate
-Removes the tip
+Removes the tip.
 
 ```coffee
 @tip.deactivate()
 ```
 
 ### #dispose
-Remove the tip behavior
+Remove the tip behavior.
 
 ```coffee
 @tip.dispose()
 ```
 
 ### Requires
-- `utensils/utensils`
-- `utensils/bindable`
-- `utensils/triggerable`
-- `utensils/detect`
-- `utensils/directional`
+```coffee
+utensils/utensils
+utensils/bindable
+utensils/triggerable
+utensils/detect
+utensils/directional
+```
 
 `Tip` utilizes `Triggerable` via composition.
 
 
 ## Style Settings
+```sass
+@import utensils/tip/tip
+```
+
 To override the default settings, set the variable and it's value
 within your `config.sass` file or before `tip.sass` is loaded.
 
@@ -112,19 +110,7 @@ Variable            | Default               | Description
 `$tip-arrow-size`   | `5px`                 | The size of the arrow
 `$tip-arrow-offset` | `-$tip-arrow-size`    | The offset for positioning the arrow
 
-###### Warning
-- **Heads Up!** The configuration file needs to define the `$zindex-tip`
+_Warning!_ The configuration file needs to define the `$zindex-tip`
 value before this file is imported, this is done to keep managing
 `z-index` mappings in one place.
-
-
-## Injected Markup
-The markup injected when a tip is shown:
-
-```html
-<div class="tip north fade">
- <div class="tip-arrow"></div>
- <div class="tip-inner">The Northern Tip</div>
-</div>
-```
 

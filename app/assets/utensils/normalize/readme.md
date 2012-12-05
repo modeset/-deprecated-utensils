@@ -1,4 +1,3 @@
-
 # Normalize
 Normalize base element styles to allow browsers to render all controls
 more consistently and in line with modern standards.

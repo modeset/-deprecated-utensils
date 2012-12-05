@@ -1,18 +1,10 @@
-
 # Progress
 Styles and simple behavior for progress indicator bars.
 
-```sass
-@import utensils/progress/progress
-```
-
-
-## Usage Example
 [<~Example](markup/progress.html.haml)
 
-###### Note
-- **Pro Tip!** Click on one of the progress bars and it will animate to
-  a random number between `0-100`
+**Pro Tip!** Click on one of the progress bars and it will animate to a
+random number between `0-100`.
 
 
 ## Options
@@ -23,51 +15,59 @@ Attribute        | Default     | Description
 
 
 ## API
+```coffee
+#= require utensils/progress
+```
 
 ### #new
-`Progress` is typically used by a class instance
+`Progress` is typically used by a class instance.
 
 ```coffee
 #= require progress
 
 @progress_el = $('#progress')
-
-@progress = new utensils.Progress(@progress_el)
+@progress = new utensils.Progress @progress_el
 ```
 
 ### #set
-Set the width of the progress bar from a percentage value
+Set the `width` of the progress bar from a percentage value.
 
 ```coffee
-@progress.set(50)
+@progress.set 50
 ```
 
 ### #get
-Get the width of the progress bar from a percentage value
+Get the `width` of the progress bar from a percentage value.
 
 ```coffee
 current = @progress.get()
 ```
 
 ### #reset
-Reset the width of the progress bar back to `0`
+Reset the `width` of the progress bar back to `0`.
 
 ```coffee
 @progress.reset()
 ```
 
 ### #complete
-Set the width of the progress bar to `100`
+Set the `width` of the progress bar to `100`.
 
 ```coffee
 @progress.complete()
 ```
 
 ### Requires
-- `utensils/utensils`
+```coffee
+utensils/utensils
+```
 
 
 ## Style Settings
+```sass
+@import utensils/progress/progress
+```
+
 To override the default settings, set the variable and it's value
 within your `config.sass` file or before `progress.sass` is loaded.
 

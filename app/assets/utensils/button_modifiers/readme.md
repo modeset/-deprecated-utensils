@@ -1,14 +1,8 @@
-
 # Button Modifiers
 A set of modifier classes which can be added to any button, regardless
 of their base class, to adjust various aspects around a button's display
 type, sizing, or positioning.
 
-```sass
-@import utensils/button_modifiers/button_modifiers
-```
-
-## Usage Examples
 [<~Example](markup/button_modifiers.html.haml)
 
 
@@ -25,6 +19,10 @@ Modifier Class    | Usage
 
 
 ## Style Settings
+```sass
+@import utensils/button_modifiers/button_modifiers
+```
+
 To override the default settings, set the variable and it's value
 within your `config.sass` file or before `button_modifiers.sass` is loaded.
 

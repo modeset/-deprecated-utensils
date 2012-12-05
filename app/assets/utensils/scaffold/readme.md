@@ -1,31 +1,29 @@
-
 # Scaffold
-Sets up core scaffolding elements for `html`, `body`, selections, links and navigation.
+Sets up core scaffolding elements for `html`, `body`, selections, links
+and navigation.
 
-```sass
-@import utensils/scaffold/scaffold
-```
 
 ## Navs
-
-### Usage Example
-
-The base `.nav` is the building block for navigation structures and components
-(tabs, pills, breadcrumbs, pagination and navigation lists). The `.nav` class
-can be used for simple navigation as well.
+The base `.nav` is the building block for navigation structures and
+components (tabs, pills, breadcrumbs, pagination and navigation lists).
+The `.nav` class can be used for simple navigation as well.
 
 [<~Example](markup/scaffold_nav.html.haml)
 
-###### Warnings
-- **Heads Up!** All navigation components depend on the `.nav` class being attached to the container element
+_Warning!_ All navigation components depend on the `.nav` class being
+attached to the container element
 
-For convenience, add the `inline` class to the `.nav` element to display the base nav inline.
+For convenience, add the `.inline` class to the `.nav` element to
+display the base nav inline.
 
-Utilize the `.nav-header` and `.nav-divider` for building simple navigation lists.
+Utilize the `.nav-header` and `.nav-divider` for building simple
+navigation lists.
+
 
 ## Tab Panels
-Tab panels are typically used by `Tab` and `Pill` for showing and
-hiding related content. See `Tab` for usage.
+Tab panels are typically used by `Tab` and `Pill` for showing and hiding
+related content. See `Tab` for usage.
+
 
 ## Utility Classes
 For convenience and common patterns, a few utility classes are setup in
@@ -42,6 +40,10 @@ Class         | Usage
 
 
 ## Style Settings
+```sass
+@import utensils/scaffold/scaffold
+```
+
 To override the default settings, set the variable and it's value
 within your `config.sass` file or before `scaffold.sass` is loaded.
 

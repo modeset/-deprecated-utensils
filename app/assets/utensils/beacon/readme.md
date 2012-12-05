@@ -1,4 +1,3 @@
-
 # Beacon
 Triggers an event based on a passage of time via a `setTimeout`.
 
@@ -25,7 +24,7 @@ Create a new instance of `Beacon`, typically used via an instance.
 
 ```coffee
 #= require utensils/beacon
-@beacon = new utensils.Beacon(@el, {total: 5, duration: 500, continuous: true})
+@beacon = new utensils.Beacon @el, {total: 5, duration: 500, continuous: true}
 ```
 
 ### #start

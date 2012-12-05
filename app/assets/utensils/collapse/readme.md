@@ -1,19 +1,9 @@
-
 # Collapse
 Allows toggling of collapsible elements associated with a link or a
 navigation system such as an accordion group.
 
 Collapse utilizes either `Toggle` or `ToggleGroup` through composition.
 
-```sass
-@import utensils/collapse/collapse
-```
-
-```html
-data-bindable="collapse"
-```
-
-## Usage Examples
 [<~Example](markup/collapse.html.haml)
 
 
@@ -32,7 +22,15 @@ If `type` is set to single (the default), `Collapse` will instantiate an
 instance of `Toggle` for managing the links state. If `type` is set to
 `group`, the `ToggleGroup` behavior is used.
 
+
 ## API
+```coffee
+#= require utensils/collapse
+```
+
+```haml
+data-bindable="collapse"
+```
 
 ### #new
 Create a new instance of `Collapse` programatically, typically this
@@ -44,46 +42,40 @@ is instantiated through `Bindable`
 @collapse_el = $('#single')
 @group_el = $('#group_el')
 
-@collapse = new utensils.Collapse(@collapse_el)
-@collapse_group = new utensils.Collapse(@group_el)
+@collapse = new utensils.Collapse @collapse_el
+@collapse_group = new utensils.Collapse @group_el
 ```
 
 ### #activate
 Activate can take either an index, element or string as it's target
 parameter if the `type` is set to `group`. Otherwise, no parameter is
-required.
-
-##### dispatches:
-- `collapse:activated`
+required. Dispatches a `collapse:activated` event.
 
 ```coffee
 # activate on a non-group collapse
 @collapse.activate()
 
 # activate by index on a group
-@collapse_group.activate(1)
+@collapse_group.activate 1
 
 # activate by element on a group
-@collapse_group.activate(@group_el.find('li:nth-child(2)'))
+@collapse_group.activate @group_el.find 'li:nth-child(2)'
 ```
 
 ### #deactivate
 Deactivate can take either an index, element or string as it's target
 parameter if the `type` is set to `group`. Otherwise, no parameter is
-required.
-
-##### dispatches:
-- `collapse:deactivated`
+required. Dispatches a `collapse:deactivated` event.
 
 ```coffee
 # deactivate on a non-group collapse
 @collapse.deactivate()
 
 # deactivate by index on a group
-@collapse_group.deactivate(1)
+@collapse_group.deactivate 1
 
 # deactivate by element on a group
-@collapse_group.deactivate(@group_el.find('li:nth-child(2)'))
+@collapse_group.deactivate @group_el.find 'li:nth-child(2)'
 ```
 
 ### #dispose
@@ -106,14 +98,20 @@ Event             | Description
 
 
 ### Requires
-- `utensils/utensils`
-- `utensils/bindable`
-- `utensils/detect`
-- `utensils/toggle`
-- `utensils/toggle_group`
+```coffee
+utensils/utensils
+utensils/bindable
+utensils/detect
+utensils/toggle
+utensils/toggle_group
+```
 
 
 ## Style Settings
+```sass
+@import utensils/collapse/collapse
+```
+
 To override the default settings, set the variable and it's value
 within your `config.sass` file or before `collapse.sass` is loaded.
 

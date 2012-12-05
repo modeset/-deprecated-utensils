@@ -1,18 +1,15 @@
-
 # Icon Close
 Use the close icon to dismiss modals, notifications and other elements.
 
+[<~Example](markup/close.html.haml)
+
+**Pro Tip!** In your markup use `&times;` for the content of the close icon
+
+## Style Settings
 ```sass
 @import utensils/icon_close/close
 ```
 
-## Usage Example
-[<~Example](markup/close.html.haml)
-
-###### Notes
-- **Pro Tip!** In your markup use `&times;` for the content of the close icon
-
-## Style Settings
 To override the default settings, set the variable and it's value
 within your `config.sass` file or before `close.sass` is loaded.
 

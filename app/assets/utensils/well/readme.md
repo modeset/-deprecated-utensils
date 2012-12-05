@@ -1,17 +1,15 @@
-
 # Well
 Wells are used to contain components and other various elements. Works
 great with form layouts.
 
-```sass
-@import utensils/well/well
-```
-
-## Usage Example
 [<~Example](markup/well.html.haml)
 
 
 ## Style Settings
+```sass
+@import utensils/well/well
+```
+
 To override the default settings, set the variable and it's value
 within your `config.sass` file or before `well.sass` is loaded.
 

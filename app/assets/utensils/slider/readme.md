@@ -1,8 +1,6 @@
-
 # Slider
 Describe this
 
-## Usage Example
 [<~Example](markup/slider.html.haml)
 
 

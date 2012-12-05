@@ -1,4 +1,3 @@
-
 # Container
 The container class is used to contain elements of content within a page
 or section. The container class injects the [micro clearfix](http://nicolasgallagher.com/micro-clearfix-hack/)
@@ -6,10 +5,6 @@ to clear any floats from interior elements.
 
 There are a few modifiers which can be applied to the default container
 to affect how it displays contained elements.
-
-```sass
-@import utensils/container/container
-```
 
 ## Usage
 
@@ -21,6 +16,10 @@ Class              | Usage
 `.container.fixed` | Adding the `.fixed` class to a `container` will render it using fixed width pixels with no responsive behavior.
 
 ## Style Settings
+```sass
+@import utensils/container/container
+```
+
 To override the default settings, set the variable and it's value
 within your `config.sass` file or before `container.sass` is loaded.
 

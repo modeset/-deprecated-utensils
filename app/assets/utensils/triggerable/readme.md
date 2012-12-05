@@ -1,4 +1,3 @@
-
 # Triggerable
 Base class for handling and dispatching user interactions. `Triggerable`
 is used via composition by most components that trigger some sort of
@@ -15,20 +14,21 @@ As a class making use of a `Triggerable` instance through composition:
 
 class utensils.MockClass
   constructor: (@el, @data) ->
-    @triggerable = new utensils.Triggerable(@el, @data)
-    @triggerable.dispatcher.on('triggerable:activate', => @activated arguments...)
-    @triggerable.dispatcher.on('triggerable:deactivate', => @deactivated arguments...)
+    @triggerable = new utensils.Triggerable @el, @data
+    @triggerable.dispatcher.on 'triggerable:activate', => @activated arguments...
+    @triggerable.dispatcher.on 'triggerable:deactivate', => @deactivated arguments...
 
   toggle: ->
-    @triggerable.toggle(target: @el)
+    @triggerable.toggle target: @el
 
   activate: ->
-    @triggerable.activate(target: @el)
+    @triggerable.activate target: @el
 
   deactivate: ->
-    @triggerable.deactivate(target: @el)
+    @triggerable.deactivate target: @el
 
   dispose: ->
+    return unless @triggerable
     @removeListeners()
     @triggerable.dispose()
     @triggerable = null
@@ -58,10 +58,10 @@ based on the following:
 
 Attribute  | trigger.on => handler     | trigger.off => handler
 ---------- | ------------------------- | --------------------------------------
-"click"    | `click => #toggle`        | `click => #toggle`
-"hover"    | `mouseenter => #activate` | `mouseleave => #deactivate`
-"focus"    | `focus => #activate`      | `blur => #deactivate`
-"manual"   | _none_                    | _none_
+`click`    | `click => #toggle`        | `click => #toggle`
+`hover`    | `mouseenter => #activate` | `mouseleave => #deactivate`
+`focus`    | `focus => #activate`      | `blur => #deactivate`
+`manual`   | _none_                    | _none_
 
 The `manual` trigger does not add any listeners, as it's meant to be
 called programmatically from another object.
@@ -86,14 +86,17 @@ method.
 
 
 ## API
+```coffee
+#= require utensils/triggerable
+```
 
 ### #new
 Create a new instance of `Triggerable` programatically.
 
 ```coffee
-#= require triggerable
+#= require utensils/triggerable
 
-@triggerable = new utensils.Triggerable(@el, @data)
+@triggerable = new utensils.Triggerable @el, @data
 ```
 
 ### #toggle
@@ -101,33 +104,27 @@ Typically called through user input, but can be triggered by the
 elements toggle event.
 
 ```coffee
-@triggerable.toggle(target: @el)
+@triggerable.toggle target: @el
 ```
 
 ### #activate
-Activate a `Triggerable` instance
-
-##### dispatches:
-- `triggerable:trigger`
-- `triggerable:activate`
+Activate a `Triggerable` instance. Dispatches a `triggerable:trigger`
+and `triggerable:activate` event.
 
 ```coffee
-@triggerable.activate(target: @el)
+@triggerable.activate target: @el
 ```
 
 ### #deactivate
-Deactivate a `Triggerable` instance
-
-##### dispatches:
-- `triggerable:trigger`
-- `triggerable:deactivate`
+Deactivate a `Triggerable` instance. Dispatches a `triggerable:trigger`
+and `triggerable:deactivate` event.
 
 ```coffee
-@triggerable.deactivate(target: @el)
+@triggerable.deactivate target: @el
 ```
 
 ### #dispose
-Cleans up any internal references
+Cleans up any internal references.
 
 ```coffee
 @triggerable.dispose()
@@ -135,8 +132,10 @@ Cleans up any internal references
 ```
 
 ### Requires
-- `utensils/utensil`
-- `utensils/timeslot`
+```coffee
+utensils/utensil
+utensils/timeslot
+```
 
 An instance of `Triggerable` creates a `@dispatcher` property for
 dispatching events. Typically this is just the `@el` but is created for

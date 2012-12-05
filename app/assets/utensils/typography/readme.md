@@ -1,16 +1,10 @@
-
 # Typography
 Heading, paragraph, blockquotes, code, lists, and inline typographic
 elements.
 
-```sass
-@import utensils/typography/typography
-```
-
 ### Headings and body copy
 Generic `h1`-`h6` headings with a paragraph element.
 
-### Usage Example
 [<~Example](markup/typography_headings.html.haml)
 
 ### Inline paragraph elements
@@ -35,30 +29,25 @@ Element     | Usage
 `<kbd>`     | The <kbd>kbd</kbd> tag defines keyboard text
 `<samp>`    | The <samp>samp</samp> tag defines sample computer code
 
-### Usage Example
 [<~Example](markup/typography_inline.html.haml)
 
 ### Pre blocks
 Used for showcasing a block of a code.
 
-### Usage Example
 [<~Example](markup/typography_pre.html.haml)
 
 ### Blockquotes
 Typically used for quoting blocks of text from another source.
 
-### Usage Example
 [<~Example](markup/typography_blockquote.html.haml)
 
-###### Notes
-- **Pro Tip!** Utilize `&#8220;` and `&#8221;` for opening and closing
-  quotes within a `<blockquote>` element
+**Pro Tip!** Utilize `&#8220;` and `&#8221;` for opening and closing
+quotes within a `<blockquote>` element
 
 ### Rules
 Horizontal rules can utilize the class `.dashed` and `.dotted` for a
 different separator.
 
-### Usage Example
 [<~Example](markup/typography_rules.html.haml)
 
 ### Lists
@@ -67,7 +56,6 @@ unstyled (`.unstyled-list`). Unstyled simply removes any list styles and
 left margin. By default all `ul` and `ol` elements nested under a `nav`
 element render the same as an `.unstyled-list` class.
 
-### Usage Example
 [<~Example](markup/typography_lists.html.haml)
 
 ### Definition Lists
@@ -78,10 +66,13 @@ line. You can control the positioning by altering the
 `$definition-horiz-offset` and `$definition-horiz-offset-padding`
 variables.
 
-### Usage Example
 [<~Example](markup/typography_definition.html.haml)
 
 ## Style Settings
+```sass
+@import utensils/typography/typography
+```
+
 To override the default settings, set the variable and it's value within
 your `config.sass` file or before `typography.sass` is loaded.
 
