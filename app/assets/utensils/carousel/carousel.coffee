@@ -95,8 +95,8 @@ class utensils.Carousel
 
 
   addListeners: ->
-    @html.on "keydown.#{@namespace}", => @keyed arguments... if @keyboard
-    @paddles.on "click.#{@namespace}", => @paddled arguments... if @paddles.length
+    @html.on("keydown.#{@namespace}", => @keyed arguments...) if @keyboard
+    @paddles.on("click.#{@namespace}", => @paddled arguments...) if @paddles.length
 
 
   removeListeners: ->
