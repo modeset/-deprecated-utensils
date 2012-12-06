@@ -2,14 +2,14 @@
 # Todo
 
 ## WIP
-- Should events have more of a namespace to avoid collisions?
-- FPO images should be local instead of a service?
-- Clean up templates (upgrade, flash notification)
-- Media queries
 - More coherent descriptions within the docs
 - Document what Utensils is
+- Media queries
+- Test out if the `index.sass` file at the directory level fucks with
+  heroku (this is currently in `Pop`)
 - Test dinosaurs css and js (use from style guide)
 - Mobilize (templates, styles, js, etc..)
+- Configuration file for docomo
 - Generators (templates, script, utensil, dinosaurs, polyfill, etc...)
 - Complete Todo items
 
@@ -18,8 +18,7 @@
   `/spec/javascripts/fixtures`
 - Need to figure out a way for the Directional tests to be more stable
   when there are other failures, or within smaller windows (see demo)
-- Test out if the `index.sass` file at the directory level fucks with
-  heroku (this is currently in `Pop`)
+- We need a logo
 
 ## Utensils Roadmap
 - Indicator

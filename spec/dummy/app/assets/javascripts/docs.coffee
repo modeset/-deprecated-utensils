@@ -64,7 +64,7 @@ class docomo.Docs extends docomo.Docomo
 
 
   demoFlashMessage: (e) ->
-    @memoized_fm ?= @el.find '#flash_message'
+    @memoized_fm ?= @el.find '#flash_message_demo'
     target = $(e.target)
     if target.data 'type'
       notification = @templFlashNotification target.data 'type'
