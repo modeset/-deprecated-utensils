@@ -2,6 +2,7 @@
 Utility class of static variables describing various browser support for
 properties, normalizing event names, and other useful detection.
 
+
 ## API
 ```coffee
 #= require utensils/detect

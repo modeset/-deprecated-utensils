@@ -81,7 +81,7 @@ Variable                           | Default                 | Description
 `$heading-color`                   | `$body-color`           | The `color` of heading elements
 `$heading-family`                  | `$sans-family`          | The `font-family` of heading elements
 `$heading-font-weight`             | `bold`                  | The `font-weight` of heading elements
-`$heading-line-height`             | `1`                     | The `line-height` of heading elements
+`$heading-line-height`             | `$base-line-height`     | The `line-height` of heading elements
 `$h1-size`                         | `$base-font-size + 16`  | The `font-size` of `h1` elements
 `$h2-size`                         | `$base-font-size + 10`  | The `font-size` of `h2` elements
 `$h3-size`                         | `$base-font-size + 4`   | The `font-size` of `h3` elements

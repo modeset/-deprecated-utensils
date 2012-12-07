@@ -31,6 +31,7 @@ class utensils.Beacon
 
 
   finish: ->
+    @index = @total
     @stop()
     @send 'finished'
 

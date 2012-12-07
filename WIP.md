@@ -2,7 +2,6 @@
 # Todo
 
 ## WIP
-- More coherent descriptions within the docs
 - Document what Utensils is
 - Media queries
 - Test out if the `index.sass` file at the directory level fucks with
@@ -18,7 +17,6 @@
   `/spec/javascripts/fixtures`
 - Need to figure out a way for the Directional tests to be more stable
   when there are other failures, or within smaller windows (see demo)
-- We need a logo
 
 ## Utensils Roadmap
 - Indicator

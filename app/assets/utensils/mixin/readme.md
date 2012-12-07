@@ -31,7 +31,6 @@ Mixin           | Usage
 `+clearfixer`   | The [micro clearfix](http://nicolasgallagher.com/micro-clearfix-hack/) utilizing pseudo elements to clear floats
 `+clearfix`     | Utilizes `overflow: hidden` to clear floats (same as compass)
 
-
 Generally, the micro clearfix (`+clearfixer`) is prefered and mixed into
 the parent container of floated items.
 
@@ -94,7 +93,7 @@ _Warning!_ Define `$context_px`, `$base_font_size`, `$base_width` and
 
 
 ## Float fill
-JG... describe this!
+_JG... describe this!_
 
 
 ## Font size
@@ -245,6 +244,8 @@ Mixin             | Params                  | Usage
 Cubic-bezier timing properties for use with
 `transition-timing-function`. The timing functions are based on the
 properties included with [Bourbon](http://thoughtbot.com/bourbon/).
+
+<div id="timing_demo"></div>
 
 Property             | Example
 -------------------- | -------------------------------------------------------

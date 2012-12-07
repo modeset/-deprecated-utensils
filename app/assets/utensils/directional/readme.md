@@ -15,7 +15,6 @@ Create a new instance of `Directional`, typically used compositionally.
 
 ```coffee
 #= require directional
-
 @directional = new utensils.Directional @element, @container, 'north'
 ```
 

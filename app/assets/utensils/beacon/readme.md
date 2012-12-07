@@ -58,6 +58,14 @@ it's timeout. If set to `continuous` this will be triggered until the
 @beacon.tick()
 ```
 
+### #finish
+Sets the `index` to the `total` and fires a `beacon:finished` event.
+This automatically gets called when on the last `tick`. 
+
+```coffee
+@beacon.finish()
+```
+
 ### #dispose
 Clean up the `beacon` instance and remove the event triggers created on
 the `@dispatcher`.

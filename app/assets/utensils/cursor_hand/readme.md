@@ -40,8 +40,15 @@ utensils/utensils
 To override the default settings, set the variable and it's value
 within your `config.sass` file or before `cursor_hand.sass` is loaded.
 
-Variable                   | Default                            | Description
--------------------------- | ---------------------------------- | -------------------------------------------
-`$cursor-open-hand-path`   | `"/assets/cursors/openhand.cur"`   | The default path to find the open hand cursor
-`$cursor-closed-hand-path` | `"/assets/cursors/closedhand.cur"` | The default path to find the closed hand cursor
+Variable                   | Default                                | Description
+-------------------------- | -------------------------------------- | -------------------------------------------
+`$cursor-open-hand-path`   | `"cursor_hand/cursors/openhand.cur"`   | The default path to find the open hand cursor
+`$cursor-closed-hand-path` | `"cursor_hand/cursors/closedhand.cur"` | The default path to find the closed hand cursor
+
+**Heads Up!** These images are automatically included into the asset
+pipeline through Utensils.
+
+
+## Todo
+- Test
 
