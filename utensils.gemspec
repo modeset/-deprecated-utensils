@@ -5,11 +5,11 @@ require "utensils/version"
 Gem::Specification.new do |s|
   s.name        = "utensils"
   s.version     = Utensils::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of Utensils."
-  s.description = "TODO: Description of Utensils."
+  s.authors     = ["Matt Kitt"]
+  s.email       = ["info@modeset.com"]
+  s.homepage    = "https://github.com/modeset/utensils"
+  s.summary     = "A UI component library"
+  s.description = "A UI component library"
 
   s.files = Dir["{app,config,lib,vendor}/**/*"] + ["MIT-LICENSE", "README.md"]
   s.test_files = Dir["spec/**/*"]
