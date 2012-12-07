@@ -52,7 +52,7 @@ class utensils.Collapse
     targets = @toggler.setTargets()
     for target in targets
       $target = $(target)
-      @activate $target if $target.data 'activate' is true
+      @activate $target if $target.data('activate') is true
 
 
 # PROTECTED #
