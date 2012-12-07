@@ -575,6 +575,12 @@ it&#39;s timeout. If set to <code>continuous</code> this will be triggered until
 <code>index</code> is equal to the <code>total</code>.</p>
 <div class="highlight"><pre><span class="nx">@beacon</span><span class="p">.</span><span class="nx">tick</span><span class="p">()</span>
 </pre></div>
+<h3>#finish</h3>
+
+<p>Sets the <code>index</code> to the <code>total</code> and fires a <code>beacon:finished</code> event.
+This automatically gets called when on the last <code>tick</code>. </p>
+<div class="highlight"><pre><span class="nx">@beacon</span><span class="p">.</span><span class="nx">finish</span><span class="p">()</span>
+</pre></div>
 <h3>#dispose</h3>
 
 <p>Clean up the <code>beacon</code> instance and remove the event triggers created on
@@ -1143,7 +1149,6 @@ default this is set to <code>false</code> so no buttons are created.</p>
 <h2>Todo:</h2>
 
 <ul>
-<li>This is a bit wordy.. document how lists in sass work somewhere else</li>
 <li>The sass file could use a little cleaning.</li>
 </ul></section>
       <a name='canvas_util'></a>
@@ -1981,20 +1986,29 @@ within your <code>config.sass</code> file or before <code>cursor_hand.sass</code
 </thead><tbody>
 <tr>
 <td><code>$cursor-open-hand-path</code></td>
-<td><code>&quot;/assets/cursors/openhand.cur&quot;</code></td>
+<td><code>&quot;cursor_hand/cursors/openhand.cur&quot;</code></td>
 <td>The default path to find the open hand cursor</td>
 </tr>
 <tr>
 <td><code>$cursor-closed-hand-path</code></td>
-<td><code>&quot;/assets/cursors/closedhand.cur&quot;</code></td>
+<td><code>&quot;cursor_hand/cursors/closedhand.cur&quot;</code></td>
 <td>The default path to find the closed hand cursor</td>
 </tr>
-</tbody></table></section>
+</tbody></table>
+
+<p><strong>Heads Up!</strong> These images are automatically included into the asset
+pipeline through Utensils.</p>
+
+<h2>Todo</h2>
+
+<ul>
+<li>Test</li>
+</ul></section>
       <a name='decal'></a>
       <section class='docomo-section'><h1>Decal</h1>
 
 <p>Decals are used to <span class="decal important">POP</span> information
-in a block of text.  They are typically used with inline elements. The
+in a block of text. They are typically used with inline elements. The
 default color is equivalent to the <code>$inverse</code> status color.</p>
 
 <p>It&#39;s recommended to pass a <code>$decal-status-list</code> of needed
@@ -2038,8 +2052,8 @@ within your <code>config.sass</code> file or before <code>decal.sass</code> is l
 <td>default</td>
 </tr>
 <tr>
-<td><code>$decal-status-list</code></td>
-<td><code>$base-status-list</code></td>
+<td><code>$decal-list</code></td>
+<td><code>nil</code></td>
 <td>The <code>list</code> of modifier classes to include</td>
 </tr>
 <tr>
@@ -2085,7 +2099,6 @@ an element measured against it&#39;s container.</p>
 
 <p>Create a new instance of <code>Directional</code>, typically used compositionally.</p>
 <div class="highlight"><pre><span class="c1">#= require directional</span>
-
 <span class="vi">@directional = </span><span class="k">new</span> <span class="nx">utensils</span><span class="p">.</span><span class="nx">Directional</span> <span class="nx">@element</span><span class="p">,</span> <span class="nx">@container</span><span class="p">,</span> <span class="s">&#39;north&#39;</span>
 </pre></div>
 <h3>#setElement</h3>
@@ -4030,12 +4043,26 @@ and styles.</p>
                                                                   <p>An object that keeps track of an image&#39;s original size, it&#39;s container&#39;s
                                                                   size, and gives you the ability to set different crop modes on the
                                                                   image.</p>
+                                                                  
+                                                                  <h2>Todo</h2>
+                                                                  
+                                                                  <ul>
+                                                                  <li>Document</li>
+                                                                  <li>Test</li>
+                                                                  </ul>
                                                                 </section>
       <a name='image_util'></a>
       <section class='docomo-section'>
                                                                   <h1>ImageUtil</h1>
                                                                   
                                                                   <p>A collection of image loading and resizing helper methods</p>
+                                                                  
+                                                                  <h2>Todo</h2>
+                                                                  
+                                                                  <ul>
+                                                                  <li>Document</li>
+                                                                  <li>Test</li>
+                                                                  </ul>
                                                                 </section>
       <a name='math_util'></a>
       <section class='docomo-section'>
@@ -4388,7 +4415,7 @@ expected pixel value is for the element.</p>
 
 <h2>Float fill</h2>
 
-<p>JG... describe this!</p>
+<p><em>JG... describe this!</em></p>
 
 <h2>Font size</h2>
 
@@ -4570,6 +4597,8 @@ extends the <code>%ir</code> placeholder.</p>
 <p>Cubic-bezier timing properties for use with
 <code>transition-timing-function</code>. The timing functions are based on the
 properties included with <a target="_blank" href="http://thoughtbot.com/bourbon/" title="">Bourbon</a>.</p>
+
+<div id="timing_demo"></div>
 
 <table><thead>
 <tr>
@@ -5851,7 +5880,14 @@ parameters)</p>
       <a name='polyfill_placeholder'></a>
       <section class='docomo-section'><h1>Placeholder Polyfill</h1>
 
-<p>Polyfills <code>&lt;input&gt;</code> placeholder attribute functionality for IE 9 and below (and other dinosaurs).</p></section>
+<p>Polyfills <code>&lt;input&gt;</code> placeholder attribute functionality for IE 9 and below (and other dinosaurs).</p>
+
+<h2>Todo</h2>
+
+<ul>
+<li>Document</li>
+<li>Test</li>
+</ul></section>
       <a name='pop'></a>
       <section class='docomo-section'><h1>Pop</h1>
 
@@ -8365,7 +8401,7 @@ your <code>config.sass</code> file or before <code>typography.sass</code> is loa
 </tr>
 <tr>
 <td><code>$heading-line-height</code></td>
-<td><code>1</code></td>
+<td><code>$base-line-height</code></td>
 <td>The <code>line-height</code> of heading elements</td>
 </tr>
 <tr>
