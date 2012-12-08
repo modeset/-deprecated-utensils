@@ -9,7 +9,7 @@ class utensils.Drop
     @options()
     @initialize()
     @addListeners()
-    @activate @data.activate if @data.activate or typeof @data.activate is 'number'
+    @activate(@data.activate) if @data.activate or typeof @data.activate is 'number'
 
 
   options: ->
@@ -26,14 +26,14 @@ class utensils.Drop
     @keyboard = @data.keyboard
 
     @dispatcher = @setDispatcher()
-    @triggerable = new utensils.Triggerable @dispatcher, @data
+    @triggerable = new utensils.Triggerable(@dispatcher, @data)
     @triggerable.stop_propagation = true
 
 
   setup: ->
     @html = $('html')
-    @menu = @dispatcher.next '.menu'
-    @directional = new utensils.Directional @menu, @el, @placement
+    @menu = @dispatcher.next('.menu')
+    @directional = new utensils.Directional(@menu, @el, @placement)
     @cardinals = @directional.getCardinals()
     @initialized = true
 
@@ -41,15 +41,15 @@ class utensils.Drop
 # PUBLIC #
 
   toggle: ->
-    @triggerable.toggle target: @el
+    @triggerable.toggle(target: @el)
 
 
   activate: ->
-    @triggerable.activate target: @el
+    @triggerable.activate(target: @el)
 
 
   deactivate: ->
-    @triggerable.deactivate target: @el
+    @triggerable.deactivate(target: @el)
 
 
   dispose: ->
@@ -64,38 +64,38 @@ class utensils.Drop
 # PROTECTED #
 
   addListeners: ->
-    @triggerable.dispatcher.on 'triggerable:activate', => @activated arguments...
-    @triggerable.dispatcher.on 'triggerable:deactivate', => @deactivated arguments...
+    @triggerable.dispatcher.on('triggerable:activate', => @activated arguments...)
+    @triggerable.dispatcher.on('triggerable:deactivate', => @deactivated arguments...)
 
 
   removeListeners: ->
-    @triggerable.dispatcher.off 'triggerable:activate triggerable:deactivate'
+    @triggerable.dispatcher.off('triggerable:activate triggerable:deactivate')
 
 
   activated: (e) ->
     @setup() unless @initialized
-    @html.trigger 'click.drop.document'
-    @el.addClass @toggle_classes
+    @html.trigger('click.drop.document')
+    @el.addClass(@toggle_classes)
     position = @directional.getPlacementAndConstrain()
-    @menu.removeClass(@cardinals).addClass position.cardinal
+    @menu.removeClass(@cardinals).addClass(position.cardinal)
     @addDocumentListener()
 
 
   deactivated: (e) ->
     @setup() unless @initialized
-    @el.removeClass "#{@toggle_classes} selected"
-    @el.addClass 'selected' if @menu.find('.active').length
+    @el.removeClass("#{@toggle_classes} selected")
+    @el.addClass('selected') if @menu.find('.active').length
     @removeDocumentListener()
 
 
   addDocumentListener: ->
-    @html.on 'click.drop.document', => @clear arguments...
-    @html.on 'keydown.drop.menu', => @keyed arguments... if @keyboard
+    @html.on('click.drop.document', => @clear arguments...)
+    @html.on('keydown.drop.menu', => @keyed arguments...) if @keyboard
 
 
   removeDocumentListener: ->
-    @html.off 'click.drop.document'
-    @html.off 'keydown.drop.menu' if @keyboard
+    @html.off('click.drop.document')
+    @html.off('keydown.drop.menu') if @keyboard
 
 
   clear: (e) ->
@@ -109,9 +109,9 @@ class utensils.Drop
     e?.stopPropagation()
     return @clear() if e.keyCode is 27
 
-    links = @menu.find 'a'
+    links = @menu.find('a')
     return unless links.length
-    index = links.index(links.filter ':focus')
+    index = links.index(links.filter(':focus'))
     index -= 1 if e.keyCode is 38 and index > 0
     index += 1 if e.keyCode is 40 and index < links.length - 1
     index = 0 if !~index
@@ -121,7 +121,7 @@ class utensils.Drop
 # INTERNAL #
 
   setDispatcher: ->
-    child = @el.find '.drop-toggle'
+    child = @el.find('.drop-toggle')
     if child.length then return child.first() else return @el
 
 

@@ -16,12 +16,12 @@ class utensils.Directional
 
 
   getPlacementAndConstrain: ->
-    @constrainToViewport @getPlacementFromCardinal()
+    @constrainToViewport(@getPlacementFromCardinal())
 
 
   getPlacementFromCardinal: (cardinal=@cardinal) ->
-    ed = @getDimensions @element
-    cd = @getDimensions @container
+    ed = @getDimensions(@element)
+    cd = @getDimensions(@container)
 
     if cardinal is 'north'
       return {

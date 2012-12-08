@@ -26,19 +26,19 @@ class utensils.Collapse
     @type = @data.type
     @target = null
     if @type is 'group'
-      @toggler = new utensils.ToggleGroup @el, @data
+      @toggler = new utensils.ToggleGroup(@el, @data)
     else
-      @toggler = new utensils.Toggle @el, @data
+      @toggler = new utensils.Toggle(@el, @data)
 
 
 # PUBLIC #
 
   activate: (item) ->
-    @toggler.activate item
+    @toggler.activate(item)
 
 
   deactivate: (item) ->
-    @toggler.deactivate item
+    @toggler.deactivate(item)
 
 
   dispose: ->
@@ -52,46 +52,46 @@ class utensils.Collapse
     targets = @toggler.setTargets()
     for target in targets
       $target = $(target)
-      @activate $target if $target.data('activate') is true
+      @activate($target) if $target.data('activate') is true
 
 
 # PROTECTED #
 
   addListeners: ->
     if @type is 'group'
-      @el.on "#{@namespace}:triggered", => @triggered arguments...
+      @el.on("#{@namespace}:triggered", => @triggered arguments...)
     else
-      @el.on "#{@namespace}:activated", => @activated arguments...
-      @el.on "#{@namespace}:deactivated", => @deactivated arguments...
+      @el.on("#{@namespace}:activated", => @activated arguments...)
+      @el.on("#{@namespace}:deactivated", => @deactivated arguments...)
 
 
   removeListeners: ->
     if @type is 'group'
-      @el.off "#{@namespace}:triggered"
+      @el.off("#{@namespace}:triggered")
     else
-      @el.off "#{@namespace}:activated #{@namespace}:deactivated"
+      @el.off("#{@namespace}:activated #{@namespace}:deactivated")
 
 
   activated: (e) ->
     @setTarget() unless @target
     scroll = if @dimension is 'width' then 'scrollWidth' else 'scrollHeight'
     @target[@dimension](0)
-    @transition 'addClass', 'show', 'shown'
+    @transition('addClass', 'show', 'shown')
     utensils.Detect.hasTransition && @target[@dimension](@target[0][scroll])
 
 
   deactivated: (e) ->
     @setTarget() unless @target
-    @reset @target[@dimension]()
-    @transition 'removeClass', 'hide', 'hidden'
+    @reset(@target[@dimension]())
+    @transition('removeClass', 'hide', 'hidden')
     @target[@dimension](0)
 
 
   triggered: (e, element) ->
-    if @toggler.behavior is 'radio' and @target then @deactivated e
+    if @toggler.behavior is 'radio' and @target then @deactivated(e)
     activator = $(element)
-    @setGroupTarget activator
-    if activator.hasClass @toggler.toggle_classes then @activated e else @deactivated e
+    @setGroupTarget(activator)
+    if activator.hasClass(@toggler.toggle_classes) then @activated(e) else @deactivated(e)
 
 
   reset: (size) ->
@@ -105,13 +105,13 @@ class utensils.Collapse
     self = this
     complete = ->
       self.reset() if start_event is 'show'
-      self.target.trigger "#{self.namespace}:#{complete_event}"
+      self.target.trigger("#{self.namespace}:#{complete_event}")
 
-    @target.trigger "#{@namespace}:#{start_event}"
+    @target.trigger("#{@namespace}:#{start_event}")
     @target[method]('in')
 
-    if utensils.Detect.hasTransition and @target.hasClass 'collapse'
-      @target.one utensils.Detect.transition.end, complete
+    if utensils.Detect.hasTransition and @target.hasClass('collapse')
+      @target.one(utensils.Detect.transition.end, complete)
     else
       complete()
 
@@ -121,9 +121,9 @@ class utensils.Collapse
 
 
   setGroupTarget: (activator) ->
-    link = activator.find 'a, button'
+    link = activator.find('a, button')
     selector = link.data('target') or link.attr('href')
-    target = activator.find selector
+    target = activator.find(selector)
     @target = if target.length then target else $(selector)
 
 

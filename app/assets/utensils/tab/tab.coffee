@@ -8,7 +8,7 @@ class utensils.Tab
     @options()
     @initialize()
     @addListeners()
-    @activate @data.activate if @data.activate or typeof @data.activate is 'number'
+    @activate(@data.activate) if @data.activate or typeof @data.activate is 'number'
 
 
   options: ->
@@ -25,18 +25,18 @@ class utensils.Tab
     @related_classes = @data.relatedToggle
     @container = null
     @panes = {}
-    @toggler = new utensils.ToggleGroup @el, @data
+    @toggler = new utensils.ToggleGroup(@el, @data)
     @related_classified = "." + @related_classes.replace(/\s+/g, ' .')
 
 
 # PUBLIC #
 
   activate: (item) ->
-    @toggler.activate item
+    @toggler.activate(item)
 
 
   deactivate: (item) ->
-    @toggler.deactivate item
+    @toggler.deactivate(item)
 
 
   dispose: ->
@@ -49,11 +49,11 @@ class utensils.Tab
 # PROTECTED #
 
   addListeners: ->
-    @el.on "#{@namespace}:triggered", => @triggered arguments...
+    @el.on("#{@namespace}:triggered", => @triggered arguments...)
 
 
   removeListeners: ->
-    @el.off "#{@namespace}:triggered"
+    @el.off("#{@namespace}:triggered")
 
 
   triggered: (e, link) ->
@@ -62,10 +62,10 @@ class utensils.Tab
     selector = $referer.find('[data-target]').data('target') or
                $referer.find('[href]').attr('href')
 
-    element = @getTabablePane selector
+    element = @getTabablePane(selector)
     if element.length
-      @container.find(@related_classified).removeClass @related_classes
-      element.addClass @related_classes
+      @container.find(@related_classified).removeClass(@related_classes)
+      element.addClass(@related_classes)
 
 
   getTabablePane: (selector) ->
@@ -76,7 +76,7 @@ class utensils.Tab
 
   setTabableContainer: ->
     if @related
-      container = @el.parent().find @related
+      container = @el.parent().find(@related)
       @container = if container.length then container else $(@related)
     else
       @container = @el.parent().next()

@@ -23,13 +23,13 @@ class utensils.Modal
     @keyboard = @data.keyboard
     @markup = null
     @dismissers = null
-    @triggerable = new utensils.Triggerable @el, @data
+    @triggerable = new utensils.Triggerable(@el, @data)
 
 
 # PUBLIC #
 
   activate: ->
-    @triggerable.activate target: @el
+    @triggerable.activate(target: @el)
 
 
   deactivate: ->
@@ -49,11 +49,11 @@ class utensils.Modal
 # PROTECTED #
 
   addListeners: ->
-    @triggerable.dispatcher.on "triggerable:trigger", => @activated arguments...
+    @triggerable.dispatcher.on("triggerable:trigger", => @activated arguments...)
 
 
   removeListeners: ->
-    @triggerable.dispatcher.off "triggerable:trigger"
+    @triggerable.dispatcher.off("triggerable:trigger")
 
 
   activated: (e) ->
@@ -64,23 +64,23 @@ class utensils.Modal
 
   addDocumentListeners: ->
     @html ?= $('html')
-    @html.on "keydown.close_modal.#{@namespace}", => @keyed arguments... if @keyboard
-    @backdrop.on "click.close_modal.#{@namespace}", => @deactivate arguments...
+    @html.on("keydown.close_modal.#{@namespace}", => @keyed arguments...) if @keyboard
+    @backdrop.on("click.close_modal.#{@namespace}", => @deactivate arguments...)
 
 
   removeDocumentListeners: ->
     @html ?= $('html')
-    @html.off "keydown.close_modal.#{@namespace}" if @keyboard
-    @backdrop.off "click.close_modal.#{@namespace}"
+    @html.off("keydown.close_modal.#{@namespace}") if @keyboard
+    @backdrop.off("click.close_modal.#{@namespace}")
 
 
   addDismissListeners: ->
     @dismissers = @dismissers or @markup.find('[data-dismiss]')
-    @dismissers.on "click.close_modal.#{@namespace}", => @deactivate arguments... if @dismissers.length
+    @dismissers.on("click.close_modal.#{@namespace}", => @deactivate arguments...) if @dismissers.length
 
 
   removeDismissListeners: ->
-    @dismissers.off "click.close_modal.#{@namespace}" if @dismissers && @dismissers.length
+    @dismissers.off("click.close_modal.#{@namespace}") if @dismissers && @dismissers.length
 
 
   keyed: (e) ->
@@ -92,34 +92,34 @@ class utensils.Modal
 
   transition: (element, method, fn) ->
     @setTransitions() unless @tranny_defined
-    if @has_tranny then element.one @tranny_end, fn else fn()
+    if @has_tranny then element.one(@tranny_end, fn) else fn()
     element[method]('in')
 
 
   addBackdrop: ->
     @container ?= $('body')
     @backdrop ?= @renderBackdrop()
-    @backdrop.appendTo @container
+    @backdrop.appendTo(@container)
     @backdrop[0].offsetWidth
-    @transition @backdrop, 'addClass', => @addModal arguments...
+    @transition(@backdrop, 'addClass', => @addModal arguments...)
 
 
   addModal: ->
     @markup ?= @findMarkup()
-    @markup.css display: 'block'
+    @markup.css(display: 'block')
     @markup[0].offsetWidth
-    @markup.addClass 'in'
+    @markup.addClass('in')
     @addDismissListeners()
 
 
   removeModal: ->
     @removeDismissListeners()
-    @transition @markup, 'removeClass', => @removeBackdrop arguments...
+    @transition(@markup, 'removeClass', => @removeBackdrop arguments...)
 
 
   removeBackdrop: ->
-    @markup.css display: 'none'
-    @transition @backdrop, 'removeClass', => @cleanupBackdrop arguments...
+    @markup.css(display: 'none')
+    @transition(@backdrop, 'removeClass', => @cleanupBackdrop arguments...)
 
 
   cleanupBackdrop: ->

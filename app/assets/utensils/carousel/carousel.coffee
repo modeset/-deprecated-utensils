@@ -9,7 +9,7 @@ class utensils.Carousel
     @options()
     @initialize()
     @addListeners()
-    @activate @index
+    @activate(@index)
 
 
   options: ->
@@ -25,12 +25,12 @@ class utensils.Carousel
     @toggle_classes = @data.toggle
     @keyboard = @data.keyboard
 
-    @slider = @el.find '.carousel-inner'
-    @panels = @slider.find '.carousel-panel'
+    @slider = @el.find('.carousel-inner')
+    @panels = @slider.find('.carousel-panel')
     @num_panels = @panels.length
     @index = @setIndex()
 
-    @paddles = @el.find @data.paddles
+    @paddles = @el.find(@data.paddles)
     @html = $('html') if @keyboard
 
     @initializeBeacon() if @data.autoplay is true
@@ -41,9 +41,9 @@ class utensils.Carousel
     cycles = parseFloat((@data.cycles or 1), 10)
     total = cycles *= @num_panels
     @is_autoplaying = true
-    @beacon = new utensils.Beacon @el, {total, duration}
-    @beacon.dispatcher.on "beacon:ticked", => @next arguments...
-    @beacon.dispatcher.on "beacon:finished", => @disposeBeacon arguments...
+    @beacon = new utensils.Beacon(@el, {total, duration})
+    @beacon.dispatcher.on("beacon:ticked", => @next arguments...)
+    @beacon.dispatcher.on("beacon:finished", => @disposeBeacon arguments...)
 
 
 # PUBLIC #
@@ -51,47 +51,47 @@ class utensils.Carousel
   next: (e, data) ->
     e?.preventDefault()
     @pause() unless data
-    @activate @index + 1
-    @send 'next'
+    @activate(@index + 1)
+    @send('next')
 
 
   prev: (e) ->
     e?.preventDefault()
     @pause()
-    @activate @index - 1
-    @send 'prev'
+    @activate(@index - 1)
+    @send('prev')
 
 
   activate: (index=0) ->
     @index = index
     @constrainIndex()
     @transition()
-    @send 'activated'
+    @send('activated')
 
 
   pause: ->
     @beacon.pause() if @beacon and @is_autoplaying
     @is_autoplaying = false
-    @send 'paused'
+    @send('paused')
 
 
   restart: ->
     @initializeBeacon() unless @beacon
     @is_autoplaying = true
     @next null, true
-    @send 'restarted'
+    @send('restarted')
 
 
   dispose: ->
     @disposeBeacon()
     @removeListeners()
-    @dispatcher.off "#{@namespace}:next #{@namespace}:prev #{@namespace}:activated #{@namespace}:paused #{@namespace}:restarted"
+    @dispatcher.off("#{@namespace}:next #{@namespace}:prev #{@namespace}:activated #{@namespace}:paused #{@namespace}:restarted")
 
 
 # PROTECTED #
 
   send: (event_type) ->
-    @dispatcher.trigger "#{@namespace}:#{event_type}", {index: @index, total: @num_panels}
+    @dispatcher.trigger("#{@namespace}:#{event_type}", {index: @index, total: @num_panels})
 
 
   addListeners: ->
@@ -100,8 +100,8 @@ class utensils.Carousel
 
 
   removeListeners: ->
-    @html.off "keydown.#{@namespace}" if @keyboard
-    @paddles.off "click.#{@namespace}" if @paddles.length
+    @html.off("keydown.#{@namespace}") if @keyboard
+    @paddles.off("click.#{@namespace}") if @paddles.length
 
 
   disposeBeacon: ->
@@ -111,16 +111,16 @@ class utensils.Carousel
 
 
   transition: ->
-    @send 'transition.start'
+    @send('transition.start')
     @setTransitions() unless @tranny_defined
-    panel = @panels.eq @index
-    @panels.removeClass @toggle_classes
-    if @has_tranny then panel.one @tranny_end, => @transitionEnd arguments... else @transitionEnd()
-    panel.addClass @toggle_classes
+    panel = @panels.eq(@index)
+    @panels.removeClass(@toggle_classes)
+    if @has_tranny then panel.one(@tranny_end, => @transitionEnd arguments...) else @transitionEnd()
+    panel.addClass(@toggle_classes)
 
 
   transitionEnd: (e) ->
-    @send 'transition.end'
+    @send('transition.end')
     @beacon.start() if @beacon and @is_autoplaying
 
 
@@ -138,11 +138,11 @@ class utensils.Carousel
 
 
   setSliderWidth: ->
-    @slider.width "#{100 * @num_panels}%"
+    @slider.width("#{100 * @num_panels}%")
 
 
   setPanelWidths: ->
-    @panels.width "#{100 / @num_panels}%"
+    @panels.width("#{100 / @num_panels}%")
 
 
 # INTERNAL #
@@ -161,10 +161,10 @@ class utensils.Carousel
   setIndex: ->
     index = 0
     if typeof @data.activate is 'string'
-      order = @panels.index(@el.find @data.activate)
+      order = @panels.index(@el.find(@data.activate))
       index = if order >= 0 then order else 0
     else if typeof @data.activate is 'number'
-      index = parseFloat @data.activate, 10
+      index = parseFloat(@data.activate, 10)
     return index
 
 

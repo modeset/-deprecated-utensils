@@ -4,7 +4,7 @@
 
 class utensils.CarouselTouchInfinite extends utensils.CarouselTouch
   constructor:(@el, data) ->
-    super @el, data
+    super(@el, data)
 
 
   options: ->
@@ -30,7 +30,7 @@ class utensils.CarouselTouchInfinite extends utensils.CarouselTouch
 
       if page_up and curpage_index >= 2
         @pages_pushed = curpage_index - 1
-        @slider.append pages[0]
+        @slider.append(pages[0])
         @slider.css('padding-left', @pages_pushed * @el.width())
       else if !page_up and curpage_index > 0
         @pages_pushed = curpage_index - 1

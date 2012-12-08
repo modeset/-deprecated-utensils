@@ -7,27 +7,27 @@ class utensils.Progress
 
 
   initialize: ->
-    @bar = @el.find '.bar'
-    @set @data.initial if @data.initial or typeof @data.initial is 'number'
+    @bar = @el.find('.bar')
+    @set(@data.initial) if @data.initial or typeof @data.initial is 'number'
 
 
 # PUBLIC #
 
   set: (percent) ->
-    @bar.css width:"#{percent}%"
+    @bar.css(width:"#{percent}%")
     return this
 
 
   get: ->
-    return Math.round @bar.width() / @el.width() * 100
+    return Math.round(@bar.width() / @el.width() * 100)
 
 
   reset: ->
-    @bar.css width:0
+    @bar.css(width:0)
     return this
 
 
   complete: ->
-    @bar.css width:"100%"
+    @bar.css(width:"100%")
     return this
 

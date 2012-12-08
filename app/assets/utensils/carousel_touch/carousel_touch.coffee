@@ -5,7 +5,7 @@
 
 class utensils.CarouselTouch extends utensils.Carousel
   constructor:(@el, data) ->
-    super @el, data
+    super(@el, data)
 
 
   options: ->
@@ -21,7 +21,7 @@ class utensils.CarouselTouch extends utensils.Carousel
 
 
   initializeScroller: ->
-    @scroller = new utensils.TouchScroller @el[0], @slider[0], @getScrollOptions()
+    @scroller = new utensils.TouchScroller(@el[0], @slider[0], @getScrollOptions())
 
 
 # PUBLIC #
@@ -47,7 +47,7 @@ class utensils.CarouselTouch extends utensils.Carousel
       @pressed_and_didnt_move = false
 
     handleDestination: =>
-      @scrollerPageUpdated @scroller.getPage() if @scroller
+      @scrollerPageUpdated(@scroller.getPage()) if @scroller
       @transitionEnd()
 
     pageChanged: =>
@@ -57,7 +57,7 @@ class utensils.CarouselTouch extends utensils.Carousel
 
     closestIndexChanged: (closest_index) =>
       @index = closest_index
-      @scrollerPageUpdated closest_index
+      @scrollerPageUpdated(closest_index)
 
 
   scrollerPageUpdated: (index) ->
@@ -66,7 +66,7 @@ class utensils.CarouselTouch extends utensils.Carousel
 
   transition: ->
     super()
-    @scroller.setPage @index, false
+    @scroller.setPage(@index, false)
 
 
   getScrollOptions: ->
