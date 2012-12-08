@@ -189,6 +189,17 @@ Includes placeholder classes to be used via extension
 **Heads Up!** `scaffold.sass` automatically sets up a `.ir` class that
 extends the `%ir` placeholder.
 
+## Opacity
+Provides cross browser opacity, values are between `0-1`.
+
+##### Arguments
+- `$alpha:1`
+
+```sass
+.element
+  +opacity(0.5)
+```
+
 
 ## Responsive
 Mixins for creating responsive behavior around structures and layouts.

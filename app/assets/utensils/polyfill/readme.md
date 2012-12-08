@@ -72,18 +72,6 @@ Changes the box model used for calculating an elements width and height
 ```
 
 
-## Opacity
-Provides cross browser opacity, values are between `0-1`.
-
-##### Arguments
-- `$alpha:1`
-
-```sass
-.element
-  +opacity(0.5)
-```
-
-
 ## Transition
 Adds vendor prefixes for transitions (supports up to 9 transition
 parameters)
