@@ -7,10 +7,18 @@
   top: 8px
   left: 0.7em
 
-.form-stack .control-group.check_boxes > label,
-.form-stack label.select
+.form-stack .control-group.radio-buttons label,
+.form-stack .control-group.check-boxes label
+  font-weight: normal
+
+.form-stack .control-group.radio-buttons > label,
+.form-stack .control-group.check-boxes > label,
+.form-stack .control-group.file-browser > label,
+.form-stack .control-group.select > label
   position: static
   margin-bottom: 0.75em
+  font-weight: bold
+
 
 .form-stack .control-group.boolean > label
   text-transform: uppercase
@@ -48,15 +56,6 @@
     position: static
     top: auto
     left: auto
-
-.form-stack label.radio_buttons,
-.form-stack .control-group.check_boxes > label
-  color: $legend-color
-  font-size: $legend-font-size
-  font-weight: bold
-  text-transform: uppercase
-  padding-top: 1.5em
-  padding-bottom: 0.75em
 
 .form-stack .form-actions
   margin-left: -1em
