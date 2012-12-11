@@ -1,6 +1,6 @@
 GIT
   remote: git@github.com:modeset/docomo.git
-  revision: 4ef1f662885eeb4ce7811ae18c4701363b02aa81
+  revision: 5b86c2820bcb80af7624fd811f681e516623d873
   specs:
     docomo (0.0.1)
       haml (>= 3.1.7)
@@ -71,7 +71,7 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.19)
-    multi_json (1.4.0)
+    multi_json (1.5.0)
     polyglot (0.3.3)
     posix-spawn (0.3.6)
     pygments.rb (0.3.2)
