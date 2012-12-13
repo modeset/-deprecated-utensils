@@ -1,5 +1,6 @@
 $upgrade-color: white !default
 $upgrade-bgc: $danger !default
+$dinosaur-class: dinosaur !default
 
 .upgrade-notifications
   color: $upgrade-color
@@ -17,7 +18,6 @@ $upgrade-bgc: $danger !default
 
 .upgrade-notifications .upgrade-group a
   color: $upgrade-color
-  font-weight: bold
   text-decoration: underline
 
 // Default all message containers to be hidden
@@ -27,5 +27,9 @@ $upgrade-bgc: $danger !default
 // Show notifications and the correct message
 html.no-js .upgrade-notifications,
 html.no-js .upgrade-notifications .no-js-msg
+  display: block
+
+html.#{$dinosaur-class} .upgrade-notifications,
+html.#{$dinosaur-class} .upgrade-notifications .dinosaur-msg
   display: block
 

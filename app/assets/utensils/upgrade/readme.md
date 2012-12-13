@@ -26,8 +26,9 @@ convenience only so there is no need to scroll to the top of the page.
 To override the default settings, set the variable and it's value
 within your `config.sass` file or before `upgrade.sass` is loaded.
 
-Variable         | Default     | Description
----------------- | ----------- | -------------------------------------------
-`$upgrade-color` | `white`     | The text `color` of the message
-`$upgrade-bgc`   | `$danger`   | The `background-color` of the notification
+Variable          | Default     | Description
+----------------  | ----------- | -------------------------------------------
+`$upgrade-color`  | `white`     | The text `color` of the message
+`$upgrade-bgc`    | `$danger`   | The `background-color` of the notification
+`$dinosaur-class` | `dinosaur`  | The class attached to the html element for older unsupported browsers
 

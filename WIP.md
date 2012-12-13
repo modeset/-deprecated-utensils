@@ -2,12 +2,13 @@
 # Todo
 
 ## WIP
-- Document what Utensils is
+- Add @font-face mixin
 - Media queries
 - Test out if the `index.sass` file at the directory level fucks with
   heroku (this is currently in `Pop`)
 - Test dinosaurs css and js (use from style guide)
 - Mobilize (templates, styles, js, etc..)
+- Document what Utensils is
 - Configuration file for docomo
 - Generators (templates, script, utensil, dinosaurs, polyfill, etc...)
 - Complete Todo items
