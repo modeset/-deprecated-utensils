@@ -77,7 +77,7 @@ class utensils.Collapse
     scroll = if @dimension is 'width' then 'scrollWidth' else 'scrollHeight'
     @target[@dimension](0)
     @transition('addClass', 'show', 'shown')
-    utensils.Detect.hasTransition && @target[@dimension](@target[0][scroll])
+    utensils.Detect.hasTransition && @target[@dimension](@target[0]?[scroll])
 
 
   deactivated: (e) ->
@@ -96,7 +96,7 @@ class utensils.Collapse
 
   reset: (size) ->
     @setTarget() unless @target
-    @target.removeClass('collapse')[@dimension](size || 'auto')[0].offsetWidth
+    @target.removeClass('collapse')[@dimension](size || 'auto')[0]?.offsetWidth
     @target[(if size isnt null then 'addClass' else 'removeClass')]('collapse')
     return this
 
