@@ -1,3 +1,9 @@
+// Use for a 2-column layout that fills 100% width of the parent but has one column at a fixed width:
+// .col-fixed
+//   float: left
+//   width: 100px
+// .col-flex
+//   +float-fill(100px, right)
 @mixin float-fill($spacerW, $float)
   +box-sizing(border-box)
   float: $float
@@ -9,3 +15,18 @@
     padding: 0 0 0 $spacerW
     margin: 0 0 0 (-$spacerW)
 
+// Use for a 3-column layout with the center being stretchable to a min-width:
+// .col-1
+//   float: left
+//   width: 100px
+// .col-2
+//   +float-fill-3-col-center(100px, 200px, 100px)
+// .col-3
+//   float: right
+//   width: 100px
+@mixin float-fill-3-col-center($spacerLeft, $min-width:0px, $spacerRight:0)
+  +box-sizing(border-box)
+  float: left
+  min-width: $min-width
+  padding: 0 $spacerRight 0 $spacerLeft
+  margin: 0 (-$spacerRight) 0 (-$spacerLeft)
