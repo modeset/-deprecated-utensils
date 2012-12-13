@@ -2,7 +2,6 @@
 # Todo
 
 ## WIP
-- Add @font-face mixin
 - Media queries
 - Test out if the `index.sass` file at the directory level fucks with
   heroku (this is currently in `Pop`)

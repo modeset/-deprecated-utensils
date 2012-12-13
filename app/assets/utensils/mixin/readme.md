@@ -96,6 +96,11 @@ _Warning!_ Define `$context_px`, `$base_font_size`, `$base_width` and
 _JG... describe this!_
 
 
+## Font face
+_MK... describe this!_
+
+
+
 ## Font size
 Sets a `font-size` using `rems` with a pixel fall back.
 
