@@ -141,7 +141,7 @@ class utensils.Pop
         pop_markup.find('.pop-header').remove()
         pop_markup.addClass('pop-no-header')
     else
-      target = $(@el.data('target') or @el.attr('href'))
+      target = $(@data.target or @el.attr('href'))
       pop_markup = $(target.html())
       target.remove()
     return pop_markup
