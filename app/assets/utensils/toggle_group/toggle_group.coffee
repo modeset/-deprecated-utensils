@@ -61,8 +61,8 @@ class utensils.ToggleGroup
   triggered: (e, target) ->
     @setTargets() unless @targets
     $target = $(target)
-    return if @data.dispatcher and not $target.is(@data.dispatcher)
-    return unless $target.parent('a, button').length or $target.is('a,button')
+    return if @data.dispatcher and not $target.closest(@data.dispatcher).length
+    return unless $target.closest('a, button').length
     element = $target.closest("#{@data.target}:not(#{@data.ignore})", @targets)
     return if !element.length or @behavior is 'radio' and element.hasClass(@toggle_classes)
     if @behavior is 'radio' then @radio(element) else @checkbox(element)

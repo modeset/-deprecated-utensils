@@ -72,7 +72,6 @@ class utensils.Triggerable
   setActivate: (e) ->
     @activate(e)
 
-
   setDeactivate: (e) ->
     @deactivate(e)
 
