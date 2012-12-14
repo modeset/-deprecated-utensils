@@ -21,12 +21,14 @@ class utensils.Pop
     @data.title = @data.title ? @el.attr('title') ? ''
     @data.content ?= ''
     @data.effect ?= 'fade'
+    @data.container ?= $('body')
+    @data.cache ?= true
 
 
   initialize: ->
     @pop = null
     @cached_markup = null
-    @container = null
+    @container = @data.container
     @namespace = @data.namespace
     @toggle_classes = @data.toggle
     @placement = @data.placement
@@ -81,7 +83,7 @@ class utensils.Pop
   activated: (e) ->
     @setup() unless @initialized
     @remove()
-    @cached_markup ?= @findMarkup()
+    @cached_markup ?= @findMarkup() if @data.cache
     @add()
     @el.addClass('selected')
     @el.trigger("#{@namespace}:activated", @el)
@@ -100,9 +102,11 @@ class utensils.Pop
 
   add: ->
     @setup() unless @initialized
-    @pop = @cached_markup
-    @container ?= $('body')
-    @pop.appendTo(@container)
+    if @data.target and !@data.cache
+      @pop = @data.target
+    else
+      @pop = @cached_markup
+      @pop.appendTo(@container)
     @directional.setElement(@pop)
     position = @directional.getPlacementAndConstrain()
     @pop.removeClass(@cardinals).addClass(position.cardinal)
