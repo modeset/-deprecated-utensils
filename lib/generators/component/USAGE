@@ -1,0 +1,12 @@
+Description:
+    Stub in default files for a utensil component.
+
+Example:
+    rails generate component foo
+
+    This will create:
+        app/assets/components/foo
+        app/assets/components/foo/index.js
+        app/assets/components/foo/foo.coffee
+        app/assets/components/foo/_foo.sass
+
