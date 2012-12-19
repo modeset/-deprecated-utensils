@@ -18,7 +18,7 @@ class utensils.Detect
       for name of transEndEventNames
         return transEndEventNames[name]  if el.style[name] isnt `undefined`
     )()
-    @hasTransition = true if transitionEnd
-    return {end: transitionEnd} if transitionEnd
+    @hasTransition = if transitionEnd then true else false
+    return {end: transitionEnd ?= false}
   )()
 
