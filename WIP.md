@@ -11,7 +11,6 @@
 - Configuration file for docomo
 - Generators (templates, script, utensil, dinosaurs, polyfill, etc...)
 - Complete Todo items
-- Fix form stack text area label passthrough
 
 ## Repository
 - Jasmine rice loading fixtures from app instead of
@@ -23,7 +22,7 @@
 - Indicator
 - Background scaler
 - Stateful button
-- Fishnet
+- Fishnet?
 - Migrate modeset.js files
 - Scroll Spy
 - Spinner
