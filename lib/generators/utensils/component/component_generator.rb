@@ -1,4 +1,4 @@
-class ComponentGenerator < Rails::Generators::NamedBase
+class Utensils::ComponentGenerator < Rails::Generators::NamedBase
   desc 'Generate a stub for a component.'
   source_root File.expand_path('../templates', __FILE__)
 
