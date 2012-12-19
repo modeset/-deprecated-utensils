@@ -99,7 +99,7 @@ describe 'Pop', ->
       expect(@north_pop.cached_markup).toBeNull()
 
     it 'sets the default container to null', ->
-      expect(@north_pop.container).toBeNull()
+      expect(@north_pop.container).toBe($('body'))
 
     it 'sets default namespace', ->
       expect(@east_pop.namespace).toEqual('pop')
