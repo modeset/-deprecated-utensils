@@ -18,7 +18,7 @@ describe 'Directional', ->
 
   afterEach ->
     $('.demo').remove()
-    @dom.css(position:'static', top:"auto", left:"auto", bottom:"auto", right:"auto")
+    @dom.css(top:0, left:0, bottom:"auto", right:"auto")
 
 
   describe '#constructor', ->
@@ -33,12 +33,12 @@ describe 'Directional', ->
 
   describe '#getPlacementAndConstrain', ->
     it 'wraps #getPlacementFromCardinal and #constrainToViewport methods and does not alter', ->
-      @dom.css(position:'absolute', top:200, left:0)
+      @dom.css(width:'auto', top:200, left:0)
       pos = @east_direc.getPlacementAndConstrain()
       expect(pos.cardinal).toEqual('east')
 
     it 'wraps #getPlacementFromCardinal and #constrainToViewport methods and alters', ->
-      @dom.css(position:'absolute', top:200, right:0)
+      @dom.css(width:'auto', top:200, right:0)
       pos = @east_direc.getPlacementAndConstrain()
       expect(pos.cardinal).toEqual('west')
 
@@ -74,13 +74,13 @@ describe 'Directional', ->
   # postions are sometimes awkward
   describe '#constrainToViewport', ->
     it 'repositions the item on stage when north is offscreen', ->
-      @dom.css(position:'absolute', top:-20, left:'50%')
+      @dom.css(left:'50%')
       pos = @north_direc.getPlacementFromCardinal()
       suggested = @north_direc.constrainToViewport(pos)
       expect(suggested.cardinal).toEqual('south')
 
     it 'repositions the item on stage when south is offscreen', ->
-      @dom.css(position:'absolute', bottom:0, left:'50%')
+      @dom.css(width:'auto', top:'auto', bottom:-400000, left:'50%') # the bottom is set really low because when we're building the report it can be long
       pos = @south_direc.getPlacementFromCardinal()
       suggested = @south_direc.constrainToViewport(pos)
       expect(suggested.cardinal).toEqual('north')
