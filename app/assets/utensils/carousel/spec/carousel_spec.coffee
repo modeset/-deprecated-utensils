@@ -11,7 +11,7 @@ describe 'Carousel', ->
       @element = $(element)
 
     loadFixtures('carousel')
-    @dom = $('#jasmine-fixtures')
+    @dom = $('#teabag-fixtures')
     @carousel_el = @dom.find('.carousel')
     @panels = @carousel_el.find('.carousel-panel')
     @carousel = new utensils.Carousel(@carousel_el)

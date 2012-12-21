@@ -16,7 +16,7 @@ describe 'Modal', ->
             """
 
     loadFixtures('modal')
-    @dom = $('#jasmine-fixtures')
+    @dom = $('#teabag-fixtures')
     @dom.append(extra)
     @body = $('body')
 

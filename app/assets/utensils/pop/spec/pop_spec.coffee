@@ -11,7 +11,7 @@ describe 'Pop', ->
             """
 
     loadFixtures('pop')
-    @dom = $('#jasmine-fixtures')
+    @dom = $('#teabag-fixtures')
     @dom.append(extra)
 
     @north_el = @dom.find('#pop_north')

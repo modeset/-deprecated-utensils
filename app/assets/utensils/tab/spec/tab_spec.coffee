@@ -10,7 +10,7 @@ describe 'Tab', ->
       @element = $(element)
 
     loadFixtures('tab')
-    @dom = $('#jasmine-fixtures')
+    @dom = $('#teabag-fixtures')
     @tab_el = @dom.find('#tab_demo > .tab')
     @drop_el = @tab_el.find('.drop')
     @tab_content = @dom.find('#tab_content')
@@ -229,7 +229,7 @@ describe 'Tab', ->
       expect(@tab.container).toBe($('#tab_content'))
 
     it 'finds the tabable content when a related container is passed but up the DOM level', ->
-      @tab.related = '#jasmine-fixtures'
+      @tab.related = '#teabag-fixtures'
       @tab.container = null
       li = @tab_el.find('> li:nth-child(2)')
       li.find('> a').click()

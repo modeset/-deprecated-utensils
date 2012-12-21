@@ -16,7 +16,7 @@ describe 'Drop', ->
             """
 
     loadFixtures('drop')
-    @dom = $('#jasmine-fixtures')
+    @dom = $('#teabag-fixtures')
     @dom.append(extra)
 
     @default_el = @dom.find('#drop_nav_demo .drop:nth-child(1)')

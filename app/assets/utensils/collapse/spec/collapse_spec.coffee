@@ -11,7 +11,7 @@ describe 'Collapse', ->
       @element = $(element)
 
     loadFixtures('collapse')
-    @dom = $('#jasmine-fixtures')
+    @dom = $('#teabag-fixtures')
 
     @collapse_el = @dom.find('[href=#collapse_height]')
     @auto_el = @dom.find('[data-target=#collapse_auto]')

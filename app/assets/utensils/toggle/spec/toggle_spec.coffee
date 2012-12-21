@@ -10,7 +10,7 @@ describe 'Toggle', ->
       @element = $(element)
 
     loadFixtures('toggle')
-    @dom = $('#jasmine-fixtures')
+    @dom = $('#teabag-fixtures')
 
     @defaulter_el = @dom.find('#toggle_1')
     @hover_el = @dom.find('#toggle_2')

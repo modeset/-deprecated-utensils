@@ -17,7 +17,7 @@ describe 'Dismiss', ->
             """
 
     loadFixtures('dismiss')
-    @dom = $('#jasmine-fixtures')
+    @dom = $('#teabag-fixtures')
     @dom.append(extra)
 
     @alert_el = @dom.find('.notification:first-child')

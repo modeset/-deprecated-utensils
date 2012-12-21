@@ -10,7 +10,7 @@ describe 'Triggerable', ->
       @element = $(element)
 
     loadFixtures('triggerable')
-    @dom = $('#jasmine-fixtures')
+    @dom = $('#teabag-fixtures')
 
     @defaulter_el = @dom.find('#triggerable_1')
     @hover_el = @dom.find('#triggerable_2')

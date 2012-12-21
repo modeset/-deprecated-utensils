@@ -10,7 +10,7 @@ describe 'Tip', ->
             """
 
     loadFixtures('tip')
-    @dom = $('#jasmine-fixtures')
+    @dom = $('#teabag-fixtures')
     @dom.append(extra)
 
     @north_el = @dom.find('#north_tip')

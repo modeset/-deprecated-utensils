@@ -10,7 +10,7 @@ describe 'ToggleGroup', ->
       @element = $(element)
 
     loadFixtures('toggle_group')
-    @dom = $('#jasmine-fixtures')
+    @dom = $('#teabag-fixtures')
 
     @radios_el = @dom.find('#toggle_group_radios')
     @checks_el = @dom.find('#toggle_group_checks')

@@ -4,7 +4,7 @@ describe 'Directional', ->
 
   beforeEach ->
     loadFixtures('directional')
-    @dom = $('#jasmine-fixtures')
+    @dom = $('#teabag-fixtures')
 
     @north_el = @dom.find('#north_direc')
     @south_el = @dom.find('#south_direc')
