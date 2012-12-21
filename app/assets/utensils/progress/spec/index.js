@@ -1,1 +1,0 @@
-//= require ./progress_spec
