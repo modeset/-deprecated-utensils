@@ -1,25 +1,13 @@
 
-# Utensils Jasmine Specs
+# Utensils Specs
 
 All of the `_spec` files live within the utensil's directory alongside
-their behavior, style and markup files.
+their behavior, style and markup (fixture) files.
 
-Jasmine is setup under [jasminerice](https://github.com/bradphelan/jasminerice), which
-incorporates a patched version of [jasmine-jquery](https://github.com/velesin/jasmine-jquery)
+Jasmine is setup under [teabag](https://github.com/modeset/teabag).
 
-Jasminerice defaults to Jasmine's html reporter for displaying spec
-results. This is overridden to the trivial reporter within `spec.js`,
-since it executes much faster.
+## Running
+Run the spec's at `/teabag` or from the command line with `rake teabag`
 
-The fixtures in `/spec/javascripts/fixtures/` are copied in from each
-utensil's markup directory. This is invoked by the rake task:
 
-```ruby
-bundle exec rake fixtures
-```
-Note, this directory is blown away every time this task is run, so don't
-drop anything in here that doesn't belong.
-
-## View Specs
-Run the Jasmine spec's at `/jasmine`
 
