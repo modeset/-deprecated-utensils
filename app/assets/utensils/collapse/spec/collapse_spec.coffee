@@ -10,7 +10,7 @@ describe 'Collapse', ->
       @event = e
       @element = $(element)
 
-    loadFixtures('collapse')
+    loadFixtures('collapse/markup/collapse')
     @dom = $('#teabag-fixtures')
 
     @collapse_el = @dom.find('[href=#collapse_height]')

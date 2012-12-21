@@ -9,7 +9,7 @@ describe 'Triggerable', ->
       @event = e
       @element = $(element)
 
-    loadFixtures('triggerable')
+    loadFixtures('triggerable/markup/triggerable')
     @dom = $('#teabag-fixtures')
 
     @defaulter_el = @dom.find('#triggerable_1')

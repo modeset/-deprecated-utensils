@@ -16,7 +16,7 @@ describe 'Dismiss', ->
             </div>
             """
 
-    loadFixtures('dismiss')
+    loadFixtures('dismiss/markup/dismiss')
     @dom = $('#teabag-fixtures')
     @dom.append(extra)
 

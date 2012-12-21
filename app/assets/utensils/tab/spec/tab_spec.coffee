@@ -9,7 +9,7 @@ describe 'Tab', ->
       @event = e
       @element = $(element)
 
-    loadFixtures('tab')
+    loadFixtures('tab/markup/tab')
     @dom = $('#teabag-fixtures')
     @tab_el = @dom.find('#tab_demo > .tab')
     @drop_el = @tab_el.find('.drop')

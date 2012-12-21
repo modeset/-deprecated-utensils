@@ -10,7 +10,7 @@ describe 'Carousel', ->
       @event = e
       @element = $(element)
 
-    loadFixtures('carousel')
+    loadFixtures('carousel/markup/carousel')
     @dom = $('#teabag-fixtures')
     @carousel_el = @dom.find('.carousel')
     @panels = @carousel_el.find('.carousel-panel')

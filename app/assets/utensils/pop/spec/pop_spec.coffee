@@ -10,7 +10,7 @@ describe 'Pop', ->
             <a id="auto_activated" data-title="The Active Pop" data-content="The content" data-activate="true">Auto Activated</a>
             """
 
-    loadFixtures('pop')
+    loadFixtures('pop/markup/pop')
     @dom = $('#teabag-fixtures')
     @dom.append(extra)
 

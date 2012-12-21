@@ -3,7 +3,7 @@
 describe 'Directional', ->
 
   beforeEach ->
-    loadFixtures('directional')
+    loadFixtures('directional/markup/directional')
     @dom = $('#teabag-fixtures')
 
     @north_el = @dom.find('#north_direc')

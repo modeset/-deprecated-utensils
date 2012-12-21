@@ -9,7 +9,7 @@ describe 'ToggleGroup', ->
       @event = e
       @element = $(element)
 
-    loadFixtures('toggle_group')
+    loadFixtures('toggle_group/markup/toggle_group')
     @dom = $('#teabag-fixtures')
 
     @radios_el = @dom.find('#toggle_group_radios')

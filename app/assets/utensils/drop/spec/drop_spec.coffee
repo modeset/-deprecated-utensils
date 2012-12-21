@@ -15,7 +15,7 @@ describe 'Drop', ->
             <ul class="menu"><li><a href="#"</li></ul>
             """
 
-    loadFixtures('drop')
+    loadFixtures('drop/markup/drop')
     @dom = $('#teabag-fixtures')
     @dom.append(extra)
 
