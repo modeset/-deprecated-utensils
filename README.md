@@ -3,6 +3,8 @@
 # Utensils
 Client side component library.
 
+[![Build Status](https://travis-ci.org/modeset/utensils.png?branch=master)](https://travis-ci.org/modeset/utensils)
+
 ## Get 'er going..
 
 ```
