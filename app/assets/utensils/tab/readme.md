@@ -87,7 +87,7 @@ utensils/toggle_group
 
 ## Style Settings
 ```sass
-@import utensils/tab/tab
+@import utensils/tab
 ```
 
 To override the default settings, set the variable and it's value within

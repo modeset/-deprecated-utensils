@@ -23,7 +23,7 @@ To disable a pager, add the `disabled` class to the `a` element's parent `li`.
 
 ## Style Settings
 ```sass
-@import utensils/pager/pager
+@import utensils/pager
 ```
 
 To override the default settings, set the variable and it's value

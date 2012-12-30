@@ -10,8 +10,8 @@ Controls" for the demo and usage example.
 
 ## Style Settings
 ```sass
-@import utensils/form_controls/form_controls
-@import utensils/form_horizontal/form_horizontal
+@import utensils/form_controls
+@import utensils/form_horizontal
 ```
 
 To override the default settings, set the variable and it's value

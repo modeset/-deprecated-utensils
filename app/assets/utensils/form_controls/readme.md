@@ -133,7 +133,7 @@ _Warning!_ Not all layouts may render in the demo if they aren't included in the
 
 ## Style Settings
 ```sass
-@import utensils/form_controls/form_controls
+@import utensils/form_controls
 ```
 
 To override the default settings, set the variable and it's value

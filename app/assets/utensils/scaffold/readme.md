@@ -41,7 +41,7 @@ Class         | Usage
 
 ## Style Settings
 ```sass
-@import utensils/scaffold/scaffold
+@import utensils/scaffold
 ```
 
 To override the default settings, set the variable and it's value

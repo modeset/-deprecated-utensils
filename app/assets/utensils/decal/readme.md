@@ -11,7 +11,7 @@ modifiers to limit the output of generated classes.
 
 ## Style Settings
 ```sass
-@import utensils/decal/decal
+@import utensils/decal
 ```
 
 To override the default settings, set the variable and it's value

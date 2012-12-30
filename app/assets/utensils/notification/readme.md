@@ -16,7 +16,7 @@ class `.notify-right`.
 
 ## Style Settings
 ```sass
-@import utensils/notification/notification
+@import utensils/notification
 ```
 
 To override the default settings, set the variable and it's value within

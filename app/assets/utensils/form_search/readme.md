@@ -11,8 +11,8 @@ inherit the top and bottom `padding` of the input element.
 
 ## Style Settings
 ```sass
-@import utensils/form_controls/form_controls
-@import utensils/form_search/form_search
+@import utensils/form_controls
+@import utensils/form_search
 ```
 _Alert!_ Requires the `form_controls` utensil.
 

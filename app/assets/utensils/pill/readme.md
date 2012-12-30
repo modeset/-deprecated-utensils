@@ -14,7 +14,7 @@ See `Tab` for more information.
 
 ## Style Settings
 ```sass
-@import utensils/pill/pill
+@import utensils/pill
 ```
 
 To override the default settings, set the variable and it's value within

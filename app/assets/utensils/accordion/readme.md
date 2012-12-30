@@ -8,8 +8,8 @@ with either the `Toggle`, `ToggleGroup` or `Collapse` behaviors.
 ## Style Settings
 
 ```sass
-@import utensils/collapse/collapse
-@import utensils/accordion/accordion
+@import utensils/collapse
+@import utensils/accordion
 ```
 To override the default settings, set the variable and it's value
 within your `config.sass` file or before `accordion.sass` is loaded.

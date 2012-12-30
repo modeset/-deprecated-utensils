@@ -7,7 +7,7 @@ typically used within the `Drop` component.
 
 ## Style Settings
 ```sass
-@import utensils/menu/menu
+@import utensils/menu
 ```
 
 To override the default settings, set the variable and it's value within

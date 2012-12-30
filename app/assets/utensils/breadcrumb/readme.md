@@ -10,7 +10,7 @@ a divider after their content. This is configurable from the
 
 ## Style Settings
 ```sass
-@import utensils/breadcrumb/breadcrumb
+@import utensils/breadcrumb
 ```
 
 To override the default settings, set the variable and it's value

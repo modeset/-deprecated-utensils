@@ -28,7 +28,7 @@ the associated classes and color values.
 
 ## Style Settings
 ```sass
-@import utensils/table/table
+@import utensils/table
 ```
 
 To override the default settings, set the variable and it's value

@@ -17,7 +17,7 @@ Class              | Usage
 
 ## Style Settings
 ```sass
-@import utensils/container/container
+@import utensils/container
 ```
 
 To override the default settings, set the variable and it's value

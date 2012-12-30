@@ -16,7 +16,7 @@ align buttons to the right
 
 ## Style Settings
 ```sass
-@import utensils/media_grid/media_grid
+@import utensils/media_grid
 ```
 
 To override the default settings, set the variable and it's value

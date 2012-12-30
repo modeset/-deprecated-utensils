@@ -90,7 +90,7 @@ utensils/directional
 
 ## Style Settings
 ```sass
-@import utensils/drop/drop
+@import utensils/drop
 ```
 
 To override the default settings, set the variable and it's value within

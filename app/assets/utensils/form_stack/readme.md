@@ -9,8 +9,8 @@ Controls" for the demo and usage example.
 
 ## Style Settings
 ```sass
-@import utensils/form_controls/form_controls
-@import utensils/form_stack/form_stack
+@import utensils/form_controls
+@import utensils/form_stack
 ```
 
 _Alert!_ Requires the `form_controls` utensil.

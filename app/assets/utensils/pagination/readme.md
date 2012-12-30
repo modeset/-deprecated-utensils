@@ -7,7 +7,7 @@ pagination navigation. The list should contain the `.nav` class.
 
 ## Style Settings
 ```sass
-@import utensils/pagination/pagination
+@import utensils/pagination
 ```
 
 To override the default settings, set the variable and it's value within

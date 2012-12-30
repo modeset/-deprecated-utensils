@@ -20,7 +20,7 @@ convenience only so there is no need to scroll to the top of the page.
 
 ## Style Settings
 ```sass
-@import utensils/upgrade/upgrade
+@import utensils/upgrade
 ```
 
 To override the default settings, set the variable and it's value

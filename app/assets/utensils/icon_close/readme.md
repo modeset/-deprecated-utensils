@@ -7,7 +7,7 @@ Use the close icon to dismiss modals, notifications and other elements.
 
 ## Style Settings
 ```sass
-@import utensils/icon_close/close
+@import utensils/icon_close
 ```
 
 To override the default settings, set the variable and it's value

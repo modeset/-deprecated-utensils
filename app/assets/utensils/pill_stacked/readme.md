@@ -8,8 +8,8 @@ Stacked pills require the `pill` component.
 
 ## Style Settings
 ```sass
-@import utensils/pill/pill
-@import utensils/pill_stacked/pill_stacked
+@import utensils/pill
+@import utensils/pill_stacked
 ```
 
 All style settings are inherited from `pill.sass`.

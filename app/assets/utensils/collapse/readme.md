@@ -109,7 +109,7 @@ utensils/toggle_group
 
 ## Style Settings
 ```sass
-@import utensils/collapse/collapse
+@import utensils/collapse
 ```
 
 To override the default settings, set the variable and it's value

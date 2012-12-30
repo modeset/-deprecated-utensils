@@ -7,8 +7,8 @@ inline form. Supports control labels as well.
 
 ## Style Settings
 ```sass
-@import utensils/form_controls/form_controls
-@import utensils/form_inline/form_inline
+@import utensils/form_controls
+@import utensils/form_inline
 ```
 
 _Alert!_ Requires the `form_controls` utensil.

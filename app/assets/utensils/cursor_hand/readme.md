@@ -34,7 +34,7 @@ utensils/utensils
 
 ## Style Settings
 ```sass
-@import utensils/cursor_hand/cursor_hand
+@import utensils/cursor_hand
 ```
 
 To override the default settings, set the variable and it's value

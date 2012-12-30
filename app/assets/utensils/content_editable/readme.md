@@ -7,7 +7,7 @@ allows the user to change it's contents.
 
 ## Style Settings
 ```sass
-@import utensils/content_editable/content-editable
+@import utensils/content_editable
 ```
 
 To override the default settings, set the variable and it's value

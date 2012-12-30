@@ -8,8 +8,8 @@ Stacked tabs require the `tab` component.
 
 ## Style Settings
 ```sass
-@import utensils/tab/tab
-@import utensils/tab_stacked/tab_stacked
+@import utensils/tab
+@import utensils/tab_stacked
 ```
 
 All style settings are inherited from `tab.sass`.

@@ -65,7 +65,7 @@ utensils/utensils
 
 ## Style Settings
 ```sass
-@import utensils/progress/progress
+@import utensils/progress
 ```
 
 To override the default settings, set the variable and it's value

@@ -110,7 +110,7 @@ utensils/directional
 
 ## Style Settings
 ```sass
-@import utensils/pop/pop
+@import utensils/pop
 ```
 
 To override the default settings, set the variable and it's value

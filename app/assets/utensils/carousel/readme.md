@@ -87,7 +87,7 @@ Kill it with fire.
 
 ## Style Settings
 ```sass
-@import utensils/carousel/carousel
+@import utensils/carousel
 ```
 
 To override the default settings, set the variable and it's value

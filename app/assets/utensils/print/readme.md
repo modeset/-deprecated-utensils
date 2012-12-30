@@ -4,6 +4,6 @@ Boilerplate](http://html5boilerplate.com/). Styles are associated with
 the `@media print` query.
 
 ```sass
-@import utensils/print/print
+@import utensils/print
 ```
 

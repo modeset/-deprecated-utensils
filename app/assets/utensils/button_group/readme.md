@@ -12,7 +12,7 @@ elements under a `.button-toolbar` container to form a navigation system.
 
 ## Style Settings
 ```sass
-@import utensils/button_group/button_group
+@import utensils/button_group
 ```
 
 To override the default settings, set the variable and it's value

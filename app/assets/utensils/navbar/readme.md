@@ -23,7 +23,7 @@ Need to implement this
 
 ## Style Settings
 ```sass
-@import utensils/navbar/navbar
+@import utensils/navbar
 ```
 
 To override the default settings, set the variable and it's value within

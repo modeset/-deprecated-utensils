@@ -20,7 +20,7 @@ Modifier Class    | Usage
 
 ## Style Settings
 ```sass
-@import utensils/button_modifiers/button_modifiers
+@import utensils/button_modifiers
 ```
 
 To override the default settings, set the variable and it's value

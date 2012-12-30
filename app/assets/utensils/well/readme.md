@@ -7,7 +7,7 @@ great with form layouts.
 
 ## Style Settings
 ```sass
-@import utensils/well/well
+@import utensils/well
 ```
 
 To override the default settings, set the variable and it's value

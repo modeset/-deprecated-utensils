@@ -15,7 +15,7 @@ The semigloss-button class can be applied to `<a>`, `<button>` and `<input>` ele
 ```
 
 ```sass
-@import utensils/button_semigloss/button_semigloss
+@import utensils/button_semigloss
 ```
 
 ## Options

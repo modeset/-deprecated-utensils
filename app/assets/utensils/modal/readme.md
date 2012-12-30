@@ -92,7 +92,7 @@ utensils/detect
 
 ## Style Settings
 ```sass
-@import utensils/modal/modal
+@import utensils/modal
 ```
 
 To override the default settings, set the variable and it's value

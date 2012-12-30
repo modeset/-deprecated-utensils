@@ -11,7 +11,7 @@ and styles.
 
 ## Style Settings
 ```sass
-@import utensils/icon_paddle/paddle
+@import utensils/icon_paddle
 ```
 
 Class                 | Description

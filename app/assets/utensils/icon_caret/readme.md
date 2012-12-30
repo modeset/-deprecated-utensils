@@ -15,7 +15,7 @@ same styles
 
 ## Style Settings
 ```sass
-@import utensils/icon_caret/caret
+@import utensils/icon_caret
 ```
 
 To override the default settings, set the variable and it's value

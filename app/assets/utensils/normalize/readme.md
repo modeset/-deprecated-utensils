@@ -12,6 +12,6 @@ specific styles are imported. This module operates on top level elements
 and inserts them directly into your style sheet.
 
 ```sass
-@import utensils/normalize/normalize
+@import utensils/normalize
 ```
 

@@ -92,7 +92,7 @@ utensils/directional
 
 ## Style Settings
 ```sass
-@import utensils/tip/tip
+@import utensils/tip
 ```
 
 To override the default settings, set the variable and it's value

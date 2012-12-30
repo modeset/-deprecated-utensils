@@ -70,7 +70,7 @@ variables.
 
 ## Style Settings
 ```sass
-@import utensils/typography/typography
+@import utensils/typography
 ```
 
 To override the default settings, set the variable and it's value within

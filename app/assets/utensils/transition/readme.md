@@ -12,7 +12,7 @@ Class                  | Usage
 
 ## Style Settings
 ```sass
-@import utensils/transition/transition
+@import utensils/transition
 ```
 
 To override the default settings, set the variable and it's value
