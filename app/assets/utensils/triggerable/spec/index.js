@@ -1,1 +1,0 @@
-//= require ./triggerable_spec

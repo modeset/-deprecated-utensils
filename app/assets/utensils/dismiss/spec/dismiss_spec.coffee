@@ -16,8 +16,8 @@ describe 'Dismiss', ->
             </div>
             """
 
-    loadFixtures('dismiss')
-    @dom = $('#jasmine-fixtures')
+    loadFixtures('dismiss/markup/dismiss')
+    @dom = $('#teabag-fixtures')
     @dom.append(extra)
 
     @alert_el = @dom.find('.notification:first-child')
@@ -48,7 +48,7 @@ describe 'Dismiss', ->
     @auto = new utensils.Dismiss(@auto_link)
 
 
-  describe 'binding', ->
+  xdescribe 'binding', ->
     it 'is registered in bindable', ->
       expect(utensils.Bindable.getClass('dismiss')).toEqual(utensils.Dismiss)
 

@@ -1,1 +1,0 @@
-//= require ./directional_spec

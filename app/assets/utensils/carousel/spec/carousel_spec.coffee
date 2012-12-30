@@ -10,14 +10,14 @@ describe 'Carousel', ->
       @event = e
       @element = $(element)
 
-    loadFixtures('carousel')
-    @dom = $('#jasmine-fixtures')
+    loadFixtures('carousel/markup/carousel')
+    @dom = $('#teabag-fixtures')
     @carousel_el = @dom.find('.carousel')
     @panels = @carousel_el.find('.carousel-panel')
     @carousel = new utensils.Carousel(@carousel_el)
 
 
-  describe 'binding', ->
+  xdescribe 'binding', ->
     it 'is registered in bindable', ->
       expect(utensils.Bindable.getClass('carousel')).toEqual(utensils.Carousel)
 

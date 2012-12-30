@@ -3,7 +3,7 @@
 #= require utensils/detect
 
 class utensils.Collapse
-  constructor: (@el, data) ->
+  constructor: (@el, data = {}) ->
     @data = if data then data else @el.data()
     @options()
     @initialize()

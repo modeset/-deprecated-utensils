@@ -3,8 +3,8 @@
 describe 'Progress', ->
 
   beforeEach ->
-    loadFixtures('progress')
-    @dom = $('#jasmine-fixtures')
+    loadFixtures('progress/markup/progress')
+    @dom = $('#teabag-fixtures')
 
     @progress_el = @dom.find('.progress').first()
     @important_el = @dom.find('.progress.important').first()
