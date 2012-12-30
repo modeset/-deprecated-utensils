@@ -129,7 +129,7 @@
           <a href='#menu'>Menu</a>
         </li>
         <li>
-          <a href='#mixin'>Mixin</a>
+          <a href='#mixins'>Mixins</a>
         </li>
         <li>
           <a href='#modal'>Modal</a>
@@ -156,10 +156,10 @@
           <a href='#pill_stacked'>Pill Stacked</a>
         </li>
         <li>
-          <a href='#polyfill'>Polyfill</a>
+          <a href='#polyfill_placeholder'>Polyfill Placeholder</a>
         </li>
         <li>
-          <a href='#polyfill_placeholder'>Polyfill Placeholder</a>
+          <a href='#polyfills'>Polyfills</a>
         </li>
         <li>
           <a href='#pop'>Pop</a>
@@ -299,7 +299,7 @@ laborum.</p>
   </li>
 </ul>
 <hr />
-<ul class='accordion' data-behavior='checkbox' data-bindable='collapse' data-type='group' role='tablist'>
+<ul class='accordion' data-behavior='checkbox' data-bindable='collapse' role='tablist'>
   <li class='accordion-group'>
     <a class='accordion-toggle' href='#accordion_check_1' role='tab'>Accordion Check 1 with Collapse</a>
     <section class='collapse' id='accordion_check_1' role='tabpanel'>
@@ -344,7 +344,7 @@ laborum.</p>
   </li>
 </ul>
 <hr />
-<ul class='accordion' data-behavior='checkbox' data-bindable='collapse' data-type='group' role='tablist'>
+<ul class='accordion' data-behavior='checkbox' data-bindable='collapse' role='tablist'>
   <li class='accordion-group'>
     <a class='accordion-toggle' href='#accordion_complex_1' role='tab'>Accordion Complicated 1 with Collapse</a>
     <section class='collapse' id='accordion_complex_1' role='tabpanel'>
@@ -454,7 +454,7 @@ laborum.</p>
           <span class="nt">%p</span><span class="p">=</span><span class="vi">@lorem</span>
 
 <span class="nt">%hr</span>
-<span class="nt">%ul</span><span class="nc">.accordion</span>(<span class="na">data-bindable=</span><span class="s">&quot;collapse&quot;</span> <span class="na">data-type=</span><span class="s">&quot;group&quot;</span> <span class="na">data-behavior=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">role=</span><span class="s">&quot;tablist&quot;</span>)
+<span class="nt">%ul</span><span class="nc">.accordion</span>(<span class="na">data-bindable=</span><span class="s">&quot;collapse&quot;</span> <span class="na">data-behavior=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">role=</span><span class="s">&quot;tablist&quot;</span>)
   <span class="p">-(</span><span class="mi">1</span><span class="o">.</span><span class="n">.</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
     <span class="nt">%li</span><span class="nc">.accordion-group</span>
       <span class="nt">%a</span><span class="nc">.accordion-toggle</span>(<span class="na">href=</span><span class="s">&quot;#accordion_check_#{i}&quot;</span> <span class="na">role=</span><span class="s">&quot;tab&quot;</span>) Accordion Check <span class="si">#{</span><span class="n">i</span><span class="si">}</span> with Collapse
@@ -464,7 +464,7 @@ laborum.</p>
 
 
 <span class="nt">%hr</span>
-<span class="nt">%ul</span><span class="nc">.accordion</span>(<span class="na">data-bindable=</span><span class="s">&quot;collapse&quot;</span> <span class="na">data-type=</span><span class="s">&quot;group&quot;</span> <span class="na">data-behavior=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">role=</span><span class="s">&quot;tablist&quot;</span>)
+<span class="nt">%ul</span><span class="nc">.accordion</span>(<span class="na">data-bindable=</span><span class="s">&quot;collapse&quot;</span> <span class="na">data-behavior=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">role=</span><span class="s">&quot;tablist&quot;</span>)
   <span class="p">-(</span><span class="mi">1</span><span class="o">.</span><span class="n">.</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
     <span class="nt">%li</span><span class="nc">.accordion-group</span>
       <span class="nt">%a</span><span class="nc">.accordion-toggle</span>(<span class="na">href=</span><span class="s">&quot;#accordion_complex_#{i}&quot;</span> <span class="na">role=</span><span class="s">&quot;tab&quot;</span>) Accordion Complicated <span class="si">#{</span><span class="n">i</span><span class="si">}</span> with Collapse
@@ -478,8 +478,8 @@ laborum.</p>
 </pre></div></p>
 
 <h2>Style Settings</h2>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/collapse/collapse</span>
-<span class="k">@import</span> <span class="s">utensils/accordion/accordion</span>
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/collapse</span>
+<span class="k">@import</span> <span class="s">utensils/accordion</span>
 </pre></div>
 <p>To override the default settings, set the variable and it&#39;s value
 within your <code>config.sass</code> file or before <code>accordion.sass</code> is loaded.</p>
@@ -621,7 +621,7 @@ converted to a <code>$</code> object.</p>
 <p><code>Bindable</code> is created after the page has loaded (typically in a
 bootstrap file)</p>
 <div class="highlight"><pre><span class="c1">#= require bindable</span>
-<span class="nx">$</span> <span class="o">-&gt;</span>
+<span class="nx">$</span> <span class="nf">-&gt;</span>
   <span class="k">new</span> <span class="nx">utensils</span><span class="p">.</span><span class="nx">Bindable</span><span class="p">().</span><span class="nx">bindAll</span><span class="p">()</span>
 </pre></div>
 <h2>API</h2>
@@ -666,7 +666,7 @@ a divider after their content. This is configurable from the
 </pre></div></p>
 
 <h2>Style Settings</h2>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/breadcrumb/breadcrumb</span>
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/breadcrumb</span>
 </pre></div>
 <p>To override the default settings, set the variable and it&#39;s value
 within your <code>config.sass</code> file or before <code>breadcrumb.sass</code> is loaded.</p>
@@ -789,7 +789,7 @@ elements under a <code>.button-toolbar</code> container to form a navigation sys
 <p><strong>Pro Tip!</strong> Button groups and tool bars play great with the <code>ToggleGroup</code> behavior</p>
 
 <h2>Style Settings</h2>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/button_group/button_group</span>
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/button_group</span>
 </pre></div>
 <p>To override the default settings, set the variable and it&#39;s value
 within your <code>config.sass</code> file or before <code>button_group.sass</code> is loaded.</p>
@@ -889,7 +889,7 @@ type, sizing, or positioning.</p>
 </tbody></table>
 
 <h2>Style Settings</h2>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/button_modifiers/button_modifiers</span>
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/button_modifiers</span>
 </pre></div>
 <p>To override the default settings, set the variable and it&#39;s value
 within your <code>config.sass</code> file or before <code>button_modifiers.sass</code> is loaded.</p>
@@ -987,7 +987,7 @@ are added to the style sheet unless told to do so.</p>
   <span class="nt">%button</span><span class="nc">.btn</span>(<span class="na">type=</span><span class="s">&quot;submit&quot;</span>) Button
   <span class="nt">%input</span><span class="nc">.btn</span>(<span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">value=</span><span class="s">&quot;Input&quot;</span>)
   <span class="nt">%input</span><span class="nc">.btn</span>(<span class="na">type=</span><span class="s">&quot;submit&quot;</span> <span class="na">value=</span><span class="s">&quot;Submit&quot;</span>)
-</pre></div><div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/button_semigloss/button_semigloss</span>
+</pre></div><div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/button_semigloss</span>
 </pre></div>
 <h2>Options</h2>
 
@@ -1305,7 +1305,7 @@ for time management.</p>
 <div class="highlight"><pre><span class="nx">@carousel</span><span class="p">.</span><span class="nx">dispose</span><span class="p">()</span>
 </pre></div>
 <h2>Style Settings</h2>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/carousel/carousel</span>
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/carousel</span>
 </pre></div>
 <p>To override the default settings, set the variable and it&#39;s value
 within your <code>config.sass</code> file or before <code>carousel.sass</code> is loaded.</p>
@@ -1436,49 +1436,53 @@ navigation system such as an accordion group.</p>
 
 <p>Collapse utilizes either <code>Toggle</code> or <code>ToggleGroup</code> through composition.</p>
 
-<p><div class="docomo-showcase"><a data-bindable='collapse' href='#collapse_height' role='tab'>Single Collapse</a>
-<section class='collapse' id='collapse_height' role='tabpanel'>
-  <article>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+<p><div class="docomo-showcase"><div data-behavior='checkbox' data-bindable='collapse' role='tab'>
+  <a class='collapse-toggle' href='#collapse_height'>Single Collapse</a>
+  <section class='collapse' id='collapse_height' role='tabpanel'>
+    <article>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
 veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
 commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
 esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
 cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
 laborum.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
 veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
 commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
 esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
 cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
 laborum.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
 veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
 commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
 esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
 cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
 laborum.</p>
-  </article>
-</section>
-<a data-activate='true' data-bindable='collapse' data-target='#collapse_auto' href='#' role='tab'>Single Auto Shown</a>
-<section class='collapse in' id='collapse_auto' role='tabpanel'>
-  <article>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+    </article>
+  </section>
+</div>
+<div data-activate='true' data-behavior='checkbox' data-bindable='collapse' role='tab'>
+  <a class='collapse-toggle' href='#collapse_auto' role='tab'>Single Auto Shown</a>
+  <section class='collapse' id='collapse_auto' role='tabpanel'>
+    <article>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
 veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
 commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
 esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
 cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
 laborum.</p>
-  </article>
-</section>
+    </article>
+  </section>
+</div>
 <hr />
 <nav role='navigation'>
-  <ul data-activate='0' data-bindable='collapse' data-type='group' id='collapse_radio' role='tablist'>
+  <ul data-activate='true' data-bindable='collapse' id='collapse_radio' role='tablist'>
     <li>
-      <a href='#collapse_radio_1' role='tab'>Radio Collapse 1</a>
+      <a class='collapse-toggle' href='#collapse_radio_1' role='tab'>Radio Collapse 1 <span>Span</span></a>
       <section class='collapse' id='collapse_radio_1' role='tabpanel'>
         <article>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
@@ -1488,11 +1492,55 @@ commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
 esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
 cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
 laborum.</p>
+          <ul data-bindable='collapse' id='collapse_inner' role='tablist'>
+            <li>
+              <a class='collapse-toggle' href='#collapse_inner_1_1' role='tab'>Radio Collapse Inner 1_1 <span>Span</span></a>
+              <section class='collapse' id='collapse_inner_1_1' role='tabpanel'>
+                <article>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+laborum.</p>
+                </article>
+              </section>
+            </li>
+            <li>
+              <a class='collapse-toggle' href='#collapse_inner_2_1' role='tab'>Radio Collapse Inner 2_1 <span>Span</span></a>
+              <section class='collapse' id='collapse_inner_2_1' role='tabpanel'>
+                <article>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+laborum.</p>
+                </article>
+              </section>
+            </li>
+            <li>
+              <a class='collapse-toggle' href='#collapse_inner_3_1' role='tab'>Radio Collapse Inner 3_1 <span>Span</span></a>
+              <section class='collapse' id='collapse_inner_3_1' role='tabpanel'>
+                <article>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+laborum.</p>
+                </article>
+              </section>
+            </li>
+          </ul>
         </article>
       </section>
     </li>
     <li>
-      <a href='#collapse_radio_2' role='tab'>Radio Collapse 2</a>
+      <a class='collapse-toggle' href='#collapse_radio_2' role='tab'>Radio Collapse 2 <span>Span</span></a>
       <section class='collapse' id='collapse_radio_2' role='tabpanel'>
         <article>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
@@ -1502,11 +1550,55 @@ commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
 esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
 cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
 laborum.</p>
+          <ul data-bindable='collapse' id='collapse_inner' role='tablist'>
+            <li>
+              <a class='collapse-toggle' href='#collapse_inner_1_2' role='tab'>Radio Collapse Inner 1_2 <span>Span</span></a>
+              <section class='collapse' id='collapse_inner_1_2' role='tabpanel'>
+                <article>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+laborum.</p>
+                </article>
+              </section>
+            </li>
+            <li>
+              <a class='collapse-toggle' href='#collapse_inner_2_2' role='tab'>Radio Collapse Inner 2_2 <span>Span</span></a>
+              <section class='collapse' id='collapse_inner_2_2' role='tabpanel'>
+                <article>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+laborum.</p>
+                </article>
+              </section>
+            </li>
+            <li>
+              <a class='collapse-toggle' href='#collapse_inner_3_2' role='tab'>Radio Collapse Inner 3_2 <span>Span</span></a>
+              <section class='collapse' id='collapse_inner_3_2' role='tabpanel'>
+                <article>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+laborum.</p>
+                </article>
+              </section>
+            </li>
+          </ul>
         </article>
       </section>
     </li>
     <li>
-      <a href='#collapse_radio_3' role='tab'>Radio Collapse 3</a>
+      <a class='collapse-toggle' href='#collapse_radio_3' role='tab'>Radio Collapse 3 <span>Span</span></a>
       <section class='collapse' id='collapse_radio_3' role='tabpanel'>
         <article>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
@@ -1516,6 +1608,50 @@ commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
 esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
 cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
 laborum.</p>
+          <ul data-bindable='collapse' id='collapse_inner' role='tablist'>
+            <li>
+              <a class='collapse-toggle' href='#collapse_inner_1_3' role='tab'>Radio Collapse Inner 1_3 <span>Span</span></a>
+              <section class='collapse' id='collapse_inner_1_3' role='tabpanel'>
+                <article>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+laborum.</p>
+                </article>
+              </section>
+            </li>
+            <li>
+              <a class='collapse-toggle' href='#collapse_inner_2_3' role='tab'>Radio Collapse Inner 2_3 <span>Span</span></a>
+              <section class='collapse' id='collapse_inner_2_3' role='tabpanel'>
+                <article>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+laborum.</p>
+                </article>
+              </section>
+            </li>
+            <li>
+              <a class='collapse-toggle' href='#collapse_inner_3_3' role='tab'>Radio Collapse Inner 3_3 <span>Span</span></a>
+              <section class='collapse' id='collapse_inner_3_3' role='tabpanel'>
+                <article>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+laborum.</p>
+                </article>
+              </section>
+            </li>
+          </ul>
         </article>
       </section>
     </li>
@@ -1523,9 +1659,9 @@ laborum.</p>
 </nav>
 <hr />
 <nav role='navigation'>
-  <ul data-behavior='checkbox' data-bindable='collapse' data-type='group' id='collapse_checkbox' role='tablist'>
+  <ul data-activate='1' data-behavior='checkbox' data-bindable='collapse' id='collapse_checkbox' role='tablist'>
     <li>
-      <a data-target='#collapse_check_1' href='#' role='tab'>Checkbox Collapse 1</a>
+      <a class='collapse-toggle' data-target='#collapse_check_1' href='#' role='tab'>Checkbox Collapse 1</a>
       <section class='collapse' id='collapse_check_1' role='tabpanel'>
         <article>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
@@ -1539,7 +1675,7 @@ laborum.</p>
       </section>
     </li>
     <li>
-      <a data-target='#collapse_check_2' href='#' role='tab'>Checkbox Collapse 2</a>
+      <a class='collapse-toggle' data-target='#collapse_check_2' href='#' role='tab'>Checkbox Collapse 2</a>
       <section class='collapse' id='collapse_check_2' role='tabpanel'>
         <article>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
@@ -1553,7 +1689,7 @@ laborum.</p>
       </section>
     </li>
     <li>
-      <a data-target='#collapse_check_3' href='#' role='tab'>Checkbox Collapse 3</a>
+      <a class='collapse-toggle' data-target='#collapse_check_3' href='#' role='tab'>Checkbox Collapse 3</a>
       <section class='collapse' id='collapse_check_3' role='tabpanel'>
         <article>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
@@ -1570,15 +1706,15 @@ laborum.</p>
 </nav>
 <hr />
 <nav role='navigation'>
-  <ul data-behavior='checkbox' data-bindable='collapse' data-type='group' id='collapse_external' role='tablist'>
+  <ul data-behavior='checkbox' data-bindable='collapse' id='collapse_external' role='tablist'>
     <li>
-      <a href='#collapse_external_1' role='tab'>External Checkbox Collapse 1</a>
+      <a class='collapse-toggle' href='#collapse_external_1' role='tab'>External Checkbox Collapse 1</a>
     </li>
     <li>
-      <a href='#collapse_external_2' role='tab'>External Checkbox Collapse 2</a>
+      <a class='collapse-toggle' href='#collapse_external_2' role='tab'>External Checkbox Collapse 2</a>
     </li>
     <li>
-      <a href='#collapse_external_3' role='tab'>External Checkbox Collapse 3</a>
+      <a class='collapse-toggle' href='#collapse_external_3' role='tab'>External Checkbox Collapse 3</a>
     </li>
   </ul>
   <section class='collapse' id='collapse_external_1' role='tabpanel'>
@@ -1627,44 +1763,52 @@ laborum.</p>
   <span class="nd">cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est</span>
   <span class="nd">laborum.&quot;</span>
 
-<span class="nt">%a</span>(<span class="na">data-bindable=</span><span class="s">&quot;collapse&quot;</span> <span class="na">href=</span><span class="s">&quot;#collapse_height&quot;</span> <span class="na">role=</span><span class="s">&quot;tab&quot;</span>) Single Collapse
-<span class="nt">%section</span><span class="nc">.collapse</span><span class="nf">#collapse_height</span>(<span class="na">role=</span><span class="s">&quot;tabpanel&quot;</span>)
-  <span class="nt">%article</span>
-    <span class="p">-(</span><span class="mi">1</span><span class="o">.</span><span class="n">.</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
+<span class="nt">%div</span>(<span class="na">data-bindable=</span><span class="s">&quot;collapse&quot;</span> <span class="na">data-behavior=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">role=</span><span class="s">&quot;tab&quot;</span>)
+  <span class="nt">%a</span><span class="nc">.collapse-toggle</span>(<span class="na">href=</span><span class="s">&quot;#collapse_height&quot;</span>) Single Collapse
+  <span class="nt">%section</span><span class="nc">.collapse</span><span class="nf">#collapse_height</span>(<span class="na">role=</span><span class="s">&quot;tabpanel&quot;</span>)
+    <span class="nt">%article</span>
+      <span class="p">-(</span><span class="mi">1</span><span class="o">.</span><span class="n">.</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
+        <span class="nt">%p</span><span class="p">=</span><span class="vi">@lorem</span>
+
+<span class="nt">%div</span>(<span class="na">data-bindable=</span><span class="s">&quot;collapse&quot;</span> <span class="na">data-behavior=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">data-activate=</span><span class="s">&quot;true&quot;</span> <span class="na">role=</span><span class="s">&quot;tab&quot;</span>)
+  <span class="nt">%a</span><span class="nc">.collapse-toggle</span>(<span class="na">href=</span><span class="s">&quot;#collapse_auto&quot;</span> <span class="na">role=</span><span class="s">&quot;tab&quot;</span>) Single Auto Shown
+  <span class="nt">%section</span><span class="nc">.collapse</span><span class="nf">#collapse_auto</span>(<span class="na">role=</span><span class="s">&quot;tabpanel&quot;</span>)
+    <span class="nt">%article</span>
       <span class="nt">%p</span><span class="p">=</span><span class="vi">@lorem</span>
-
-<span class="nt">%a</span>(<span class="na">data-bindable=</span><span class="s">&quot;collapse&quot;</span> <span class="na">data-target=</span><span class="s">&quot;#collapse_auto&quot;</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">data-activate=</span><span class="s">&quot;true&quot;</span> <span class="na">role=</span><span class="s">&quot;tab&quot;</span>) Single Auto Shown
-<span class="nt">%section</span><span class="nc">.collapse.in</span><span class="nf">#collapse_auto</span>(<span class="na">role=</span><span class="s">&quot;tabpanel&quot;</span>)
-  <span class="nt">%article</span>
-    <span class="nt">%p</span><span class="p">=</span><span class="vi">@lorem</span>
-
 
 <span class="nt">%hr</span>
 <span class="nt">%nav</span>(<span class="na">role=</span><span class="s">&quot;navigation&quot;</span>)
-  <span class="nt">%ul</span><span class="nf">#collapse_radio</span>(<span class="na">data-bindable=</span><span class="s">&quot;collapse&quot;</span> <span class="na">data-type=</span><span class="s">&quot;group&quot;</span> <span class="na">data-activate=</span><span class="s">&quot;0&quot;</span> <span class="na">role=</span><span class="s">&quot;tablist&quot;</span>)
+  <span class="nt">%ul</span><span class="nf">#collapse_radio</span>(<span class="na">data-bindable=</span><span class="s">&quot;collapse&quot;</span> <span class="na">data-activate=</span><span class="s">&quot;true&quot;</span> <span class="na">role=</span><span class="s">&quot;tablist&quot;</span>)
     <span class="p">-(</span><span class="mi">1</span><span class="o">.</span><span class="n">.</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
       <span class="nt">%li</span>
-        <span class="nt">%a</span>(<span class="na">href=</span><span class="s">&quot;#collapse_radio_#{i}&quot;</span> <span class="na">role=</span><span class="s">&quot;tab&quot;</span>) Radio Collapse <span class="si">#{</span><span class="n">i</span><span class="si">}</span>
+        <span class="nt">%a</span><span class="nc">.collapse-toggle</span>(<span class="na">href=</span><span class="s">&quot;#collapse_radio_#{i}&quot;</span> <span class="na">role=</span><span class="s">&quot;tab&quot;</span>) Radio Collapse <span class="si">#{</span><span class="n">i</span><span class="si">}</span> &lt;span&gt;Span&lt;/span&gt;
         <span class="nt">%section</span><span class="nc">.collapse</span>(<span class="na">id=</span><span class="s">&quot;collapse_radio_#{i}&quot;</span> <span class="na">role=</span><span class="s">&quot;tabpanel&quot;</span>)
           <span class="nt">%article</span>
             <span class="nt">%p</span><span class="p">=</span><span class="vi">@lorem</span>
+            <span class="nt">%ul</span><span class="nf">#collapse_inner</span>(<span class="na">data-bindable=</span><span class="s">&quot;collapse&quot;</span> <span class="na">role=</span><span class="s">&quot;tablist&quot;</span>)
+              <span class="p">-(</span><span class="mi">1</span><span class="o">.</span><span class="n">.</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span>
+                <span class="nt">%li</span>
+                  <span class="nt">%a</span><span class="nc">.collapse-toggle</span>(<span class="na">href=</span><span class="s">&quot;#collapse_inner_#{x}_#{i}&quot;</span> <span class="na">role=</span><span class="s">&quot;tab&quot;</span>) Radio Collapse Inner <span class="si">#{</span><span class="n">x</span><span class="si">}</span>_<span class="si">#{</span><span class="n">i</span><span class="si">}</span> &lt;span&gt;Span&lt;/span&gt;
+                  <span class="nt">%section</span><span class="nc">.collapse</span>(<span class="na">id=</span><span class="s">&quot;collapse_inner_#{x}_#{i}&quot;</span> <span class="na">role=</span><span class="s">&quot;tabpanel&quot;</span>)
+                    <span class="nt">%article</span>
+                      <span class="nt">%p</span><span class="p">=</span><span class="vi">@lorem</span>
 
 <span class="nt">%hr</span>
 <span class="nt">%nav</span>(<span class="na">role=</span><span class="s">&quot;navigation&quot;</span>)
-  <span class="nt">%ul</span><span class="nf">#collapse_checkbox</span>(<span class="na">data-bindable=</span><span class="s">&quot;collapse&quot;</span> <span class="na">data-type=</span><span class="s">&quot;group&quot;</span> <span class="na">data-behavior=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">role=</span><span class="s">&quot;tablist&quot;</span>)
+  <span class="nt">%ul</span><span class="nf">#collapse_checkbox</span>(<span class="na">data-bindable=</span><span class="s">&quot;collapse&quot;</span> <span class="na">data-behavior=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">data-activate=</span><span class="s">&quot;1&quot;</span> <span class="na">role=</span><span class="s">&quot;tablist&quot;</span>)
     <span class="p">-(</span><span class="mi">1</span><span class="o">.</span><span class="n">.</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
       <span class="nt">%li</span>
-        <span class="nt">%a</span>(<span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">data-target=</span><span class="s">&quot;#collapse_check_#{i}&quot;</span> <span class="na">role=</span><span class="s">&quot;tab&quot;</span>) Checkbox Collapse <span class="si">#{</span><span class="n">i</span><span class="si">}</span>
+        <span class="nt">%a</span><span class="nc">.collapse-toggle</span>(<span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">data-target=</span><span class="s">&quot;#collapse_check_#{i}&quot;</span> <span class="na">role=</span><span class="s">&quot;tab&quot;</span>) Checkbox Collapse <span class="si">#{</span><span class="n">i</span><span class="si">}</span>
         <span class="nt">%section</span><span class="nc">.collapse</span>(<span class="na">id=</span><span class="s">&quot;collapse_check_#{i}&quot;</span> <span class="na">role=</span><span class="s">&quot;tabpanel&quot;</span>)
           <span class="nt">%article</span>
             <span class="nt">%p</span><span class="p">=</span><span class="vi">@lorem</span>
 
 <span class="nt">%hr</span>
 <span class="nt">%nav</span>(<span class="na">role=</span><span class="s">&quot;navigation&quot;</span>)
-  <span class="nt">%ul</span><span class="nf">#collapse_external</span>(<span class="na">data-bindable=</span><span class="s">&quot;collapse&quot;</span> <span class="na">data-type=</span><span class="s">&quot;group&quot;</span> <span class="na">data-behavior=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">role=</span><span class="s">&quot;tablist&quot;</span>)
+  <span class="nt">%ul</span><span class="nf">#collapse_external</span>(<span class="na">data-bindable=</span><span class="s">&quot;collapse&quot;</span> <span class="na">data-behavior=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">role=</span><span class="s">&quot;tablist&quot;</span>)
     <span class="p">-(</span><span class="mi">1</span><span class="o">.</span><span class="n">.</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
       <span class="nt">%li</span>
-        <span class="nt">%a</span>(<span class="na">href=</span><span class="s">&quot;#collapse_external_#{i}&quot;</span> <span class="na">role=</span><span class="s">&quot;tab&quot;</span>) External Checkbox Collapse <span class="si">#{</span><span class="n">i</span><span class="si">}</span>
+        <span class="nt">%a</span><span class="nc">.collapse-toggle</span>(<span class="na">href=</span><span class="s">&quot;#collapse_external_#{i}&quot;</span> <span class="na">role=</span><span class="s">&quot;tab&quot;</span>) External Checkbox Collapse <span class="si">#{</span><span class="n">i</span><span class="si">}</span>
 
   <span class="p">-(</span><span class="mi">1</span><span class="o">.</span><span class="n">.</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
     <span class="nt">%section</span><span class="nc">.collapse</span>(<span class="na">id=</span><span class="s">&quot;collapse_external_#{i}&quot;</span> <span class="na">role=</span><span class="s">&quot;tabpanel&quot;</span>)
@@ -1796,7 +1940,7 @@ it dispatches events around it&#39;s state.</p>
 <span class="nx">utensils</span><span class="o">/</span><span class="nx">toggle_group</span>
 </pre></div>
 <h2>Style Settings</h2>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/collapse/collapse</span>
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/collapse</span>
 </pre></div>
 <p>To override the default settings, set the variable and it&#39;s value
 within your <code>config.sass</code> file or before <code>collapse.sass</code> is loaded.</p>
@@ -1862,7 +2006,7 @@ to affect how it displays contained elements.</p>
 </tbody></table>
 
 <h2>Style Settings</h2>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/container/container</span>
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/container</span>
 </pre></div>
 <p>To override the default settings, set the variable and it&#39;s value
 within your <code>config.sass</code> file or before <code>container.sass</code> is loaded.</p>
@@ -1898,7 +2042,7 @@ allows the user to change it&#39;s contents.</p>
 </pre></div></p>
 
 <h2>Style Settings</h2>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/content_editable/content-editable</span>
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/content_editable</span>
 </pre></div>
 <p>To override the default settings, set the variable and it&#39;s value
 within your <code>config.sass</code> file or before <code>content_editable.sass</code> is loaded.</p>
@@ -1972,7 +2116,7 @@ Carousel, Slider, TouchScroller, etc..</p>
 <div class="highlight"><pre><span class="nx">utensils</span><span class="o">/</span><span class="nx">utensils</span>
 </pre></div>
 <h2>Style Settings</h2>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/cursor_hand/cursor_hand</span>
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/cursor_hand</span>
 </pre></div>
 <p>To override the default settings, set the variable and it&#39;s value
 within your <code>config.sass</code> file or before <code>cursor_hand.sass</code> is loaded.</p>
@@ -2029,7 +2173,7 @@ modifiers to limit the output of generated classes.</p>
 </pre></div></p>
 
 <h2>Style Settings</h2>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/decal/decal</span>
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/decal</span>
 </pre></div>
 <p>To override the default settings, set the variable and it&#39;s value
 within your <code>config.sass</code> file or before <code>decal.sass</code> is loaded.</p>
@@ -2500,7 +2644,7 @@ elements toggle event.</p>
 <p><code>Drop</code> utilizes <code>Triggerable</code> via composition.</p>
 
 <h2>Style Settings</h2>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/drop/drop</span>
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/drop</span>
 </pre></div>
 <p>To override the default settings, set the variable and it&#39;s value within
 your <code>config.sass</code> file or before <code>drop.sass</code> is loaded.</p>
@@ -3182,7 +3326,7 @@ or other descriptive helpers</li>
         <p class='hint-block'>We won't share it</p>
       </div>
     </div>
-    <div class='control-group'>
+    <div class='control-group file-browser'>
       <label class='control-label' for='fcs_file'>File Browser:</label>
       <div class='controls'>
         <input id='fcs_file' type='file' value='file' />
@@ -3193,7 +3337,9 @@ or other descriptive helpers</li>
     <div class='control-group'>
       <label class='control-label' for='fcs_textarea'>Textarea:</label>
       <div class='controls'>
-        <textarea id='fcs_textarea' placeholder='Enter the textarea...' rows='8'></textarea>
+        <div class='input-bg'>
+          <textarea id='fcs_textarea' placeholder='Enter the textarea...' rows='8'></textarea>
+        </div>
         <p class='hint-inline error-msg'>That failed terribly</p>
         <p class='hint-inline success-msg'>Gold stars all around</p>
       </div>
@@ -3210,7 +3356,7 @@ or other descriptive helpers</li>
   </fieldset>
   <fieldset>
     <legend>Make a choice</legend>
-    <div class='control-group'>
+    <div class='control-group radio-buttons'>
       <label class='control-label'>Radio:</label>
       <div class='controls'>
         <label class='radio' for='fcs_radio1-1'>
@@ -3221,7 +3367,7 @@ or other descriptive helpers</li>
         </label>
       </div>
     </div>
-    <div class='control-group'>
+    <div class='control-group radio-buttons'>
       <label class='control-label'>Radio Inline:</label>
       <div class='controls'>
         <label class='radio-inline' for='fcs_radio2-1'>
@@ -3234,7 +3380,7 @@ or other descriptive helpers</li>
         <p class='hint-inline success-msg'>Gold stars all around</p>
       </div>
     </div>
-    <div class='control-group'>
+    <div class='control-group check-boxes'>
       <label class='control-label'>Checkbox:</label>
       <div class='controls'>
         <label class='checkbox' for='fcs_check1-1'>
@@ -3245,7 +3391,7 @@ or other descriptive helpers</li>
         </label>
       </div>
     </div>
-    <div class='control-group'>
+    <div class='control-group check-boxes'>
       <label class='control-label'>Checkbox Inline:</label>
       <div class='controls'>
         <label class='checkbox-inline' for='fcs_check2-1'>
@@ -3258,7 +3404,7 @@ or other descriptive helpers</li>
         <p class='hint-inline success-msg'>Gold stars all around</p>
       </div>
     </div>
-    <div class='control-group'>
+    <div class='control-group select'>
       <label class='control-label' for='fcs_multiselect'>Multiple Select:</label>
       <div class='controls'>
         <select id='fcs_multiselect' multiple='multiple'>
@@ -3272,7 +3418,7 @@ or other descriptive helpers</li>
         <p class='hint-inline success-msg'>Gold stars all around</p>
       </div>
     </div>
-    <div class='control-group'>
+    <div class='control-group select'>
       <label class='control-label' for='fcs_select'>Select:</label>
       <div class='controls'>
         <select>
@@ -3325,7 +3471,7 @@ or other descriptive helpers</li>
         <span class="nt">%p</span><span class="nc">.hint-inline.error-msg</span> That failed terribly
         <span class="nt">%p</span><span class="nc">.hint-inline.success-msg</span> Gold stars all around
         <span class="nt">%p</span><span class="nc">.hint-block</span> We won&#39;t share it
-    <span class="nc">.control-group</span>
+    <span class="nc">.control-group.file-browser</span>
       <span class="nt">%label</span><span class="nc">.control-label</span>(<span class="na">for=</span><span class="s">&quot;fcs_file&quot;</span>) File Browser:
       <span class="nc">.controls</span>
         <span class="nt">%input</span><span class="nf">#fcs_file</span>(<span class="na">type=</span><span class="s">&quot;file&quot;</span> <span class="na">value=</span><span class="s">&quot;file&quot;</span>)
@@ -3334,7 +3480,8 @@ or other descriptive helpers</li>
     <span class="nc">.control-group</span>
       <span class="nt">%label</span><span class="nc">.control-label</span>(<span class="na">for=</span><span class="s">&quot;fcs_textarea&quot;</span>) Textarea:
       <span class="nc">.controls</span>
-        <span class="nt">%textarea</span><span class="nf">#fcs_textarea</span>(<span class="na">placeholder=</span><span class="s">&quot;Enter the textarea...&quot;</span> <span class="na">rows=</span><span class="s">&quot;8&quot;</span>)
+        <span class="nc">.input-bg</span>
+          <span class="nt">%textarea</span><span class="nf">#fcs_textarea</span>(<span class="na">placeholder=</span><span class="s">&quot;Enter the textarea...&quot;</span> <span class="na">rows=</span><span class="s">&quot;8&quot;</span>)
         <span class="nt">%p</span><span class="nc">.hint-inline.error-msg</span> That failed terribly
         <span class="nt">%p</span><span class="nc">.hint-inline.success-msg</span> Gold stars all around
     <span class="cp">-# Uneditable</span>
@@ -3349,14 +3496,14 @@ or other descriptive helpers</li>
   <span class="nt">%fieldset</span>
     <span class="nt">%legend</span> Make a choice
     <span class="cp">-# Radios</span>
-    <span class="nc">.control-group</span>
+    <span class="nc">.control-group.radio-buttons</span>
       <span class="nt">%label</span><span class="nc">.control-label</span> Radio:
       <span class="nc">.controls</span>
         <span class="nt">%label</span><span class="nc">.radio</span>(<span class="na">for=</span><span class="s">&quot;fcs_radio1-1&quot;</span>)
           <span class="nt">%input</span><span class="nf">#fcs_radio1-1</span>(<span class="na">type=</span><span class="s">&quot;radio&quot;</span> <span class="na">name=</span><span class="s">&quot;fc[radios1]&quot;</span> <span class="na">value=</span><span class="s">&quot;true&quot;</span> <span class="na">checked</span>) Yes, to radio buttons
         <span class="nt">%label</span><span class="nc">.radio</span>(<span class="na">for=</span><span class="s">&quot;fcs_radio1-2&quot;</span>)
           <span class="nt">%input</span><span class="nf">#fcs_radio1-2</span>(<span class="na">type=</span><span class="s">&quot;radio&quot;</span> <span class="na">name=</span><span class="s">&quot;fc[radios1]&quot;</span> <span class="na">value=</span><span class="s">&quot;false&quot;</span>) No, to radio buttons
-    <span class="nc">.control-group</span>
+    <span class="nc">.control-group.radio-buttons</span>
       <span class="nt">%label</span><span class="nc">.control-label</span> Radio Inline:
       <span class="nc">.controls</span>
         <span class="nt">%label</span><span class="nc">.radio-inline</span>(<span class="na">for=</span><span class="s">&quot;fcs_radio2-1&quot;</span>)
@@ -3366,14 +3513,14 @@ or other descriptive helpers</li>
         <span class="nt">%p</span><span class="nc">.hint-inline.error-msg</span> That failed terribly
         <span class="nt">%p</span><span class="nc">.hint-inline.success-msg</span> Gold stars all around
     <span class="cp">-# Checks</span>
-    <span class="nc">.control-group</span>
+    <span class="nc">.control-group.check-boxes</span>
       <span class="nt">%label</span><span class="nc">.control-label</span> Checkbox:
       <span class="nc">.controls</span>
         <span class="nt">%label</span><span class="nc">.checkbox</span>(<span class="na">for=</span><span class="s">&quot;fcs_check1-1&quot;</span>)
           <span class="nt">%input</span><span class="nf">#fcs_check1-1</span>(<span class="na">type=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">value=</span><span class="s">&quot;0&quot;</span>) Check your premises
         <span class="nt">%label</span><span class="nc">.checkbox</span>(<span class="na">for=</span><span class="s">&quot;fcs_check1-2&quot;</span>)
           <span class="nt">%input</span><span class="nf">#fcs_check1-2</span>(<span class="na">type=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">value=</span><span class="s">&quot;1&quot;</span> <span class="na">checked</span>) Premises, checked.
-    <span class="nc">.control-group</span>
+    <span class="nc">.control-group.check-boxes</span>
       <span class="nt">%label</span><span class="nc">.control-label</span> Checkbox Inline:
       <span class="nc">.controls</span>
         <span class="nt">%label</span><span class="nc">.checkbox-inline</span>(<span class="na">for=</span><span class="s">&quot;fcs_check2-1&quot;</span>)
@@ -3383,7 +3530,7 @@ or other descriptive helpers</li>
         <span class="nt">%p</span><span class="nc">.hint-inline.error-msg</span> That failed terribly
         <span class="nt">%p</span><span class="nc">.hint-inline.success-msg</span> Gold stars all around
     <span class="cp">-# Selects</span>
-    <span class="nc">.control-group</span>
+    <span class="nc">.control-group.select</span>
       <span class="nt">%label</span><span class="nc">.control-label</span>(<span class="na">for=</span><span class="s">&quot;fcs_multiselect&quot;</span>) Multiple Select:
       <span class="nc">.controls</span>
         <span class="nt">%select</span><span class="nf">#fcs_multiselect</span>(<span class="na">multiple</span>)
@@ -3394,7 +3541,7 @@ or other descriptive helpers</li>
           <span class="nt">%option</span>(<span class="na">value=</span><span class="s">&quot;5&quot;</span>) Five
         <span class="nt">%p</span><span class="nc">.hint-inline.error-msg</span> That failed terribly
         <span class="nt">%p</span><span class="nc">.hint-inline.success-msg</span> Gold stars all around
-    <span class="nc">.control-group</span>
+    <span class="nc">.control-group.select</span>
       <span class="nt">%label</span><span class="nc">.control-label</span>(<span class="na">for=</span><span class="s">&quot;fcs_select&quot;</span>) Select:
       <span class="nc">.controls</span>
         <span class="nt">%select</span>
@@ -3415,7 +3562,7 @@ or other descriptive helpers</li>
 <p><em>Warning!</em> Not all layouts may render in the demo if they aren&#39;t included in the project.</p>
 
 <h2>Style Settings</h2>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/form_controls/form_controls</span>
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/form_controls</span>
 </pre></div>
 <p>To override the default settings, set the variable and it&#39;s value
 within your <code>config.sass</code> file or before <code>form_controls.sass</code> is loaded.</p>
@@ -3575,8 +3722,8 @@ default layout, it only requires the class <code>.form-horizontal</code> on the
 Controls&quot; for the demo and usage example.</p>
 
 <h2>Style Settings</h2>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/form_controls/form_controls</span>
-<span class="k">@import</span> <span class="s">utensils/form_horizontal/form_horizontal</span>
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/form_controls</span>
+<span class="k">@import</span> <span class="s">utensils/form_horizontal</span>
 </pre></div>
 <p>To override the default settings, set the variable and it&#39;s value
 within your <code>config.sass</code> file or before <code>form_horizontal.sass</code> is loaded.</p>
@@ -3635,8 +3782,8 @@ inline form. Supports control labels as well.</p>
 </pre></div></p>
 
 <h2>Style Settings</h2>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/form_controls/form_controls</span>
-<span class="k">@import</span> <span class="s">utensils/form_inline/form_inline</span>
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/form_controls</span>
+<span class="k">@import</span> <span class="s">utensils/form_inline</span>
 </pre></div>
 <p><em>Alert!</em> Requires the <code>form_controls</code> utensil.</p></section>
       <a name='form_search'></a>
@@ -3659,8 +3806,8 @@ inherit the top and bottom <code>padding</code> of the input element.</p>
 </pre></div></p>
 
 <h2>Style Settings</h2>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/form_controls/form_controls</span>
-<span class="k">@import</span> <span class="s">utensils/form_search/form_search</span>
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/form_controls</span>
+<span class="k">@import</span> <span class="s">utensils/form_search</span>
 </pre></div>
 <p><em>Alert!</em> Requires the <code>form_controls</code> utensil.</p></section>
       <a name='form_stack'></a>
@@ -3753,6 +3900,14 @@ form stack styled form. Supports control labels as well.</p>
         <input placeholder='week' type='week' />
       </div>
     </div>
+    <div class='control-group'>
+      <label>Textarea</label>
+      <div class='controls'>
+        <div class='input-bg'>
+          <textarea placeholder='textarea' rows='10'></textarea>
+        </div>
+      </div>
+    </div>
   </fieldset>
 </form>
 </div><div class="highlight"><pre><span class="nt">%form</span><span class="nc">.form-stack.docomo-clearfix</span>(<span class="na">role=</span><span class="s">&quot;form&quot;</span>)
@@ -3813,14 +3968,19 @@ form stack styled form. Supports control labels as well.</p>
       <span class="nt">%label</span> Week
       <span class="nc">.controls</span>
         <span class="nt">%input</span>(<span class="na">type=</span><span class="s">&quot;week&quot;</span> <span class="na">placeholder=</span><span class="s">&quot;week&quot;</span>)
+    <span class="nc">.control-group</span>
+      <span class="nt">%label</span> Textarea
+      <span class="nc">.controls</span>
+        <span class="nc">.input-bg</span>
+          <span class="nt">%textarea</span>(<span class="na">rows=</span><span class="s">&quot;10&quot;</span> <span class="na">placeholder=</span><span class="s">&quot;textarea&quot;</span>)
 </pre></div></p>
 
 <p><strong>Pro Tip!</strong> Check out the &quot;Form Structure&quot; section under &quot;Form
 Controls&quot; for the demo and usage example.</p>
 
 <h2>Style Settings</h2>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/form_controls/form_controls</span>
-<span class="k">@import</span> <span class="s">utensils/form_stack/form_stack</span>
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/form_controls</span>
+<span class="k">@import</span> <span class="s">utensils/form_stack</span>
 </pre></div>
 <p><em>Alert!</em> Requires the <code>form_controls</code> utensil.</p></section>
       <a name='icon_caret'></a>
@@ -3885,7 +4045,7 @@ need some sort of offset based on the component they are paired with.</p>
 same styles</p>
 
 <h2>Style Settings</h2>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/icon_caret/caret</span>
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/icon_caret</span>
 </pre></div>
 <p>To override the default settings, set the variable and it&#39;s value
 within your <code>config.sass</code> file or before <code>caret.sass</code> is loaded.</p>
@@ -3939,7 +4099,7 @@ within your <code>config.sass</code> file or before <code>caret.sass</code> is l
 <p><strong>Pro Tip!</strong> In your markup use <code>&amp;times;</code> for the content of the close icon</p>
 
 <h2>Style Settings</h2>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/icon_close/close</span>
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/icon_close</span>
 </pre></div>
 <p>To override the default settings, set the variable and it&#39;s value
 within your <code>config.sass</code> file or before <code>close.sass</code> is loaded.</p>
@@ -4011,7 +4171,7 @@ and styles.</p>
 </pre></div></p>
 
 <h2>Style Settings</h2>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/icon_paddle/paddle</span>
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/icon_paddle</span>
 </pre></div>
 <table><thead>
 <tr>
@@ -4158,7 +4318,7 @@ grid for this reason.</p>
 align buttons to the right</p>
 
 <h2>Style Settings</h2>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/media_grid/media_grid</span>
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/media_grid</span>
 </pre></div>
 <p>To override the default settings, set the variable and it&#39;s value
 within your <code>config.sass</code> file or before <code>media_grid.sass</code> is loaded.</p>
@@ -4207,7 +4367,7 @@ typically used within the <code>Drop</code> component.</p>
 </pre></div></p>
 
 <h2>Style Settings</h2>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/menu/menu</span>
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/menu</span>
 </pre></div>
 <p>To override the default settings, set the variable and it&#39;s value within
 your <code>config.sass</code> file or before <code>menu.sass</code> is loaded.</p>
@@ -4245,7 +4405,7 @@ your <code>config.sass</code> file or before <code>menu.sass</code> is loaded.</
 <td>The <code>border-radius</code> of the menu component</td>
 </tr>
 </tbody></table></section>
-      <a name='mixin'></a>
+      <a name='mixins'></a>
       <section class='docomo-section'><h1>Mixin</h1>
 
 <p>Automate common re-usable chunks of CSS, properties, selectors, and/or settings.</p>
@@ -4417,6 +4577,10 @@ expected pixel value is for the element.</p>
 
 <p><em>JG... describe this!</em></p>
 
+<h2>Font face</h2>
+
+<p><em>MK... describe this!</em></p>
+
 <h2>Font size</h2>
 
 <p>Sets a <code>font-size</code> using <code>rems</code> with a pixel fall back.</p>
@@ -4516,6 +4680,18 @@ to true.</p>
 <p><strong>Heads Up!</strong> <code>scaffold.sass</code> automatically sets up a <code>.ir</code> class that
 extends the <code>%ir</code> placeholder.</p>
 
+<h2>Opacity</h2>
+
+<p>Provides cross browser opacity, values are between <code>0-1</code>.</p>
+
+<h5>Arguments</h5>
+
+<ul>
+<li><code>$alpha:1</code></li>
+</ul>
+<div class="highlight"><pre><span class="nc">.element</span>
+  <span class="nd">+opacity</span><span class="p">(</span><span class="mi">0</span><span class="mf">.5</span><span class="p">)</span>
+</pre></div>
 <h2>Responsive</h2>
 
 <p>Mixins for creating responsive behavior around structures and layouts.</p>
@@ -4901,7 +5077,7 @@ elements toggle event.</p>
 <p><code>Modal</code> utilizes <code>Triggerable</code> via composition.</p>
 
 <h2>Style Settings</h2>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/modal/modal</span>
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/modal</span>
 </pre></div>
 <p>To override the default settings, set the variable and it&#39;s value
 within your <code>config.sass</code> file or before <code>modal.sass</code> is loaded.</p>
@@ -5072,7 +5248,7 @@ navbar displays.</p>
 <p>Need to implement this</p>
 
 <h2>Style Settings</h2>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/navbar/navbar</span>
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/navbar</span>
 </pre></div>
 <p>To override the default settings, set the variable and it&#39;s value within
 your <code>config.sass</code> file or before <code>navbar.sass</code> is loaded.</p>
@@ -5118,7 +5294,7 @@ more consistently and in line with modern standards.</p>
 <p>This should appear right after compass, bourbon or the polyfills load, but before any
 specific styles are imported. This module operates on top level elements
 and inserts them directly into your style sheet.</p>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/normalize/normalize</span>
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/normalize</span>
 </pre></div></section>
       <a name='notification'></a>
       <section class='docomo-section'><h1>Notification</h1>
@@ -5235,7 +5411,7 @@ align one of these containers to the right, simply add the modifier
 class <code>.notify-right</code>.</p>
 
 <h2>Style Settings</h2>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/notification/notification</span>
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/notification</span>
 </pre></div>
 <p>To override the default settings, set the variable and it&#39;s value within
 your <code>config.sass</code> file or before <code>notification.sass</code> is loaded.</p>
@@ -5366,7 +5542,7 @@ blown pagination system isn&#39;t required.</p>
 <p>To disable a pager, add the <code>disabled</code> class to the <code>a</code> element&#39;s parent <code>li</code>.</p>
 
 <h2>Style Settings</h2>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/pager/pager</span>
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/pager</span>
 </pre></div>
 <p>To override the default settings, set the variable and it&#39;s value
 within your <code>config.sass</code> file or before <code>pager.sass</code> is loaded.</p>
@@ -5512,7 +5688,7 @@ pagination navigation. The list should contain the <code>.nav</code> class.</p>
 </pre></div></p>
 
 <h2>Style Settings</h2>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/pagination/pagination</span>
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/pagination</span>
 </pre></div>
 <p>To override the default settings, set the variable and it&#39;s value within
 your <code>config.sass</code> file or before <code>pagination.sass</code> is loaded.</p>
@@ -5652,7 +5828,7 @@ the related targets panel.</p>
 </pre></div></p>
 
 <h2>Style Settings</h2>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/pill/pill</span>
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/pill</span>
 </pre></div>
 <p>To override the default settings, set the variable and it&#39;s value within
 your <code>config.sass</code> file or before <code>pill.sass</code> is loaded.</p>
@@ -5762,11 +5938,22 @@ your <code>config.sass</code> file or before <code>pill.sass</code> is loaded.</
 </pre></div></p>
 
 <h2>Style Settings</h2>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/pill/pill</span>
-<span class="k">@import</span> <span class="s">utensils/pill_stacked/pill_stacked</span>
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/pill</span>
+<span class="k">@import</span> <span class="s">utensils/pill_stacked</span>
 </pre></div>
 <p>All style settings are inherited from <code>pill.sass</code>.</p></section>
-      <a name='polyfill'></a>
+      <a name='polyfill_placeholder'></a>
+      <section class='docomo-section'><h1>Placeholder Polyfill</h1>
+
+<p>Polyfills <code>&lt;input&gt;</code> placeholder attribute functionality for IE 9 and below (and other dinosaurs).</p>
+
+<h2>Todo</h2>
+
+<ul>
+<li>Document</li>
+<li>Test</li>
+</ul></section>
+      <a name='polyfills'></a>
       <section class='docomo-section'><h1>Polyfill</h1>
 
 <p>Most projects benefit greatly from using a library like
@@ -5840,18 +6027,6 @@ shadow parameters)</p>
 <div class="highlight"><pre><span class="nc">.column</span>
   <span class="nd">+box-sizing</span><span class="p">(</span><span class="no">border</span><span class="o">-</span><span class="n">box</span><span class="p">)</span>
 </pre></div>
-<h2>Opacity</h2>
-
-<p>Provides cross browser opacity, values are between <code>0-1</code>.</p>
-
-<h5>Arguments</h5>
-
-<ul>
-<li><code>$alpha:1</code></li>
-</ul>
-<div class="highlight"><pre><span class="nc">.element</span>
-  <span class="nd">+opacity</span><span class="p">(</span><span class="mi">0</span><span class="mf">.5</span><span class="p">)</span>
-</pre></div>
 <h2>Transition</h2>
 
 <p>Adds vendor prefixes for transitions (supports up to 9 transition
@@ -5877,17 +6052,6 @@ parameters)</p>
 <div class="highlight"><pre><span class="nc">.cant-touch-this</span>
   <span class="nd">+user-select</span><span class="p">(</span><span class="no">none</span><span class="p">)</span>
 </pre></div></section>
-      <a name='polyfill_placeholder'></a>
-      <section class='docomo-section'><h1>Placeholder Polyfill</h1>
-
-<p>Polyfills <code>&lt;input&gt;</code> placeholder attribute functionality for IE 9 and below (and other dinosaurs).</p>
-
-<h2>Todo</h2>
-
-<ul>
-<li>Document</li>
-<li>Test</li>
-</ul></section>
       <a name='pop'></a>
       <section class='docomo-section'><h1>Pop</h1>
 
@@ -6065,7 +6229,7 @@ elements toggle event.</p>
 <p><code>Pop</code> utilizes <code>Triggerable</code> via composition.</p>
 
 <h2>Style Settings</h2>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/pop/pop</span>
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/pop</span>
 </pre></div>
 <p>To override the default settings, set the variable and it&#39;s value
 within your <code>config.sass</code> file or before <code>pop.sass</code> is loaded.</p>
@@ -6148,7 +6312,7 @@ value before this file is imported, this is done to keep managing
 <p>A very basic print style sheet based off settings outlined by <a target="_blank" href="http://html5boilerplate.com/" title="">HTML5
 Boilerplate</a>. Styles are associated with
 the <code>@media print</code> query.</p>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/print/print</span>
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/print</span>
 </pre></div></section>
       <a name='progress'></a>
       <section class='docomo-section'><h1>Progress</h1>
@@ -6240,7 +6404,7 @@ random number between <code>0-100</code>.</p>
 <div class="highlight"><pre><span class="nx">utensils</span><span class="o">/</span><span class="nx">utensils</span>
 </pre></div>
 <h2>Style Settings</h2>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/progress/progress</span>
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/progress</span>
 </pre></div>
 <p>To override the default settings, set the variable and it&#39;s value
 within your <code>config.sass</code> file or before <code>progress.sass</code> is loaded.</p>
@@ -6406,7 +6570,7 @@ the scaffold.</p>
 </tbody></table>
 
 <h2>Style Settings</h2>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/scaffold/scaffold</span>
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/scaffold</span>
 </pre></div>
 <p>To override the default settings, set the variable and it&#39;s value
 within your <code>config.sass</code> file or before <code>scaffold.sass</code> is loaded.</p>
@@ -6656,7 +6820,7 @@ a <code>tab:deactivated</code> event.</p>
 <p><code>Tab</code> utilizes <code>ToggleGroup</code> via composition.</p>
 
 <h2>Style Settings</h2>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/tab/tab</span>
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/tab</span>
 </pre></div>
 <p>To override the default settings, set the variable and it&#39;s value within
 your <code>config.sass</code> file or before <code>tab.sass</code> is loaded.</p>
@@ -6771,8 +6935,8 @@ your <code>config.sass</code> file or before <code>tab.sass</code> is loaded.</p
 </pre></div></p>
 
 <h2>Style Settings</h2>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/tab/tab</span>
-<span class="k">@import</span> <span class="s">utensils/tab_stacked/tab_stacked</span>
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/tab</span>
+<span class="k">@import</span> <span class="s">utensils/tab_stacked</span>
 </pre></div>
 <p>All style settings are inherited from <code>tab.sass</code>.</p></section>
       <a name='table'></a>
@@ -6986,7 +7150,7 @@ the box. To include these, setup a <code>$table-status-list</code> variable with
 the associated classes and color values.</p>
 
 <h2>Style Settings</h2>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/table/table</span>
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/table</span>
 </pre></div>
 <p>To override the default settings, set the variable and it&#39;s value
 within your <code>config.sass</code> file or before <code>table.sass</code> is loaded.</p>
@@ -7234,7 +7398,7 @@ elements toggle event.</p>
 <p><code>Tip</code> utilizes <code>Triggerable</code> via composition.</p>
 
 <h2>Style Settings</h2>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/tip/tip</span>
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/tip</span>
 </pre></div>
 <p>To override the default settings, set the variable and it&#39;s value
 within your <code>config.sass</code> file or before <code>tip.sass</code> is loaded.</p>
@@ -7709,7 +7873,7 @@ that work across browsers and devices.</p>
 </tbody></table>
 
 <h2>Style Settings</h2>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/transition/transition</span>
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/transition</span>
 </pre></div>
 <p>To override the default settings, set the variable and it&#39;s value
 within your <code>config.sass</code> file or before <code>transition.sass</code> is loaded.</p>
@@ -7760,20 +7924,20 @@ a class instance.</p>
 <span class="k">class</span> <span class="nx">utensils</span><span class="p">.</span><span class="nx">MockClass</span>
   <span class="nv">constructor: </span><span class="nf">(@el, @data) -&gt;</span>
     <span class="vi">@triggerable = </span><span class="k">new</span> <span class="nx">utensils</span><span class="p">.</span><span class="nx">Triggerable</span> <span class="nx">@el</span><span class="p">,</span> <span class="nx">@data</span>
-    <span class="nx">@triggerable</span><span class="p">.</span><span class="nx">dispatcher</span><span class="p">.</span><span class="kc">on</span> <span class="s">&#39;triggerable:activate&#39;</span><span class="p">,</span> <span class="o">=&gt;</span> <span class="nx">@activated</span> <span class="nx">arguments</span><span class="p">...</span>
-    <span class="nx">@triggerable</span><span class="p">.</span><span class="nx">dispatcher</span><span class="p">.</span><span class="kc">on</span> <span class="s">&#39;triggerable:deactivate&#39;</span><span class="p">,</span> <span class="o">=&gt;</span> <span class="nx">@deactivated</span> <span class="nx">arguments</span><span class="p">...</span>
+    <span class="nx">@triggerable</span><span class="p">.</span><span class="nx">dispatcher</span><span class="p">.</span><span class="nx">on</span> <span class="s">&#39;triggerable:activate&#39;</span><span class="p">,</span> <span class="o">=&gt;</span> <span class="nx">@activated</span> <span class="nx">arguments</span><span class="p">...</span>
+    <span class="nx">@triggerable</span><span class="p">.</span><span class="nx">dispatcher</span><span class="p">.</span><span class="nx">on</span> <span class="s">&#39;triggerable:deactivate&#39;</span><span class="p">,</span> <span class="o">=&gt;</span> <span class="nx">@deactivated</span> <span class="nx">arguments</span><span class="p">...</span>
 
-  <span class="nv">toggle: </span><span class="o">-&gt;</span>
+  <span class="nv">toggle: </span><span class="nf">-&gt;</span>
     <span class="nx">@triggerable</span><span class="p">.</span><span class="nx">toggle</span> <span class="nv">target: </span><span class="nx">@el</span>
 
-  <span class="nv">activate: </span><span class="o">-&gt;</span>
+  <span class="nv">activate: </span><span class="nf">-&gt;</span>
     <span class="nx">@triggerable</span><span class="p">.</span><span class="nx">activate</span> <span class="nv">target: </span><span class="nx">@el</span>
 
-  <span class="nv">deactivate: </span><span class="o">-&gt;</span>
+  <span class="nv">deactivate: </span><span class="nf">-&gt;</span>
     <span class="nx">@triggerable</span><span class="p">.</span><span class="nx">deactivate</span> <span class="nv">target: </span><span class="nx">@el</span>
 
-  <span class="nv">dispose: </span><span class="o">-&gt;</span>
-    <span class="k">return</span> <span class="nx">unless</span> <span class="nx">@triggerable</span>
+  <span class="nv">dispose: </span><span class="nf">-&gt;</span>
+    <span class="k">return</span> <span class="k">unless</span> <span class="nx">@triggerable</span>
     <span class="nx">@removeListeners</span><span class="p">()</span>
     <span class="nx">@triggerable</span><span class="p">.</span><span class="nx">dispose</span><span class="p">()</span>
     <span class="vi">@triggerable = </span><span class="kc">null</span>
@@ -8372,7 +8536,7 @@ variables.</p>
 </pre></div></p>
 
 <h2>Style Settings</h2>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/typography/typography</span>
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/typography</span>
 </pre></div>
 <p>To override the default settings, set the variable and it&#39;s value within
 your <code>config.sass</code> file or before <code>typography.sass</code> is loaded.</p>
@@ -8510,7 +8674,7 @@ default behavior is actually <code>position:absolute</code>. This is for
 convenience only so there is no need to scroll to the top of the page.</p>
 
 <h2>Style Settings</h2>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/upgrade/upgrade</span>
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/upgrade</span>
 </pre></div>
 <p>To override the default settings, set the variable and it&#39;s value
 within your <code>config.sass</code> file or before <code>upgrade.sass</code> is loaded.</p>
@@ -8531,6 +8695,11 @@ within your <code>config.sass</code> file or before <code>upgrade.sass</code> is
 <td><code>$upgrade-bgc</code></td>
 <td><code>$danger</code></td>
 <td>The <code>background-color</code> of the notification</td>
+</tr>
+<tr>
+<td><code>$dinosaur-class</code></td>
+<td><code>dinosaur</code></td>
+<td>The class attached to the html element for older unsupported browsers</td>
 </tr>
 </tbody></table></section>
       <a name='utensils'></a>
@@ -8557,7 +8726,7 @@ great with form layouts.</p>
 </pre></div></p>
 
 <h2>Style Settings</h2>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/well/well</span>
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/well</span>
 </pre></div>
 <p>To override the default settings, set the variable and it&#39;s value
 within your <code>config.sass</code> file or before <code>well.sass</code> is loaded.</p>
