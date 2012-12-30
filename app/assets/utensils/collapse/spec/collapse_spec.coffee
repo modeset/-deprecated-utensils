@@ -28,7 +28,7 @@ describe 'Collapse', ->
     @check = new utensils.Collapse(@check_el)
     @external = new utensils.Collapse(@external_el)
 
-  xdescribe 'binding', ->
+  describe 'binding', ->
     it 'is registered in bindable', ->
       expect(utensils.Bindable.getClass('collapse')).toEqual(utensils.Collapse)
 

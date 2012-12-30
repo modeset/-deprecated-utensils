@@ -38,7 +38,7 @@ describe 'Pop', ->
     $('.pop').remove()
 
 
-  xdescribe 'binding', ->
+  describe 'binding', ->
     it 'is registered in bindable', ->
       expect(utensils.Bindable.getClass('pop')).toEqual(utensils.Pop)
 

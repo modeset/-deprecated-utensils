@@ -33,7 +33,7 @@ describe 'Modal', ->
     @body.find('.modal-backdrop').remove()
 
 
-  xdescribe 'binding', ->
+  describe 'binding', ->
     it 'is registered in bindable', ->
       expect(utensils.Bindable.getClass('modal')).toEqual(utensils.Modal)
 

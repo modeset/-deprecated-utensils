@@ -17,7 +17,7 @@ describe 'Carousel', ->
     @carousel = new utensils.Carousel(@carousel_el)
 
 
-  xdescribe 'binding', ->
+  describe 'binding', ->
     it 'is registered in bindable', ->
       expect(utensils.Bindable.getClass('carousel')).toEqual(utensils.Carousel)
 

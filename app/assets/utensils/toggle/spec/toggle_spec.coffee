@@ -25,7 +25,7 @@ describe 'Toggle', ->
     @auto = new utensils.Toggle(@auto_el)
 
 
-  xdescribe 'binding', ->
+  describe 'binding', ->
     it 'is registered in bindable', ->
       expect(utensils.Bindable.getClass('toggle')).toEqual(utensils.Toggle)
 

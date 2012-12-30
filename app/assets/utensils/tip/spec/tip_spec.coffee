@@ -31,7 +31,7 @@ describe 'Tip', ->
     $('.tip').remove()
 
 
-  xdescribe 'binding', ->
+  describe 'binding', ->
     it 'is registered in bindable', ->
       expect(utensils.Bindable.getClass('tip')).toEqual(utensils.Tip)
 
