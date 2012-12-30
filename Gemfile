@@ -3,7 +3,7 @@ source "http://rubygems.org"
 gemspec
 
 # Used by the dummy application
-gem 'docomo', git: 'git@github.com:modeset/docomo.git'
+gem 'docomo', git: 'https://github.com/modeset/docomo.git'
 gem 'rails', '>= 3.2.5'
 gem 'teabag', '>= 0.4.5'
 
