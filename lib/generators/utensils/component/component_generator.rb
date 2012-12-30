@@ -15,6 +15,7 @@ class Utensils::ComponentGenerator < Rails::Generators::NamedBase
   end
 
   def create_sass
+    create_file "app/assets/components/#{file_name}/index.sass", "@import #{file_name}"
     create_file "app/assets/components/#{file_name}/_#{file_name}.sass", ".#{file_name}"
   end
 end
