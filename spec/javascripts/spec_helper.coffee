@@ -1,3 +1,3 @@
 #= require jquery.min
-#= require jasmine-jquery
+#= require support/jasmine-jquery
 
