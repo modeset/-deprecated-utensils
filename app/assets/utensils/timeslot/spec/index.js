@@ -1,1 +1,0 @@
-//= require ./timeslot_spec

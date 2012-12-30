@@ -15,8 +15,8 @@ describe 'Drop', ->
             <ul class="menu"><li><a href="#"</li></ul>
             """
 
-    loadFixtures('drop')
-    @dom = $('#jasmine-fixtures')
+    loadFixtures('drop/markup/drop')
+    @dom = $('#teabag-fixtures')
     @dom.append(extra)
 
     @default_el = @dom.find('#drop_nav_demo .drop:nth-child(1)')
@@ -34,7 +34,7 @@ describe 'Drop', ->
     @delay_drop = new utensils.Drop(@delay_el)
 
 
-  describe 'binding', ->
+  xdescribe 'binding', ->
     it 'is registered in bindable', ->
       expect(utensils.Bindable.getClass('drop')).toEqual(utensils.Drop)
 

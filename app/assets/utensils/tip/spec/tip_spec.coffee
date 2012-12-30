@@ -9,8 +9,8 @@ describe 'Tip', ->
             <a id="overrides" data-toggle="active" data-trigger="click" data-effect="move" data-target="#jasmine-fixtures" data-title="The Overrides Tip">Overrides</a>
             """
 
-    loadFixtures('tip')
-    @dom = $('#jasmine-fixtures')
+    loadFixtures('tip/markup/tip')
+    @dom = $('#teabag-fixtures')
     @dom.append(extra)
 
     @north_el = @dom.find('#north_tip')
@@ -31,7 +31,7 @@ describe 'Tip', ->
     $('.tip').remove()
 
 
-  describe 'binding', ->
+  xdescribe 'binding', ->
     it 'is registered in bindable', ->
       expect(utensils.Bindable.getClass('tip')).toEqual(utensils.Tip)
 

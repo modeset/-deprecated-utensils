@@ -1,1 +1,0 @@
-//= require ./beacon_spec

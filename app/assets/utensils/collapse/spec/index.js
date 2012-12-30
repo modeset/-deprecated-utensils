@@ -1,1 +1,0 @@
-//= require ./collapse_spec

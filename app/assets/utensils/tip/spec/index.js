@@ -1,1 +1,0 @@
-//= require ./tip_spec

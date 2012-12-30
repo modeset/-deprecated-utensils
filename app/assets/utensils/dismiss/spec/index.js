@@ -1,1 +1,0 @@
-//= require ./dismiss_spec

@@ -10,8 +10,8 @@ describe 'Pop', ->
             <a id="auto_activated" data-title="The Active Pop" data-content="The content" data-activate="true">Auto Activated</a>
             """
 
-    loadFixtures('pop')
-    @dom = $('#jasmine-fixtures')
+    loadFixtures('pop/markup/pop')
+    @dom = $('#teabag-fixtures')
     @dom.append(extra)
 
     @north_el = @dom.find('#pop_north')
@@ -38,7 +38,7 @@ describe 'Pop', ->
     $('.pop').remove()
 
 
-  describe 'binding', ->
+  xdescribe 'binding', ->
     it 'is registered in bindable', ->
       expect(utensils.Bindable.getClass('pop')).toEqual(utensils.Pop)
 
