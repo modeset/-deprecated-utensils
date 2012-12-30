@@ -15,7 +15,7 @@ describe 'Beacon', ->
       duration: 50
       continuous: true
 
-    @dom = $('#teabag-fixtures')
+    @dom = $('#fixture')
     @window = $(window)
     @beacon = new utensils.Beacon(@window)
     @custom = new utensils.Beacon(@dom, data)

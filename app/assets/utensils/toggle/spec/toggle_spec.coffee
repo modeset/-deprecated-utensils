@@ -9,8 +9,8 @@ describe 'Toggle', ->
       @event = e
       @element = $(element)
 
-    loadFixtures('toggle/markup/toggle')
-    @dom = $('#teabag-fixtures')
+    fixture.load('toggle/markup/toggle')
+    @dom = $(fixture.el)
 
     @defaulter_el = @dom.find('#toggle_1')
     @hover_el = @dom.find('#toggle_2')

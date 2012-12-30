@@ -15,8 +15,8 @@ describe 'Modal', ->
             <button id="auto_activate" data-target="#modal_href" data-activate="true">Auto Activator</button>
             """
 
-    loadFixtures('modal/markup/modal')
-    @dom = $('#teabag-fixtures')
+    fixture.load('modal/markup/modal')
+    @dom = $(fixture.el)
     @dom.append(extra)
     @body = $('body')
 

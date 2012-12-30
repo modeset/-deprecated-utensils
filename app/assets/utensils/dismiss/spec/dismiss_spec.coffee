@@ -16,8 +16,8 @@ describe 'Dismiss', ->
             </div>
             """
 
-    loadFixtures('dismiss/markup/dismiss')
-    @dom = $('#teabag-fixtures')
+    fixture.load('dismiss/markup/dismiss')
+    @dom = $(fixture.el)
     @dom.append(extra)
 
     @alert_el = @dom.find('.notification:first-child')

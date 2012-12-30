@@ -9,8 +9,8 @@ describe 'Tip', ->
             <a id="overrides" data-toggle="active" data-trigger="click" data-effect="move" data-target="#jasmine-fixtures" data-title="The Overrides Tip">Overrides</a>
             """
 
-    loadFixtures('tip/markup/tip')
-    @dom = $('#teabag-fixtures')
+    fixture.load('tip/markup/tip')
+    @dom = $(fixture.el)
     @dom.append(extra)
 
     @north_el = @dom.find('#north_tip')
