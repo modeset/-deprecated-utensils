@@ -27,3 +27,5 @@ namespace :utensils do
     Docomo::Processor.new.render_to_file
   end
 end
+
+task :default => [:teabag]
