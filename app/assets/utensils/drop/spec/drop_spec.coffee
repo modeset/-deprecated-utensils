@@ -34,7 +34,7 @@ describe 'Drop', ->
     @delay_drop = new utensils.Drop(@delay_el)
 
 
-  describe 'binding', ->
+  xdescribe 'binding', ->
     it 'is registered in bindable', ->
       expect(utensils.Bindable.getClass('drop')).toEqual(utensils.Drop)
 

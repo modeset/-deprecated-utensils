@@ -48,7 +48,7 @@ describe 'Dismiss', ->
     @auto = new utensils.Dismiss(@auto_link)
 
 
-  describe 'binding', ->
+  xdescribe 'binding', ->
     it 'is registered in bindable', ->
       expect(utensils.Bindable.getClass('dismiss')).toEqual(utensils.Dismiss)
 

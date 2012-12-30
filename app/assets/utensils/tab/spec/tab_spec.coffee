@@ -18,7 +18,7 @@ describe 'Tab', ->
     @tab = new utensils.Tab(@tab_el)
 
 
-  describe 'binding', ->
+  xdescribe 'binding', ->
     it 'is registered in bindable', ->
       expect(utensils.Bindable.getClass('tab')).toEqual(utensils.Tab)
 
