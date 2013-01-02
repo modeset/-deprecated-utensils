@@ -11,7 +11,7 @@ class Utensils::ComponentGenerator < Rails::Generators::NamedBase
   end
 
   def create_coffee
-    create_file "app/assets/components/#{file_name}/#{file_name}.coffee", "class #{file_name.titleize}"
+    create_file "app/assets/components/#{file_name}/#{file_name}.coffee", "class #{file_name.camelize}"
   end
 
   def create_sass
