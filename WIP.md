@@ -1,7 +1,6 @@
 # Todo
 
 ## WIP
-- Retest the refactored collapse
 - Figure out a good way to deprecate polyfills
 - Deprecate box-shadow within all projects
 - Media queries (where needed)

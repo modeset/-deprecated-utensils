@@ -3,7 +3,7 @@
 #= require utensils/detect
 
 class utensils.Collapse
-  constructor: (@el, data = {}) ->
+  constructor: (@el, data) ->
     @data = if data then data else @el.data()
     @options()
     @initialize()
@@ -29,7 +29,30 @@ class utensils.Collapse
     @toggler = @el.find(@selector)
     @cache = {}
 
+
 # PUBLIC #
+
+  activate: (toggle) ->
+    toggle.parent.addClass('active')
+    scroll = if @dimension is 'width' then 'scrollWidth' else 'scrollHeight'
+    toggle.panel[@dimension](0)
+    @transition(toggle.panel, 'addClass', 'show', 'shown')
+    utensils.Detect.hasTransition && toggle.panel[@dimension](toggle.panel[0]?[scroll])
+
+
+  deactivate: (toggle) ->
+    toggle.parent.removeClass('active')
+    @reset(toggle.panel, toggle.panel[@dimension]())
+    @transition(toggle.panel, 'removeClass', 'hide', 'hidden')
+    toggle.panel[@dimension](0)
+
+
+  deactivateAll: ->
+    for toggle in @toggler
+      link = $(toggle).closest('.collapse-toggle,.accordion-toggle')
+      curToggle = @getPanelAndParent(link)
+      @deactivate(curToggle)
+
 
   activateIndex: (index) ->
     toggleItem = $(@toggler[index])
@@ -46,6 +69,8 @@ class utensils.Collapse
   dispose: ->
     return unless @toggler
     @removeListeners()
+    @toggler = null
+
 
 # PROTECTED #
 
@@ -74,28 +99,6 @@ class utensils.Collapse
         panel: $(selector)
         parent: link.parent()
     @cache[selector]
-
-
-  activate: (toggle) ->
-    toggle.parent.addClass('active')
-    scroll = if @dimension is 'width' then 'scrollWidth' else 'scrollHeight'
-    toggle.panel[@dimension](0)
-    @transition(toggle.panel, 'addClass', 'show', 'shown')
-    utensils.Detect.hasTransition && toggle.panel[@dimension](toggle.panel[0]?[scroll])
-
-
-  deactivate: (toggle) ->
-    toggle.parent.removeClass('active')
-    @reset(toggle.panel, toggle.panel[@dimension]())
-    @transition(toggle.panel, 'removeClass', 'hide', 'hidden')
-    toggle.panel[@dimension](0)
-
-
-  deactivateAll: ->
-    for toggle in @toggler
-      link = $(toggle).closest('.collapse-toggle,.accordion-toggle')
-      curToggle = @getPanelAndParent(link)
-      @deactivate(curToggle)
 
 
   reset: (panel, size) ->

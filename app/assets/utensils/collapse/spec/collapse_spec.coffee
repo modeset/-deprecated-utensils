@@ -14,7 +14,7 @@ describe 'Collapse', ->
     @dom = $(fixture.el)
 
     @collapse_el = @dom.find('[href=#collapse_height]')
-    @auto_el = @dom.find('[data-target=#collapse_auto]')
+    @auto_el = @dom.find('[href=#collapse_auto]')
     @collapse_panel = @dom.find('#collapse_height')
     @auto_panel = @dom.find('#collapse_auto')
 
@@ -22,11 +22,12 @@ describe 'Collapse', ->
     @check_el = @dom.find('#collapse_checkbox')
     @external_el = @dom.find('#collapse_external')
 
-    @collapse = new utensils.Collapse(@collapse_el)
-    @auto = new utensils.Collapse(@auto_el)
+    @collapse = new utensils.Collapse(@collapse_el.parent())
+    @auto = new utensils.Collapse(@auto_el.parent())
     @radio = new utensils.Collapse(@radio_el)
     @check = new utensils.Collapse(@check_el)
     @external = new utensils.Collapse(@external_el)
+
 
   describe 'binding', ->
     it 'is registered in bindable', ->
@@ -37,11 +38,11 @@ describe 'Collapse', ->
     it 'sets up a data object', ->
       expect(@collapse.data).toBeDefined()
 
-    xit 'auto activates an element from a data attribute for a single collapse', ->
-      expect(@auto_el).toHaveClass('active')
+    it 'auto activates an element from a data attribute for a single collapse', ->
+      expect(@auto_el.parent()).toHaveClass('active')
       expect(@auto_panel).toHaveClass('in')
 
-    xit 'auto activates an element from a data attribute for a group collapse', ->
+    it 'auto activates an element from a data attribute for a group collapse', ->
       expect(@radio_el.find('li:first-child')).toHaveClass('active')
       expect(@radio_el.find('#collapse_radio_1')).toHaveClass('in')
 
@@ -53,6 +54,15 @@ describe 'Collapse', ->
     it 'sets the default data.dimension', ->
       expect(@collapse.data.dimension).toEqual('height')
 
+    it 'sets the default data.behavior', ->
+      expect(@radio.data.behavior).toEqual('radio')
+
+    it 'sets the overrides data.behavior', ->
+      expect(@check.data.behavior).toEqual('checkbox')
+
+    it 'sets up a default selector list', ->
+      expect(@check.data.selector).toContain('.collapse-toggle')
+
 
   describe '#initialize', ->
     it 'sets default namespace', ->
@@ -61,85 +71,119 @@ describe 'Collapse', ->
     it 'sets default dimension', ->
       expect(@collapse.dimension).toEqual('height')
 
+    it 'sets the default behavior', ->
+      expect(@radio.behavior).toEqual('radio')
 
-  xdescribe '#activate', ->
-    it 'calls the #activateIndex method on the toggler for a single collapse', ->
-      spyEvent = spyOn(@collapse.toggler, 'activateIndex')
-      @collapse.activateIndex()
-      expect(spyEvent).toHaveBeenCalled()
+    it 'sets the overrides behavior', ->
+      expect(@check.behavior).toEqual('checkbox')
 
-    it 'opens the panel on a public call to #activate for a single collapse', ->
+    it 'sets up a default selector list', ->
+      expect(@check.selector).toContain('.collapse-toggle')
+
+    it 'finds a toggler element based on a selector', ->
+      expect(@radio.toggler).toBe(@radio_el.find('> li > .collapse-toggle'))
+
+
+  describe '#activate', ->
+    it 'opens the panel for a single collapse element', ->
       expect(@collapse_panel).not.toHaveClass('in')
-      @collapse.activate()
+      @collapse_el.click()
       expect(@collapse_panel).toHaveClass('in')
 
-    xit 'calls the #activate method on the toggler for a group collapse', ->
-      spyEvent = spyOn(@check.toggler, 'activate')
-      @check.activate(1)
+    it 'calls the #activate method for a check group collapse', ->
+      spyEvent = spyOn(@check, 'activate')
+      @check_el.find('.collapse-toggle').first().click()
       expect(spyEvent).toHaveBeenCalled()
 
-    it 'opens the panel on a public call to #activate for a group collapse', ->
+    it 'opens the panel on a click for a check group collapse', ->
       panel = @check_el.find('#collapse_check_1')
       expect(panel).not.toHaveClass('in')
-      @check.activate(0)
+      @check_el.find('.collapse-toggle').first().click()
       expect(panel).toHaveClass('in')
 
+    it 'opens the panel for a radio group collapse', ->
+      panel = @radio_el.find('#collapse_radio_2')
+      expect(panel).not.toHaveClass('in')
+      @radio_el.find('li:nth-child(2) > a').click()
+      expect(panel).toHaveClass('in')
 
-  xdescribe '#deactivate', ->
-    it 'calls the #deactivate method on the toggler for a single collapse', ->
-      spyEvent = spyOn(@collapse.toggler, 'deactivate')
-      @collapse.deactivate()
-      expect(spyEvent).toHaveBeenCalled()
+    it 'closes the panel for a radio group collapse', ->
+      panel1 = @radio_el.find('#collapse_radio_1')
+      panel2 = @radio_el.find('#collapse_radio_2')
+      expect(panel1).toHaveClass('in')
+      expect(panel2).not.toHaveClass('in')
+      @radio_el.find('li:nth-child(2) > a').click()
+      expect(panel1).not.toHaveClass('in')
+      expect(panel2).toHaveClass('in')
 
-    it 'closes the panel on a public call to #deactivate for a single collapse', ->
+
+  describe '#deactivate', ->
+    it 'closes the panel for a single collapse element', ->
       expect(@auto_panel).toHaveClass('in')
-      @auto.deactivate()
-      expect(@auto_el).not.toHaveClass('active')
+      @auto_el.click()
       expect(@auto_panel).not.toHaveClass('in')
 
-    it 'calls the #deactivate method on the toggler for a group collapse', ->
-      @check.activate(0)
-      spyEvent = spyOn(@check.toggler, 'deactivate')
-      @check.deactivate(0)
+    it 'calls the #deactivate method for a check group collapse', ->
+      spyEvent = spyOn(@check, 'deactivate')
+      @check_el.find('.collapse-toggle').first().click()
+      @check_el.find('.collapse-toggle').first().click()
       expect(spyEvent).toHaveBeenCalled()
 
-    it 'closes the panel on a public call to #deactivate for a group collapse', ->
+    it 'closes the panel on a click for a check group collapse', ->
       panel = @check_el.find('#collapse_check_1')
       expect(panel).not.toHaveClass('in')
-      @check.activate(0)
+      @check_el.find('.collapse-toggle').first().click()
       expect(panel).toHaveClass('in')
-      @check.deactivate(0)
+      @check_el.find('.collapse-toggle').first().click()
+      expect(panel).not.toHaveClass('in')
+
+    it 'does not close the panel for a radio group collapse that is active', ->
+      panel = @radio_el.find('#collapse_radio_2')
+      expect(panel).not.toHaveClass('in')
+      @radio_el.find('li:nth-child(2) > a').click()
+      expect(panel).toHaveClass('in')
+      @radio_el.find('li:nth-child(2) > a').click()
+      expect(panel).toHaveClass('in')
+
+
+  describe '#deactivateAll', ->
+    it 'closes all open panels for a check group', ->
+      panel1 = @check_el.find('#collapse_check_1')
+      panel2 = @check_el.find('#collapse_check_2')
+      @check_el.find('li:nth-child(1) > a').click()
+      expect(panel1).toHaveClass('in')
+      expect(panel2).toHaveClass('in')
+      @check.deactivateAll()
+      expect(panel1).not.toHaveClass('in')
+      expect(panel2).not.toHaveClass('in')
+
+
+  describe '#activateIndex', ->
+    it 'activates through a passed number', ->
+      panel = @check_el.find('#collapse_check_1')
+      expect(panel).not.toHaveClass('in')
+      @check.activateIndex(0)
+      expect(panel).toHaveClass('in')
+
+
+  describe '#deactivateIndex', ->
+    it 'deactivates through a passed number', ->
+      panel = @check_el.find('#collapse_check_2')
+      expect(panel).toHaveClass('in')
+      @check.deactivateIndex(1)
       expect(panel).not.toHaveClass('in')
 
 
-  xdescribe '#dispose', ->
+  describe '#dispose', ->
     it 'removes its own listeners for a single collapse', ->
       spyEvent = spyOn(@collapse, 'removeListeners')
       @collapse.dispose()
       expect(spyEvent).toHaveBeenCalled()
 
-    it 'calls through #dispose on the "Toggle" instance for a single collapse', ->
-      spyEvent = spyOn(@collapse.toggler, 'dispose')
-      @collapse.dispose()
-      expect(spyEvent).toHaveBeenCalled()
-
-    it 'sets the instance of "Toggle" to null for a single collapse', ->
-      @collapse.dispose()
-      expect(@collapse.toggler).toBeNull()
-
     it 'removes its own listeners for a group collapse', ->
       spyEvent = spyOn(@check, 'removeListeners')
       @check.dispose()
       expect(spyEvent).toHaveBeenCalled()
-
-    it 'calls through #dispose on the "ToggleGroup" instance for a group collapse', ->
-      spyEvent = spyOn(@check.toggler, 'dispose')
-      @check.dispose()
-      expect(spyEvent).toHaveBeenCalled()
-
-    it 'sets the instance of "ToggleGroup" to null for a group collapse', ->
-      @radio.dispose()
-      expect(@radio.toggler).toBeNull()
 
     it 'does not freak out when calling multiple disposals', ->
       @radio.dispose()
@@ -147,45 +191,41 @@ describe 'Collapse', ->
       expect(@radio.dispose).not.toThrow()
 
 
-  xdescribe '#addListeners', ->
+  describe '#addListeners', ->
     it 'adds a listener for "click" event for a single collapse', ->
-      spyEvent = spyOn(@collapse, 'activated')
+      spyEvent = spyOn(@collapse, 'triggered')
       @collapse_el.click()
       expect(spyEvent).toHaveBeenCalled()
 
     it 'adds a listener for "click" event for a group collapse', ->
-      spyEvent = spyOn(@check, 'activated')
+      spyEvent = spyOn(@check, 'triggered')
       @check_el.find('li:first-child > a').click()
       expect(spyEvent).toHaveBeenCalled()
 
 
-  xdescribe '#removeListeners', ->
+  describe '#removeListeners', ->
     it 'removes a listener for "click" event for a single collapse', ->
-      spyEvent = spyOn(@collapse, 'activated')
+      spyEvent = spyOn(@collapse, 'triggered')
       @collapse.removeListeners()
       @collapse_el.click()
       expect(spyEvent).not.toHaveBeenCalled()
 
     it 'removes a listener for "click" event for a group collapse', ->
-      spyEvent = spyOn(@check, 'activated')
+      spyEvent = spyOn(@check, 'triggered')
       @check.removeListeners()
       @check_el.find('li:first-child > a').click()
       expect(spyEvent).not.toHaveBeenCalled()
 
 
-  xdescribe '#activated', ->
+  describe '#triggered', ->
     it 'expands the height of a collapse panel', ->
       @collapse_el.click()
       expect(@collapse_panel.height()).toBeGreaterThan(0)
 
-
-  xdescribe '#deactivated', ->
     it 'contracts the height of a collapse panel', ->
       @auto_el.click()
       expect(@auto_panel.height()).toBe(0)
 
-
-  xdescribe '#triggered', ->
     it 'triggers a group with radio behavior', ->
       link1 = @radio_el.find('li:nth-child(2) > a')
       link2 = @radio_el.find('li:nth-child(3) > a')
@@ -202,20 +242,18 @@ describe 'Collapse', ->
 
     it 'triggers a group with checkbox behavior', ->
       link1 = @check_el.find('li:first-child > a')
-      link2 = @check_el.find('li:nth-child(2) > a')
       panel1 = @check_el.find('#collapse_check_1')
       panel2 = @check_el.find('#collapse_check_2')
 
-      link1.click()
-      expect(panel1).toHaveClass('in')
-      expect(panel2).not.toHaveClass('in')
+      expect(panel1).not.toHaveClass('in')
+      expect(panel2).toHaveClass('in')
 
-      link2.click()
+      link1.click()
       expect(panel1).toHaveClass('in')
       expect(panel2).toHaveClass('in')
 
 
-  xdescribe '#reset', ->
+  describe '#reset', ->
     it 'resets the height of a panel', ->
       spyEvent = spyOn(@auto, 'reset')
       @auto_el.click()
@@ -223,7 +261,19 @@ describe 'Collapse', ->
       expect(@auto_panel.height()).toBe(0)
 
 
-  xdescribe '#transition', ->
+  describe '#getPanelAndParent', ->
+    it 'returns an object of a panel and parent for a given object', ->
+      obj = @collapse.getPanelAndParent(@collapse_el)
+      expect(obj.panel).toBe(@collapse_panel)
+      expect(obj.parent).toBe(@collapse_el.parent())
+
+    it 'caches a selection after being triggered', ->
+      expect(@check.cache['#collapse_check_2']).toBeDefined()
+      @check_el.find('li:first-child > a').click()
+      expect(@check.cache['#collapse_check_1']).toBeDefined()
+
+
+  describe '#transition', ->
     it 'transitions a panel when activated', ->
       spyEvent = spyOn(@collapse, 'transition')
       @collapse_el.click()
@@ -236,62 +286,34 @@ describe 'Collapse', ->
       expect(spyEvent).toHaveBeenCalled()
       expect(@auto_panel.height()).toBe(0)
 
-    it 'dispatches a start event for transitioning from the target for show', ->
-      @collapse.setTarget()
-      @collapse.target.on('collapse:show', => @noop arguments...)
+    it 'dispatches a start event for transitioning from the panel for show', ->
+      @collapse_panel.on('collapse:show', => @noop arguments...)
       spyEvent = spyOn(this, 'noop').andCallThrough()
       @collapse_el.click()
       expect(spyEvent).toHaveBeenCalled()
 
-    it 'dispatches a start event for transitioning from the target for hide', ->
+    it 'dispatches a start event for transitioning from the panel for hide', ->
       @collapse_el.click()
-      @collapse.target.on('collapse:hide', => @noop arguments...)
+      @collapse_panel.on('collapse:hide', => @noop arguments...)
       spyEvent = spyOn(this, 'noop').andCallThrough()
       @collapse_el.click()
       expect(spyEvent).toHaveBeenCalled()
 
-    it 'dispatches a complete event for transitioning from the target for shown', ->
+    it 'dispatches a complete event for transitioning from the panel for shown', ->
       orig = utensils.Detect.hasTransition
       utensils.Detect.hasTransition = false
-      @collapse.setTarget()
-      @collapse.target.on('collapse:shown', => @noop arguments...)
+      @collapse_panel.on('collapse:shown', => @noop arguments...)
       spyEvent = spyOn(this, 'noop').andCallThrough()
       @collapse_el.click()
       expect(spyEvent).toHaveBeenCalled()
       utensils.Detect.hasTransition = orig
 
-    it 'dispatches a complete event for transitioning from the target for hidden', ->
+    it 'dispatches a complete event for transitioning from the panel for hidden', ->
       orig = utensils.Detect.hasTransition
       utensils.Detect.hasTransition = false
-      @auto.target.on('collapse:hidden', => @noop arguments...)
+      @auto_panel.on('collapse:hidden', => @noop arguments...)
       spyEvent = spyOn(this, 'noop').andCallThrough()
       @auto_el.click()
       expect(spyEvent).toHaveBeenCalled()
       utensils.Detect.hasTransition = orig
-
-
-  xdescribe '#setTarget', ->
-    it 'sets the target from the href attribute', ->
-      @collapse.setTarget()
-      expect(@collapse.target).toBe(@collapse_panel)
-
-    it 'sets the target from the data-target attribute', ->
-      expect(@auto.target).toBe(@auto_panel)
-
-
-  xdescribe '#setGroupTarget', ->
-    it 'sets the target from the href attribute', ->
-      expect(@radio.target).toBe($('#collapse_radio_1'))
-
-    it 'sets the target from the data-target attribute', ->
-      link1 = @check_el.find('li:first-child > a')
-      panel1 = @check_el.find('#collapse_check_1')
-      link1.click()
-      expect(@check.target).toBe(panel1)
-
-    it 'finds the target when it using external panels', ->
-      link1 = @external_el.find('li:first-child > a')
-      panel1 = @dom.find('#collapse_external_1')
-      link1.click()
-      expect(@external.target).toBe(panel1)
 
