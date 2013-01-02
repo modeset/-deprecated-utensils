@@ -2,7 +2,7 @@
 Automate common re-usable chunks of CSS, properties, selectors, and/or settings.
 
 ```sass
-@import utensils/mixin/mixins
+@import utensils/mixin
 ```
 
 ## Arrows

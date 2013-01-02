@@ -106,7 +106,7 @@ input[type="number"],
 textarea
   +inline-block
   +box-sizing(border-box)
-  +box-shadow($form-inset-shadow)
+  box-shadow: $form-inset-shadow
   +font-size($base-font-size)
   background-color: $form-bgc
   border: 1px solid $form-border
@@ -216,7 +216,7 @@ input[type="file"],
 .input-bg,
 textarea
   &:focus
-    +box-shadow($form-inset-shadow, $form-focus-glow)
+    box-shadow: $form-inset-shadow, $form-focus-glow
     background-color: $form-focus-bgc
     outline: 0
 

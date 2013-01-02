@@ -10,7 +10,7 @@ If a project uses Compass or Bourbon, make sure not to import these
 polyfills.
 
 ```sass
-@import utensils/polyfill/polyfills
+@import utensils/polyfill
 ```
 
 ## Functions
@@ -18,7 +18,7 @@ Internal functions used by polyfills.
 
 ### Combine
 A function to combine and normalize multiple parameters (supports up to
-9), used by `transition`, `box-shadow` and `background-image`.
+9), used by `transition` and `background-image`.
 
 ##### Arguments
 - `$value-1` The first property to combine
@@ -44,19 +44,6 @@ old webkit linear gradient.
 ```sass
 .element
   +background-image(linear-gradient(#ff00ff, #000), url("/images/asset.png"))
-```
-
-
-## Box Shadow
-Draws an outer or inset shadow around an element (supports up to 9
-shadow parameters)
-
-##### Arguments
-- `$shadow-n` The normal or inset shadow properties to apply
-
-```sass
-.element
-  +box-shadow(inset 0 1px 1px rgba(0, 0, 0, 0.1), -1px -1px 5px 1px black)
 ```
 
 

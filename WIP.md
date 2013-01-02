@@ -1,8 +1,6 @@
 # Todo
 
 ## WIP
-- Figure out a good way to deprecate polyfills
-- Deprecate box-shadow within all projects
 - Media queries (where needed)
 - Indicator (flush this out more)
 - Test dinosaurs css and js (use from style guide)
