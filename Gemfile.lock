@@ -1,5 +1,5 @@
 GIT
-  remote: https://github.com/modeset/docomo.git
+  remote: git://github.com/modeset/docomo.git
   revision: 4944642656cde7ceda63d68c79c338cefcb3d532
   specs:
     docomo (0.0.1)

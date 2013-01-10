@@ -17,5 +17,9 @@ Gem::Specification.new do |s|
   s.add_dependency "railties", ">= 3.2.5"
   s.add_dependency "sass-rails"
   s.add_dependency "coffee-rails"
-  # s.add_dependency "jquery-rails"
+  s.add_development_dependency 'teabag', '>= 0.4.6'
+
+  # Used by the dummy application
+  s.add_development_dependency 'docomo'
+  s.add_development_dependency 'rails', '>= 3.2.5'
 end

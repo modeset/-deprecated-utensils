@@ -1,4 +1,9 @@
 source :rubygems
+
 gemspec
 
 gem 'docomo', github: 'modeset/docomo'
+
+group :test do
+  gem "phantomjs-linux"
+end
