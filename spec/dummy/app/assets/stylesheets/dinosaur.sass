@@ -1,52 +1,25 @@
-
 // Output configuration
 // -----------------------------------------------------------------------------
 $legacy-support-for-ie: true
 $legacy-support-for-ie8: $legacy-support-for-ie
-$support-for-original-webkit-gradients: true
-$experimental-support-for-mozilla: true
-$experimental-support-for-opera: true
-$experimental-support-for-microsoft: true
+$support-for-original-webkit-gradients: false
+$experimental-support-for-mozilla: false
+$experimental-support-for-opera: false
+$experimental-support-for-microsoft: false
 
-// Setup the configuration settings
-@import config
-
-// Override some of the settings
-$add-mixin-helpers: false
-$legacy-support-for-ie: true
-$legacy-support-for-ie8: $legacy-support-for-ie
-
-// Pick a library: compass, bourbon or underoos/polyfills
+// Pick a library: compass, bourbon or utensils/polyfills
 @import utensils/polyfills
-
-// Reset should be the first component
-@import utensils/normalize
-
-// Import the mixins
 @import utensils/mixins
 
 // Core base styles
+@import config
+@import utensils/normalize
 @import utensils/scaffold
-@import utensils/typography
 @import utensils/container
-
-@import utensils/well
-
+@import utensils/typography
 @import utensils/table
-@import utensils/form_controls
-
-@import utensils/button_group
-@import utensils/accordion
-@import utensils/breadcrumb
-@import utensils/pager
-@import utensils/pagination
-@import utensils/tab
-@import utensils/pill
-@import utensils/menu
-
 @import utensils/upgrade
 
-// This needs a home
 .upgrade-notifications,
 .upgrade-notifications .dinosaur-msg
   display: block

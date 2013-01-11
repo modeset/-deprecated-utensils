@@ -1,9 +1,9 @@
 # Todo
 
 ## WIP
-- Test dinosaurs css and js (use from style guide)
 - Add a doc toggle in the docs
 - Document what Utensils is
+- Trim out some of the options within scaffold
 - Indicator (flush this out more)
 - Configuration file for docomo?
 - Generators (templates, script, utensil, dinosaurs, polyfill, etc...)
