@@ -7,24 +7,16 @@ $experimental-support-for-mozilla: true
 $experimental-support-for-opera: true
 $experimental-support-for-microsoft: true
 
-
-// Setup the configuration settings
-@import config
-
-// Pick a library: compass, bourbon or underoos/polyfills
+// Pick a library: compass, bourbon or utensils/polyfills
 @import utensils/polyfills
-
-// Reset should be the first component
-@import utensils/normalize
-
-// Import the mixins
 @import utensils/mixins
 
 // Core base styles
+@import config
+@import utensils/normalize
 @import utensils/scaffold
 @import utensils/typography
 @import utensils/container
-
 @import utensils/transition
 @import utensils/collapse
 
@@ -35,11 +27,9 @@ $experimental-support-for-microsoft: true
 @import utensils/icon_paddle
 @import utensils/cursor_hand
 @import utensils/touch_scroller
-
 @import utensils/button_semigloss
 @import utensils/button_modifiers
 @import utensils/button_group
-
 @import utensils/table
 @import utensils/form_controls
 @import utensils/form_horizontal
@@ -47,10 +37,8 @@ $experimental-support-for-microsoft: true
 @import utensils/form_search
 @import utensils/form_stack
 @import utensils/content_editable
-
 @import utensils/drop
 @import utensils/menu
-
 @import utensils/accordion
 @import utensils/breadcrumb
 @import utensils/pager
@@ -59,14 +47,12 @@ $experimental-support-for-microsoft: true
 @import utensils/tab_stacked
 @import utensils/pill
 @import utensils/pill_stacked
-
 @import utensils/decal
 @import utensils/progress
 @import utensils/notification
 @import utensils/flash_message
 @import utensils/tip
 @import utensils/pop
-
 @import utensils/media_grid
 @import utensils/navbar
 @import utensils/carousel
