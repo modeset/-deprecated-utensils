@@ -1,5 +1,3 @@
-#= require jquery.min
-#= require application
 #= require docomo
 
 class docomo.Docs extends docomo.Docomo
@@ -145,7 +143,7 @@ class docomo.Docs extends docomo.Docomo
     $(templ)
 
 
-  templSpec: (url="/jasmine") ->
+  templSpec: (url="/teabag") ->
     templ = """
             <div id="jasmine_frame">
               <iframe frameborder="0" seamless="true" src="#{url}"></iframe>
