@@ -2,7 +2,6 @@
 
 ## WIP
 - Indicator (flush this out more)
-- Trim out some of the options within scaffold
 - Document what Utensils is
 - Configuration file for docomo?
 - Generators (templates, script, utensil, dinosaurs, polyfill, etc...)

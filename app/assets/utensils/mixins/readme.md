@@ -56,7 +56,7 @@ Mixin                | Usage
 `+base-row`          | The base `row` settings, should be extended by all rows
 
 _Warning!_ The column mixins all utilize `box-sizing: border-box` which
-is not supported in ie7
+is not fully supported in ie7
 
 Includes placeholder classes to be used via extension
 
@@ -92,24 +92,43 @@ _Warning!_ Define `$context_px`, `$base_font_size`, `$base_width` and
 `$base_vertical` prior to the functions being loaded.
 
 
+## Disable Tab Default
+Disables the highlight color for tapping on touch `webkit` devices
+
+```sass
+.element
+  +disable-tap-default
+```
+
+
 ## Float fill
 _JG... describe this!_
 
 
 ## Font face
-_MK... describe this!_
+One liner for adding a custom font to the mix for `.eot`, `.wof`,
+`.ttf`, `.svg` file types.
 
+Arguments         | Default   | Usage
+----------------- | --------- | ----------------------------------
+`$font-family`    | _none_    | The name of the font
+`$file-path`      | _none_    | The path to the file
+`$weight`         | `normal`  | The font weight
+`$style`          | `normal`  | The font style
+`$asset-pipeline` | `true`    | Default to using the asset pipeline syntax
+
+```sass
++font-face("GarageGothicBlack", "fonts/garagegothic-black-webfont")
+```
 
 
 ## Font size
 Sets a `font-size` using `rems` with a pixel fall back.
 
-Mixin              | Params                                | Usage
------------------- | ------------------------------------- | ----------------------------------------------
-`+font-size`       |  `$target-px`, `$context:$context-px` |  Renders the font with pixel and rem values
-
-- `$target-px` The target font size in pixels
-- `$context:$context-px` [_optional_] The context constraints of the user's base font size
+Arguments       | Default       | Usage
+--------------- | ------------- | ----------------------------------
+`$target-px`    | _none_        | The target font size in pixels
+$context`       | `$context-px` | The context constraints of the user's base font size
 
 **Heads Up!** Make sure _not_ to include the `px` postfix when passing a size
 
@@ -197,9 +216,6 @@ extends the `%ir` placeholder.
 ## Opacity
 Provides cross browser opacity, values are between `0-1`.
 
-##### Arguments
-- `$alpha:1`
-
 ```sass
 .element
   +opacity(0.5)
@@ -232,6 +248,10 @@ Requires the markup to contain a `.main`, `.content` and `.footer` elements.
         <!-- page content -->
   %footer.footer
     <!-- footer content -->
+```
+
+```sass
++sticky-footer(100px)
 ```
 
 
@@ -291,6 +311,18 @@ Property             | Example
 `$ease-in-out-circ`  | <div class="docomo-swatch ease-in-out-circ"></div>
 `$ease-in-out-back`  | <div class="docomo-swatch ease-in-out-back"></div>
 
+
+## User Select
+Define whether an element is selectable (only controls the appearance).
+
+Arguments       | Default       | Usage
+--------------- | ------------- | ----------------------------------
+`$type`    | `none`        | Options: `none`, `auto`, `text`
+
+```sass
+.cant-touch-this
+  +user-select(none)
+```
 
 ## Visibility
 Controls various visibility settings applied to elements.

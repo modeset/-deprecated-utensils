@@ -17,16 +17,11 @@ polyfills.
 Internal functions used by polyfills.
 
 ### Combine
-A function to combine and normalize multiple parameters (supports up to
-9), used by `transition` and `background-image`.
+A function to combine and normalize multiple parameters used by
+`transition` and `background-image`.
 
-##### Arguments
-- `$value-1` The first property to combine
-- `$value-2(-9)` Remaining properties to combine (defaults to `false`)
-- `@return` The combined values for translation into the mixin
-
-_Warning!_ The combine function for mixin values only accepts 9 values,
-this is inline with the Bourbon library (Compass supports 10!)
+Accepts a list of arguments to combine separated by a comma.
+Returns the combined values for translation into the mixin.
 
 ```sass
 $full: combine($transition-1, $transition-2, $transition-3)
@@ -34,12 +29,9 @@ $full: combine($transition-1, $transition-2, $transition-3)
 
 
 ## Background Image
-Draws a background image to an element, mainly used for gradients
-(supports up to 9 background image parameters) This does not support the
-old webkit linear gradient.
-
-##### Arguments
-- `$bgi-n` The background image properties to apply
+Draws a background image to an element, mainly used for gradients, by
+passing a list of comma separated values. This does not support the old
+webkit linear gradient.
 
 ```sass
 .element
@@ -50,8 +42,10 @@ old webkit linear gradient.
 ## Box Sizing
 Changes the box model used for calculating an elements width and height
 
-##### Arguments
-- `$type:border-box` Options: `content-box | border-box | inherit`
+Arguments       | Default       | Usage
+--------------- | ------------- | ----------------------------------
+`$type`        | `border-box`   | Options: `content-box`, `border-box`, `inherit`
+
 
 ```sass
 .column
@@ -60,26 +54,11 @@ Changes the box model used for calculating an elements width and height
 
 
 ## Transition
-Adds vendor prefixes for transitions (supports up to 9 transition
-parameters)
-
-##### Arguments
-- `$transition-n` The transition values to apply.
+Adds vendor prefixes for transitions utilizing a list of comma separated
+transition values.
 
 ```sass
 .element
   +transition(height $speed $ease-in-out-quart, color $speed)
-```
-
-
-## User Select
-Define whether an element is selectable (only controls the appearance).
-
-##### Arguments
-- `$type:none` Options: `none | auto | text`
-
-```sass
-.cant-touch-this
-  +user-select(none)
 ```
 
