@@ -139,6 +139,9 @@
           <a href='#image_util'>Image Util</a>
         </li>
         <li>
+          <a href='#indicator'>Indicator</a>
+        </li>
+        <li>
           <a href='#math_util'>Math Util</a>
         </li>
         <li>
@@ -4243,20 +4246,119 @@ and styles.</p>
                                                                   <li>Test</li>
                                                                   </ul>
                                                                 </section>
+      <a name='indicator'></a>
+      <section class='docomo-section'><h1>Indicator</h1>
+
+<p>Indicators are used primarily in carousels for navigation elements for
+cycling through slides. </p>
+
+<p>Indicators are instantiated through a carousel wrapper and inject the
+instance of the carousel to respond to. All public activity should
+still be handled via the carousel. Markup for a carousel is
+automatically generated via JavaScript.</p>
+
+<p><div class="docomo-showcase"><ul class='nav indication'>
+  <li><a href='#'>1</a></li>
+  <li><a href='#'>2</a></li>
+  <li><a href='#'>3</a></li>
+</ul>
+</div><div class="highlight"><pre><span class="nt">%ul</span><span class="nc">.nav.indication</span>
+  <span class="nt">%li</span>&lt;
+    <span class="nt">%a</span>(<span class="na">href=</span><span class="s">&quot;#&quot;</span>) 1
+  <span class="nt">%li</span>&lt;
+    <span class="nt">%a</span>(<span class="na">href=</span><span class="s">&quot;#&quot;</span>) 2
+  <span class="nt">%li</span>&lt;
+    <span class="nt">%a</span>(<span class="na">href=</span><span class="s">&quot;#&quot;</span>) 3
+</pre></div></p>
+
+<h2>Usage</h2>
+
+<p>As a class instantiated by a Carousel:</p>
+<div class="highlight"><pre><span class="c1">#= require utensils/bindable</span>
+<span class="c1">#= require utensils/carousel</span>
+<span class="c1">#= require utensils/indicator</span>
+
+<span class="k">class</span> <span class="nx">utensils</span><span class="p">.</span><span class="nx">CarouselThing</span>
+  <span class="nv">constructor: </span><span class="nf">(@el, @data) -&gt;</span>
+    <span class="vi">@indicator = </span><span class="k">new</span> <span class="nx">utensils</span><span class="p">.</span><span class="nx">Indicator</span><span class="p">(</span><span class="nx">@el</span><span class="p">,</span> <span class="nx">@data</span><span class="p">,</span> <span class="nx">@</span><span class="p">)</span>
+
+  <span class="nv">dispose: </span><span class="nf">-&gt;</span>
+    <span class="nx">@indicator</span><span class="p">.</span><span class="nx">dispose</span><span class="p">()</span>
+</pre></div>
+<h2>Style Settings</h2>
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/indicator</span>
+</pre></div>
+<p>To override the default settings, set the variable and it&#39;s value
+within your <code>config.sass</code> file or before <code>indicator.sass</code> is loaded.</p>
+
+<table><thead>
+<tr>
+<th>Variable</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>$indication-bgc</code></td>
+<td><code>$base-bgc</code></td>
+<td>The <code>background-color</code> of a indication button</td>
+</tr>
+<tr>
+<td><code>$indication-bgc-hover</code></td>
+<td><code>$base-bgc-hover</code></td>
+<td>The <code>background-color</code> of a indication button on <code>hover</code></td>
+</tr>
+<tr>
+<td><code>$indication-bgc-active</code></td>
+<td><code>$base-bgc-active</code></td>
+<td>The <code>background-color</code> of a indication button when <code>active</code></td>
+</tr>
+<tr>
+<td><code>$indication-border</code></td>
+<td><code>$base-border</code></td>
+<td>The <code>border-color</code> of a indication button</td>
+</tr>
+<tr>
+<td><code>$indication-color-active</code></td>
+<td><code>$base-color-active</code></td>
+<td>The text <code>color</code> when a indication button is <code>active</code></td>
+</tr>
+<tr>
+<td><code>$indication-disabled-color</code></td>
+<td><code>$disabled-color</code></td>
+<td>The text <code>color</code> when a indication button is <code>disabled</code></td>
+</tr>
+<tr>
+<td><code>$indication-disabled-bgc</code></td>
+<td><code>transparent</code></td>
+<td>The <code>background-color</code> of a indication button when <code>disabled</code></td>
+</tr>
+<tr>
+<td><code>$indication-radii</code></td>
+<td><code>$radii</code></td>
+<td>The <code>border-radius</code> of the indicator buttons</td>
+</tr>
+</tbody></table>
+
+<h2>Todo</h2>
+
+<ul>
+<li>Test</li>
+</ul></section>
       <a name='math_util'></a>
       <section class='docomo-section'>
-                                                                  <h1>MathUtil</h1>
-                                                                  
-                                                                  <p>A collection of utility math functions</p>
-                                                                  
-                                                                  <h2>Todo:</h2>
-                                                                  
-                                                                  <ul>
-                                                                  <li>Import all MathUtil methods</li>
-                                                                  <li>Port specs from ModeSet.js</li>
-                                                                  <li>Document this</li>
-                                                                  </ul>
-                                                                </section>
+                                                                    <h1>MathUtil</h1>
+                                                                    
+                                                                    <p>A collection of utility math functions</p>
+                                                                    
+                                                                    <h2>Todo:</h2>
+                                                                    
+                                                                    <ul>
+                                                                    <li>Import all MathUtil methods</li>
+                                                                    <li>Port specs from ModeSet.js</li>
+                                                                    <li>Document this</li>
+                                                                    </ul>
+                                                                  </section>
       <a name='media_grid'></a>
       <section class='docomo-section'><h1>Media Grid</h1>
 
@@ -4530,7 +4632,7 @@ grid environment.</p>
 </tbody></table>
 
 <p><em>Warning!</em> The column mixins all utilize <code>box-sizing: border-box</code> which
-is not supported in ie7</p>
+is not fully supported in ie7</p>
 
 <p>Includes placeholder classes to be used via extension</p>
 <div class="highlight"><pre><span class="nc">.column</span>
@@ -4592,36 +4694,78 @@ expected pixel value is for the element.</p>
 <p><em>Warning!</em> Define <code>$context_px</code>, <code>$base_font_size</code>, <code>$base_width</code> and
 <code>$base_vertical</code> prior to the functions being loaded.</p>
 
+<h2>Disable Tab Default</h2>
+
+<p>Disables the highlight color for tapping on touch <code>webkit</code> devices</p>
+<div class="highlight"><pre><span class="nc">.element</span>
+  <span class="nd">+disable-tap-default</span>
+</pre></div>
 <h2>Float fill</h2>
 
 <p><em>JG... describe this!</em></p>
 
 <h2>Font face</h2>
 
-<p><em>MK... describe this!</em></p>
+<p>One liner for adding a custom font to the mix for <code>.eot</code>, <code>.wof</code>,
+<code>.ttf</code>, <code>.svg</code> file types.</p>
 
+<table><thead>
+<tr>
+<th>Arguments</th>
+<th>Default</th>
+<th>Usage</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>$font-family</code></td>
+<td><em>none</em></td>
+<td>The name of the font</td>
+</tr>
+<tr>
+<td><code>$file-path</code></td>
+<td><em>none</em></td>
+<td>The path to the file</td>
+</tr>
+<tr>
+<td><code>$weight</code></td>
+<td><code>normal</code></td>
+<td>The font weight</td>
+</tr>
+<tr>
+<td><code>$style</code></td>
+<td><code>normal</code></td>
+<td>The font style</td>
+</tr>
+<tr>
+<td><code>$asset-pipeline</code></td>
+<td><code>true</code></td>
+<td>Default to using the asset pipeline syntax</td>
+</tr>
+</tbody></table>
+<div class="highlight"><pre><span class="nd">+font-face</span><span class="p">(</span><span class="s2">&quot;GarageGothicBlack&quot;</span><span class="o">,</span> <span class="s2">&quot;fonts/garagegothic-black-webfont&quot;</span><span class="p">)</span>
+</pre></div>
 <h2>Font size</h2>
 
 <p>Sets a <code>font-size</code> using <code>rems</code> with a pixel fall back.</p>
 
 <table><thead>
 <tr>
-<th>Mixin</th>
-<th>Params</th>
+<th>Arguments</th>
+<th>Default</th>
 <th>Usage</th>
 </tr>
 </thead><tbody>
 <tr>
-<td><code>+font-size</code></td>
-<td><code>$target-px</code>, <code>$context:$context-px</code></td>
-<td>Renders the font with pixel and rem values</td>
+<td><code>$target-px</code></td>
+<td><em>none</em></td>
+<td>The target font size in pixels</td>
+</tr>
+<tr>
+<td>$context`</td>
+<td><code>$context-px</code></td>
+<td>The context constraints of the user&#39;s base font size</td>
 </tr>
 </tbody></table>
-
-<ul>
-<li><code>$target-px</code> The target font size in pixels</li>
-<li><code>$context:$context-px</code> [_optional_] The context constraints of the user&#39;s base font size</li>
-</ul>
 
 <p><strong>Heads Up!</strong> Make sure <em>not</em> to include the <code>px</code> postfix when passing a size</p>
 <div class="highlight"><pre><span class="nt">h1</span>
@@ -4702,12 +4846,6 @@ extends the <code>%ir</code> placeholder.</p>
 <h2>Opacity</h2>
 
 <p>Provides cross browser opacity, values are between <code>0-1</code>.</p>
-
-<h5>Arguments</h5>
-
-<ul>
-<li><code>$alpha:1</code></li>
-</ul>
 <div class="highlight"><pre><span class="nc">.element</span>
   <span class="nd">+opacity</span><span class="p">(</span><span class="mi">0</span><span class="mf">.5</span><span class="p">)</span>
 </pre></div>
@@ -4760,6 +4898,7 @@ extends the <code>%ir</code> placeholder.</p>
         &lt;!-- page content --&gt;
   <span class="nt">%footer</span><span class="nc">.footer</span>
     &lt;!-- footer content --&gt;
+</pre></div><div class="highlight"><pre><span class="nd">+sticky-footer</span><span class="p">(</span><span class="mi">100</span><span class="kt">px</span><span class="p">)</span>
 </pre></div>
 <h2>Tab focus</h2>
 
@@ -4903,6 +5042,26 @@ properties included with <a target="_blank" href="http://thoughtbot.com/bourbon/
 </tr>
 </tbody></table>
 
+<h2>User Select</h2>
+
+<p>Define whether an element is selectable (only controls the appearance).</p>
+
+<table><thead>
+<tr>
+<th>Arguments</th>
+<th>Default</th>
+<th>Usage</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>$type</code></td>
+<td><code>none</code></td>
+<td>Options: <code>none</code>, <code>auto</code>, <code>text</code></td>
+</tr>
+</tbody></table>
+<div class="highlight"><pre><span class="nc">.cant-touch-this</span>
+  <span class="nd">+user-select</span><span class="p">(</span><span class="no">none</span><span class="p">)</span>
+</pre></div>
 <h2>Visibility</h2>
 
 <p>Controls various visibility settings applied to elements.</p>
@@ -5992,32 +6151,18 @@ polyfills.</p>
 
 <h3>Combine</h3>
 
-<p>A function to combine and normalize multiple parameters (supports up to
-9), used by <code>transition</code> and <code>background-image</code>.</p>
+<p>A function to combine and normalize multiple parameters used by
+<code>transition</code> and <code>background-image</code>.</p>
 
-<h5>Arguments</h5>
-
-<ul>
-<li><code>$value-1</code> The first property to combine</li>
-<li><code>$value-2(-9)</code> Remaining properties to combine (defaults to <code>false</code>)</li>
-<li><code>@return</code> The combined values for translation into the mixin</li>
-</ul>
-
-<p><em>Warning!</em> The combine function for mixin values only accepts 9 values,
-this is inline with the Bourbon library (Compass supports 10!)</p>
+<p>Accepts a list of arguments to combine separated by a comma.
+Returns the combined values for translation into the mixin.</p>
 <div class="highlight"><pre><span class="nv">$full</span><span class="o">:</span> <span class="nf">combine</span><span class="p">(</span><span class="nv">$transition-1</span><span class="o">,</span> <span class="nv">$transition-2</span><span class="o">,</span> <span class="nv">$transition-3</span><span class="p">)</span>
 </pre></div>
 <h2>Background Image</h2>
 
-<p>Draws a background image to an element, mainly used for gradients
-(supports up to 9 background image parameters) This does not support the
-old webkit linear gradient.</p>
-
-<h5>Arguments</h5>
-
-<ul>
-<li><code>$bgi-n</code> The background image properties to apply</li>
-</ul>
+<p>Draws a background image to an element, mainly used for gradients, by
+passing a list of comma separated values. This does not support the old
+webkit linear gradient.</p>
 <div class="highlight"><pre><span class="nc">.element</span>
   <span class="nd">+background-image</span><span class="p">(</span><span class="nf">linear-gradient</span><span class="p">(</span><span class="mh">#ff00ff</span><span class="o">,</span> <span class="mh">#000</span><span class="p">)</span><span class="o">,</span> <span class="sx">url(&quot;/images/asset.png&quot;)</span><span class="p">)</span>
 </pre></div>
@@ -6025,38 +6170,28 @@ old webkit linear gradient.</p>
 
 <p>Changes the box model used for calculating an elements width and height</p>
 
-<h5>Arguments</h5>
-
-<ul>
-<li><code>$type:border-box</code> Options: <code>content-box | border-box | inherit</code></li>
-</ul>
+<table><thead>
+<tr>
+<th>Arguments</th>
+<th>Default</th>
+<th>Usage</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>$type</code></td>
+<td><code>border-box</code></td>
+<td>Options: <code>content-box</code>, <code>border-box</code>, <code>inherit</code></td>
+</tr>
+</tbody></table>
 <div class="highlight"><pre><span class="nc">.column</span>
   <span class="nd">+box-sizing</span><span class="p">(</span><span class="no">border</span><span class="o">-</span><span class="n">box</span><span class="p">)</span>
 </pre></div>
 <h2>Transition</h2>
 
-<p>Adds vendor prefixes for transitions (supports up to 9 transition
-parameters)</p>
-
-<h5>Arguments</h5>
-
-<ul>
-<li><code>$transition-n</code> The transition values to apply.</li>
-</ul>
+<p>Adds vendor prefixes for transitions utilizing a list of comma separated
+transition values.</p>
 <div class="highlight"><pre><span class="nc">.element</span>
   <span class="nd">+transition</span><span class="p">(</span><span class="no">height</span> <span class="nv">$speed</span> <span class="nv">$ease-in-out-quart</span><span class="o">,</span> <span class="no">color</span> <span class="nv">$speed</span><span class="p">)</span>
-</pre></div>
-<h2>User Select</h2>
-
-<p>Define whether an element is selectable (only controls the appearance).</p>
-
-<h5>Arguments</h5>
-
-<ul>
-<li><code>$type:none</code> Options: <code>none | auto | text</code></li>
-</ul>
-<div class="highlight"><pre><span class="nc">.cant-touch-this</span>
-  <span class="nd">+user-select</span><span class="p">(</span><span class="no">none</span><span class="p">)</span>
 </pre></div></section>
       <a name='pop'></a>
       <section class='docomo-section'><h1>Pop</h1>
@@ -7813,19 +7948,19 @@ parameter. This is done to ensure scope is transferred correctly and for
 a quicker lookup from the class utilizing a <code>ToggleGroup</code> instance.</p></section>
       <a name='touch_scroller'></a>
       <section class='docomo-section'>
-                                                                                                                    <h1>Touch Scroller</h1>
-                                                                                                                    
-                                                                                                                    <p>Describe this.</p>
-                                                                                                                    
-                                                                                                                    <h2>Todo</h2>
-                                                                                                                    
-                                                                                                                    <ul>
-                                                                                                                    <li>Check with JG on the js port</li>
-                                                                                                                    <li>Check with JG on the style port</li>
-                                                                                                                    <li>Test</li>
-                                                                                                                    <li>Document</li>
-                                                                                                                    </ul>
-                                                                                                                  </section>
+                                                                                                                      <h1>Touch Scroller</h1>
+                                                                                                                      
+                                                                                                                      <p>Describe this.</p>
+                                                                                                                      
+                                                                                                                      <h2>Todo</h2>
+                                                                                                                      
+                                                                                                                      <ul>
+                                                                                                                      <li>Check with JG on the js port</li>
+                                                                                                                      <li>Check with JG on the style port</li>
+                                                                                                                      <li>Test</li>
+                                                                                                                      <li>Document</li>
+                                                                                                                      </ul>
+                                                                                                                    </section>
       <a name='touch_tracker'></a>
       <section class='docomo-section'><h1>MouseAndTouchTracker</h1>
 

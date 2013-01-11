@@ -1,7 +1,6 @@
 # Todo
 
 ## WIP
-- Indicator (flush this out more)
 - Document what Utensils is
 - Configuration file for docomo?
 - Generators (templates, script, utensil, dinosaurs, polyfill, etc...)

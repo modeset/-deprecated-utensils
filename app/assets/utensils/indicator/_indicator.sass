@@ -1,0 +1,41 @@
+$indication-bgc: $base-bgc !default
+$indication-bgc-hover: $base-bgc-hover !default
+$indication-bgc-active: $base-bgc-active !default
+$indication-border: $base-border !default
+$indication-color-active: $base-color-active !default
+$indication-disabled-color: $disabled-color !default
+$indication-disabled-bgc: transparent !default
+$indication-radii: $radii !default
+
+.indication
+  +clearfixer
+  +disable-tap-default
+
+.indication li
+  float: left
+  margin-right: 0.5em
+  &:last-child
+    margin-right: 0
+
+.indication li > a
+  background-color: $indication-bgc
+  border: 1px solid $indication-border
+  border-radius: $indication-radii
+  padding: $base-padding
+
+.indication > li > a:hover
+  background-color: $indication-bgc-hover
+
+.indication > li > a:active
+  background-color: $indication-bgc-active
+
+.indication .active > a,
+.indication .active > a:hover
+  background-color: $indication-bgc-active
+  color: $indication-color-active
+
+.indication .disabled > a,
+.indication .disabled > a:hover
+  background-color: $indication-disabled-bgc
+  color: $indication-disabled-color
+

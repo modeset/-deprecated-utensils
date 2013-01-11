@@ -22,7 +22,7 @@ class utensils.Indicator
     indicators_html = ''
     # add <li> buttons
     for i in [1..@component.num_panels]
-      indicators_html += "<li><a href='#slide_#{i}'>#{i}</a></li>"
+      indicators_html += @render(i)
     @indication.append(indicators_html)
     # add clicks
     @indicators = @indication.find('li')
@@ -41,4 +41,7 @@ class utensils.Indicator
     newIndex = $(e.target).parent().index()
     newIndex = @component.index - ( @component.index % @component.num_panels ) + newIndex # for infinite scrolling - mods the page index so we're in the current range
     @component.activate(newIndex)
+
+  render: (id) ->
+    "<li><a href='#slide_#{id}'>#{id}</a></li>"
 
