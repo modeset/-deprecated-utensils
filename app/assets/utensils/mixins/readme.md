@@ -128,7 +128,7 @@ Sets a `font-size` using `rems` with a pixel fall back.
 Arguments       | Default       | Usage
 --------------- | ------------- | ----------------------------------
 `$target-px`    | _none_        | The target font size in pixels
-$context`       | `$context-px` | The context constraints of the user's base font size
+`$context`       | `$context-px` | The context constraints of the user's base font size
 
 **Heads Up!** Make sure _not_ to include the `px` postfix when passing a size
 
