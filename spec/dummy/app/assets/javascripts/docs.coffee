@@ -7,6 +7,7 @@ class docomo.Docs extends docomo.Docomo
 
   initialize: ->
     super()
+    @doc_toggler = @el.find('.docomo-docs-toggle')
     @progress = @el.find '.progress'
     @flash_demo = @el.find '#demo_flash_message .btn'
     @upgrade_btns = @el.find '#upgrade_demo .btn'
@@ -18,6 +19,7 @@ class docomo.Docs extends docomo.Docomo
   addListeners: ->
     super()
     @el.find('[href=#]').on 'click', (e) => e.preventDefault()
+    @doc_toggler.on 'click.docomo:docs', => @toggleStylingMode arguments...
     @progress.on 'click.docomo:progress', => @demoProgressBar arguments...
     @flash_demo.on 'click.docomo:flash', => @demoFlashMessage arguments...
     @upgrade_btns.on 'click.docomo:upgrade', => @demoUpgradeMessage arguments...
@@ -36,6 +38,13 @@ class docomo.Docs extends docomo.Docomo
 
   keyed: (e) ->
     super(e)
+
+
+  toggleStylingMode: (e) ->
+    e?.preventDefault()
+    super
+    markup = if @examples_only then "≡ View Full Documentation" else "≡ View Examples Only"
+    @doc_toggler.html markup
 
 
 # UTENSIL DEMOS #
