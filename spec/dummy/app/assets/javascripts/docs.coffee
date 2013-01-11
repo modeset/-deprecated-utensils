@@ -36,15 +36,6 @@ class docomo.Docs extends docomo.Docomo
 
   keyed: (e) ->
     super(e)
-    @toggleSpecs() if e.keyCode is 74        # "j"
-
-
-  toggleSpecs: ->
-    @spec_template ?= @templSpec()
-    if @spec_frame
-      @spec_frame.remove() and @spec_frame = null
-    else
-      @spec_frame = @spec_template.appendTo @el
 
 
 # UTENSIL DEMOS #
@@ -127,10 +118,7 @@ class docomo.Docs extends docomo.Docomo
 # DEMO TEMPLATES #
 
   templShortcut: ->
-    """
-    #{super()}
-    <SHIFT> + j \tToggle the spec window
-    """
+    super
 
 
   templFlashNotification: (modifier) ->
@@ -142,14 +130,6 @@ class docomo.Docs extends docomo.Docomo
             """
     $(templ)
 
-
-  templSpec: (url="/teabag") ->
-    templ = """
-            <div id="jasmine_frame">
-              <iframe frameborder="0" seamless="true" src="#{url}"></iframe>
-            </div>
-            """
-    $(templ)
 
 (->
   new docomo.Docs($)
