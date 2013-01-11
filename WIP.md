@@ -1,7 +1,6 @@
 # Todo
 
 ## WIP
-- Better styles around docomo pygments
 - Indicator (flush this out more)
 - Trim out some of the options within scaffold
 - Document what Utensils is
