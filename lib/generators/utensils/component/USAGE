@@ -2,7 +2,7 @@ Description:
     Stub in default files for a utensil component.
 
 Example:
-    rails generate component foo
+    rails generate utensils:component foo
 
     This will create:
         app/assets/components/foo

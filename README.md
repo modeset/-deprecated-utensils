@@ -41,12 +41,13 @@ rake utensils:document
 Utensils comes packed with a few generators for your pleasure:
 
 ```
-utensils:component  - stubs a new component directory with sass/cs files
+utensils:component [file_name]  - stubs a new component with sass/cs files
+utensils:utensil [file_name]    - stubs a new utensil with sass/cs/spec/markup files
 ```
 
 
 ## Roadmap
-- Add Generators (templates, script, utensil, dinosaurs, polyfill, etc...)
+- Add Generators (install)
 - Release the gem (check the name)
 - Complete Todo items
 - Background scaler
