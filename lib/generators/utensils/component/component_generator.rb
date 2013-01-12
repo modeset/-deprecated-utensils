@@ -6,16 +6,20 @@ class Utensils::ComponentGenerator < Rails::Generators::NamedBase
     empty_directory("app/assets/components/#{file_name}")
   end
 
-  def create_index
+  def create_coffee_index
     create_file "app/assets/components/#{file_name}/index.js", "//= require ./#{file_name}"
   end
 
   def create_coffee
-    create_file "app/assets/components/#{file_name}/#{file_name}.coffee", "class #{file_name.camelize}"
+    template "behavior.coffee", "app/assets/components/#{file_name}/#{file_name}.coffee"
+  end
+
+  def create_sass_index
+    create_file "app/assets/components/#{file_name}/index.sass", "@import #{file_name}"
   end
 
   def create_sass
-    create_file "app/assets/components/#{file_name}/index.sass", "@import #{file_name}"
     create_file "app/assets/components/#{file_name}/_#{file_name}.sass", ".#{file_name.dasherize}"
   end
 end
+

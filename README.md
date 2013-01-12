@@ -37,19 +37,11 @@ running:
 rake utensils:document
 ```
 
-### Generators
-Utensils comes packed with a few generators for your pleasure:
-
-```
-utensils:component [file_name]  - stubs a new component with sass/cs files
-utensils:utensil [file_name]    - stubs a new utensil with sass/cs/spec/markup files
-```
-
 
 ## Roadmap
 - Add Generators (install)
-- Release the gem (check the name)
 - Complete Todo items
+- Release the gem (check the name)
 - Background scaler
 - Stateful button
 - Spinner

@@ -6,16 +6,19 @@ class Utensils::UtensilGenerator < Rails::Generators::NamedBase
     empty_directory("app/assets/utensils/#{file_name}")
   end
 
-  def create_index
+  def create_coffee_index
     create_file "app/assets/utensils/#{file_name}/index.js", "//= require ./#{file_name}"
   end
 
   def create_coffee
-    create_file "app/assets/utensils/#{file_name}/#{file_name}.coffee", "class #{file_name.camelize}"
+    template "behavior.coffee", "app/assets/utensils/#{file_name}/#{file_name}.coffee"
+  end
+
+  def create_sass_index
+    create_file "app/assets/utensils/#{file_name}/index.sass", "@import #{file_name}"
   end
 
   def create_sass
-    create_file "app/assets/utensils/#{file_name}/index.sass", "@import #{file_name}"
     create_file "app/assets/utensils/#{file_name}/_#{file_name}.sass", ".#{file_name.dasherize}"
   end
 
@@ -24,7 +27,7 @@ class Utensils::UtensilGenerator < Rails::Generators::NamedBase
   end
 
   def create_spec
-    create_file "app/assets/utensils/#{file_name}/spec/#{file_name}_spec.coffee", "#= require utensils/#{file_name}"
+    template "spec.coffee", "app/assets/utensils/#{file_name}/spec/#{file_name}_spec.coffee"
   end
 
   def create_markup_dir
@@ -32,7 +35,7 @@ class Utensils::UtensilGenerator < Rails::Generators::NamedBase
   end
 
   def create_haml
-    create_file "app/assets/utensils/#{file_name}/markup/#{file_name}.html.haml", ""
+    create_file "app/assets/utensils/#{file_name}/markup/#{file_name}.html.haml", ".#{file_name.dasherize}(data-bindable=\"#{file_name.dasherize}\")"
   end
 end
 
