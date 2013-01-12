@@ -2,35 +2,67 @@
 
 [![Build Status](https://travis-ci.org/modeset/utensils.png?branch=master)](https://travis-ci.org/modeset/utensils)
 
-Client side component library.
+Client side component library, tuned to work with the asset pipeline.
 
-## Get 'er going..
+[utensils.modeset.com](http://utensils.modeset.com/)
 
-```
-bundle
-powder link
-powder open
-```
 
-## Write some codes
-Generate all docs, fixtures and the style guide after changes to
-the markup fixtures, or readme files:
+## Installation
+Currently not yet released as a gem, so rock the latest from GitHub in
+your `Gemfile`.
 
 ```
-bundle exec rake
+gem 'utensils', github: 'modeset/utensils'
 ```
 
-## Style Guide
-Type: `<SHIFT> + ?` for keyboard shortcuts for toggling various sections
-of the guide.
+Utensils is under continuous development. It's stable, but is subject to
+changes.
+
+
+## Development
+Use the interactive docs via [docomo](https://github.com/modeset/docomo)
+at `/docs/live` for on the fly documentation generation.
+
+View the tests through [teabag](https://github.com/modeset/teabag) at
+`/teabag`, or run them from the CLI with:
+
+```
+rake teabag
+```
+
+Prior to committing, make sure to generate the latest static assets by
+running:
+
+```
+rake utensils:document
+```
+
+### Generators
+Utensils comes packed with a few generators for your pleasure:
+
+```
+utensils:component  - stubs a new component directory with sass/cs files
+```
+
+
+## Roadmap
+- Add Generators (templates, script, utensil, dinosaurs, polyfill, etc...)
+- Release the gem (check the name)
+- Complete Todo items
+- Background scaler
+- Stateful button
+- Spinner
+- Auto Complete
+- Migrate [modeset.js](https://github.com/modeset/modeset.js) files
+- Mobilize (templates, styles, cs, etc..)
 
 
 ## License
-
 Licensed under the [MIT License](http://creativecommons.org/licenses/MIT/)
 
-Copyright 2012 [Mode Set](https://github.com/modeset)
+Copyright 2013 [Mode Set](https://github.com/modeset)
 
 
-## Make Code Not War
+## Talk Nerdy To Me
 ![crest](https://secure.gravatar.com/avatar/aa8ea677b07f626479fd280049b0e19f?s=75)
+
