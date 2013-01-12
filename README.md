@@ -39,7 +39,6 @@ rake utensils:document
 
 
 ## Roadmap
-- Add Generators (install)
 - Complete Todo items
 - Release the gem (check the name)
 - Background scaler

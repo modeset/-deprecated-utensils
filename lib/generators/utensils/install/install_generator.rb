@@ -17,10 +17,10 @@ module Utensils
       end
 
       def create_haml_files
-        copy_file 'application.html.haml', 'app/views/layouts/application.html.haml'
+        copy_file 'spec/dummy/app/views/layouts/pages.html.haml', 'app/views/layouts/application.html.haml'
         empty_directory 'app/views/layouts/shared'
-        copy_file 'flash_message.html.haml', 'app/views/layouts/shared/_flash_message.html.haml'
-        copy_file 'upgrade.html.haml', 'app/views/layouts/shared/_upgrade.html.haml'
+        copy_file 'spec/dummy/app/views/layouts/shared/_flash_message.html.haml', 'app/views/layouts/shared/_flash_message.html.haml'
+        copy_file 'spec/dummy/app/views/layouts/shared/_upgrade.html.haml', 'app/views/layouts/shared/_upgrade.html.haml'
       end
 
       def create_public_assets
