@@ -3,6 +3,11 @@
 class MockClass
   constructor: ->
     @state = 'instantiated'
+    @disposed = false
+
+  dispose: ->
+    @disposed = true
+
 
 describe 'Bindable', ->
   beforeEach ->
@@ -31,4 +36,48 @@ describe 'Bindable', ->
       @bindable.bindAll()
       expect(@bindable.getRefs('mock_class_key').length).toEqual(1)
       expect(@bindable.getRefs('mock_class_key')[0].state).toEqual('instantiated')
+
+
+  describe '#dispose', ->
+    beforeEach ->
+      @bindable = new utensils.Bindable()
+      @bindable.bindAll()
+
+    it 'calls dispose on the bindable instances', ->
+      instance = @bindable.getRefs('mock_class_key')[0]
+      expect(instance.disposed).toEqual(false)
+      @bindable.dispose()
+      expect(instance.disposed).toEqual(true)
+
+    it 'removes the instance from bindable', ->
+      @bindable.dispose()
+      expect(@bindable.getRefs('mock_class_key').length).toEqual(0)
+
+
+  describe '#bind', ->
+    beforeEach ->
+      @bindable = new utensils.Bindable()
+      @bindable.bindAll()
+
+    it 'binds a class instance with a DOM element', ->
+      instance = @bindable.getRefs('mock_class_key')[0]
+      expect(instance.el).toBe(@dom)
+
+
+  describe '@getClass', ->
+    beforeEach ->
+      @bindable = new utensils.Bindable()
+      @bindable.bindAll()
+
+    it 'returns the instance from a key', ->
+      expect(utensils.Bindable.getClass('mock_class_key')).toBe(MockClass)
+
+
+  describe '@register', ->
+    beforeEach ->
+      @bindable = new utensils.Bindable()
+
+    it 'registers a bindable object through the static method', ->
+      utensils.Bindable.register 'test_register', new MockClass
+      expect(@bindable.getRefs('test_register').length).toEqual(1)
 
