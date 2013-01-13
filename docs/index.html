@@ -1197,13 +1197,7 @@ the following:</p>
 </pre></div>
 <p>This will create a base button with the class of <code>.btn</code> and
 modifiers for each of the elements within the <code>$base-status-list</code>. By
-default this is set to <code>false</code> so no buttons are created.</p>
-
-<h2>Todo:</h2>
-
-<ul>
-<li>The sass file could use a little cleaning.</li>
-</ul></section>
+default this is set to <code>false</code> so no buttons are created.</p></section>
       <a name='canvas_util'></a>
       <section class='docomo-section'><h1>CanvasUtil</h1>
 
@@ -3390,9 +3384,10 @@ or other descriptive helpers</li>
     <div class='control-group'>
       <label class='control-label' for='fcs_textarea'>Textarea:</label>
       <div class='controls'>
-        <div class='input-bg'>
+        <div class='input-bg hidden'>
           <textarea id='fcs_textarea' placeholder='Enter the textarea...' rows='8'></textarea>
         </div>
+        <textarea class='no-stack' id='fcs_textarea2' placeholder='Enter the textarea...' rows='8'></textarea>
         <p class='hint-inline error-msg'>That failed terribly</p>
         <p class='hint-inline success-msg'>Gold stars all around</p>
       </div>
@@ -3533,8 +3528,9 @@ or other descriptive helpers</li>
     <span class="nc">.control-group</span>
       <span class="nt">%label</span><span class="nc">.control-label</span>(<span class="na">for=</span><span class="s">&quot;fcs_textarea&quot;</span>) Textarea:
       <span class="nc">.controls</span>
-        <span class="nc">.input-bg</span>
+        <span class="nc">.input-bg.hidden</span>
           <span class="nt">%textarea</span><span class="nf">#fcs_textarea</span>(<span class="na">placeholder=</span><span class="s">&quot;Enter the textarea...&quot;</span> <span class="na">rows=</span><span class="s">&quot;8&quot;</span>)
+        <span class="nt">%textarea</span><span class="nf">#fcs_textarea2</span><span class="nc">.no-stack</span>(<span class="na">placeholder=</span><span class="s">&quot;Enter the textarea...&quot;</span> <span class="na">rows=</span><span class="s">&quot;8&quot;</span>)
         <span class="nt">%p</span><span class="nc">.hint-inline.error-msg</span> That failed terribly
         <span class="nt">%p</span><span class="nc">.hint-inline.success-msg</span> Gold stars all around
     <span class="cp">-# Uneditable</span>

@@ -1,5 +1,3 @@
-// - Abstract the 2 box shadows?
-
 $auto-generate-semigloss: false !default
 
 // The base mixin for creating a semigloss button
@@ -82,6 +80,7 @@ $auto-generate-semigloss: false !default
     border-color: $error
   &.disabled, &[disabled], &[readonly]
     background: darken($bgc, $hover-percent)
+
 
 // Auto generate a base button and any modifiers from the list
 @mixin generate-semigloss-buttons($name, $list)

@@ -112,6 +112,3 @@ This will create a base button with the class of `.btn` and
 modifiers for each of the elements within the `$base-status-list`. By
 default this is set to `false` so no buttons are created.
 
-## Todo:
-- The sass file could use a little cleaning.
-
