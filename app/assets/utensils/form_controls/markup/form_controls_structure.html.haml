@@ -41,8 +41,9 @@
     .control-group
       %label.control-label(for="fcs_textarea") Textarea:
       .controls
-        .input-bg
+        .input-bg.hidden
           %textarea#fcs_textarea(placeholder="Enter the textarea..." rows="8")
+        %textarea#fcs_textarea2.no-stack(placeholder="Enter the textarea..." rows="8")
         %p.hint-inline.error-msg That failed terribly
         %p.hint-inline.success-msg Gold stars all around
     -# Uneditable

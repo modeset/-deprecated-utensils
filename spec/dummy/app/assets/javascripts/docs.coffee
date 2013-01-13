@@ -101,6 +101,7 @@ class docomo.Docs extends docomo.Docomo
   demoForm: (e) ->
     target = $(e.target)
     @memoized_form ?= @el.find('#demo_form').next('form')
+    @memoized_remove ?= @el.find('#demo_form > .button-group').first().data('remove')
     add_classes = target.data 'add'
     remove_classes = target.closest('.button-group').data 'remove'
     is_state_group = (/disabled/).test(remove_classes)
@@ -122,6 +123,19 @@ class docomo.Docs extends docomo.Docomo
     # Add top level classes for `form` (wells, layout)
     else
       @memoized_form.removeClass(remove_classes).addClass(add_classes)
+      @alterForFormStack(add_classes) if remove_classes == @memoized_remove
+
+
+  # Do some trickery on the text area for form-stacks
+  alterForFormStack: (add_classes) ->
+    @memoized_input_bg ?= @memoized_form.find('.input-bg')
+    @memoized_textarea ?= @memoized_input_bg.next('textarea')
+    if add_classes == 'form-stack'
+      @memoized_input_bg.removeClass('hidden')
+      @memoized_textarea.addClass('hidden')
+    else
+      @memoized_input_bg.addClass('hidden')
+      @memoized_textarea.removeClass('hidden')
 
 
 # DEMO TEMPLATES #
