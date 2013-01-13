@@ -2,7 +2,7 @@
 Indicators are used primarily in carousels for navigation elements for
 cycling through slides. 
 
-Indicators are instantiated through a carousel wrapper and inject the
+Indicators are instantiated through a carousel component and inject the
 instance of the carousel to respond to. All public activity should
 still be handled via the carousel. Markup for a carousel is
 automatically generated via JavaScript.
@@ -45,7 +45,4 @@ Variable                     | Default               | Description
 `$indication-disabled-color` | `$disabled-color`     | The text `color` when a indication button is `disabled`
 `$indication-disabled-bgc`   | `transparent`         | The `background-color` of a indication button when `disabled`
 `$indication-radii`          | `$radii`              | The `border-radius` of the indicator buttons
-
-## Todo
-- Test
 
