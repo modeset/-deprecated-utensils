@@ -17,10 +17,6 @@ Class                   | Description
 `.navbar.navbar-fixed`  | A primary navbar who's background extends the width of the browser and remains fixed to the top of the viewport
 
 
-## Responsive Navbar
-Need to implement this
-
-
 ## Style Settings
 ```sass
 @import utensils/navbar
@@ -34,8 +30,6 @@ Variable                  | Default                   | Description
 `$navbar-bgc`             | `$base-bgc-active`        | The `background-color` of the navbar component
 `$navbar-link-bgc-active` | `darken($navbar-bgc,` 5%) | The `background-color` a navbar link when active
 
-
-## Todo
-- Add media queries
-- Add collapsible button and behavior with media queries
+**Heads Up!** There are no media queries for responsive behavior. These
+should be added at the project level.
 

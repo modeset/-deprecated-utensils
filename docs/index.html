@@ -5385,10 +5385,6 @@ various components with navigation, search forms and drop downs.</p>
 </div><div class="highlight"><pre><span class="nc">.navbar</span>
   <span class="nc">.navbar-inner</span>
     <span class="nc">.container</span>
-      <span class="cp">-# %button.btn.info.btn-navbar(data-bindable=&quot;collapse&quot; data-target=&quot;#navbar_collapse&quot;)</span>
-        <span class="cp">-# %span.icon-bar</span>
-        <span class="cp">-# %span.icon-bar</span>
-        <span class="cp">-# %span.icon-bar</span>
       <span class="nt">%a</span><span class="nc">.brand</span>(<span class="na">href=</span><span class="s">&quot;#&quot;</span>) Brand
       <span class="nt">%nav</span><span class="nc">.nav-collapse</span><span class="nf">#navbar_collapse</span>(<span class="na">role=</span><span class="s">&quot;navigation&quot;</span>)
         <span class="nt">%ul</span><span class="nc">.nav</span>(<span class="na">data-bindable=</span><span class="s">&quot;toggle-group&quot;</span>)
@@ -5452,10 +5448,6 @@ navbar displays.</p>
 </tr>
 </tbody></table>
 
-<h2>Responsive Navbar</h2>
-
-<p>Need to implement this</p>
-
 <h2>Style Settings</h2>
 <div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/navbar</span>
 </pre></div>
@@ -5481,12 +5473,8 @@ your <code>config.sass</code> file or before <code>navbar.sass</code> is loaded.
 </tr>
 </tbody></table>
 
-<h2>Todo</h2>
-
-<ul>
-<li>Add media queries</li>
-<li>Add collapsible button and behavior with media queries</li>
-</ul></section>
+<p><strong>Heads Up!</strong> There are no media queries for responsive behavior. These
+should be added at the project level.</p></section>
       <a name='normalize'></a>
       <section class='docomo-section'><h1>Normalize</h1>
 
