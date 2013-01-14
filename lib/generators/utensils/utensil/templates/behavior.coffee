@@ -18,6 +18,7 @@ class utensils.<%= file_name.camelize %>
 # PUBLIC #
 
   dispose: ->
+    @removeListeners()
 
 
 # PROTECTED #
