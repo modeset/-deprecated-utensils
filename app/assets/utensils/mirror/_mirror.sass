@@ -1,0 +1,9 @@
+$mirror-direction: below !default
+$mirror-distance: 2px !default
+$mirror-from-color: transparent !default
+$mirror-color-stop: 0.75, transparent !default
+$mirror-to-color: rgba(black, 0.2) !default
+
+.mirror
+  -webkit-box-reflect: $mirror-direction $mirror-distance -webkit-gradient(linear, left top, left bottom, from($mirror-from-color), color-stop($mirror-color-stop), to($mirror-to-color))
+
