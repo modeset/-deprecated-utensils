@@ -39,8 +39,6 @@ rake utensils:document
 
 
 ## Roadmap
-- Stateful button
-- Spinner
 - Background scaler
 - Test with Zepto
 - Release the gem (check the name)

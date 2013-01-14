@@ -151,6 +151,9 @@
           <a href='#menu'>Menu</a>
         </li>
         <li>
+          <a href='#mirror'>Mirror</a>
+        </li>
+        <li>
           <a href='#mixins'>Mixins</a>
         </li>
         <li>
@@ -191,6 +194,9 @@
         </li>
         <li>
           <a href='#progress'>Progress</a>
+        </li>
+        <li>
+          <a href='#responsive_frame'>Responsive Frame</a>
         </li>
         <li>
           <a href='#scaffold'>Scaffold</a>
@@ -4547,6 +4553,68 @@ your <code>config.sass</code> file or before <code>menu.sass</code> is loaded.</
 <td>The <code>border-radius</code> of the menu component</td>
 </tr>
 </tbody></table></section>
+      <a name='mirror'></a>
+      <section class='docomo-section'><h1>Mirror</h1>
+
+<p>Applies a reflection on the element. The element, is typically images or
+video, but can be applied to any element.</p>
+
+<p><em>Warning!</em> This is currently only supported by some choice <code>webkit</code>
+browsers.</p>
+
+<p><div class="docomo-showcase"><section style='margin-bottom: 2em;'>
+  <iframe allowFullScreen='allowFullScreen' class='mirror' frameborder='0' height='169' mozallowfullscreen='mozallowfullscreen' src='http://player.vimeo.com/video/52507615' webkitAllowFullScreen='webkitAllowFullScreen' width='300'></iframe>
+</section>
+</div><div class="highlight"><pre><span class="nt">%section</span>(<span class="na">style=</span><span class="s">&quot;margin-bottom: 2em;&quot;</span>)
+  <span class="nt">%iframe</span><span class="nc">.mirror</span>(<span class="na">src=</span><span class="s">&quot;http://player.vimeo.com/video/52507615&quot;</span> <span class="na">width=</span><span class="s">&quot;300&quot;</span> <span class="na">height=</span><span class="s">&quot;169&quot;</span> <span class="na">frameborder=</span><span class="s">&quot;0&quot;</span> <span class="na">webkitAllowFullScreen</span> <span class="na">mozallowfullscreen</span> <span class="na">allowFullScreen</span>)
+</pre></div></p>
+
+<h2>Style Settings</h2>
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/mirror</span>
+</pre></div>
+<p>To override the default settings, set the variable and it&#39;s value
+within your <code>config.sass</code> file or before <code>mirror.sass</code> is loaded.</p>
+
+<table><thead>
+<tr>
+<th>Variable</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>$mirror-direction</code></td>
+<td><code>below</code></td>
+<td>The direction for the mirror (<code>above</code>, <code>below</code>, <code>left</code>, <code>right</code>)</td>
+</tr>
+<tr>
+<td><code>$mirror-distance</code></td>
+<td><code>2px</code></td>
+<td>The distance to pull the mirror from the object</td>
+</tr>
+<tr>
+<td><code>$mirror-from-color</code></td>
+<td><code>transparent</code></td>
+<td>The starting <code>color</code> in the gradient</td>
+</tr>
+<tr>
+<td><code>$mirror-color-stop</code></td>
+<td><code>0.75, transparent</code></td>
+<td>The position and <code>color</code> for the stop</td>
+</tr>
+<tr>
+<td><code>$mirror-to-color</code></td>
+<td><code>rgba(black, 0.2)</code></td>
+<td>The final <code>color</code> in the gradient</td>
+</tr>
+</tbody></table>
+
+<h2>Todo</h2>
+
+<ul>
+<li>Make this a cross browser supported style</li>
+<li>This might be better as a mixin/placeholder</li>
+</ul></section>
       <a name='mixins'></a>
       <section class='docomo-section'><h1>Mixin</h1>
 
@@ -6601,6 +6669,58 @@ within your <code>config.sass</code> file or before <code>progress.sass</code> i
 <p>Progress bars rely on a <code>$progress-list</code> for generating various status
 colors related to bars. This list is typically defined in the
 <code>config.sass</code> file.</p></section>
+      <a name='responsive_frame'></a>
+      <section class='docomo-section'><h1>Responsive frame</h1>
+
+<p>Scales an <code>iframe</code> proportionally based on the initial <code>width</code> and
+<code>height</code> attributes. Responsive frame is typically used with embedded
+videos.</p>
+
+<p><div class="docomo-showcase"><div class='responsive-frame' data-bindable='responsive-frame'>
+  <iframe allowFullScreen='allowFullScreen' frameborder='0' height='338' mozallowfullscreen='mozallowfullscreen' src='http://player.vimeo.com/video/52507615' webkitAllowFullScreen='webkitAllowFullScreen' width='600'></iframe>
+</div>
+</div><div class="highlight"><pre><span class="nc">.responsive-frame</span>(<span class="na">data-bindable=</span><span class="s">&quot;responsive-frame&quot;</span>)
+  <span class="nt">%iframe</span>(<span class="na">src=</span><span class="s">&quot;http://player.vimeo.com/video/52507615&quot;</span> <span class="na">width=</span><span class="s">&quot;600&quot;</span> <span class="na">height=</span><span class="s">&quot;338&quot;</span> <span class="na">frameborder=</span><span class="s">&quot;0&quot;</span> <span class="na">webkitAllowFullScreen</span> <span class="na">mozallowfullscreen</span> <span class="na">allowFullScreen</span>)
+</pre></div></p>
+
+<h2>Options</h2>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>namespace</code></td>
+<td><code>responsive_frame</code></td>
+<td>The name space to use for dispatching events</td>
+</tr>
+</tbody></table>
+
+<p>If a <code>width</code> and <code>height</code> attribute is not found, the ratio defaults to
+<code>16:9</code>.</p>
+
+<h2>API</h2>
+<div class="highlight"><pre><span class="c1">#= require responsive_frame</span>
+</pre></div><div class="highlight"><pre>data-bindable=&quot;responsive-frame&quot;
+</pre></div>
+<h3>#resize</h3>
+
+<p>Calls the resize event to scale the <code>iframe</code>.</p>
+<div class="highlight"><pre><span class="nx">@responsive_frame</span><span class="p">.</span><span class="nx">resize</span><span class="p">()</span>
+</pre></div>
+<h3>#dispose</h3>
+
+<p>Remove the <code>ResponsiveFrame</code> behavior and stops listening to <code>window</code>
+<code>resize</code> events.</p>
+<div class="highlight"><pre><span class="nx">@responsive_frame</span><span class="p">.</span><span class="nx">dispose</span><span class="p">()</span>
+</pre></div>
+<h3>Requires</h3>
+<div class="highlight"><pre><span class="nx">utensils</span><span class="o">/</span><span class="nx">utensils</span>
+<span class="nx">utensils</span><span class="o">/</span><span class="nx">bindable</span>
+</pre></div></section>
       <a name='scaffold'></a>
       <section class='docomo-section'><h1>Scaffold</h1>
 
@@ -7440,7 +7560,7 @@ should be considered in most cases.</p>
     <li><a data-bindable='tip' data-delay='500,1000' data-placement='south' href='#' id='south_tip' title='The Southern Tip'>Southern Tip</a></li>
     <li><a data-bindable='tip' data-placement='east' href='#' id='east_tip' title='The Eastern Tip'>Eastern Tip</a></li>
     <li><a data-bindable='tip' data-placement='west' href='#' id='west_tip' title='The Western Tip'>Western Tip</a></li>
-    <li><a data-bindable='tip' data-placement='north' data-trigger='click' href='#' id='image_tip' title="&lt;img src='http://placehold.it/260x180' width=260 height=180 /&gt;">Image Tip (click)</a></li>
+    <li><a data-bindable='tip' data-placement='north' data-trigger='click' href='#' id='image_tip' title="&lt;img src='http://placehold.it/260x180' width='260' height='180' /&gt;">Image Tip (click)</a></li>
   </ul>
 </nav>
 </div><div class="highlight"><pre><span class="nt">%nav</span>
@@ -7454,7 +7574,7 @@ should be considered in most cases.</p>
     <span class="nt">%li</span>&lt;
       <span class="nt">%a</span><span class="nf">#west_tip</span>(<span class="na">data-bindable=</span><span class="s">&quot;tip&quot;</span> <span class="na">data-placement=</span><span class="s">&quot;west&quot;</span> <span class="na">title=</span><span class="s">&quot;The Western Tip&quot;</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span>) Western Tip
     <span class="nt">%li</span>&lt;
-      <span class="nt">%a</span><span class="nf">#image_tip</span>(<span class="na">data-bindable=</span><span class="s">&quot;tip&quot;</span> <span class="na">data-placement=</span><span class="s">&quot;north&quot;</span> <span class="na">data-trigger=</span><span class="s">&quot;click&quot;</span> <span class="na">title=</span><span class="s">&quot;&lt;img src=&#39;http://placehold.it/260x180&#39; width=260 height=180 /&gt;&quot;</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span>) Image Tip (click)
+      <span class="nt">%a</span><span class="nf">#image_tip</span>(<span class="na">data-bindable=</span><span class="s">&quot;tip&quot;</span> <span class="na">data-placement=</span><span class="s">&quot;north&quot;</span> <span class="na">data-trigger=</span><span class="s">&quot;click&quot;</span> <span class="na">title=</span><span class="s">&quot;&lt;img src=&#39;http://placehold.it/260x180&#39; width=&#39;260&#39; height=&#39;180&#39; /&gt;&quot;</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span>) Image Tip (click)
 </pre></div></p>
 
 <h2>Options</h2>
@@ -7957,19 +8077,19 @@ parameter. This is done to ensure scope is transferred correctly and for
 a quicker lookup from the class utilizing a <code>ToggleGroup</code> instance.</p></section>
       <a name='touch_scroller'></a>
       <section class='docomo-section'>
-                                                                                                                      <h1>Touch Scroller</h1>
-                                                                                                                      
-                                                                                                                      <p>Describe this.</p>
-                                                                                                                      
-                                                                                                                      <h2>Todo</h2>
-                                                                                                                      
-                                                                                                                      <ul>
-                                                                                                                      <li>Check with JG on the js port</li>
-                                                                                                                      <li>Check with JG on the style port</li>
-                                                                                                                      <li>Test</li>
-                                                                                                                      <li>Document</li>
-                                                                                                                      </ul>
-                                                                                                                    </section>
+                                                                                                                          <h1>Touch Scroller</h1>
+                                                                                                                          
+                                                                                                                          <p>Describe this.</p>
+                                                                                                                          
+                                                                                                                          <h2>Todo</h2>
+                                                                                                                          
+                                                                                                                          <ul>
+                                                                                                                          <li>Check with JG on the js port</li>
+                                                                                                                          <li>Check with JG on the style port</li>
+                                                                                                                          <li>Test</li>
+                                                                                                                          <li>Document</li>
+                                                                                                                          </ul>
+                                                                                                                        </section>
       <a name='touch_tracker'></a>
       <section class='docomo-section'><h1>MouseAndTouchTracker</h1>
 
