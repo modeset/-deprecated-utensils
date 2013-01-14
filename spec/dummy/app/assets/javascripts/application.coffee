@@ -16,6 +16,7 @@
 #= require utensils/pop
 #= require utensils/progress
 #= require utensils/slider
+#= require utensils/responsive_frame
 
 # Lets get this party started..
 $ ->
