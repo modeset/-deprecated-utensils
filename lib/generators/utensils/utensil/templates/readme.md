@@ -13,6 +13,13 @@ Attribute           | Default            | Description
 
 
 ## API
+```coffee
+#= require <%= file_name %>
+```
+
+```haml
+data-bindable="<%= file_name.dasherize %>"
+```
 
 ### #dispose
 Remove the `<%= file_name.camelize %>` behavior.
