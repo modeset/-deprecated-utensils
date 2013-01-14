@@ -40,6 +40,11 @@ module Utensils
       def create_haml
         create_file "app/assets/utensils/#{file_name}/markup/#{file_name}.html.haml", ".#{file_name.dasherize}(data-bindable=\"#{file_name.dasherize}\")"
       end
+
+      def create_readme
+        template "readme.md", "app/assets/utensils/#{file_name}/readme.md"
+      end
+
     end
   end
 end
