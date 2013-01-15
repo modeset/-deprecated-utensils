@@ -17,6 +17,7 @@
 #= require utensils/progress
 #= require utensils/slider
 #= require utensils/responsive_frame
+#= require utensils/full_bleed
 
 # Lets get this party started..
 $ ->

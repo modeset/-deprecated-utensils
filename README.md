@@ -38,12 +38,12 @@ rake utensils:document
 ```
 
 
-## Roadmap
-- Background scaler
+## Todo
 - Test with Zepto
 - Release the gem (check the name)
 - Migrate remaining [modeset.js](https://github.com/modeset/modeset.js) files
 - Mobilize (templates, styles, cs, etc..)
+- Complete all Todo items
 
 
 ## License

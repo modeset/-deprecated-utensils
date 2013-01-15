@@ -124,6 +124,9 @@
           <a href='#form_stack'>Form Stack</a>
         </li>
         <li>
+          <a href='#full_bleed'>Full Bleed</a>
+        </li>
+        <li>
           <a href='#icon_caret'>Icon Caret</a>
         </li>
         <li>
@@ -4038,6 +4041,95 @@ Controls&quot; for the demo and usage example.</p>
 <span class="k">@import</span> <span class="s">utensils/form_stack</span>
 </pre></div>
 <p><em>Alert!</em> Requires the <code>form_controls</code> utensil.</p></section>
+      <a name='full_bleed'></a>
+      <section class='docomo-section'><h1>Full Bleed</h1>
+
+<p>Scales an image proportionally to the <code>width</code> of the browser window.
+Passing <code>data-fills-window=&quot;false&quot;</code> will constrain the height of the
+image to the height of <code>.full-bleed</code> container.</p>
+
+<h2>Usage</h2>
+<div class="highlight"><pre><span class="nt">%section</span><span class="nc">.full-bleed</span><span class="nf">#fill_window</span>(<span class="na">data-bindable=</span><span class="s">&quot;full-bleed&quot;</span>)
+  <span class="nt">%img</span>(<span class="na">src=</span><span class="s">&quot;http://placehold.it/800x450&quot;</span> <span class="na">alt=</span><span class="s">&quot;fpo&quot;</span> <span class="na">width=</span><span class="s">&quot;800&quot;</span> <span class="na">height=</span><span class="s">&quot;450&quot;</span>)
+
+<span class="nt">%section</span><span class="nc">.full-bleed</span><span class="nf">#no_fill_window</span>(<span class="na">data-bindable=</span><span class="s">&quot;full-bleed&quot;</span> <span class="na">data-fills-window=</span><span class="s">&quot;false&quot;</span>)
+  <span class="nt">%img</span>(<span class="na">src=</span><span class="s">&quot;http://placehold.it/800x450&quot;</span> <span class="na">alt=</span><span class="s">&quot;fpo&quot;</span> <span class="na">width=</span><span class="s">&quot;800&quot;</span> <span class="na">height=</span><span class="s">&quot;450&quot;</span>)
+</pre></div>
+<p><a href="/full-bleed" title="">&raquo; View Full Bleed Demo</a><br>
+<a href="/full-bleed-constrained" title="">&raquo; View Constrained Bleed Demo</a></p>
+
+<h2>Options</h2>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>namespace</code></td>
+<td><code>full_bleed</code></td>
+<td>The name space to use for dispatching events</td>
+</tr>
+<tr>
+<td><code>cropType</code></td>
+<td><code>CROP</code></td>
+<td>The type of crop to use (<code>CROP</code>, <code>CROP_TOP</code>, <code>CROP_BOTTOM</code>, <code>LETTERBOX</code>)</td>
+</tr>
+<tr>
+<td><code>fillsWindow</code></td>
+<td><code>true</code></td>
+<td>Whether to fill the browser window or constrain to the height of the <code>container</code></td>
+</tr>
+</tbody></table>
+
+<p><em>Heads Up!</em> When setting the <code>fillsWindow</code> property to <code>false</code>, the height
+of the container needs to be set within the Sass file.</p>
+
+<h2>API</h2>
+<div class="highlight"><pre><span class="c1">#= require full_bleed</span>
+</pre></div><div class="highlight"><pre>data-bindable=&quot;full-bleed&quot;
+</pre></div>
+<h3>#resize</h3>
+
+<p>Calls the resize event to scale the inner contents.</p>
+<div class="highlight"><pre><span class="nx">@full_bleed</span><span class="p">.</span><span class="nx">resize</span><span class="p">()</span>
+</pre></div>
+<h3>#dispose</h3>
+
+<p>Remove the <code>FullBleed</code> behavior.</p>
+<div class="highlight"><pre><span class="nx">@full_bleed</span><span class="p">.</span><span class="nx">dispose</span><span class="p">()</span>
+</pre></div>
+<h3>Requires</h3>
+<div class="highlight"><pre><span class="nx">utensils</span><span class="o">/</span><span class="nx">utensils</span>
+<span class="nx">utensils</span><span class="o">/</span><span class="nx">bindable</span>
+<span class="nx">utensils</span><span class="o">/</span><span class="nx">image_crop</span>
+</pre></div>
+<h2>Style Settings</h2>
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/full_bleed</span>
+</pre></div>
+<p>To override the default settings, set the variable and it&#39;s value
+within your <code>config.sass</code> file or before <code>full_bleed.sass</code> is loaded.</p>
+
+<table><thead>
+<tr>
+<th>Variable</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>$full-bleed-height</code></td>
+<td><code>auto</code></td>
+<td>The <code>height</code> of the container</td>
+</tr>
+<tr>
+<td><code>$full-bleed-zindex</code></td>
+<td><code>-1</code></td>
+<td>The <code>z-index</code> depth for the <code>.full-bleed</code> container</td>
+</tr>
+</tbody></table></section>
       <a name='icon_caret'></a>
       <section class='docomo-section'><h1>Icon Caret</h1>
 
@@ -4253,32 +4345,32 @@ and styles.</p>
 </tbody></table></section>
       <a name='image_crop'></a>
       <section class='docomo-section'>
-                                                                  <h1>ImageCrop</h1>
-                                                                  
-                                                                  <p>An object that keeps track of an image&#39;s original size, it&#39;s container&#39;s
-                                                                  size, and gives you the ability to set different crop modes on the
-                                                                  image.</p>
-                                                                  
-                                                                  <h2>Todo</h2>
-                                                                  
-                                                                  <ul>
-                                                                  <li>Document</li>
-                                                                  <li>Test</li>
-                                                                  </ul>
-                                                                </section>
+                                                                    <h1>ImageCrop</h1>
+                                                                    
+                                                                    <p>An object that keeps track of an image&#39;s original size, it&#39;s container&#39;s
+                                                                    size, and gives you the ability to set different crop modes on the
+                                                                    image.</p>
+                                                                    
+                                                                    <h2>Todo</h2>
+                                                                    
+                                                                    <ul>
+                                                                    <li>Document</li>
+                                                                    <li>Test</li>
+                                                                    </ul>
+                                                                  </section>
       <a name='image_util'></a>
       <section class='docomo-section'>
-                                                                  <h1>ImageUtil</h1>
-                                                                  
-                                                                  <p>A collection of image loading and resizing helper methods</p>
-                                                                  
-                                                                  <h2>Todo</h2>
-                                                                  
-                                                                  <ul>
-                                                                  <li>Document</li>
-                                                                  <li>Test</li>
-                                                                  </ul>
-                                                                </section>
+                                                                    <h1>ImageUtil</h1>
+                                                                    
+                                                                    <p>A collection of image loading and resizing helper methods</p>
+                                                                    
+                                                                    <h2>Todo</h2>
+                                                                    
+                                                                    <ul>
+                                                                    <li>Document</li>
+                                                                    <li>Test</li>
+                                                                    </ul>
+                                                                  </section>
       <a name='indicator'></a>
       <section class='docomo-section'><h1>Indicator</h1>
 
@@ -4374,18 +4466,18 @@ within your <code>config.sass</code> file or before <code>indicator.sass</code> 
 </tbody></table></section>
       <a name='math_util'></a>
       <section class='docomo-section'>
-                                                                    <h1>MathUtil</h1>
-                                                                    
-                                                                    <p>A collection of utility math functions</p>
-                                                                    
-                                                                    <h2>Todo:</h2>
-                                                                    
-                                                                    <ul>
-                                                                    <li>Import all MathUtil methods</li>
-                                                                    <li>Port specs from ModeSet.js</li>
-                                                                    <li>Document this</li>
-                                                                    </ul>
-                                                                  </section>
+                                                                      <h1>MathUtil</h1>
+                                                                      
+                                                                      <p>A collection of utility math functions</p>
+                                                                      
+                                                                      <h2>Todo:</h2>
+                                                                      
+                                                                      <ul>
+                                                                      <li>Import all MathUtil methods</li>
+                                                                      <li>Port specs from ModeSet.js</li>
+                                                                      <li>Document this</li>
+                                                                      </ul>
+                                                                    </section>
       <a name='media_grid'></a>
       <section class='docomo-section'><h1>Media Grid</h1>
 
@@ -8077,19 +8169,19 @@ parameter. This is done to ensure scope is transferred correctly and for
 a quicker lookup from the class utilizing a <code>ToggleGroup</code> instance.</p></section>
       <a name='touch_scroller'></a>
       <section class='docomo-section'>
-                                                                                                                          <h1>Touch Scroller</h1>
-                                                                                                                          
-                                                                                                                          <p>Describe this.</p>
-                                                                                                                          
-                                                                                                                          <h2>Todo</h2>
-                                                                                                                          
-                                                                                                                          <ul>
-                                                                                                                          <li>Check with JG on the js port</li>
-                                                                                                                          <li>Check with JG on the style port</li>
-                                                                                                                          <li>Test</li>
-                                                                                                                          <li>Document</li>
-                                                                                                                          </ul>
-                                                                                                                        </section>
+                                                                                                                            <h1>Touch Scroller</h1>
+                                                                                                                            
+                                                                                                                            <p>Describe this.</p>
+                                                                                                                            
+                                                                                                                            <h2>Todo</h2>
+                                                                                                                            
+                                                                                                                            <ul>
+                                                                                                                            <li>Check with JG on the js port</li>
+                                                                                                                            <li>Check with JG on the style port</li>
+                                                                                                                            <li>Test</li>
+                                                                                                                            <li>Document</li>
+                                                                                                                            </ul>
+                                                                                                                          </section>
       <a name='touch_tracker'></a>
       <section class='docomo-section'><h1>MouseAndTouchTracker</h1>
 
