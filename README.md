@@ -39,7 +39,6 @@ rake utensils:document
 
 
 ## Todo
-- Test with Zepto
 - Release the gem (check the name)
 - Migrate remaining [modeset.js](https://github.com/modeset/modeset.js) files
 - Mobilize (templates, styles, cs, etc..)
