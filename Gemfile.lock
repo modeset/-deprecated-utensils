@@ -143,6 +143,6 @@ PLATFORMS
 DEPENDENCIES
   docomo!
   rails
-  teabag
+  teabag (>= 0.5.2)
   thin
   utensils!
