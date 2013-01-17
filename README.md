@@ -16,7 +16,7 @@ gem 'utensils', github: 'modeset/utensils'
 ```
 
 Utensils is under continuous development. It's stable, but is subject to
-changes.
+change.
 
 
 ## Development
