@@ -1,4 +1,5 @@
 require 'sass-rails'
+require 'normalize-rails'
 require 'coffee-rails'
 
 class Utensils::Engine < ::Rails::Engine

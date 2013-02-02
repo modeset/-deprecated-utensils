@@ -11,6 +11,10 @@ This should appear right after compass, bourbon or the polyfills load, but befor
 specific styles are imported. This module operates on top level elements
 and inserts them directly into your style sheet.
 
+Utilizes the
+[normalize-rails](http://https://github.com/markmcconachie/normalize-rails/)
+gem and a few other optimizations.
+
 ```sass
 @import utensils/normalize
 ```

@@ -13,6 +13,7 @@ PATH
   specs:
     utensils (0.0.1)
       coffee-rails
+      normalize-rails
       railties (>= 3.2.5)
       sass-rails
 
@@ -71,6 +72,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.19)
     multi_json (1.5.0)
+    normalize-rails (2.0.1)
     phantomjs-mac (0.0.3)
     phantomjs.rb (0.0.5)
       phantomjs-mac
@@ -106,7 +108,7 @@ GEM
       json (~> 1.4)
     redcarpet (2.2.2)
     sass (3.2.5)
-    sass-rails (3.2.5)
+    sass-rails (3.2.6)
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)

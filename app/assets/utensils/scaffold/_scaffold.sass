@@ -13,8 +13,6 @@ $nav-divider: $base-border !default
 // Top level elements
 html
   font-size: 100%
-  -webkit-text-size-adjust: 100%
-  -ms-text-size-adjust: 100%
 
 html, button, input, select, textarea
   color: $body-color
@@ -24,7 +22,6 @@ body
   +font-size($base-font-size)
   background: $body-background
   line-height: $base-line-height
-  margin: 0
 
 // Set vendor text selection
 +text-selection($select-bgc, $select-color)
@@ -38,7 +35,6 @@ a:focus
   +tab-focus
 
 a:hover, a:active
-  outline: 0
   text-decoration: none
 
 a:hover
