@@ -39,11 +39,9 @@ rake utensils:document
 
 
 ## Todo
-- Use normalize-rails for normalization
-- Release the gem (check the name)
 - Migrate remaining [modeset.js](https://github.com/modeset/modeset.js) files
 - Mobilize (templates, styles, cs, etc..)
-- Complete all Todo items
+- See Todo items within each utensil 
 
 
 ## License
