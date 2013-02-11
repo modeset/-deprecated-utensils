@@ -25,6 +25,7 @@ class utensils.Bindable
 
     delete @bindables
     @bindables = []
+    @
 
 
   # Marked for Deprecation
