@@ -22,6 +22,17 @@ module Utensils
         template "behavior.coffee", "app/assets/components/#{file_name}/#{file_name}.coffee"
       end
 
+      def create_spec_dir
+        return if options[:no_js]
+        empty_directory("app/assets/components/#{file_name}/spec")
+      end
+
+      def create_spec_files
+        return if options[:no_js]
+        template "spec.coffee", "app/assets/components/#{file_name}/spec/#{file_name}_spec.coffee"
+        create_file "app/assets/components/#{file_name}/#{file_name}/spec/fixture.html.haml", ".#{file_name.dasherize}"
+      end
+
       def create_sass_index
         return if options[:no_css]
         create_file "app/assets/components/#{file_name}/index.sass", "@import #{file_name}"

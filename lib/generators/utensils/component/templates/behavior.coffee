@@ -1,6 +1,6 @@
 #= require utensils/bindable
 
-class utensils.<%= file_name.camelize %>
+class namespace.<%= file_name.camelize %>
   constructor: (@el, data) ->
     @data = if data then data else @el.data()
     @options()
@@ -27,5 +27,5 @@ class utensils.<%= file_name.camelize %>
   removeListeners: ->
 
 
-utensils.Bindable.register '<%= file_name.dasherize %>', utensils.<%= file_name.camelize %>
+utensils.Bindable.register '<%= file_name.dasherize %>', namespace.<%= file_name.camelize %>
 
