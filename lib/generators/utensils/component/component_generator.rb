@@ -30,7 +30,7 @@ module Utensils
       def create_spec_files
         return if options[:no_js]
         template "spec.coffee", "app/assets/components/#{file_name}/spec/#{file_name}_spec.coffee"
-        create_file "app/assets/components/#{file_name}/#{file_name}/spec/fixture.html.haml", ".#{file_name.dasherize}"
+        create_file "app/assets/components/#{file_name}/spec/fixture.html.haml", ".#{file_name.dasherize}"
       end
 
       def create_sass_index
