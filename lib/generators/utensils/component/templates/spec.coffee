@@ -11,6 +11,6 @@ describe '<%= file_name.camelize %>', ->
 
   describe 'binding', ->
     it 'is registered in bindable', ->
-      expect(utensils.Bindable.getClass('<%= file_name.dasherize %>')).to.eql namespace.<%= file_name.camelize %>
+      expect(utensils.Bindable.getClass('<%= file_name.dasherize %>')).to.be namespace.<%= file_name.camelize %>
 
 
