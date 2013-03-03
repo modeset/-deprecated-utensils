@@ -1,5 +1,6 @@
 #= require utensils/pop
 #= require utensils/directional
+fixture.preload 'pop/markup/pop'
 
 describe 'Pop', ->
 
@@ -10,7 +11,7 @@ describe 'Pop', ->
             <a id="auto_activated" data-title="The Active Pop" data-content="The content" data-activate="true">Auto Activated</a>
             """
 
-    fixture.load('pop/markup/pop')
+    fixture.load 'pop/markup/pop'
     @dom = $(fixture.el)
     @dom.append(extra)
 
@@ -40,156 +41,158 @@ describe 'Pop', ->
 
   describe 'binding', ->
     it 'is registered in bindable', ->
-      expect(utensils.Bindable.getClass('pop')).toEqual(utensils.Pop)
+      expect(utensils.Bindable.getClass('pop')).to.be utensils.Pop
 
 
   describe '#constructor', ->
     it 'displays like a tip', ->
-      expect(@north_pop.is_tip_like).toEqual(true)
+      expect(@north_pop.is_tip_like).to.be true
 
     it 'does not display like a tip', ->
-      expect(@ext_pop.is_tip_like).toEqual(false)
+      expect(@ext_pop.is_tip_like).to.be false
 
     it 'sets up a data object like a tip', ->
-      expect(@north_pop.data).toBeDefined()
+      expect(@north_pop.data).not.to.be undefined
 
     it 'finds the data object when not tip like', ->
-      expect(@ext_pop.data).toBeDefined()
-      expect(@ext_pop.data.placement).toEqual('west')
+      expect(@ext_pop.data).not.to.be undefined
+      expect(@ext_pop.data.placement).to.be 'west'
 
     it 'auto activates a pop', ->
-      expect(@auto_el).toHaveClass('selected')
+      expect(@auto_el.hasClass('selected')).to.be true
 
 
   describe '#options', ->
     it 'sets default namespace', ->
-      expect(@north_pop.data.namespace).toEqual('pop')
+      expect(@north_pop.data.namespace).to.be 'pop'
 
     it 'sets the default data.toggle classes to "active in"', ->
-      expect(@north_pop.data.toggle).toEqual('active in')
+      expect(@north_pop.data.toggle).to.be 'active in'
 
     it 'overrides the default data.toggle classes', ->
-      expect(@override_pop.data.toggle).toEqual('active')
+      expect(@override_pop.data.toggle).to.be 'active'
 
     it 'sets the default data.placement to "north"', ->
-      expect(@north_pop.data.placement).toEqual('north')
+      expect(@north_pop.data.placement).to.be 'north'
 
     it 'overrides the default data.placement', ->
-      expect(@south_pop.data.placement).toEqual('south')
+      expect(@south_pop.data.placement).to.be 'south'
 
     it 'sets the default data.title from data-title attribute', ->
-      expect(@override_pop.data.title).toEqual('The Overrides Pop')
+      expect(@override_pop.data.title).to.be 'The Overrides Pop'
 
     it 'sets the default data.title from the title attribute', ->
-      expect(@south_pop.data.title).toEqual('The Southern Pop')
+      expect(@south_pop.data.title).to.be 'The Southern Pop'
 
     it 'sets the data.content from the content attribute', ->
-      expect(@south_pop.data.content).toContain('snow goes in the summer')
+      expect(@south_pop.data.content).to.contain 'snow goes in the summer'
 
     it 'sets the default data.effect to "fade"', ->
-      expect(@north_pop.data.effect).toEqual('fade')
+      expect(@north_pop.data.effect).to.be 'fade'
 
     it 'overrides the default data.effect', ->
-      expect(@override_pop.data.effect).toEqual('move')
+      expect(@override_pop.data.effect).to.be 'move'
 
 
   describe '#initialize', ->
     it 'instantiates a class properties with null values', ->
-      expect(@north_pop.pop).toBeNull()
-      expect(@north_pop.cached_markup).toBeNull()
+      expect(@north_pop.pop).to.be null
+      expect(@north_pop.cached_markup).to.be null
 
     it 'sets the default container to null', ->
-      expect(@north_pop.container).toBe($('body'))
+      expect(@north_pop.container.html()).to.be $('body').html()
 
     it 'sets default namespace', ->
-      expect(@east_pop.namespace).toEqual('pop')
+      expect(@east_pop.namespace).to.be 'pop'
 
     it 'sets the default toggle classes to "active in"', ->
-      expect(@north_pop.toggle_classes).toEqual('active in')
+      expect(@north_pop.toggle_classes).to.be 'active in'
 
     it 'overrides the default toggle classes', ->
-      expect(@override_pop.toggle_classes).toEqual('active')
+      expect(@override_pop.toggle_classes).to.be 'active'
 
     it 'sets the default placement to "north"', ->
-      expect(@north_pop.placement).toEqual('north')
+      expect(@north_pop.placement).to.be 'north'
 
     it 'overrides the default placement', ->
-      expect(@south_pop.placement).toEqual('south')
+      expect(@south_pop.placement).to.be 'south'
 
     it 'sets the default title from data-title attribute', ->
-      expect(@override_pop.title).toEqual('The Overrides Pop')
+      expect(@override_pop.title).to.be 'The Overrides Pop'
 
     it 'sets the default title from the title attribute', ->
-      expect(@south_pop.title).toEqual('The Southern Pop')
+      expect(@south_pop.title).to.be 'The Southern Pop'
 
     it 'sets the content from the content attribute', ->
-      expect(@south_pop.content).toContain('snow goes in the summer')
+      expect(@south_pop.content).to.contain 'snow goes in the summer'
 
     it 'sets the default effect to "fade"', ->
-      expect(@north_pop.effect).toEqual('fade')
+      expect(@north_pop.effect).to.be 'fade'
 
     it 'overrides the default effect', ->
-      expect(@override_pop.effect).toEqual('move')
+      expect(@override_pop.effect).to.be 'move'
 
     it 'creates an instance of "Triggerable"', ->
-      expect(@north_pop.triggerable instanceof utensils.Triggerable).toEqual(true)
+      expect(@north_pop.triggerable).to.be.a utensils.Triggerable
 
     it 'blows away the title attribute contents', ->
-      expect(@north_el.attr('title')).toEqual('')
-      expect(@south_el.attr('title')).toEqual('')
+      expect(@north_el.attr('title')).to.be ''
+      expect(@south_el.attr('title')).to.be ''
 
     it 'uses Triggerables trigger types', ->
-      expect(@north_pop.triggerable.trigger_type).toEqual(on:'click.pop', off:'click.pop')
-      expect(@east_pop.triggerable.trigger_type).toEqual(on:'mouseenter.pop focus.pop', off:'mouseleave.pop blur.pop')
-      expect(@override_pop.triggerable.trigger_type).toEqual(on:'focus.pop', off:'blur.pop')
+      expect(@north_pop.triggerable.trigger_type).to.eql (on:'click.pop', off:'click.pop')
+      expect(@east_pop.triggerable.trigger_type).to.eql (on:'mouseenter.pop focus.pop', off:'mouseleave.pop blur.pop')
+      expect(@override_pop.triggerable.trigger_type).to.eql (on:'focus.pop', off:'blur.pop')
 
 
   describe '#setup', ->
     it 'creates an instance of "Directional"', ->
       @north_pop.setup()
-      expect(@north_pop.directional instanceof utensils.Directional).toEqual(true)
+      expect(@north_pop.directional).to.be.a utensils.Directional
 
     it 'memoizes the cardinals from "Directional"', ->
       @north_pop.setup()
-      expect(@north_pop.cardinals).toEqual(new utensils.Directional().getCardinals())
+      expect(@north_pop.cardinals).to.be new utensils.Directional().getCardinals()
 
 
   describe '#toggle', ->
     it 'calls through #toggle on the "Triggerable" instance', ->
-      spyEvent = spyOn(@north_pop.triggerable, 'toggle')
+      spy = sinon.spy @north_pop.triggerable, 'toggle'
       @north_el.click()
-      expect(spyEvent).toHaveBeenCalled()
+      expect(spy.called).to.be.ok()
 
     it 'shows a pop from an elements action', ->
       @west_el.click()
       pop = $('.pop').first()
-      expect(pop).toHaveClass('fade')
+      expect(pop.hasClass('fade')).to.be true
 
-    it 'shows and hides a pop on an elements action after a delay', ->
-      # override the delay to speed up the tests.
+    it 'show a pop after a delay', (done) ->
       @north_pop.triggerable.delay.activate = 50
       @north_pop.triggerable.delay.deactivate = 50
+      @north_el.trigger('click')
+      setTimeout(( =>
+        pop = $('.pop').first()
+        expect(pop.hasClass('fade')).to.be true
+        done()
+      ), 50)
 
-      runs ->
-        @north_el.trigger('click')
-      waits 50
-      runs ->
+    it 'hides a pop after a delay', (done) ->
+      @north_pop.triggerable.delay.activate = 0
+      @north_pop.triggerable.delay.deactivate = 50
+      @north_pop.activated()
+      @north_el.trigger('click')
+      setTimeout(( =>
         pop = $('.pop').first()
-        expect(pop).toHaveClass('fade')
-      waits 50
-      runs ->
-        @north_el.trigger('click')
-      waits 50
-      runs ->
-        pop = $('.pop').first()
-        expect(pop).not.toHaveClass('in')
+        expect(pop.hasClass('in')).to.be false
+        done()
+      ), 50)
 
 
   describe '#activate', ->
     it 'activates a pop', ->
       @west_pop.activate()
       pop = $('.pop').first()
-      expect(pop).toHaveClass('fade')
+      expect(pop.hasClass('fade')).to.be true
 
 
   describe '#deactivate', ->
@@ -197,64 +200,57 @@ describe 'Pop', ->
       @west_pop.activate()
       @west_pop.deactivate()
       pop = $('.pop').first()
-      expect(pop).not.toHaveClass('in')
+      expect(pop.hasClass('in')).to.be false
 
 
   describe '#dispose', ->
     it 'removes listeners when disposed', ->
-      spyEvent = spyOn(@west_pop, 'removeListeners')
+      spy = sinon.spy @west_pop, 'removeListeners'
       @west_pop.dispose()
-      expect(spyEvent).toHaveBeenCalled()
+      expect(spy.called).to.be.ok()
 
     it 'gets rid of triggerable', ->
       @west_pop.dispose()
-      expect(@west_pop.triggerable).toBeNull()
+      expect(@west_pop.triggerable).to.be null
 
     it 'gets rid of directional', ->
       @west_pop.setup()
       @west_pop.dispose()
-      expect(@west_pop.directional).toBeNull()
+      expect(@west_pop.directional).to.be null
 
     it 'does not respond to any further events', ->
-      spyEvent = spyOn(@west_pop, 'activate')
+      spy = sinon.spy @west_pop, 'activate'
       @west_pop.dispose()
       @west_el.click()
-      expect(spyEvent).not.toHaveBeenCalled()
+      expect(spy.called).not.to.be.ok()
 
     it 'removes the pop when disposed', ->
       $('.pop').remove()
       @override_pop.activate()
-      expect($('.pop').length).toBeGreaterThan(0)
+      expect($('.pop').length).to.be.above 0
       @override_pop.dispose()
-      expect(@override_pop.pop).toBeNull()
-      expect($('.pop').length).toEqual(0)
+      expect(@override_pop.pop).to.be null
+      expect($('.pop').length).to.be 0
 
     it 'does not toss freak out if disposing multiple times', ->
       @west_pop.dispose()
       @west_pop.dispose()
-      expect(@west_pop.dispose).not.toThrow()
+      expect(@west_pop.dispose).not.to.throwException()
 
 
   describe '#activated', ->
     it 'activates a pop immediately even though it has a delay', ->
       @west_pop.activated()
       pop = $('.pop').first()
-      expect(pop).toHaveClass('fade')
-      expect(@west_el).toHaveClass('selected')
+      expect(pop.hasClass('fade')).to.be true
+      expect(@west_el.hasClass('selected')).to.be true
 
     it 'caches internal markup', ->
-      expect(@west_pop.cached_markup).toBeNull()
+      expect(@west_pop.cached_markup).to.be null
       @west_el.trigger('click')
-      expect(@west_pop.cached_markup).not.toBeNull()
-      expect(@west_pop.cached_markup.find('.pop-arrow')).toBeDefined()
-      expect(@west_pop.cached_markup.find('.pop-header')).toBeDefined()
-
-    xit 'caches external markup', ->
-      expect(@ext_pop.cached_markup).toBeNull()
-      @ext_pop.activate()
-      expect(@ext_pop.cached_markup).not.toBeNull()
-      expect(@ext_pop.cached_markup.find('.pop-arrow')).toBeDefined()
-      expect(@ext_pop.cached_markup.find('.pop-header').text()).toContain(('Exterior content'))
+      expect(@west_pop.cached_markup).not.to.be null
+      expect(@west_pop.cached_markup.find('.pop-arrow')).not.to.be undefined
+      expect(@west_pop.cached_markup.find('.pop-header')).not.to.be undefined
 
 
   describe '#deactivated', ->
@@ -262,20 +258,20 @@ describe 'Pop', ->
       @north_pop.activated()
       @north_pop.deactivated()
       pop = $('.pop').first()
-      expect(pop).not.toHaveClass('in')
-      expect(@north_el).not.toHaveClass('selected')
+      expect(pop.hasClass('in')).to.be false
+      expect(@north_el.hasClass('selected')).to.be false
 
 
   describe '#add', ->
     it 'sets the default container to body', ->
       @north_pop.activated()
-      expect(@north_pop.container).toEqual($('body'))
+      expect(@north_pop.container.html()).to.be $('body').html()
 
     it 'adds a pop to the viewport', ->
       $('.pop').remove()
-      expect($('.pop').length).toEqual(0)
+      expect($('.pop').length).to.be 0
       @east_el.trigger('mouseover')
-      expect($('.pop').length).toBeGreaterThan(0)
+      expect($('.pop').length).to.be.above 0
 
 
   describe '#remove', ->
@@ -284,32 +280,27 @@ describe 'Pop', ->
       @west_pop.activate()
       @west_pop.remove()
       pop = $('.pop').first()
-      expect(pop.length).toEqual(0)
-      expect(@west_pop.pop).toBeNull()
+      expect(pop.length).to.be 0
+      expect(@west_pop.pop).to.be null
 
 
   describe '#render', ->
     it 'returns a string for rendering the default markup of a tip', ->
       west_render = @west_pop.render()
-      expect(west_render).toHaveClass('pop west fade')
-      expect(west_render.find('.pop-inner').html()).toContain('The Western Pop')
+      expect(west_render.hasClass('pop west fade')).to.be true
+      expect(west_render.find('.pop-inner').html()).to.contain('The Western Pop')
 
 
   describe '#findMarkup', ->
     it 'uses the internal render string when the pop is tip like', ->
-      spyEvent = spyOn(@west_pop, 'render')
+      spy = sinon.spy @west_pop, 'render'
       @west_pop.findMarkup()
-      expect(spyEvent).toHaveBeenCalled()
-
-    xit 'does not call render when the pop is not tip like', ->
-      spyEvent = spyOn(@ext_pop, 'render')
-      @ext_pop.findMarkup()
-      expect(spyEvent).not.toHaveBeenCalled()
+      expect(spy.called).to.be.ok()
 
     it 'removes the pop-header div when there is no title attribute', ->
       $('.pop').remove()
       @no_title_el.trigger('click')
       pop = $('.pop')
-      expect(pop).toHaveClass('pop-no-header')
-      expect(pop.find('.pop-header').length).toEqual(0)
+      expect(pop.hasClass('pop-no-header')).to.be true
+      expect(pop.find('.pop-header').length).to.be 0
 

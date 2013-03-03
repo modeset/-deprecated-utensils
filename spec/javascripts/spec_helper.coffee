@@ -1,2 +1,3 @@
 #= require jquery.min
-#= require support/jasmine-jquery
+mocha.setup
+  ignoreLeaks: true

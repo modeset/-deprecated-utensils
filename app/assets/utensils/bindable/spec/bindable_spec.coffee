@@ -1,7 +1,8 @@
 #= require utensils/bindable
+fixture.set '<div data-bindable="mock_class_key"></div>'
 
 class MockClass
-  constructor: ->
+  constructor: (@el)->
     @state = 'instantiated'
     @disposed = false
 
@@ -11,7 +12,7 @@ class MockClass
 
 describe 'Bindable', ->
   beforeEach ->
-    @dom = setFixtures(sandbox({'data-bindable': 'mock_class_key'}))
+    @dom = $(fixture.el)
 
 
   describe '#register', ->
@@ -19,13 +20,13 @@ describe 'Bindable', ->
       utensils.Bindable.register('mock_class_key', MockClass)
 
     it 'defines registry when a reference is registered', ->
-      expect(utensils.Bindable.registry).toBeDefined()
+      expect(utensils.Bindable.registry).not.to.be undefined
 
     it 'adds the MockClass with the "mock_class_key" key in the registry', ->
-      expect(utensils.Bindable.registry['mock_class_key'].class).toEqual(MockClass)
+      expect(utensils.Bindable.registry['mock_class_key'].class).to.be MockClass
 
     it 'retrieves the class ref with .getClass', ->
-      expect(utensils.Bindable.getClass('mock_class_key')).toEqual(MockClass)
+      expect(utensils.Bindable.getClass('mock_class_key')).to.be MockClass
 
 
   describe '#bindAll', ->
@@ -34,8 +35,8 @@ describe 'Bindable', ->
 
     it 'instantiates a bound class', ->
       @bindable.bindAll()
-      expect(@bindable.getRefs('mock_class_key').length).toEqual(1)
-      expect(@bindable.getRefs('mock_class_key')[0].state).toEqual('instantiated')
+      expect(@bindable.getRefs('mock_class_key').length).to.be 1
+      expect(@bindable.getRefs('mock_class_key')[0].state).to.be 'instantiated'
 
 
   describe '#dispose', ->
@@ -45,13 +46,13 @@ describe 'Bindable', ->
 
     it 'calls dispose on the bindable instances', ->
       instance = @bindable.getRefs('mock_class_key')[0]
-      expect(instance.disposed).toEqual(false)
+      expect(instance.disposed).to.be false
       @bindable.dispose()
-      expect(instance.disposed).toEqual(true)
+      expect(instance.disposed).to.be true
 
     it 'removes the instance from bindable', ->
       @bindable.dispose()
-      expect(@bindable.getRefs('mock_class_key').length).toEqual(0)
+      expect(@bindable.getRefs('mock_class_key').length).to.be 0
 
 
   describe '#bind', ->
@@ -61,7 +62,7 @@ describe 'Bindable', ->
 
     it 'binds a class instance with a DOM element', ->
       instance = @bindable.getRefs('mock_class_key')[0]
-      expect(instance.el).toBe(@dom)
+      expect(instance.el.html()).to.be @dom.find('div').html()
 
 
   describe '@getClass', ->
@@ -70,7 +71,7 @@ describe 'Bindable', ->
       @bindable.bindAll()
 
     it 'returns the instance from a key', ->
-      expect(utensils.Bindable.getClass('mock_class_key')).toBe(MockClass)
+      expect(utensils.Bindable.getClass('mock_class_key')).to.be MockClass
 
 
   describe '@register', ->
@@ -79,5 +80,5 @@ describe 'Bindable', ->
 
     it 'registers a bindable object through the static method', ->
       utensils.Bindable.register 'test_register', new MockClass
-      expect(@bindable.getRefs('test_register').length).toEqual(1)
+      expect(@bindable.getRefs('test_register').length).to.be 1
 
