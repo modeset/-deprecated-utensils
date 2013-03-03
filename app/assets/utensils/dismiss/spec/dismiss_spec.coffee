@@ -1,4 +1,5 @@
 #= require utensils/dismiss
+fixture.preload 'dismiss/markup/dismiss'
 
 describe 'Dismiss', ->
 
@@ -16,7 +17,7 @@ describe 'Dismiss', ->
             </div>
             """
 
-    fixture.load('dismiss/markup/dismiss')
+    fixture.load 'dismiss/markup/dismiss'
     @dom = $(fixture.el)
     @dom.append(extra)
 
@@ -50,135 +51,135 @@ describe 'Dismiss', ->
 
   describe 'binding', ->
     it 'is registered in bindable', ->
-      expect(utensils.Bindable.getClass('dismiss')).toEqual(utensils.Dismiss)
+      expect(utensils.Bindable.getClass('dismiss')).to.be utensils.Dismiss
 
 
   describe '#constructor', ->
     it 'sets up a data object', ->
-      expect(@alert.data).toBeDefined()
+      expect(@alert.data).not.to.be undefined
 
     it 'auto dismisses a dismissable object when it has the auto-dismiss attribute', ->
-      expect(@auto.data.autoDismiss).toEqual(5000)
+      expect(@auto.data.autoDismiss).to.be 5000
 
 
   describe '#options', ->
     it 'sets default data.namespace', ->
-      expect(@alert.data.namespace).toEqual('dismiss')
+      expect(@alert.data.namespace).to.be 'dismiss'
 
     it 'sets default data.parents', ->
-      expect(@alert.data.parents).toEqual('.notification, .dismiss')
+      expect(@alert.data.parents).to.be '.notification, .dismiss'
 
     it 'overrides data.parents', ->
-      expect(@custom.data.parents).toEqual('#dismiss_cya')
+      expect(@custom.data.parents).to.be '#dismiss_cya'
 
 
   describe '#initialize', ->
     it 'sets default namespace', ->
-      expect(@alert.namespace).toEqual('dismiss')
+      expect(@alert.namespace).to.be 'dismiss'
 
     it 'sets default parent_classes', ->
-      expect(@alert.parent_classes).toEqual('.notification, .dismiss')
+      expect(@alert.parent_classes).to.be '.notification, .dismiss'
 
     it 'overrides parent_classes', ->
-      expect(@custom.parent_classes).toEqual('#dismiss_cya')
+      expect(@custom.parent_classes).to.be '#dismiss_cya'
 
     it 'creates an instance of "Triggerable"', ->
-      expect(@alert.triggerable instanceof utensils.Triggerable).toEqual(true)
+      expect(@alert.triggerable).to.be.a utensils.Triggerable
 
 
   describe '#remove', ->
     it 'triggers a "dismiss" event', ->
       @alert_el.on('dismiss:dismiss', => @noop arguments...)
-      spyEvent = spyOn(this, 'noop').andCallThrough()
+      spy = sinon.spy @, 'noop'
       @alert_link.click()
-      expect(spyEvent).toHaveBeenCalled()
+      expect(spy.called).to.be.ok()
 
     it 'removes the alert from the dom', ->
       @alert_link.click()
-      expect(@alert_el).not.toHaveClass('in')
+      expect(@alert_el.hasClass('in')).to.be false
 
 
   describe '#removeTarget', ->
     it 'removes the alert from the dom', ->
       @alert.removeTarget()
-      expect(@dom).not.toContain(@alert_el)
+      expect(@dom).not.to.contain @alert_el
 
     it 'triggers a "dismissed" event', ->
       @alert_el.on('dismiss:dismissed', => @noop arguments...)
-      spyEvent = spyOn(this, 'noop').andCallThrough()
+      spy = sinon.spy @, 'noop'
       @alert.removeTarget()
-      expect(spyEvent).toHaveBeenCalled()
+      expect(spy.called).to.be.ok()
 
 
   describe '#dispose', ->
     it 'removes listeners when disposed', ->
-      spyEvent = spyOn(@alert, 'removeListeners')
+      spy = sinon.spy @alert, 'removeListeners'
       @alert.dispose()
-      expect(spyEvent).toHaveBeenCalled()
+      expect(spy.called).to.be.ok()
 
     it 'gets rid of triggerable', ->
       @alert.dispose()
-      expect(@alert.triggerable).toBeNull()
+      expect(@alert.triggerable).to.be null
 
     it 'does not respond to any further events', ->
-      spyEvent = spyOn(@alert, 'deactivated')
+      spy = sinon.spy @alert, 'deactivated'
       @alert.dispose()
       @alert_link.click()
-      expect(spyEvent).not.toHaveBeenCalled()
+      expect(spy.called).not.to.be.ok()
 
     it 'does not freak out if disposing multiple times', ->
       @alert.dispose()
       @alert.dispose()
-      expect(@alert.dispose).not.toThrow()
+      expect(@alert.dispose).not.to.throwException()
 
 
   describe '#addListeners', ->
     it 'adds a listener for "click" event for an alert', ->
-      spyEvent = spyOn(@alert, 'deactivated')
+      spy = sinon.spy @alert, 'deactivated'
       @alert_link.click()
-      expect(spyEvent).toHaveBeenCalled()
+      expect(spy.called).to.be.ok()
 
 
   describe '#removeListeners', ->
     it 'removes a listener for "click" event for an alert', ->
-      spyEvent = spyOn(@alert, 'deactivated')
+      spy = sinon.spy @alert, 'deactivated'
       @alert.removeListeners()
       @alert_link.click()
-      expect(spyEvent).not.toHaveBeenCalled()
+      expect(spy.called).not.to.be.ok()
 
 
   describe '#deactivated', ->
     it 'removes the alert element from the dom from the parent', ->
       @alert_link.click()
-      expect(@alert_el).not.toHaveClass('in')
+      expect(@alert_el.hasClass('in')).to.be false
 
     it 'removes the alert element from the dom from the href', ->
       @href_link.click()
-      expect(@href_el).not.toHaveClass('in')
+      expect(@href_el.hasClass('in')).to.be false
 
 
   describe '#setTarget', ->
     it 'sets the target against the parent', ->
       @alert.setTarget()
-      expect(@alert.target).toBe(@alert_el)
+      expect(@alert.target.html()).to.be @alert_el.html()
 
     it 'sets the target against the href', ->
       @href.setTarget()
-      expect(@href.target).toBe(@href_el)
+      expect(@href.target.html()).to.be @href_el.html()
 
     it 'sets the target against the data-target', ->
       @target.setTarget()
-      expect(@target.target).toBe(@target_el)
+      expect(@target.target.html()).to.be @target_el.html()
 
     it 'sets the target when nested', ->
       @nested.setTarget()
-      expect(@nested.target).toBe(@nested_el)
+      expect(@nested.target.html()).to.be @nested_el.html()
 
     it 'defaults the target against the el', ->
       @alone.setTarget()
-      expect(@alone.target).toBe(@alone_el)
+      expect(@alone.target.html()).to.be @alone_el.html()
 
     it 'sets the target against custom classes', ->
       @custom.setTarget()
-      expect(@custom.target).toBe(@custom_el)
+      expect(@custom.target.html()).to.be @custom_el.html()
 

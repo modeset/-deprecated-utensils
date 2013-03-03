@@ -4,7 +4,7 @@ describe 'Utensils', ->
 
   describe '#namespace', ->
     it 'exists for access', ->
-      expect(utensils).toBeDefined()
+      expect(utensils).not.to.be undefined
     it 'exists on the window object', ->
-      expect(window.utensils).toBeDefined()
+      expect(window.utensils).not.to.be undefined
 

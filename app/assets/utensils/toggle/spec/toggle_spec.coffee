@@ -1,4 +1,5 @@
 #= require utensils/toggle
+fixture.preload 'toggle/markup/toggle'
 
 describe 'Toggle', ->
 
@@ -9,7 +10,7 @@ describe 'Toggle', ->
       @event = e
       @element = $(element)
 
-    fixture.load('toggle/markup/toggle')
+    fixture.load 'toggle/markup/toggle'
     @dom = $(fixture.el)
 
     @defaulter_el = @dom.find('#toggle_1')
@@ -27,187 +28,188 @@ describe 'Toggle', ->
 
   describe 'binding', ->
     it 'is registered in bindable', ->
-      expect(utensils.Bindable.getClass('toggle')).toEqual(utensils.Toggle)
+      expect(utensils.Bindable.getClass('toggle')).to.be utensils.Toggle
 
 
   describe '#constructor', ->
     it 'sets up a data object', ->
-      expect(@defaulter.data).toBeDefined()
+      expect(@defaulter.data).not.to.be undefined
 
     it 'auto activates an element from a data attribute', ->
-      expect(@auto_el).toHaveClass('active')
+      expect(@auto_el.hasClass('active')).to.be true
+
 
   describe '#options', ->
     it 'sets default namespace', ->
-      expect(@defaulter.data.namespace).toEqual('toggle')
+      expect(@defaulter.data.namespace).to.be 'toggle'
 
     it 'overrides the default namespace via a data attribute', ->
-      expect(@hoverer.data.namespace).toEqual('hoverable')
+      expect(@hoverer.data.namespace).to.be 'hoverable'
 
     it 'sets the default data.toggle state to "active"', ->
-      expect(@defaulter.data.toggle).toEqual('active')
+      expect(@defaulter.data.toggle).to.be 'active'
 
     it 'overrides the default data.toggle state to "active on"', ->
-      expect(@hoverer.data.toggle).toEqual('active on')
+      expect(@hoverer.data.toggle).to.be 'active on'
 
 
   describe '#initialize', ->
     it 'sets default namespace', ->
-      expect(@defaulter.namespace).toEqual('toggle')
+      expect(@defaulter.namespace).to.be 'toggle'
 
     it 'overrides the default namespace via a data attribute', ->
-      expect(@hoverer.namespace).toEqual('hoverable')
+      expect(@hoverer.namespace).to.be 'hoverable'
 
     it 'sets the default toggle state to "active"', ->
-      expect(@defaulter.toggle_classes).toEqual('active')
+      expect(@defaulter.toggle_classes).to.be 'active'
 
     it 'overrides the default toggle state to "active on"', ->
-      expect(@hoverer.toggle_classes).toEqual('active on')
+      expect(@hoverer.toggle_classes).to.be 'active on'
 
     it 'creates an instance of "Triggerable"', ->
-      expect(@defaulter.triggerable instanceof utensils.Triggerable).toEqual(true)
+      expect(@defaulter.triggerable).to.be.a utensils.Triggerable
 
 
   describe '#toggle', ->
     it 'calls through #toggle on the "Triggerable" instance', ->
-      spyEvent = spyOn(@defaulter.triggerable, 'toggle')
+      spy = sinon.spy @defaulter.triggerable, 'toggle'
       @defaulter_el.click()
-      expect(spyEvent).toHaveBeenCalled()
+      expect(spy.called).to.be.ok()
 
 
   describe '#activate', ->
     it 'calls through #activate on the "Triggerable" instance', ->
-      spyEvent = spyOn(@defaulter.triggerable, 'activate')
+      spy = sinon.spy @defaulter.triggerable, 'activate'
       @defaulter_el.click()
-      expect(spyEvent).toHaveBeenCalled()
+      expect(spy.called).to.be.ok()
 
 
   describe '#deactivate', ->
     it 'calls through #deactivate on the "Triggerable" instance', ->
-      spyEvent = spyOn(@defaulter.triggerable, 'deactivate')
+      spy = sinon.spy @defaulter.triggerable, 'deactivate'
       @defaulter_el.click()
       @defaulter_el.click()
-      expect(spyEvent).toHaveBeenCalled()
+      expect(spy.called).to.be.ok()
 
 
   describe '#dispose', ->
     it 'removes its own listeners', ->
-      spyEvent = spyOn(@defaulter, 'removeListeners')
+      spy = sinon.spy @defaulter, 'removeListeners'
       @defaulter.dispose()
-      expect(spyEvent).toHaveBeenCalled()
+      expect(spy.called).to.be.ok()
 
     it 'calls through #dispose on the "Triggerable" instance', ->
-      spyEvent = spyOn(@defaulter.triggerable, 'dispose')
+      spy = sinon.spy @defaulter.triggerable, 'dispose'
       @defaulter.dispose()
-      expect(spyEvent).toHaveBeenCalled()
+      expect(spy.called).to.be.ok()
 
     it 'sets the instance of "Triggerable" to null', ->
       @defaulter.dispose()
-      expect(@defaulter.triggerable).toBeNull()
+      expect(@defaulter.triggerable).to.be null
 
     it 'does not toss an error if disposing multiple times', ->
       @defaulter.dispose()
       @defaulter.dispose()
-      expect(@defaulter.dispose).not.toThrow()
+      expect(@defaulter.dispose).not.to.throwException()
 
 
   describe '#addListeners', ->
     it 'adds a listener for "click" event', ->
-      spyEvent = spyOn(@defaulter, 'activated')
+      spy = sinon.spy @defaulter, 'activated'
       @defaulter_el.click()
-      expect(spyEvent).toHaveBeenCalled()
+      expect(spy.called).to.be.ok()
 
     it 'adds a listener for "hover" event', ->
-      spyEvent = spyOn(@hoverer, 'deactivated')
+      spy = sinon.spy @hoverer, 'deactivated'
       @hover_el.trigger('mouseenter')
       @hover_el.trigger('mouseleave')
-      expect(spyEvent).toHaveBeenCalled()
+      expect(spy.called).to.be.ok()
 
 
   describe '#removeListeners', ->
     it 'removes a listener for "click" event', ->
-      spyEvent = spyOn(@defaulter, 'activated')
+      spy = sinon.spy @defaulter, 'activated'
       @defaulter.removeListeners()
       @defaulter_el.click()
-      expect(spyEvent).not.toHaveBeenCalled()
+      expect(spy.called).not.to.be.ok()
 
     it 'removes a listener for "hover" event', ->
-      spyEvent = spyOn(@hoverer, 'deactivated')
+      spy = sinon.spy @hoverer, 'deactivated'
       @hoverer.removeListeners()
       @hover_el.trigger('mouseenter')
       @hover_el.trigger('mouseleave')
-      expect(spyEvent).not.toHaveBeenCalled()
+      expect(spy.called).not.to.be.ok()
 
 
   describe '#activated', ->
     it 'adds the toggle_classes on "click"', ->
       @defaulter_el.click()
-      expect(@defaulter_el).toHaveClass('active')
+      expect(@defaulter_el.hasClass('active')).to.be true
 
     it 'adds the custom toggle_classes on "hover"', ->
       @hover_el.mouseenter()
-      expect(@hover_el).toHaveClass('active on')
+      expect(@hover_el.hasClass('active on')).to.be true
 
     it 'adds the toggle_classes on "focus"', ->
       @focus_el.focus()
-      expect(@focus_el).toHaveClass('active')
+      expect(@focus_el.hasClass('active')).to.be true
 
-    it 'adds the toggle_classes on "click" with a delay', ->
+    it 'adds the toggle_classes on "click" with a delay', (done) ->
       # override the delay to speed up the tests.
       @delayer.triggerable.delay.activate = 50
       @delayer.triggerable.delay.deactivate = 50
-      runs ->
-        @delay_el.click()
-        expect(@delay_el).not.toHaveClass('active')
-      waits 50
-      runs ->
-        expect(@delay_el).toHaveClass('active')
+      @delay_el.click()
+      expect(@delay_el.hasClass('active')).to.be false
+      setTimeout(( =>
+        expect(@delay_el.hasClass('active')).to.be true
+        done()
+      ), 50)
 
     it 'dispatches an "activated" event from the element', ->
       @defaulter_el.on('toggle:activated', => @noop arguments...)
-      spyEvent = spyOn(this, 'noop').andCallThrough()
+      spy = sinon.spy @, 'noop'
       @defaulter_el.click()
-      expect(spyEvent).toHaveBeenCalled()
-      expect(@element).toBe(@defaulter_el)
+      expect(spy.called).to.be.ok()
+      expect(@element.html()).to.be @defaulter_el.html()
 
 
   describe '#deactivated', ->
     it 'removes the toggle_classes on "click"', ->
       @defaulter_el.click()
-      expect(@defaulter_el).toHaveClass('active')
+      expect(@defaulter_el.hasClass('active')).to.be true
       @defaulter_el.click()
-      expect(@defaulter_el).not.toHaveClass('active')
+      expect(@defaulter_el.hasClass('active')).to.be false
 
     it 'removes the custom toggle_classes on "hover"', ->
       @hover_el.mouseenter()
-      expect(@hover_el).toHaveClass('active on')
+      expect(@hover_el.hasClass('active on')).to.be true
       @hover_el.mouseleave()
-      expect(@hover_el).not.toHaveClass('active on')
+      expect(@hover_el.hasClass('active on')).to.be false
 
     it 'removes the toggle_classes on "focus"', ->
       @focus_el.focus()
-      expect(@focus_el).toHaveClass('active')
+      expect(@focus_el.hasClass('active')).to.be true
       @focus_el.blur()
-      expect(@focus_el).not.toHaveClass('active')
+      expect(@focus_el.hasClass('active')).to.be false
 
-    it 'removes the toggle_classes on "click" with a delay', ->
+    it 'removes the toggle_classes on "click" with a delay', (done) ->
       # override the delay to speed up the tests.
       @delayer.triggerable.delay.activate = 50
       @delayer.triggerable.delay.deactivate = 50
       @delayer.activate()
-      expect(@delay_el).toHaveClass('active')
-      runs ->
-        @delay_el.click()
-        expect(@delay_el).toHaveClass('active')
-      waits 50
-      runs ->
-        expect(@delay_el).not.toHaveClass('active')
+      expect(@delay_el.hasClass('active')).to.be true
+      @delay_el.click()
+      expect(@delay_el.hasClass('active')).to.be true
+      setTimeout(( =>
+        expect(@delay_el.hasClass('active')).to.be false
+        done()
+      ), 50)
 
     it 'dispatches a "deactivated" event from the element', ->
       @defaulter_el.on('toggle:deactivated', => @noop arguments...)
-      spyEvent = spyOn(this, 'noop').andCallThrough()
+      spy = sinon.spy @, 'noop'
       @defaulter_el.click()
       @defaulter_el.click()
-      expect(spyEvent).toHaveBeenCalled()
-      expect(@element).toBe(@defaulter_el)
+      expect(spy.called).to.be.ok()
+      expect(@element.html()).to.be @defaulter_el.html()
 
