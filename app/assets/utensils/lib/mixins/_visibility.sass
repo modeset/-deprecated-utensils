@@ -1,5 +1,3 @@
-$legacy-support-for-ie: true !default
-
 // Totally hidden from screen readers and browsers
 @mixin hidden
   display: none !important
@@ -42,16 +40,4 @@ $legacy-support-for-ie: true !default
 // Hide visually and from screenreaders, but maintain layout
 @mixin invisible
   visibility: hidden
-
-// Add placeholder classes
-%hidden
-  +hidden
-%shown
-  +shown
-%visuallyhidden
-  +visuallyhidden
-%visuallyshown
-  +visuallyshown
-%invisible
-  +invisible
 

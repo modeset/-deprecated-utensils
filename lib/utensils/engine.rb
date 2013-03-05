@@ -1,4 +1,5 @@
 require 'sass-rails'
+require 'bourbon'
 require 'normalize-rails'
 require 'coffee-rails'
 

@@ -4,16 +4,16 @@
 //   width: 100px
 // .col-flex
 //   +float-fill(100px, right)
-@mixin float-fill($spacerW, $float)
+@mixin float-fill($spacer, $float)
   +box-sizing(border-box)
   float: $float
   width: 100%
   @if $float == right
-    padding: 0 $spacerW 0 0
-    margin: 0 (-$spacerW) 0 0
+    padding: 0 $spacer 0 0
+    margin: 0 (-$spacer) 0 0
   @else
-    padding: 0 0 0 $spacerW
-    margin: 0 0 0 (-$spacerW)
+    padding: 0 0 0 $spacer
+    margin: 0 0 0 (-$spacer)
 
 // Use for a 3-column layout with the center being stretchable to a min-width:
 // .col-1
@@ -24,9 +24,9 @@
 // .col-3
 //   float: right
 //   width: 100px
-@mixin float-fill-3-col-center($spacerLeft, $min-width:0px, $spacerRight:0)
+@mixin float-fill-3-col-center($spacer-left, $min-width:0px, $spacer-right:0)
   +box-sizing(border-box)
   float: left
   min-width: $min-width
-  padding: 0 $spacerRight 0 $spacerLeft
-  margin: 0 (-$spacerRight) 0 (-$spacerLeft)
+  padding: 0 $spacer-right 0 $spacer-left
+  margin: 0 (-$spacer-right) 0 (-$spacer-left)

@@ -1,8 +1,8 @@
 $carousel-height: 400px !default
 
 .carousel
+  @extend %clearfix
   +box-sizing(border-box)
-  +clearfixer
   overflow: hidden
   position: relative
   width: 100%
@@ -37,7 +37,6 @@ $carousel-height: 400px !default
   height: $carousel-height
 
 .carousel[data-bindable="carousel"] .carousel-panel
-  +user-select()
   position: absolute
   width: auto
 

@@ -3,8 +3,8 @@ $media-border-hover: $base-border-hover !default
 $media-radii: $radii !default
 
 .media-grid
+  @extend %clearfix
   +box-sizing(border-box)
-  +clearfixer
   list-style: none
 
 .media-grid > li
