@@ -14,7 +14,6 @@ describe '<%= file_name.camelize %>', ->
       expect(utensils.Bindable.getClass('<%= file_name.dasherize %>')).to.be utensils.<%= file_name.camelize %>
 
 
-  describe '#constructor', ->
-    it 'needs to be tested', ->
-      expect(false).to.be true
+  describe.skip 'has not been tested', ->
+    it '', ->
 
