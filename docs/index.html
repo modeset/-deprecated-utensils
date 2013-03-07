@@ -5,31 +5,29 @@
 <html class='no-js' lang='en' xmlns:og='http://ogp.me/ns#'>
   <!--<![endif]-->
   <head>
-    <meta charset='utf-8' />
-    <meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible' />
+    <meta charset='utf-8'>
+    <meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'>
     <title>Utensils Documentation</title>
-    <meta content='Utensils / https://github.com/modeset/utensils' name='description' />
-    <meta content='Mode Set Utensils' name='keywords' />
-    <meta content='Mode Set' name='author' />
-    <meta content='no' name='imagetoolbar' />
-    <meta content='width=device-width, initial-scale=1.0' name='viewport' />
-    <meta content='yes' name='apple-touch-fullscreen' />
-    <meta content='yes' name='apple-mobile-web-app-capable' />
-    <meta content='black' name='apple-mobile-web-app-status-bar-style' />
+    <meta content='Utensils / https://github.com/modeset/utensils' name='description'>
+    <meta content='Mode Set Utensils' name='keywords'>
+    <meta content='Mode Set' name='author'>
+    <meta content='no' name='imagetoolbar'>
+    <meta content='width=device-width, initial-scale=1.0' name='viewport'>
+    <meta content='yes' name='apple-touch-fullscreen'>
+    <meta content='yes' name='apple-mobile-web-app-capable'>
+    <meta content='black' name='apple-mobile-web-app-status-bar-style'>
     <!--[if (gte IE 8)|!(IE)]><!-->
-    <link href='/assets/application.css' media='all' rel='stylesheet' type='text/css' />
+    <link href='/assets/application.css' media='all' rel='stylesheet' type='text/css'>
     <!--<![endif]-->
     <!--[if lte IE 7]>
-      <link href='/assets/dinosaur.css' media='all' rel='stylesheet' type='text/css' />
+      <link href='/assets/dinosaur.css' media='all' rel='stylesheet' type='text/css'>
     <![endif]-->
-    <link href='/assets/docs.css' rel='stylesheet' type='text/css' />
+    <link href='/assets/docs.css' rel='stylesheet' type='text/css'>
     <!--[if lte IE 8]>
       <script src='/assets/polyfill.js' type='text/javascript'></script>
     <![endif]-->
-    <script type='text/javascript'>
-      //<![CDATA[
-        (function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)
-      //]]>
+    <script>
+      (function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)
     </script>
   </head>
   <body role='document'>
@@ -145,6 +143,9 @@
           <a href='#indicator'>Indicator</a>
         </li>
         <li>
+          <a href='#lib'>Lib</a>
+        </li>
+        <li>
           <a href='#math_util'>Math Util</a>
         </li>
         <li>
@@ -155,9 +156,6 @@
         </li>
         <li>
           <a href='#mirror'>Mirror</a>
-        </li>
-        <li>
-          <a href='#mixins'>Mixins</a>
         </li>
         <li>
           <a href='#modal'>Modal</a>
@@ -185,9 +183,6 @@
         </li>
         <li>
           <a href='#polyfill_placeholder'>Polyfill Placeholder</a>
-        </li>
-        <li>
-          <a href='#polyfills'>Polyfills</a>
         </li>
         <li>
           <a href='#pop'>Pop</a>
@@ -275,7 +270,7 @@ laborum.</p>
     </article>
   </section>
 </section>
-<hr />
+<hr>
 <ul class='accordion' data-bindable='toggle-group' role='tablist'>
   <li class='accordion-group'>
     <a class='accordion-toggle' href='#accordion_radio_1' role='tab'>
@@ -329,7 +324,7 @@ laborum.</p>
     </section>
   </li>
 </ul>
-<hr />
+<hr>
 <ul class='accordion' data-behavior='checkbox' data-bindable='collapse' role='tablist'>
   <li class='accordion-group'>
     <a class='accordion-toggle' href='#accordion_check_1' role='tab'>Accordion Check 1 with Collapse</a>
@@ -374,7 +369,7 @@ laborum.</p>
     </section>
   </li>
 </ul>
-<hr />
+<hr>
 <ul class='accordion' data-behavior='checkbox' data-bindable='collapse' role='tablist'>
   <li class='accordion-group'>
     <a class='accordion-toggle' href='#accordion_complex_1' role='tab'>Accordion Complicated 1 with Collapse</a>
@@ -877,7 +872,7 @@ of their base class, to adjust various aspects around a button&#39;s display
 type, sizing, or positioning.</p>
 
 <p><div class="docomo-showcase"><section class='demo' data-remove='btn-xsmall btn-small btn-large btn-xlarge' data-target='.btn'>
-  <input class='btn standard' type='submit' value='Submit' />
+  <input class='btn standard' type='submit' value='Submit'>
   <button class='btn inverse'>Inverse</button>
   <button class='btn important'>Important</button>
   <a class='btn success' href='#'>Success</a>
@@ -1041,8 +1036,8 @@ are added to the style sheet unless told to do so.</p>
 <div class="docomo-showcase"><section class='semigloss-btn-demo'>
   <a class='btn' href='#'>Link</a>
   <button class='btn' type='submit'>Button</button>
-  <input class='btn' type='button' value='Input' />
-  <input class='btn' type='submit' value='Submit' />
+  <input class='btn' type='button' value='Input'>
+  <input class='btn' type='submit' value='Submit'>
 </section>
 </div><div class="highlight"><pre><span class="nt">%section</span><span class="nc">.semigloss-btn-demo</span>
   <span class="nt">%a</span><span class="nc">.btn</span>(<span class="na">href=</span><span class="s">&quot;#&quot;</span>) Link
@@ -1224,25 +1219,25 @@ default this is set to <code>false</code> so no buttons are created.</p></sectio
   <section class='carousel-inner'>
     <article class='carousel-panel fade'>
       <figure class='carousel-figure'>
-        <img alt='image' height='400' src='http://placehold.it/600x400/ff00ff/ffffff' width='600' />
+        <img alt='image' height='400' src='http://placehold.it/600x400/ff00ff/ffffff' width='600'>
         <figcaption class='carousel-caption'></figcaption>
       </figure>
     </article>
     <article class='carousel-panel fade'>
       <figure class='carousel-figure'>
-        <img alt='image' height='400' src='http://placehold.it/600x400/00ffff/ffffff' width='600' />
+        <img alt='image' height='400' src='http://placehold.it/600x400/00ffff/ffffff' width='600'>
         <figcaption class='carousel-caption'></figcaption>
       </figure>
     </article>
     <article class='carousel-panel fade'>
       <figure class='carousel-figure'>
-        <img alt='image' height='400' src='http://placehold.it/600x400/ff0000/ffffff' width='600' />
+        <img alt='image' height='400' src='http://placehold.it/600x400/ff0000/ffffff' width='600'>
         <figcaption class='carousel-caption'></figcaption>
       </figure>
     </article>
     <article class='carousel-panel fade'>
       <figure class='carousel-figure'>
-        <img alt='image' height='400' src='http://placehold.it/600x400/666666/ffffff' width='600' />
+        <img alt='image' height='400' src='http://placehold.it/600x400/666666/ffffff' width='600'>
         <figcaption class='carousel-caption'></figcaption>
       </figure>
     </article>
@@ -1395,22 +1390,22 @@ structure. See <code>Paddles</code> for <code>paddle-icon</code> styles.</p></se
   <section class='carousel-inner'>
     <article class='carousel-panel'>
       <figure class='carousel-figure'>
-        <img alt='image' src='http://placehold.it/600x400/ff00ff/ffffff' />
+        <img alt='image' src='http://placehold.it/600x400/ff00ff/ffffff'>
       </figure>
     </article>
     <article class='carousel-panel'>
       <figure class='carousel-figure'>
-        <img alt='image' src='http://placehold.it/600x400/00ffff/ffffff' />
+        <img alt='image' src='http://placehold.it/600x400/00ffff/ffffff'>
       </figure>
     </article>
     <article class='carousel-panel'>
       <figure class='carousel-figure'>
-        <img alt='image' src='http://placehold.it/600x400/ff0000/ffffff' />
+        <img alt='image' src='http://placehold.it/600x400/ff0000/ffffff'>
       </figure>
     </article>
     <article class='carousel-panel'>
       <figure class='carousel-figure'>
-        <img alt='image' src='http://placehold.it/600x400/666666/ffffff' />
+        <img alt='image' src='http://placehold.it/600x400/666666/ffffff'>
       </figure>
     </article>
   </section>
@@ -1446,22 +1441,22 @@ structure. See <code>Paddles</code> for <code>paddle-icon</code> styles.</p></se
   <section class='carousel-inner'>
     <article class='carousel-panel'>
       <figure class='carousel-figure'>
-        <img alt='image' src='http://placehold.it/600x400/ff00ff/ffffff' />
+        <img alt='image' src='http://placehold.it/600x400/ff00ff/ffffff'>
       </figure>
     </article>
     <article class='carousel-panel'>
       <figure class='carousel-figure'>
-        <img alt='image' src='http://placehold.it/600x400/00ffff/ffffff' />
+        <img alt='image' src='http://placehold.it/600x400/00ffff/ffffff'>
       </figure>
     </article>
     <article class='carousel-panel'>
       <figure class='carousel-figure'>
-        <img alt='image' src='http://placehold.it/600x400/ff0000/ffffff' />
+        <img alt='image' src='http://placehold.it/600x400/ff0000/ffffff'>
       </figure>
     </article>
     <article class='carousel-panel'>
       <figure class='carousel-figure'>
-        <img alt='image' src='http://placehold.it/600x400/666666/ffffff' />
+        <img alt='image' src='http://placehold.it/600x400/666666/ffffff'>
       </figure>
     </article>
   </section>
@@ -1534,7 +1529,7 @@ laborum.</p>
     </article>
   </section>
 </div>
-<hr />
+<hr>
 <nav role='navigation'>
   <ul data-activate='true' data-bindable='collapse' id='collapse_radio' role='tablist'>
     <li>
@@ -1713,7 +1708,7 @@ laborum.</p>
     </li>
   </ul>
 </nav>
-<hr />
+<hr>
 <nav role='navigation'>
   <ul data-activate='1' data-behavior='checkbox' data-bindable='collapse' id='collapse_checkbox' role='tablist'>
     <li>
@@ -1760,7 +1755,7 @@ laborum.</p>
     </li>
   </ul>
 </nav>
-<hr />
+<hr>
 <nav role='navigation'>
   <ul data-behavior='checkbox' data-bindable='collapse' id='collapse_external' role='tablist'>
     <li>
@@ -2798,42 +2793,42 @@ paired with one of the form layout components.</p>
     <legend>Common input controls</legend>
     <div class='control-group'>
       <div class='controls'>
-        <input placeholder='text' type='text' />
+        <input placeholder='text' type='text'>
       </div>
     </div>
     <div class='control-group'>
       <div class='controls'>
-        <input placeholder='name@example.com' type='email' />
+        <input placeholder='name@example.com' type='email'>
       </div>
     </div>
     <div class='control-group'>
       <div class='controls'>
-        <input placeholder='password' type='password' />
+        <input placeholder='password' type='password'>
       </div>
     </div>
     <div class='control-group'>
       <div class='controls'>
-        <input placeholder='www.example.com' type='url' />
+        <input placeholder='www.example.com' type='url'>
       </div>
     </div>
     <div class='control-group'>
       <div class='controls'>
-        <input placeholder='303-867-5309' type='tel' />
+        <input placeholder='303-867-5309' type='tel'>
       </div>
     </div>
     <div class='control-group'>
       <div class='controls'>
-        <input placeholder='search' type='search' />
+        <input placeholder='search' type='search'>
       </div>
     </div>
     <div class='control-group'>
       <div class='controls'>
-        <input placeholder='date' type='date' />
+        <input placeholder='date' type='date'>
       </div>
     </div>
     <div class='control-group'>
       <div class='controls'>
-        <input max='10' min='0' placeholder='number' type='number' />
+        <input max='10' min='0' placeholder='number' type='number'>
       </div>
     </div>
   </fieldset>
@@ -2841,48 +2836,48 @@ paired with one of the form layout components.</p>
     <legend>Less common input controls</legend>
     <div class='control-group'>
       <div class='controls'>
-        <input placeholder='datetime' type='datetime' />
+        <input placeholder='datetime' type='datetime'>
       </div>
     </div>
     <div class='control-group'>
       <div class='controls'>
-        <input placeholder='datetime-local' type='datetime-local' />
+        <input placeholder='datetime-local' type='datetime-local'>
       </div>
     </div>
     <div class='control-group'>
       <div class='controls'>
-        <input placeholder='time' type='time' />
+        <input placeholder='time' type='time'>
       </div>
     </div>
     <div class='control-group'>
       <div class='controls'>
-        <input placeholder='month' type='month' />
+        <input placeholder='month' type='month'>
       </div>
     </div>
     <div class='control-group'>
       <div class='controls'>
-        <input placeholder='week' type='week' />
+        <input placeholder='week' type='week'>
       </div>
     </div>
     <div class='control-group'>
       <div class='controls'>
-        <input max='10' min='0' placeholder='range' step='.5' type='range' />
+        <input max='10' min='0' placeholder='range' step='.5' type='range'>
       </div>
     </div>
     <div class='control-group'>
       <div class='controls'>
-        <input type='color' value='#ff00ff' />
+        <input type='color' value='#ff00ff'>
       </div>
     </div>
     <div class='control-group'>
       <div class='controls'>
-        <input type='file' value='file' />
+        <input type='file' value='file'>
       </div>
     </div>
     <div class='control-group'>
       <label class='control-label'><abbr title="The input field's type is set to hidden">Hidden Input Field</abbr></label>
       <div class='controls'>
-        <input placeholder='hidden' type='hidden' />
+        <input placeholder='hidden' type='hidden'>
       </div>
     </div>
   </fieldset>
@@ -2957,7 +2952,7 @@ paired with one of the form layout components.</p>
     <legend>Search Elements</legend>
     <div class='control-group'>
       <div class='controls'>
-        <input class='search-query' placeholder='search' type='search' />
+        <input class='search-query' placeholder='search' type='search'>
       </div>
     </div>
   </fieldset>
@@ -3020,7 +3015,7 @@ added to the control.</p>
     <div class='control-group'>
       <label class='control-label' for='fcsm_select'>Multiple Select</label>
       <div class='controls'>
-        <select id='fcsm_select' multiple='multiple'>
+        <select id='fcsm_select' multiple>
           <option value='1'>One</option>
           <option selected='selected' value='2'>Two</option>
           <option value='3'>Three</option>
@@ -3067,7 +3062,7 @@ zero to many options.</p>
       <label class='control-label'><h5>Radio</h5></label>
       <div class='controls'>
         <label class='radio' for='fc_radio1-1'>
-          <input checked='checked' id='fc_radio1-1' name='fc[radios1]' type='radio' value='true'>Yes, to radio buttons</input>
+          <input checked id='fc_radio1-1' name='fc[radios1]' type='radio' value='true'>Yes, to radio buttons</input>
         </label>
         <label class='radio' for='fc_radio1-2'>
           <input id='fc_radio1-2' name='fc[radios1]' type='radio' value='false'>No, to radio buttons</input>
@@ -3078,7 +3073,7 @@ zero to many options.</p>
       <label class='control-label'><h5>Radio Inline</h5></label>
       <div class='controls'>
         <label class='radio-inline' for='fc_radio2-1'>
-          <input checked='checked' id='fc_radio2-1' name='fc[radios2]' type='radio' value='true'>Yes, to inline radios</input>
+          <input checked id='fc_radio2-1' name='fc[radios2]' type='radio' value='true'>Yes, to inline radios</input>
         </label>
         <label class='radio-inline' for='fc_radio2-2'>
           <input id='fc_radio2-2' name='fc[radios2]' type='radio' value='false'>No, to inline radios</input>
@@ -3093,7 +3088,7 @@ zero to many options.</p>
           <input id='fc_check1-1' type='checkbox' value='0'>Check your premises</input>
         </label>
         <label class='checkbox' for='fc_check1-2'>
-          <input checked='checked' id='fc_check1-2' type='checkbox' value='1'>Premises, checked.</input>
+          <input checked id='fc_check1-2' type='checkbox' value='1'>Premises, checked.</input>
         </label>
       </div>
     </div>
@@ -3104,7 +3099,7 @@ zero to many options.</p>
           <input id='fc_check2-1' type='checkbox' value='0'>Check your inline premises</input>
         </label>
         <label class='checkbox-inline' for='fc_check2-2'>
-          <input checked='checked' id='fc_check2-2' type='checkbox' value='1'>Premises inline, checked.</input>
+          <input checked id='fc_check2-2' type='checkbox' value='1'>Premises inline, checked.</input>
         </label>
       </div>
     </div>
@@ -3161,15 +3156,15 @@ zero to many options.</p>
     <div class='control-group'>
       <label class='control-label' for='fcd_text1'>Label<abbr title="Required">*</abbr></label>
       <div class='controls'>
-        <input id='fcd_text1' placeholder='text' type='text' />
+        <input id='fcd_text1' placeholder='text' type='text'>
         <p class='hint-block'>The hint block for the control element</p>
       </div>
     </div>
-    <hr />
+    <hr>
     <div class='control-group'>
       <label class='control-label' for='fcd_text2'>Label<abbr title="Required">*</abbr></label>
       <div class='controls'>
-        <input id='fcd_text2' placeholder='text' type='text' />
+        <input id='fcd_text2' placeholder='text' type='text'>
         <p class='hint-inline'>The inline hint for the control element</p>
       </div>
     </div>
@@ -3246,14 +3241,14 @@ user.</p>
     <div class='control-group'>
       <label class='control-label' for='fcu_text'>Uneditable field<abbr title="Fill out entire form first">!</abbr></label>
       <div class='controls'>
-        <input class='uneditable-field' disabled='disabled' id='fcu_text' placeholder='text' type='text' value="Can't touch this!" />
+        <input class='uneditable-field' disabled id='fcu_text' placeholder='text' type='text' value="Can't touch this!">
         <p class='hint-inline'>Hurry up!</p>
       </div>
     </div>
     <div class='control-group'>
       <label class='control-label' for='fcu_textarea'>Uneditable field<abbr title="Fill out entire form first">!</abbr></label>
       <div class='controls'>
-        <textarea class='uneditable-field' disabled='disabled' id='fcu_textarea' placeholder='Enter the textarea...' rows='8'>Can't touch this either</textarea>
+        <textarea class='uneditable-field' disabled id='fcu_textarea' placeholder='Enter the textarea...' rows='8'>Can't touch this either</textarea>
       </div>
     </div>
   </fieldset>
@@ -3366,7 +3361,7 @@ or other descriptive helpers</li>
     <div class='control-group'>
       <label class='control-label' for='fcs_text'>Text:<abbr title="Required">*</abbr></label>
       <div class='controls'>
-        <input id='fcs_text' placeholder='Enter your name' type='text' />
+        <input id='fcs_text' placeholder='Enter your name' type='text'>
         <p class='hint-inline error-msg'>That failed terribly</p>
         <p class='hint-inline success-msg'>Gold stars all around</p>
         <p class='hint-block'>First and last name</p>
@@ -3375,7 +3370,7 @@ or other descriptive helpers</li>
     <div class='control-group'>
       <label class='control-label' for='fcs_email'>Email:<abbr title="Required">*</abbr></label>
       <div class='controls'>
-        <input id='fcs_email' placeholder='name@example.com' type='email' />
+        <input id='fcs_email' placeholder='name@example.com' type='email'>
         <p class='hint-inline'>No AOL accounts!</p>
         <p class='hint-inline error-msg'>That failed terribly</p>
         <p class='hint-inline success-msg'>Gold stars all around</p>
@@ -3385,7 +3380,7 @@ or other descriptive helpers</li>
     <div class='control-group file-browser'>
       <label class='control-label' for='fcs_file'>File Browser:</label>
       <div class='controls'>
-        <input id='fcs_file' type='file' value='file' />
+        <input id='fcs_file' type='file' value='file'>
         <p class='hint-inline error-msg'>That failed terribly</p>
         <p class='hint-inline success-msg'>Gold stars all around</p>
       </div>
@@ -3404,7 +3399,7 @@ or other descriptive helpers</li>
     <div class='control-group'>
       <label class='control-label' for='fcs_uneditable'><abbr title="Fill out entire form first">Uneditable field:</abbr></label>
       <div class='controls'>
-        <input class='uneditable-field' disabled='disabled' id='fcs_uneditable' placeholder='text' type='text' value="Can't touch this!" />
+        <input class='uneditable-field' disabled id='fcs_uneditable' placeholder='text' type='text' value="Can't touch this!">
         <p class='hint-inline'>Hurry up!</p>
         <p class='hint-inline error-msg'>That failed terribly</p>
         <p class='hint-inline success-msg'>Gold stars all around</p>
@@ -3417,7 +3412,7 @@ or other descriptive helpers</li>
       <label class='control-label'>Radio:</label>
       <div class='controls'>
         <label class='radio' for='fcs_radio1-1'>
-          <input checked='checked' id='fcs_radio1-1' name='fc[radios1]' type='radio' value='true'>Yes, to radio buttons</input>
+          <input checked id='fcs_radio1-1' name='fc[radios1]' type='radio' value='true'>Yes, to radio buttons</input>
         </label>
         <label class='radio' for='fcs_radio1-2'>
           <input id='fcs_radio1-2' name='fc[radios1]' type='radio' value='false'>No, to radio buttons</input>
@@ -3428,7 +3423,7 @@ or other descriptive helpers</li>
       <label class='control-label'>Radio Inline:</label>
       <div class='controls'>
         <label class='radio-inline' for='fcs_radio2-1'>
-          <input checked='checked' id='fcs_radio2-1' name='fc[radios2]' type='radio' value='true'>Yes, to inline radios</input>
+          <input checked id='fcs_radio2-1' name='fc[radios2]' type='radio' value='true'>Yes, to inline radios</input>
         </label>
         <label class='radio-inline' for='fcs_radio2-2'>
           <input id='fcs_radio2-2' name='fc[radios2]' type='radio' value='false'>No, to inline radios</input>
@@ -3444,7 +3439,7 @@ or other descriptive helpers</li>
           <input id='fcs_check1-1' type='checkbox' value='0'>Check your premises</input>
         </label>
         <label class='checkbox' for='fcs_check1-2'>
-          <input checked='checked' id='fcs_check1-2' type='checkbox' value='1'>Premises, checked.</input>
+          <input checked id='fcs_check1-2' type='checkbox' value='1'>Premises, checked.</input>
         </label>
       </div>
     </div>
@@ -3455,7 +3450,7 @@ or other descriptive helpers</li>
           <input id='fcs_check2-1' type='checkbox' value='0'>Check your inline premises</input>
         </label>
         <label class='checkbox-inline' for='fcs_check2-2'>
-          <input checked='checked' id='fcs_check2-2' type='checkbox' value='1'>Premises inline, checked.</input>
+          <input checked id='fcs_check2-2' type='checkbox' value='1'>Premises inline, checked.</input>
         </label>
         <p class='hint-inline error-msg'>That failed terribly</p>
         <p class='hint-inline success-msg'>Gold stars all around</p>
@@ -3464,7 +3459,7 @@ or other descriptive helpers</li>
     <div class='control-group select'>
       <label class='control-label' for='fcs_multiselect'>Multiple Select:</label>
       <div class='controls'>
-        <select id='fcs_multiselect' multiple='multiple'>
+        <select id='fcs_multiselect' multiple>
           <option value='1'>One</option>
           <option selected='selected' value='2'>Two</option>
           <option value='3'>Three</option>
@@ -3489,8 +3484,8 @@ or other descriptive helpers</li>
       </div>
     </div>
     <div class='form-actions'>
-      <input class='btn standard' type='submit' value='Submit' />
-      <input class='btn standard' type='reset' value='Cancel' />
+      <input class='btn standard' type='submit' value='Submit'>
+      <input class='btn standard' type='reset' value='Cancel'>
     </div>
   </fieldset>
 </form>
@@ -3813,8 +3808,8 @@ within your <code>config.sass</code> file or before <code>form_horizontal.sass</
 inline form. Supports control labels as well.</p>
 
 <p><div class="docomo-showcase"><form class='form-inline well fill' role='form'>
-  <input id='fi_email' placeholder='email' type='email' />
-  <input id='fi_passw' placeholder='password' type='password' />
+  <input id='fi_email' placeholder='email' type='email'>
+  <input id='fi_passw' placeholder='password' type='password'>
   <select>
     <option selected='selected' value='denver'>Denver</option>
     <option value='boulder'>Boulder</option>
@@ -3824,7 +3819,7 @@ inline form. Supports control labels as well.</p>
   <label class='checkbox-label'>
     <input type='checkbox'>Remember me</input>
   </label>
-  <input class='btn standard' type='submit' value='Go' />
+  <input class='btn standard' type='submit' value='Go'>
 </form>
 </div><div class="highlight"><pre><span class="nt">%form</span><span class="nc">.form-inline.well.fill</span>(<span class="na">role=</span><span class="s">&quot;form&quot;</span>)
   <span class="nt">%input</span><span class="nf">#fi_email</span>(<span class="na">type=</span><span class="s">&quot;email&quot;</span> <span class="na">placeholder=</span><span class="s">&quot;email&quot;</span>)
@@ -3855,8 +3850,8 @@ properties of the <code>.search-query</code> class. Any input buttons used will
 inherit the top and bottom <code>padding</code> of the input element.</p>
 
 <p><div class="docomo-showcase"><form class='form-search well fill' role='search'>
-  <input id='fs_search' placeholder='search' type='search' />
-  <input class='btn standard' type='submit' value='Submit' />
+  <input id='fs_search' placeholder='search' type='search'>
+  <input class='btn standard' type='submit' value='Submit'>
 </form>
 </div><div class="highlight"><pre><span class="nt">%form</span><span class="nc">.form-search.well.fill</span>(<span class="na">role=</span><span class="s">&quot;search&quot;</span>)
   <span class="nt">%input</span><span class="nf">#fs_search</span>(<span class="na">type=</span><span class="s">&quot;search&quot;</span> <span class="na">placeholder=</span><span class="s">&quot;search&quot;</span>)
@@ -3880,49 +3875,49 @@ form stack styled form. Supports control labels as well.</p>
     <div class='control-group'>
       <label>Text</label>
       <div class='controls'>
-        <input placeholder='text' type='text' />
+        <input placeholder='text' type='text'>
       </div>
     </div>
     <div class='control-group'>
       <label>Email</label>
       <div class='controls'>
-        <input placeholder='name@example.com' type='email' />
+        <input placeholder='name@example.com' type='email'>
       </div>
     </div>
     <div class='control-group'>
       <label>Password</label>
       <div class='controls'>
-        <input placeholder='password' type='password' />
+        <input placeholder='password' type='password'>
       </div>
     </div>
     <div class='control-group'>
       <label>URL</label>
       <div class='controls'>
-        <input placeholder='www.example.com' type='url' />
+        <input placeholder='www.example.com' type='url'>
       </div>
     </div>
     <div class='control-group'>
       <label>Tel</label>
       <div class='controls'>
-        <input placeholder='303-867-5309' type='tel' />
+        <input placeholder='303-867-5309' type='tel'>
       </div>
     </div>
     <div class='control-group'>
       <label>Search</label>
       <div class='controls'>
-        <input placeholder='search' type='search' />
+        <input placeholder='search' type='search'>
       </div>
     </div>
     <div class='control-group'>
       <label>Date</label>
       <div class='controls'>
-        <input placeholder='date' type='date' />
+        <input placeholder='date' type='date'>
       </div>
     </div>
     <div class='control-group'>
       <label>Number</label>
       <div class='controls'>
-        <input max='10' min='0' placeholder='number' type='number' />
+        <input max='10' min='0' placeholder='number' type='number'>
       </div>
     </div>
   </fieldset>
@@ -3931,31 +3926,31 @@ form stack styled form. Supports control labels as well.</p>
     <div class='control-group'>
       <label>Datetime</label>
       <div class='controls'>
-        <input placeholder='datetime' type='datetime' />
+        <input placeholder='datetime' type='datetime'>
       </div>
     </div>
     <div class='control-group'>
       <label>Datetime Local</label>
       <div class='controls'>
-        <input placeholder='datetime-local' type='datetime-local' />
+        <input placeholder='datetime-local' type='datetime-local'>
       </div>
     </div>
     <div class='control-group'>
       <label>Time</label>
       <div class='controls'>
-        <input placeholder='time' type='time' />
+        <input placeholder='time' type='time'>
       </div>
     </div>
     <div class='control-group'>
       <label>Month</label>
       <div class='controls'>
-        <input placeholder='month' type='month' />
+        <input placeholder='month' type='month'>
       </div>
     </div>
     <div class='control-group'>
       <label>Week</label>
       <div class='controls'>
-        <input placeholder='week' type='week' />
+        <input placeholder='week' type='week'>
       </div>
     </div>
     <div class='control-group'>
@@ -4464,20 +4459,384 @@ within your <code>config.sass</code> file or before <code>indicator.sass</code> 
 <td>The <code>border-radius</code> of the indicator buttons</td>
 </tr>
 </tbody></table></section>
+      <a name='lib'></a>
+      <section class='docomo-section'><h1>Lib</h1>
+
+<p>The <code>lib</code> component contains Sass <code>functions</code>, <code>mixins</code>, and
+<code>placeholders</code> to automate common re-usable chunks of CSS. They are
+built and designed to work with <a target="_blank" href="http://www.bourben.io/" title="">bourbon</a>.</p>
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/lib</span>
+</pre></div>
+<p>This will import all of utensil&#39;s <code>functions</code>, <code>mixins</code>, and
+<code>placeholders</code>. This is the recommended <code>import</code> as it does not add any
+selectors to the actual CSS output.</p>
+
+<h2>Functions</h2>
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/lib/functions</span>
+</pre></div>
+<h3>Conversions</h3>
+
+<p>Functions for calculations and conversion between pixels, ems, rems and
+percentages.</p>
+
+<table><thead>
+<tr>
+<th>Function</th>
+<th>Params</th>
+<th>Usage</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>to_em</code></td>
+<td><code>$target-px</code>, <code>$context:$base-font_size</code></td>
+<td>Converts target <code>px</code> value to <code>em</code> in context constraints of the <code>$base-font-size</code></td>
+</tr>
+<tr>
+<td><code>to_rem</code></td>
+<td><code>$target-px</code>, <code>$context:$context-px</code></td>
+<td>Converts target <code>px</code> value to <code>rem</code> in context constraints of the user&#39;s <code>$base-font-size</code></td>
+</tr>
+<tr>
+<td><code>to_percent</code></td>
+<td><code>$target-px</code>, <code>$context:$base-width</code></td>
+<td>Converts target <code>px</code> value to <code>percentage</code> in context constraints of the container&#39;s width</td>
+</tr>
+<tr>
+<td><code>vertical_pixel</code></td>
+<td><code>$target-px</code></td>
+<td>Returns the vertical rhythm in pixels calculated from the <code>$base-vertical</code> setting</td>
+</tr>
+<tr>
+<td><code>vertical_em</code></td>
+<td><code>$target-px</code></td>
+<td>Returns the vertical rhythm in em calculated from the <code>$base-vertical</code> setting</td>
+</tr>
+<tr>
+<td><code>vertical_percent</code></td>
+<td><code>$target-px</code></td>
+<td>Returns the vertical rhythm in percent calculated from the <code>$base-vertical</code> setting</td>
+</tr>
+</tbody></table>
+
+<p><strong>Important!</strong> When calculating vertical rhythm, always pass in what the
+expected pixel value is for the element.</p>
+
+<p><em>Warning!</em> Define <code>$context_px</code>, <code>$base_font_size</code>, <code>$base_width</code> and
+<code>$base_vertical</code> prior to the functions being called.</p>
+
+<h2>Mixins</h2>
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/lib/mixins</span>
+</pre></div>
+<h3>Arrows</h3>
+
+<p>Draws a directional arrow, typically used for the pseudo elements of
+<code>:before</code> or <code>:after</code>. These are similar to carets, except they don&#39;t
+require an extra element inside the DOM.</p>
+
+<table><thead>
+<tr>
+<th>Mixin</th>
+<th>Params</th>
+<th>Usage</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>+arrow</code></td>
+<td><code>none</code></td>
+<td>The base setup for arrows</td>
+</tr>
+<tr>
+<td><code>+arrow_north</code></td>
+<td><code>$color:#000, $size:5px, $add_base:false</code></td>
+<td>An arrow pointing up</td>
+</tr>
+<tr>
+<td><code>+arrow_south</code></td>
+<td><code>$color:#000, $size:5px, $add_base:false</code></td>
+<td>An arrow pointing down</td>
+</tr>
+<tr>
+<td><code>+arrow_east</code></td>
+<td><code>$color:#000, $size:5px, $add_base:false</code></td>
+<td>An arrow pointing right</td>
+</tr>
+<tr>
+<td><code>+arrow_west</code></td>
+<td><code>$color:#000, $size:5px, $add_base:false</code></td>
+<td>An arrow pointing left</td>
+</tr>
+</tbody></table>
+
+<p><strong>Heads Up!</strong> Arrows are typically positioned <code>absolute</code> by default so
+the host should be <code>relative</code> and don&#39;t forget to add <code>content: &quot;&quot;</code></p>
+
+<h3>Containers</h3>
+
+<p>Allows elements to take the shape of either a column or row within a
+grid environment.</p>
+
+<table><thead>
+<tr>
+<th>Mixin</th>
+<th>Usage</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>+base-column</code></td>
+<td>The base <code>column</code> settings, should be extended by all columns</td>
+</tr>
+<tr>
+<td><code>+base-column-right</code></td>
+<td>An alternate base <code>column</code> which floats elements to the right</td>
+</tr>
+<tr>
+<td><code>+base-row</code></td>
+<td>The base <code>row</code> settings, should be extended by all rows</td>
+</tr>
+</tbody></table>
+
+<p><em>Warning!</em> The column mixins all utilize <code>box-sizing: border-box</code> which
+is not fully supported in ie7</p>
+
+<p><strong>Heads Up!</strong> It is recommended to use the <code>placeholder</code> versions of
+these instead within your project to cut down on the final CSS output.</p>
+
+<h3>Disable Tab Default</h3>
+
+<p>Disables the highlight color for tapping on touch <code>webkit</code> devices</p>
+<div class="highlight"><pre><span class="nc">.element</span>
+  <span class="nd">+disable-tap-default</span>
+</pre></div>
+<h3>Fills Height</h3>
+
+<p><em>JG... describe this!</em></p>
+
+<h3>Float Fill</h3>
+
+<p><em>JG... describe this!</em></p>
+
+<h3>Font size</h3>
+
+<p>Sets a <code>font-size</code> using <code>rems</code> with a pixel fall back.</p>
+
+<table><thead>
+<tr>
+<th>Arguments</th>
+<th>Default</th>
+<th>Usage</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>$target-px</code></td>
+<td><em>none</em></td>
+<td>The target font size in pixels</td>
+</tr>
+<tr>
+<td><code>$context</code></td>
+<td><code>$context-px</code></td>
+<td>The context constraints of the user&#39;s base font size</td>
+</tr>
+</tbody></table>
+
+<p><strong>Heads Up!</strong> Make sure <em>not</em> to include the <code>px</code> postfix when passing a size</p>
+<div class="highlight"><pre><span class="nt">h1</span>
+  <span class="nd">+font-size</span><span class="p">(</span><span class="mi">48</span><span class="p">)</span>
+  <span class="na">color</span><span class="o">:</span> <span class="nb">blue</span>
+</pre></div>
+<h3>Opacity</h3>
+
+<p>Provides cross browser opacity, values are between <code>0-1</code>.</p>
+<div class="highlight"><pre><span class="nc">.element</span>
+  <span class="nd">+opacity</span><span class="p">(</span><span class="mi">0</span><span class="mf">.5</span><span class="p">)</span>
+</pre></div>
+<h3>Selection</h3>
+
+<p>Inject vendor prefixes for coloring of text foreground and background when selected.</p>
+
+<table><thead>
+<tr>
+<th>Mixin</th>
+<th>Params</th>
+<th>Usage</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>+selection</code></td>
+<td><code>$bg:#0091ce, $fg:#fff</code></td>
+<td>Set the color styles</td>
+</tr>
+</tbody></table>
+<div class="highlight"><pre><span class="nd">+text-selection</span><span class="p">(</span><span class="nb">blue</span><span class="o">,</span> <span class="nb">white</span><span class="p">)</span>
+</pre></div>
+<h3>Sticky footer</h3>
+
+<p>Mixins for sticking and unsticking a footer to the bottom of a page.</p>
+
+<table><thead>
+<tr>
+<th>Mixin</th>
+<th>Parameters</th>
+<th>Usage</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>+sticky_footer</code></td>
+<td><code>$footer-height</code></td>
+<td>Creates a sticky footer based off a fixed height on the footer element</td>
+</tr>
+<tr>
+<td><code>+unsticky_footer</code></td>
+<td><em>none</em></td>
+<td>Reverses the effect of the <code>sticky_footer</code> mixin, useful in media queries</td>
+</tr>
+</tbody></table>
+
+<p>Requires the markup to contain a <code>.main</code>, <code>.content</code> and <code>.footer</code> elements.</p>
+<div class="highlight"><pre><span class="nt">%body</span>(<span class="na">role=</span><span class="s">&quot;document&quot;</span>)
+  <span class="nt">%section</span><span class="nc">.main</span>
+    <span class="nt">%section</span><span class="nc">.content</span>
+      <span class="nt">%section</span><span class="nc">.container</span>(<span class="na">role=</span><span class="s">&quot;main&quot;</span>)
+        &lt;!-- page content --&gt;
+  <span class="nt">%footer</span><span class="nc">.footer</span>
+    &lt;!-- footer content --&gt;
+</pre></div><div class="highlight"><pre><span class="nd">+sticky-footer</span><span class="p">(</span><span class="mi">100</span><span class="kt">px</span><span class="p">)</span>
+</pre></div>
+<h3>Tab focus</h3>
+
+<p>Resets the normal browser behavior for tab focusable content.</p>
+<div class="highlight"><pre><span class="na">input</span><span class="err">[</span><span class="na">type</span><span class="o">=</span><span class="s2">&quot;radio&quot;</span><span class="p">]</span><span class="o">:</span><span class="n">focus</span><span class="o">,</span>
+<span class="na">input</span><span class="err">[</span><span class="na">type</span><span class="o">=</span><span class="s2">&quot;checkbox&quot;</span><span class="p">]</span><span class="o">:</span><span class="n">focus</span>
+  <span class="nd">+tab-focus</span>
+</pre></div>
+<h3>Visibility</h3>
+
+<p>Controls various visibility settings applied to elements.</p>
+
+<table><thead>
+<tr>
+<th>Mixin</th>
+<th>Params</th>
+<th>Usage</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>+hidden</code></td>
+<td><em>none</em></td>
+<td>Totally hidden from screen readers and browsers</td>
+</tr>
+<tr>
+<td><code>+shown</code></td>
+<td><em>none</em></td>
+<td>Reverse the effects of <code>hidden</code></td>
+</tr>
+<tr>
+<td><code>+visuallyhidden</code></td>
+<td><em>none</em></td>
+<td>Only visually hidden, still available to screen readers</td>
+</tr>
+<tr>
+<td><code>+visuallyshown</code></td>
+<td><em>none</em></td>
+<td>Reverse the settings applied by <code>.visuallyhidden</code></td>
+</tr>
+<tr>
+<td><code>+invisible</code></td>
+<td><em>none</em></td>
+<td>Hide visually and from screenreaders, but maintain layout</td>
+</tr>
+</tbody></table>
+
+<p><em>Warning!</em> When using <code>visuallyhidden</code> and <code>visuallyshown</code> with
+<code>box-shadow</code>, you&#39;ll need to add <code>clip:initial</code> to get the shadows to
+reappear</p>
+
+<h2>Placeholders</h2>
+
+<p>Wrappers around common mixins from utensils and bourbon, these should be
+used in favor of the mixins within most situations of a project.</p>
+<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/lib/mixins</span>
+<span class="k">@import</span> <span class="s">utensils/lib/placeholders</span>
+</pre></div>
+<h3>Containers</h3>
+
+<table><thead>
+<tr>
+<th>Placeholder</th>
+<th>Usage</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>%base-column</code></td>
+<td>The base <code>column</code> settings, should be extended by all columns</td>
+</tr>
+<tr>
+<td><code>%base-column-right</code></td>
+<td>An alternate base <code>column</code> which floats elements to the right</td>
+</tr>
+<tr>
+<td><code>%base-row</code></td>
+<td>The base <code>row</code> settings, should be extended by all rows</td>
+</tr>
+<tr>
+<td><code>%clearfix</code></td>
+<td>The <a target="_blank" href="http://nicolasgallagher.com/micro-clearfix-hack/" title="">micro clearfix</a> utilizing pseudo elements to clear floats</td>
+</tr>
+</tbody></table>
+
+<p><strong>Heads Up!</strong> <code>scaffold.sass</code> automatically sets up a <code>.cf</code> class that
+extends the <code>%clearfix</code> placeholder</p>
+
+<h3>Visibility</h3>
+
+<table><thead>
+<tr>
+<th>Placeholder</th>
+<th>Usage</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>%hidden</code></td>
+<td>Totally hidden from screen readers and browsers</td>
+</tr>
+<tr>
+<td><code>%shown</code></td>
+<td>Reverse the effects of <code>hidden</code></td>
+</tr>
+<tr>
+<td><code>%visuallyhidden</code></td>
+<td>Only visually hidden, still available to screen readers</td>
+</tr>
+<tr>
+<td><code>%visuallyshown</code></td>
+<td>Reverse the settings applied by <code>.visuallyhidden</code></td>
+</tr>
+<tr>
+<td><code>%invisible</code></td>
+<td>Hide visually and from screenreaders, but maintain layout</td>
+</tr>
+<tr>
+<td><code>%ir</code></td>
+<td>Wrapper around Bourbon&#39;s <code>+hide-text</code> mixin</td>
+</tr>
+</tbody></table>
+
+<p><strong>Heads Up!</strong> <code>scaffold.sass</code> automatically sets up a <code>.hidden</code>,
+<code>.shown</code> and <code>.ir</code> class that extends the <code>%hidden</code>, <code>%shown</code>, and <code>%ir</code>
+placeholders.</p></section>
       <a name='math_util'></a>
       <section class='docomo-section'>
-                                                                      <h1>MathUtil</h1>
-                                                                      
-                                                                      <p>A collection of utility math functions</p>
-                                                                      
-                                                                      <h2>Todo:</h2>
-                                                                      
-                                                                      <ul>
-                                                                      <li>Import all MathUtil methods</li>
-                                                                      <li>Port specs from ModeSet.js</li>
-                                                                      <li>Document this</li>
-                                                                      </ul>
-                                                                    </section>
+                                                                        <h1>MathUtil</h1>
+                                                                        
+                                                                        <p>A collection of utility math functions</p>
+                                                                        
+                                                                        <h2>Todo:</h2>
+                                                                        
+                                                                        <ul>
+                                                                        <li>Import all MathUtil methods</li>
+                                                                        <li>Port specs from ModeSet.js</li>
+                                                                        <li>Document this</li>
+                                                                        </ul>
+                                                                      </section>
       <a name='media_grid'></a>
       <section class='docomo-section'><h1>Media Grid</h1>
 
@@ -4493,7 +4852,7 @@ grid for this reason.</p>
 <p><div class="docomo-showcase"><ul class='media-grid'>
   <li style='width:25%'>
     <figure class='media-item'>
-      <img height='180' src='http://placehold.it/260x180' width='260' />
+      <img height='180' src='http://placehold.it/260x180' width='260'>
       <figcaption class='media-caption'>
         <h3>Media Item</h3>
         <p>This is some caption copy with the footer aligned to the left.</p>
@@ -4505,13 +4864,13 @@ grid for this reason.</p>
   </li>
   <li style='width:25%'>
     <a class='media-item' href='#'>
-      <img height='180' src='http://placehold.it/260x180' width='260' />
+      <img height='180' src='http://placehold.it/260x180' width='260'>
     </a>
   </li>
   <li style='width:25%'>
     <figure class='media-item'>
       <a class='media-item' href='#'>
-        <img height='180' src='http://placehold.it/260x180' width='260' />
+        <img height='180' src='http://placehold.it/260x180' width='260'>
       </a>
       <figcaption class='media-caption'>
         <h3>Media Item</h3>
@@ -4524,7 +4883,7 @@ grid for this reason.</p>
   </li>
   <li style='width:25%'>
     <figure class='media-item'>
-      <img height='180' src='http://placehold.it/260x180' width='260' />
+      <img height='180' src='http://placehold.it/260x180' width='260'>
     </figure>
   </li>
 </ul>
@@ -4655,7 +5014,7 @@ video, but can be applied to any element.</p>
 browsers.</p>
 
 <p><div class="docomo-showcase"><section style='margin-bottom: 2em;'>
-  <iframe allowFullScreen='allowFullScreen' class='mirror' frameborder='0' height='169' mozallowfullscreen='mozallowfullscreen' src='http://player.vimeo.com/video/52507615' webkitAllowFullScreen='webkitAllowFullScreen' width='300'></iframe>
+  <iframe allowFullScreen class='mirror' frameborder='0' height='169' mozallowfullscreen src='http://player.vimeo.com/video/52507615' webkitAllowFullScreen width='300'></iframe>
 </section>
 </div><div class="highlight"><pre><span class="nt">%section</span>(<span class="na">style=</span><span class="s">&quot;margin-bottom: 2em;&quot;</span>)
   <span class="nt">%iframe</span><span class="nc">.mirror</span>(<span class="na">src=</span><span class="s">&quot;http://player.vimeo.com/video/52507615&quot;</span> <span class="na">width=</span><span class="s">&quot;300&quot;</span> <span class="na">height=</span><span class="s">&quot;169&quot;</span> <span class="na">frameborder=</span><span class="s">&quot;0&quot;</span> <span class="na">webkitAllowFullScreen</span> <span class="na">mozallowfullscreen</span> <span class="na">allowFullScreen</span>)
@@ -4707,598 +5066,6 @@ within your <code>config.sass</code> file or before <code>mirror.sass</code> is 
 <li>Make this a cross browser supported style</li>
 <li>This might be better as a mixin/placeholder</li>
 </ul></section>
-      <a name='mixins'></a>
-      <section class='docomo-section'><h1>Mixin</h1>
-
-<p>Automate common re-usable chunks of CSS, properties, selectors, and/or settings.</p>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/mixin</span>
-</pre></div>
-<h2>Arrows</h2>
-
-<p>Draws a directional arrow, typically used for the pseudo elements of
-<code>:before</code> or <code>:after</code>. These are similar to carets, except they don&#39;t
-require an extra element inside the DOM.</p>
-
-<table><thead>
-<tr>
-<th>Mixin</th>
-<th>Params</th>
-<th>Usage</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>+arrow</code></td>
-<td><code>none</code></td>
-<td>The base setup for arrows</td>
-</tr>
-<tr>
-<td><code>+arrow_north</code></td>
-<td><code>$color:#000, $size:5px, $add_base:false</code></td>
-<td>An arrow pointing up</td>
-</tr>
-<tr>
-<td><code>+arrow_south</code></td>
-<td><code>$color:#000, $size:5px, $add_base:false</code></td>
-<td>An arrow pointing down</td>
-</tr>
-<tr>
-<td><code>+arrow_east</code></td>
-<td><code>$color:#000, $size:5px, $add_base:false</code></td>
-<td>An arrow pointing right</td>
-</tr>
-<tr>
-<td><code>+arrow_west</code></td>
-<td><code>$color:#000, $size:5px, $add_base:false</code></td>
-<td>An arrow pointing left</td>
-</tr>
-</tbody></table>
-
-<p><strong>Heads Up!</strong> Arrows are typically positioned <code>absolute</code> by default so
-the host should be <code>relative</code> and don&#39;t forget to add <code>content: &quot;&quot;</code></p>
-
-<h2>Clearfixins</h2>
-
-<p>Clearfixins force a containers height to adjust when it contains floated
-children elements.</p>
-
-<table><thead>
-<tr>
-<th>Mixin</th>
-<th>Usage</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>+clearfixer</code></td>
-<td>The <a target="_blank" href="http://nicolasgallagher.com/micro-clearfix-hack/" title="">micro clearfix</a> utilizing pseudo elements to clear floats</td>
-</tr>
-<tr>
-<td><code>+clearfix</code></td>
-<td>Utilizes <code>overflow: hidden</code> to clear floats (same as compass)</td>
-</tr>
-</tbody></table>
-
-<p>Generally, the micro clearfix (<code>+clearfixer</code>) is prefered and mixed into
-the parent container of floated items.</p>
-
-<p>Includes placeholder classes to be used via extension</p>
-<div class="highlight"><pre><span class="nc">.cf</span>
-  <span class="k">@extend</span> <span class="err">%</span><span class="nt">clearfixer</span>
-
-<span class="nc">.clearfix</span>
-  <span class="k">@extend</span> <span class="err">%</span><span class="nt">clearfix</span>
-</pre></div>
-<h2>Columns</h2>
-
-<p>Allows elements to take the shape of either a column or row within a
-grid environment.</p>
-
-<table><thead>
-<tr>
-<th>Mixin</th>
-<th>Usage</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>+base-column</code></td>
-<td>The base <code>column</code> settings, should be extended by all columns</td>
-</tr>
-<tr>
-<td><code>+base-column-right</code></td>
-<td>An alternate base <code>column</code> which floats elements to the right</td>
-</tr>
-<tr>
-<td><code>+base-row</code></td>
-<td>The base <code>row</code> settings, should be extended by all rows</td>
-</tr>
-</tbody></table>
-
-<p><em>Warning!</em> The column mixins all utilize <code>box-sizing: border-box</code> which
-is not fully supported in ie7</p>
-
-<p>Includes placeholder classes to be used via extension</p>
-<div class="highlight"><pre><span class="nc">.column</span>
-  <span class="k">@extend</span> <span class="err">%</span><span class="nt">base-colum</span>
-
-<span class="nc">.column-right</span>
-  <span class="k">@extend</span> <span class="err">%</span><span class="nt">base-column-right</span>
-
-<span class="nc">.row</span>
-  <span class="k">@extend</span> <span class="err">%</span><span class="nt">base-row</span>
-</pre></div>
-<h2>Conversions</h2>
-
-<p>Functions for calculations and conversion between pixels, ems, rems and
-percentages.</p>
-
-<table><thead>
-<tr>
-<th>Function</th>
-<th>Params</th>
-<th>Usage</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>to_em</code></td>
-<td><code>$target-px</code>, <code>$context:$base-font_size</code></td>
-<td>Converts target <code>px</code> value to <code>em</code> in context constraints of the <code>$base-font-size</code></td>
-</tr>
-<tr>
-<td><code>to_rem</code></td>
-<td><code>$target-px</code>, <code>$context:$context-px</code></td>
-<td>Converts target <code>px</code> value to <code>rem</code> in context constraints of the user&#39;s <code>$base-font-size</code></td>
-</tr>
-<tr>
-<td><code>to_percent</code></td>
-<td><code>$target-px</code>, <code>$context:$base-width</code></td>
-<td>Converts target <code>px</code> value to <code>percentage</code> in context constraints of the container&#39;s width</td>
-</tr>
-<tr>
-<td><code>vertical_pixel</code></td>
-<td><code>$target-px</code></td>
-<td>Returns the vertical rhythm in pixels calculated from the <code>$base-vertical</code> setting</td>
-</tr>
-<tr>
-<td><code>vertical_em</code></td>
-<td><code>$target-px</code></td>
-<td>Returns the vertical rhythm in em calculated from the <code>$base-vertical</code> setting</td>
-</tr>
-<tr>
-<td><code>vertical_percent</code></td>
-<td><code>$target-px</code></td>
-<td>Returns the vertical rhythm in percent calculated from the <code>$base-vertical</code> setting</td>
-</tr>
-</tbody></table>
-
-<p><strong>Important!</strong> When calculating vertical rhythm, always pass in what the
-expected pixel value is for the element.</p>
-
-<p><em>Warning!</em> Define <code>$context_px</code>, <code>$base_font_size</code>, <code>$base_width</code> and
-<code>$base_vertical</code> prior to the functions being loaded.</p>
-
-<h2>Disable Tab Default</h2>
-
-<p>Disables the highlight color for tapping on touch <code>webkit</code> devices</p>
-<div class="highlight"><pre><span class="nc">.element</span>
-  <span class="nd">+disable-tap-default</span>
-</pre></div>
-<h2>Float fill</h2>
-
-<p><em>JG... describe this!</em></p>
-
-<h2>Font face</h2>
-
-<p>One liner for adding a custom font to the mix for <code>.eot</code>, <code>.wof</code>,
-<code>.ttf</code>, <code>.svg</code> file types.</p>
-
-<table><thead>
-<tr>
-<th>Arguments</th>
-<th>Default</th>
-<th>Usage</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>$font-family</code></td>
-<td><em>none</em></td>
-<td>The name of the font</td>
-</tr>
-<tr>
-<td><code>$file-path</code></td>
-<td><em>none</em></td>
-<td>The path to the file</td>
-</tr>
-<tr>
-<td><code>$weight</code></td>
-<td><code>normal</code></td>
-<td>The font weight</td>
-</tr>
-<tr>
-<td><code>$style</code></td>
-<td><code>normal</code></td>
-<td>The font style</td>
-</tr>
-<tr>
-<td><code>$asset-pipeline</code></td>
-<td><code>true</code></td>
-<td>Default to using the asset pipeline syntax</td>
-</tr>
-</tbody></table>
-<div class="highlight"><pre><span class="nd">+font-face</span><span class="p">(</span><span class="s2">&quot;GarageGothicBlack&quot;</span><span class="o">,</span> <span class="s2">&quot;fonts/garagegothic-black-webfont&quot;</span><span class="p">)</span>
-</pre></div>
-<h2>Font size</h2>
-
-<p>Sets a <code>font-size</code> using <code>rems</code> with a pixel fall back.</p>
-
-<table><thead>
-<tr>
-<th>Arguments</th>
-<th>Default</th>
-<th>Usage</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>$target-px</code></td>
-<td><em>none</em></td>
-<td>The target font size in pixels</td>
-</tr>
-<tr>
-<td><code>$context</code></td>
-<td><code>$context-px</code></td>
-<td>The context constraints of the user&#39;s base font size</td>
-</tr>
-</tbody></table>
-
-<p><strong>Heads Up!</strong> Make sure <em>not</em> to include the <code>px</code> postfix when passing a size</p>
-<div class="highlight"><pre><span class="nt">h1</span>
-  <span class="nd">+font-size</span><span class="p">(</span><span class="mi">48</span><span class="p">)</span>
-  <span class="na">color</span><span class="o">:</span> <span class="nb">blue</span>
-</pre></div>
-<h2>Form placeholder</h2>
-
-<p>Adds vendor prefixes for altering colors of form placeholder elements.
-Takes a single parameter for color (defaults to <code>#ccc</code>)</p>
-<div class="highlight"><pre><span class="nt">input</span><span class="o">,</span>
-<span class="nt">textarea</span>
-  <span class="nd">+form-placeholder</span><span class="p">(</span><span class="nb">blue</span><span class="p">)</span>
-</pre></div>
-<h2>Hardware accelerate</h2>
-
-<p>Add <code>webkit</code> vendor prefixes for hardware acceleration.</p>
-<div class="highlight"><pre><span class="nc">.carousel</span>
-  <span class="nd">+hardware-accelerate</span>
-</pre></div>
-<p>Includes placeholder classes to be used via extension</p>
-<div class="highlight"><pre><span class="nc">.accelerate</span>
-  <span class="k">@extend</span> <span class="err">%</span><span class="nt">hardware-accelerate</span>
-</pre></div>
-<h2>Image tools</h2>
-
-<p>Image interpolation settings based on <a target="_blank" href="http://stitchcss.com/" title="">stich css</a>.</p>
-
-<table><thead>
-<tr>
-<th>Mixin</th>
-<th>Usage</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>+sharpen-image</code></td>
-<td>Sharpen an image if it has become blurry due to upscaling or downscaling</td>
-</tr>
-<tr>
-<td><code>+high-quality-image</code></td>
-<td>Improves rendering quality for images which may be upscaled or downscaled</td>
-</tr>
-<tr>
-<td><code>+low-quality-image</code></td>
-<td>Optimizes the rendering on images so they appear faster, but at a lower quality</td>
-</tr>
-</tbody></table>
-
-<p><em>Warning!</em> These settings can have adverse effects in some browsers, test thoroughly.</p>
-
-<h2>Inline block</h2>
-
-<p>Mirrors the functionality found in <a target="_blank" href="http://compass-style.org/reference/compass/css3/inline_block/" title="">Compass</a>
-and normalizes <code>inline-block</code> for <a target="_blank" href="http://thoughtbot.com/bourbon/" title="">Bourbon</a> by setting <code>vertical-align: middle</code>.</p>
-
-<p>The mixin also fixes support for ie7 if <code>$legacy-support-for-ie</code> is set
-to true.</p>
-<div class="highlight"><pre><span class="nc">.breadcrumb</span> <span class="o">&gt;</span> <span class="nt">li</span>
-  <span class="nd">+inline-block</span>
-  <span class="na">color</span><span class="o">:</span> <span class="nb">blue</span>
-</pre></div>
-<h2>Image replacement</h2>
-
-<p>Hides text on an element when utilizing a <code>background-image</code> such as a logo or icon.</p>
-<div class="highlight"><pre><span class="nc">.footer</span> <span class="nc">.social-icon</span>
-  <span class="nd">+ir</span>
-  <span class="na">background-image</span><span class="o">:</span> <span class="nv">$sprite-icons-img</span>
-  <span class="na">width</span><span class="o">:</span> <span class="mi">24</span><span class="kt">px</span>
-  <span class="na">height</span><span class="o">:</span> <span class="mi">24</span><span class="kt">px</span>
-</pre></div>
-<p>Includes placeholder classes to be used via extension</p>
-<div class="highlight"><pre><span class="nc">.image-replacement</span>
-  <span class="k">@extend</span> <span class="err">%</span><span class="nt">ir</span>
-</pre></div>
-<p><strong>Heads Up!</strong> <code>scaffold.sass</code> automatically sets up a <code>.ir</code> class that
-extends the <code>%ir</code> placeholder.</p>
-
-<h2>Opacity</h2>
-
-<p>Provides cross browser opacity, values are between <code>0-1</code>.</p>
-<div class="highlight"><pre><span class="nc">.element</span>
-  <span class="nd">+opacity</span><span class="p">(</span><span class="mi">0</span><span class="mf">.5</span><span class="p">)</span>
-</pre></div>
-<h2>Responsive</h2>
-
-<p>Mixins for creating responsive behavior around structures and layouts.</p>
-
-<table><thead>
-<tr>
-<th>Mixin</th>
-<th>Parameters</th>
-<th>Usage</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>+resize_containers</code></td>
-<td><code>$base_value</code></td>
-<td>Resize any <code>.container</code> based on the media query</td>
-</tr>
-</tbody></table>
-
-<h2>Sticky footer</h2>
-
-<p>Mixins for sticking and unsticking a footer to the bottom of a page.</p>
-
-<table><thead>
-<tr>
-<th>Mixin</th>
-<th>Parameters</th>
-<th>Usage</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>+sticky_footer</code></td>
-<td><code>$footer-height</code></td>
-<td>Creates a sticky footer based off a fixed height on the footer element</td>
-</tr>
-<tr>
-<td><code>+unsticky_footer</code></td>
-<td><em>none</em></td>
-<td>Reverses the effect of the <code>sticky_footer</code> mixin, useful in media queries</td>
-</tr>
-</tbody></table>
-
-<p>Requires the markup to contain a <code>.main</code>, <code>.content</code> and <code>.footer</code> elements.</p>
-<div class="highlight"><pre><span class="nt">%body</span>(<span class="na">role=</span><span class="s">&quot;document&quot;</span>)
-  <span class="nt">%section</span><span class="nc">.main</span>
-    <span class="nt">%section</span><span class="nc">.content</span>
-      <span class="nt">%section</span><span class="nc">.container</span>(<span class="na">role=</span><span class="s">&quot;main&quot;</span>)
-        &lt;!-- page content --&gt;
-  <span class="nt">%footer</span><span class="nc">.footer</span>
-    &lt;!-- footer content --&gt;
-</pre></div><div class="highlight"><pre><span class="nd">+sticky-footer</span><span class="p">(</span><span class="mi">100</span><span class="kt">px</span><span class="p">)</span>
-</pre></div>
-<h2>Tab focus</h2>
-
-<p>Resets the normal browser behavior for tab focusable content.</p>
-<div class="highlight"><pre><span class="na">input</span><span class="err">[</span><span class="na">type</span><span class="o">=</span><span class="s2">&quot;radio&quot;</span><span class="p">]</span><span class="o">:</span><span class="n">focus</span><span class="o">,</span>
-<span class="na">input</span><span class="err">[</span><span class="na">type</span><span class="o">=</span><span class="s2">&quot;checkbox&quot;</span><span class="p">]</span><span class="o">:</span><span class="n">focus</span>
-  <span class="nd">+tab-focus</span>
-</pre></div>
-<h2>Text selection</h2>
-
-<p>Inject vendor prefixes for coloring of text foreground and background when selected.</p>
-
-<table><thead>
-<tr>
-<th>Mixin</th>
-<th>Params</th>
-<th>Usage</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>+text-selection</code></td>
-<td><code>$bg:#0091ce, $fg:#fff</code></td>
-<td>Set the color styles</td>
-</tr>
-</tbody></table>
-<div class="highlight"><pre><span class="nd">+text-selection</span><span class="p">(</span><span class="nb">blue</span><span class="o">,</span> <span class="nb">white</span><span class="p">)</span>
-</pre></div>
-<h2>Timing equations</h2>
-
-<p>Cubic-bezier timing properties for use with
-<code>transition-timing-function</code>. The timing functions are based on the
-properties included with <a target="_blank" href="http://thoughtbot.com/bourbon/" title="">Bourbon</a>.</p>
-
-<div id="timing_demo"></div>
-
-<table><thead>
-<tr>
-<th>Property</th>
-<th>Example</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>default (linear)</code></td>
-<td><div class="docomo-swatch"></div></td>
-</tr>
-<tr>
-<td><code>$ease-in-quad</code></td>
-<td><div class="docomo-swatch ease-in-quad"></div></td>
-</tr>
-<tr>
-<td><code>$ease-in-cubic</code></td>
-<td><div class="docomo-swatch ease-in-cubic"></div></td>
-</tr>
-<tr>
-<td><code>$ease-in-quart</code></td>
-<td><div class="docomo-swatch ease-in-quart"></div></td>
-</tr>
-<tr>
-<td><code>$ease-in-quint</code></td>
-<td><div class="docomo-swatch ease-in-quint"></div></td>
-</tr>
-<tr>
-<td><code>$ease-in-sine</code></td>
-<td><div class="docomo-swatch ease-in-sine"></div></td>
-</tr>
-<tr>
-<td><code>$ease-in-expo</code></td>
-<td><div class="docomo-swatch ease-in-expo"></div></td>
-</tr>
-<tr>
-<td><code>$ease-in-circ</code></td>
-<td><div class="docomo-swatch ease-in-circ"></div></td>
-</tr>
-<tr>
-<td><code>$ease-in-back</code></td>
-<td><div class="docomo-swatch ease-in-back"></div></td>
-</tr>
-<tr>
-<td><code>$ease-out-quad</code></td>
-<td><div class="docomo-swatch ease-out-quad"></div></td>
-</tr>
-<tr>
-<td><code>$ease-out-cubic</code></td>
-<td><div class="docomo-swatch ease-out-cubic"></div></td>
-</tr>
-<tr>
-<td><code>$ease-out-quart</code></td>
-<td><div class="docomo-swatch ease-out-quart"></div></td>
-</tr>
-<tr>
-<td><code>$ease-out-quint</code></td>
-<td><div class="docomo-swatch ease-out-quint"></div></td>
-</tr>
-<tr>
-<td><code>$ease-out-sine</code></td>
-<td><div class="docomo-swatch ease-out-sine"></div></td>
-</tr>
-<tr>
-<td><code>$ease-out-expo</code></td>
-<td><div class="docomo-swatch ease-out-expo"></div></td>
-</tr>
-<tr>
-<td><code>$ease-out-circ</code></td>
-<td><div class="docomo-swatch ease-out-circ"></div></td>
-</tr>
-<tr>
-<td><code>$ease-out-back</code></td>
-<td><div class="docomo-swatch ease-out-back"></div></td>
-</tr>
-<tr>
-<td><code>$ease-in-out-quad</code></td>
-<td><div class="docomo-swatch ease-in-out-quad"></div></td>
-</tr>
-<tr>
-<td><code>$ease-in-out-cubic</code></td>
-<td><div class="docomo-swatch ease-in-out-cubic"></div></td>
-</tr>
-<tr>
-<td><code>$ease-in-out-quart</code></td>
-<td><div class="docomo-swatch ease-in-out-quart"></div></td>
-</tr>
-<tr>
-<td><code>$ease-in-out-quint</code></td>
-<td><div class="docomo-swatch ease-in-out-quint"></div></td>
-</tr>
-<tr>
-<td><code>$ease-in-out-sine</code></td>
-<td><div class="docomo-swatch ease-in-out-sine"></div></td>
-</tr>
-<tr>
-<td><code>$ease-in-out-expo</code></td>
-<td><div class="docomo-swatch ease-in-out-expo"></div></td>
-</tr>
-<tr>
-<td><code>$ease-in-out-circ</code></td>
-<td><div class="docomo-swatch ease-in-out-circ"></div></td>
-</tr>
-<tr>
-<td><code>$ease-in-out-back</code></td>
-<td><div class="docomo-swatch ease-in-out-back"></div></td>
-</tr>
-</tbody></table>
-
-<h2>User Select</h2>
-
-<p>Define whether an element is selectable (only controls the appearance).</p>
-
-<table><thead>
-<tr>
-<th>Arguments</th>
-<th>Default</th>
-<th>Usage</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>$type</code></td>
-<td><code>none</code></td>
-<td>Options: <code>none</code>, <code>auto</code>, <code>text</code></td>
-</tr>
-</tbody></table>
-<div class="highlight"><pre><span class="nc">.cant-touch-this</span>
-  <span class="nd">+user-select</span><span class="p">(</span><span class="no">none</span><span class="p">)</span>
-</pre></div>
-<h2>Visibility</h2>
-
-<p>Controls various visibility settings applied to elements.</p>
-
-<table><thead>
-<tr>
-<th>Mixin</th>
-<th>Params</th>
-<th>Usage</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>+hidden</code></td>
-<td><em>none</em></td>
-<td>Totally hidden from screen readers and browsers</td>
-</tr>
-<tr>
-<td><code>+shown</code></td>
-<td><em>none</em></td>
-<td>Reverse the effects of <code>hidden</code></td>
-</tr>
-<tr>
-<td><code>+visuallyhidden</code></td>
-<td><em>none</em></td>
-<td>Only visually hidden, still available to screen readers</td>
-</tr>
-<tr>
-<td><code>+visuallyshown</code></td>
-<td><em>none</em></td>
-<td>Reverse the settings applied by <code>.visuallyhidden</code></td>
-</tr>
-<tr>
-<td><code>+invisible</code></td>
-<td><em>none</em></td>
-<td>Hide visually and from screenreaders, but maintain layout</td>
-</tr>
-</tbody></table>
-
-<p><em>Warning!</em> When using <code>visuallyhidden</code> and <code>visuallyshown</code> with
-<code>box-shadow</code>, you&#39;ll need to add <code>clip:initial</code> to get the shadows to
-reappear</p>
-
-<p>Includes placeholder classes to be used via extension</p>
-<div class="highlight"><pre><span class="nc">.hideme</span>
-  <span class="k">@extend</span> <span class="err">%</span><span class="nt">hidden</span>
-<span class="nc">.showme</span>
-  <span class="k">@extend</span> <span class="err">%</span><span class="nt">shown</span>
-<span class="nc">.vhidden</span>
-  <span class="k">@extend</span> <span class="err">%</span><span class="nt">visuallyhidden</span>
-<span class="nc">.vshown</span>
-  <span class="k">@extend</span> <span class="err">%</span><span class="nt">visuallyshown</span>
-<span class="nc">.invisible</span>
-  <span class="k">@extend</span> <span class="err">%</span><span class="nt">invisible</span>
-</pre></div>
-<p><strong>Heads Up!</strong> <code>scaffold.sass</code> automatically sets up a <code>.hidden</code> and
-<code>.shown</code> class that extends the <code>%hidden</code> and <code>%shown</code> placeholders.</p></section>
       <a name='modal'></a>
       <section class='docomo-section'><h1>Modal</h1>
 
@@ -5515,7 +5282,7 @@ various components with navigation, search forms and drop downs.</p>
           <form class='form-search' role='search'>
             <div class='control-group'>
               <div class='controls'>
-                <input class='search-query' placeholder='search' type='search' />
+                <input class='search-query' placeholder='search' type='search'>
               </div>
             </div>
           </form>
@@ -5810,21 +5577,21 @@ blown pagination system isn&#39;t required.</p>
     <li><a href='#'>Next &rarr;</a></li>
   </ul>
 </nav>
-<hr />
+<hr>
 <nav role='navigation'>
   <ul class='pager pager-center'>
     <li><a href='#'>&larr; Prev</a></li>
     <li><a href='#'>Next &rarr;</a></li>
   </ul>
 </nav>
-<hr />
+<hr>
 <nav role='navigation'>
   <ul class='pager pager-right'>
     <li><a href='#'>&larr; Prev</a></li>
     <li class='disabled'><a href='#'>Next &rarr;</a></li>
   </ul>
 </nav>
-<hr />
+<hr>
 <nav role='navigation'>
   <ul class='pager'>
     <li class='pager-prev'><a href='#'>&larr; Prev</a></li>
@@ -5954,7 +5721,7 @@ pagination navigation. The list should contain the <code>.nav</code> class.</p>
     <li><a href='#'>&raquo;</a></li>
   </ol>
 </nav>
-<hr />
+<hr>
 <nav class='pagination-center' data-bindable='toggle-group' role='navigation'>
   <ol class='nav pagination'>
     <li class='disabled'><a href='#'>&laquo;</a></li>
@@ -5967,7 +5734,7 @@ pagination navigation. The list should contain the <code>.nav</code> class.</p>
     <li><a href='#'>&raquo;</a></li>
   </ol>
 </nav>
-<hr />
+<hr>
 <nav class='pagination-right' data-bindable='toggle-group' role='navigation'>
   <ol class='nav pagination'>
     <li class='disabled'><a href='#'>&laquo;</a></li>
@@ -6304,68 +6071,6 @@ your <code>config.sass</code> file or before <code>pill.sass</code> is loaded.</
 <li>Document</li>
 <li>Test</li>
 </ul></section>
-      <a name='polyfills'></a>
-      <section class='docomo-section'><h1>Polyfill</h1>
-
-<p>Most projects benefit greatly from using a library like
-<a target="_blank" href="http://compass-style.org/" title="">Compass</a> or
-<a target="_blank" href="http://thoughtbot.com/bourbon/" title="">Bourbon</a>. Utensils is not designed to
-replace these libraries, but rather sit on top of them. There may be
-times when using one of these libraries isn&#39;t an option, so Utensils
-provides a few simple polyfill mixins in it&#39;s place.</p>
-
-<p>If a project uses Compass or Bourbon, make sure not to import these
-polyfills.</p>
-<div class="highlight"><pre><span class="k">@import</span> <span class="s">utensils/polyfill</span>
-</pre></div>
-<h2>Functions</h2>
-
-<p>Internal functions used by polyfills.</p>
-
-<h3>Combine</h3>
-
-<p>A function to combine and normalize multiple parameters used by
-<code>transition</code> and <code>background-image</code>.</p>
-
-<p>Accepts a list of arguments to combine separated by a comma.
-Returns the combined values for translation into the mixin.</p>
-<div class="highlight"><pre><span class="nv">$full</span><span class="o">:</span> <span class="nf">combine</span><span class="p">(</span><span class="nv">$transition-1</span><span class="o">,</span> <span class="nv">$transition-2</span><span class="o">,</span> <span class="nv">$transition-3</span><span class="p">)</span>
-</pre></div>
-<h2>Background Image</h2>
-
-<p>Draws a background image to an element, mainly used for gradients, by
-passing a list of comma separated values. This does not support the old
-webkit linear gradient.</p>
-<div class="highlight"><pre><span class="nc">.element</span>
-  <span class="nd">+background-image</span><span class="p">(</span><span class="nf">linear-gradient</span><span class="p">(</span><span class="mh">#ff00ff</span><span class="o">,</span> <span class="mh">#000</span><span class="p">)</span><span class="o">,</span> <span class="sx">url(&quot;/images/asset.png&quot;)</span><span class="p">)</span>
-</pre></div>
-<h2>Box Sizing</h2>
-
-<p>Changes the box model used for calculating an elements width and height</p>
-
-<table><thead>
-<tr>
-<th>Arguments</th>
-<th>Default</th>
-<th>Usage</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>$type</code></td>
-<td><code>border-box</code></td>
-<td>Options: <code>content-box</code>, <code>border-box</code>, <code>inherit</code></td>
-</tr>
-</tbody></table>
-<div class="highlight"><pre><span class="nc">.column</span>
-  <span class="nd">+box-sizing</span><span class="p">(</span><span class="no">border</span><span class="o">-</span><span class="n">box</span><span class="p">)</span>
-</pre></div>
-<h2>Transition</h2>
-
-<p>Adds vendor prefixes for transitions utilizing a list of comma separated
-transition values.</p>
-<div class="highlight"><pre><span class="nc">.element</span>
-  <span class="nd">+transition</span><span class="p">(</span><span class="no">height</span> <span class="nv">$speed</span> <span class="nv">$ease-in-out-quart</span><span class="o">,</span> <span class="no">color</span> <span class="nv">$speed</span><span class="p">)</span>
-</pre></div></section>
       <a name='pop'></a>
       <section class='docomo-section'><h1>Pop</h1>
 
@@ -6394,7 +6099,7 @@ points.</p>
         <h3>Exterior content</h3>
       </div>
       <div class='pop-content'>
-        <img height='180' src='http://placehold.it/260x180' width='280' />
+        <img height='180' src='http://placehold.it/260x180' width='280'>
       </div>
     </div>
   </div>
@@ -6773,7 +6478,7 @@ colors related to bars. This list is typically defined in the
 videos.</p>
 
 <p><div class="docomo-showcase"><div class='responsive-frame' data-bindable='responsive-frame'>
-  <iframe allowFullScreen='allowFullScreen' frameborder='0' height='338' mozallowfullscreen='mozallowfullscreen' src='http://player.vimeo.com/video/52507615' webkitAllowFullScreen='webkitAllowFullScreen' width='600'></iframe>
+  <iframe allowFullScreen frameborder='0' height='338' mozallowfullscreen src='http://player.vimeo.com/video/52507615' webkitAllowFullScreen width='600'></iframe>
 </div>
 </div><div class="highlight"><pre><span class="nc">.responsive-frame</span>(<span class="na">data-bindable=</span><span class="s">&quot;responsive-frame&quot;</span>)
   <span class="nt">%iframe</span>(<span class="na">src=</span><span class="s">&quot;http://player.vimeo.com/video/52507615&quot;</span> <span class="na">width=</span><span class="s">&quot;600&quot;</span> <span class="na">height=</span><span class="s">&quot;338&quot;</span> <span class="na">frameborder=</span><span class="s">&quot;0&quot;</span> <span class="na">webkitAllowFullScreen</span> <span class="na">mozallowfullscreen</span> <span class="na">allowFullScreen</span>)
@@ -7944,7 +7649,7 @@ information.</p>
     <li class='radio-li group-ignore'>Not a link</li>
   </ul>
 </nav>
-<hr />
+<hr>
 <nav role='navigtion'>
   <ul class='nav inline' data-behavior='checkbox' data-bindable='toggle-group' data-ignore='.text-ignore' id='toggle_group_checks'>
     <li><a href='#'>Checkbox 1</a></li>
@@ -7953,7 +7658,7 @@ information.</p>
     <li class='text-ignore'>Not a link</li>
   </ul>
 </nav>
-<hr />
+<hr>
 <nav role='navigation'>
   <ul class='nav inline' data-bindable='toggle-group' data-delay='500, 500' data-namespace='toggle_delay' data-toggle='active on' id='toggle_group_delay'>
     <li><a href='#'>Radio Delay 1</a></li>
@@ -7962,7 +7667,7 @@ information.</p>
     <li class='group-ignore'>Not a link</li>
   </ul>
 </nav>
-<hr />
+<hr>
 <nav role='navigtion'>
   <ul class='nav inline' data-behavior='checkbox' data-bindable='toggle-group' id='toggle_group_spans'>
     <li><a href='#'>Checkbox 1 <span>I'm a span</span></a></li>
@@ -7970,7 +7675,7 @@ information.</p>
     <li><a href='#'>Checkbox 3 <span>I'm a span</span></a></li>
   </ul>
 </nav>
-<hr />
+<hr>
 <section class='button-toolbar' data-bindable='toggle-button-group' id='toggle_button_group_radios' role='navigation'>
   <nav class='button-group'>
     <button class='btn'>1</button>
@@ -7986,7 +7691,7 @@ information.</p>
     <button class='btn'>7</button>
   </nav>
 </section>
-<hr />
+<hr>
 <nav class='button-group' data-behavior='checkbox' data-bindable='toggle-button-group' data-target='.btn' id='toggle_button_group_checks' role='navigation'>
   <a class='btn' href='#'>Left <span>Span</span></a>
   <a class='btn active' href='#'>Middle 1</a>
@@ -8173,19 +7878,19 @@ parameter. This is done to ensure scope is transferred correctly and for
 a quicker lookup from the class utilizing a <code>ToggleGroup</code> instance.</p></section>
       <a name='touch_scroller'></a>
       <section class='docomo-section'>
-                                                                                                                            <h1>Touch Scroller</h1>
-                                                                                                                            
-                                                                                                                            <p>Describe this.</p>
-                                                                                                                            
-                                                                                                                            <h2>Todo</h2>
-                                                                                                                            
-                                                                                                                            <ul>
-                                                                                                                            <li>Check with JG on the js port</li>
-                                                                                                                            <li>Check with JG on the style port</li>
-                                                                                                                            <li>Test</li>
-                                                                                                                            <li>Document</li>
-                                                                                                                            </ul>
-                                                                                                                          </section>
+                                                                                                                          <h1>Touch Scroller</h1>
+                                                                                                                          
+                                                                                                                          <p>Describe this.</p>
+                                                                                                                          
+                                                                                                                          <h2>Todo</h2>
+                                                                                                                          
+                                                                                                                          <ul>
+                                                                                                                          <li>Check with JG on the js port</li>
+                                                                                                                          <li>Check with JG on the style port</li>
+                                                                                                                          <li>Test</li>
+                                                                                                                          <li>Document</li>
+                                                                                                                          </ul>
+                                                                                                                        </section>
       <a name='touch_tracker'></a>
       <section class='docomo-section'><h1>MouseAndTouchTracker</h1>
 
@@ -8613,7 +8318,7 @@ laborum.</p>
 
 <p><div class="docomo-showcase"><section style='width:45%; float:left; margin-right: 5%;'>
   <h4>Inline elements examples</h4>
-  <br />
+  <br>
   <p>
     Yeah, well, <em>listen</em>. You <kbd>ought</kbd> to <strong>ditch</strong> the <strong><em>two</em></strong>
     <a href="http://modeset.com/">geeks</a> you're in the <dfn title="motorized vehicle">car</dfn> with now and get
@@ -8624,7 +8329,7 @@ laborum.</p>
 </section>
 <section style='width:45%; float:left;'>
   <h4>Address examples</h4>
-  <br />
+  <br>
   <address>
     <strong>Mr. Address Tag</strong>
     <br />
@@ -8699,9 +8404,9 @@ quotes within a <code>&lt;blockquote&gt;</code> element</p>
 <p>Horizontal rules can utilize the class <code>.dashed</code> and <code>.dotted</code> for a
 different separator.</p>
 
-<p><div class="docomo-showcase"><hr />
-<hr class='dashed' />
-<hr class='dotted' />
+<p><div class="docomo-showcase"><hr>
+<hr class='dashed'>
+<hr class='dotted'>
 </div><div class="highlight"><pre><span class="nt">%hr</span>
 <span class="nt">%hr</span><span class="nc">.dashed</span>
 <span class="nt">%hr</span><span class="nc">.dotted</span>
@@ -9148,11 +8853,9 @@ within your <code>config.sass</code> file or before <code>well.sass</code> is lo
         </p>
       </div>
     </div>
-    <script src='//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js' type='text/javascript'></script>
-    <script type='text/javascript'>
-      //<![CDATA[
-        window.jQuery || document.write('<script src="/assets/jquery.min.js"><\/script>')
-      //]]>
+    <script src='//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js' type='text/javascript'></script>
+    <script>
+      window.jQuery || document.write('<script src="/assets/jquery.min.js"><\/script>')
     </script>
     <!--[if (gte IE 8)|!(IE)]><!-->
     <script src='/assets/application.js' type='text/javascript'></script>
