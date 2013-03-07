@@ -1,7 +1,7 @@
-$legacy-support-for-ie: true !default
+$legacy-for-ie: true !default
 
 @mixin opacity($alpha:1)
-  @if $legacy-support-for-ie
+  @if $legacy-for-ie
     filter: unquote("progid:DXImageTransform.Microsoft.Alpha(Opacity=#{round($alpha * 100)})")
   opacity: $alpha
 
