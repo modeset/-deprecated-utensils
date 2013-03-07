@@ -23,8 +23,11 @@ body
   background: $body-background
   line-height: $base-line-height
 
-// Set vendor text selection
-+text-selection($select-bgc, $select-color)
+// Set vendor selection
+@include selection
+  background: $select-bgc
+  color: $select-color
+  text-shadow: none
 
 // Links
 a, a:visited
@@ -46,9 +49,32 @@ a:active, a.active, .active > a
 a:link
   -webkit-tap-highlight-color: $tap-highlight
 
+// Active states get a default cursor
+.active > a,
+.active > a:hover,
+.active > button,
+.active > button:hover,
+.disabled,
+.disabled > a,
+.disabled > button
+  cursor: default
+
+// Checkbox groups do not
+[data-behavior="checkbox"].active .collapse-toggle,
+[data-behavior="checkbox"] .active > a,
+[data-behavior="checkbox"] .active > a:hover,
+[data-behavior="checkbox"] .active > button,
+[data-behavior="checkbox"] .active > button:hover,
+[data-behavior="checkbox"] a.active,
+[data-behavior="checkbox"] a.active:hover,
+[data-behavior="checkbox"] button.active,
+[data-behavior="checkbox"] button.active:hover
+  cursor: pointer
+
+
 // Base navigation
 .nav
-  +clearfixer
+  @extend %clearfix
   list-style: none
   margin-left: 0
 
@@ -68,25 +94,6 @@ a:link
 .nav.inline > li:first-child > a
   padding-left: 0
 
-
-// Active states get a default cursor
-.active > a,
-.active > a:hover,
-.active > button,
-.active > button:hover
-  cursor: default
-
-// Checkbox groups do not
-[data-behavior="checkbox"].active .collapse-toggle,
-[data-behavior="checkbox"] .active > a,
-[data-behavior="checkbox"] .active > a:hover,
-[data-behavior="checkbox"] .active > button,
-[data-behavior="checkbox"] .active > button:hover,
-[data-behavior="checkbox"] a.active,
-[data-behavior="checkbox"] a.active:hover,
-[data-behavior="checkbox"] button.active,
-[data-behavior="checkbox"] button.active:hover
-  cursor: pointer
 
 // Assets
 .nav-header
@@ -109,9 +116,9 @@ a:link
 
 // Tabable panes
 .tab-content > .tab-pane
-  +visuallyhidden
+  @extend %visuallyhidden
 .tab-content > .active
-  +visuallyshown
+  @extend %visuallyshown
 
 // Utility classes... Gabe, you're welcome.
 .pull-left
@@ -119,7 +126,7 @@ a:link
 .pull-right
   float: right
 .cf
-  @extend %clearfixer
+  @extend %clearfix
 .ir
   @extend %ir
 .hidden

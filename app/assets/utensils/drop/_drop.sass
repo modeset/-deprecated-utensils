@@ -14,11 +14,11 @@ $menu-border: $base-border !default
 
 .drop .menu,
 .drop + .menu
-  +visuallyhidden
+  @extend %visuallyhidden
 
 .drop.open .menu,
 .drop.open + .menu
-  +visuallyshown
+  @extend %visuallyshown
   border: 1px solid $menu-border
   display: block
   position: absolute

@@ -38,8 +38,8 @@ $form-actions-well-fill-bgc: darken($form-actions-well-bgc, 10%) !default
   margin-bottom: $form-group-spacing
 
 .form-actions
+  @extend %clearfix
   +box-sizing(border-box)
-  +clearfixer
   background-color: transparent
   border-top: 1px solid $form-border
   margin-top: $form-group-spacing * 2
@@ -56,11 +56,17 @@ legend + .control-group
   margin-top: $form-group-spacing * 1.5
 
 // Description elements
+fieldset
+  border: 0
+  margin: 0
+  padding: 0
+
 legend
   display: block
   border-bottom: 1px solid $form-border
   color: $legend-color
   font-size: $legend-font-size
+  margin: 0
   padding-bottom: 0.25em
   width: $form-legend-width
 
@@ -106,11 +112,11 @@ input[type="number"],
 textarea
   +inline-block
   +box-sizing(border-box)
-  box-shadow: $form-inset-shadow
   +font-size($base-font-size)
   background-color: $form-bgc
   border: 1px solid $form-border
   border-radius: $form-radii
+  box-shadow: $form-inset-shadow
   color: $form-color
   margin-bottom: 0.5em
   padding: $form-input-padding
@@ -148,13 +154,16 @@ input.search-query
 // Text area controls
 textarea
   vertical-align: top
+  resize: vertical
 
 // Define colors for placeholders
 input,
 textarea
-  +form-placeholder($placeholder)
+  @include placeholder
+    color: $placeholder
 input.search-query
-  +form-placeholder($placeholder-search)
+  @include placeholder
+    color: $placeholder-search
 
 // Select controls
 select
@@ -256,7 +265,8 @@ input[type="file"]
 
     .control-group.#{$_class_name}
       input, textarea
-        +form-placeholder(lighten($_color_value, 30%))
+        @include placeholder
+          color: lighten($_color_value, 30%)
 
       input, textarea, select
         color: $_color_value

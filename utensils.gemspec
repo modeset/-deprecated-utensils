@@ -16,6 +16,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency "railties", ">= 3.2.5"
   s.add_dependency "sass-rails"
+  s.add_dependency "bourbon"
   s.add_dependency "normalize-rails"
   s.add_dependency "coffee-rails"
   s.add_development_dependency 'teabag', '>= 0.4.6'

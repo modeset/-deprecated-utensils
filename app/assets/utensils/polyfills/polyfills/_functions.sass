@@ -1,7 +1,0 @@
-@function combine($values...)
-  $list: ()
-  @each $value in $values
-    @if $value
-      $list: append($list, $value, comma)
-  @return $list
-

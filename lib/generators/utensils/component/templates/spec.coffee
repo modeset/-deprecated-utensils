@@ -14,3 +14,6 @@ describe '<%= file_name.camelize %>', ->
       expect(utensils.Bindable.getClass('<%= file_name.dasherize %>')).to.be namespace.<%= file_name.camelize %>
 
 
+  describe.skip 'has not been tested', ->
+    it '', ->
+
