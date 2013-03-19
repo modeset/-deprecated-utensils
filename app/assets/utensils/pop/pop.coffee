@@ -68,6 +68,17 @@ class utensils.Pop
     @remove()
 
 
+  position: ->
+    return unless @directional
+    if @cardinal
+      position = @directional.getPlacementAndConstrainCardinal(@cardinal)
+    else
+      position = @directional.getPlacementAndConstrain()
+      @cardinal = position.cardinal
+    @pop.removeClass(@cardinals).addClass(position.cardinal)
+    @pop.css({top: position.top, left: position.left})
+
+
 # PROTECTED #
 
   addListeners: ->
@@ -108,9 +119,7 @@ class utensils.Pop
       @pop = @cached_markup
       @pop.appendTo(@container)
     @directional.setElement(@pop)
-    position = @directional.getPlacementAndConstrain()
-    @pop.removeClass(@cardinals).addClass(position.cardinal)
-    @pop.css({top: position.top, left: position.left})
+    @position()
     @pop.addClass(@toggle_classes)
 
 
