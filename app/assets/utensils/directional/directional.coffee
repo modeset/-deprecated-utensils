@@ -19,6 +19,10 @@ class utensils.Directional
     @constrainToViewport(@getPlacementFromCardinal())
 
 
+  getPlacementAndConstrainCardinal: (cardinal) ->
+    @constrainToViewportByCardinal(@getPlacementFromCardinal(cardinal))
+
+
   getPlacementFromCardinal: (cardinal=@cardinal) ->
     ed = @getDimensions(@element)
     cd = @getDimensions(@container)
@@ -67,6 +71,24 @@ class utensils.Directional
     if (position.left < wl)
       return @getPlacementFromCardinal('east')
     return position
+
+
+  constrainToViewportByCardinal: (position) ->
+    cardinal = position.cardinal
+    wt = @win.scrollTop()
+    wl = @win.scrollLeft()
+    ww = @win.width()
+    wh = @win.height()
+    ew = @element.outerWidth()
+    eh = @element.outerHeight()
+
+    switch cardinal
+      when 'south' then position.top = wt + wh - eh if (position.top + eh > wt + wh)
+      when 'north' then position.top = wt if (position.top < wt)
+      when 'east' then position.left = wl + ww - ew if (position.left + ew > wl + ww)
+      when 'west' then position.left = wl if (position.left < wl)
+    position
+
 
 
   getDimensions: (element) ->
