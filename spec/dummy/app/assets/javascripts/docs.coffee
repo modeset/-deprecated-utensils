@@ -13,7 +13,6 @@ class docomo.Docs extends docomo.Docomo
     @upgrade_btns = @el.find '#upgrade_demo .btn'
     @modifiers_demos = @el.find '.modifier-demo'
     @form_demo = @el.find '#demo_form'
-    @demoSlider()
 
 
   addListeners: ->
@@ -89,13 +88,6 @@ class docomo.Docs extends docomo.Docomo
     target = $(e.target)
     pb = if target.hasClass 'progress' then target else target.closest '.progress'
     progress = new utensils.Progress(pb).set Math.floor Math.random() * 101
-
-
-  demoSlider: ->
-    slider_el = @el.find '#slider_control'
-    handle = slider_el.find '.slider-handle'
-    progress = slider_el.find '.slider-progress'
-    slider = new utensils.Slider slider_el[0], handle[0], progress[0], (val) -> progress.html Math.round val
 
 
   demoForm: (e) ->
