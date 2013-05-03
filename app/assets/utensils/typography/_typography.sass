@@ -163,11 +163,14 @@ ol, ul, dl, menu, dd
 ul, ol
   margin-left: 1.65em
 
+%unstyled-list
+  margin-left: 0
+  list-style: none
+
 nav ul,
 nav ol,
 .unstyled-list
-  margin-left: 0
-  list-style: none
+  @extend %unstyled-list
 
 // Definition Lists
 dt
