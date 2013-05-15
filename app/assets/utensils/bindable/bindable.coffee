@@ -1,7 +1,7 @@
 #= require utensils/utensils
 
 class utensils.Bindable
-  constructor: (context=$('body'), @dataKey='bindable')->
+  constructor: (context=document, @dataKey='bindable')->
     @bindables = $("[data-#{@dataKey}]", context)
     @instanceKey = "#{@dataKey}-instance"
 
