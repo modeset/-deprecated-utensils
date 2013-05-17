@@ -35,6 +35,7 @@ module Utensils
         copy_file 'public/422.html'
         copy_file 'public/500.html'
         copy_file 'public/apple-touch-icon-114x114-precomposed.png'
+        copy_file 'public/apple-touch-icon-144x144.png'
         copy_file 'public/apple-touch-icon-57x57-precomposed.png'
         copy_file 'public/apple-touch-icon-72x72-precomposed.png'
         copy_file 'public/apple-touch-icon-precomposed.png'
