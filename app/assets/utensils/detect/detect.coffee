@@ -11,8 +11,6 @@ class utensils.Detect
       transEndEventNames =
         WebkitTransition: "webkitTransitionEnd"
         MozTransition: "transitionend"
-        OTransition: "oTransitionEnd"
-        msTransition: "MSTransitionEnd"
         transition: "transitionend"
       name = undefined
       for name of transEndEventNames
