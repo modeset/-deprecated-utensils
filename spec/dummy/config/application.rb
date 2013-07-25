@@ -6,7 +6,7 @@ require "sprockets/railtie"
 
 Bundler.require
 require "utensils"
-require "teabag"
+require "teaspoon"
 
 module Dummy
   class Application < Rails::Application

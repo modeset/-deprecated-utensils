@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
   s.add_dependency "bourbon"
   s.add_dependency "normalize-rails"
   s.add_dependency "coffee-rails"
-  s.add_development_dependency 'teabag', '>= 0.4.6'
+  s.add_development_dependency 'teaspoon', '>= 0.7.4'
 
   # Used by the dummy application
   s.add_development_dependency 'docomo'

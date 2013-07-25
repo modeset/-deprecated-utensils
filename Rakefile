@@ -16,7 +16,7 @@ Bundler::GemHelper.install_tasks
 # Teabag
 # -----------------------------------------------------------------------------
 desc "Run the javascript specs"
-task :teabag => "app:teabag"
+task :teaspoon => "app:teaspoon"
 
 # Docomo
 # -----------------------------------------------------------------------------
@@ -28,4 +28,4 @@ namespace :utensils do
   end
 end
 
-task :default => [:teabag]
+task :default => [:teaspoon]

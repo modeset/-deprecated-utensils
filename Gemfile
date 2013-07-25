@@ -1,7 +1,7 @@
-source :rubygems
+source 'https://rubygems.org'
 gemspec
 
 gem 'thin'
 gem 'rails', "3.2.12"
-gem 'teabag', ">= 0.5.2"
+gem 'teaspoon', ">= 0.7.4"
 gem 'docomo', github: 'modeset/docomo'
