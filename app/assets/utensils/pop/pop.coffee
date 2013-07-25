@@ -70,13 +70,21 @@ class utensils.Pop
 
   position: ->
     return unless @directional
-    if @cardinal
-      position = @directional.getPlacementAndConstrainCardinal(@cardinal)
-    else
-      position = @directional.getPlacementAndConstrain()
-      @cardinal = position.cardinal
-    @pop.removeClass(@cardinals).addClass(position.cardinal)
-    @pop.css({top: position.top, left: position.left})
+    position = @directional.getPlacementAndConstrain()
+    @cardinal = position.cardinal
+    @pop.removeClass(@cardinals).addClass(@cardinal)
+    @pop.css({top: position.top + position.offsetTop, left: position.left + position.offsetLeft})
+    @offsetArrow(position)
+
+
+  offsetArrow: (position)->
+    popArrow = $('.pop-arrow', @pop)
+    arrowPosition = popArrow.position()
+    switch position.cardinal
+      when 'north', 'south'
+        popArrow.css({left: arrowPosition.left - position.offsetLeft})
+      when 'east', 'west'
+        popArrow.css({top: arrowPosition.top - position.offsetTop})
 
 
 # PROTECTED #

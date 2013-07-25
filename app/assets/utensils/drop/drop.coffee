@@ -33,7 +33,7 @@ class utensils.Drop
   setup: ->
     @html = $('html')
     @menu = @dispatcher.next('.menu')
-    @directional = new utensils.Directional(@menu, @el, @placement)
+    @directional = new utensils.Directional(@menu, @el, @placement, 'north south east west')
     @cardinals = @directional.getCardinals()
     @initialized = true
 

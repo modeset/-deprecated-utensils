@@ -131,10 +131,6 @@ describe 'Drop', ->
       @north_drop.setup()
       expect(@north_drop.directional).to.be.a utensils.Directional
 
-    it 'memoizes the cardinals from "Directional"', ->
-      @north_drop.setup()
-      expect(@north_drop.cardinals).to.be(new utensils.Directional().getCardinals())
-
 
   describe '#toggle', ->
     it 'calls through #toggle on the "Triggerable" instance from a link', ->
@@ -247,6 +243,7 @@ describe 'Drop', ->
     it 'changes placement based on position and screen real estate', ->
       @north_el.css(position:'absolute', top:0)
       @north_el.find('.drop-toggle').click()
+      console.log @north_drop.menu.attr('class')
       expect(@north_drop.menu.hasClass('south')).to.be true
 
 
