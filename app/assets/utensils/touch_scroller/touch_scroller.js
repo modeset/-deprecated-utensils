@@ -16,7 +16,7 @@ utensils.TouchScroller = function( scrollOuterEl, scrollInnerEl, options ) {
         this.h = h || 0;
     };
 
-    var Position2d = function( x, y ) {
+    var Point2d = function( x, y ) {
         this.x = x || 0;
         this.y = y || 0;
     };
@@ -40,7 +40,7 @@ utensils.TouchScroller = function( scrollOuterEl, scrollInnerEl, options ) {
         nonPagedFriction: 0.8,
         beyondBoundsFriction: 0.4,
         bounces: true,
-        // pages / dragging
+        // pages & dragging
         pagedEasingFactor: 5,
         pageTurnRatio: 0.2,
         // state options
@@ -54,7 +54,7 @@ utensils.TouchScroller = function( scrollOuterEl, scrollInnerEl, options ) {
     };
 
     // apply passed-in option overrides
-    for( key in options ){
+    for( var key in options ){
         defaultOptions[key] = options[key];
     }
 
@@ -74,7 +74,7 @@ utensils.TouchScroller = function( scrollOuterEl, scrollInnerEl, options ) {
         _hasLockedDragAxis = false,
         _dragLockAxis = null,
         _staysInBounds = true,
-        _wasDraggedBeyondBounds = new Position2d( false, false ),
+        _wasDraggedBeyondBounds = new Point2d( false, false ),
 
         // touch helpers
         _cursor = ( defaultOptions.hasCursor ) ? new utensils.CursorHand() : null,
@@ -87,29 +87,29 @@ utensils.TouchScroller = function( scrollOuterEl, scrollInnerEl, options ) {
         _scrollInnerEl = scrollInnerEl,
 
         // positioning and css flags
-        _speed = new Position2d(),
-        _curPosition = new Position2d(),
-        _endPosition = new Position2d(),
+        _speed = new Point2d(),
+        _curPosition = new Point2d(),
+        _endPosition = new Point2d(),
         _containerSize = new Size2d(),
         _contentSize = new Size2d(),
-        _doesntNeedScroll = new Position2d( false, false ),
+        _doesntNeedScroll = new Point2d( false, false ),
 
         // deal with pages
         _pagedEasingFactor = defaultOptions.pagedEasingFactor,
         _pageTurnRatio = defaultOptions.pageTurnRatio,
         _isPaged = defaultOptions.isPaged,
 
-        _numPages = new Position2d(),
-        _pageIndex = new Position2d(),
-        _closestScrollIndex = new Position2d(),
+        _numPages = new Point2d(),
+        _pageIndex = new Point2d(),
+        _closestScrollIndex = new Point2d(),
 
-        _timerFps = 33,
+        _timerFps = 16,
         _timerActive = false,
 
         // deal with direction of scroller
         _hasScrollBars = defaultOptions.hasScrollbars,
         _scrollbars = null,
-        _axis = null,   // will be x/y for Position2d
+        _axis = null,   // will be x/y for Point2d
         _scrollsX = false,
         _scrollsY = false;
 
@@ -117,7 +117,7 @@ utensils.TouchScroller = function( scrollOuterEl, scrollInnerEl, options ) {
         setScrollerDelegate( defaultOptions.scrollerDelegate );
         _cssHelper = new utensils.CSSHelper();
         _touchTracker = new utensils.MouseAndTouchTracker( scrollOuterEl, touchUpdated, false, defaultOptions.disabledElements );
-        if( _hasScrollBars ) _scrollbars = new Position2d( new ScrollBar( AXIS_X, SIZE_W ), new ScrollBar( AXIS_Y, SIZE_H ) );
+        if( _hasScrollBars ) _scrollbars = new Point2d( new ScrollBar( AXIS_X, SIZE_W ), new ScrollBar( AXIS_Y, SIZE_H ) );
 
         setOrientation( _orientation );
         calculateDimensions();
@@ -355,7 +355,7 @@ utensils.TouchScroller = function( scrollOuterEl, scrollInnerEl, options ) {
     };
 
     var hasSlowedToStopForAxis = function( axis ) {
-        return (Math.abs( _speed[ axis ] ) <= 0.1);
+        return (Math.abs( _speed[ axis ] ) <= 0.01);
     };
 
     var easeToIndex = function() {
@@ -434,6 +434,7 @@ utensils.TouchScroller = function( scrollOuterEl, scrollInnerEl, options ) {
         // snap to page and constrain page calculation
         if( _isPaged == true ) {
             var dimension = getDimensionForAxis( axis );
+            var prevPage = _pageIndex[ axis ];
             var pageChanged = false;
             // have we swiped far enough to turn the page
             if( _touchTracker.touchmoved[ axis ] > _containerSize[ dimension ] * _pageTurnRatio ) {
@@ -450,7 +451,7 @@ utensils.TouchScroller = function( scrollOuterEl, scrollInnerEl, options ) {
                 pageChanged = true;
             }
 
-            if( pageChanged == true ) {
+            if( pageChanged == true && prevPage != _pageIndex[ axis ] ) {
                 _scrollerDelegate.pageChanged( _pageIndex[ axis ], axis );
             }
         }
@@ -466,9 +467,10 @@ utensils.TouchScroller = function( scrollOuterEl, scrollInnerEl, options ) {
         // get location based on current position
         var targetPos = pageIndex * -containerSize;
         if( curPosition !== targetPos ) {
-            if (Math.abs( curPosition - targetPos ) <= 0.5 ) {
+            if (Math.abs( curPosition - targetPos ) <= 0.25 ) {
                 curPosition = targetPos;
                 handleDestination();
+                return curPosition;
             }
         }
         // ease position to target
@@ -502,6 +504,7 @@ utensils.TouchScroller = function( scrollOuterEl, scrollInnerEl, options ) {
     };
 
     var setOrientation = function( orientation ) {
+        var prevOrientation = _orientation;
         _orientation = orientation;
         if( _orientation == utensils.TouchScroller.VERTICAL ) {
             _scrollsX = false;
@@ -509,14 +512,20 @@ utensils.TouchScroller = function( scrollOuterEl, scrollInnerEl, options ) {
             _axis = AXIS_Y;
             _curPosition.y = ( _isPaged ) ? _pageIndex.y * _containerSize.h : _curPosition.x;
             _curPosition.x = 0;
-            if( _isPaged ) setPage( _pageIndex.y, true );
+            if( _isPaged ) {
+                if( prevOrientation == utensils.TouchScroller.HORIZONTAL ) _pageIndex.y = _pageIndex.x;
+                setPage( _pageIndex.y, true );
+            }
         } else if( _orientation == utensils.TouchScroller.HORIZONTAL ) {
             _scrollsX = true;
             _scrollsY = false;
             _axis = AXIS_X;
             _curPosition.x = ( _isPaged ) ? _pageIndex.x * _containerSize.w : _curPosition.y;
             _curPosition.y = 0;
-            if( _isPaged ) setPage( _pageIndex.x, true );
+            if( _isPaged ) {
+                if( prevOrientation == utensils.TouchScroller.VERTICAL ) _pageIndex.x = _pageIndex.y;
+                setPage( _pageIndex.x, true );
+            }
         } else {
             _scrollsX = true;
             _scrollsY = true;
@@ -527,6 +536,10 @@ utensils.TouchScroller = function( scrollOuterEl, scrollInnerEl, options ) {
         if( _scrollsX && _scrollbars ) _scrollbars.x.resizeScrollbar();
         if( _scrollsY && _scrollbars ) _scrollbars.y.resizeScrollbar();
         hideScrollbars();
+    };
+
+    var getOrientation = function() {
+        return _orientation;
     };
 
     var getDimensionForAxis = function( axis ) {
@@ -933,6 +946,7 @@ utensils.TouchScroller = function( scrollOuterEl, scrollInnerEl, options ) {
         deactivate : deactivate,
         calculateDimensions: calculateDimensions,
         setOrientation : setOrientation,
+        getOrientation : getOrientation,
         setBounces : setBounces,
         setIsPaged : setIsPaged,
         prevPage : prevPage,
@@ -962,4 +976,3 @@ utensils.TouchScroller = function( scrollOuterEl, scrollInnerEl, options ) {
 utensils.TouchScroller.HORIZONTAL = 'horizontal';
 utensils.TouchScroller.VERTICAL = 'vertical';
 utensils.TouchScroller.UNLOCKED = null;
-

@@ -1,13 +1,18 @@
 //= require utensils/utensils
 
 utensils.MouseAndTouchTracker = function( element, callback, isMouseUpTracking, disabledElements ) {
+  var Point2d = function( x, y ) {
+    this.x = x || 0;
+    this.y = y || 0;
+  };
+
   // positioning / tracking coordinates
-  this.container_position = { x:0, y:0 };
-  this.touchstart = { x : 0, y : 0 };
-  this.touchcurrent = { x : 0, y : 0 };
-  this.touchmovedlast = { x : 0, y : 0 };
-  this.touchmoved = { x : 0, y : 0 };
-  this.touchspeed = { x : 0, y : 0 };
+  this.container_position = new Point2d();
+  this.touchstart = new Point2d();
+  this.touchcurrent = new Point2d();
+  this.touchmovedlast = new Point2d();
+  this.touchmoved = new Point2d();
+  this.touchspeed = new Point2d();
 
   // state flags
   this.is_touching = false;
@@ -21,6 +26,7 @@ utensils.MouseAndTouchTracker = function( element, callback, isMouseUpTracking, 
   this.is_mouseup_tracking = isMouseUpTracking;
   disabledElements = disabledElements || '';
   this.disabled_elements = disabledElements.split(' ') || [];
+  this.findPosHelper = null;
 
   // add touch event listeners with scope for removal
   var self = this;
@@ -45,7 +51,7 @@ utensils.MouseAndTouchTracker = function( element, callback, isMouseUpTracking, 
   }
 
   // hmm...
-  if(!navigator.userAgent.match(/Android/i)) this.recurseDisableImages( this.container ); // !this.is_mouseup_tracking &&
+  if(!navigator.userAgent.match(/Android/i)) this.recurseDisableElements( this.container ); // !this.is_mouseup_tracking &&
 }
 
 // add static constants
@@ -56,7 +62,7 @@ utensils.MouseAndTouchTracker.state_enter = 'TOUCH_ENTER';
 utensils.MouseAndTouchTracker.state_leave = 'TOUCH_LEAVE';
 
 // prevent clicking/dragging on children from interfering with container's dragging
-utensils.MouseAndTouchTracker.prototype.recurseDisableImages = function ( elem ) {
+utensils.MouseAndTouchTracker.prototype.recurseDisableElements = function ( elem ) {
   if( elem ) {
     // disable clicking/dragging on selected element types
     if( elem.tagName && this.disabled_elements.indexOf( elem.tagName.toLowerCase() ) != -1 ) {  //  console.log('disabling: = '+elem.tagName.toLowerCase());
@@ -68,7 +74,7 @@ utensils.MouseAndTouchTracker.prototype.recurseDisableImages = function ( elem )
     // loop through children and do the same
     if( elem.childNodes.length > 0 ){
       for( var i=0; i < elem.childNodes.length; i++ ) {
-        this.recurseDisableImages( elem.childNodes[i] );
+        this.recurseDisableElements( elem.childNodes[i] );
       }
     }
   }
@@ -207,30 +213,22 @@ utensils.MouseAndTouchTracker.prototype.dispose = function () {
 };
 
 utensils.MouseAndTouchTracker.prototype.findPos = function(obj) {
-  // cobbled from:
-  // http://javascript.about.com/od/browserobjectmodel/a/bom12.htm
-  // http://www.quirksmode.org/js/findpos.html
-  // with original code to handle webkitTransform positioning added into the mix
-
-  // get page scroll offset
-  var scrollX = window.pageXOffset ? window.pageXOffset : document.documentElement.scrollLeft ? document.documentElement.scrollLeft : document.body.scrollLeft;
-  var scrollY = window.pageYOffset ? window.pageYOffset : document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop;
-
-  // get element location
-  var curleft = curtop = 0;
-
-  if (obj.offsetParent) {
-    do {
-      if( typeof obj.parentNode.style !== 'undefined' && typeof obj.parentNode.style.webkitTransform !== 'undefined' && obj.parentNode.style.webkitTransform && obj.parentNode.style.webkitTransform.indexOf('translate3d') != -1 ) {   // last conditional fixes chrome on windows
-        var transformXYZArray = obj.parentNode.style.webkitTransform.split('translate3d(')[1].split(')')[0].replace(/ +/g, '').replace(/px+/g, '').split(',');
-        curleft += parseInt( transformXYZArray[0] );
-        curtop += parseInt( transformXYZArray[1] );
-      }
-      curleft += obj.offsetLeft;
-      curtop += obj.offsetTop;
-    } while (obj = obj.offsetParent);
-  }
+  this.findPosHelper = utensils.CSSHelper.findPos(obj);
   // store position from cumulative offset
-  this.container_position.x = curleft - scrollX;
-  this.container_position.y = curtop - scrollY;
+  this.container_position.x = this.findPosHelper[0];
+  this.container_position.y = this.findPosHelper[1];
 };
+
+// indexOf polyfill for old IE
+// originally from: http://soledadpenades.com/2007/05/17/arrayindexof-in-internet-explorer/
+if(!Array.indexOf){
+  Array.prototype.indexOf = function(obj){
+    for(var i=0; i<this.length; i++){
+      if(this[i]==obj){
+         return i;
+      }
+    }
+    return -1;
+  }
+}
+
