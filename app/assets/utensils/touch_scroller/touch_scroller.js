@@ -279,6 +279,8 @@ utensils.TouchScroller = function( scrollOuterEl, scrollInnerEl, options ) {
             _numPages.y = Math.ceil( _contentSize.h / _containerSize.h );
             _doesntNeedScroll.x = ( _containerSize.w > _contentSize.w );
             _doesntNeedScroll.y = ( _containerSize.h > _contentSize.h );
+            if( _doesntNeedScroll.x == true ) _endPosition.x = 0;
+            if( _doesntNeedScroll.y == true ) _endPosition.y = 0;
             if( _pageIndex.x > _numPages.x - 1 ) _pageIndex.x = _numPages.x - 1;
             if( _pageIndex.y > _numPages.y - 1 ) _pageIndex.y = _numPages.y - 1;
             if( _scrollsX ) sendBackInBounds( AXIS_X );
