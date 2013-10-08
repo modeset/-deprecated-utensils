@@ -51,7 +51,7 @@ utensils.MouseAndTouchTracker = function( element, callback, isMouseUpTracking, 
   }
 
   // hmm...
-  if(!navigator.userAgent.match(/Android/i)) this.recurseDisableElements( this.container ); // !this.is_mouseup_tracking &&
+  this.recurseDisableElements( this.container ); // !this.is_mouseup_tracking  // if(!navigator.userAgent.match(/Android/i))
 }
 
 // add static constants
@@ -67,7 +67,7 @@ utensils.MouseAndTouchTracker.prototype.recurseDisableElements = function ( elem
     // disable clicking/dragging on selected element types
     if( elem.tagName && this.disabled_elements.indexOf( elem.tagName.toLowerCase() ) != -1 ) {  //  console.log('disabling: = '+elem.tagName.toLowerCase());
       try {
-        elem.onmousedown = function(e){ return false; };  // TODO: remove this if touch events, so we can click inside??
+        elem.onmousedown = function(e){ return false; };
         elem.onselectstart = function(){ return false; };
       } catch(err) {}
     }
@@ -96,10 +96,13 @@ utensils.MouseAndTouchTracker.prototype.disposeMouseListeners = function () {
 };
 
 utensils.MouseAndTouchTracker.prototype.onStart = function ( touchEvent ) {
-  // HACK for Android - otherwise touchmove events don't fire. See: http://code.google.com/p/android/issues/detail?id=5491
   if( navigator.userAgent.match(/Android/i) ) {
-    if( touchEvent.preventDefault ) {
-      touchEvent.preventDefault();  // if( touchEvent.target.tagName.toLowerCase() != 'img' ) // potential fix for the Android image menu on tap & hold
+    var androidVersion = parseFloat( navigator.userAgent.match(/Android (\d+(?:\.\d+)+)/gi)[0].replace('Android ','') )
+    if( androidVersion < 3 ) {
+      // hack for Android 2.x - otherwise touchmove events don't fire. See: http://code.google.com/p/android/issues/detail?id=5491
+      if( touchEvent.preventDefault ) {
+        touchEvent.preventDefault();  // if( touchEvent.target.tagName.toLowerCase() != 'img' ) // potential fix for the Android image menu on tap & hold
+      }
     }
   }
 
@@ -229,6 +232,5 @@ if(!Array.indexOf){
       }
     }
     return -1;
-  }
+  };
 }
-

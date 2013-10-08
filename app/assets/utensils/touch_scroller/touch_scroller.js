@@ -111,9 +111,14 @@ utensils.TouchScroller = function( scrollOuterEl, scrollInnerEl, options ) {
         _scrollbars = null,
         _axis = null,   // will be x/y for Point2d
         _scrollsX = false,
-        _scrollsY = false;
+        _scrollsY = false,
+
+        _scrollerId = '',
+        _cancelClick = false,
+        _publicInterface = null;
 
     var init = function() {
+        _scrollerId = generateScrollerId();
         setScrollerDelegate( defaultOptions.scrollerDelegate );
         _cssHelper = new utensils.CSSHelper();
         _touchTracker = new utensils.MouseAndTouchTracker( scrollOuterEl, touchUpdated, false, defaultOptions.disabledElements );
@@ -148,57 +153,97 @@ utensils.TouchScroller = function( scrollOuterEl, scrollInnerEl, options ) {
 
     var onStart = function( touchEvent ) {
         if( _timerActive == false ) return;
-        showScrollbars();
+        if( utensils.TouchScroller.innermostScrollerInstance == null ) utensils.TouchScroller.innermostScrollerInstance = _publicInterface;
         _scrollerDelegate.touchStart();
+        _cancelClick = false;
+        _scrollOuterEl.addEventListener('click', onClicked);
     };
 
     var onMove = function( touchEvent ) {
+        // cancel scrolling if there's an inner scroller in the same orientation
+        // or if there's another scroller that's been activated in a different direction
+        // or if it's shut down
+        if( utensils.TouchScroller.innermostScrollerInstance != _publicInterface && ( utensils.TouchScroller.innermostScrollerInstance.getOrientation() == _orientation || _orientation == utensils.TouchScroller.UNLOCKED ) ) return;   // canceling b/c same direction as inner scroller (or outer is a grid (unlocked))
+        if( utensils.TouchScroller.activeScrollerInstance != null && utensils.TouchScroller.activeScrollerInstance != _scrollerId ) return;   // canceling b/c inner scroller has been activated in a different orientation
         if( _timerActive == false ) return;
+
+        // if normal (no inner scroller blocking this instance), show scrollbars and do normal scrolling in grid orientation
+        if( _orientation == utensils.TouchScroller.UNLOCKED ) {
+            showScrollbars();
+            utensils.TouchScroller.activeScrollerInstance = _scrollerId;
+            if( Math.abs( _touchTracker.touchmoved.x ) + Math.abs( _touchTracker.touchmoved.y ) > 10 ) _cancelClick = true;
+        }
+
         // if we're locked to an axis, drag a bit before deciding to scroll, then preventDefault on the touch event below to allow page scrolling in the non-locked axis directino
         if( !_hasLockedDragAxis && _orientation != utensils.TouchScroller.UNLOCKED ) {
             if( Math.abs( _touchTracker.touchmoved.x ) > _lockDirectionDragPixels ) decideDragAxis( utensils.TouchScroller.HORIZONTAL );
             else if( Math.abs( _touchTracker.touchmoved.y ) > _lockDirectionDragPixels ) decideDragAxis( utensils.TouchScroller.VERTICAL );
         } else {
             // scroll once we've decided a direction
-            updatePositionFromTouch( ( _touchTracker.touchmoved.x - _touchTracker.touchmovedlast.x ), ( _touchTracker.touchmoved.y - _touchTracker.touchmovedlast.y ) );
+            if( _orientation == utensils.TouchScroller.UNLOCKED || ( _orientation == utensils.TouchScroller.VERTICAL && _orientation == _dragLockAxis ) || ( _orientation == utensils.TouchScroller.HORIZONTAL && _orientation == _dragLockAxis ) ) {
+                updatePositionFromTouch( ( _touchTracker.touchmoved.x - _touchTracker.touchmovedlast.x ), ( _touchTracker.touchmoved.y - _touchTracker.touchmovedlast.y ) );
+            }
         }
-
-        // prevent page scrolling if we've locked on the opposite axis
-        if( ( _orientation == utensils.TouchScroller.VERTICAL && _dragLockAxis == utensils.TouchScroller.VERTICAL ) || ( _orientation == utensils.TouchScroller.HORIZONTAL && _dragLockAxis == utensils.TouchScroller.HORIZONTAL ) ) {
-            eventPreventDefault( touchEvent );
-        }
-        // disable touch event if allowed
-        eventStopPropa( touchEvent );
     };
 
     var onEnd = function( touchEvent ) {
-        if( _timerActive == false ) return;
-        // cancel clickthrough if touch moved. theoretically should allow clicks to go through, but right now this might not work on Android
-        if( _touchTracker.touchmoved.x != 0 && _touchTracker.touchmoved.y != 0 ) eventStopPropa( touchEvent );
+        _scrollerDelegate.touchEnd();
 
-        // set flags and store last known page index before recalculating
-        _hasLockedDragAxis = false;
-        _dragLockAxis = null;
+        // reset touchscroll props after a tick
+        setTimeout(function(){ 
+            _hasLockedDragAxis = false;
+            _dragLockAxis = null;
+            _cancelClick = false;
+            utensils.TouchScroller.activeScrollerInstance = null; 
+            utensils.TouchScroller.innermostScrollerInstance = null;
+        },1);
+
+        if( utensils.TouchScroller.activeScrollerInstance != _scrollerId ) {
+            hideScrollbars();
+            return;
+        } 
+        if( _timerActive == false ) return;
+
+        // store last known page index before recalculating
         var prevIndexX = _pageIndex.x;
         var prevIndexY = _pageIndex.y;
 
-        // get mouse speed for non-paged mode
-        var speedX = ( _scrollsX ) ? getTouchSpeedForAxis( AXIS_X ) : 0;
-        var speedY = ( _scrollsY ) ? getTouchSpeedForAxis( AXIS_Y ) : 0;
-        // if dragging against the boundaries (no toss speed), hide scroller?? hmm..
-        if( speedX == false && speedY == false ) hideScrollbars();
+        // perform final speed/snapping functions if we're active and dragging in the right direction
+        if( _orientation == utensils.TouchScroller.UNLOCKED || ( _orientation == utensils.TouchScroller.VERTICAL && _orientation == _dragLockAxis ) || ( _orientation == utensils.TouchScroller.HORIZONTAL && _orientation == _dragLockAxis ) ) {
+            // get mouse speed for non-paged mode
+            var speedX = ( _scrollsX ) ? getTouchSpeedForAxis( AXIS_X ) : 0;
+            var speedY = ( _scrollsY ) ? getTouchSpeedForAxis( AXIS_Y ) : 0;
 
-        // hide the scrollbar if touch was just a tap
-        if( ( _touchTracker.touchmoved.x == 0 && _touchTracker.touchmoved.y == 0 ) || ( speedX == 0 && speedY == 0 ) ) {
+            if( _scrollsX ) sendBackInBounds( AXIS_X );
+            if( _scrollsY ) sendBackInBounds( AXIS_Y );
+
+            if( _scrollsX ) detectPageChangeOnTouchEnd( prevIndexX, AXIS_X );
+            if( _scrollsY ) detectPageChangeOnTouchEnd( prevIndexY, AXIS_Y );
+        } else {
             hideScrollbars();
         }
 
-        sendBackInBounds( AXIS_X );
-        sendBackInBounds( AXIS_Y );
-        if( _scrollsX ) detectPageChangeOnTouchEnd( prevIndexX, AXIS_X );
-        if( _scrollsY ) detectPageChangeOnTouchEnd( prevIndexY, AXIS_Y );
+        // hide the scrollbar if touch was just a tap
+        // if dragging against the boundaries (no toss speed), hide scroller?? hmm..
+        if( _touchTracker.touchmoved.x == 0 && _touchTracker.touchmoved.y == 0 ) {
+            hideScrollbars();
+        }
+    };
 
-        _scrollerDelegate.touchEnd();
+    var onClicked = function(e) {
+        if( _cancelClick == true ) {
+            eventPreventDefault( e );
+        }
+    };
+
+    var decideDragAxis = function( direction ) {
+        _hasLockedDragAxis = true;
+        _dragLockAxis = direction;
+        if( _orientation == _dragLockAxis ) {
+            showScrollbars();
+            utensils.TouchScroller.activeScrollerInstance = _scrollerId; 
+            _cancelClick = true;
+        }
     };
 
     var getTouchSpeedForAxis = function( axis ) {
@@ -288,11 +333,6 @@ utensils.TouchScroller = function( scrollOuterEl, scrollInnerEl, options ) {
             if( _scrollsX && _scrollbars ) _scrollbars.x.resizeScrollbar();
             if( _scrollsY && _scrollbars ) _scrollbars.y.resizeScrollbar();
         }
-    };
-
-    var decideDragAxis = function( direction ) {
-        _hasLockedDragAxis = true;
-        _dragLockAxis = direction;
     };
 
     // update scroll position
@@ -892,12 +932,20 @@ utensils.TouchScroller = function( scrollOuterEl, scrollInnerEl, options ) {
 
     // DOM/Math utility methods -------------------------------------
 
+    var generateScrollerId = function() {
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+            var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
+            return v.toString(16);
+        });
+    };
+
     var eventPreventDefault = function( touchEvent ) {
         if(touchEvent && typeof touchEvent !== 'undefined' && touchEvent.preventDefault && typeof touchEvent.preventDefault !== 'undefined') touchEvent.preventDefault();
     };
 
     var eventStopPropa = function( touchEvent ) {
         if(touchEvent && typeof touchEvent !== 'undefined' && touchEvent.stopPropagation && typeof touchEvent.stopPropagation !== 'undefined') touchEvent.stopPropagation();
+        if(touchEvent && typeof touchEvent !== 'undefined' && touchEvent.stopImmediatePropagation && typeof touchEvent.stopImmediatePropagation !== 'undefined') touchEvent.stopImmediatePropagation();
     };
 
     var getPercentWithinRange = function( bottomRange, topRange, valueInRange ) {
@@ -943,7 +991,7 @@ utensils.TouchScroller = function( scrollOuterEl, scrollInnerEl, options ) {
 
     init();
 
-    return {
+    _publicInterface = {
         activate : activate,
         deactivate : deactivate,
         calculateDimensions: calculateDimensions,
@@ -973,8 +1021,12 @@ utensils.TouchScroller = function( scrollOuterEl, scrollInnerEl, options ) {
         reset : reset,
         dispose : dispose
     };
+    return _publicInterface;
 };
 
 utensils.TouchScroller.HORIZONTAL = 'horizontal';
 utensils.TouchScroller.VERTICAL = 'vertical';
 utensils.TouchScroller.UNLOCKED = null;
+
+utensils.TouchScroller.activeScrollerInstance = null;
+utensils.TouchScroller.innermostScrollerInstance = null;
