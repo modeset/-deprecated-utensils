@@ -188,6 +188,7 @@ utensils.TouchScroller = function( scrollOuterEl, scrollInnerEl, options ) {
 
     var onEnd = function( touchEvent ) {
         _scrollerDelegate.touchEnd();
+        _scrollOuterEl.removeEventListener('click', onClicked);
 
         // reset touchscroll props after a tick
         setTimeout(function(){ 
