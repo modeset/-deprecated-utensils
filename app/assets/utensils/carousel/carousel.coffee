@@ -112,10 +112,10 @@ class utensils.Carousel
 
   transition: ->
     @send('transition.start')
-    @setTransitions() unless @tranny_defined
+    @setTransitions() unless @transition_defined
     panel = @panels.eq(@index)
     @panels.removeClass(@toggle_classes)
-    if @has_tranny then panel.one(@tranny_end, => @transitionEnd arguments...) else @transitionEnd()
+    if @has_transition then panel.one(@transition_end, => @transitionEnd arguments...) else @transitionEnd()
     panel.addClass(@toggle_classes)
 
 
@@ -148,9 +148,9 @@ class utensils.Carousel
 # INTERNAL #
 
   setTransitions: ->
-    @has_tranny = utensils.Detect.hasTransition
-    @tranny_end = utensils.Detect.transition.end
-    @tranny_defined = true
+    @has_transition = utensils.Detect.hasTransition
+    @transition_end = utensils.Detect.transition.end
+    @transition_defined = true
 
 
   constrainIndex: ->

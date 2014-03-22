@@ -12,7 +12,7 @@ properties, normalizing event names, and other useful detection.
 Get the transition event name for the current browser for use in CSS transitions.
 
 ```coffee
-@tranny_event = utensils.Detect.transition.end
+@transition_event = utensils.Detect.transition.end
 ```
 
 ### #hasTransition

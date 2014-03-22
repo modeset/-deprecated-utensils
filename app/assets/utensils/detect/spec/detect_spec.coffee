@@ -7,7 +7,7 @@ describe 'Detect', ->
       expect(utensils.Detect.transition).not.to.be undefined
 
     it 'returns one of the existing strings based on the browser', ->
-      el = document.createElement('tranny')
+      el = document.createElement('transition')
       transEndEventNames =
         WebkitTransition: "webkitTransitionEnd"
         MozTransition: "transitionend"

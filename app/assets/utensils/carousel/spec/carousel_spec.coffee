@@ -203,7 +203,7 @@ describe 'Carousel', ->
   describe '#transitionEnd', ->
     it 'calls the transitionEnd method on a panel change', ->
       spy = sinon.spy @carousel, 'transitionEnd'
-      @carousel.has_tranny = false
+      @carousel.has_transition = false
       @carousel_el.find('.paddle-icon.east').click()
       expect(spy.called).to.be.ok()
 

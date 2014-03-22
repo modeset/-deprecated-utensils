@@ -7,7 +7,7 @@ class utensils.Detect
   # utensils.Detect.hasTransition
   @transition = (=>
     transitionEnd = (->
-      el = document.createElement("tranny")
+      el = document.createElement("transition")
       transEndEventNames =
         WebkitTransition: "webkitTransitionEnd"
         MozTransition: "transitionend"
