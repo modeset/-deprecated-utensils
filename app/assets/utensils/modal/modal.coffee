@@ -91,8 +91,8 @@ class utensils.Modal
 
 
   transition: (element, method, fn) ->
-    @setTransitions() unless @tranny_defined
-    if @has_tranny then element.one(@tranny_end, fn) else fn()
+    @setTransitions() unless @transition_defined
+    if @has_transition then element.one(@transition_end, fn) else fn()
     element[method]('in')
 
 
@@ -127,9 +127,9 @@ class utensils.Modal
 
 
   setTransitions: ->
-    @has_tranny = utensils.Detect.hasTransition
-    @tranny_end = utensils.Detect.transition.end
-    @tranny_defined = true
+    @has_transition = utensils.Detect.hasTransition
+    @transition_end = utensils.Detect.transition.end
+    @transition_defined = true
 
 
   findMarkup: ->

@@ -21,7 +21,7 @@ describe 'Modal', ->
     @dom.append(extra)
     @body = $('body')
 
-    @tranny_state = utensils.Detect.hasTransition
+    @transition_state = utensils.Detect.hasTransition
 
     @modal_link = @dom.find('[href="#modal_href"]')
     @modal_el = @dom.find('#modal_href')
@@ -30,7 +30,7 @@ describe 'Modal', ->
 
 
   afterEach ->
-    utensils.Detect.hasTransition = @tranny_state
+    utensils.Detect.hasTransition = @transition_state
     @body.find('.modal-backdrop').remove()
 
 
