@@ -92,7 +92,7 @@ label
 .hint-block
   display: block
 .hint-inline
-  +inline-block
+  display: inline-block
 
 // Text input controls
 input[type="text"],
@@ -110,7 +110,7 @@ input[type="week"],
 input[type="number"],
 .input-bg,
 textarea
-  +inline-block
+  display: inline-block
   box-sizing: border-box
   +font-size($base-font-size)
   background-color: $form-bgc
@@ -126,7 +126,7 @@ textarea
 input[type="range"],
 input[type="color"],
 input[type="file"]
-  +inline-block
+  display: inline-block
   box-sizing: border-box
   +font-size($base-font-size)
   color: $form-color
@@ -169,7 +169,7 @@ input.search-query
 select
   box-sizing: border-box
   +font-size($base-font-size)
-  +inline-block
+  display: inline-block
   background-color: $form-bgc
   border: 1px solid $form-border
   color: $form-color
@@ -191,7 +191,7 @@ select[size]
 
 .checkbox-inline,
 .radio-inline
-  +inline-block
+  display: inline-block
   margin-right: 1em
   margin-bottom: 1.5em
 
@@ -278,7 +278,7 @@ input[type="file"]
       .hint-block.#{$_class_name}-msg
         display: block
       .hint-inline.#{$_class_name}-msg
-        +inline-block
+        display: inline-block
 
 // HTML5 invalid states
 input:focus:required:invalid,

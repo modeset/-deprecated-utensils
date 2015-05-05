@@ -3,7 +3,7 @@ $auto-generate-semigloss: false !default
 // The base mixin for creating a semigloss button
 @mixin semigloss-button($bgc, $color:#fff, $hover-percent:10%, $active-percent:15%, $border-percent:30%, $padding:$base-padding, $radii:$radii)
   box-sizing: border-box
-  +inline-block
+  display: inline-block
   +linear-gradient(rgba(white, 0.2), rgba(black, 0.05), $fallback: $bgc)
   +font-size($base-font-size)
   border: 1px solid darken($bgc, $border-percent)
