@@ -34,12 +34,12 @@ $form-actions-well-fill-bgc: darken($form-actions-well-bgc, 10%) !default
 
 // Base container settings
 .control-group
-  +box-sizing(border-box)
+  box-sizing: border-box
   margin-bottom: $form-group-spacing
 
 .form-actions
   @extend %clearfix
-  +box-sizing(border-box)
+  box-sizing: border-box
   background-color: transparent
   border-top: 1px solid $form-border
   margin-top: $form-group-spacing * 2
@@ -111,7 +111,7 @@ input[type="number"],
 .input-bg,
 textarea
   +inline-block
-  +box-sizing(border-box)
+  box-sizing: border-box
   +font-size($base-font-size)
   background-color: $form-bgc
   border: 1px solid $form-border
@@ -127,7 +127,7 @@ input[type="range"],
 input[type="color"],
 input[type="file"]
   +inline-block
-  +box-sizing(border-box)
+  box-sizing: border-box
   +font-size($base-font-size)
   color: $form-color
   margin-bottom: 0.5em
@@ -167,7 +167,7 @@ input.search-query
 
 // Select controls
 select
-  +box-sizing(border-box)
+  box-sizing: border-box
   +font-size($base-font-size)
   +inline-block
   background-color: $form-bgc
