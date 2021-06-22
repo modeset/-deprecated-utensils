@@ -4,7 +4,14 @@ $auto-generate-semigloss: false !default
 @mixin semigloss-button($bgc, $color:#fff, $hover-percent:10%, $active-percent:15%, $border-percent:30%, $padding:$base-padding, $radii:$radii)
   box-sizing: border-box
   display: inline-block
-  +linear-gradient(rgba(white, 0.2), rgba(black, 0.05), $fallback: $bgc)
+
+  // The Bourbon linear-gradient mixin has been deprecated. Translated
+  // replacement CSS from the old source:
+  // https://github.com/thoughtbot/bourbon/blob/v4.2.2/app/assets/stylesheets/css3/_linear-gradient.scss
+  //+linear-gradient(rgba(white, 0.2), rgba(black, 0.05), $fallback: $bgc)
+
+  background: linear-gradient(rgba(white, 0.2), rgba(black, 0.05))
+
   +font-size($base-font-size)
   border: 1px solid darken($bgc, $border-percent)
   border-radius: $radii
