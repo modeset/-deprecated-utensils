@@ -159,10 +159,10 @@ textarea
 // Define colors for placeholders
 input,
 textarea
-  @include placeholder
+  ::placeholder
     color: $placeholder
 input.search-query
-  @include placeholder
+  ::placeholder
     color: $placeholder-search
 
 // Select controls
@@ -265,7 +265,7 @@ input[type="file"]
 
     .control-group.#{$_class_name}
       input, textarea
-        @include placeholder
+        ::placeholder
           color: lighten($_color_value, 30%)
 
       input, textarea, select
