@@ -34,12 +34,12 @@ $form-actions-well-fill-bgc: darken($form-actions-well-bgc, 10%) !default
 
 // Base container settings
 .control-group
-  +box-sizing(border-box)
+  box-sizing: border-box
   margin-bottom: $form-group-spacing
 
 .form-actions
   @extend %clearfix
-  +box-sizing(border-box)
+  box-sizing: border-box
   background-color: transparent
   border-top: 1px solid $form-border
   margin-top: $form-group-spacing * 2
@@ -92,7 +92,7 @@ label
 .hint-block
   display: block
 .hint-inline
-  +inline-block
+  display: inline-block
 
 // Text input controls
 input[type="text"],
@@ -110,8 +110,8 @@ input[type="week"],
 input[type="number"],
 .input-bg,
 textarea
-  +inline-block
-  +box-sizing(border-box)
+  display: inline-block
+  box-sizing: border-box
   +font-size($base-font-size)
   background-color: $form-bgc
   border: 1px solid $form-border
@@ -126,8 +126,8 @@ textarea
 input[type="range"],
 input[type="color"],
 input[type="file"]
-  +inline-block
-  +box-sizing(border-box)
+  display: inline-block
+  box-sizing: border-box
   +font-size($base-font-size)
   color: $form-color
   margin-bottom: 0.5em
@@ -159,17 +159,17 @@ textarea
 // Define colors for placeholders
 input,
 textarea
-  @include placeholder
+  ::placeholder
     color: $placeholder
 input.search-query
-  @include placeholder
+  ::placeholder
     color: $placeholder-search
 
 // Select controls
 select
-  +box-sizing(border-box)
+  box-sizing: border-box
   +font-size($base-font-size)
-  +inline-block
+  display: inline-block
   background-color: $form-bgc
   border: 1px solid $form-border
   color: $form-color
@@ -191,7 +191,7 @@ select[size]
 
 .checkbox-inline,
 .radio-inline
-  +inline-block
+  display: inline-block
   margin-right: 1em
   margin-bottom: 1.5em
 
@@ -265,7 +265,7 @@ input[type="file"]
 
     .control-group.#{$_class_name}
       input, textarea
-        @include placeholder
+        ::placeholder
           color: lighten($_color_value, 30%)
 
       input, textarea, select
@@ -278,7 +278,7 @@ input[type="file"]
       .hint-block.#{$_class_name}-msg
         display: block
       .hint-inline.#{$_class_name}-msg
-        +inline-block
+        display: inline-block
 
 // HTML5 invalid states
 input:focus:required:invalid,

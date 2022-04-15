@@ -4,11 +4,11 @@ $transall-duration: $speed !default
 $transall-timing-function: $ease-in-out-quart !default
 
 .fade
-  +transition(opacity $fade-duration $fade-timing-function)
+  transition: opacity $fade-duration $fade-timing-function
   +opacity(0)
   &.in
     +opacity(1)
 
 .transall
-  +transition(all $transall-duration $transall-timing-function)
+  transition: all $transall-duration $transall-timing-function
 
